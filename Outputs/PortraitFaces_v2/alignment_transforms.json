@@ -1,0 +1,34 @@
+{
+  "neutral": {
+    "scholar": {
+      "source": "exec-9eaa90dc-5c04-4b5f-a28b-1ca629543f50.png",
+      "resize": [
+        760,
+        1000
+      ],
+      "paste": [
+        30,
+        40
+      ]
+    },
+    "elf": {
+      "source": "preserved_existing/face_elf_neutral.png",
+      "method": "adopt same neutral actually referenced by happy/anxious/angry/shocked; no new shape edits"
+    },
+    "fairy": {
+      "source": "exec-63426d83-2a64-4d9a-835c-b7e146a808f0.png",
+      "resize": [
+        760,
+        1000
+      ],
+      "paste": [
+        30,
+        40
+      ]
+    }
+  },
+  "expressions": {
+    "method": "generated expression normalized to 820x1080; RGB blended only within saved face polygon, 7px feather; base alpha exactly retained",
+    "rejected": "elf sad/relieved first pass and fairy angry/shocked first pass used mixed reference composition; preserved, regenerate against locked_bases"
+  }
+}

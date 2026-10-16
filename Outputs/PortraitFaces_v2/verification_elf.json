@@ -1,0 +1,317 @@
+{
+  "id": "elf",
+  "group": {
+    "leftXSpread": 0,
+    "topYSpread": 0
+  },
+  "eyeWindows": [
+    [
+      407,
+      290,
+      452,
+      332
+    ],
+    [
+      536,
+      320,
+      577,
+      360
+    ]
+  ],
+  "rows": [
+    {
+      "file": "face_elf_neutral.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 11554,
+      "opaque": 437288,
+      "whitePixels": 59,
+      "whiteRatio": 0.0001349225224565961,
+      "components": [
+        441775
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 0,
+      "eyeLines": [
+        {
+          "y": 305,
+          "bboxY": [
+            290,
+            320
+          ],
+          "count": 791
+        },
+        {
+          "y": 339,
+          "bboxY": [
+            324,
+            354
+          ],
+          "count": 507
+        }
+      ]
+    },
+    {
+      "file": "face_elf_happy.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 11554,
+      "opaque": 437288,
+      "whitePixels": 104,
+      "whiteRatio": 0.00023782953110993213,
+      "components": [
+        441775
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 28752,
+      "eyeLines": [
+        {
+          "y": 304.5,
+          "bboxY": [
+            290,
+            319
+          ],
+          "count": 763
+        },
+        {
+          "y": 340,
+          "bboxY": [
+            325,
+            355
+          ],
+          "count": 456
+        }
+      ]
+    },
+    {
+      "file": "face_elf_anxious.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 11554,
+      "opaque": 437288,
+      "whitePixels": 163,
+      "whiteRatio": 0.00037275205356652823,
+      "components": [
+        441775
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 28896,
+      "eyeLines": [
+        {
+          "y": 302.5,
+          "bboxY": [
+            290,
+            315
+          ],
+          "count": 647
+        },
+        {
+          "y": 338.5,
+          "bboxY": [
+            322,
+            355
+          ],
+          "count": 487
+        }
+      ]
+    },
+    {
+      "file": "face_elf_angry.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 11554,
+      "opaque": 437288,
+      "whitePixels": 84,
+      "whiteRatio": 0.00019209308281956057,
+      "components": [
+        441775
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 28608,
+      "eyeLines": [
+        {
+          "y": 305,
+          "bboxY": [
+            290,
+            320
+          ],
+          "count": 686
+        },
+        {
+          "y": 338,
+          "bboxY": [
+            320,
+            356
+          ],
+          "count": 580
+        }
+      ]
+    },
+    {
+      "file": "face_elf_shocked.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 11554,
+      "opaque": 437288,
+      "whitePixels": 171,
+      "whiteRatio": 0.00039104663288267686,
+      "components": [
+        441775
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 29439,
+      "eyeLines": [
+        {
+          "y": 303.5,
+          "bboxY": [
+            290,
+            317
+          ],
+          "count": 472
+        },
+        {
+          "y": 337.5,
+          "bboxY": [
+            320,
+            355
+          ],
+          "count": 363
+        }
+      ]
+    },
+    {
+      "file": "face_elf_sad.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 11554,
+      "opaque": 437288,
+      "whitePixels": 35,
+      "whiteRatio": 0.00008003878450815024,
+      "components": [
+        441775
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 29464,
+      "eyeLines": [
+        {
+          "y": 306,
+          "bboxY": [
+            291,
+            321
+          ],
+          "count": 736
+        },
+        {
+          "y": 340.5,
+          "bboxY": [
+            329,
+            352
+          ],
+          "count": 481
+        }
+      ]
+    },
+    {
+      "file": "face_elf_relieved.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 11554,
+      "opaque": 437288,
+      "whitePixels": 28,
+      "whiteRatio": 0.00006403102760652019,
+      "components": [
+        441775
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 29363,
+      "eyeLines": [
+        {
+          "y": 313,
+          "bboxY": [
+            304,
+            322
+          ],
+          "count": 416
+        },
+        {
+          "y": 350,
+          "bboxY": [
+            341,
+            359
+          ],
+          "count": 304
+        }
+      ]
+    }
+  ]
+}

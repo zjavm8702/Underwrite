@@ -1,0 +1,92 @@
+[
+  {
+    "id": "scholar_neutral",
+    "prompt": "Create a NEW upper chest dialogue portrait of the SAME adult male scholar in the reference image (reference is identity/costume only, DO NOT crop full body). Warm delicate clean nonpixel 2D anime linework, pale clear matte cel colors. Tousled dark brown hair, round thin brown glasses, brown eyes, shy bookish adult face, ivory collar, teal ribbon, brown vest, ochre short cloak with gold flower clasp and brown shoulder strap. Hands, books, weapons excluded. Slight three-quarter pose facing screen right. Neutral calm closed mouth. Entire head and both shoulders visible with generous transparent margin on all sides, upper chest bust ends in a clean gently rounded edge. Keep upper body slender, normal adult proportions, no shiny skin, no textile grain. Transparent RGBA background, no white background, no ground shadow, no glow. Portrait canvas 820x1080; place head top around y=90, bust bottom around y=850, centered horizontally. Match existing game's detailed soft cel style.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-fccaf6d4-b257-47fa-9d29-aa9a64956202.png",
+    "time": "2026-10-16T15:08:10.430Z"
+  },
+  {
+    "id": "elf_neutral",
+    "prompt": "Create a NEW standalone upper-chest dialogue portrait of the SAME adult woman from reference (identity and costume reference only, not a fullbody crop). Clean nonpixel 2D anime, warm delicate linework, pale clear matte cel colors, no grain, no glossy skin. Slight three-quarter pose oriented same as reference, no tilt, calm NEUTRAL face closed mouth. Entire head and both shoulders visible, generous transparent margins, clean gently rounded bust bottom. No hands, books, weapons, text, ground shadows, glows, background. True transparent RGBA. Canvas 820x1080 with head top around y90, bust bottom around y850. Normal adult proportions, slender shoulders. Long STRAIGHT mauve purple hair, small pointed elf ears, amber eyes, thin round glasses, long fine gold drop earrings, mature narrow adult face, purple wrap dress with cream crossed neckline and pale lavender loose sleeves. Preserve her confident graceful identity and costume.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-124f7fc8-e088-42f9-b040-a54b6938aa39.png",
+    "time": "2026-10-16T15:10:51.931Z"
+  },
+  {
+    "id": "fairy_neutral",
+    "prompt": "Create a NEW standalone upper-chest dialogue portrait of the SAME adult woman from reference (identity and costume reference only, not a fullbody crop). Clean nonpixel 2D anime, warm delicate linework, pale clear matte cel colors, no grain, no glossy skin. Slight three-quarter pose oriented same as reference, no tilt, calm NEUTRAL face closed mouth. Entire head and both shoulders visible, generous transparent margins, clean gently rounded bust bottom. No hands, books, weapons, text, ground shadows, glows, background. True transparent RGBA. Canvas 820x1080 with head top around y90, bust bottom around y850. Normal adult proportions, slender shoulders. Cute ADULT petite fairy, short curly orange bob, orange-brown eyes, cream small flower hairclip on screen-right, NORMAL HUMAN ROUND ears. Sage green bodice over cream puff sleeve blouse with dark brown ribbons and cream neck bow. Brown/cream moth wings visible behind shoulders, matte opaque wing material. No elf ears, no child proportions.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-84a87308-5460-498f-8111-1d55e9bc57c1.png",
+    "time": "2026-10-16T15:10:51.942Z"
+  },
+  {
+    "id": "scholar_neutral_direction_fix",
+    "prompt": "Edit this portrait: redraw head and upper torso in a mild three-quarter turn looking toward SCREEN RIGHT. Nose tip must point to the RIGHT edge of image, visible near ear on LEFT side. Do NOT mirror the image: costume clasp / hair flower and straps keep anatomical placement. Preserve same character, glasses if present, hair style, costume, adult proportions, palette, clean matte soft cel style and bust framing. Neutral expression. Transparent background; no shadows or glow. Keep whole head, shoulders and wings if present inside transparent margins.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-42162148-9c8f-46f8-bec7-80dd8ae72422.png",
+    "time": "2026-10-16T15:13:31.510Z"
+  },
+  {
+    "id": "fairy_neutral_direction_fix",
+    "prompt": "Edit this portrait: redraw head and upper torso in a mild three-quarter turn looking toward SCREEN RIGHT. Nose tip must point to the RIGHT edge of image, visible near ear on LEFT side. Do NOT mirror the image: costume clasp / hair flower and straps keep anatomical placement. Preserve same character, glasses if present, hair style, costume, adult proportions, palette, clean matte soft cel style and bust framing. Neutral expression. Transparent background; no shadows or glow. Keep whole head, shoulders and wings if present inside transparent margins.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-3b705124-5a83-45bc-a105-57e401df8b11.png",
+    "time": "2026-10-16T15:13:31.522Z"
+  },
+  {
+    "id": "fairy_flower_fix",
+    "prompt": "Edit only the cream flower hairclip in this exact portrait. Remove the flower on SCREEN LEFT (above visible round ear) and restore orange hair there. Place the same single small cream flower hairclip on SCREEN RIGHT at the far temple, above and just outside the far eye, partially tucked in hair. This preserves its anatomical LEFT side from original fullbody. Everything else including pose, face, body, wings, hair outline, clothes, colors, canvas alignment and transparent background stays identical. No mirroring, no text.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-720456ef-592d-4f62-8a45-9437e4375e2a.png",
+    "time": "2026-10-16T15:15:41.065Z"
+  },
+  {
+    "id": "scholar_happy",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. HAPPY: unmistakably delighted warm smile with mouth open slightly showing upper teeth, cheeks raised, gently smiling eyes. Do not move head. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, ear jewelry, hairclip, shoulders, wings if present, costume, lighting, palette, linework, transparent margins and canvas composition. No new accessories. No text. Transparent RGBA background. Do not zoom or reframe. Only eyebrows, eyelids, pupils, mouth and cheeks change.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-5c8c58dc-047f-4c42-bd00-e1b47efb9814.png",
+    "time": "2026-10-16T15:18:05.481Z"
+  },
+  {
+    "id": "elf_happy",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. HAPPY: unmistakably delighted warm smile with mouth open slightly showing upper teeth, cheeks raised, gently smiling eyes. Do not move head. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, ear jewelry, hairclip, shoulders, wings if present, costume, lighting, palette, linework, transparent margins and canvas composition. No new accessories. No text. Transparent RGBA background. Do not zoom or reframe. Only eyebrows, eyelids, pupils, mouth and cheeks change.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-7b506851-e342-455e-a2dc-4038b6d9374c.png",
+    "time": "2026-10-16T15:18:05.496Z"
+  },
+  {
+    "id": "fairy_happy",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. HAPPY: unmistakably delighted warm smile with mouth open slightly showing upper teeth, cheeks raised, gently smiling eyes. Do not move head. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, ear jewelry, hairclip, shoulders, wings if present, costume, lighting, palette, linework, transparent margins and canvas composition. No new accessories. No text. Transparent RGBA background. Do not zoom or reframe. Only eyebrows, eyelids, pupils, mouth and cheeks change.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-32c3b733-f34e-4af3-b146-aa80c1f0e437.png",
+    "time": "2026-10-16T15:18:05.510Z"
+  },
+  {
+    "id": "scholar_anxious",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. ANXIOUS: worried uneasy eyes, inner eyebrows raised and pulled together, tense slightly parted lips; clearly nervous, not sad or angry. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-0d9bdadd-ad29-4ca0-a4a5-febf08cef065.png",
+    "time": "2026-10-16T15:21:44.995Z"
+  },
+  {
+    "id": "elf_anxious",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. ANXIOUS: worried uneasy eyes, inner eyebrows raised and pulled together, tense slightly parted lips; clearly nervous, not sad or angry. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-91b884b7-33b0-4368-bd50-436d5e9e8a37.png",
+    "time": "2026-10-16T15:21:45.007Z"
+  },
+  {
+    "id": "fairy_anxious",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. ANXIOUS: worried uneasy eyes, inner eyebrows raised and pulled together, tense slightly parted lips; clearly nervous, not sad or angry. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-c42cadd5-23ff-4bdc-a085-5dc31771bb6d.png",
+    "time": "2026-10-16T15:21:45.018Z"
+  },
+  {
+    "id": "scholar_angry",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. ANGRY: clearly angry stern frown, eyebrows pulled downward toward nose, narrowed eyes, firmly compressed mouth; retain character personality. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-a14a5208-baac-47ec-b276-a40e1014e0f0.png",
+    "time": "2026-10-16T15:25:29.916Z"
+  },
+  {
+    "id": "elf_angry",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. ANGRY: clearly angry stern frown, eyebrows pulled downward toward nose, narrowed eyes, firmly compressed mouth; retain character personality. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-3b1d3905-91eb-4b07-902d-19123d1fbde0.png",
+    "time": "2026-10-16T15:25:29.926Z"
+  },
+  {
+    "id": "fairy_angry",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. ANGRY: clearly angry stern frown, eyebrows pulled downward toward nose, narrowed eyes, firmly compressed mouth; retain character personality. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-99a7f619-043c-4a78-b49c-cf788091e2dd.png",
+    "time": "2026-10-16T15:25:29.938Z"
+  }
+]
