@@ -42,7 +42,7 @@ MonoBehaviour:
     DelistCycle: 3
     DelistReason: 1
     Portrait: {fileID: 21300000, guid: 7a319f1d9af88fb46b4b2f4d1276ef8a, type: 3}
-    Portraits: {fileID: 0}
+    Portraits: {fileID: 11400000, guid: 1666431b802bf8845ab0aed3b68fdaec, type: 2}
   - Id: STOCK_WARDEN
     DisplayName: "\uD68C\uC0C9 \uD30C\uC218\uB300 (\uC2E0\uC785)"
     Personality: 1
@@ -52,7 +52,7 @@ MonoBehaviour:
     DelistCycle: 0
     DelistReason: 0
     Portrait: {fileID: 21300000, guid: 387fbdd29e97f6b45b8c73cf07277cf9, type: 3}
-    Portraits: {fileID: 0}
+    Portraits: {fileID: 11400000, guid: 791289476464cc04db2a10202c092287, type: 2}
   - Id: STOCK_LANTERN
     DisplayName: "\uB4F1\uBD88 \uAE30\uC0AC\uB2E8 (\uBCA0\uD14C\uB791)"
     Personality: 0
@@ -62,4 +62,4 @@ MonoBehaviour:
     DelistCycle: 0
     DelistReason: 0
     Portrait: {fileID: 21300000, guid: cf2f6aa4f96674d49bf92a328ab7449b, type: 3}
-    Portraits: {fileID: 0}
+    Portraits: {fileID: 11400000, guid: c5b4152b929d28340b71161fb88f1e9b, type: 2}

@@ -1,0 +1,217 @@
+{
+  "time": "2026-10-16T15:35:29.234Z",
+  "scope": "PNG only; no Assets writes; no Unity connection",
+  "status": "21 PNG delivered; draft pending user visual approval",
+  "files": [
+    {
+      "file": "face_scholar_neutral.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "1700e9a36e54ccfece8d78e3857555634a80f967fafd92fdf8662045d0f4a00b",
+      "verifiedSnapshot": "verified_delivery/checked_scholar_neutral.png"
+    },
+    {
+      "file": "face_scholar_happy.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "6cb3ce0c456af0b33496d591d526753088cf434949786e4f414ecd0e015c340a",
+      "verifiedSnapshot": "verified_delivery/checked_scholar_happy.png"
+    },
+    {
+      "file": "face_scholar_anxious.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "caed371314df106bfde30058fc38c198dda1ee0e885d972b44fbb322903cf93b",
+      "verifiedSnapshot": "verified_delivery/checked_scholar_anxious.png"
+    },
+    {
+      "file": "face_scholar_angry.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "690f83473d74cd18d5ade3041c1df79aefff28b986b3363ec644eaeef093291c",
+      "verifiedSnapshot": "verified_delivery/checked_scholar_angry.png"
+    },
+    {
+      "file": "face_scholar_shocked.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "c83e93176e65703b74f2f270e27acd27ee733db1a896f4425afaf17e55b4a546",
+      "verifiedSnapshot": "verified_delivery/checked_scholar_shocked.png"
+    },
+    {
+      "file": "face_scholar_sad.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "fe4f20f32ae88459edd64e50572bbc39bad0ba4ed11bbb296cfe07f361221a7c",
+      "verifiedSnapshot": "verified_delivery/checked_scholar_sad.png"
+    },
+    {
+      "file": "face_scholar_relieved.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "854163c8b905074a67d56d0825d40d6ef7be22b7a498e0f1242d0c67360fedfb",
+      "verifiedSnapshot": "verified_delivery/checked_scholar_relieved.png"
+    },
+    {
+      "file": "face_elf_neutral.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "cd66a74588e4784ba13c6eb71a239bad3c7b5f1b35a56472a70d7d21e8068a7d",
+      "verifiedSnapshot": "verified_delivery/checked_elf_neutral.png"
+    },
+    {
+      "file": "face_elf_happy.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "c03ff2e4400e0073670a20aa8ca442e158b32278e30370d6cca3fcebf4a8257c",
+      "verifiedSnapshot": "verified_delivery/checked_elf_happy.png"
+    },
+    {
+      "file": "face_elf_anxious.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "bde184ee556b189fd5bdaf3c07acd74e9ac5f04cb623e1c4bc630a3c0c705264",
+      "verifiedSnapshot": "verified_delivery/checked_elf_anxious.png"
+    },
+    {
+      "file": "face_elf_angry.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "889fcfcfa839ab5a8c2fa0b27856a130a0d625b8b94958920be1f395d4660c50",
+      "verifiedSnapshot": "verified_delivery/checked_elf_angry.png"
+    },
+    {
+      "file": "face_elf_shocked.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "1252199381fd78689978e90e6ae233e2c2619d97ac0b2f1730442a76a81cb74b",
+      "verifiedSnapshot": "verified_delivery/checked_elf_shocked.png"
+    },
+    {
+      "file": "face_elf_sad.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "5e21c1a2274a18c9bbb8014b27eed94321b83976f53a267111a5658cdf29c34a",
+      "verifiedSnapshot": "verified_delivery/checked_elf_sad.png"
+    },
+    {
+      "file": "face_elf_relieved.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "f1d65dbabbd3cb67e40e1b1c5287f4a907105120cb2009e0a5fab5100970bcc1",
+      "verifiedSnapshot": "verified_delivery/checked_elf_relieved.png"
+    },
+    {
+      "file": "face_fairy_neutral.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "e6d686c2eedc8180967da742884890c772223fb5c51879989552f7a40b760be9",
+      "verifiedSnapshot": "verified_delivery/checked_fairy_neutral.png"
+    },
+    {
+      "file": "face_fairy_happy.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "4a16e02dbc1ba27c41d8d846cd7faa4d26fa204985dcd596991f5d51c0b447c2",
+      "verifiedSnapshot": "verified_delivery/checked_fairy_happy.png"
+    },
+    {
+      "file": "face_fairy_anxious.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "c0e1bccf7e37085dc5247469bd2ceaf3b0b4895566d5e5a220168178edf7213d",
+      "verifiedSnapshot": "verified_delivery/checked_fairy_anxious.png"
+    },
+    {
+      "file": "face_fairy_angry.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "55964965a3bf673f81e03890bbc4d09a8c13b37111beddf641a13af9103abdd4",
+      "verifiedSnapshot": "verified_delivery/checked_fairy_angry.png"
+    },
+    {
+      "file": "face_fairy_shocked.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "5921b03eb511213dd8975325a533e8451393c4a9f354827e9ef34f138a84ad38",
+      "verifiedSnapshot": "verified_delivery/checked_fairy_shocked.png"
+    },
+    {
+      "file": "face_fairy_sad.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "1dffd2f5f95a5e5b2ff50bb6baf2a80816a50ba5e0b08581d9ebe107ba4b4976",
+      "verifiedSnapshot": "verified_delivery/checked_fairy_sad.png"
+    },
+    {
+      "file": "face_fairy_relieved.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "pivot": "unset",
+      "sha256": "473b1b352843e3023f70ea47ac907fbc1e79ee3eb08ff33358c7a67b6eacd546",
+      "verifiedSnapshot": "verified_delivery/checked_fairy_relieved.png"
+    }
+  ]
+}

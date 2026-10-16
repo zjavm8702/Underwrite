@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6aa7aba1a6a354ea3da3a1fe62f5a0, type: 3}
+  m_Name: scholar
+  m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.PortraitSet
+  Fallback: {fileID: 21300000, guid: 7a319f1d9af88fb46b4b2f4d1276ef8a, type: 3}
+  Faces:
+  - Emotion: 0
+    Sprite: {fileID: 21300000, guid: 3f471da8d4c26974ab513d910449aa87, type: 3}
+  - Emotion: 1
+    Sprite: {fileID: 21300000, guid: 6fe785530d755a345ba04666caec5987, type: 3}
+  - Emotion: 2
+    Sprite: {fileID: 21300000, guid: 2691096a27970364a89093536d6bc403, type: 3}
+  - Emotion: 3
+    Sprite: {fileID: 21300000, guid: e7ec20e632b9dbe4f830c160dca33e00, type: 3}
+  - Emotion: 4
+    Sprite: {fileID: 21300000, guid: 5e8fb38b3094734489f44d2a77e6807f, type: 3}
+  - Emotion: 5
+    Sprite: {fileID: 21300000, guid: dc4df95349669104f9efe453babfae1b, type: 3}
+  - Emotion: 6
+    Sprite: {fileID: 21300000, guid: 03a9d88958aeaba4b86e63fb6e909d91, type: 3}

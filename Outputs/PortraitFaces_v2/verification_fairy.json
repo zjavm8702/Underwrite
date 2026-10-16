@@ -82,8 +82,8 @@
         481391
       ],
       "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 3889,
-      "changedPixels": 24412,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 21912,
       "eyeLines": [
         {
           "y": 401.5,
@@ -99,7 +99,7 @@
             391,
             440
           ],
-          "count": 630
+          "count": 632
         }
       ]
     },

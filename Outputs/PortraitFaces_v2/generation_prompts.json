@@ -88,5 +88,71 @@
     "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. ANGRY: clearly angry stern frown, eyebrows pulled downward toward nose, narrowed eyes, firmly compressed mouth; retain character personality. Keep EXACT same head position, scale, eye placement, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
     "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-99a7f619-043c-4a78-b49c-cf788091e2dd.png",
     "time": "2026-10-16T15:25:29.938Z"
+  },
+  {
+    "id": "scholar_shocked",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. SHOCKED: wide startled eyes, raised eyebrows, small round open mouth; unmistakable surprise without moving jaw outline or head. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-9ffc1cd9-a497-43d6-8f66-233f5236d7e0.png",
+    "time": "2026-10-16T15:28:33.677Z"
+  },
+  {
+    "id": "elf_shocked",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. SHOCKED: wide startled eyes, raised eyebrows, small round open mouth; unmistakable surprise without moving jaw outline or head. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-8afbcf66-2440-4164-b430-31cdb832a455.png",
+    "time": "2026-10-16T15:28:33.688Z"
+  },
+  {
+    "id": "fairy_shocked",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. SHOCKED: wide startled eyes, raised eyebrows, small round open mouth; unmistakable surprise without moving jaw outline or head. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-c7aa5220-f010-4e53-94c9-5e017097884a.png",
+    "time": "2026-10-16T15:28:33.698Z"
+  },
+  {
+    "id": "scholar_sad",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. SAD: lowered gaze and drooping upper lids, inner brows tilted up in sorrow, mouth corners visibly down; no tears or floating effects. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-b6e721c2-bae6-46c7-9a09-433ad1370e2f.png",
+    "time": "2026-10-16T15:31:58.482Z"
+  },
+  {
+    "id": "elf_sad",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. SAD: lowered gaze and drooping upper lids, inner brows tilted up in sorrow, mouth corners visibly down; no tears or floating effects. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-883502e9-b3b4-42f4-a20d-e1da69a28121.png",
+    "time": "2026-10-16T15:31:58.492Z"
+  },
+  {
+    "id": "fairy_sad",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. SAD: lowered gaze and drooping upper lids, inner brows tilted up in sorrow, mouth corners visibly down; no tears or floating effects. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-f3959591-f669-4f7c-8c0f-1c0d6a9d33db.png",
+    "time": "2026-10-16T15:31:58.503Z"
+  },
+  {
+    "id": "scholar_relieved",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. RELIEVED: eyes softly CLOSED, tension released from eyebrows, small gentle closed-mouth smile, peaceful exhale; distinguish from happy. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-5ec3a01a-c375-4f98-b529-558cb3a9fc4f.png",
+    "time": "2026-10-16T15:36:44.826Z"
+  },
+  {
+    "id": "elf_relieved",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. RELIEVED: eyes softly CLOSED, tension released from eyebrows, small gentle closed-mouth smile, peaceful exhale; distinguish from happy. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-af45d4e2-43b4-40c3-9889-74bb072d75ac.png",
+    "time": "2026-10-16T15:36:44.837Z"
+  },
+  {
+    "id": "fairy_relieved",
+    "prompt": "Use case: identity-preserve. Edit ONLY facial expression of this exact dialogue portrait. RELIEVED: eyes softly CLOSED, tension released from eyebrows, small gentle closed-mouth smile, peaceful exhale; distinguish from happy. Keep EXACT same head position, tilt, scale, eye centers, nose, chin outline, hair, glasses, jewelry, hairclip, shoulders, wings, costume, lighting, palette, linework, margins and composition. No new accessories, no text, no reframing. Only eyebrows, eyelids, pupils, mouth and cheeks change. True transparent RGBA background.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-fbb23b94-3993-4b90-b01d-801abbdd7144.png",
+    "time": "2026-10-16T15:36:44.847Z"
+  },
+  {
+    "id": "scholar_anxious_fix",
+    "prompt": "Precise local edit of IMAGE 1: keep this exact portrait and change ONLY the eyebrows, eyelids and mouth. ANXIOUS: worried uneasy eyes, inner eyebrows raised and pulled together, tense slightly parted lips; clearly nervous, not sad or angry. Do not change his three-quarter angle at all. Preserve the glasses rims exactly in place, the eye centers, face width and chin, ear, tousled hair, shoulders, costume and all outlines. Preserve EXACT composition and transparent margins. Do not redraw a different pose or crop. Transparent background, same illustration style. Face expression must be recognisable.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-aff66d1d-ee54-46cf-9108-e448bc7419d0.png",
+    "time": "2026-10-16T15:36:44.857Z"
+  },
+  {
+    "id": "scholar_angry_fix",
+    "prompt": "Precise local edit of IMAGE 1: keep this exact portrait and change ONLY the eyebrows, eyelids and mouth. ANGRY: clearly angry stern frown, eyebrows pulled downward toward nose, narrowed eyes, firmly compressed mouth; retain character personality. Do not change his three-quarter angle at all. Preserve the glasses rims exactly in place, the eye centers, face width and chin, ear, tousled hair, shoulders, costume and all outlines. Preserve EXACT composition and transparent margins. Do not redraw a different pose or crop. Transparent background, same illustration style. Face expression must be recognisable.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-69dd9f42-6a5c-4a39-95cd-d2c71e297072.png",
+    "time": "2026-10-16T15:36:44.868Z"
   }
 ]

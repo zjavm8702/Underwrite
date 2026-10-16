@@ -1,0 +1,29 @@
+{
+  "time": "2026-10-16T15:36:02.067Z",
+  "expected": 21,
+  "exactImporterNameMatches": 21,
+  "hashMismatches": [],
+  "files": [
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_elf_angry.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_elf_anxious.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_elf_happy.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_elf_neutral.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_elf_relieved.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_elf_sad.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_elf_shocked.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_fairy_angry.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_fairy_anxious.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_fairy_happy.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_fairy_neutral.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_fairy_relieved.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_fairy_sad.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_fairy_shocked.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_scholar_angry.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_scholar_anxious.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_scholar_happy.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_scholar_neutral.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_scholar_relieved.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_scholar_sad.png",
+    "C:/Underwrite/Outputs/PortraitFaces_v2/face_scholar_shocked.png"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "method": "Manual visible horizontal-plane boundary measurement on source, excluding vertical bevel/lip, tabletop thickness, well masonry wall, chimneys and gable fronts. Coordinates top-left, x/y continuous pixel boundary; estimated source tolerance about1px. Exact same full-frame bilinear resize for output, no perspective warp.",
+  "sourceSize": [
+    1672,
+    941
+  ],
+  "outputSize": [
+    3840,
+    2160
+  ],
+  "roundTops": [
+    {
+      "name": "tavern_round_table",
+      "bbox": [
+        178,
+        322,
+        228,
+        348
+      ],
+      "width": 50,
+      "height": 26,
+      "ratio": 0.52,
+      "pass": true,
+      "outputBbox": [
+        408.8038277511962,
+        739.1285866099894,
+        523.6363636363636,
+        798.8097768331562
+      ]
+    },
+    {
+      "name": "inn_upright_barrel_lid",
+      "bbox": [
+        161,
+        258,
+        185,
+        271
+      ],
+      "width": 24,
+      "height": 13,
+      "ratio": 0.5416666666666666,
+      "pass": true,
+      "outputBbox": [
+        369.7607655502392,
+        592.221041445271,
+        424.88038277511964,
+        622.0616365568544
+      ]
+    },
+    {
+      "name": "central_well_stone_rim_horizontal_plane",
+      "bbox": [
+        775,
+        412,
+        898,
+        475
+      ],
+      "width": 123,
+      "height": 63,
+      "ratio": 0.5121951219512195,
+      "pass": true,
+      "outputBbox": [
+        1779.9043062200956,
+        945.7173219978746,
+        2062.3923444976076,
+        1090.3294367693943
+      ]
+    }
+  ],
+  "buildings": [
+    {
+      "name": "inn",
+      "sampleX": 440,
+      "ridgeY": 142,
+      "eaveY": 190,
+      "groundY": 326,
+      "wall": 136,
+      "roof": 48,
+      "ratio": 2.8333333333333335,
+      "pass": true
+    },
+    {
+      "name": "guild",
+      "sampleX": 1431,
+      "ridgeY": 137,
+      "eaveY": 202,
+      "groundY": 343,
+      "wall": 141,
+      "roof": 65,
+      "ratio": 2.169230769230769,
+      "pass": true
+    },
+    {
+      "name": "market_noticeboard",
+      "sampleX": 916,
+      "ridgeY": 617,
+      "eaveY": 647,
+      "groundY": 727,
+      "wall": 80,
+      "roof": 30,
+      "ratio": 2.6666666666666665,
+      "pass": true
+    }
+  ]
+}

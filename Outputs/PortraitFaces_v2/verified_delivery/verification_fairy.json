@@ -1,0 +1,317 @@
+{
+  "id": "fairy",
+  "group": {
+    "leftXSpread": 0,
+    "topYSpread": 0
+  },
+  "eyeWindows": [
+    [
+      443,
+      380,
+      488,
+      430
+    ],
+    [
+      545,
+      390,
+      583,
+      441
+    ]
+  ],
+  "rows": [
+    {
+      "file": "face_fairy_neutral.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        38,
+        108,
+        781,
+        964
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8838,
+      "opaque": 477331,
+      "whitePixels": 164,
+      "whiteRatio": 0.00034357709849140326,
+      "components": [
+        481391
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 0,
+      "eyeLines": [
+        {
+          "y": 402,
+          "bboxY": [
+            380,
+            424
+          ],
+          "count": 1094
+        },
+        {
+          "y": 415,
+          "bboxY": [
+            390,
+            440
+          ],
+          "count": 490
+        }
+      ]
+    },
+    {
+      "file": "face_fairy_happy.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        38,
+        108,
+        781,
+        964
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8838,
+      "opaque": 477331,
+      "whitePixels": 202,
+      "whiteRatio": 0.00042318642619063084,
+      "components": [
+        481391
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 21912,
+      "eyeLines": [
+        {
+          "y": 401.5,
+          "bboxY": [
+            380,
+            423
+          ],
+          "count": 1086
+        },
+        {
+          "y": 415.5,
+          "bboxY": [
+            391,
+            440
+          ],
+          "count": 632
+        }
+      ]
+    },
+    {
+      "file": "face_fairy_anxious.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        38,
+        108,
+        781,
+        964
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8838,
+      "opaque": 477331,
+      "whitePixels": 257,
+      "whiteRatio": 0.0005384104531237233,
+      "components": [
+        481391
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 21945,
+      "eyeLines": [
+        {
+          "y": 402,
+          "bboxY": [
+            380,
+            424
+          ],
+          "count": 1035
+        },
+        {
+          "y": 409.5,
+          "bboxY": [
+            390,
+            429
+          ],
+          "count": 444
+        }
+      ]
+    },
+    {
+      "file": "face_fairy_angry.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        38,
+        108,
+        781,
+        964
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8838,
+      "opaque": 477331,
+      "whitePixels": 145,
+      "whiteRatio": 0.00030377243464178947,
+      "components": [
+        481391
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 21739,
+      "eyeLines": [
+        {
+          "y": 400,
+          "bboxY": [
+            381,
+            419
+          ],
+          "count": 793
+        },
+        {
+          "y": 417,
+          "bboxY": [
+            394,
+            440
+          ],
+          "count": 435
+        }
+      ]
+    },
+    {
+      "file": "face_fairy_shocked.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        38,
+        108,
+        781,
+        964
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8838,
+      "opaque": 477331,
+      "whitePixels": 170,
+      "whiteRatio": 0.0003561469923386497,
+      "components": [
+        481391
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 21869,
+      "eyeLines": [
+        {
+          "y": 399,
+          "bboxY": [
+            380,
+            418
+          ],
+          "count": 643
+        },
+        {
+          "y": 415,
+          "bboxY": [
+            390,
+            440
+          ],
+          "count": 281
+        }
+      ]
+    },
+    {
+      "file": "face_fairy_sad.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        38,
+        108,
+        781,
+        964
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8838,
+      "opaque": 477331,
+      "whitePixels": 158,
+      "whiteRatio": 0.0003310072046441568,
+      "components": [
+        481391
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 21776,
+      "eyeLines": [
+        {
+          "y": 413,
+          "bboxY": [
+            399,
+            427
+          ],
+          "count": 799
+        },
+        {
+          "y": 422.5,
+          "bboxY": [
+            405,
+            440
+          ],
+          "count": 472
+        }
+      ]
+    },
+    {
+      "file": "face_fairy_relieved.png",
+      "width": 820,
+      "height": 1080,
+      "bboxInclusive": [
+        38,
+        108,
+        781,
+        964
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8838,
+      "opaque": 477331,
+      "whitePixels": 138,
+      "whiteRatio": 0.00028910755848666857,
+      "components": [
+        481391
+      ],
+      "alphaChangedPixels": 0,
+      "outsideFaceChangedPixels": 0,
+      "changedPixels": 21826,
+      "eyeLines": [
+        {
+          "y": 412,
+          "bboxY": [
+            405,
+            419
+          ],
+          "count": 463
+        },
+        {
+          "y": 429.5,
+          "bboxY": [
+            419,
+            440
+          ],
+          "count": 232
+        }
+      ]
+    }
+  ]
+}

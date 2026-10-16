@@ -1,28 +1,12 @@
 {
-  "id": "scholar",
-  "group": {
-    "leftXSpread": 0,
-    "topYSpread": 0
-  },
-  "eyeWindows": [
-    [
-      440,
-      340,
-      483,
-      383
-    ],
-    [
-      535,
-      338,
-      565,
-      382
-    ]
-  ],
   "rows": [
     {
-      "file": "face_scholar_neutral.png",
+      "id": "scholar",
+      "expression": "neutral",
+      "name": "face_scholar_neutral.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         36,
         101,
@@ -39,32 +23,29 @@
       "components": [
         360053
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
+      "whitePercent": 0.005645411691647614,
+      "eyeFeatures": [
+        {
+          "centerY": 296.5,
+          "pixels": 271
+        },
+        {
+          "centerY": 315.5,
+          "pixels": 654
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
       "changedPixels": 0,
-      "eyeLines": [
-        {
-          "y": 352,
-          "bboxY": [
-            340,
-            364
-          ],
-          "count": 462
-        },
-        {
-          "y": 359.5,
-          "bboxY": [
-            338,
-            381
-          ],
-          "count": 481
-        }
-      ]
+      "sha256": "1700e9a36e54ccfece8d78e3857555634a80f967fafd92fdf8662045d0f4a00b"
     },
     {
-      "file": "face_scholar_happy.png",
+      "id": "scholar",
+      "expression": "happy",
+      "name": "face_scholar_happy.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         36,
         101,
@@ -81,32 +62,107 @@
       "components": [
         360053
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
+      "whitePercent": 0.004516329353318091,
+      "eyeFeatures": [
+        {
+          "centerY": 296.5,
+          "pixels": 271
+        },
+        {
+          "centerY": 315.5,
+          "pixels": 654
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 13515,
       "changedPixels": 25248,
-      "eyeLines": [
-        {
-          "y": 352.5,
-          "bboxY": [
-            340,
-            365
-          ],
-          "count": 434
-        },
-        {
-          "y": 359.5,
-          "bboxY": [
-            338,
-            381
-          ],
-          "count": 554
-        }
-      ]
+      "sha256": "6cb3ce0c456af0b33496d591d526753088cf434949786e4f414ecd0e015c340a"
     },
     {
-      "file": "face_scholar_anxious.png",
+      "id": "scholar",
+      "expression": "anxious",
+      "name": "face_scholar_anxious.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 12718,
+      "opaque": 354270,
+      "whitePixels": 20,
+      "whiteRatio": 0.00005645411691647613,
+      "components": [
+        360053
+      ],
+      "whitePercent": 0.005645411691647614,
+      "eyeFeatures": [
+        {
+          "centerY": 295,
+          "pixels": 357
+        },
+        {
+          "centerY": 315.5,
+          "pixels": 382
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24233,
+      "sha256": "b9b1062e2afb66b920b001c5c591d886c69164bddb847b22df27cef40f182f1d"
+    },
+    {
+      "id": "scholar",
+      "expression": "angry",
+      "name": "face_scholar_angry.png",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 12718,
+      "opaque": 354270,
+      "whitePixels": 20,
+      "whiteRatio": 0.00005645411691647613,
+      "components": [
+        360053
+      ],
+      "whitePercent": 0.005645411691647614,
+      "eyeFeatures": [
+        {
+          "centerY": 294.5,
+          "pixels": 402
+        },
+        {
+          "centerY": 315.5,
+          "pixels": 454
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24238,
+      "sha256": "663225f662b1432c4733fb906c93ab415d847cc74b57b6ab2ca6ab4479335201"
+    },
+    {
+      "id": "scholar",
+      "expression": "shocked",
+      "name": "face_scholar_shocked.png",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         36,
         101,
@@ -123,116 +179,29 @@
       "components": [
         360053
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 25224,
-      "eyeLines": [
+      "whitePercent": 0.004516329353318091,
+      "eyeFeatures": [
         {
-          "y": 353.5,
-          "bboxY": [
-            340,
-            367
-          ],
-          "count": 497
+          "centerY": 296.5,
+          "pixels": 271
         },
         {
-          "y": 359.5,
-          "bboxY": [
-            338,
-            381
-          ],
-          "count": 624
+          "centerY": 315.5,
+          "pixels": 654
         }
-      ]
-    },
-    {
-      "file": "face_scholar_angry.png",
-      "width": 820,
-      "height": 1080,
-      "bboxInclusive": [
-        36,
-        101,
-        783,
-        950
       ],
-      "hiddenRGB": 0,
-      "edgeContact": 0,
-      "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 16,
-      "whiteRatio": 0.00004516329353318091,
-      "components": [
-        360053
-      ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 24934,
-      "eyeLines": [
-        {
-          "y": 356.5,
-          "bboxY": [
-            340,
-            373
-          ],
-          "count": 618
-        },
-        {
-          "y": 359.5,
-          "bboxY": [
-            338,
-            381
-          ],
-          "count": 470
-        }
-      ]
-    },
-    {
-      "file": "face_scholar_shocked.png",
-      "width": 820,
-      "height": 1080,
-      "bboxInclusive": [
-        36,
-        101,
-        783,
-        950
-      ],
-      "hiddenRGB": 0,
-      "edgeContact": 0,
-      "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 16,
-      "whiteRatio": 0.00004516329353318091,
-      "components": [
-        360053
-      ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 13305,
       "changedPixels": 24974,
-      "eyeLines": [
-        {
-          "y": 353.5,
-          "bboxY": [
-            340,
-            367
-          ],
-          "count": 329
-        },
-        {
-          "y": 359.5,
-          "bboxY": [
-            338,
-            381
-          ],
-          "count": 438
-        }
-      ]
+      "sha256": "c83e93176e65703b74f2f270e27acd27ee733db1a896f4425afaf17e55b4a546"
     },
     {
-      "file": "face_scholar_sad.png",
+      "id": "scholar",
+      "expression": "sad",
+      "name": "face_scholar_sad.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         36,
         101,
@@ -249,32 +218,29 @@
       "components": [
         360053
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 24642,
-      "eyeLines": [
+      "whitePercent": 0.005363141107065233,
+      "eyeFeatures": [
         {
-          "y": 354.5,
-          "bboxY": [
-            340,
-            369
-          ],
-          "count": 437
+          "centerY": 296.5,
+          "pixels": 271
         },
         {
-          "y": 359.5,
-          "bboxY": [
-            338,
-            381
-          ],
-          "count": 509
+          "centerY": 315.5,
+          "pixels": 654
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 13006,
+      "changedPixels": 24642,
+      "sha256": "fe4f20f32ae88459edd64e50572bbc39bad0ba4ed11bbb296cfe07f361221a7c"
     },
     {
-      "file": "face_scholar_relieved.png",
+      "id": "scholar",
+      "expression": "relieved",
+      "name": "face_scholar_relieved.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         36,
         101,
@@ -286,32 +252,36 @@
       "alpha1to31": 0,
       "semiTransparent": 12718,
       "opaque": 354270,
-      "whitePixels": 17,
-      "whiteRatio": 0.00004798599937900471,
+      "whitePixels": 19,
+      "whiteRatio": 0.000053631411070652326,
       "components": [
         360053
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 24856,
-      "eyeLines": [
+      "whitePercent": 0.005363141107065233,
+      "eyeFeatures": [
         {
-          "y": 357.5,
-          "bboxY": [
-            340,
-            375
-          ],
-          "count": 301
+          "centerY": 296.5,
+          "pixels": 140
         },
         {
-          "y": 359.5,
-          "bboxY": [
-            338,
-            381
-          ],
-          "count": 448
+          "centerY": 315.5,
+          "pixels": 263
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24214,
+      "sha256": "05cbca2ff2d6db9b3be600fd006361bf540cc0127c6d8653d8c20f6b7d52e448"
     }
-  ]
+  ],
+  "summary": {
+    "count": 7,
+    "topYRange": 0,
+    "leftXRange": 0,
+    "nearEyeRange": 2,
+    "farEyeRange": 0,
+    "maxWhitePercent": 0.005645411691647614,
+    "alphaInvariant": true,
+    "outsideFaceInvariant": false
+  }
 }
