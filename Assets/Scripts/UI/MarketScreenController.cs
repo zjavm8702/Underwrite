@@ -286,7 +286,7 @@ namespace Underwrite.UI
                     && Sim.HasBriefing == false)
                 {
                     Sim.Clock.SetPaused(true);
-                    Message = "결과가 확정되어 자동 정지했습니다.";
+                    Message = StringConstants.TEXT_AUTO_PAUSED;
                 }
             }
 
@@ -606,7 +606,8 @@ namespace Underwrite.UI
             {
                 Sim.OpenNextSession(IsInspectionDay);
                 ResetViewState();
-                Message = $"{SessionName(Sim.Clock.Session)}이 열렸습니다.";
+                Message = string.Format(StringConstants.TEXT_SESSION_OPENED,
+                    SessionName(Sim.Clock.Session));
                 return;
             }
 
@@ -617,8 +618,8 @@ namespace Underwrite.UI
             ResetViewState();
 
             Message = filled > 0
-                ? $"장을 넘겼습니다. 소식 {news}건, 지정가 체결 {filled}건."
-                : $"장을 넘겼습니다. 소식 {news}건.";
+                ? string.Format(StringConstants.TEXT_SESSION_SKIPPED_FILLED, news, filled)
+                : string.Format(StringConstants.TEXT_SESSION_SKIPPED, news);
         }
 
         /// <summary>
@@ -661,7 +662,9 @@ namespace Underwrite.UI
 
             if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
             {
-                var next = Sim.Clock.Session == MarketSession.Session_Morning ? "오후장" : "다음 날 오전장";
+                var next = Sim.Clock.Session == MarketSession.Session_Morning
+                    ? StringConstants.TEXT_SESSION_EVENING
+                    : StringConstants.TEXT_SESSION_NEXT_MORNING;
                 skip.text = next + " 열기";
                 return;
             }
@@ -671,12 +674,16 @@ namespace Underwrite.UI
 
         private static string SessionName(MarketSession session)
         {
-            return session == MarketSession.Session_Evening ? "오후장" : "오전장";
+            return session == MarketSession.Session_Evening
+                ? StringConstants.TEXT_SESSION_EVENING
+                : StringConstants.TEXT_SESSION_MORNING;
         }
 
         private void Submit()
         {
-            var verb = Side == OrderSide.Side_Buy ? "매수" : "매도";
+            var verb = Side == OrderSide.Side_Buy
+                ? StringConstants.TEXT_SIDE_BUY
+                : StringConstants.TEXT_SIDE_SELL;
 
             if (Type == OrderType.Type_Limit)
             {
@@ -1076,7 +1083,7 @@ namespace Underwrite.UI
 
             var halted = Sim.Clock.Phase == MarketPhase.Phase_Halted;
             SetText("chart-footer", halted == true
-                ? "휴장이라 가격이 갱신되지 않아요."
+                ? StringConstants.TEXT_CHART_HALTED
                 : $"한 장 · {Sim.Clock.TicksPerSession}틱");
 
             var change = Root.Q<Label>("chart-change");
@@ -1780,7 +1787,9 @@ namespace Underwrite.UI
                 var name = Sim.StockLookup.TryGetValue(order.StockId, out stock) == true
                     ? stock.DisplayName
                     : order.StockId;
-                var verb = order.Side == OrderSide.Side_Buy ? "매수" : "매도";
+                var verb = order.Side == OrderSide.Side_Buy
+                    ? StringConstants.TEXT_SIDE_BUY
+                    : StringConstants.TEXT_SIDE_SELL;
 
                 var text = new Label($"{name} · {order.LimitPrice:N1} {order.Quantity}주 {verb}");
                 text.AddToClassList("pending-text");
@@ -1794,7 +1803,7 @@ namespace Underwrite.UI
                 {
                     Sim.CancelOrder(id);
                     PendingCountShown = -1;
-                    Message = "주문을 취소했습니다.";
+                    Message = StringConstants.TEXT_ORDER_CANCELLED;
                 };
 
                 row.Add(text);
@@ -1860,8 +1869,8 @@ namespace Underwrite.UI
             SetText("order-cash", Sim.Wallet.AvailableCash.ToString("N0"));
 
             SetText("order-hint", limiting == true
-                ? "지정가에 닿으면 체결, 폐장 때 소멸."
-                : "체결 시 가격이 달라질 수 있어요.");
+                ? StringConstants.TEXT_HINT_LIMIT
+                : StringConstants.TEXT_HINT_MARKET);
 
             var held = Sim.Wallet.QuantityOf(stock.Id);
             var available = Sim.Wallet.AvailableQuantityOf(stock.Id);
@@ -1921,15 +1930,15 @@ namespace Underwrite.UI
 
                 if (nothingToSell == true)
                 {
-                    submit.text = "보유 주식 없음";
+                    submit.text = StringConstants.TEXT_SUBMIT_NO_SHARES;
                 }
                 else if (Sim.Clock.Phase == MarketPhase.Phase_Halted)
                 {
-                    submit.text = "휴장 중";
+                    submit.text = StringConstants.TEXT_SUBMIT_HALTED;
                 }
                 else if (Sim.Clock.IsPaused == true)
                 {
-                    submit.text = "정지 중";
+                    submit.text = StringConstants.TEXT_SUBMIT_PAUSED;
                 }
                 else if (limiting == true)
                 {
@@ -2175,8 +2184,8 @@ namespace Underwrite.UI
 
             SetText("scene-line", entry.Headline);
             SetText("scene-hint", entry.IsPublic == true
-                ? "지하세계가 같은 순간에 들었습니다. 가격은 이미 움직였습니다."
-                : "아직 시장에 돌지 않은 이야기입니다.");
+                ? StringConstants.TEXT_SCENE_PUBLIC
+                : StringConstants.TEXT_SCENE_PRIVATE);
 
             var next = Root.Q<Button>("scene-next");
 
@@ -2302,7 +2311,9 @@ namespace Underwrite.UI
             var head = new VisualElement();
             head.AddToClassList("info-head");
 
-            var tag = new Label(entry.IsPublic == true ? "시장에 공개됨" : "나만 아는 정보");
+            var tag = new Label(entry.IsPublic == true
+                ? StringConstants.TEXT_TAG_PUBLIC
+                : StringConstants.TEXT_TAG_PRIVATE);
             tag.AddToClassList("info-tag");
             tag.AddToClassList(entry.IsPublic == true ? "info-tag--public" : "info-tag--private");
 
@@ -2330,7 +2341,7 @@ namespace Underwrite.UI
 
             if (entry.IsPublic == false)
             {
-                var note = new Label("아직 시장에 공개되지 않음.");
+                var note = new Label(StringConstants.TEXT_INFO_NOT_PUBLIC);
                 note.AddToClassList("t-note");
                 card.Add(note);
             }

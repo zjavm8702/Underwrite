@@ -4,6 +4,14 @@ namespace Underwrite.Global
     /// 문자열 상수. 태그·파라미터·경로처럼 외부 에셋과 묶인 계약과 표시용 문자열을 모두 모은다.
     /// 코드 규칙 §7 참고. 표시용은 TEXT_ 접두사를 쓴다.
     /// </summary>
+    /// <summary>
+    /// 문자열 상수.
+    ///
+    /// 화면에 나가는 문구(TEXT_*)는 <c>static</c>이다. 표(UITextTable)가 덮어쓰기 때문이다.
+    /// <c>const</c>면 컴파일 시점에 호출부에 박혀 표가 아무 소용이 없다.
+    /// 애니메이터 파라미터 이름처럼 코드 계약인 값은 <c>const</c>로 남긴다.
+    /// 여기 적힌 한국어는 표가 없을 때 쓰는 기본값이다. 화면에 열쇠 이름이 뜨는 일은 없다.
+    /// </summary>
     public static partial class StringConstants
     {
         // Animator 계약. 아트 문서와 Controller에 묶여 있다.
@@ -16,31 +24,56 @@ namespace Underwrite.Global
         public const string ANIM_STATE_CHEER = "Cheer";
 
         // 시장 화면 표시용
-        public const string TEXT_MARKET_PHASE_CLOSED = "폐장";
-        public const string TEXT_MARKET_PHASE_OPEN = "개장";
-        public const string TEXT_MARKET_PHASE_HALTED = "휴장 — 영주 조사";
+        public static string TEXT_MARKET_PHASE_CLOSED = "폐장";
+        public static string TEXT_MARKET_PHASE_OPEN = "개장";
+        public static string TEXT_MARKET_PHASE_HALTED = "휴장 — 영주 조사";
 
-        public const string TEXT_SENTIMENT_CALM = "평온";
-        public const string TEXT_SENTIMENT_FEVER = "투자 열풍";
-        public const string TEXT_SENTIMENT_FEAR = "공포";
-        public const string TEXT_SENTIMENT_DRAINED = "자금 부족";
+        public static string TEXT_SENTIMENT_CALM = "평온";
+        public static string TEXT_SENTIMENT_FEVER = "투자 열풍";
+        public static string TEXT_SENTIMENT_FEAR = "공포";
+        public static string TEXT_SENTIMENT_DRAINED = "자금 부족";
 
-        public const string TEXT_ORDER_FILLED = "체결되었습니다.";
-        public const string TEXT_ORDER_MARKET_CLOSED = "지하시장이 열려 있지 않습니다.";
-        public const string TEXT_ORDER_PAUSED = "시간이 멈춘 동안에는 주문할 수 없습니다.";
-        public const string TEXT_ORDER_NOT_AT_MARKET = "지하시장에서만 주문할 수 있습니다.";
-        public const string TEXT_ORDER_NO_CASH = "현금이 부족합니다.";
-        public const string TEXT_ORDER_NO_SHARES = "보유 지분이 부족합니다.";
-        public const string TEXT_ORDER_BAD_QUANTITY = "수량은 1 이상이어야 합니다.";
-        public const string TEXT_ORDER_BAD_PRICE = "호가를 올바르게 지정하세요.";
-        public const string TEXT_ORDER_TOO_MANY = "이 종목에 걸 수 있는 주문 수를 넘었습니다.";
-        public const string TEXT_ORDER_QUEUED = "지정가 주문을 걸었습니다. 가격이 닿으면 체결됩니다.";
+        public static string TEXT_ORDER_FILLED = "체결되었습니다.";
+        public static string TEXT_ORDER_MARKET_CLOSED = "지하시장이 열려 있지 않습니다.";
+        public static string TEXT_ORDER_PAUSED = "시간이 멈춘 동안에는 주문할 수 없습니다.";
+        public static string TEXT_ORDER_NOT_AT_MARKET = "지하시장에서만 주문할 수 있습니다.";
+        public static string TEXT_ORDER_NO_CASH = "현금이 부족합니다.";
+        public static string TEXT_ORDER_NO_SHARES = "보유 지분이 부족합니다.";
+        public static string TEXT_ORDER_BAD_QUANTITY = "수량은 1 이상이어야 합니다.";
+        public static string TEXT_ORDER_BAD_PRICE = "호가를 올바르게 지정하세요.";
+        public static string TEXT_ORDER_TOO_MANY = "이 종목에 걸 수 있는 주문 수를 넘었습니다.";
+        public static string TEXT_ORDER_QUEUED = "지정가 주문을 걸었습니다. 가격이 닿으면 체결됩니다.";
 
-        public const string TEXT_SOURCE_TAVERN_TALK = "여관 소문";
-        public const string TEXT_SOURCE_GUILD_RECORD = "길드 기록";
-        public const string TEXT_SOURCE_PRIVATE_LETTER = "사적 서신";
-        public const string TEXT_SOURCE_MARKET_BOARD = "시장 게시판";
-        public const string TEXT_SOURCE_BROKER_LEAK = "중개인 누설";
+        // 거래 화면 문구. 표(UITextTable)가 덮어쓴다.
+        public static string TEXT_SESSION_MORNING = "오전장";
+        public static string TEXT_SESSION_EVENING = "오후장";
+        public static string TEXT_SESSION_NEXT_MORNING = "다음 날 오전장";
+        public static string TEXT_SIDE_BUY = "매수";
+        public static string TEXT_SIDE_SELL = "매도";
+        public static string TEXT_SESSION_OPENED = "{0}이 열렸습니다.";
+        public static string TEXT_SESSION_SKIPPED = "장을 넘겼습니다. 소식 {0}건.";
+        public static string TEXT_SESSION_SKIPPED_FILLED = "장을 넘겼습니다. 소식 {0}건, 지정가 체결 {1}건.";
+        public static string TEXT_AUTO_PAUSED = "결과가 확정되어 자동 정지했습니다.";
+        public static string TEXT_ORDER_CANCELLED = "주문을 취소했습니다.";
+        public static string TEXT_HINT_MARKET = "체결 시 가격이 달라질 수 있어요.";
+        public static string TEXT_HINT_LIMIT = "지정가에 닿으면 체결, 폐장 때 소멸.";
+        public static string TEXT_SUBMIT_HALTED = "휴장 중";
+        public static string TEXT_SUBMIT_PAUSED = "정지 중";
+        public static string TEXT_SUBMIT_NO_SHARES = "보유 주식 없음";
+        public static string TEXT_CHART_HALTED = "휴장이라 가격이 갱신되지 않아요.";
+        public static string TEXT_SCENE_PUBLIC = "지하세계가 같은 순간에 들었습니다. 가격은 이미 움직였습니다.";
+        public static string TEXT_SCENE_PRIVATE = "아직 시장에 돌지 않은 이야기입니다.";
+        public static string TEXT_INFO_EMPTY = "아직 들어온 소식이 없습니다.";
+        public static string TEXT_HOLDINGS_EMPTY = "보유한 종목이 없습니다.";
+        public static string TEXT_TAG_PUBLIC = "시장에 공개됨";
+        public static string TEXT_TAG_PRIVATE = "나만 아는 정보";
+        public static string TEXT_INFO_NOT_PUBLIC = "아직 시장에 공개되지 않음.";
+
+        public static string TEXT_SOURCE_TAVERN_TALK = "여관 소문";
+        public static string TEXT_SOURCE_GUILD_RECORD = "길드 기록";
+        public static string TEXT_SOURCE_PRIVATE_LETTER = "사적 서신";
+        public static string TEXT_SOURCE_MARKET_BOARD = "시장 게시판";
+        public static string TEXT_SOURCE_BROKER_LEAK = "중개인 누설";
     }
 
     /// <summary>

@@ -434,3 +434,76 @@ MonoBehaviour:
   - Key: TEXT_SOURCE_BROKER_LEAK
     Korean: "\uC911\uAC1C\uC778 \uB204\uC124"
     HasFormat: 0
+  - Key: TEXT_SESSION_MORNING
+    Korean: "\uC624\uC804\uC7A5"
+    HasFormat: 0
+  - Key: TEXT_SESSION_EVENING
+    Korean: "\uC624\uD6C4\uC7A5"
+    HasFormat: 0
+  - Key: TEXT_SESSION_NEXT_MORNING
+    Korean: "\uB2E4\uC74C \uB0A0 \uC624\uC804\uC7A5"
+    HasFormat: 0
+  - Key: TEXT_SIDE_BUY
+    Korean: "\uB9E4\uC218"
+    HasFormat: 0
+  - Key: TEXT_SIDE_SELL
+    Korean: "\uB9E4\uB3C4"
+    HasFormat: 0
+  - Key: TEXT_SESSION_OPENED
+    Korean: "{0}\uC774 \uC5F4\uB838\uC2B5\uB2C8\uB2E4."
+    HasFormat: 1
+  - Key: TEXT_SESSION_SKIPPED
+    Korean: "\uC7A5\uC744 \uB118\uACBC\uC2B5\uB2C8\uB2E4. \uC18C\uC2DD {0}\uAC74."
+    HasFormat: 1
+  - Key: TEXT_SESSION_SKIPPED_FILLED
+    Korean: "\uC7A5\uC744 \uB118\uACBC\uC2B5\uB2C8\uB2E4. \uC18C\uC2DD {0}\uAC74,
+      \uC9C0\uC815\uAC00 \uCCB4\uACB0 {1}\uAC74."
+    HasFormat: 1
+  - Key: TEXT_AUTO_PAUSED
+    Korean: "\uACB0\uACFC\uAC00 \uD655\uC815\uB418\uC5B4 \uC790\uB3D9 \uC815\uC9C0\uD588\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_CANCELLED
+    Korean: "\uC8FC\uBB38\uC744 \uCDE8\uC18C\uD588\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_HINT_MARKET
+    Korean: "\uCCB4\uACB0 \uC2DC \uAC00\uACA9\uC774 \uB2EC\uB77C\uC9C8 \uC218 \uC788\uC5B4\uC694."
+    HasFormat: 0
+  - Key: TEXT_HINT_LIMIT
+    Korean: "\uC9C0\uC815\uAC00\uC5D0 \uB2FF\uC73C\uBA74 \uCCB4\uACB0, \uD3D0\uC7A5
+      \uB54C \uC18C\uBA78."
+    HasFormat: 0
+  - Key: TEXT_SUBMIT_HALTED
+    Korean: "\uD734\uC7A5 \uC911"
+    HasFormat: 0
+  - Key: TEXT_SUBMIT_PAUSED
+    Korean: "\uC815\uC9C0 \uC911"
+    HasFormat: 0
+  - Key: TEXT_SUBMIT_NO_SHARES
+    Korean: "\uBCF4\uC720 \uC8FC\uC2DD \uC5C6\uC74C"
+    HasFormat: 0
+  - Key: TEXT_CHART_HALTED
+    Korean: "\uD734\uC7A5\uC774\uB77C \uAC00\uACA9\uC774 \uAC31\uC2E0\uB418\uC9C0
+      \uC54A\uC544\uC694."
+    HasFormat: 0
+  - Key: TEXT_SCENE_PUBLIC
+    Korean: "\uC9C0\uD558\uC138\uACC4\uAC00 \uAC19\uC740 \uC21C\uAC04\uC5D0 \uB4E4\uC5C8\uC2B5\uB2C8\uB2E4.
+      \uAC00\uACA9\uC740 \uC774\uBBF8 \uC6C0\uC9C1\uC600\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_SCENE_PRIVATE
+    Korean: "\uC544\uC9C1 \uC2DC\uC7A5\uC5D0 \uB3CC\uC9C0 \uC54A\uC740 \uC774\uC57C\uAE30\uC785\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_INFO_EMPTY
+    Korean: "\uC544\uC9C1 \uB4E4\uC5B4\uC628 \uC18C\uC2DD\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_HOLDINGS_EMPTY
+    Korean: "\uBCF4\uC720\uD55C \uC885\uBAA9\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_TAG_PUBLIC
+    Korean: "\uC2DC\uC7A5\uC5D0 \uACF5\uAC1C\uB428"
+    HasFormat: 0
+  - Key: TEXT_TAG_PRIVATE
+    Korean: "\uB098\uB9CC \uC544\uB294 \uC815\uBCF4"
+    HasFormat: 0
+  - Key: TEXT_INFO_NOT_PUBLIC
+    Korean: "\uC544\uC9C1 \uC2DC\uC7A5\uC5D0 \uACF5\uAC1C\uB418\uC9C0 \uC54A\uC74C."
+    HasFormat: 0

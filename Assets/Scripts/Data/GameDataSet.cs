@@ -57,6 +57,11 @@ namespace Underwrite.Data
             {
                 Sentiments.Apply();
             }
+
+            if (Texts != null)
+            {
+                Texts.Apply();
+            }
         }
 
         /// <summary>표를 만들 때 쓴다.</summary>

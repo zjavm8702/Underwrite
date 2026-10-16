@@ -27,6 +27,7 @@
 ### UIText.csv
 
 - `Kind` — `UI`는 화면에 나가는 글자, `로그`는 개발용, `에디터`는 인스펙터 라벨이다. **테이블로 옮길 대상은 `UI`뿐이다.**
+- `Key` — **이 열이 채워진 줄만 실제로 먹는다.** `StringConstants`에 같은 이름의 `public static string` 필드가 있어야 하고, 없으면 그냥 건너뛴다. 지금 실제로 이어진 것은 `Source`가 `Constants.cs`인 45줄이다. UXML에 박힌 54줄은 열쇠가 자동 생성된 이름이라 아직 코드와 이어지지 않았다.
 - `HasFormat` — `O`면 `{0}주 매수`처럼 값이 끼어드는 문구다. 그대로 옮길 수 없고 서식 문자열로 바꿔야 한다. 25건이다.
 - `Where` — UXML은 요소 이름, C#은 줄 번호다. 줄 번호는 코드가 바뀌면 어긋난다. 찾아가는 실마리로만 쓴다.
 
@@ -59,7 +60,7 @@ Unity 메뉴 **Underwrite → 테이블 가져오기**를 누르면 이 폴더�
 | `SentimentTable` | `Constants.SENTIMENT_*` |
 | `StockTable` | `MarketScreenController.BuildStocks()` |
 | `EventTable` | `MarketScreenController.BuildEvents()` |
-| `UITextTable` | **아직 안 이어졌다.** 표만 채워 둔 상태다 |
+| `UITextTable` | `StringConstants`의 `TEXT_*` 45개를 덮어쓴다 |
 
 표를 물리지 않으면 `PrototypeScenario`의 코드에 박힌 값으로 돌아간다. 화면이 비는 대신 예전처럼 돌아가므로, 표가 안 먹었을 때 바로 알아채기 어렵다는 점은 염두에 둔다.
 

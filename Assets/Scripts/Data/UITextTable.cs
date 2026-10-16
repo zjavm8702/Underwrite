@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace Underwrite.Data
@@ -43,6 +44,47 @@ namespace Underwrite.Data
         {
             Entries = rows;
             Lookup.Clear();
+        }
+
+        /// <summary>
+        /// 표의 문구를 <see cref="Global.StringConstants"/>에 덮어쓴다. 장을 열기 전에 한 번 부른다.
+        ///
+        /// 코드는 상수 이름으로 문구를 참조하고, 뜻은 여기서 들어온다.
+        /// 표에 없는 열쇠는 그냥 건너뛴다. 코드에 적힌 기본값이 그대로 남으므로
+        /// 표가 비어 있어도 화면에 빈칸이나 열쇠 이름이 뜨지 않는다.
+        /// </summary>
+        public void Apply()
+        {
+            var fields = typeof(Global.StringConstants).GetFields(
+                BindingFlags.Public | BindingFlags.Static);
+
+            for (var i = 0; i < Entries.Count; i++)
+            {
+                var entry = Entries[i];
+
+                if (string.IsNullOrEmpty(entry.Key) == true || entry.Korean == null)
+                {
+                    continue;
+                }
+
+                for (var f = 0; f < fields.Length; f++)
+                {
+                    var field = fields[f];
+
+                    if (field.IsLiteral == true || field.FieldType != typeof(string))
+                    {
+                        continue;
+                    }
+
+                    if (field.Name != entry.Key)
+                    {
+                        continue;
+                    }
+
+                    field.SetValue(null, entry.Korean);
+                    break;
+                }
+            }
         }
 
         /// <summary>
