@@ -22,6 +22,7 @@ MonoBehaviour:
     DelistCycle: 0
     DelistReason: 0
     Portrait: {fileID: 21300000, guid: 906656921a3f79b44a34bc5e144029ed, type: 3}
+    Portraits: {fileID: 11400000, guid: a1f1f27c8b223a24ab69207e72af6e5e, type: 2}
   - Id: STOCK_VETERAN
     DisplayName: "\uBE0C\uB780 (\uBCA0\uD14C\uB791)"
     Personality: 0
@@ -31,6 +32,7 @@ MonoBehaviour:
     DelistCycle: 4
     DelistReason: 2
     Portrait: {fileID: 21300000, guid: 0b98e1f5ebc280740aa0e9e4f3b3e9d4, type: 3}
+    Portraits: {fileID: 11400000, guid: f7c01a45bbaaf8e49aebd5b7584a32cc, type: 2}
   - Id: STOCK_HIGH_RISK
     DisplayName: "\uBE14\uB799\uBB34\uC5B4 \uB2E8 (\uACE0\uC704\uD5D8)"
     Personality: 2
@@ -40,6 +42,7 @@ MonoBehaviour:
     DelistCycle: 3
     DelistReason: 1
     Portrait: {fileID: 21300000, guid: 7a319f1d9af88fb46b4b2f4d1276ef8a, type: 3}
+    Portraits: {fileID: 0}
   - Id: STOCK_WARDEN
     DisplayName: "\uD68C\uC0C9 \uD30C\uC218\uB300 (\uC2E0\uC785)"
     Personality: 1
@@ -49,6 +52,7 @@ MonoBehaviour:
     DelistCycle: 0
     DelistReason: 0
     Portrait: {fileID: 21300000, guid: 387fbdd29e97f6b45b8c73cf07277cf9, type: 3}
+    Portraits: {fileID: 0}
   - Id: STOCK_LANTERN
     DisplayName: "\uB4F1\uBD88 \uAE30\uC0AC\uB2E8 (\uBCA0\uD14C\uB791)"
     Personality: 0
@@ -58,3 +62,4 @@ MonoBehaviour:
     DelistCycle: 0
     DelistReason: 0
     Portrait: {fileID: 21300000, guid: cf2f6aa4f96674d49bf92a328ab7449b, type: 3}
+    Portraits: {fileID: 0}

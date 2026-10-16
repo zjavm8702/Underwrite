@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6aa7aba1a6a354ea3da3a1fe62f5a0, type: 3}
+  m_Name: sella
+  m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.PortraitSet
+  Fallback: {fileID: 21300000, guid: 906656921a3f79b44a34bc5e144029ed, type: 3}
+  Faces:
+  - Emotion: 0
+    Sprite: {fileID: 21300000, guid: 5fb438e5e151b1948982da976d8c6fdf, type: 3}
+  - Emotion: 1
+    Sprite: {fileID: 21300000, guid: f8adc15cc1c85b747b3bcb65e8360117, type: 3}
+  - Emotion: 2
+    Sprite: {fileID: 21300000, guid: bc9e024c9e6f9384c8b85666d7e1fe11, type: 3}
+  - Emotion: 3
+    Sprite: {fileID: 21300000, guid: 693bff480dfe1f34d9ab517b894f61d0, type: 3}
+  - Emotion: 4
+    Sprite: {fileID: 21300000, guid: 78f8494204a519542afe6ef913a1c7dc, type: 3}
+  - Emotion: 5
+    Sprite: {fileID: 21300000, guid: 9a90c8392dd738742bebfc1a329e76c5, type: 3}
+  - Emotion: 6
+    Sprite: {fileID: 21300000, guid: 895e6e521d4aa054d8f034bd78a02966, type: 3}

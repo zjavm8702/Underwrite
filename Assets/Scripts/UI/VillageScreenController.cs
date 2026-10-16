@@ -4,6 +4,7 @@ using Underwrite.Data;
 using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
+using Underwrite.Utility;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -41,6 +42,28 @@ namespace Underwrite.UI
             }
         }
 
+        /// <summary>
+        /// 거래 화면을 거치지 않고 영지 씬만 띄웠을 때의 시계를 마련한다.
+        ///
+        /// 시계가 없으면 남은 시간이 0분이라 아무 데도 들를 수 없다. 영지만 따로
+        /// 시험할 수 없게 되므로, 없을 때만 오전장이 막 끝난 상태를 만들어 둔다.
+        /// 거래 화면에서 넘어온 경우에는 이미 시계가 있으므로 건드리지 않는다.
+        /// </summary>
+        private void EnsureClock()
+        {
+            if (BreakClock.Current != null)
+            {
+                return;
+            }
+
+            var clock = new MarketClock();
+            clock.BeginBreak();
+            BreakClock.Current = clock;
+            GatherSession.BeginBreak(0);
+
+            UnderwriteLog.Info("영지 씬을 단독으로 띄워 시계를 새로 만들었습니다.");
+        }
+
         private void OnEnable()
         {
             VillageSpotEvents.Entered += OnEnter;
@@ -72,6 +95,7 @@ namespace Underwrite.UI
             }
 
             BindLeave();
+            EnsureClock();
 
             // 영지의 시간은 실시간 1:1로 흐른다. 기획서 §11.
             if (Clock != null)

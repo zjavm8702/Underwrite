@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using Unity.Cinemachine;
 using Underwrite.Characters;
@@ -27,8 +28,18 @@ namespace Underwrite.Editor
         private const string VILLAGE_SCENE = "Assets/Scenes/VillageTest.unity";
 
         private const string VILLAGE_ART = "Assets/UI/Images/village_ground.png";
+        private const string VILLAGE_MASK = "Assets/UI/Images/village_block_mask.png";
         private const float CHARACTER_SCALE = 0.27f;
         private const float GROUND_SIZE = 44f;
+
+        // 문 앞 한 칸의 크기. 사람 키가 1.9유닛쯤이므로 두 걸음 안에 들어오는 넓이다.
+        private const float DOOR_WIDTH = 4.5f;
+        private const float DOOR_HEIGHT = 2.6f;
+
+        // 발자국의 크기(월드 유닛). 사람 키 1.9유닛에 견주어 발밑 한 뼘이다.
+        private const float FOOT_WIDTH = 0.55f;
+        private const float FOOT_HEIGHT = 0.30f;
+        private const float FOOT_DROP = 0.75f;
 
         // 그림이 들어오면 그 크기를 따른다. 없으면 단색 바닥의 크기를 쓴다.
         private static float GroundWidth = GROUND_SIZE;
@@ -52,15 +63,13 @@ namespace Underwrite.Editor
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
             BuildGround();
-            BuildWalls();
+            BuildBlockers();
 
             // 세 자리는 기획서 §8의 정보 출처와 그대로 맞물린다.
-            BuildSpot("여관", new Vector2(-13f, 8f), new Color(0.55f, 0.36f, 0.20f),
-                InfoSource.Source_TavernTalk, 20f);
-            BuildSpot("길드 기록실", new Vector2(13f, 8f), new Color(0.27f, 0.33f, 0.45f),
-                InfoSource.Source_GuildRecord, 80f);
-            BuildSpot("시장 게시판", new Vector2(0f, -12f), new Color(0.45f, 0.42f, 0.30f),
-                InfoSource.Source_MarketBoard, 0f);
+            // 좌표는 배경 그림의 문 앞에서 재어 왔다. 그림을 다시 그리면 이 값도 같이 바뀐다.
+            BuildSpot("여관", new Vector2(-15.21f, 3.33f), InfoSource.Source_TavernTalk, 20f);
+            BuildSpot("길드 기록실", new Vector2(16.39f, 2.08f), InfoSource.Source_GuildRecord, 80f);
+            BuildSpot("시장 게시판", new Vector2(-0.21f, -9.86f), InfoSource.Source_MarketBoard, 0f);
 
             var player = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             player.name = "Character";
@@ -69,6 +78,7 @@ namespace Underwrite.Editor
             // 캐릭터 원화는 640×724로 크다. 그대로 두면 사람이 건물만 해진다.
             // 화면 높이(카메라 15유닛)의 1/8쯤 되도록 줄인다.
             player.transform.localScale = Vector3.one * CHARACTER_SCALE;
+            ShrinkToFootprint(player);
 
             BuildLight(lightPrefab);
             BuildCamera(player);
@@ -156,8 +166,46 @@ namespace Underwrite.Editor
             go.transform.SetAsFirstSibling();
         }
 
-        /// <summary>바깥으로 걸어 나가지 못하게 막는다. 임시 씬이라 네모난 벽이면 충분하다.</summary>
-        private static void BuildWalls()
+        /// <summary>
+        /// 걸을 수 없는 자리를 막는다.
+        ///
+        /// 네모난 벽 넷으로는 건물과 담을 흉내 낼 수 없다. 건물 모서리를 뚫고 지나가거나,
+        /// 반대로 빈 바닥이 막혀 보인다. 그림과 충돌이 어긋나면 플레이어는 자기가 뭘 밟고
+        /// 있는지 알 수 없게 된다.
+        ///
+        /// 그래서 **막힌 자리를 칠한 그림 한 장**을 따로 두고, Unity가 그 알파에서 뽑은
+        /// 윤곽을 그대로 쓴다. 배경을 다시 그리면 마스크만 다시 뽑으면 된다.
+        /// </summary>
+        private static void BuildBlockers()
+        {
+            var mask = AssetDatabase.LoadAssetAtPath<Sprite>(VILLAGE_MASK);
+
+            if (mask == null)
+            {
+                UnderwriteLog.Warning($"막힘 마스크가 없어 바깥 벽만 세웁니다: {VILLAGE_MASK}");
+                BuildEdgeWalls();
+                return;
+            }
+
+            var go = new GameObject("Blockers");
+            var collider = go.AddComponent<PolygonCollider2D>();
+            var count = mask.GetPhysicsShapeCount();
+            collider.pathCount = count;
+
+            var points = new List<Vector2>();
+
+            for (var i = 0; i < count; i++)
+            {
+                points.Clear();
+                mask.GetPhysicsShape(i, points);
+                collider.SetPath(i, points.ToArray());
+            }
+
+            UnderwriteLog.Info($"막힘 윤곽 {count}개를 세웠습니다.");
+        }
+
+        /// <summary>마스크가 없을 때의 최소한. 바깥으로만 나가지 못하게 한다.</summary>
+        private static void BuildEdgeWalls()
         {
             var halfX = GroundWidth * 0.5f;
             var halfY = GroundHeight * 0.5f;
@@ -180,23 +228,49 @@ namespace Underwrite.Editor
         }
 
         /// <summary>
-        /// 들어갈 수 있는 자리. 건물은 그림에 이미 그려져 있으므로 보이는 것을 두지 않는다.
-        /// 여기서 두는 것은 **막는 몸통과 말을 거는 문** 둘뿐이다.
+        /// 부딪히는 자리를 발밑으로 내린다.
+        ///
+        /// 사람 전체를 캡슐로 감싸면 머리가 벽에 먼저 닿는다. 내려다보는 화면에서는
+        /// 상체가 건물 앞을 지나가는 것이 자연스럽고, 실제로 막히는 것은 발이다.
+        /// 전신 캡슐을 그대로 두면 문에서 한 몸 길이 떨어진 곳에서 멈춘다.
         /// </summary>
-        private static void BuildSpot(string name, Vector2 at, Color color, InfoSource source, float cost)
+        private static void ShrinkToFootprint(GameObject player)
         {
-            var spot = new GameObject(name);
-            spot.transform.position = new Vector3(at.x, at.y, 0f);
+            var cap = player.GetComponent<CapsuleCollider2D>();
 
-            var body = spot.AddComponent<BoxCollider2D>();
-            body.size = new Vector2(7f, 5f);
+            if (cap == null)
+            {
+                UnderwriteLog.Warning("캐릭터에 CapsuleCollider2D가 없습니다.");
+                return;
+            }
 
-            var door = new GameObject("Door");
-            door.transform.SetParent(spot.transform);
-            door.transform.localPosition = new Vector3(0f, -3.6f, 0f);
+            var scale = player.transform.localScale.x;
+
+            if (scale <= 0f)
+            {
+                return;
+            }
+
+            // 월드 기준으로 정해 두고 캐릭터 축척으로 되돌린다. 축척을 바꿔도 발자국 크기는 같다.
+            cap.size = new Vector2(FOOT_WIDTH / scale, FOOT_HEIGHT / scale);
+            cap.offset = new Vector2(0f, -FOOT_DROP / scale);
+            cap.direction = CapsuleDirection2D.Horizontal;
+        }
+
+        /// <summary>
+        /// 말을 걸 수 있는 문 앞 한 칸.
+        ///
+        /// 건물은 그림에 그려져 있고 그 몸통은 마스크가 막는다. 여기서 둘 것은
+        /// **문 앞에 섰는지 알아보는 칸** 하나뿐이다. <paramref name="at"/>은
+        /// 건물 가운데가 아니라 플레이어가 실제로 서는 자리다.
+        /// </summary>
+        private static void BuildSpot(string name, Vector2 at, InfoSource source, float cost)
+        {
+            var door = new GameObject(name);
+            door.transform.position = new Vector3(at.x, at.y, 0f);
 
             var trigger = door.AddComponent<BoxCollider2D>();
-            trigger.size = new Vector2(7f, 3f);
+            trigger.size = new Vector2(DOOR_WIDTH, DOOR_HEIGHT);
             trigger.isTrigger = true;
 
             var place = door.AddComponent<VillageSpot>();
@@ -327,7 +401,8 @@ namespace Underwrite.Editor
             go.AddComponent<AudioListener>();
             go.AddComponent<CinemachineBrain>();
 
-            var body = player.transform.childCount > 0 ? player.transform.GetChild(0) : player.transform;
+            // 물리가 루트에 있으므로 루트가 곧 플레이어가 선 자리다. 카메라도 그것을 따른다.
+            var body = player.transform;
 
             var rig = new GameObject("Village Camera");
             rig.transform.position = new Vector3(body.position.x, body.position.y, -10f);

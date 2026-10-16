@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6aa7aba1a6a354ea3da3a1fe62f5a0, type: 3}
+  m_Name: brann
+  m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.PortraitSet
+  Fallback: {fileID: 21300000, guid: 0b98e1f5ebc280740aa0e9e4f3b3e9d4, type: 3}
+  Faces:
+  - Emotion: 0
+    Sprite: {fileID: 21300000, guid: 3a256f68d7cc1ca4d81d5ccad8e9cf8a, type: 3}
+  - Emotion: 1
+    Sprite: {fileID: 21300000, guid: 3abe7f12ea2ce444bbbe71bd0fd12e9d, type: 3}
+  - Emotion: 2
+    Sprite: {fileID: 21300000, guid: d1b21ea4ea11cda4aa96637374fd5182, type: 3}
+  - Emotion: 3
+    Sprite: {fileID: 21300000, guid: ea439bd27b9ecad4bbbf1bb26211bc79, type: 3}
+  - Emotion: 4
+    Sprite: {fileID: 21300000, guid: 1e6dd05c2ded5ea43878a34c7fda604b, type: 3}
+  - Emotion: 5
+    Sprite: {fileID: 21300000, guid: 7ae332f3675e8734f9747e360bcc5543, type: 3}
+  - Emotion: 6
+    Sprite: {fileID: 21300000, guid: 8d4b768ae49bdb345a41c915007e8f2e, type: 3}

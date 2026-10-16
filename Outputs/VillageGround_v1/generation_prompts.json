@@ -12,5 +12,11 @@
     "prompt": "Use case: precise-object-edit. Edit this village map. Preserve the exact high oblique camera, map layout, light, colors, fine hand-drawn non-pixel style, warm light paving, boundary wall and vegetation, blank paper, three separated south-facing destinations, absence of people/text/sky.\nONE TARGETED CHANGE: all destination BUILDINGS and their associated props are currently too large for the intended 135px tall adult on a 3840x2160 map. Reduce the inn, guild and roofed notice stand INCLUDING all their tables, stools, barrels, stairs, stalls, plants and immediate soil islands to about 72% of their current linear size, centered at the same respective map locations. Fill the released area naturally with the same quiet stone paving and smoothly joined ground. Keep the inn upper left, guild upper right, notice board lower center, entrances all downward with uninterrupted paved approach aprons. Doors should be about 170px tall relative to the 3840x2160 canvas; stool height about 40px and table height about 65px. Keep boundary wall unchanged. Buildings fully contained inside frame. No drawn character or scale marks. Blank papers and red wax seal only. No text, letters, numbers, signage. Exact 3840x2160 16:9 opaque image.",
     "input": "Outputs/VillageGround_v1/source/village_ground_generated.png",
     "time": "2026-10-16T14:33:41.320Z"
-  }
+  },
+  "referenceMechanism": "First generation: previously viewed GatherPlaces images as conversation visual context; no file input argument. Revision: referenced_image_paths first generation output.",
+  "outputs": [
+    "source/village_ground_generated.png",
+    "source/village_ground_scale_revision.png"
+  ],
+  "selected": "source/village_ground_scale_revision.png"
 }

@@ -23,6 +23,8 @@ namespace Underwrite.Editor
         private const string TABLE_FOLDER = "Tables";
         private const string ASSET_FOLDER = "Assets/Data";
         private const string PORTRAIT_FOLDER = "Assets/UI/Images/Heroes";
+        private const string FACE_FOLDER = "Assets/UI/Images/Faces";
+        private const string FACE_SET_FOLDER = "Assets/Data/Portraits";
 
         [MenuItem("Underwrite/테이블 가져오기")]
         public static void Import()
@@ -153,6 +155,7 @@ namespace Underwrite.Editor
                 entry.DelistCycle = ParseInt(Field(rows[i], "DelistCycle"));
                 entry.DelistReason = ParseEnum<DelistReason>("Delist_", Field(rows[i], "DelistReason"));
                 entry.Portrait = LoadPortrait(Field(rows[i], "Portrait"));
+                entry.Portraits = BuildPortraitSet(Field(rows[i], "Portraits"), entry.Portrait);
                 list.Add(entry);
             }
 
@@ -227,6 +230,64 @@ namespace Underwrite.Editor
             }
 
             return sprite;
+        }
+
+        /// <summary>
+        /// 표에 적힌 사람 이름으로 표정 묶음을 만든다.
+        ///
+        /// 표에 표정 일곱 줄을 다 적게 하면 인물이 늘 때마다 일곱 줄씩 늘어난다.
+        /// 파일 이름 규칙(face_<사람>_<표정>.png)이 이미 묶음을 말하고 있으므로
+        /// **이름 하나만 적고 나머지는 폴더에서 읽는다.**
+        ///
+        /// 묶음 자산은 표가 만든다. 사람이 손으로 고치면 표와 어긋난다.
+        /// </summary>
+        private static PortraitSet BuildPortraitSet(string person, Sprite fallback)
+        {
+            if (string.IsNullOrEmpty(person) == true)
+            {
+                return null;
+            }
+
+            if (Directory.Exists(FACE_SET_FOLDER) == false)
+            {
+                Directory.CreateDirectory(FACE_SET_FOLDER);
+                AssetDatabase.ImportAsset(FACE_SET_FOLDER);
+            }
+
+            var path = FACE_SET_FOLDER + "/" + person + ".asset";
+            var set = AssetDatabase.LoadAssetAtPath<PortraitSet>(path);
+
+            if (set == null)
+            {
+                set = ScriptableObject.CreateInstance<PortraitSet>();
+                AssetDatabase.CreateAsset(set, path);
+            }
+
+            var faces = new List<PortraitFace>();
+            var emotions = (PortraitEmotion[])Enum.GetValues(typeof(PortraitEmotion));
+
+            for (var i = 0; i < emotions.Length; i++)
+            {
+                var emotion = emotions[i];
+                var suffix = emotion.ToString().Replace("Emotion_", string.Empty).ToLowerInvariant();
+                var file = FACE_FOLDER + "/face_" + person + "_" + suffix + ".png";
+                var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(file);
+
+                if (sprite == null)
+                {
+                    UnderwriteLog.Warning($"표정 그림이 없습니다: {file}");
+                    continue;
+                }
+
+                var face = new PortraitFace();
+                face.Emotion = emotion;
+                face.Sprite = sprite;
+                faces.Add(face);
+            }
+
+            set.Assign(fallback, faces);
+            EditorUtility.SetDirty(set);
+            return set;
         }
 
         // ── CSV ───────────────────────────────────
