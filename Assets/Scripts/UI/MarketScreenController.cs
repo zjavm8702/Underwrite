@@ -31,6 +31,7 @@ namespace Underwrite.UI
         private const float CHART_RANGE_PAD = 0.12f;
         private const int CHART_AXIS_MAX = 7;
         private const float CHART_LABEL_EDGE = 26f;
+        private const float CHART_OPEN_LABEL_WIDTH = 120f;
         private const int INFO_MAX_ROWS = 20;
         private const int RATIO_FIT_STEPS = 4;
 
@@ -780,7 +781,7 @@ namespace Underwrite.UI
 
                 if (price != null)
                 {
-                    price.text = stock.Price.ToString("N1");
+                    price.text = stock.LivePrice.ToString("N1");
                 }
 
                 var change = row.Q<Label>("change");
@@ -853,15 +854,15 @@ namespace Underwrite.UI
                 ApplyChange(change, stock.SessionChangeRatio);
             }
 
-            // 매 프레임 다시 그리라고 하지 않는다. 틱이 넘어갔을 때만 다시 그린다.
+            // 매 프레임이 아니라 미세 호가가 바뀔 때만 다시 그린다.
+            // 틱마다 한 번이면 15초에 점 하나라 선이 멈춰 있는 것처럼 보인다.
             // generateVisualContent 안에서는 트리를 건드리지 않으므로 여기서만 요청한다.
-            if (ChartTickShown == Sim.Clock.Tick)
+            if (ChartTickShown == Sim.MicroSeq)
             {
                 return;
             }
 
-
-            ChartTickShown = Sim.Clock.Tick;
+            ChartTickShown = Sim.MicroSeq;
             var chart = Root.Q<VisualElement>("chart");
 
             if (chart != null)
@@ -960,6 +961,26 @@ namespace Underwrite.UI
             PlaceMarker(chart, "marker-open", "chart-marker-label--open",
                 $"시작 {stock.SessionOpenPrice:N1}", PlotLeft() + 12f, openY, plotWidth,
                 true, MarkerAnchor.Anchor_Left);
+
+            // 저점이나 고점이 장 시작가 바로 옆에 있으면 두 라벨이 포개진다.
+            // 그때는 시작 라벨을 접는다. 기준선이 이미 그 높이를 알려 준다.
+            var openHidden = Overlaps(openY, lowY, lowX) == true || Overlaps(openY, highY, highX) == true;
+
+            if (openHidden == true)
+            {
+                HideMarker(chart, "marker-open");
+            }
+        }
+
+        /// <summary>시작 라벨 자리와 포개지는가. 시작 라벨은 왼쪽 끝에 눕혀 있다.</summary>
+        private static bool Overlaps(float openY, float otherY, float otherX)
+        {
+            if (Mathf.Abs(openY - otherY) > CHART_LABEL_EDGE)
+            {
+                return false;
+            }
+
+            return otherX < CHART_PLOT_LEFT + CHART_OPEN_LABEL_WIDTH;
         }
 
         /// <summary>라벨을 점의 어디에 붙일지.</summary>
@@ -1003,6 +1024,17 @@ namespace Underwrite.UI
                 max = stock.SessionOpenPrice;
             }
 
+            // 틱 사이의 실시간 호가도 그린다. 범위에 넣지 않으면 마지막 점이 눈금 밖으로 나간다.
+            if (stock.LivePrice < min)
+            {
+                min = stock.LivePrice;
+            }
+
+            if (stock.LivePrice > max)
+            {
+                max = stock.LivePrice;
+            }
+
             // 위아래를 조금 비운다. 고·저 점이 테두리에 붙으면 라벨이 차트 밖으로 나간다.
             var pad = (max - min) * CHART_RANGE_PAD;
 
@@ -1041,6 +1073,12 @@ namespace Underwrite.UI
 
         private static float ChartX(int index, int total, float width)
         {
+            return ChartXAt(index, total, width);
+        }
+
+        /// <summary>소수 자리도 받는다. 마지막 점이 틱과 틱 사이를 미끄러지게 하려면 필요하다.</summary>
+        private static float ChartXAt(float index, int total, float width)
+        {
             if (total <= 0)
             {
                 return CHART_PLOT_LEFT;
@@ -1052,7 +1090,7 @@ namespace Underwrite.UI
                 index = total;
             }
 
-            return CHART_PLOT_LEFT + (float)index / total * PlotWidth(width);
+            return CHART_PLOT_LEFT + index / total * PlotWidth(width);
         }
 
         private static float ChartY(float value, float min, float span, float height)
@@ -1135,11 +1173,11 @@ namespace Underwrite.UI
             var rising = stock.SessionChangeRatio >= -0.0005f;
 
             tag.RemoveFromClassList("hidden");
-            tag.text = stock.Price.ToString("N1");
+            tag.text = stock.LivePrice.ToString("N1");
             tag.EnableInClassList("chart-price-tag--up", rising);
             tag.EnableInClassList("chart-price-tag--down", rising == false);
             tag.style.left = PlotLeft() + PlotWidth(width) + 6f;
-            tag.style.top = ChartY(stock.Price, min, span, height);
+            tag.style.top = ChartY(stock.LivePrice, min, span, height);
             tag.style.translate = new Translate(0f, Length.Percent(-50f));
         }
 
@@ -1291,6 +1329,11 @@ namespace Underwrite.UI
                 painter.LineTo(new Vector2(x, y));
             }
 
+            // 마지막으로 지금 이 순간의 호가까지 잇는다.
+            // 틱 종가만 찍으면 15초에 한 번 꺾이는 선이 되어 멈춰 보인다.
+            var livePoint = LiveChartPoint(stock, history.Count, total, min, span, size);
+            painter.LineTo(livePoint);
+
             painter.Stroke();
 
             // 저·시작·고 지점에 점을 찍는다. 라벨만으로는 선의 어디를 가리키는지 알 수 없다.
@@ -1300,9 +1343,21 @@ namespace Underwrite.UI
             var highPoint = new Vector2(ChartX(highIndex, total, size.width),
                 ChartY(history[highIndex], min, span, size.height));
 
+            DrawDot(painter, livePoint, halted == true
+                ? new Color32(0x61, 0x6B, 0x7A, 0xFF)
+                : HexColor(stock.SessionChangeRatio));
             DrawDot(painter, openPoint, new Color32(0x6E, 0x60, 0x52, 0xFF));
             DrawDot(painter, lowPoint, new Color32(0x24, 0x5E, 0xC7, 0xFF));
             DrawDot(painter, highPoint, new Color32(0xC5, 0x36, 0x43, 0xFF));
+        }
+
+        /// <summary>지금 이 순간의 호가가 찍히는 자리. 마지막 틱에서 다음 틱 쪽으로 조금 나아간다.</summary>
+        private Vector2 LiveChartPoint(AdventurerStock stock, int count, int total,
+            float min, float span, Rect size)
+        {
+            var index = count - 1 + Sim.Clock.TickFraction;
+            return new Vector2(ChartXAt(index, total, size.width),
+                ChartY(stock.LivePrice, min, span, size.height));
         }
 
         /// <summary>점 하나를 찍는다. 선 위에 겹쳐도 보이도록 밝은 테두리를 먼저 깐다.</summary>
@@ -1404,7 +1459,7 @@ namespace Underwrite.UI
         private void RefreshPending()
         {
             var list = Root.Q<VisualElement>("pending-list");
-            var title = Root.Q<Label>("pending-title");
+            var title = Root.Q<VisualElement>("pending-head");
 
             if (list == null)
             {

@@ -763,14 +763,34 @@
     margin-right: 6px;
 }
 
-/* 주문 열은 아래로 쌓기만 한다. 대기 주문이 늘어나면 아래 보유 요약을 밀어내므로
-   이 목록만 높이를 묶고 안에서 스크롤시킨다. */
-#pending-list {
-    max-height: 116px;
-    overflow: scroll;
-}
-
 /* 패널 공통 여백보다 아래를 좁힌다. 주문 열만 담을 것이 많다. */
 .col-order {
     padding-bottom: 12px;
+}
+
+/* ── 대기 주문 ────────────────────────────── */
+
+/* 주문 패널에는 자리가 없다. 종목 목록 아래 남는 자리가 넓고 폭도 여유롭다.
+   남는 높이를 이 칸이 전부 가져가고, 넘치면 안에서 스크롤한다. */
+.pending-box {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.pending-head {
+    flex-shrink: 0;
+}
+
+.pending-divider {
+    height: 1px;
+    background-color: var(--color-divider);
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.pending-scroll {
+    flex-grow: 1;
+    min-height: 0;
 }

@@ -147,7 +147,9 @@ namespace Underwrite.Market
                     return 0f;
                 }
 
-                return (Price - SessionOpenPrice) / SessionOpenPrice;
+                // 화면에 보이는 가격과 같은 값으로 재야 한다. 틱 종가로 재면
+                // 큰 숫자는 54.2인데 등락률은 53.7 기준이 되어 둘 중 하나가 거짓말이 된다.
+                return (LivePrice - SessionOpenPrice) / SessionOpenPrice;
             }
         }
 

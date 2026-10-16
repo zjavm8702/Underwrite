@@ -98,6 +98,30 @@ namespace Underwrite.Market
         }
 
         /// <summary>장중 경과 비율. 0이 개장, 1이 폐장이다.</summary>
+        /// <summary>
+        /// 이번 틱이 얼마나 지났는가. 0에서 1 사이다.
+        /// 차트의 마지막 점을 틱과 틱 사이에서 매끄럽게 밀기 위해 쓴다.
+        /// </summary>
+        public float TickFraction
+        {
+            get
+            {
+                var fraction = Accumulated / Constants.MARKET_MINUTES_PER_TICK;
+
+                if (fraction < 0f)
+                {
+                    return 0f;
+                }
+
+                if (fraction > 1f)
+                {
+                    return 1f;
+                }
+
+                return fraction;
+            }
+        }
+
         public float SessionProgress
         {
             get

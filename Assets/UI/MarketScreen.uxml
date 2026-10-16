@@ -62,7 +62,15 @@
             <ui:VisualElement class="col-stocks panel">
                 <ui:Label text="거래 종목" class="t-panel" />
                 <ui:VisualElement name="stock-list" style="margin-top: 16px;" />
-                <ui:VisualElement class="grow" />
+
+                <ui:VisualElement name="pending-box" class="pending-box">
+                    <ui:VisualElement name="pending-head" class="pending-head hidden">
+                        <ui:VisualElement class="pending-divider" />
+                        <ui:Label name="pending-title" text="대기 주문" class="t-body-strong" />
+                    </ui:VisualElement>
+                    <ui:ScrollView name="pending-list" class="pending-scroll" />
+                </ui:VisualElement>
+
                 <ui:Label text="※ 장 시작 대비." class="t-note" />
             </ui:VisualElement>
 
@@ -158,9 +166,6 @@
 
                 <ui:Button name="submit-button" text="매수" class="cta btn--buy" />
                 <ui:Label name="order-message" text="" class="notice" />
-
-                <ui:Label name="pending-title" text="대기 주문" class="t-body-strong hidden" style="margin-top: 16px;" />
-                <ui:VisualElement name="pending-list" />
 
                 <ui:VisualElement class="grow" />
 
