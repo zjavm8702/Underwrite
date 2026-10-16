@@ -14,12 +14,37 @@ namespace Underwrite.Market
     public sealed class MarketClock
     {
         private float Accumulated;
+        private int SessionsDone;
 
         /// <summary>장이 열린 뒤 지난 틱 수. 사건 일정의 기준이다.</summary>
         public int Tick { get; private set; }
 
         /// <summary>며칠째인가. 오후장이 끝나면 하루가 넘어간다.</summary>
         public int Day { get; private set; } = 1;
+
+        /// <summary>
+        /// 몇 주기째인가. 주기는 원정 한 번이고 40주기가 10년이다. 설계안 §2.
+        /// 장을 셀 뿐 가격 계산에는 쓰지 않는다. 상장과 이탈이 이 숫자로 일어난다.
+        /// </summary>
+        public int Cycle { get; private set; } = 1;
+
+        /// <summary>이번 주기에서 몇 번째 장인가. 1부터 센다.</summary>
+        public int SessionInCycle
+        {
+            get
+            {
+                return SessionsDone % Constants.SESSIONS_PER_CYCLE + 1;
+            }
+        }
+
+        /// <summary>이번 장이 주기의 마지막 장인가. 끝나면 주기가 넘어간다.</summary>
+        public bool IsLastSessionOfCycle
+        {
+            get
+            {
+                return SessionInCycle >= Constants.SESSIONS_PER_CYCLE;
+            }
+        }
 
         /// <summary>장을 넘길 때 틱을 하나 강제로 진행시킨다. 실시간 경과와 무관하다.</summary>
         public void ForceTick()
@@ -191,6 +216,20 @@ namespace Underwrite.Market
             }
 
             Phase = MarketPhase.Phase_Open;
+        }
+
+        /// <summary>장 하나를 끝낸 것으로 센다. 주기가 넘어가면 참을 돌려준다.</summary>
+        public bool CountSessionAndAdvanceCycle()
+        {
+            SessionsDone++;
+
+            if (SessionsDone % Constants.SESSIONS_PER_CYCLE != 0)
+            {
+                return false;
+            }
+
+            Cycle++;
+            return true;
         }
 
         public void CloseSession()

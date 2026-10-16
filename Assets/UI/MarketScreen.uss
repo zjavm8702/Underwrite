@@ -962,3 +962,11 @@
 .toast--deny {
     border-color: var(--color-text-weak);
 }
+
+/* 떠나기로 공고된 종목. 설계안 §5의 사전 확인을 행에 적는다. */
+.stock-notice {
+    font-size: 15px;
+    color: var(--color-halt);
+    -unity-font-style: bold;
+    margin-top: 2px;
+}

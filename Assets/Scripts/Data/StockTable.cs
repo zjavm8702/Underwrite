@@ -18,6 +18,15 @@ namespace Underwrite.Data
 
         [Tooltip("작을수록 같은 수량의 주문이 가격을 크게 민다.")]
         public float Liquidity;
+
+        [Tooltip("몇 주기에 상장되는가. 1이면 처음부터 올라와 있다.")]
+        public int ListCycle = 1;
+
+        [Tooltip("몇 주기에 시장을 떠나는가. 0이면 떠나지 않는다.")]
+        public int DelistCycle;
+
+        [Tooltip("떠나는 사유. 예고가 있는 이탈과 없는 이탈을 가른다.")]
+        public DelistReason DelistReason = DelistReason.Delist_None;
     }
 
     /// <summary>

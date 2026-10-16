@@ -38,6 +38,65 @@ namespace Underwrite.Market
         /// <summary>이 종목이 살아 있는지. 사망·은퇴·영지 이동 시 거래가 멈춘다.</summary>
         public bool IsTradable { get; private set; } = true;
 
+        /// <summary>떠난 사유. 아직 살아 있으면 None이다.</summary>
+        public DelistReason LeftBecause { get; private set; } = DelistReason.Delist_None;
+
+        /// <summary>
+        /// 떠나기로 공고된 주기. 0이면 공고가 없다.
+        /// 예고 없는 전멸과 예고 있는 은퇴를 가르는 것이 설계안 §5의 핵심이다.
+        /// </summary>
+        public int NoticedDelistCycle { get; private set; }
+
+        /// <summary>떠날 때 돌려받는 비율. 상장 시점에 공개한다. 설계안 §5.</summary>
+        public float LiquidationRatio
+        {
+            get
+            {
+                return LiquidationRatioOf(PlannedReason);
+            }
+        }
+
+        /// <summary>떠나기로 되어 있는 사유. 공고 전에도 청산율을 보여 주기 위해 들고 있는다.</summary>
+        public DelistReason PlannedReason { get; private set; } = DelistReason.Delist_Retired;
+
+        public static float LiquidationRatioOf(DelistReason reason)
+        {
+            switch (reason)
+            {
+                case DelistReason.Delist_Wiped:
+                {
+                    return Constants.LIQUIDATION_WIPED;
+                }
+                case DelistReason.Delist_Moved:
+                {
+                    return Constants.LIQUIDATION_MOVED;
+                }
+                default:
+                {
+                    return Constants.LIQUIDATION_RETIRED;
+                }
+            }
+        }
+
+        internal void PlanDeparture(DelistReason reason)
+        {
+            PlannedReason = reason;
+        }
+
+        /// <summary>떠난다고 공고한다. 플레이어는 이때부터 팔 수 있다.</summary>
+        internal void NoticeDeparture(int cycle)
+        {
+            NoticedDelistCycle = cycle;
+        }
+
+        /// <summary>시장을 떠난다. 거래가 멈추고 남은 지분은 청산된다.</summary>
+        internal void Leave(DelistReason reason)
+        {
+            LeftBecause = reason;
+            PlannedReason = reason;
+            IsTradable = false;
+        }
+
         /// <summary>장 시작 시점의 가격. 등락률 표시에 쓴다.</summary>
         public float SessionOpenPrice { get; private set; }
 

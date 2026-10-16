@@ -75,6 +75,7 @@ namespace Underwrite.UI
         private VisualElement Root;
         private readonly StringBuilder Builder = new StringBuilder();
         private readonly List<VisualElement> StockRows = new List<VisualElement>();
+        private readonly List<string> RowStockIds = new List<string>();
 
         private string SelectedId = "";
         private OrderSide Side = OrderSide.Side_Buy;
@@ -125,11 +126,37 @@ namespace Underwrite.UI
             for (var i = 0; i < rows.Count; i++)
             {
                 var row = rows[i];
-                list.Add(new AdventurerStock(row.Id, row.DisplayName, row.Personality,
-                    row.TrueValue, row.Liquidity));
+                var stock = new AdventurerStock(row.Id, row.DisplayName, row.Personality,
+                    row.TrueValue, row.Liquidity);
+
+                // 나중에 올라올 종목은 대기열로 간다. 첫 주기에 전부 상장하면 자리가 넘친다.
+                if (row.ListCycle > 1)
+                {
+                    Sim.AddWaiting(stock, row.ListCycle);
+                    Sim.PlanDeparture(row.Id, row.DelistCycle, row.DelistReason);
+                    continue;
+                }
+
+                list.Add(stock);
             }
 
             return list;
+        }
+
+        /// <summary>떠날 주기와 사유를 표에서 읽어 등록한다. 청산율은 상장 시점부터 보인다.</summary>
+        private void RegisterDepartures()
+        {
+            if (Data == null || Data.StockRows == null)
+            {
+                return;
+            }
+
+            var rows = Data.StockRows.Rows;
+
+            for (var i = 0; i < rows.Count; i++)
+            {
+                Sim.PlanDeparture(rows[i].Id, rows[i].DelistCycle, rows[i].DelistReason);
+            }
         }
 
         private List<MarketEventStep> BuildEvents()
@@ -174,6 +201,7 @@ namespace Underwrite.UI
                 Sim.AddStock(stocks[i]);
             }
 
+            RegisterDepartures();
             Sim.AddEvents(BuildEvents());
             Sim.SetSentiment(StartingSentiment);
             Sim.OpenSession(IsInspectionDay);
@@ -240,9 +268,17 @@ namespace Underwrite.UI
 
             var ticks = Sim.Clock.Advance(delta);
 
+            var wasOpen = Sim.Clock.Phase == MarketPhase.Phase_Open;
+
             if (ticks > 0)
             {
                 Sim.Step(ticks);
+
+                // 틱을 돌다가 장이 저절로 닫힐 수 있다. 넘기기 단추를 안 눌러도 주기는 흘러야 한다.
+                if (wasOpen == true && Sim.Clock.Phase == MarketPhase.Phase_Closed)
+                {
+                    RollCycle();
+                }
 
                 if (Sim.HasBriefing == true)
                 {
@@ -344,12 +380,21 @@ namespace Underwrite.UI
 
             list.Clear();
             StockRows.Clear();
+            RowStockIds.Clear();
 
             var stocks = Sim.Stocks;
 
             for (var i = 0; i < stocks.Count; i++)
             {
                 var stock = stocks[i];
+
+                // 떠난 종목은 목록에서 뺀다. 청산은 쪽지로 알렸고 정보 기록에도 남는다.
+                // 40주기를 돌면 떠난 종목이 수십 개가 되는데 그걸 다 쌓아 둘 수는 없다.
+                if (stock.IsTradable == false)
+                {
+                    continue;
+                }
+
                 var row = new VisualElement();
                 row.AddToClassList("stock-row");
 
@@ -376,11 +421,21 @@ namespace Underwrite.UI
                 row.Add(top);
                 row.Add(sub);
 
+                // 떠나기로 공고된 종목은 그 사실을 행에 적는다. 설계안 §5가 사전 확인을 요구한다.
+                if (stock.NoticedDelistCycle > 0)
+                {
+                    var notice = new Label($"{stock.NoticedDelistCycle}주기 상장 폐지 예고"
+                        + $" · 청산율 {stock.LiquidationRatio * 100f:N0}퍼센트");
+                    notice.AddToClassList("stock-notice");
+                    row.Add(notice);
+                }
+
                 var id = stock.Id;
                 row.RegisterCallback<ClickEvent>(evt => SelectStock(id));
 
                 list.Add(row);
                 StockRows.Add(row);
+                RowStockIds.Add(stock.Id);
             }
         }
 
@@ -497,11 +552,31 @@ namespace Underwrite.UI
             var before = Sim.InfoLog.Count;
             var filled = Sim.SkipToClose();
             var news = Sim.InfoLog.Count - before;
+            RollCycle();
             ResetViewState();
 
             Message = filled > 0
                 ? $"장을 넘겼습니다. 소식 {news}건, 지정가 체결 {filled}건."
                 : $"장을 넘겼습니다. 소식 {news}건.";
+        }
+
+        /// <summary>
+        /// 장이 끝났음을 시장에 알리고, 주기가 넘어갔으면 그 결과를 쪽지로 띄운다.
+        /// 상장과 상장 폐지는 놓치면 안 되는 소식이라 흘려보내지 않는다.
+        /// </summary>
+        private void RollCycle()
+        {
+            Sim.EndSessionAndRoll();
+
+            for (var i = 0; i < Sim.CycleNotices.Count; i++)
+            {
+                ShowToast($"{Sim.Clock.Cycle}주기", Sim.CycleNotices[i], Side, true);
+            }
+
+            if (Sim.CycleNotices.Count > 0)
+            {
+                BuildStockRows();
+            }
         }
 
         /// <summary>화면이 다시 그려지도록 캐시를 비운다.</summary>
@@ -817,7 +892,8 @@ namespace Underwrite.UI
 
             var label = Sim.Clock.Session == MarketSession.Session_Evening ? "오후장" : "오전장";
             SetText("clock-text",
-                $"{Sim.Clock.Day}일차 {label} {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}"
+                $"{Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {label}"
+                + $" {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}"
                 + $" · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
             SetText("sentiment-text", $"분위기 {SentimentText(Sim.Sentiment)}");
 
@@ -857,11 +933,16 @@ namespace Underwrite.UI
 
         private void RefreshStocks()
         {
-            var stocks = Sim.Stocks;
-
-            for (var i = 0; i < stocks.Count && i < StockRows.Count; i++)
+            // 목록에서 떠난 종목을 걸러내므로 인덱스가 Sim.Stocks와 어긋난다. 종목 id로 찾는다.
+            for (var i = 0; i < RowStockIds.Count && i < StockRows.Count; i++)
             {
-                var stock = stocks[i];
+                AdventurerStock stock;
+
+                if (Sim.StockLookup.TryGetValue(RowStockIds[i], out stock) == false)
+                {
+                    continue;
+                }
+
                 var row = StockRows[i];
 
                 row.EnableInClassList("stock-row--selected", stock.Id == SelectedId);

@@ -1,0 +1,33 @@
+{
+  "time": "2026-10-16T12:19:26.080Z",
+  "scope": "Outputs only. No Assets writes.",
+  "deliverables": [
+    {
+      "path": "Outputs/UnderworldScene_v1/underworld_room.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "pivot": "not stored in PNG; Unity unset; recommended UI center (0.5,0.5)"
+    },
+    {
+      "path": "Outputs/UnderworldScene_v1/underworld_room_dim.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "pivot": "not stored in PNG; Unity unset; recommended UI center (0.5,0.5)"
+    }
+  ],
+  "source_paths": [
+    "C:/Users/SKY/.codex/generated_images/01a144a3-68b0-74b2-844f-b9955eb164b5/exec-d7732714-b782-4b71-8cf1-ad1fbbfafeb4.png",
+    "C:/Users/SKY/.codex/generated_images/01a144a3-68b0-74b2-844f-b9955eb164b5/exec-12bf179e-2e56-4513-bcfe-81b26b32a317.png"
+  ],
+  "source_dimensions": [
+    1672,
+    941
+  ],
+  "resize": "bilinear whole canvas to 1920x1080, both original source sizes identical",
+  "dim_finishing": "Generated dim used for 24x14 smooth luminance gain field (clamped 0.30..0.82). Applied to identical base coordinates, preserving geometry exactly.",
+  "documents_changed": []
+}

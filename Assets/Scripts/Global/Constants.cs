@@ -87,6 +87,25 @@ namespace Underwrite.Global
         /// <summary>한 장에 열리는 정보 타임 횟수.</summary>
         public const int INFO_TIMES_PER_SESSION = 2;
 
+        /// <summary>
+        /// 한 주기에 플레이하는 장의 수. 설계안 §2는 3~5개라 했고 샘플로 4를 쓴다.
+        /// 오전·오후를 합쳐 하루에 두 장이므로 한 주기는 이틀이다.
+        /// 주기는 원정 한 번에 해당하며 40주기가 10년이다.
+        /// </summary>
+        public static int SESSIONS_PER_CYCLE = 4;
+
+        /// <summary>상장 자리의 기본 수. 설계안 §6에 따라 분위기와 연차로 늘거나 준다.</summary>
+        public static int LISTING_SLOTS = 3;
+
+        /// <summary>전멸 청산율. 잔여 자산만 돌려받는다.</summary>
+        public static float LIQUIDATION_WIPED = 0.15f;
+
+        /// <summary>은퇴 청산율. 예고가 있으므로 미리 팔 수 있다.</summary>
+        public static float LIQUIDATION_RETIRED = 0.85f;
+
+        /// <summary>영지 이동 청산율.</summary>
+        public static float LIQUIDATION_MOVED = 0.75f;
+
         // ── 가격 모델 (기획서 §7의 6요인) ──────────
         /// <summary>가격이 목표가를 향해 올라갈 때의 수렴 속도.</summary>
         public static float PRICE_REVERSION_PER_TICK = 0.02f;

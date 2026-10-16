@@ -27,8 +27,26 @@ namespace Underwrite.Market
     /// 거래 장소 제약: 사용자 결정(2026-10-16)에 따라 주문은 지하시장에서만 받는다.
     /// 이동 중에는 가격과 속보 조회만 가능하다. <see cref="PlayerAtMarket"/>로 통제한다.
     /// </summary>
+    /// <summary>아직 상장되지 않은 종목과 올라올 주기.</summary>
+    public struct WaitingEntry
+    {
+        public AdventurerStock Stock;
+        public int Cycle;
+    }
+
+    /// <summary>떠날 주기와 사유.</summary>
+    public struct DeparturePlan
+    {
+        public int Cycle;
+        public DelistReason Reason;
+    }
+
     public sealed class MarketSimulation
     {
+        private readonly List<WaitingEntry> Waiting = new List<WaitingEntry>();
+        private readonly Dictionary<string, DeparturePlan> Departures =
+            new Dictionary<string, DeparturePlan>();
+
         private readonly Dictionary<string, AdventurerStock> StockTable =
             new Dictionary<string, AdventurerStock>();
         private readonly List<AdventurerStock> StockOrder = new List<AdventurerStock>();
@@ -43,6 +61,7 @@ namespace Underwrite.Market
         private int InfoTimesOpened;
         private int NextSlot;
         private readonly List<InfoEntry> Briefing = new List<InfoEntry>();
+        private readonly List<string> Notices = new List<string>();
 
         public MarketClock Clock { get; private set; } = new MarketClock();
         public Portfolio Wallet { get; private set; }
@@ -86,6 +105,18 @@ namespace Underwrite.Market
 
         /// <summary>이번 장에서 몇 번째 정보 타임인가. 1 또는 2.</summary>
         public int BriefingOrder { get; private set; }
+
+        /// <summary>
+        /// 주기가 넘어갈 때 일어난 일. 상장·공고·이탈을 한 줄씩 담는다.
+        /// 화면이 이것을 읽어 쪽지로 띄운다.
+        /// </summary>
+        public IReadOnlyList<string> CycleNotices
+        {
+            get
+            {
+                return Notices;
+            }
+        }
 
         /// <summary>보고를 읽었다. 장이 다시 움직인다.</summary>
         public void AcknowledgeBriefing()
@@ -283,6 +314,179 @@ namespace Underwrite.Market
                 var impact = PriceModel.OrderImpact(stock, order.Side, order.Quantity);
                 stock.SetPrice(PriceModel.ClampMove(stock.Price, stock.Price + impact));
                 stock.AdjustLiquidity(order.Quantity * 0.1f);
+            }
+        }
+
+        /// <summary>
+        /// 장 하나가 끝났음을 알리고, 주기가 넘어가면 상장과 이탈을 처리한다.
+        /// 설계안 §3의 생애(도착 → 상장 → 성장 → 이탈)에서 시장에 보이는 두 지점만 다룬다.
+        /// </summary>
+        public void EndSessionAndRoll()
+        {
+            Notices.Clear();
+
+            if (Clock.CountSessionAndAdvanceCycle() == false)
+            {
+                return;
+            }
+
+            ApplyDepartures();
+            ApplyArrivals();
+            ApplyNotices();
+        }
+
+        /// <summary>이번 주기에 떠나기로 되어 있는 종목을 내보낸다. 보유분은 청산한다.</summary>
+        private void ApplyDepartures()
+        {
+            for (var i = 0; i < StockOrder.Count; i++)
+            {
+                var stock = StockOrder[i];
+
+                if (stock.IsTradable == false)
+                {
+                    continue;
+                }
+
+                var plan = DepartureOf(stock.Id);
+
+                if (plan.Cycle <= 0 || plan.Cycle > Clock.Cycle)
+                {
+                    continue;
+                }
+
+                stock.Leave(plan.Reason);
+
+                var held = Wallet.QuantityOf(stock.Id);
+                var ratio = AdventurerStock.LiquidationRatioOf(plan.Reason);
+
+                if (held <= 0)
+                {
+                    Notices.Add($"{stock.DisplayName} 상장 폐지. 보유分 없음.".Replace("分", "분"));
+                    continue;
+                }
+
+                // 묶여 있던 지분을 먼저 풀어야 청산할 수 있다. 지정가 매도가 걸려 있을 수 있다.
+                ReleaseOrdersOf(stock.Id);
+
+                var unit = stock.TrueValue * ratio;
+                Wallet.Sell(stock.Id, held, unit);
+                Notices.Add($"{stock.DisplayName} 상장 폐지. {held}주를 주당 {unit:N1}에 청산했습니다.");
+            }
+        }
+
+        /// <summary>이번 주기에 올라오는 종목을 상장한다.</summary>
+        private void ApplyArrivals()
+        {
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                var entry = Waiting[i];
+
+                if (entry.Cycle > Clock.Cycle)
+                {
+                    continue;
+                }
+
+                if (StockTable.ContainsKey(entry.Stock.Id) == true)
+                {
+                    continue;
+                }
+
+                AddStock(entry.Stock);
+                Notices.Add($"{entry.Stock.DisplayName} 신규 상장. 공모가 {entry.Stock.Price:N1}.");
+            }
+
+            Waiting.RemoveAll(e => e.Cycle <= Clock.Cycle);
+        }
+
+        /// <summary>다음 주기에 떠날 종목을 미리 알린다. 기습 상장폐지는 설계안 §5가 금한다.</summary>
+        private void ApplyNotices()
+        {
+            for (var i = 0; i < StockOrder.Count; i++)
+            {
+                var stock = StockOrder[i];
+
+                if (stock.IsTradable == false || stock.NoticedDelistCycle > 0)
+                {
+                    continue;
+                }
+
+                var plan = DepartureOf(stock.Id);
+
+                if (plan.Cycle != Clock.Cycle + 1)
+                {
+                    continue;
+                }
+
+                // 전멸은 예고하지 않는다. 그 갑작스러움이 고위험 종목의 진짜 위험이다.
+                if (plan.Reason == DelistReason.Delist_Wiped)
+                {
+                    continue;
+                }
+
+                stock.NoticeDeparture(plan.Cycle);
+                var ratio = AdventurerStock.LiquidationRatioOf(plan.Reason) * 100f;
+                Notices.Add($"{stock.DisplayName} 다음 주기 상장 폐지 예고. 청산율 {ratio:N0}퍼센트.");
+            }
+        }
+
+        private DeparturePlan DepartureOf(string stockId)
+        {
+            DeparturePlan plan;
+
+            if (Departures.TryGetValue(stockId, out plan) == true)
+            {
+                return plan;
+            }
+
+            return new DeparturePlan();
+        }
+
+        /// <summary>청산 전에 그 종목에 걸린 대기 주문을 거둔다. 묶인 자산을 풀어야 한다.</summary>
+        private void ReleaseOrdersOf(string stockId)
+        {
+            for (var i = 0; i < Pending.Count; i++)
+            {
+                var order = Pending[i];
+
+                if (order.StockId != stockId || order.State != PendingState.Pending_Waiting)
+                {
+                    continue;
+                }
+
+                if (order.Side == OrderSide.Side_Buy)
+                {
+                    Wallet.ReleaseCash(order.ReservedCash);
+                }
+                else
+                {
+                    Wallet.ReleaseShares(order.StockId, order.Quantity);
+                }
+
+                order.MarkCancelled();
+            }
+        }
+
+        /// <summary>아직 상장되지 않은 종목과 그 주기.</summary>
+        public void AddWaiting(AdventurerStock stock, int cycle)
+        {
+            Waiting.Add(new WaitingEntry { Stock = stock, Cycle = cycle });
+        }
+
+        /// <summary>떠날 주기와 사유를 등록한다. 상장 시점에 청산율을 보여 주기 위해 종목에도 적어 둔다.</summary>
+        public void PlanDeparture(string stockId, int cycle, DelistReason reason)
+        {
+            if (cycle <= 0 || reason == DelistReason.Delist_None)
+            {
+                return;
+            }
+
+            Departures[stockId] = new DeparturePlan { Cycle = cycle, Reason = reason };
+
+            AdventurerStock stock;
+
+            if (StockTable.TryGetValue(stockId, out stock) == true)
+            {
+                stock.PlanDeparture(reason);
             }
         }
 

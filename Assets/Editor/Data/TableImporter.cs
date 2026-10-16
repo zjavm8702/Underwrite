@@ -148,6 +148,9 @@ namespace Underwrite.Editor
                 entry.Personality = ParsePersonality(Field(rows[i], "Personality"));
                 entry.TrueValue = ParseFloat(Field(rows[i], "TrueValue"));
                 entry.Liquidity = ParseFloat(Field(rows[i], "Liquidity"));
+                entry.ListCycle = System.Math.Max(1, ParseInt(Field(rows[i], "ListCycle")));
+                entry.DelistCycle = ParseInt(Field(rows[i], "DelistCycle"));
+                entry.DelistReason = ParseEnum<DelistReason>("Delist_", Field(rows[i], "DelistReason"));
                 list.Add(entry);
             }
 

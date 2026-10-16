@@ -1,0 +1,113 @@
+{
+  "status": "draft PNG complete, awaiting visual approval",
+  "time": "2026-10-16T12:19:26.078Z",
+  "images": {
+    "underworld_room.png": {
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA8",
+      "nonopaque_pixels": 0,
+      "hidden_rgb_pixels": 0,
+      "alpha_connected_components": 1,
+      "detached_components": 0,
+      "canvas_contact": "intentional all four edges, full-bleed background",
+      "bottom": {
+        "bounds": [
+          0,
+          720,
+          1920,
+          1080
+        ],
+        "metric": "sRGB luma Yprime, 0..255, Rec.709 weights",
+        "mean": 20.008534599163585,
+        "stddev": 4.228022414772233,
+        "min": 0,
+        "max": 46.5088
+      },
+      "character": {
+        "bounds": [
+          300,
+          0,
+          900,
+          1080
+        ],
+        "metric": "sRGB luma Yprime, 0..255, Rec.709 weights",
+        "mean": 18.084199049616988,
+        "stddev": 3.6638353595634627,
+        "min": 0.2126,
+        "max": 48.867
+      },
+      "sha256": "0834e4a17ee6af2cf9d58e7cde731fa19587afd8cba6c0496f662d7e440afe38"
+    },
+    "underworld_room_dim.png": {
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA8",
+      "nonopaque_pixels": 0,
+      "hidden_rgb_pixels": 0,
+      "alpha_connected_components": 1,
+      "detached_components": 0,
+      "canvas_contact": "intentional all four edges, full-bleed background",
+      "bottom": {
+        "bounds": [
+          0,
+          720,
+          1920,
+          1080
+        ],
+        "metric": "sRGB luma Yprime, 0..255, Rec.709 weights",
+        "mean": 13.745011058410247,
+        "stddev": 3.33007863473751,
+        "min": 0,
+        "max": 34.3816
+      },
+      "character": {
+        "bounds": [
+          300,
+          0,
+          900,
+          1080
+        ],
+        "metric": "sRGB luma Yprime, 0..255, Rec.709 weights",
+        "mean": 11.609201063555071,
+        "stddev": 2.851049972101158,
+        "min": 0,
+        "max": 27.11
+      },
+      "sha256": "804c63877ad9d1a62104ed9abb1e0702153234c65f1523cfe9ee8c06af008dbc"
+    }
+  },
+  "structure_alignment": {
+    "method": "Final dim reuses base pixels at identical coordinates, with scalar illumination only. No resampling or displacement between delivered images.",
+    "displacement_px": 0,
+    "edge_gradient_ncc": 0.985566505783304,
+    "generated_edit_pre_correction_best_offset": [
+      0,
+      -1
+    ],
+    "generated_edit_pre_correction_ncc": 0.7975521858555397
+  },
+  "assets_meta": {
+    "baseline_count": 404,
+    "unchanged": 404,
+    "changed": [],
+    "deleted": [],
+    "added": []
+  },
+  "visual_checks": {
+    "no_people": true,
+    "no_text_digits_symbols": true,
+    "blank_paper": true,
+    "lantern_count": 2,
+    "dialogue_box": "#F2E7D2 at [110,745,1810,1040]",
+    "silhouette": "gray #808080 centered x590, footprint within x300..900",
+    "composition": "right table legs remain in bottom third but very dark; see measured low variance",
+    "preview_files": [
+      "comparison_preview.png",
+      "readability_composite.png",
+      "readability_composite_dim.png"
+    ]
+  },
+  "animation": "not applicable, two static lighting variants",
+  "unity": "out of scope"
+}

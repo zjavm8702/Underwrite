@@ -18,13 +18,38 @@ MonoBehaviour:
     Personality: 1
     TrueValue: 42
     Liquidity: 60
+    ListCycle: 1
+    DelistCycle: 0
+    DelistReason: 0
   - Id: STOCK_VETERAN
     DisplayName: "\uBE0C\uB780 (\uBCA0\uD14C\uB791)"
     Personality: 0
     TrueValue: 120
     Liquidity: 400
+    ListCycle: 1
+    DelistCycle: 4
+    DelistReason: 2
   - Id: STOCK_HIGH_RISK
     DisplayName: "\uBE14\uB799\uBB34\uC5B4 \uB2E8 (\uACE0\uC704\uD5D8)"
     Personality: 2
     TrueValue: 75
     Liquidity: 150
+    ListCycle: 1
+    DelistCycle: 3
+    DelistReason: 1
+  - Id: STOCK_WARDEN
+    DisplayName: "\uD68C\uC0C9 \uD30C\uC218\uB300 (\uC2E0\uC785)"
+    Personality: 1
+    TrueValue: 58
+    Liquidity: 90
+    ListCycle: 2
+    DelistCycle: 0
+    DelistReason: 0
+  - Id: STOCK_LANTERN
+    DisplayName: "\uB4F1\uBD88 \uAE30\uC0AC\uB2E8 (\uBCA0\uD14C\uB791)"
+    Personality: 0
+    TrueValue: 165
+    Liquidity: 320
+    ListCycle: 3
+    DelistCycle: 0
+    DelistReason: 0

@@ -94,6 +94,21 @@ namespace Underwrite.Enumeration
         Visibility_Public
     }
 
+    /// <summary>
+    /// 종목이 시장을 떠나는 사유. 설계안 §5.
+    ///
+    /// 예고가 있는 이탈과 없는 이탈을 나누는 것이 핵심이다.
+    /// 예고 없는 전멸이 고위험 종목의 진짜 위험이고,
+    /// 예고 있는 은퇴는 "언제 팔까"라는 판단거리가 된다.
+    /// </summary>
+    public enum DelistReason
+    {
+        Delist_None,
+        Delist_Wiped,
+        Delist_Retired,
+        Delist_Moved
+    }
+
     /// <summary>정보의 출처. 신뢰도 판단 근거로 플레이어에게 함께 보여준다. 기획서 §8.</summary>
     public enum InfoSource
     {
