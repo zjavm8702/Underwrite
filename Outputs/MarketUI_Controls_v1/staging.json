@@ -110,5 +110,67 @@
     "Documents/README.md",
     "Outputs/MarketUI_Parchment_v1/README.md",
     "Outputs/MarketUI_Parchment_v1/nine_slice_preview.png"
+  ],
+  "sourceFiles": [
+    {
+      "file": "source/contact.png",
+      "modifiedTime": "2026-10-16T12:04:54.484Z",
+      "sizeBytes": 609600
+    },
+    {
+      "file": "source/fieldRetry.png",
+      "modifiedTime": "2026-10-16T12:07:06.888Z",
+      "sizeBytes": 1283600
+    },
+    {
+      "file": "source/fieldRetry_small.png",
+      "modifiedTime": "2026-10-16T12:07:17.015Z",
+      "sizeBytes": 100505
+    },
+    {
+      "file": "source/pressedRetry.png",
+      "modifiedTime": "2026-10-16T12:05:29.285Z",
+      "sizeBytes": 1358007
+    },
+    {
+      "file": "source/retries.png",
+      "modifiedTime": "2026-10-16T12:06:03.338Z",
+      "sizeBytes": 167551
+    },
+    {
+      "file": "source/tabRetry.png",
+      "modifiedTime": "2026-10-16T12:05:51.300Z",
+      "sizeBytes": 1123353
+    },
+    {
+      "file": "source/ui_button_disabled.png",
+      "modifiedTime": "2026-10-16T12:02:23.254Z",
+      "sizeBytes": 1912538
+    },
+    {
+      "file": "source/ui_button_normal.png",
+      "modifiedTime": "2026-10-16T12:01:13.708Z",
+      "sizeBytes": 1390498
+    },
+    {
+      "file": "source/ui_button_pressed.png",
+      "modifiedTime": "2026-10-16T12:01:49.064Z",
+      "sizeBytes": 1992391
+    },
+    {
+      "file": "source/ui_field.png",
+      "modifiedTime": "2026-10-16T12:03:57.192Z",
+      "sizeBytes": 1754227
+    },
+    {
+      "file": "source/ui_tab_off.png",
+      "modifiedTime": "2026-10-16T12:03:31.960Z",
+      "sizeBytes": 2034026
+    },
+    {
+      "file": "source/ui_tab_on.png",
+      "modifiedTime": "2026-10-16T12:02:56.290Z",
+      "sizeBytes": 1367321
+    }
   ]
 }

@@ -84,27 +84,64 @@
     -unity-slice-scale: 0.5;
 }
 
-/* 양피지 위에서는 중성 버튼이 묻힌다. 잉크색 테두리로 형태를 잡는다. */
+/* 조작 부품도 종이다. 색만 칠한 사각형은 양피지 세계와 겉돈다.
+   9-slice는 48px이지만 scale 0.25로 그린다. 0.5면 테두리가 상하 24+24=48px이 되어
+   높이 34~46px인 작은 버튼에서 중앙이 사라지고 테두리끼리 맞닿는다. */
 .btn,
 .btn--small,
+.ratio-btn,
 .tab,
 .type-tab,
 .pending-cancel {
-    background-color: rgba(42, 33, 24, 0.07);
-    border-width: 1px;
-    border-color: rgba(42, 33, 24, 0.22);
+    background-image: url("project://database/Assets/UI/Images/ui_button_normal.png");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-left: 48;
+    -unity-slice-right: 48;
+    -unity-slice-top: 48;
+    -unity-slice-bottom: 48;
+    -unity-slice-scale: 0.25;
+    border-width: 0;
+    color: var(--color-text);
 }
 
 /* 선택 상태는 잉크로 칠한 면이다. 글자는 종이색으로 뒤집어야 읽힌다.
-   var()를 쓰면 이 규칙에서 배경만 먹지 않아 흰 글자가 밝은 바탕에 남는다.
    같은 명시도끼리는 뒤에 오는 규칙이 이기므로 .btn 지정보다 뒤에 둔다. */
 .btn.btn--selected,
 .type-tab.type-tab--on {
-    background-color: #2A2118;
+    background-image: url("project://database/Assets/UI/Images/ui_button_pressed.png");
+    background-color: rgba(0, 0, 0, 0);
     color: #F7F0E2;
-    border-color: #2A2118;
-    border-width: 1px;
+    border-width: 0;
     -unity-font-style: bold;
+}
+
+/* 탭은 앞으로 나온 종이와 뒤로 물러난 종이로 나뉜다. */
+.tab {
+    background-image: url("project://database/Assets/UI/Images/ui_tab_off.png");
+}
+
+.tab.tab--buy-on,
+.tab.tab--sell-on {
+    background-image: url("project://database/Assets/UI/Images/ui_tab_on.png");
+    -unity-font-style: bold;
+}
+
+/* 기본 버튼 규칙이 글자색을 덮어썼다. 고른 쪽이 무엇인지 색으로 바로 보여야 한다. */
+.tab.tab--buy-on {
+    color: var(--color-rise);
+}
+
+.tab.tab--sell-on {
+    color: var(--color-fall);
+}
+
+/* 못 쓰는 단추는 바랜 종이다. */
+.btn--disabled,
+.btn.btn--disabled {
+    background-image: url("project://database/Assets/UI/Images/ui_button_disabled.png");
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--color-text-weak);
+    border-width: 0;
 }
 
 .btn--buy {
@@ -134,10 +171,16 @@
     color: #F2E7D2;
 }
 
-/* 수량·지정가 입력은 테두리를 또렷하게 */
+/* 수량·지정가 입력칸. 눌린 것이 아니라 홈이 파여 숫자를 적는 자리다. */
 .qty-box {
-    border-color: rgba(42, 33, 24, 0.35);
-    background-color: rgba(255, 255, 255, 0.35);
+    background-image: url("project://database/Assets/UI/Images/ui_field.png");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-left: 48;
+    -unity-slice-right: 48;
+    -unity-slice-top: 48;
+    -unity-slice-bottom: 48;
+    -unity-slice-scale: 0.25;
+    border-width: 0;
 }
 
 /* 정보 카드는 --color-canvas를 쓰는데, 양피지에서는 그게 어두운 나무색이라 검게 나온다.
@@ -150,11 +193,6 @@
     background-color: var(--color-private-soft);
 }
 
-/* 탭의 기본 배경도 같은 이유로 바로잡는다. */
-.tab,
-.type-tab {
-    background-color: rgba(42, 33, 24, 0.07);
-}
 
 /* 팝업 머리를 누를 때의 강조도 어두운 나무색이 아니라 종이색으로. */
 .info-popup-head:hover {

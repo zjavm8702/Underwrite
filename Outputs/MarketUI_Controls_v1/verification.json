@@ -1,5 +1,5 @@
 {
-  "time": "2026-10-16T12:07:53.006Z",
+  "time": "2026-10-16T12:09:26.873Z",
   "assets": [
     {
       "file": "ui_button_normal.png",
@@ -216,10 +216,12 @@
     "beforeCount": 398,
     "retained": 398,
     "changedOrRemoved": [],
-    "added": [
+    "added": [],
+    "transientAdditionsObserved": [
       "Assets/Temp/ui_toast.png.meta",
       "Assets/Temp.meta"
-    ]
+    ],
+    "transientNote": "Observed during interim verification, absent in final inventory; no writes by this task."
   },
   "nineSlice": {
     "borderLTRB": [
