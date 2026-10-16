@@ -1,0 +1,42 @@
+﻿Key,Value,Type,Group,Owner,Note
+MARKET_MINUTES_PER_TICK,5,int,시장 시간,코드 고정,한 틱이 나타내는 게임 내 분. 가격은 이 간격으로 갱신된다.
+MARKET_SESSION_MINUTES,360,int,시장 시간,코드 고정,한 장의 길이(분). 6시간이다. 72틱이 된다.
+MARKET_MINUTES_PER_REAL_SECOND,0.3333,float,시장 시간,튜닝,"실시간 1초가 흐르는 게임 내 분. 배속 1.0 기준. 0.3333이면 한 틱이 실시간 15초, 한 장이 약 18분이다. 이보다 빠르면 가격이 눈으로 따라가기 어렵고, 판단할 틈이 없다."
+INFO_TIME_FIRST_TICK,24,int,시장 시간,코드 고정,"오전장 개장 시각. 09시부터 15시까지다. 장중 정보 타임이 열리는 틱. 한 장에 두 번이다. 지하세계로 모험 진행 상황이 들어오는 순간이고, 그때 시장이 함께 반응한다. 72틱 장에서 24·48이면 장 시작 6분·12분 지점이다."
+INFO_TIME_SECOND_TICK,48,int,시장 시간,코드 고정,
+INFO_TIMES_PER_SESSION,2,int,시장 시간,코드 고정,
+MARKET_MORNING_START_HOUR,9,int,시장 시간,코드 고정,
+MARKET_EVENING_START_HOUR,21,int,시장 시간,코드 고정,오후장 개장 시각. 21시부터 다음 날 03시까지다.
+PRICE_REVERSION_PER_TICK,0.02,float,가격 모델 (기획서 §7의 6요인),튜닝,가격이 목표가를 향해 올라갈 때의 수렴 속도.
+PRICE_REVERSION_DOWN_PER_TICK,0.035,float,가격 모델 (기획서 §7의 6요인),튜닝,"가격이 목표가를 향해 내려갈 때의 수렴 속도. 올라갈 때보다 빠르다. 실제 급등주는 무너지는 속도가 오르는 속도보다 훨씬 빠르다. GameStop 2021은 오르는 데 20일, 정점에서 80퍼센트 빠지는 데 3거래일이 걸렸다. 상한(PRICE_MAX_DROP_PER_TICK)은 극단적 충격만 막고, 평소의 붕괴 속도는 이 값이 만든다."
+PRICE_NOISE_BASE,0.0032,float,가격 모델 (기획서 §7의 6요인),튜닝,틱마다 더하는 무작위 변동의 기본 폭. 종목 성격과 분위기로 배율이 걸린다.
+PRICE_MOMENTUM_RETENTION,0.62,float,가격 모델 (기획서 §7의 6요인),튜닝,"추세 지속. 직전 틱의 흐름이 다음 틱에 남는 비율. 0이면 매 틱이 서로 독립이라 가격이 한 수준에서 맴돌고, 그 수준만 알면 사고파는 게 공짜가 된다. 실제 주가가 예측하기 어려운 이유는 변동이 커서가 아니라 방향이 이어지기 때문이다."
+MARKET_MICRO_SECONDS,0.12,float,가격 모델 (기획서 §7의 6요인),튜닝,미세 호가를 다시 뽑는 간격(실시간 초). 틱과 무관하게 돈다.
+MICRO_AMPLITUDE,0.0013,float,가격 모델 (기획서 §7의 6요인),튜닝,미세 호가 흔들림 한 번의 크기. 틱 종가 대비 비율이다.
+MICRO_RETENTION,0.72,float,가격 모델 (기획서 §7의 6요인),튜닝,미세 흔들림이 남는 비율. 1에 가까울수록 천천히 제자리로 돌아온다.
+MICRO_LIMIT,0.007,float,가격 모델 (기획서 §7의 6요인),튜닝,미세 흔들림의 한계. 틱 종가에서 이보다 멀어지지 않는다.
+EXPECTATION_DECAY_PER_TICK,0.02,float,가격 모델 (기획서 §7의 6요인),튜닝,기대가 실제 가치로 식어가는 속도. 소문은 시간이 지나면 힘을 잃는다.
+ORDER_IMPACT_SCALE,0.9,float,가격 모델 (기획서 §7의 6요인),튜닝,주문 한 주가 유동성 대비 가격을 밀어내는 정도.
+PRICE_MAX_MOVE_PER_TICK,0.18,float,가격 모델 (기획서 §7의 6요인),튜닝,한 틱에 허용하는 최대 상승률. 급등을 허용하되 폭주는 막는다.
+PRICE_MAX_DROP_PER_TICK,0.30,float,가격 모델 (기획서 §7의 6요인),튜닝,"한 틱에 허용하는 최대 하락률. 상승 상한보다 크다. 실제 급등주는 무너지는 속도가 오르는 속도보다 훨씬 빠르다. GameStop 2021은 오르는 데 20일, 정점에서 80퍼센트 빠지는 데 3거래일이 걸렸다. 조사 기록: Documents/Claude/Underwrite_시장모델_실제자료_샘플.md"
+PRICE_FLOOR,1,float,가격 모델 (기획서 §7의 6요인),코드 고정,가격 하한. 0 이하로 내려가지 않게 한다.
+VOLATILITY_VETERAN,0.45,float,종목 성격별 배율,튜닝,
+VOLATILITY_ROOKIE,1.8,float,종목 성격별 배율,튜닝,
+VOLATILITY_HIGH_RISK,2.4,float,종목 성격별 배율,튜닝,
+VOLATILITY_FAMOUS,1.0,float,종목 성격별 배율,튜닝,
+SENTIMENT_DRIFT_CALM,0.0005,float,시장 분위기별 배율,튜닝,
+SENTIMENT_DRIFT_FEVER,0.004,float,시장 분위기별 배율,튜닝,
+SENTIMENT_DRIFT_FEAR,-0.006,float,시장 분위기별 배율,튜닝,
+SENTIMENT_DRIFT_DRAINED,-0.002,float,시장 분위기별 배율,튜닝,
+SENTIMENT_VOLATILITY_CALM,1.0,float,시장 분위기별 배율,튜닝,
+SENTIMENT_VOLATILITY_FEVER,1.6,float,시장 분위기별 배율,튜닝,
+SENTIMENT_VOLATILITY_FEAR,2.0,float,시장 분위기별 배율,튜닝,
+SENTIMENT_VOLATILITY_DRAINED,1.2,float,시장 분위기별 배율,튜닝,
+STARTING_CASH,500,float,플레이어 자금,튜닝,시제품 시작 현금. 종잣돈 퀘스트 전 기본값이며 검증에서 조정한다.
+BOOK_LEVELS,5,int,호가와 지정가,코드 고정,호가창에 보여줄 매수·매도 각 단계 수.
+BOOK_TICK_RATIO,0.004,float,호가와 지정가,튜닝,호가 단위를 가격의 몇 배로 잡을지. 126.8이면 약 0.5가 된다.
+BOOK_TICK_MIN,0.1,float,호가와 지정가,코드 고정,호가 단위의 하한.
+BOOK_DEPTH_BASE,0.12,float,호가와 지정가,튜닝,1단계 호가에 쌓이는 수량을 유동성의 몇 배로 잡을지.
+BOOK_DEPTH_GROWTH,0.45,float,호가와 지정가,튜닝,단계가 멀어질수록 수량이 늘어나는 비율.
+PENDING_MAX_PER_STOCK,5,int,호가와 지정가,코드 고정,한 종목에 동시에 걸 수 있는 지정가 주문 수.
+PRICE_HISTORY_CAPACITY,240,int,차트,코드 고정,종목별로 보관하는 가격 이력 길이.

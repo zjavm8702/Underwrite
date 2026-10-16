@@ -1,0 +1,5 @@
+﻿Sentiment,DriftPerTick,VolatilityMultiplier,Note
+CALM,0.0005,1.0,
+FEVER,0.004,1.6,
+FEAR,-0.006,2.0,
+DRAINED,-0.002,1.2,

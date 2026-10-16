@@ -1,0 +1,4 @@
+﻿Id,DisplayName,Personality,TrueValue,Liquidity,Note
+STOCK_ROOKIE,셀라 (신입),Rookie,42,60,
+STOCK_VETERAN,브란 (베테랑),Veteran,120,400,
+STOCK_HIGH_RISK,블랙무어 단 (고위험),HighRisk,75,150,

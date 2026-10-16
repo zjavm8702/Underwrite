@@ -61,6 +61,11 @@ namespace Underwrite.Global
         public const float MARKET_MINUTES_PER_REAL_SECOND = 0.3333f;
 
         /// <summary>오전장 개장 시각. 09시부터 15시까지다.</summary>
+        public const int MARKET_MORNING_START_HOUR = 9;
+
+        /// <summary>오후장 개장 시각. 21시부터 다음 날 03시까지다.</summary>
+        public const int MARKET_EVENING_START_HOUR = 21;
+
         /// <summary>
         /// 장중 정보 타임이 열리는 틱. 한 장에 두 번이다.
         /// 지하세계로 모험 진행 상황이 들어오는 순간이고, 그때 시장이 함께 반응한다.
@@ -68,13 +73,11 @@ namespace Underwrite.Global
         /// </summary>
         public const int INFO_TIME_FIRST_TICK = 24;
 
+        /// <summary>두 번째 정보 타임. 장의 2/3 지점이다.</summary>
         public const int INFO_TIME_SECOND_TICK = 48;
 
+        /// <summary>한 장에 열리는 정보 타임 횟수.</summary>
         public const int INFO_TIMES_PER_SESSION = 2;
-
-        public const int MARKET_MORNING_START_HOUR = 9;
-        /// <summary>오후장 개장 시각. 21시부터 다음 날 03시까지다.</summary>
-        public const int MARKET_EVENING_START_HOUR = 21;
 
         // ── 가격 모델 (기획서 §7의 6요인) ──────────
         /// <summary>가격이 목표가를 향해 올라갈 때의 수렴 속도.</summary>
