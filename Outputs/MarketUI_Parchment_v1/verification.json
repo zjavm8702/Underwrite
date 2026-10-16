@@ -1,0 +1,107 @@
+{
+  "time": "2026-10-16T09:33:17.296Z",
+  "assets": {
+    "panel": {
+      "file": "market_panel.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "components": 1,
+      "detachedComponents": 0,
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 184,
+      "partialAlphaPixels": 100,
+      "edgeContactPixels": 1960,
+      "edgeContactExpected": true,
+      "clipping": "full-bleed surface; intentional edge contact, rounded corners checked",
+      "centerLuminance": {
+        "mean": 0.7613185794209072,
+        "stddev": 0.007150525108223188,
+        "min": 0.7338967579651812
+      },
+      "minimumTextContrast": {
+        "ink": 11.795190876144492,
+        "rise": 3.9364305416579373,
+        "fall": 4.478387320027611,
+        "private": 5.29704806215569
+      }
+    },
+    "background": {
+      "file": "market_background.png",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA",
+      "components": 1,
+      "detachedComponents": 0,
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "edgeContactPixels": 5996,
+      "edgeContactExpected": true,
+      "clipping": "full-bleed surface; intentional edge contact, rounded corners checked",
+      "centerLuminance": {
+        "mean": 0.02467724615174149,
+        "stddev": 0.0053711234134003845,
+        "min": 0.010564805889484314
+      },
+      "minimumTextContrast": null
+    },
+    "selection": {
+      "file": "market_selection.png",
+      "width": 256,
+      "height": 128,
+      "mode": "RGBA",
+      "components": 1,
+      "detachedComponents": 0,
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 92,
+      "partialAlphaPixels": 76,
+      "edgeContactPixels": 712,
+      "edgeContactExpected": true,
+      "clipping": "full-bleed surface; intentional edge contact, rounded corners checked",
+      "centerLuminance": {
+        "mean": 0.864884263212746,
+        "stddev": 0.007401811226145825,
+        "min": 0.8202354982987861
+      },
+      "minimumTextContrast": {
+        "ink": 13.094318486882715,
+        "rise": 4.369990766169763,
+        "fall": 4.971638907061661,
+        "private": 5.880467310323315
+      }
+    }
+  },
+  "nineSlice": {
+    "panel": {
+      "left": 48,
+      "bottom": 48,
+      "right": 48,
+      "top": 48,
+      "radius": 16
+    },
+    "selection": {
+      "left": 24,
+      "bottom": 24,
+      "right": 24,
+      "top": 24,
+      "radius": 12
+    }
+  },
+  "staticImages": true,
+  "unityConnected": false,
+  "visualReview": "3 PNG originals, resized panel and selection, 9-slice montage, readability composite reviewed; native UI not modified",
+  "preservation": {
+    "metaBefore": 378,
+    "metaMaintained": 378,
+    "metaChanged": [],
+    "protectedFilesUnchanged": {
+      "Assets/UI/MarketScreen.uss": true,
+      "Assets/UI/MarketScreen.Underground.uss": true
+    },
+    "metaAdded": [
+      "Assets/Temp/ui_13.png.meta",
+      "Assets/Temp/ui_14.png.meta"
+    ]
+  }
+}

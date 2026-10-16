@@ -365,6 +365,44 @@ namespace Underwrite.Market
             return false;
         }
 
+        /// <summary>
+        /// 남은 틱을 전부 돌려 장을 끝낸다. 기획서 §11의 "사건이 적은 기간은 넘긴다"에 해당한다.
+        /// 사건과 가격은 모두 정상 처리되므로 넘겨도 놓치는 것은 없다. 보는 시간만 줄어든다.
+        /// 넘기는 동안 체결된 지정가 수를 돌려준다.
+        /// </summary>
+        public int SkipToClose()
+        {
+            var filled = 0;
+            var guard = 0;
+
+            while (Clock.Tick < Clock.TicksPerSession && guard < Clock.TicksPerSession + 8)
+            {
+                guard++;
+                Clock.ForceTick();
+                Step(1);
+                filled += LastFilledCount;
+            }
+
+            ExpirePendingAtClose();
+            Clock.CloseSession();
+            return filled;
+        }
+
+        /// <summary>다음 장을 연다. 오전장 다음은 오후장, 오후장 다음은 이튿날 오전장이다.</summary>
+        public void OpenNextSession(bool isInspectionDay)
+        {
+            var next = Clock.Session == MarketSession.Session_Morning
+                ? MarketSession.Session_Evening
+                : MarketSession.Session_Morning;
+
+            if (next == MarketSession.Session_Morning)
+            {
+                Clock.AdvanceDay();
+            }
+
+            OpenSession(isInspectionDay, next);
+        }
+
         /// <summary>폐장 시 남은 지정가 주문을 정리한다. 다음 장으로 넘기지 않는다.</summary>
         public void ExpirePendingAtClose()
         {

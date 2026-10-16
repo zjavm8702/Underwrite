@@ -42,6 +42,11 @@ namespace Underwrite.UI
         [Header("진행")]
         [SerializeField] private bool AutoPauseOnOutcome = true;
 
+        [Header("테마")]
+        [Tooltip("켜면 어두운 지하 테마를 덮어씌운다. 색 토큰만 바뀌고 레이아웃은 같다.")]
+        [SerializeField] private bool UseUndergroundTheme;
+        [SerializeField] private StyleSheet UndergroundTheme;
+
         private MarketSimulation Sim;
         private VisualElement Root;
         private readonly StringBuilder Builder = new StringBuilder();
@@ -57,6 +62,7 @@ namespace Underwrite.UI
         private int PendingCountShown = -1;
         private string Message = "";
 
+        private bool InfoCollapsed;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
         private bool LimitTouched;
@@ -65,6 +71,24 @@ namespace Underwrite.UI
 
         private void Awake()
         {
+            EnsureSimulation();
+        }
+
+        /// <summary>
+        /// 시뮬레이션을 만든다. 이미 있으면 아무것도 하지 않는다.
+        ///
+        /// Awake에서만 만들면 두 경우에 비어 버린다.
+        /// 하나는 재생 중 재컴파일로 도메인이 리로드될 때다. Sim은 직렬화되지 않아 사라진다.
+        /// 다른 하나는 UIDocument와의 초기화 순서가 뒤집힐 때다.
+        /// 그래서 Update와 OnEnable에서도 불러 스스로 복구하게 둔다.
+        /// </summary>
+        private void EnsureSimulation()
+        {
+            if (Sim != null)
+            {
+                return;
+            }
+
             Sim = new MarketSimulation(Seed, Constants.STARTING_CASH);
 
             var stocks = PrototypeScenario.CreateStocks();
@@ -80,10 +104,13 @@ namespace Underwrite.UI
             Sim.PlayerAtMarket = true;
 
             SelectedId = stocks[0].Id;
+            ResetViewState();
         }
 
         private void OnEnable()
         {
+            EnsureSimulation();
+
             var document = GetComponent<UIDocument>();
             Root = document.rootVisualElement;
 
@@ -93,16 +120,41 @@ namespace Underwrite.UI
                 return;
             }
 
+            ApplyTheme();
             BuildStockRows();
             BindButtons();
+
+            // 테마 전환은 UI Toolkit의 키 이벤트로 받는다.
+            // 이 프로젝트는 새 Input System을 쓰므로 UnityEngine.Input을 쓰면 예외가 난다.
+            Root.focusable = true;
+            Root.RegisterCallback<KeyDownEvent>(OnRootKeyDown);
+            Root.Focus();
+
             Refresh();
         }
 
         private void Update()
         {
-            if (Sim == null || Root == null)
+            EnsureSimulation();
+
+            if (Root == null)
             {
-                return;
+                // UIDocument가 늦게 준비되는 경우가 있다. 준비되면 그때 화면을 만든다.
+                var document = GetComponent<UIDocument>();
+                Root = document == null ? null : document.rootVisualElement;
+
+                if (Root == null)
+                {
+                    return;
+                }
+
+                ApplyTheme();
+                BuildStockRows();
+                BindButtons();
+                Root.focusable = true;
+                Root.RegisterCallback<KeyDownEvent>(OnRootKeyDown);
+                Root.Focus();
+                ResetViewState();
             }
 
             var delta = Mathf.Min(Time.unscaledDeltaTime, MAX_DELTA_SECONDS);
@@ -120,6 +172,49 @@ namespace Underwrite.UI
             }
 
             Refresh();
+        }
+
+        /// <summary>
+        /// 어두운 테마를 덮어씌운다. 색 토큰만 바꾸는 시트라 나중에 붙이기만 하면 된다.
+        /// 재생 중 F2로 끄고 켜며 비교할 수 있다.
+        /// </summary>
+        private void ApplyTheme()
+        {
+            if (UndergroundTheme == null)
+            {
+                return;
+            }
+
+            var has = Root.styleSheets.Contains(UndergroundTheme);
+
+            if (UseUndergroundTheme == true && has == false)
+            {
+                Root.styleSheets.Add(UndergroundTheme);
+                return;
+            }
+
+            if (UseUndergroundTheme == false && has == true)
+            {
+                Root.styleSheets.Remove(UndergroundTheme);
+            }
+        }
+
+        private void OnRootKeyDown(KeyDownEvent evt)
+        {
+            if (evt.keyCode != KeyCode.F2)
+            {
+                return;
+            }
+
+            ToggleTheme();
+            evt.StopPropagation();
+        }
+
+        /// <summary>재생 중 F2로 테마를 전환한다. 두 안을 바로 비교하기 위한 것이다.</summary>
+        public void ToggleTheme()
+        {
+            UseUndergroundTheme = UseUndergroundTheme == false;
+            ApplyTheme();
         }
 
         // ── 구성 ──────────────────────────────────
@@ -180,7 +275,7 @@ namespace Underwrite.UI
             Click("pause-button", () => Sim.Clock.SetPaused(Sim.Clock.IsPaused == false));
             Click("speed-1", () => Sim.Clock.SetSpeedScale(1f));
             Click("speed-4", () => Sim.Clock.SetSpeedScale(4f));
-            Click("speed-16", () => Sim.Clock.SetSpeedScale(16f));
+            Click("skip-button", SkipOrOpen);
             Click("place-button", () => Sim.PlayerAtMarket = Sim.PlayerAtMarket == false);
 
             Click("side-buy", () => Side = OrderSide.Side_Buy);
@@ -193,6 +288,22 @@ namespace Underwrite.UI
 
             Click("qty-minus", () => Quantity = Mathf.Max(QUANTITY_MIN, Quantity - QUANTITY_STEP));
             Click("qty-plus", () => Quantity = Mathf.Min(QUANTITY_MAX, Quantity + QUANTITY_STEP));
+
+            var head = Root.Q<VisualElement>("info-head");
+
+            if (head != null)
+            {
+                // 필터 버튼을 누를 때는 접히지 않아야 한다. 버튼이 이벤트를 먼저 먹는다.
+                head.RegisterCallback<ClickEvent>(evt =>
+                {
+                    if (evt.target is Button)
+                    {
+                        return;
+                    }
+
+                    InfoCollapsed = InfoCollapsed == false;
+                });
+            }
 
             Click("filter-all", () => SetFilter(InfoFilter.Filter_All));
             Click("filter-private", () => SetFilter(InfoFilter.Filter_Private));
@@ -233,6 +344,64 @@ namespace Underwrite.UI
         {
             Filter = filter;
             InfoCountShown = -1;
+        }
+
+        /// <summary>
+        /// 장중이면 남은 틱을 전부 돌려 폐장시키고, 폐장 상태면 다음 장을 연다.
+        /// 기획서 §11의 "사건이 적은 기간은 넘긴다"를 배속 대신 이 버튼으로 처리한다.
+        /// 16배속은 숫자가 눈에 남지 않아 뺐다.
+        /// </summary>
+        private void SkipOrOpen()
+        {
+            if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
+            {
+                Sim.OpenNextSession(IsInspectionDay);
+                ResetViewState();
+                Message = $"{SessionName(Sim.Clock.Session)}이 열렸습니다.";
+                return;
+            }
+
+            var before = Sim.InfoLog.Count;
+            var filled = Sim.SkipToClose();
+            var news = Sim.InfoLog.Count - before;
+            ResetViewState();
+
+            Message = filled > 0
+                ? $"장을 넘겼습니다. 소식 {news}건, 지정가 체결 {filled}건."
+                : $"장을 넘겼습니다. 소식 {news}건.";
+        }
+
+        /// <summary>화면이 다시 그려지도록 캐시를 비운다.</summary>
+        private void ResetViewState()
+        {
+            InfoCountShown = -1;
+            ChartTickShown = -1;
+            BookTickShown = -1;
+            PendingCountShown = -1;
+        }
+
+        private void RefreshSkipButton()
+        {
+            var skip = Root.Q<Button>("skip-button");
+
+            if (skip == null)
+            {
+                return;
+            }
+
+            if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
+            {
+                var next = Sim.Clock.Session == MarketSession.Session_Morning ? "오후장" : "다음 날 오전장";
+                skip.text = next + " 열기";
+                return;
+            }
+
+            skip.text = SessionName(Sim.Clock.Session) + " 넘기기";
+        }
+
+        private static string SessionName(MarketSession session)
+        {
+            return session == MarketSession.Session_Evening ? "오후장" : "오전장";
         }
 
         private void Submit()
@@ -333,7 +502,8 @@ namespace Underwrite.UI
 
             var label = Sim.Clock.Session == MarketSession.Session_Evening ? "오후장" : "오전장";
             SetText("clock-text",
-                $"{label} {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00} · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
+                $"{Sim.Clock.Day}일차 {label} {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}"
+                + $" · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
             SetText("sentiment-text", $"분위기 {SentimentText(Sim.Sentiment)}");
 
             var pause = Root.Q<Button>("pause-button");
@@ -352,7 +522,7 @@ namespace Underwrite.UI
 
             Select("speed-1", Mathf.Approximately(Sim.Clock.SpeedScale, 1f));
             Select("speed-4", Mathf.Approximately(Sim.Clock.SpeedScale, 4f));
-            Select("speed-16", Mathf.Approximately(Sim.Clock.SpeedScale, 16f));
+            RefreshSkipButton();
 
             var banner = Root.Q<VisualElement>("halt-banner");
 
@@ -465,6 +635,7 @@ namespace Underwrite.UI
                 return;
             }
 
+
             ChartTickShown = Sim.Clock.Tick;
             var chart = Root.Q<VisualElement>("chart");
 
@@ -472,6 +643,68 @@ namespace Underwrite.UI
             {
                 chart.MarkDirtyRepaint();
             }
+
+            RefreshChartAxis(stock);
+        }
+
+        /// <summary>
+        /// 차트 아래에 가격 범위를 세 값으로 적는다. 격자 대신 이것만 둔다.
+        /// 축이 없으면 선의 높낮이가 얼마를 뜻하는지 알 수 없다.
+        /// </summary>
+        private void RefreshChartAxis(AdventurerStock stock)
+        {
+            var axis = Root.Q<VisualElement>("chart-axis");
+
+            if (axis == null)
+            {
+                return;
+            }
+
+            var history = stock.PriceHistory;
+
+            if (history.Count < 2)
+            {
+                axis.Clear();
+                return;
+            }
+
+            var min = history[0];
+            var max = history[0];
+
+            for (var i = 1; i < history.Count; i++)
+            {
+                if (history[i] < min)
+                {
+                    min = history[i];
+                }
+
+                if (history[i] > max)
+                {
+                    max = history[i];
+                }
+            }
+
+            if (stock.SessionOpenPrice < min)
+            {
+                min = stock.SessionOpenPrice;
+            }
+
+            if (stock.SessionOpenPrice > max)
+            {
+                max = stock.SessionOpenPrice;
+            }
+
+            axis.Clear();
+            AddAxisLabel(axis, $"저 {min:N1}");
+            AddAxisLabel(axis, $"시작 {stock.SessionOpenPrice:N1}");
+            AddAxisLabel(axis, $"고 {max:N1}");
+        }
+
+        private static void AddAxisLabel(VisualElement parent, string text)
+        {
+            var label = new Label(text);
+            label.AddToClassList("chart-axis-label");
+            parent.Add(label);
         }
 
         /// <summary>
@@ -839,11 +1072,41 @@ namespace Underwrite.UI
 
             var log = Sim.InfoLog;
 
-            // 매 프레임 다시 만들지 않는다. 기록이 늘었을 때만 다시 그린다.
+            var popupNow = Root.Q<VisualElement>("info-popup");
+
+            if (popupNow != null)
+            {
+                popupNow.EnableInClassList("info-popup--collapsed", InfoCollapsed);
+            }
+
+            var iconNow = Root.Q<Label>("info-toggle-icon");
+
+            if (iconNow != null)
+            {
+                iconNow.text = InfoCollapsed == true ? "▸" : "▾";
+            }
+
+            // 목록은 매 프레임 다시 만들지 않는다. 기록이 늘었을 때만 다시 그린다.
             if (InfoCountShown == log.Count)
             {
                 return;
             }
+
+            var popup = Root.Q<VisualElement>("info-popup");
+
+            if (popup != null)
+            {
+                popup.EnableInClassList("info-popup--collapsed", InfoCollapsed);
+            }
+
+            var icon = Root.Q<Label>("info-toggle-icon");
+
+            if (icon != null)
+            {
+                icon.text = InfoCollapsed == true ? "▸" : "▾";
+            }
+
+            SetText("info-count", $"{log.Count}건");
 
             InfoCountShown = log.Count;
             list.Clear();
@@ -866,6 +1129,13 @@ namespace Underwrite.UI
 
                 list.Add(BuildInfoCard(entry));
                 shown++;
+            }
+
+            var empty = Root.Q<Label>("info-empty");
+
+            if (empty != null)
+            {
+                empty.EnableInClassList("hidden", shown > 0);
             }
 
             Select("filter-all", Filter == InfoFilter.Filter_All);

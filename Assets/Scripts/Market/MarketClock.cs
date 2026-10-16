@@ -18,6 +18,25 @@ namespace Underwrite.Market
         /// <summary>장이 열린 뒤 지난 틱 수. 사건 일정의 기준이다.</summary>
         public int Tick { get; private set; }
 
+        /// <summary>며칠째인가. 오후장이 끝나면 하루가 넘어간다.</summary>
+        public int Day { get; private set; } = 1;
+
+        /// <summary>장을 넘길 때 틱을 하나 강제로 진행시킨다. 실시간 경과와 무관하다.</summary>
+        public void ForceTick()
+        {
+            PhaseDuringAdvance = Phase;
+
+            if (Tick < TicksPerSession)
+            {
+                Tick++;
+            }
+        }
+
+        public void AdvanceDay()
+        {
+            Day++;
+        }
+
         public MarketPhase Phase { get; private set; } = MarketPhase.Phase_Closed;
 
         /// <summary>지금 열려 있는 장. 하루에 오전·오후 두 번 열린다.</summary>

@@ -337,14 +337,26 @@
 /* ── 차트 ─────────────────────────────────── */
 
 .chart {
-    height: 280px;
+    height: 240px;
     margin-top: 16px;
+}
+
+/* 차트 Y축 기준값 3개. 격자는 두지 않는다. */
+.chart-axis {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+.chart-axis-label {
+    font-size: 14px;
+    color: var(--color-text-weak);
 }
 
 /* ── 정보 카드 ────────────────────────────── */
 
 .info-card {
-    min-height: 120px;
+    min-height: 96px;
     flex-shrink: 0;
     border-radius: 12px;
     padding: 16px;
@@ -517,7 +529,7 @@
 }
 
 .book-price {
-    width: 90px;
+    width: 84px;
     font-size: 18px;
     -unity-font-style: bold;
     -unity-text-align: middle-right;
@@ -584,4 +596,49 @@
     background-color: var(--color-text);
     color: var(--color-panel);
     -unity-font-style: bold;
+}
+
+/* ── 정보 기록 팝업 ───────────────────────── */
+
+/* 본문 위에 떠 있다. 자리를 차지하지 않으므로 차트와 호가가 넓게 쓴다.
+   손잡이를 눌러 접으면 머리만 남는다. */
+.info-popup {
+    position: absolute;
+    left: 48px;
+    bottom: 24px;
+    width: 720px;
+    background-color: var(--color-panel);
+    border-radius: 16px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    overflow: hidden;
+}
+
+.info-popup-head {
+    flex-direction: row;
+    align-items: center;
+    height: 56px;
+    padding-left: 16px;
+    padding-right: 12px;
+}
+
+.info-popup-head:hover {
+    background-color: var(--color-canvas);
+}
+
+.info-popup-icon {
+    font-size: 20px;
+    width: 24px;
+    color: var(--color-text-weak);
+}
+
+.info-popup-body {
+    height: 320px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
+.info-popup--collapsed .info-popup-body {
+    display: none;
 }

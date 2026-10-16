@@ -1,0 +1,61 @@
+/*
+ * 지하거래소 — 어두운 테마.
+ *
+ * 색 토큰만 덮어쓴다. 구조·간격·폰트는 MarketScreen.uss 그대로다.
+ * 레이아웃과 정보 위계는 손대지 않는다. 그 부분이 읽기 쉬움을 만들고 있다.
+ *
+ * 방향: 지하실의 장부. 먹색 바탕에 조금 누런 종이빛 패널.
+ * 질감은 넣지 않는다. 그림자·종이결·금속·유리·노이즈·글로우 없음 규칙을 유지한다.
+ * 분위기를 위해 숫자가 안 읽히면 실패다.
+ */
+
+:root {
+    /* 바탕과 면 */
+    --color-canvas: #14110F;
+    --color-panel: #1F1B18;
+    --color-divider: #332C27;
+    --color-input-border: #5A4F46;
+    --color-disabled: #2A2420;
+
+    /* 글자 — 종이빛 */
+    --color-text: #EDE4D6;
+    --color-text-weak: #9A8D7D;
+
+    /* 상승·하락. 한국 관례를 유지하되 어두운 바탕에서 읽히도록 밝기를 올린다. */
+    --color-rise: #E8565F;
+    --color-rise-soft: #3A1E20;
+    --color-fall: #5B9BFF;
+    --color-fall-soft: #1B2740;
+
+    /* 나만 아는 정보 */
+    --color-private: #B48BFF;
+    --color-private-soft: #2A2038;
+
+    /* 휴장 */
+    --color-halt: #E8B84B;
+    --color-halt-soft: #3A2E14;
+}
+
+/* 어두운 바탕에서는 선택 상태를 검은 면으로 쓸 수 없다. 종이빛으로 뒤집는다. */
+.btn--selected {
+    background-color: var(--color-text);
+    color: var(--color-canvas);
+}
+
+.type-tab--on {
+    background-color: var(--color-text);
+    color: var(--color-canvas);
+}
+
+.book-row--mid {
+    background-color: var(--color-text);
+}
+
+.book-mid-price {
+    color: var(--color-canvas);
+}
+
+/* 선택된 종목 행은 바탕보다 밝아야 구별된다. */
+.stock-row--selected {
+    background-color: var(--color-divider);
+}

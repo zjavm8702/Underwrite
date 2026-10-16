@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    {
+      "key": "panel",
+      "prompt": "Use case: stylized-concept. Create a production game UI parchment panel texture ONLY, no UI contents. Exact output 512x512 pixels square. Full-bleed pale neutral ivory reused medieval ledger paper, matte hand-painted non-pixel 2D style, warm gentle fine outline matching soft cel shaded fantasy art. Outer silhouette rounded square radius exactly 16px, flush to canvas edges, actual transparent corner cutouts only. Nine-slice design: fixed borders 48px on every side. Central 416x416 area must be almost uniform #EEE8DC with virtually invisible texture, no lines or stains behind text. Faint wear and subtle paper edge layering restricted to outermost 12px, especially corners. Straight unobtrusive side bands must stretch cleanly; no decoration crossing slice boundaries, no ornate frame. Reused and repaired ledger paper, clean rather than dirty; tiny barely visible paper mending at a corner only, no obvious patches. Near-neutral beige, never yellow/orange/pink. Dark ink #2A2118 and red #C53643 blue #245EC7 purple #6741B0 will be overlaid by the UI. No letters, numbers, symbols, watermark, writing, ruled lines, shadow, glow, shine, vignette, backdrop, objects, torn holes or strong creases. Paper fills entire canvas; do not inset the panel."
+    },
+    {
+      "key": "background",
+      "prompt": "Use case: stylized-concept. Production background texture for a medieval fantasy clandestine underground stock market UI. Exact 1920x1080 landscape 16:9. Single full-bleed flat top-down dark worn wooden ledger table surface, desaturated smoky umber #302923 to #3C332C. Broad simple old wooden boards with very low contrast fine hand-painted wood grain, soft clean non-pixel 2D illustration matching warm delicate cel-shaded fantasy character art. Uniform matte diffuse material; entirely dark across all areas, much darker than pale ivory paper panels that will cover most of it. Sparse quiet straight plank joints. No perspective, horizon, room scene, props, candles, money, papers, characters, letters, numbers, writing, symbols, watermark, shadows, glow, spotlight, vignette, shiny highlights, strong knots or gritty dirt. It must support a dense financial information screen with low distraction. One finished texture only; not a mockup."
+    },
+    {
+      "key": "selection",
+      "prompt": "Use case: stylized-concept. Create only a production game UI selected-row parchment background texture. Exact 256x128 pixels, 2:1 rectangle. Full-bleed rounded rectangle radius 12px, actual transparent corner cutouts only, shape flush to image bounds. Nine-slice fixed borders 24px on every side. Clean reused medieval ledger paper, matte non-pixel softly hand-painted 2D fantasy style. Almost perfectly flat light neutral ivory #F7F3E9, slightly lighter than the companion panel #EEE8DC. An extremely faint muted gray-olive paper edge line and tiny wear only within outer 6px, absolutely quiet center so repeated numbers remain readable. Straight edge bands suitable for nine-slice stretch to 452x120px or wider; no pattern crossing the slice boundaries. No decorative frame, symbols, text, numbers, writing, watermark, shadow, glow, shine, stains, folds, yellow/orange/red tint, backdrop or props. Paper fills the entire canvas with no outside margins."
+    }
+  ]
+}
