@@ -209,6 +209,9 @@
 
         </ui:VisualElement>
 
+        <!-- 주문 결과 쪽지. 쌓였다가 하나씩 사라진다. -->
+        <ui:VisualElement name="toast-area" class="toast-area" picking-mode="Ignore" />
+
         <!-- 하단 띠 두 개. 손잡이를 눌러 접고 편다. 접으면 머리 한 줄만 남는다. -->
         <ui:VisualElement name="bottom-bar" class="bottom-bar">
 

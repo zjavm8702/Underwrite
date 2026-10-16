@@ -908,3 +908,57 @@
 .holdings-popup .info-popup-body {
     height: 240px;
 }
+
+/* ── 주문 결과 쪽지 ───────────────────────── */
+
+/* 체결은 한순간이라 주문 패널 아래 작은 글자로는 놓친다.
+   눈이 가 있는 자리(주문 패널 위쪽)에 잠깐 띄우고 스스로 사라지게 한다. */
+.toast-area {
+    position: absolute;
+    right: 48px;
+    top: 150px;
+    width: 420px;
+    align-items: flex-end;
+}
+
+.toast {
+    flex-shrink: 0;
+    margin-bottom: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    background-color: var(--color-panel);
+    max-width: 420px;
+}
+
+.toast-text {
+    font-size: 17px;
+    -unity-font-style: bold;
+    white-space: normal;
+}
+
+.toast-note {
+    font-size: 15px;
+    color: var(--color-text-weak);
+    white-space: normal;
+    margin-top: 2px;
+}
+
+/* 매수는 붉게, 매도는 푸르게, 막힌 주문은 잉크로. 색만 봐도 무슨 일인지 안다. */
+.toast--buy {
+    border-color: var(--color-rise);
+    background-color: var(--color-rise-soft);
+}
+
+.toast--sell {
+    border-color: var(--color-fall);
+    background-color: var(--color-fall-soft);
+}
+
+.toast--deny {
+    border-color: var(--color-text-weak);
+}

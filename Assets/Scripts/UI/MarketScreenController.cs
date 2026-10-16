@@ -35,6 +35,8 @@ namespace Underwrite.UI
         private const float CHART_LABEL_EDGE = 26f;
         private const int INFO_MAX_ROWS = 20;
         private const int RATIO_FIT_STEPS = 4;
+        private const float TOAST_SECONDS = 2.8f;
+        private const int TOAST_MAX = 3;
 
         private enum InfoFilter
         {
@@ -547,11 +549,14 @@ namespace Underwrite.UI
                 if (queued.Result == OrderResult.Result_Queued)
                 {
                     Message = $"{queued.FillPrice:N1}에 {queued.Quantity}주 {verb} 주문을 걸었습니다.";
+                    ShowToast($"{verb} 주문을 걸었습니다",
+                        $"{StockName(SelectedId)} · {queued.Quantity}주 · 지정가 {queued.FillPrice:N1}", Side, true);
                     PendingCountShown = -1;
                     return;
                 }
 
                 Message = queued.Message;
+                ShowToast("주문이 막혔습니다", queued.Message, Side, false);
                 return;
             }
 
@@ -560,10 +565,14 @@ namespace Underwrite.UI
             if (receipt.Result == OrderResult.Result_Filled)
             {
                 Message = $"{verb} {receipt.Quantity}주 @ {receipt.FillPrice:N1} = {receipt.TotalAmount:N0}";
+                ShowToast($"{verb} 체결",
+                    $"{StockName(SelectedId)} · {receipt.Quantity}주 @ {receipt.FillPrice:N1}"
+                    + $" = {receipt.TotalAmount:N0}", Side, true);
                 return;
             }
 
             Message = receipt.Message;
+            ShowToast("주문이 막혔습니다", receipt.Message, Side, false);
         }
 
         /// <summary>
@@ -2110,6 +2119,75 @@ namespace Underwrite.UI
             }
 
             button.text = value;
+        }
+
+        /// <summary>
+        /// 결과 쪽지를 띄운다. 스스로 사라지므로 닫는 조작이 필요 없다.
+        /// 체결은 한순간이라 주문 패널 아래 작은 글자로는 놓치기 쉽다.
+        /// </summary>
+        private void ShowToast(string title, string note, OrderSide side, bool accepted)
+        {
+            var area = Root.Q<VisualElement>("toast-area");
+
+            if (area == null)
+            {
+                return;
+            }
+
+            // 오래된 것부터 걷어낸다. 쌓이기만 하면 주문 탭까지 덮는다.
+            while (area.childCount >= TOAST_MAX)
+            {
+                area.RemoveAt(area.childCount - 1);
+            }
+
+            var card = new VisualElement();
+            card.AddToClassList("toast");
+            card.pickingMode = PickingMode.Ignore;
+
+            if (accepted == false)
+            {
+                card.AddToClassList("toast--deny");
+            }
+            else
+            {
+                card.AddToClassList(side == OrderSide.Side_Buy ? "toast--buy" : "toast--sell");
+            }
+
+            var head = new Label(title);
+            head.AddToClassList("toast-text");
+            head.AddToClassList(accepted == false
+                ? "weak"
+                : (side == OrderSide.Side_Buy ? "rise" : "fall"));
+
+            var body = new Label(note);
+            body.AddToClassList("toast-note");
+
+            card.Add(head);
+            card.Add(body);
+
+            // 새 쪽지가 위에 온다. 아래로 밀려날수록 오래된 것이다.
+            area.Insert(0, card);
+
+            // 실시간 기준으로 센다. 배속이나 일시정지에 끌려가면 안 된다.
+            card.schedule.Execute(() =>
+            {
+                if (card.parent != null)
+                {
+                    card.RemoveFromHierarchy();
+                }
+            }).StartingIn((long)(TOAST_SECONDS * 1000f));
+        }
+
+        private string StockName(string stockId)
+        {
+            AdventurerStock stock;
+
+            if (Sim.StockLookup.TryGetValue(stockId, out stock) == true)
+            {
+                return stock.DisplayName;
+            }
+
+            return stockId;
         }
 
         private void SetText(string elementName, string value)

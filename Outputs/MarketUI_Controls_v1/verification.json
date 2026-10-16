@@ -1,0 +1,270 @@
+{
+  "time": "2026-10-16T12:07:53.006Z",
+  "assets": [
+    {
+      "file": "ui_button_normal.png",
+      "size": [
+        512,
+        192
+      ],
+      "mode": "RGBA8",
+      "components": 1,
+      "detachedComponents": 0,
+      "componentPixels": [
+        98212
+      ],
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 92,
+      "edgeAntialiasPixels": 68,
+      "canvasContactLTRB": [
+        178,
+        498,
+        178,
+        498
+      ],
+      "canvasContact": "intentional full-bleed UI, no cut-off decoration",
+      "centralArea": [
+        48,
+        48,
+        416,
+        96
+      ],
+      "foreground": "#2A2118",
+      "minimumContrast": 12.015991414580672,
+      "maximumContrast": 12.714766888622563,
+      "contrastPass": true,
+      "luminanceMean": 0.7727438057509374,
+      "luminanceSD": 0.005625445659259539
+    },
+    {
+      "file": "ui_button_pressed.png",
+      "size": [
+        512,
+        192
+      ],
+      "mode": "RGBA8",
+      "components": 1,
+      "detachedComponents": 0,
+      "componentPixels": [
+        98212
+      ],
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 92,
+      "edgeAntialiasPixels": 68,
+      "canvasContactLTRB": [
+        178,
+        498,
+        178,
+        498
+      ],
+      "canvasContact": "intentional full-bleed UI, no cut-off decoration",
+      "centralArea": [
+        48,
+        48,
+        416,
+        96
+      ],
+      "foreground": "#F7F0E2",
+      "minimumContrast": 13.849613001655708,
+      "maximumContrast": 14.353267023708629,
+      "contrastPass": true,
+      "luminanceMean": 0.01559343927245918,
+      "luminanceSD": 0.0003861622126932503
+    },
+    {
+      "file": "ui_button_disabled.png",
+      "size": [
+        512,
+        192
+      ],
+      "mode": "RGBA8",
+      "components": 1,
+      "detachedComponents": 0,
+      "componentPixels": [
+        98212
+      ],
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 92,
+      "edgeAntialiasPixels": 68,
+      "canvasContactLTRB": [
+        178,
+        498,
+        178,
+        498
+      ],
+      "canvasContact": "intentional full-bleed UI, no cut-off decoration",
+      "centralArea": [
+        48,
+        48,
+        416,
+        96
+      ],
+      "foreground": "#2A2118",
+      "minimumContrast": 9.698718556364572,
+      "maximumContrast": 10.512079996158558,
+      "contrastPass": true,
+      "luminanceMean": 0.6246211494500483,
+      "luminanceSD": 0.00652323429885077
+    },
+    {
+      "file": "ui_tab_on.png",
+      "size": [
+        512,
+        192
+      ],
+      "mode": "RGBA8",
+      "components": 1,
+      "detachedComponents": 0,
+      "componentPixels": [
+        98258
+      ],
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 46,
+      "edgeAntialiasPixels": 34,
+      "canvasContactLTRB": [
+        185,
+        498,
+        185,
+        512
+      ],
+      "canvasContact": "intentional full-bleed UI, no cut-off decoration",
+      "centralArea": [
+        48,
+        48,
+        416,
+        96
+      ],
+      "foreground": "#2A2118",
+      "minimumContrast": 13.383227711314621,
+      "maximumContrast": 13.749745998992097,
+      "contrastPass": true,
+      "luminanceMean": 0.8529697260333171,
+      "luminanceSD": 0.0036111639195857085
+    },
+    {
+      "file": "ui_tab_off.png",
+      "size": [
+        512,
+        192
+      ],
+      "mode": "RGBA8",
+      "components": 1,
+      "detachedComponents": 0,
+      "componentPixels": [
+        98258
+      ],
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 46,
+      "edgeAntialiasPixels": 34,
+      "canvasContactLTRB": [
+        185,
+        498,
+        185,
+        512
+      ],
+      "canvasContact": "intentional full-bleed UI, no cut-off decoration",
+      "centralArea": [
+        48,
+        48,
+        416,
+        96
+      ],
+      "foreground": "#2A2118",
+      "minimumContrast": 10.840010174564691,
+      "maximumContrast": 11.716923989407116,
+      "contrastPass": true,
+      "luminanceMean": 0.6988195966188637,
+      "luminanceSD": 0.007039371523529995
+    },
+    {
+      "file": "ui_field.png",
+      "size": [
+        512,
+        192
+      ],
+      "mode": "RGBA8",
+      "components": 1,
+      "detachedComponents": 0,
+      "componentPixels": [
+        98212
+      ],
+      "hiddenRGBPixels": 0,
+      "transparentPixels": 92,
+      "edgeAntialiasPixels": 68,
+      "canvasContactLTRB": [
+        178,
+        498,
+        178,
+        498
+      ],
+      "canvasContact": "intentional full-bleed UI, no cut-off decoration",
+      "centralArea": [
+        48,
+        48,
+        416,
+        96
+      ],
+      "foreground": "#2A2118",
+      "minimumContrast": 12.481488044277487,
+      "maximumContrast": 12.80556859691,
+      "contrastPass": true,
+      "luminanceMean": 0.7899748640816652,
+      "luminanceSD": 0.0036103481671271283
+    }
+  ],
+  "meta": {
+    "beforeCount": 398,
+    "retained": 398,
+    "changedOrRemoved": [],
+    "added": [
+      "Assets/Temp/ui_toast.png.meta",
+      "Assets/Temp.meta"
+    ]
+  },
+  "nineSlice": {
+    "borderLTRB": [
+      48,
+      48,
+      48,
+      48
+    ],
+    "scale": 0.5,
+    "sizes": [
+      [
+        90,
+        40
+      ],
+      [
+        120,
+        40
+      ],
+      [
+        150,
+        40
+      ],
+      [
+        80,
+        34
+      ],
+      [
+        180,
+        46
+      ],
+      [
+        86,
+        46
+      ],
+      [
+        390,
+        48
+      ]
+    ],
+    "assetsPerSize": 6,
+    "sampleCount": 42,
+    "method": "CPU bilinear nine-slice; fixed borders24px; if target below48px, opposed borders reduce proportionally and center collapses. Not Unity runtime capture.",
+    "visualReview": "42 samples inspected: no visible seam or interrupted ornament; input frame revised to preserve writing bed at small sizes; active tab open bottom intentional."
+  },
+  "staticUI": true,
+  "alphaReview": "Black and white background preview inspected; no exterior halo, detached mark or cut-off ornament.",
+  "approval": "draft awaiting user visual approval"
+}

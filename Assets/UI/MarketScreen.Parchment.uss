@@ -183,3 +183,9 @@
 .qty-input .unity-base-text-field__input {
     color: #2A2118;
 }
+
+/* 쪽지도 같은 종이다. 9-slice까지 쓰면 작은 쪽지에서 테두리가 뭉개지므로 색만 맞춘다. */
+.toast {
+    background-color: #F2E7D2;
+    border-color: #C9BBA2;
+}
