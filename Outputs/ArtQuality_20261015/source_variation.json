@@ -1,0 +1,24 @@
+{
+  "vest_left": {
+    "rect": [
+      105,
+      170,
+      140,
+      275
+    ],
+    "mean_adjacent_rgb_difference": 4.658956916099773,
+    "fraction_pixels_with_any_channel_change_over_10": 0.08408163265306122,
+    "note": "Includes real breathing/registration/line motion; not a pure lighting metric."
+  },
+  "shirt_center": {
+    "rect": [
+      160,
+      165,
+      200,
+      280
+    ],
+    "mean_adjacent_rgb_difference": 6.361246376811594,
+    "fraction_pixels_with_any_channel_change_over_10": 0.1766086956521739,
+    "note": "Includes real breathing/registration/line motion; not a pure lighting metric."
+  }
+}

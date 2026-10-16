@@ -1,0 +1,116 @@
+[
+  {
+    "frame": 0,
+    "bbox": [
+      42,
+      12,
+      312,
+      711
+    ],
+    "removed_alpha_pixels": 12574,
+    "retained_components": 1,
+    "cell": [
+      362,
+      724
+    ],
+    "registration_offset": [
+      -18,
+      0
+    ]
+  },
+  {
+    "frame": 1,
+    "bbox": [
+      43,
+      14,
+      312,
+      711
+    ],
+    "removed_alpha_pixels": 13495,
+    "retained_components": 1,
+    "cell": [
+      362,
+      724
+    ],
+    "registration_offset": [
+      -12,
+      1
+    ]
+  },
+  {
+    "frame": 2,
+    "bbox": [
+      41,
+      12,
+      312,
+      711
+    ],
+    "removed_alpha_pixels": 14692,
+    "retained_components": 1,
+    "cell": [
+      362,
+      724
+    ],
+    "registration_offset": [
+      -5,
+      0
+    ]
+  },
+  {
+    "frame": 3,
+    "bbox": [
+      45,
+      13,
+      315,
+      711
+    ],
+    "removed_alpha_pixels": 14589,
+    "retained_components": 1,
+    "cell": [
+      362,
+      724
+    ],
+    "registration_offset": [
+      1,
+      0
+    ]
+  },
+  {
+    "frame": 4,
+    "bbox": [
+      44,
+      12,
+      314,
+      711
+    ],
+    "removed_alpha_pixels": 14448,
+    "retained_components": 1,
+    "cell": [
+      362,
+      724
+    ],
+    "registration_offset": [
+      6,
+      0
+    ]
+  },
+  {
+    "frame": 5,
+    "bbox": [
+      46,
+      13,
+      315,
+      711
+    ],
+    "removed_alpha_pixels": 12699,
+    "retained_components": 1,
+    "cell": [
+      362,
+      724
+    ],
+    "registration_offset": [
+      13,
+      0
+    ]
+  }
+]

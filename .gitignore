@@ -1,0 +1,73 @@
+# ── Unity 생성물 ────────────────────────────────
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# 개인 에디터 설정 (레이아웃 등)
+[Uu]ser[Ss]ettings/
+
+# IDE
+.vs/
+.vsconfig
+.idea/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 빌드 산출물
+*.apk
+*.aab
+*.unitypackage
+*.app
+ExportedObj/
+crashlytics-build.properties
+sysinfo.txt
+
+# Addressables 생성물
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# ── Outputs: 기록 파일만 추적 ───────────────────
+# 사용자 결정(2026-10-16): PNG 원본·중간 산출물은 추적하지 않고
+# 프롬프트·검증 결과·README만 남긴다. 원본은 프롬프트로 재생성한다.
+Outputs/**
+!Outputs/**/
+!Outputs/**/*.md
+!Outputs/**/*.json
+!Outputs/**/*.txt
+
+# 예외: Sprite Rect 되돌리기용 .meta 백업은 작아서(32K) 추적한다.
+# 인간 여성 Idle 작업이 보류 중이며 이 백업이 유일한 복원 수단이다.
+!Outputs/SpriteBatchTrim/**
+
+# ── 작업용 임시 파일 ────────────────────────────
+*.bak
+*.orig
+*.rej
+
+# Python 캐시
+__pycache__/
+*.pyc

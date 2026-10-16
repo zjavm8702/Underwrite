@@ -1,0 +1,1000 @@
+fileFormatVersion: 2
+guid: e86d6cd3175762d4c8459080625a256d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1639332317561175614
+    second: protagonist_parts_v1_0
+  - first:
+      213: 4369175278287496113
+    second: protagonist_parts_v1_1
+  - first:
+      213: -4002291982643376284
+    second: protagonist_parts_v1_2
+  - first:
+      213: 3272726522868325663
+    second: protagonist_parts_v1_3
+  - first:
+      213: -5950745232855638186
+    second: protagonist_parts_v1_4
+  - first:
+      213: 7175073124608487344
+    second: protagonist_parts_v1_5
+  - first:
+      213: -6108557028037532483
+    second: protagonist_parts_v1_6
+  - first:
+      213: -3681419493826754331
+    second: protagonist_parts_v1_7
+  - first:
+      213: 3268147277223200518
+    second: protagonist_parts_v1_8
+  - first:
+      213: -5415619786631362177
+    second: protagonist_parts_v1_9
+  - first:
+      213: -1527222240731798537
+    second: protagonist_parts_v1_10
+  - first:
+      213: -824495760079617476
+    second: protagonist_parts_v1_11
+  - first:
+      213: 6547634672662322699
+    second: protagonist_parts_v1_12
+  - first:
+      213: 6646777627028909461
+    second: protagonist_parts_v1_13
+  - first:
+      213: 3699869317775665663
+    second: protagonist_parts_v1_14
+  - first:
+      213: 6886267791249245451
+    second: protagonist_parts_v1_15
+  - first:
+      213: -6176638977861828729
+    second: protagonist_parts_v1_16
+  - first:
+      213: 2681029628886511563
+    second: protagonist_parts_v1_17
+  - first:
+      213: -8203790154844682804
+    second: protagonist_parts_v1_18
+  - first:
+      213: 99581295828045656
+    second: protagonist_parts_v1_19
+  - first:
+      213: -1388363535352299520
+    second: protagonist_parts_v1_20
+  - first:
+      213: 2907172363079166912
+    second: protagonist_parts_v1_21
+  - first:
+      213: 5171332548331971579
+    second: protagonist_parts_v1_22
+  - first:
+      213: 4608557084111607529
+    second: protagonist_parts_v1_23
+  - first:
+      213: 356200811580639712
+    second: protagonist_parts_v1_24
+  - first:
+      213: 6846433334478821067
+    second: protagonist_parts_v1_25
+  - first:
+      213: -4995659521248536434
+    second: protagonist_parts_v1_26
+  - first:
+      213: 4125335356640907067
+    second: protagonist_parts_v1_27
+  - first:
+      213: -2262702413158042822
+    second: protagonist_parts_v1_28
+  - first:
+      213: -5664166819143850325
+    second: protagonist_parts_v1_29
+  - first:
+      213: -1663460735446186731
+    second: protagonist_parts_v1_30
+  - first:
+      213: 3047282637440994933
+    second: protagonist_parts_v1_31
+  - first:
+      213: 8960932090066381538
+    second: protagonist_parts_v1_32
+  - first:
+      213: -1356317461119855331
+    second: protagonist_parts_v1_33
+  - first:
+      213: -6545430701347878456
+    second: protagonist_parts_v1_34
+  - first:
+      213: -6021801452321850906
+    second: protagonist_parts_v1_35
+  - first:
+      213: -7524863029992526389
+    second: protagonist_parts_v1_36
+  - first:
+      213: 7064250233601139381
+    second: protagonist_parts_v1_37
+  - first:
+      213: -2836946941999166025
+    second: protagonist_parts_v1_38
+  - first:
+      213: 7229392473208882117
+    second: protagonist_parts_v1_39
+  - first:
+      213: 2735700876924686899
+    second: protagonist_parts_v1_40
+  - first:
+      213: -3001385224604132887
+    second: protagonist_parts_v1_41
+  - first:
+      213: 2202515168117960969
+    second: protagonist_parts_v1_42
+  - first:
+      213: 2429178046852791697
+    second: protagonist_parts_v1_43
+  - first:
+      213: 457928602684205680
+    second: protagonist_parts_v1_44
+  - first:
+      213: -3824570478288743806
+    second: protagonist_parts_v1_45
+  - first:
+      213: 4539424143914446583
+    second: protagonist_parts_v1_46
+  - first:
+      213: 8302046095301200882
+    second: protagonist_parts_v1_47
+  - first:
+      213: 3583936430516963182
+    second: protagonist_parts_v1_48
+  - first:
+      213: -7473659940997445499
+    second: protagonist_parts_v1_49
+  - first:
+      213: -2772931928390762010
+    second: protagonist_parts_v1_50
+  - first:
+      213: 6077442921570543289
+    second: protagonist_parts_v1_51
+  - first:
+      213: 2632750716380063235
+    second: protagonist_parts_v1_52
+  - first:
+      213: 5278330067036284068
+    second: protagonist_parts_v1_53
+  - first:
+      213: 5199784069510622592
+    second: protagonist_parts_v1_54
+  - first:
+      213: 8357042270317993749
+    second: protagonist_parts_v1_55
+  - first:
+      213: -7257700488231240835
+    second: protagonist_parts_v1_56
+  - first:
+      213: 5547016490517028277
+    second: protagonist_parts_v1_57
+  - first:
+      213: -1808527753694812757
+    second: protagonist_parts_v1_58
+  - first:
+      213: -8144995632500730870
+    second: protagonist_parts_v1_59
+  - first:
+      213: 3239951286885121928
+    second: protagonist_parts_v1_60
+  - first:
+      213: -3975951868722374111
+    second: protagonist_parts_v1_61
+  - first:
+      213: -340460734151471317
+    second: protagonist_parts_v1_62
+  - first:
+      213: -7217136282088743226
+    second: protagonist_parts_v1_63
+  - first:
+      213: -7712569346236194849
+    second: protagonist_parts_v1_64
+  - first:
+      213: -7368813296495967646
+    second: protagonist_parts_v1_65
+  - first:
+      213: -3123086687955375543
+    second: protagonist_parts_v1_66
+  - first:
+      213: -2497218782957472265
+    second: protagonist_parts_v1_67
+  - first:
+      213: -1913056630168271534
+    second: protagonist_parts_v1_68
+  - first:
+      213: 5889606839540431833
+    second: protagonist_parts_v1_69
+  - first:
+      213: 9106388955690208218
+    second: protagonist_parts_v1_70
+  - first:
+      213: -1032868511532293833
+    second: protagonist_parts_v1_71
+  - first:
+      213: 5130339685256166467
+    second: protagonist_parts_v1_72
+  - first:
+      213: -3307270742366229643
+    second: protagonist_parts_v1_73
+  - first:
+      213: -1623310983504667012
+    second: protagonist_parts_v1_74
+  - first:
+      213: -384236641999461363
+    second: protagonist_parts_v1_75
+  - first:
+      213: -5013956297378052736
+    second: protagonist_parts_v1_76
+  - first:
+      213: 5625168765335321399
+    second: protagonist_parts_v1_77
+  - first:
+      213: 9004694904426067695
+    second: protagonist_parts_v1_78
+  - first:
+      213: 6677878391765302009
+    second: protagonist_parts_v1_79
+  - first:
+      213: 8542931960142295192
+    second: protagonist_parts_v1_80
+  - first:
+      213: -2885207365827519602
+    second: protagonist_parts_v1_81
+  - first:
+      213: -2202550272412317961
+    second: protagonist_parts_v1_82
+  - first:
+      213: -8197890447189161874
+    second: protagonist_parts_v1_83
+  - first:
+      213: 3354216876279515392
+    second: protagonist_parts_v1_84
+  - first:
+      213: -8389209428666601283
+    second: protagonist_parts_v1_85
+  - first:
+      213: -8349316299655706568
+    second: protagonist_parts_v1_86
+  - first:
+      213: 3124573371323603437
+    second: protagonist_parts_v1_87
+  - first:
+      213: 5305585832040726393
+    second: protagonist_parts_v1_88
+  - first:
+      213: -8415128258009093529
+    second: protagonist_parts_v1_89
+  - first:
+      213: 7189498118134512697
+    second: protagonist_parts_v1_90
+  - first:
+      213: 7516211607264243903
+    second: protagonist_parts_v1_91
+  - first:
+      213: 8908585414345473440
+    second: protagonist_parts_v1_92
+  - first:
+      213: -8643158591368964436
+    second: protagonist_parts_v1_93
+  - first:
+      213: -1334951724453704094
+    second: protagonist_parts_v1_94
+  - first:
+      213: 2298466724016958363
+    second: protagonist_parts_v1_95
+  - first:
+      213: -7896610388274579392
+    second: protagonist_parts_v1_96
+  - first:
+      213: 437318843107351098
+    second: protagonist_parts_v1_97
+  - first:
+      213: 4229574564415175597
+    second: protagonist_parts_v1_98
+  - first:
+      213: 4657270414446525138
+    second: protagonist_parts_v1_99
+  - first:
+      213: 432268419826192758
+    second: protagonist_parts_v1_100
+  - first:
+      213: -5019553781556037568
+    second: protagonist_parts_v1_101
+  - first:
+      213: -3969038672226173655
+    second: protagonist_parts_v1_102
+  - first:
+      213: 8523966540372446939
+    second: protagonist_parts_v1_103
+  - first:
+      213: 4227884162295044917
+    second: protagonist_parts_v1_104
+  - first:
+      213: 9037127779671884787
+    second: protagonist_parts_v1_105
+  - first:
+      213: -6743907675055751415
+    second: protagonist_parts_v1_106
+  - first:
+      213: -6708174889033791445
+    second: protagonist_parts_v1_107
+  - first:
+      213: 1626236993557418062
+    second: protagonist_parts_v1_108
+  - first:
+      213: 5889601531076835682
+    second: protagonist_parts_v1_109
+  - first:
+      213: 3539653801723691457
+    second: protagonist_parts_v1_110
+  - first:
+      213: 3797054344459446438
+    second: protagonist_parts_v1_111
+  - first:
+      213: 7549694662453147634
+    second: protagonist_parts_v1_112
+  - first:
+      213: -2032573837692660792
+    second: protagonist_parts_v1_113
+  - first:
+      213: 6461173027000818202
+    second: protagonist_parts_v1_114
+  - first:
+      213: 8609411917316559215
+    second: protagonist_parts_v1_115
+  - first:
+      213: 9002035354874652282
+    second: protagonist_parts_v1_116
+  - first:
+      213: 5462936676698774903
+    second: protagonist_parts_v1_117
+  - first:
+      213: 8804629050340254560
+    second: protagonist_parts_v1_118
+  - first:
+      213: 2926068998260272650
+    second: protagonist_parts_v1_119
+  - first:
+      213: -5220765767517061654
+    second: protagonist_parts_v1_120
+  - first:
+      213: -3716321430995628193
+    second: protagonist_parts_v1_121
+  - first:
+      213: -7117219572344063040
+    second: protagonist_parts_v1_122
+  - first:
+      213: 7806967679275324436
+    second: protagonist_parts_v1_123
+  - first:
+      213: 1904606964227039162
+    second: protagonist_parts_v1_124
+  - first:
+      213: -7711451053278459514
+    second: protagonist_parts_v1_125
+  - first:
+      213: -5620868306003499842
+    second: protagonist_parts_v1_126
+  - first:
+      213: -2992453729860786185
+    second: protagonist_parts_v1_127
+  - first:
+      213: 1086117488475155062
+    second: protagonist_parts_v1_128
+  - first:
+      213: -4037622369273033592
+    second: protagonist_parts_v1_129
+  - first:
+      213: -2608008970444589569
+    second: protagonist_parts_v1_130
+  - first:
+      213: 8686323610087211847
+    second: protagonist_parts_v1_131
+  - first:
+      213: -1987059086637581156
+    second: protagonist_parts_v1_132
+  - first:
+      213: 5694562377257485029
+    second: protagonist_parts_v1_133
+  - first:
+      213: -2165189608487980763
+    second: protagonist_parts_v1_134
+  - first:
+      213: -1511899099826591283
+    second: protagonist_parts_v1_135
+  - first:
+      213: 5697868584567911659
+    second: protagonist_parts_v1_136
+  - first:
+      213: 5515116219021791423
+    second: protagonist_parts_v1_137
+  - first:
+      213: -7341095912108330971
+    second: protagonist_parts_v1_138
+  - first:
+      213: 4123028700156221597
+    second: protagonist_parts_v1_139
+  - first:
+      213: -9161954579824302726
+    second: protagonist_parts_v1_140
+  - first:
+      213: 905627077964706372
+    second: protagonist_parts_v1_141
+  - first:
+      213: 5804116068834430264
+    second: protagonist_parts_v1_142
+  - first:
+      213: 5394405305320117700
+    second: protagonist_parts_v1_143
+  - first:
+      213: 1377267283250126248
+    second: protagonist_parts_v1_144
+  - first:
+      213: 6849713868502299648
+    second: protagonist_parts_v1_145
+  - first:
+      213: -892581056034568085
+    second: protagonist_parts_v1_146
+  - first:
+      213: 608080513323080763
+    second: protagonist_parts_v1_147
+  - first:
+      213: -4225885486681798454
+    second: protagonist_parts_v1_148
+  - first:
+      213: -5041909302005183552
+    second: protagonist_parts_v1_149
+  - first:
+      213: -8714336586064081314
+    second: protagonist_parts_v1_150
+  - first:
+      213: -6050351360618791736
+    second: protagonist_parts_v1_151
+  - first:
+      213: 329177536308910668
+    second: protagonist_parts_v1_152
+  - first:
+      213: 2428890759300148006
+    second: protagonist_parts_v1_153
+  - first:
+      213: -6806779605030431061
+    second: protagonist_parts_v1_154
+  - first:
+      213: -2522039562286348491
+    second: protagonist_parts_v1_155
+  - first:
+      213: 6679029472830670721
+    second: protagonist_parts_v1_156
+  - first:
+      213: -9135829530748084341
+    second: protagonist_parts_v1_157
+  - first:
+      213: -8916408032997598463
+    second: protagonist_parts_v1_158
+  - first:
+      213: -2321076477518104578
+    second: protagonist_parts_v1_159
+  - first:
+      213: 1303976107206547426
+    second: protagonist_parts_v1_160
+  - first:
+      213: -4952097355795145211
+    second: protagonist_parts_v1_161
+  - first:
+      213: -6532375612938240751
+    second: protagonist_parts_v1_162
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Head_Neutral
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 974
+        width: 217
+        height: 269
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a20eb383308864c9670686495a2bec
+      internalID: 588672414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Anxious
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 974
+        width: 216
+        height: 265
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7558ed355cac743429ec6d34bda53dd2
+      internalID: 1072926511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Surprised
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 975
+        width: 214
+        height: 260
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362f6e0730390574d9bf94c49e35488d
+      internalID: 1101777276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Closed
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 975
+        width: 224
+        height: 266
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c981c7f9ba9e614f9cfe47cf7545022
+      internalID: 1784983297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torso
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 667
+        width: 235
+        height: 283
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 032bd27cb66214447b1db16e387d44d3
+      internalID: 1070894283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hips
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 684
+        width: 210
+        height: 215
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53776d9f754eb7a4eb883dab1d1e7286
+      internalID: -118321279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightUpperArm
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 687
+        width: 115
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13eb006093f147f468c10a80a132ff64
+      internalID: 57251536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftUpperArm
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 686
+        width: 117
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b634b3e6b9ab815408c1f05132e3d538
+      internalID: 730634807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightForearm
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 343
+        width: 135
+        height: 270
+      alignment: 9
+      pivot: {x: 0.49481484, y: 0.9396776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0199e021aaeee0143b896e04ac46121a
+      internalID: 1392722119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftForearm
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 346
+        width: 135
+        height: 270
+      alignment: 9
+      pivot: {x: 0.3501075, y: 0.9393104}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2714c171aaba5ea498055871bebde263
+      internalID: -511146178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightThigh
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 360
+        width: 130
+        height: 255
+      alignment: 9
+      pivot: {x: 0.6145833, y: 0.94328004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ef8dc13540ef14f8a6c9107f411b4e
+      internalID: 1127299549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftThigh
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 360
+        width: 130
+        height: 255
+      alignment: 9
+      pivot: {x: 0.385, y: 0.97850627}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 686449b07544b47409bc4fae3acb1f0c
+      internalID: 573854706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightShin
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 28
+        width: 135
+        height: 295
+      alignment: 9
+      pivot: {x: 0.5243902, y: 0.94300336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c64ff0607854c4f9c48c7d1d177d3c
+      internalID: -1725477417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftShin
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 28
+        width: 135
+        height: 295
+      alignment: 9
+      pivot: {x: 0.49615383, y: 0.94623286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a704aaf5c0402054791a2a926d76073f
+      internalID: 2044428715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledger
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 74
+        width: 146
+        height: 187
+      alignment: 9
+      pivot: {x: 0.51369864, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b944b4209acc3446acf35e4565cec97
+      internalID: -990348612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pouch
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 106
+        width: 102
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49632353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540826894e40d59428dd16c790f3fbba
+      internalID: -254827314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0286298e85fdc9449bf7cad53b36a635
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Head_Anxious: 1072926511
+      Head_Closed: 1784983297
+      Head_Neutral: 588672414
+      Head_Surprised: 1101777276
+      Hips: -118321279
+      Ledger: -990348612
+      LeftForearm: -511146178
+      LeftShin: 2044428715
+      LeftThigh: 573854706
+      LeftUpperArm: 730634807
+      Pouch: -254827314
+      RightForearm: 1392722119
+      RightShin: -1725477417
+      RightThigh: 1127299549
+      RightUpperArm: 57251536
+      Torso: 1070894283
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

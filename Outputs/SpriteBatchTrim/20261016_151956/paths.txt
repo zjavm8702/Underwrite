@@ -1,0 +1,6 @@
+C:\Underwrite\Outputs\SpriteBatchTrim\20261016_151956\b38c77ca78df45ddb3a6e3c9ec7b9ca6.meta <- Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_00.png
+C:\Underwrite\Outputs\SpriteBatchTrim\20261016_151956\88de92c8b9fa4014ba2847d22641d1d9.meta <- Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_01.png
+C:\Underwrite\Outputs\SpriteBatchTrim\20261016_151956\5ed04c83ffd64d12a28f15977300369f.meta <- Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_02.png
+C:\Underwrite\Outputs\SpriteBatchTrim\20261016_151956\875182cd43a541b9b8dd1e545e013c99.meta <- Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_03.png
+C:\Underwrite\Outputs\SpriteBatchTrim\20261016_151956\5214b2c2116f4d8b9e255114139ae2ef.meta <- Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_04.png
+C:\Underwrite\Outputs\SpriteBatchTrim\20261016_151956\a31298938fdc4031bef9622e8b34bcc0.meta <- Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_05.png

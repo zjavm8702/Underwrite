@@ -1,0 +1,86 @@
+[
+  {
+    "action": "Idle",
+    "frames": 24,
+    "unique_frames": 13,
+    "alpha_corners_zero": true,
+    "canvas": [
+      512,
+      640
+    ],
+    "bottom_pixel_range": [
+      576,
+      580
+    ]
+  },
+  {
+    "action": "Walk",
+    "frames": 12,
+    "unique_frames": 7,
+    "alpha_corners_zero": true,
+    "canvas": [
+      512,
+      640
+    ],
+    "bottom_pixel_range": [
+      578,
+      578
+    ]
+  },
+  {
+    "action": "Anxious",
+    "frames": 24,
+    "unique_frames": 24,
+    "alpha_corners_zero": true,
+    "canvas": [
+      512,
+      640
+    ],
+    "bottom_pixel_range": [
+      576,
+      580
+    ]
+  },
+  {
+    "action": "Surprised",
+    "frames": 18,
+    "unique_frames": 18,
+    "alpha_corners_zero": true,
+    "canvas": [
+      512,
+      640
+    ],
+    "bottom_pixel_range": [
+      557,
+      578
+    ]
+  },
+  {
+    "action": "Downcast",
+    "frames": 24,
+    "unique_frames": 14,
+    "alpha_corners_zero": true,
+    "canvas": [
+      512,
+      640
+    ],
+    "bottom_pixel_range": [
+      578,
+      588
+    ]
+  },
+  {
+    "action": "Relieved",
+    "frames": 24,
+    "unique_frames": 24,
+    "alpha_corners_zero": true,
+    "canvas": [
+      512,
+      640
+    ],
+    "bottom_pixel_range": [
+      576,
+      580
+    ]
+  }
+]

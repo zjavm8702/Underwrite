@@ -1,0 +1,45 @@
+{
+    "width": 512,
+    "height": 640,
+    "fps": 12,
+    "direction": "S",
+    "delivery": "PNG baked from the editable cutout rig",
+    "motions": [
+        {
+            "id": "Idle",
+            "duration": 2.0,
+            "frames": 24,
+            "fps": 12
+        },
+        {
+            "id": "Walk",
+            "duration": 1.0,
+            "frames": 12,
+            "fps": 12
+        },
+        {
+            "id": "Anxious",
+            "duration": 2.0,
+            "frames": 24,
+            "fps": 12
+        },
+        {
+            "id": "Surprised",
+            "duration": 1.5,
+            "frames": 18,
+            "fps": 12
+        },
+        {
+            "id": "Downcast",
+            "duration": 2.0,
+            "frames": 24,
+            "fps": 12
+        },
+        {
+            "id": "Relieved",
+            "duration": 2.0,
+            "frames": 24,
+            "fps": 12
+        }
+    ]
+}

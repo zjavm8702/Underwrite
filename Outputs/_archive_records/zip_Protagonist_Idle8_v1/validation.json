@@ -1,0 +1,786 @@
+{
+  "S": [
+    {
+      "file": "idle_S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        12,
+        312,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        14,
+        312,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        41,
+        12,
+        312,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        45,
+        13,
+        315,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        12,
+        314,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        13,
+        315,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ],
+  "SE": [
+    {
+      "file": "idle_SE_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        12,
+        300,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SE_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        12,
+        301,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SE_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        13,
+        300,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SE_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        13,
+        299,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SE_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        13,
+        299,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SE_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        13,
+        300,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ],
+  "E": [
+    {
+      "file": "idle_E_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        110,
+        13,
+        250,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_E_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        110,
+        12,
+        250,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_E_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        110,
+        13,
+        251,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_E_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        110,
+        12,
+        251,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_E_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        110,
+        12,
+        251,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_E_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        110,
+        13,
+        251,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ],
+  "NE": [
+    {
+      "file": "idle_NE_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        54,
+        12,
+        294,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NE_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        54,
+        12,
+        292,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NE_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        54,
+        14,
+        293,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NE_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        54,
+        12,
+        294,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NE_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        54,
+        13,
+        293,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NE_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        54,
+        13,
+        293,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ],
+  "N": [
+    {
+      "file": "idle_N_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        52,
+        14,
+        310,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_N_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        50,
+        12,
+        310,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_N_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        51,
+        12,
+        311,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_N_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        52,
+        12,
+        313,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_N_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        50,
+        15,
+        311,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_N_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        51,
+        14,
+        310,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ],
+  "NW": [
+    {
+      "file": "idle_NW_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        12,
+        306,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NW_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        64,
+        13,
+        304,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NW_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        69,
+        13,
+        309,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NW_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        13,
+        309,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NW_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        13,
+        310,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_NW_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        67,
+        13,
+        307,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ],
+  "W": [
+    {
+      "file": "idle_W_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        101,
+        13,
+        262,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_W_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        101,
+        12,
+        262,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_W_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        100,
+        13,
+        261,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_W_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        100,
+        12,
+        262,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_W_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        101,
+        12,
+        261,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_W_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        102,
+        14,
+        260,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ],
+  "SW": [
+    {
+      "file": "idle_SW_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        12,
+        302,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SW_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        13,
+        302,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SW_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        45,
+        12,
+        302,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SW_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        12,
+        303,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SW_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        12,
+        301,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    },
+    {
+      "file": "idle_SW_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        12,
+        302,
+        711
+      ],
+      "alpha_components": 1,
+      "detached_pixels": 0,
+      "hidden_background_rgb_pixels": 0
+    }
+  ]
+}

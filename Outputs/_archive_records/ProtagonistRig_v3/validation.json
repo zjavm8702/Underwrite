@@ -1,0 +1,12 @@
+{
+  "status": "appearance_review_prototype",
+  "rig": "Unity SpriteSkin weighted mesh on unchanged approved master",
+  "sprite_skin_state": "Ready",
+  "bone_count": 21,
+  "vertex_count": 7897,
+  "max_neutral_bind_matrix_error": 0.00000569918,
+  "source_and_working_png_sha256": "16C56300E20DCE01463DA36FBEBDED72883217DAA5911AD69797A8EF48BF6F57",
+  "scope": "Front view neutral and subtle idle only",
+  "not_complete": ["appearance approval", "large gestures", "8 directions", "expression swaps", "final walk"],
+  "v2_adopted_as_final": false
+}

@@ -1,0 +1,150 @@
+{
+  "canvas": [
+    1254,
+    1254
+  ],
+  "reference_master": "C:\\Underwrite\\Outputs\\CharacterBase\\주인공_정면_기준원화_v1.png",
+  "method": "image-generated artwork, isolated by Unity sprite slicing",
+  "parts": [
+    {
+      "name": "01_head_neck",
+      "atlas_rect": [
+        513,
+        994,
+        192,
+        260
+      ],
+      "top_left_box": [
+        513,
+        0,
+        705,
+        260
+      ],
+      "pivot": [
+        0.5,
+        0.05
+      ],
+      "alpha_body_pixels": 27592
+    },
+    {
+      "name": "02_torso_pelvis",
+      "atlas_rect": [
+        451,
+        378,
+        360,
+        611
+      ],
+      "top_left_box": [
+        451,
+        265,
+        811,
+        876
+      ],
+      "pivot": [
+        0.5,
+        0.15
+      ],
+      "alpha_body_pixels": 165949
+    },
+    {
+      "name": "03_arm_R",
+      "atlas_rect": [
+        270,
+        373,
+        160,
+        605
+      ],
+      "top_left_box": [
+        270,
+        276,
+        430,
+        881
+      ],
+      "pivot": [
+        0.5,
+        0.95
+      ],
+      "alpha_body_pixels": 46182
+    },
+    {
+      "name": "04_arm_L",
+      "atlas_rect": [
+        829,
+        372,
+        152,
+        606
+      ],
+      "top_left_box": [
+        829,
+        276,
+        981,
+        882
+      ],
+      "pivot": [
+        0.5,
+        0.95
+      ],
+      "alpha_body_pixels": 44584
+    },
+    {
+      "name": "05_leg_R",
+      "atlas_rect": [
+        32,
+        21,
+        230,
+        940
+      ],
+      "top_left_box": [
+        32,
+        293,
+        262,
+        1233
+      ],
+      "pivot": [
+        0.5,
+        0.97
+      ],
+      "alpha_body_pixels": 111561
+    },
+    {
+      "name": "06_leg_L",
+      "atlas_rect": [
+        981,
+        20,
+        263,
+        950
+      ],
+      "top_left_box": [
+        981,
+        284,
+        1244,
+        1234
+      ],
+      "pivot": [
+        0.5,
+        0.97
+      ],
+      "alpha_body_pixels": 113238
+    },
+    {
+      "name": "07_coin_pouch",
+      "atlas_rect": [
+        564,
+        134,
+        122,
+        139
+      ],
+      "top_left_box": [
+        564,
+        981,
+        686,
+        1120
+      ],
+      "pivot": [
+        0.5,
+        0.96
+      ],
+      "alpha_body_pixels": 8575
+    }
+  ]
+}

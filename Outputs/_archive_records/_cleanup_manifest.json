@@ -1,0 +1,138 @@
+{
+ "folders": [
+  {
+   "name": "ProtagonistRig_v2",
+   "bytes": 81650466,
+   "files": 132,
+   "records_kept": []
+  },
+  {
+   "name": "ProtagonistRig_v3",
+   "bytes": 12978534,
+   "files": 28,
+   "records_kept": [
+    "validation.json",
+    "사용안내.md"
+   ]
+  },
+  {
+   "name": "ProtagonistParts_v2",
+   "bytes": 3574225,
+   "files": 13,
+   "records_kept": [
+    "parts_manifest.json",
+    "validation.json",
+    "사용안내.md",
+    "제작_프롬프트.json"
+   ]
+  },
+  {
+   "name": "JointFit",
+   "bytes": 1710656,
+   "files": 6,
+   "records_kept": []
+  },
+  {
+   "name": "WalkingStudy_v1",
+   "bytes": 21181526,
+   "files": 27,
+   "records_kept": [
+    "validation.json",
+    "사용안내.md"
+   ]
+  },
+  {
+   "name": "WalkingStudy_v2",
+   "bytes": 29158581,
+   "files": 51,
+   "records_kept": [
+    "validation.json",
+    "사용안내.md"
+   ]
+  },
+  {
+   "name": "NiceStudy_v1",
+   "bytes": 27661002,
+   "files": 51,
+   "records_kept": [
+    "validation.json",
+    "사용안내.md"
+   ]
+  },
+  {
+   "name": "WalkingArmFix_v2",
+   "bytes": 22375989,
+   "files": 29,
+   "records_kept": [
+    "applied.json",
+    "before.json",
+    "keyframe_staging.json",
+    "README.md",
+    "selected_prompts.json",
+    "sheet_attempt_prompts.json",
+    "verification.json"
+   ]
+  },
+  {
+   "name": "ProtagonistRestart",
+   "bytes": 2137828,
+   "files": 4,
+   "records_kept": [
+    "제작기록.json"
+   ]
+  },
+  {
+   "name": "AnimationComparison",
+   "bytes": 34581592,
+   "files": 137,
+   "records_kept": [
+    "animation_manifest.json",
+    "frame_validation.json",
+    "사용안내.md"
+   ]
+  }
+ ],
+ "zips": [
+  {
+   "name": "Protagonist_Idle8_v1.zip",
+   "bytes": 37024390,
+   "records_kept": [
+    "ProtagonistIdle8_v1/export_report.json",
+    "ProtagonistIdle8_v1/generation_prompts.json",
+    "ProtagonistIdle8_v1/NE_correction_prompt.txt",
+    "ProtagonistIdle8_v1/README.md",
+    "ProtagonistIdle8_v1/source_manifest.json",
+    "ProtagonistIdle8_v1/validation.json"
+   ]
+  },
+  {
+   "name": "Underwrite_주인공_PNG_애니메이션_v1.zip",
+   "bytes": 18357812,
+   "records_kept": [
+    "animation_manifest.json",
+    "frame_validation.json",
+    "사용안내.md"
+   ]
+  },
+  {
+   "name": "Underwrite_6인_8방향_원화_v1.zip",
+   "bytes": 10620839,
+   "records_kept": [
+    "안도_표정_프롬프트.json",
+    "원화_안내.md",
+    "제작_프롬프트.json"
+   ]
+  },
+  {
+   "name": "Underwrite_주인공_파츠분리_v2.zip",
+   "bytes": 3486930,
+   "records_kept": [
+    "parts_manifest.json",
+    "validation.json",
+    "사용안내.md",
+    "제작_프롬프트.json"
+   ]
+  }
+ ],
+ "total_bytes_to_remove": 306500370
+}

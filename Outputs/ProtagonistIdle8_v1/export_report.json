@@ -1,0 +1,1018 @@
+{
+  "S": {
+    "scale": 1.0,
+    "frames": [
+      {
+        "source_bbox": [
+          42,
+          12,
+          312,
+          711
+        ],
+        "removed_alpha_pixels": 0,
+        "export_bbox": [
+          42,
+          12,
+          312,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          405,
+          14,
+          674,
+          711
+        ],
+        "removed_alpha_pixels": 0,
+        "export_bbox": [
+          43,
+          14,
+          312,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          765,
+          12,
+          1036,
+          711
+        ],
+        "removed_alpha_pixels": 0,
+        "export_bbox": [
+          41,
+          12,
+          312,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1131,
+          13,
+          1401,
+          711
+        ],
+        "removed_alpha_pixels": 0,
+        "export_bbox": [
+          45,
+          13,
+          315,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1492,
+          12,
+          1762,
+          711
+        ],
+        "removed_alpha_pixels": 0,
+        "export_bbox": [
+          44,
+          12,
+          314,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1856,
+          13,
+          2125,
+          711
+        ],
+        "removed_alpha_pixels": 0,
+        "export_bbox": [
+          46,
+          13,
+          315,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  },
+  "SE": {
+    "scale": 1.0072046109510087,
+    "frames": [
+      {
+        "source_bbox": [
+          144,
+          10,
+          400,
+          704
+        ],
+        "removed_alpha_pixels": 41119,
+        "export_bbox": [
+          42,
+          12,
+          300,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          469,
+          10,
+          725,
+          704
+        ],
+        "removed_alpha_pixels": 41119,
+        "export_bbox": [
+          43,
+          12,
+          301,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          793,
+          11,
+          1047,
+          704
+        ],
+        "removed_alpha_pixels": 41119,
+        "export_bbox": [
+          44,
+          13,
+          300,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1113,
+          11,
+          1366,
+          704
+        ],
+        "removed_alpha_pixels": 41119,
+        "export_bbox": [
+          44,
+          13,
+          299,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1435,
+          11,
+          1688,
+          704
+        ],
+        "removed_alpha_pixels": 41119,
+        "export_bbox": [
+          44,
+          13,
+          299,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1756,
+          11,
+          2010,
+          704
+        ],
+        "removed_alpha_pixels": 41119,
+        "export_bbox": [
+          44,
+          13,
+          300,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  },
+  "E": {
+    "scale": 0.9886845827439887,
+    "frames": [
+      {
+        "source_bbox": [
+          198,
+          7,
+          340,
+          713
+        ],
+        "removed_alpha_pixels": 37517,
+        "export_bbox": [
+          110,
+          13,
+          250,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          529,
+          7,
+          671,
+          714
+        ],
+        "removed_alpha_pixels": 37517,
+        "export_bbox": [
+          110,
+          12,
+          250,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          858,
+          7,
+          1001,
+          713
+        ],
+        "removed_alpha_pixels": 37517,
+        "export_bbox": [
+          110,
+          13,
+          251,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1186,
+          6,
+          1329,
+          713
+        ],
+        "removed_alpha_pixels": 37517,
+        "export_bbox": [
+          110,
+          12,
+          251,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1513,
+          6,
+          1656,
+          713
+        ],
+        "removed_alpha_pixels": 37517,
+        "export_bbox": [
+          110,
+          12,
+          251,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1842,
+          7,
+          1985,
+          713
+        ],
+        "removed_alpha_pixels": 37517,
+        "export_bbox": [
+          110,
+          13,
+          251,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  },
+  "NE": {
+    "scale": 1.0028694404591105,
+    "frames": [
+      {
+        "source_bbox": [
+          111,
+          6,
+          350,
+          703
+        ],
+        "removed_alpha_pixels": 49292,
+        "export_bbox": [
+          54,
+          12,
+          294,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          459,
+          6,
+          696,
+          703
+        ],
+        "removed_alpha_pixels": 49292,
+        "export_bbox": [
+          54,
+          12,
+          292,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          806,
+          7,
+          1044,
+          702
+        ],
+        "removed_alpha_pixels": 49292,
+        "export_bbox": [
+          54,
+          14,
+          293,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1152,
+          6,
+          1391,
+          703
+        ],
+        "removed_alpha_pixels": 49292,
+        "export_bbox": [
+          54,
+          12,
+          294,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1500,
+          7,
+          1738,
+          703
+        ],
+        "removed_alpha_pixels": 49292,
+        "export_bbox": [
+          54,
+          13,
+          293,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1846,
+          7,
+          2084,
+          703
+        ],
+        "removed_alpha_pixels": 49292,
+        "export_bbox": [
+          54,
+          13,
+          293,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  },
+  "N": {
+    "scale": 1.001432664756447,
+    "frames": [
+      {
+        "source_bbox": [
+          74,
+          12,
+          332,
+          708
+        ],
+        "removed_alpha_pixels": 58245,
+        "export_bbox": [
+          52,
+          14,
+          310,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          426,
+          10,
+          686,
+          708
+        ],
+        "removed_alpha_pixels": 58245,
+        "export_bbox": [
+          50,
+          12,
+          310,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          781,
+          10,
+          1041,
+          708
+        ],
+        "removed_alpha_pixels": 58245,
+        "export_bbox": [
+          51,
+          12,
+          311,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1134,
+          10,
+          1395,
+          708
+        ],
+        "removed_alpha_pixels": 58245,
+        "export_bbox": [
+          52,
+          12,
+          313,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1486,
+          13,
+          1747,
+          708
+        ],
+        "removed_alpha_pixels": 58245,
+        "export_bbox": [
+          50,
+          15,
+          311,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1838,
+          12,
+          2097,
+          708
+        ],
+        "removed_alpha_pixels": 58245,
+        "export_bbox": [
+          51,
+          14,
+          310,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  },
+  "NW": {
+    "scale": 0.9985714285714286,
+    "frames": [
+      {
+        "source_bbox": [
+          139,
+          9,
+          377,
+          709
+        ],
+        "removed_alpha_pixels": 53620,
+        "export_bbox": [
+          68,
+          12,
+          306,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          472,
+          9,
+          712,
+          708
+        ],
+        "removed_alpha_pixels": 53620,
+        "export_bbox": [
+          64,
+          13,
+          304,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          814,
+          9,
+          1054,
+          708
+        ],
+        "removed_alpha_pixels": 53620,
+        "export_bbox": [
+          69,
+          13,
+          309,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1147,
+          9,
+          1388,
+          708
+        ],
+        "removed_alpha_pixels": 53620,
+        "export_bbox": [
+          68,
+          13,
+          309,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1482,
+          9,
+          1724,
+          708
+        ],
+        "removed_alpha_pixels": 53620,
+        "export_bbox": [
+          68,
+          13,
+          310,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1814,
+          9,
+          2054,
+          708
+        ],
+        "removed_alpha_pixels": 53620,
+        "export_bbox": [
+          67,
+          13,
+          307,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  },
+  "W": {
+    "scale": 0.9858956276445698,
+    "frames": [
+      {
+        "source_bbox": [
+          162,
+          9,
+          325,
+          717
+        ],
+        "removed_alpha_pixels": 39802,
+        "export_bbox": [
+          101,
+          13,
+          262,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          510,
+          8,
+          673,
+          717
+        ],
+        "removed_alpha_pixels": 39802,
+        "export_bbox": [
+          101,
+          12,
+          262,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          856,
+          9,
+          1019,
+          717
+        ],
+        "removed_alpha_pixels": 39802,
+        "export_bbox": [
+          100,
+          13,
+          261,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1208,
+          8,
+          1372,
+          717
+        ],
+        "removed_alpha_pixels": 39802,
+        "export_bbox": [
+          100,
+          12,
+          262,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1551,
+          8,
+          1713,
+          717
+        ],
+        "removed_alpha_pixels": 39802,
+        "export_bbox": [
+          101,
+          12,
+          261,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1886,
+          10,
+          2046,
+          717
+        ],
+        "removed_alpha_pixels": 39802,
+        "export_bbox": [
+          102,
+          14,
+          260,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  },
+  "SW": {
+    "scale": 1.0,
+    "frames": [
+      {
+        "source_bbox": [
+          113,
+          13,
+          371,
+          712
+        ],
+        "removed_alpha_pixels": 68905,
+        "export_bbox": [
+          44,
+          12,
+          302,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          461,
+          14,
+          719,
+          712
+        ],
+        "removed_alpha_pixels": 68905,
+        "export_bbox": [
+          44,
+          13,
+          302,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          807,
+          13,
+          1064,
+          712
+        ],
+        "removed_alpha_pixels": 68905,
+        "export_bbox": [
+          45,
+          12,
+          302,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1154,
+          13,
+          1413,
+          712
+        ],
+        "removed_alpha_pixels": 68905,
+        "export_bbox": [
+          44,
+          12,
+          303,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1502,
+          13,
+          1759,
+          712
+        ],
+        "removed_alpha_pixels": 68905,
+        "export_bbox": [
+          44,
+          12,
+          301,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      },
+      {
+        "source_bbox": [
+          1851,
+          13,
+          2109,
+          712
+        ],
+        "removed_alpha_pixels": 68905,
+        "export_bbox": [
+          44,
+          12,
+          302,
+          711
+        ],
+        "canvas": [
+          362,
+          724
+        ]
+      }
+    ],
+    "duration_ms": [
+      900,
+      350,
+      80,
+      110,
+      120,
+      700
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "frontal_walking_study",
+  "duration_seconds": 1.2,
+  "clip_frame_rate": 30,
+  "preview_frames": 24,
+  "preview_frame_duration_ms": 50,
+  "loop": true,
+  "loop_channel_seam_max": 0.0000000786805,
+  "sprite_skin_state": "Ready",
+  "standing_ankle_world_drift_max": 0.00000333786,
+  "animation_curve_count": 75,
+  "source_png_unchanged": true,
+  "facial_animation": false,
+  "notes": "Actual Unity AnimationClip sampled and rendered through SpriteSkin. Stationary frontal stepping study; no eight-direction walk or independent expression layers."
+}

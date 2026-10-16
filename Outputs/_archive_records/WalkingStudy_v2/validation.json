@@ -1,0 +1,7 @@
+{
+  "max_rotation_key_jump_degrees": 0.4107819,
+  "max_knee_step_world_at_240hz": 0.007565817,
+  "samples": 289,
+  "original_rotation_jump_degrees": 359.785919,
+  "passed": true
+}

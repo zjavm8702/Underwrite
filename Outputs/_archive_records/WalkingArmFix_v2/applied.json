@@ -1,0 +1,14 @@
+{
+  "changed_pngs": [
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\SE\\walk_se_04.png",
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\SE\\walk_se_05.png",
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\NE\\walk_ne_04.png",
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\NE\\walk_ne_05.png",
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\NW\\walk_nw_04.png",
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\NW\\walk_nw_05.png"
+  ],
+  "metadata_files_verified": 82,
+  "metadata_changes": 0,
+  "unchanged_target_direction_frames": 18,
+  "backup": "C:\\Underwrite\\work\\walking_arm_fix_backup_20261015_230911"
+}

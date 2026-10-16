@@ -1,0 +1,196 @@
+{
+  "file": "Outputs\\ProtagonistIdleFront_v1\\protagonist_idle_front_sheet_v1.png",
+  "size": [
+    2172,
+    724
+  ],
+  "alpha_min": 0,
+  "alpha_max": 255,
+  "transparent_pixels": 903104,
+  "partial_alpha_pixels": 666019,
+  "thresholds": {
+    "1": {
+      "components": 6,
+      "large": [
+        {
+          "area": 111169,
+          "bbox": [
+            42,
+            12,
+            312,
+            711
+          ]
+        },
+        {
+          "area": 111940,
+          "bbox": [
+            765,
+            12,
+            1036,
+            711
+          ]
+        },
+        {
+          "area": 111636,
+          "bbox": [
+            1492,
+            12,
+            1762,
+            711
+          ]
+        },
+        {
+          "area": 112127,
+          "bbox": [
+            1131,
+            13,
+            1401,
+            711
+          ]
+        },
+        {
+          "area": 111077,
+          "bbox": [
+            1856,
+            13,
+            2125,
+            711
+          ]
+        },
+        {
+          "area": 111475,
+          "bbox": [
+            405,
+            14,
+            674,
+            711
+          ]
+        }
+      ],
+      "small_components": 0,
+      "small_component_pixels": 0
+    },
+    "32": {
+      "components": 6,
+      "large": [
+        {
+          "area": 111169,
+          "bbox": [
+            42,
+            12,
+            312,
+            711
+          ]
+        },
+        {
+          "area": 111940,
+          "bbox": [
+            765,
+            12,
+            1036,
+            711
+          ]
+        },
+        {
+          "area": 111636,
+          "bbox": [
+            1492,
+            12,
+            1762,
+            711
+          ]
+        },
+        {
+          "area": 112127,
+          "bbox": [
+            1131,
+            13,
+            1401,
+            711
+          ]
+        },
+        {
+          "area": 111077,
+          "bbox": [
+            1856,
+            13,
+            2125,
+            711
+          ]
+        },
+        {
+          "area": 111475,
+          "bbox": [
+            405,
+            14,
+            674,
+            711
+          ]
+        }
+      ],
+      "small_components": 0,
+      "small_component_pixels": 0
+    },
+    "128": {
+      "components": 7,
+      "large": [
+        {
+          "area": 109110,
+          "bbox": [
+            42,
+            13,
+            312,
+            710
+          ]
+        },
+        {
+          "area": 109537,
+          "bbox": [
+            1493,
+            13,
+            1761,
+            710
+          ]
+        },
+        {
+          "area": 109014,
+          "bbox": [
+            1857,
+            13,
+            2124,
+            710
+          ]
+        },
+        {
+          "area": 109443,
+          "bbox": [
+            405,
+            14,
+            673,
+            711
+          ]
+        },
+        {
+          "area": 109945,
+          "bbox": [
+            766,
+            14,
+            1035,
+            710
+          ]
+        },
+        {
+          "area": 110039,
+          "bbox": [
+            1131,
+            14,
+            1401,
+            710
+          ]
+        }
+      ],
+      "small_components": 1,
+      "small_component_pixels": 1
+    }
+  }
+}

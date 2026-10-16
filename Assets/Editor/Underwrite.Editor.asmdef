@@ -1,0 +1,21 @@
+{
+    "name": "Underwrite.Editor",
+    "rootNamespace": "Underwrite.Editor",
+    "references": [
+        "Underwrite.Runtime",
+        "Unity.2D.Animation.Runtime",
+        "Unity.2D.Animation.Editor",
+        "Unity.2D.Sprite.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,52 @@
+* text=auto
+
+# ── 소스와 문서 ─────────────────────────────────
+*.cs        text diff=csharp
+*.md        text
+*.json      text
+*.txt       text
+*.sh        text eol=lf
+*.editorconfig text
+*.gitattributes text
+*.gitignore text
+
+# ── Unity 직렬화 에셋 (YAML) ────────────────────
+# 반드시 텍스트로 다뤄야 머지와 diff가 가능하다. 직접 편집은 금지(코드 규칙 §11).
+*.meta          text merge=unityyamlmerge eol=lf
+*.unity         text merge=unityyamlmerge eol=lf
+*.asset         text merge=unityyamlmerge eol=lf
+*.prefab        text merge=unityyamlmerge eol=lf
+*.anim          text merge=unityyamlmerge eol=lf
+*.controller    text merge=unityyamlmerge eol=lf
+*.spriteLib     text merge=unityyamlmerge eol=lf
+*.mat           text merge=unityyamlmerge eol=lf
+*.physicsMaterial2D text merge=unityyamlmerge eol=lf
+*.playable      text merge=unityyamlmerge eol=lf
+*.mask          text merge=unityyamlmerge eol=lf
+*.asmdef        text eol=lf
+*.inputactions  text eol=lf
+
+# ── 바이너리 (줄바꿈 변환 금지) ─────────────────
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.psd   binary
+*.psb   binary
+*.tga   binary
+*.tif   binary
+*.bmp   binary
+*.ico   binary
+*.ttf   binary
+*.otf   binary
+*.wav   binary
+*.mp3   binary
+*.ogg   binary
+*.mp4   binary
+*.zip   binary
+*.dll   binary
+*.so    binary
+*.a     binary
+*.pdf   binary
+*.cubemap binary
+*.unitypackage binary

@@ -1,0 +1,12 @@
+{
+  "duration_seconds": 2.2,
+  "preview_frames": 44,
+  "preview_frame_ms": 50,
+  "body_sprite_skin_state": "Ready",
+  "arm_sprite_skin_state": "Ready",
+  "max_rotation_key_step_degrees": 15.71283,
+  "hand_lift_world_units": 6.10436535,
+  "scope": "Frontal raised-arm gesture study with a separate skinned right arm",
+  "expression_and_hand_shape_fixed": true,
+  "running_included": false
+}

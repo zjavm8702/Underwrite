@@ -1,0 +1,9 @@
+Scan: actual Cheer 8 directions / 64 imported sprites / natural ordering
+Playback: all 64 frame hashes sample to the exact expected Sprite
+Controller: eight normalized directions, SimpleDirectional2D, DirectionX/Y Float
+Timing: 8 discrete keys + final hold, 1.56s, Loop disabled
+Update: same GUIDs, unrelated category/state/transition and shared tree preserved; repeat updates do not leak trees
+Regression: dirty flag on imported SpriteLibrary does not block generation; current categories preserved
+Preflight: duplicate build, invalid timing, non-Float parameter, missing folder rejected before writes
+Nested Animator/Visual/Body binding samples correctly; Loop option works
+Cleanup: temporary test assets removed; existing PNG metadata, library, controller and clips unchanged

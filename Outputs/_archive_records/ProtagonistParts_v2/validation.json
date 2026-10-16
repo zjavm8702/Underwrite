@@ -1,0 +1,61 @@
+{
+  "parts": [
+    {
+      "name": "01_head_neck",
+      "size": [
+        192,
+        260
+      ],
+      "transparent": true
+    },
+    {
+      "name": "02_torso_pelvis",
+      "size": [
+        360,
+        611
+      ],
+      "transparent": true
+    },
+    {
+      "name": "03_arm_R",
+      "size": [
+        160,
+        605
+      ],
+      "transparent": true
+    },
+    {
+      "name": "04_arm_L",
+      "size": [
+        152,
+        606
+      ],
+      "transparent": true
+    },
+    {
+      "name": "05_leg_R",
+      "size": [
+        230,
+        940
+      ],
+      "transparent": true
+    },
+    {
+      "name": "06_leg_L",
+      "size": [
+        263,
+        950
+      ],
+      "transparent": true
+    },
+    {
+      "name": "07_coin_pouch",
+      "size": [
+        122,
+        139
+      ],
+      "transparent": true
+    }
+  ],
+  "legacy_artist_metadata_preserved": true
+}

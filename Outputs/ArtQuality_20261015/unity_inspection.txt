@@ -1,0 +1,67 @@
+Scene=Assets/Scenes/SampleScene.unity; Dirty=True; Playing=False
+Assets/Images/Characters/Protagonist/Idle/E/idle_E_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_E_00_0 rect=(x:109.00, y:12.00, width:142.00, height:700.00) pivot=(71.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/E/idle_E_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_E_01_0 rect=(x:109.00, y:12.00, width:142.00, height:701.00) pivot=(71.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/E/idle_E_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_E_02_0 rect=(x:109.00, y:12.00, width:143.00, height:700.00) pivot=(71.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/E/idle_E_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_E_03_0 rect=(x:109.00, y:12.00, width:143.00, height:701.00) pivot=(71.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/E/idle_E_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_E_04_0 rect=(x:109.00, y:12.00, width:143.00, height:701.00) pivot=(71.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/E/idle_E_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_E_05_0 rect=(x:109.00, y:12.00, width:143.00, height:700.00) pivot=(71.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/N/idle_N_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_N_00_0 rect=(x:51.00, y:12.00, width:260.00, height:699.00) pivot=(130.00, 349.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/N/idle_N_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_N_01_0 rect=(x:49.00, y:12.00, width:262.00, height:701.00) pivot=(131.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/N/idle_N_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_N_02_0 rect=(x:50.00, y:12.00, width:262.00, height:701.00) pivot=(131.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/N/idle_N_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_N_03_0 rect=(x:51.00, y:12.00, width:263.00, height:701.00) pivot=(131.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/N/idle_N_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_N_04_0 rect=(x:49.00, y:12.00, width:263.00, height:698.00) pivot=(131.50, 349.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/N/idle_N_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_N_05_0 rect=(x:50.00, y:12.00, width:261.00, height:699.00) pivot=(130.50, 349.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NE_00_0 rect=(x:53.00, y:12.00, width:242.00, height:701.00) pivot=(121.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NE_01_0 rect=(x:53.00, y:12.00, width:240.00, height:701.00) pivot=(120.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NE_02_0 rect=(x:53.00, y:12.00, width:241.00, height:699.00) pivot=(120.50, 349.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NE_03_0 rect=(x:53.00, y:12.00, width:242.00, height:701.00) pivot=(121.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NE_04_0 rect=(x:53.00, y:12.00, width:241.00, height:700.00) pivot=(120.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NE_05_0 rect=(x:53.00, y:12.00, width:241.00, height:700.00) pivot=(120.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NW_00_0 rect=(x:67.00, y:12.00, width:225.00, height:701.00) pivot=(112.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NW_01_0 rect=(x:63.00, y:12.00, width:242.00, height:700.00) pivot=(121.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NW_02_0 rect=(x:68.00, y:12.00, width:242.00, height:700.00) pivot=(121.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NW_03_0 rect=(x:67.00, y:12.00, width:243.00, height:700.00) pivot=(121.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NW_04_0 rect=(x:67.00, y:12.00, width:244.00, height:700.00) pivot=(122.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_NW_05_0 rect=(x:66.00, y:12.00, width:242.00, height:700.00) pivot=(121.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/S/idle_S_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_S_00_0 rect=(x:41.00, y:12.00, width:272.00, height:701.00) pivot=(136.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/S/idle_S_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_S_01_0 rect=(x:42.00, y:12.00, width:271.00, height:699.00) pivot=(135.50, 349.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/S/idle_S_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_S_02_0 rect=(x:40.00, y:12.00, width:273.00, height:701.00) pivot=(136.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/S/idle_S_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_S_03_0 rect=(x:44.00, y:12.00, width:272.00, height:700.00) pivot=(136.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/S/idle_S_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_S_04_0 rect=(x:43.00, y:12.00, width:272.00, height:701.00) pivot=(136.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/S/idle_S_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_S_05_0 rect=(x:45.00, y:12.00, width:271.00, height:700.00) pivot=(135.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SE_00_0 rect=(x:41.00, y:12.00, width:260.00, height:701.00) pivot=(130.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SE_01_0 rect=(x:42.00, y:12.00, width:260.00, height:701.00) pivot=(130.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SE_02_0 rect=(x:43.00, y:12.00, width:258.00, height:700.00) pivot=(129.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SE_03_0 rect=(x:43.00, y:12.00, width:257.00, height:700.00) pivot=(128.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SE_04_0 rect=(x:43.00, y:12.00, width:257.00, height:700.00) pivot=(128.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SE_05_0 rect=(x:43.00, y:12.00, width:258.00, height:700.00) pivot=(129.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SW_00_0 rect=(x:48.00, y:12.00, width:251.00, height:701.00) pivot=(125.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SW_01_0 rect=(x:43.00, y:12.00, width:260.00, height:700.00) pivot=(130.00, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SW_02_0 rect=(x:44.00, y:12.00, width:259.00, height:701.00) pivot=(129.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SW_03_0 rect=(x:43.00, y:12.00, width:261.00, height:701.00) pivot=(130.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SW_04_0 rect=(x:43.00, y:12.00, width:259.00, height:701.00) pivot=(129.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_SW_05_0 rect=(x:43.00, y:12.00, width:260.00, height:701.00) pivot=(130.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/W/idle_W_00.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_W_00_0 rect=(x:100.00, y:12.00, width:163.00, height:700.00) pivot=(81.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/W/idle_W_01.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_W_01_0 rect=(x:100.00, y:12.00, width:163.00, height:701.00) pivot=(81.50, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/W/idle_W_02.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_W_02_0 rect=(x:99.00, y:12.00, width:163.00, height:700.00) pivot=(81.50, 350.00) ppu=100
+Assets/Images/Characters/Protagonist/Idle/W/idle_W_03.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_W_03_0 rect=(x:99.00, y:12.00, width:164.00, height:701.00) pivot=(82.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/W/idle_W_04.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_W_04_0 rect=(x:100.00, y:12.00, width:162.00, height:701.00) pivot=(81.00, 350.50) ppu=100
+Assets/Images/Characters/Protagonist/Idle/W/idle_W_05.png filter=Bilinear compression=Compressed max=2048 mip=False alpha=True idle_W_05_0 rect=(x:101.00, y:12.00, width:160.00, height:699.00) pivot=(80.00, 349.50) ppu=100
+Assets/Animations/Clib/Idle/Idle_E.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.350,0.483,0.600,0.717
+Assets/Animations/Clib/Idle/Idle_N.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.367,0.483,0.600,0.717
+Assets/Animations/Clib/Idle/Idle_NE.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.367,0.483,0.600,0.717
+Assets/Animations/Clib/Idle/Idle_NW.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.367,0.483,0.600,0.717
+Assets/Animations/Clib/Idle/Idle_S.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.367,0.483,0.600,0.717
+Assets/Animations/Clib/Idle/Idle_SE.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.367,0.483,0.600,0.717
+Assets/Animations/Clib/Idle/Idle_SW.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.367,0.483,0.600,0.717
+Assets/Animations/Clib/Idle/Idle_W.anim length=0.7166666 sampleRate=60 loop=True bindings=:SpriteResolver.m_SpriteHash
+times=0.000,0.117,0.233,0.367,0.483,0.600,0.717
+Renderer=Body material=Sprite-Lit-Default shader=Universal Render Pipeline/2D/Sprite-Lit-Default scale=(1.00, 1.00, 1.00)
+Camera=Main Camera ortho=True size=5 pixelHeight=1160

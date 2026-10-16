@@ -1,0 +1,104 @@
+{
+  "SE_04": {
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-a7cf46c1-9fd2-4eb8-8498-6212211a8f07.png",
+    "old_bbox": [
+      171,
+      18,
+      515,
+      711
+    ],
+    "new_bbox": [
+      164,
+      18,
+      541,
+      711
+    ],
+    "scale": 0.5833333333333334,
+    "stage": "C:\\Underwrite\\Outputs\\WalkingArmFix_v2\\Keyframes\\SE\\walk_se_04.png"
+  },
+  "SE_05": {
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-5745de0a-4cb8-466d-b133-253535a02415.png",
+    "old_bbox": [
+      179,
+      13,
+      455,
+      711
+    ],
+    "new_bbox": [
+      205,
+      13,
+      464,
+      711
+    ],
+    "scale": 0.6069565217391304,
+    "stage": "C:\\Underwrite\\Outputs\\WalkingArmFix_v2\\Keyframes\\SE\\walk_se_05.png"
+  },
+  "NE_04": {
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-da5c1e5b-1638-44a7-b7f2-503ab4e1169c.png",
+    "old_bbox": [
+      175,
+      13,
+      483,
+      711
+    ],
+    "new_bbox": [
+      212,
+      13,
+      451,
+      711
+    ],
+    "scale": 0.5575079872204473,
+    "stage": "C:\\Underwrite\\Outputs\\WalkingArmFix_v2\\Keyframes\\NE\\walk_ne_04.png"
+  },
+  "NE_05": {
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-b5851789-208f-4d7b-bdd9-3ca3e61716dc.png",
+    "old_bbox": [
+      189,
+      27,
+      476,
+      711
+    ],
+    "new_bbox": [
+      224,
+      27,
+      420,
+      711
+    ],
+    "scale": 0.5520581113801453,
+    "stage": "C:\\Underwrite\\Outputs\\WalkingArmFix_v2\\Keyframes\\NE\\walk_ne_05.png"
+  },
+  "NW_04": {
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-2ecb915c-8024-4f21-8fe1-1512761dc1a0.png",
+    "old_bbox": [
+      152,
+      27,
+      471,
+      711
+    ],
+    "new_bbox": [
+      170,
+      27,
+      480,
+      711
+    ],
+    "scale": 0.5723849372384937,
+    "stage": "C:\\Underwrite\\Outputs\\WalkingArmFix_v2\\Keyframes\\NW\\walk_nw_04.png"
+  },
+  "NW_05": {
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-8a743bb1-e14e-4ce0-9b40-01fa887774ac.png",
+    "old_bbox": [
+      150,
+      26,
+      481,
+      711
+    ],
+    "new_bbox": [
+      212,
+      26,
+      438,
+      711
+    ],
+    "scale": 0.5756302521008403,
+    "stage": "C:\\Underwrite\\Outputs\\WalkingArmFix_v2\\Keyframes\\NW\\walk_nw_05.png"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "frames": [
+    {
+      "source_bbox": [
+        124,
+        11,
+        321,
+        506
+      ],
+      "output_bbox": [
+        117,
+        248,
+        395,
+        947
+      ]
+    },
+    {
+      "source_bbox": [
+        465,
+        12,
+        677,
+        507
+      ],
+      "output_bbox": [
+        107,
+        248,
+        406,
+        947
+      ]
+    },
+    {
+      "source_bbox": [
+        829,
+        44,
+        1052,
+        507
+      ],
+      "output_bbox": [
+        98,
+        294,
+        413,
+        947
+      ]
+    },
+    {
+      "source_bbox": [
+        1188,
+        12,
+        1417,
+        507
+      ],
+      "output_bbox": [
+        95,
+        248,
+        418,
+        947
+      ]
+    },
+    {
+      "source_bbox": [
+        96,
+        511,
+        354,
+        1009
+      ],
+      "output_bbox": [
+        68,
+        244,
+        432,
+        947
+      ]
+    },
+    {
+      "source_bbox": [
+        470,
+        532,
+        713,
+        1009
+      ],
+      "output_bbox": [
+        88,
+        273,
+        431,
+        947
+      ]
+    },
+    {
+      "source_bbox": [
+        837,
+        526,
+        1058,
+        1009
+      ],
+      "output_bbox": [
+        100,
+        265,
+        412,
+        947
+      ]
+    },
+    {
+      "source_bbox": [
+        1210,
+        523,
+        1407,
+        1010
+      ],
+      "output_bbox": [
+        118,
+        259,
+        396,
+        947
+      ]
+    }
+  ],
+  "png_count": 8,
+  "canvas": [
+    512,
+    960
+  ],
+  "pivot_bottom_left": [
+    256,
+    13
+  ],
+  "scale_shared_across_frames": 1.412121212121212,
+  "duration_ms": [
+    240,
+    120,
+    120,
+    120,
+    300,
+    180,
+    180,
+    300
+  ],
+  "one_shot": true,
+  "existing_metadata_verified": 199,
+  "metadata_changes": 0,
+  "detached_components": 0,
+  "hidden_rgb": 0,
+  "edge_contact": 0
+}

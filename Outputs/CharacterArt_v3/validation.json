@@ -1,0 +1,847 @@
+{
+  "existing_metadata_changes": [],
+  "frames": {
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\E\\idle_e_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        139,
+        97,
+        372,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\E\\idle_e_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        139,
+        97,
+        372,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\E\\idle_e_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        139,
+        99,
+        372,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\E\\idle_e_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        139,
+        99,
+        372,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\E\\idle_e_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        139,
+        97,
+        372,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\E\\idle_e_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        139,
+        98,
+        372,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\N\\idle_n_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        110,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\N\\idle_n_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        110,
+        387,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\N\\idle_n_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        110,
+        387,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\N\\idle_n_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        110,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\N\\idle_n_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        110,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\N\\idle_n_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        110,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NE\\idle_ne_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        124,
+        96,
+        388,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NE\\idle_ne_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        97,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NE\\idle_ne_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        127,
+        97,
+        384,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NE\\idle_ne_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        127,
+        98,
+        384,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NE\\idle_ne_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        127,
+        98,
+        384,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NE\\idle_ne_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        128,
+        98,
+        384,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NW\\idle_nw_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        123,
+        101,
+        388,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NW\\idle_nw_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        123,
+        101,
+        389,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NW\\idle_nw_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        123,
+        101,
+        389,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NW\\idle_nw_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        122,
+        101,
+        389,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NW\\idle_nw_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        123,
+        101,
+        389,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\NW\\idle_nw_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        123,
+        101,
+        389,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\S\\idle_s_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        103,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\S\\idle_s_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        103,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\S\\idle_s_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        103,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\S\\idle_s_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        103,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\S\\idle_s_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        103,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\S\\idle_s_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        125,
+        103,
+        386,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SE\\idle_se_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        120,
+        101,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SE\\idle_se_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        119,
+        101,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SE\\idle_se_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        119,
+        101,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SE\\idle_se_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        119,
+        103,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SE\\idle_se_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        119,
+        101,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SE\\idle_se_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        119,
+        102,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SW\\idle_sw_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        121,
+        95,
+        391,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SW\\idle_sw_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        120,
+        96,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SW\\idle_sw_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        120,
+        96,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SW\\idle_sw_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        121,
+        96,
+        391,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SW\\idle_sw_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        120,
+        95,
+        392,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\SW\\idle_sw_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        120,
+        96,
+        391,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\W\\idle_w_00.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        157,
+        91,
+        354,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\W\\idle_w_01.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        157,
+        91,
+        354,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\W\\idle_w_02.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        157,
+        91,
+        355,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\W\\idle_w_03.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        157,
+        91,
+        354,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\W\\idle_w_04.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        157,
+        91,
+        354,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Heroes\\HumanFemale\\Idle\\W\\idle_w_05.png": {
+      "canvas": [
+        512,
+        724
+      ],
+      "bbox": [
+        157,
+        91,
+        354,
+        711
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_00.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        116,
+        248,
+        395,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_01.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        106,
+        250,
+        406,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_02.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        112,
+        293,
+        399,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_03.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        113,
+        381,
+        399,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_04.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        81,
+        247,
+        431,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_05.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        90,
+        336,
+        421,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_06.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        99,
+        306,
+        412,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    },
+    "Assets\\Images\\Characters\\Protagonist\\Walking\\Jackpot_S\\jackpot_s_07.png": {
+      "canvas": [
+        512,
+        960
+      ],
+      "bbox": [
+        119,
+        292,
+        393,
+        947
+      ],
+      "components": 1,
+      "hidden_rgb": 0,
+      "edge_contact": false
+    }
+  },
+  "png_count": 56,
+  "existing_metadata_verified": 140
+}

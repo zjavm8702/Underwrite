@@ -1,0 +1,116 @@
+{
+  "method": "built-in image_gen",
+  "jobs": [
+    {
+      "key": "S",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/S/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing S view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "SE",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/SE/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing SE view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "E",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/E/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing E view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "NE",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/NE/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing NE view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "N",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/N/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing N view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "NW",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/NW/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing NW view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "W",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/W/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing W view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "SW",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/SW/sheet.png"
+      ],
+      "prompt": "Precise edit of this SIX-frame horizontal sprite animation strip. Keep same SIX fullbody figures, existing SW view/camera direction, petite adult woman's identity proportions outfit sword sheath side palette fine warm brown outlines pale matte cel shading and standing pose. Main mandatory change is ANIMATE PONYTAIL, which currently looks wax-stiff. Keep scalp, tied ponytail root and head orientation stationary. Make lower half of ponytail a soft flexible bundle, its ends sway progressively through six frames: 0 neutral hanging curve;1 tips displaced modestly toward screen right;2 same rightmost position easing reversal;3 passing neutral;4 tips modestly screen left;5 easing back toward neutral so loop5-to0 is smooth. Total tip displacement about one half EYE-width each side (about 1/12 HEAD width). Clear gentle silhouette change, not all six identical, not strong wind or whipping. Midlength follows smaller delayed sway; red ribbon tips follow hair softly. A few coherent chunky locks, no noisy flyaway hair, keep solid same matte hair shading. Subtle inhale/exhale shoulders at most tiny; preserve body legs hands planted feet and coat perfectly still, stable folds and ornaments, identical scale in all six. Keep original blink sequence if face visible, no smiling or head turning. Full hair tips sword boots remain within each cell with wide transparent gaps, no extra figures or symbols shadows background. Transparent RGBA. Exact same character, no redesign or stretching."
+    },
+    {
+      "key": "N",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/N/sheet.png"
+      ],
+      "prompt": "Precisely edit this SIX-frame idle sprite strip, exactly SIX fullbody figures in one horizontal row, transparent RGBA. Preserve exact N direction and character identity, petite slender adult human woman black ponytail red ribbon fitted navy coat goldtrim burgundy lining white blouse redcravat darktrousers boots sheathed sword anatomicallefthip. Keep face scalp tied ponytail ROOT camera pose shoulders body legs hands feet outfit shading scale fixed. Main mandatory change is lower HALF of PONYTAIL gently SWAYING across frames. Hair looks wax-stiff now. Redraw soft coherent locks with subtly changing outline at lower tips: frame0 neutral;1 tips slightly screenRIGHT;2 rightmost tip easing;3 neutral;4 tips slightly screenLEFT;5 easing backneutral. Tip displacement each side half an EYE width (~1/12 headwidth). Upperhair unmoving, midlength follows very slightly, tips have clear soft movement like inertia with breathing. Red ribbon ends follow softly. Not everyframe same hair. No strongwind whipping, no detached flyaways, no hairshade flicker or grain. Keep existing blink sequence if visible but don't turn face, don't add face in back view. Body coat boots sword EXACTLY SAME pose and stable folds, no wandering or changing proportions. All figures fullbody, transparent gaps, no cropping hair, no labels groundshadow props backgrounds."
+    },
+    {
+      "key": "NW",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/NW/sheet.png"
+      ],
+      "prompt": "Precisely edit this SIX-frame idle sprite strip, exactly SIX fullbody figures in one horizontal row, transparent RGBA. Preserve exact NW direction and character identity, petite slender adult human woman black ponytail red ribbon fitted navy coat goldtrim burgundy lining white blouse redcravat darktrousers boots sheathed sword anatomicallefthip. Keep face scalp tied ponytail ROOT camera pose shoulders body legs hands feet outfit shading scale fixed. Main mandatory change is lower HALF of PONYTAIL gently SWAYING across frames. Hair looks wax-stiff now. Redraw soft coherent locks with subtly changing outline at lower tips: frame0 neutral;1 tips slightly screenRIGHT;2 rightmost tip easing;3 neutral;4 tips slightly screenLEFT;5 easing backneutral. Tip displacement each side half an EYE width (~1/12 headwidth). Upperhair unmoving, midlength follows very slightly, tips have clear soft movement like inertia with breathing. Red ribbon ends follow softly. Not everyframe same hair. No strongwind whipping, no detached flyaways, no hairshade flicker or grain. Keep existing blink sequence if visible but don't turn face, don't add face in back view. Body coat boots sword EXACTLY SAME pose and stable folds, no wandering or changing proportions. All figures fullbody, transparent gaps, no cropping hair, no labels groundshadow props backgrounds."
+    },
+    {
+      "key": "W",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/W/sheet.png"
+      ],
+      "prompt": "Precisely edit this SIX-frame idle sprite strip, exactly SIX fullbody figures in one horizontal row, transparent RGBA. Preserve exact W direction and character identity, petite slender adult human woman black ponytail red ribbon fitted navy coat goldtrim burgundy lining white blouse redcravat darktrousers boots sheathed sword anatomicallefthip. Keep face scalp tied ponytail ROOT camera pose shoulders body legs hands feet outfit shading scale fixed. Main mandatory change is lower HALF of PONYTAIL gently SWAYING across frames. Hair looks wax-stiff now. Redraw soft coherent locks with subtly changing outline at lower tips: frame0 neutral;1 tips slightly screenRIGHT;2 rightmost tip easing;3 neutral;4 tips slightly screenLEFT;5 easing backneutral. Tip displacement each side half an EYE width (~1/12 headwidth). Upperhair unmoving, midlength follows very slightly, tips have clear soft movement like inertia with breathing. Red ribbon ends follow softly. Not everyframe same hair. No strongwind whipping, no detached flyaways, no hairshade flicker or grain. Keep existing blink sequence if visible but don't turn face, don't add face in back view. Body coat boots sword EXACTLY SAME pose and stable folds, no wandering or changing proportions. All figures fullbody, transparent gaps, no cropping hair, no labels groundshadow props backgrounds."
+    },
+    {
+      "key": "SW",
+      "refs": [
+        "C:/Underwrite/Outputs/CharacterArt_v3/HumanFemale_Idle/SW/sheet.png"
+      ],
+      "prompt": "Precisely edit this SIX-frame idle sprite strip, exactly SIX fullbody figures in one horizontal row, transparent RGBA. Preserve exact SW direction and character identity, petite slender adult human woman black ponytail red ribbon fitted navy coat goldtrim burgundy lining white blouse redcravat darktrousers boots sheathed sword anatomicallefthip. Keep face scalp tied ponytail ROOT camera pose shoulders body legs hands feet outfit shading scale fixed. Main mandatory change is lower HALF of PONYTAIL gently SWAYING across frames. Hair looks wax-stiff now. Redraw soft coherent locks with subtly changing outline at lower tips: frame0 neutral;1 tips slightly screenRIGHT;2 rightmost tip easing;3 neutral;4 tips slightly screenLEFT;5 easing backneutral. Tip displacement each side half an EYE width (~1/12 headwidth). Upperhair unmoving, midlength follows very slightly, tips have clear soft movement like inertia with breathing. Red ribbon ends follow softly. Not everyframe same hair. No strongwind whipping, no detached flyaways, no hairshade flicker or grain. Keep existing blink sequence if visible but don't turn face, don't add face in back view. Body coat boots sword EXACTLY SAME pose and stable folds, no wandering or changing proportions. All figures fullbody, transparent gaps, no cropping hair, no labels groundshadow props backgrounds."
+    }
+  ],
+  "additional_S_blink_edit": "Edit this SIX-frame horizontal transparent sprite strip. Restore an actual EYE BLINK without changing the new moving ponytail: first,second,fifth,sixth figures eyes OPEN; THIRD figure eyelids half closed; FOURTH figure eyes FULLY CLOSED in a relaxed brief blink, absolutely no visible iris in fourth. Keep exact six existing different ponytail silhouettes and ribbon curves, head pose, body boots coat sword scale colors. Do not make all six eye expressions the same. Character is stern feminine adult woman, no smile or squint. Six fullbody figures transparent background, same layout, no new symbols or shadows. Main necessary change fourth figure eyes closed.",
+  "final_sources": {
+    "S": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-fdf708b0-a6df-40ee-ba89-31d133207524.png"
+    },
+    "SE": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-9a188003-0dd4-4150-b3eb-5466bdb2e11f.png"
+    },
+    "E": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-6458472a-f631-45d1-ae43-3b4129463408.png"
+    },
+    "NE": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-8723da29-fd6f-4e2b-9750-9bab419faa04.png"
+    },
+    "N": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-12fd8a7f-157f-484f-9077-efb68c684d72.png"
+    },
+    "NW": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-4a21cd99-7e7b-47e3-a4a2-3407d989e0cd.png"
+    },
+    "W": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-fb291e2f-b626-4463-ad33-9964761ad6d2.png"
+    },
+    "SW": {
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a12e51-8885-7b63-948a-09cd65b8da3d\\exec-92b00c1f-1eb4-4e1a-8b67-39fbde41cf61.png"
+    }
+  }
+}

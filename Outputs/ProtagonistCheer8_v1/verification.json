@@ -1,0 +1,38 @@
+{
+  "new_png_count": 56,
+  "all_direction_png_count": 64,
+  "directions_added": [
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "frames_per_direction": 8,
+  "canvas": [
+    512,
+    960
+  ],
+  "pivot_bottom_left": [
+    256,
+    13
+  ],
+  "duration_ms": [
+    240,
+    120,
+    120,
+    120,
+    300,
+    180,
+    180,
+    300
+  ],
+  "metadata_verified": 200,
+  "metadata_changes": 0,
+  "existing_front_png_changes": 0,
+  "hidden_rgb": 0,
+  "detached_components": 0,
+  "edge_contact": 0
+}
