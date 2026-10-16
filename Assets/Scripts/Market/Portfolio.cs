@@ -66,6 +66,91 @@ namespace Underwrite.Market
         /// <summary>후원으로 지출한 누계. 시장 거래와 분리해 기록한다.</summary>
         public float PatronageSpent { get; private set; }
 
+        /// <summary>
+        /// 지정가 매수 주문이 묶어 둔 현금. 아직 쓰이지는 않았지만 다른 주문에 쓸 수도 없다.
+        /// 이걸 두지 않으면 같은 돈으로 주문을 무한히 걸 수 있다.
+        /// </summary>
+        public float ReservedCash { get; private set; }
+
+        /// <summary>지정가 매도 주문이 묶어 둔 지분. 종목별 수량이다.</summary>
+        private readonly Dictionary<string, int> ReservedShares = new Dictionary<string, int>();
+
+        /// <summary>실제로 쓸 수 있는 현금. 묶인 돈을 뺀 값이다.</summary>
+        public float AvailableCash
+        {
+            get
+            {
+                return Cash - ReservedCash;
+            }
+        }
+
+        /// <summary>실제로 팔 수 있는 지분. 묶인 수량을 뺀 값이다.</summary>
+        public int AvailableQuantityOf(string stockId)
+        {
+            int reserved;
+
+            if (ReservedShares.TryGetValue(stockId, out reserved) == false)
+            {
+                reserved = 0;
+            }
+
+            return QuantityOf(stockId) - reserved;
+        }
+
+        internal bool ReserveCash(float amount)
+        {
+            if (AvailableCash < amount)
+            {
+                return false;
+            }
+
+            ReservedCash += amount;
+            return true;
+        }
+
+        internal void ReleaseCash(float amount)
+        {
+            ReservedCash -= amount;
+
+            if (ReservedCash < 0f)
+            {
+                ReservedCash = 0f;
+            }
+        }
+
+        internal bool ReserveShares(string stockId, int quantity)
+        {
+            if (AvailableQuantityOf(stockId) < quantity)
+            {
+                return false;
+            }
+
+            int current;
+            ReservedShares.TryGetValue(stockId, out current);
+            ReservedShares[stockId] = current + quantity;
+            return true;
+        }
+
+        internal void ReleaseShares(string stockId, int quantity)
+        {
+            int current;
+
+            if (ReservedShares.TryGetValue(stockId, out current) == false)
+            {
+                return;
+            }
+
+            var next = current - quantity;
+
+            if (next <= 0)
+            {
+                ReservedShares.Remove(stockId);
+                return;
+            }
+
+            ReservedShares[stockId] = next;
+        }
+
         public Portfolio(float startingCash)
         {
             if (startingCash < 0f)
@@ -142,9 +227,10 @@ namespace Underwrite.Market
             return Cash + HoldingsValue(stocks);
         }
 
+        /// <summary>묶이지 않은 현금으로 살 수 있는지. 예약분은 쓸 수 없다.</summary>
         internal bool CanAfford(float amount)
         {
-            return Cash >= amount;
+            return AvailableCash >= amount;
         }
 
         internal void Buy(string stockId, int quantity, float price)

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  지하거래소 거래 화면 레이아웃.
+  시안: Outputs/MarketUI_v1/Modern_v1/market_full.png
+  값 채우기와 표시·숨김은 MarketScreenController가 한다. 여기에는 규칙을 넣지 않는다.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <!-- 스타일 연결. 이게 없으면 USS가 전혀 적용되지 않는다. -->
+    <Style src="project://database/Assets/UI/MarketScreen.uss" />
+
+    <ui:VisualElement name="market-root" class="market-root">
+
+        <!-- 상단 -->
+        <ui:VisualElement name="header" class="header">
+            <ui:VisualElement class="brand">
+                <ui:Label text="UNDERWRITE" class="brand-mark" />
+                <ui:Label text="지하거래소" class="t-title" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="header-status" class="header-status">
+                <ui:Label name="phase-chip" text="개장" class="status-chip" />
+                <ui:Label name="clock-text" text="장중 경과 00:00 · 0 / 96틱" class="t-body weak status-chip" />
+                <ui:Label name="sentiment-text" text="분위기 평온" class="t-body status-chip" />
+                <ui:Button name="pause-button" text="일시정지" class="btn" />
+                <ui:Button name="speed-1" text="1배" class="btn btn--small" />
+                <ui:Button name="speed-4" text="4배" class="btn btn--small" />
+                <ui:Button name="speed-16" text="16배" class="btn btn--small" />
+                <ui:Button name="place-button" text="지하시장에 있음" class="btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- 휴장 배너 -->
+        <ui:VisualElement name="halt-banner" class="banner hidden">
+            <ui:Label name="halt-text" text="영주 조사로 오늘은 휴장해요" class="banner-text" />
+            <ui:Label text="주문은 할 수 없지만 원정 소식과 시간은 계속 흐릅니다." class="t-body weak" style="margin-left: 24px;" />
+        </ui:VisualElement>
+
+        <!-- 자산 -->
+        <ui:VisualElement name="asset-row" class="asset-row">
+            <ui:VisualElement class="asset-card">
+                <ui:Label text="현금" class="t-body weak" />
+                <ui:Label name="asset-cash" text="0" class="t-asset" />
+            </ui:VisualElement>
+            <ui:VisualElement class="asset-card">
+                <ui:Label text="평가액" class="t-body weak" />
+                <ui:Label name="asset-holdings" text="0" class="t-asset" />
+            </ui:VisualElement>
+            <ui:VisualElement class="asset-card">
+                <ui:Label text="총자산" class="t-body weak" />
+                <ui:Label name="asset-total" text="0" class="t-asset" />
+            </ui:VisualElement>
+            <ui:VisualElement class="asset-card asset-card--last">
+                <ui:Label text="실현손익" class="t-body weak" />
+                <ui:Label name="asset-realized" text="0" class="t-asset" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- 본문 -->
+        <ui:VisualElement name="body" class="body">
+
+            <!-- 왼쪽: 거래 종목 -->
+            <ui:VisualElement class="col-stocks panel">
+                <ui:Label text="거래 종목" class="t-panel" />
+                <ui:VisualElement name="stock-list" style="margin-top: 16px;" />
+                <ui:VisualElement class="grow" />
+                <ui:Label text="※ 장 시작 대비." class="t-note" />
+            </ui:VisualElement>
+
+            <!-- 가운데: 차트 + 호가창 + 정보 기록 -->
+            <ui:VisualElement class="col-center">
+              <ui:VisualElement class="row">
+                <ui:VisualElement class="panel grow">
+                    <ui:VisualElement class="row" style="align-items: flex-end;">
+                        <ui:Label name="chart-name" text="—" class="t-panel" />
+                        <ui:Label name="chart-kind" text="" class="t-body weak" style="margin-left: 8px; margin-bottom: 4px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="row" style="align-items: center; margin-top: 8px;">
+                        <ui:Label name="chart-price" text="0.0" class="t-price" />
+                        <ui:VisualElement style="margin-left: 16px;">
+                            <ui:Label name="chart-change" text="0.0%" class="t-asset" />
+                            <ui:Label text="장 시작 대비" class="t-note" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="chart" class="chart" />
+                    <ui:Label name="chart-footer" text="한 장 · 72틱" class="t-note" style="-unity-text-align: middle-right;" />
+                </ui:VisualElement>
+
+                <!-- 호가창 -->
+                <ui:VisualElement class="panel" style="width: 260px; margin-left: 24px;">
+                    <ui:Label text="호가" class="t-panel" />
+                    <ui:Label name="book-hint" text="호가를 누르면 지정가로 들어갑니다." class="book-hint" />
+                    <ui:VisualElement name="book-list" style="margin-top: 12px;" />
+                </ui:VisualElement>
+              </ui:VisualElement>
+
+                <ui:VisualElement class="panel grow" style="margin-top: 24px;">
+                    <ui:VisualElement class="row" style="align-items: center;">
+                        <ui:Label text="정보 기록" class="t-panel grow" />
+                        <ui:Button name="filter-all" text="전체" class="btn btn--small" />
+                        <ui:Button name="filter-private" text="나만 아는 정보" class="btn btn--small" />
+                        <ui:Button name="filter-public" text="시장에 공개됨" class="btn btn--small" />
+                    </ui:VisualElement>
+                    <ui:ScrollView name="info-list" style="margin-top: 16px; flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- 오른쪽: 주문 -->
+            <ui:VisualElement class="col-order panel">
+                <ui:Label text="주문" class="t-panel" />
+
+                <ui:VisualElement class="row" style="margin-top: 16px;">
+                    <ui:Button name="side-buy" text="매수" class="tab" />
+                    <ui:Button name="side-sell" text="매도" class="tab" style="margin-right: 0;" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="row" style="margin-top: 12px;">
+                    <ui:Button name="type-market" text="시장가" class="type-tab" />
+                    <ui:Button name="type-limit" text="지정가" class="type-tab" style="margin-right: 0;" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="limit-row" class="row hidden" style="align-items: center; margin-top: 8px;">
+                    <ui:Label text="지정가" class="order-label" />
+                    <ui:VisualElement class="qty-box">
+                        <ui:Button name="limit-minus" text="−" class="qty-step" />
+                        <ui:Label name="limit-value" text="0.0" class="qty-value" />
+                        <ui:Button name="limit-plus" text="+" class="qty-step" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="row" style="align-items: center; margin-top: 8px;">
+                    <ui:Label text="수량" class="order-label" />
+                    <ui:VisualElement class="qty-box">
+                        <ui:Button name="qty-minus" text="−" class="qty-step" />
+                        <ui:Label name="qty-value" text="10주" class="qty-value" />
+                        <ui:Button name="qty-plus" text="+" class="qty-step" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement style="height: 1px; background-color: #E3E7ED; margin-top: 16px; margin-bottom: 8px;" />
+
+                <ui:VisualElement class="order-line">
+                    <ui:Label name="price-label" text="현재가" class="order-label" />
+                    <ui:Label name="order-price" text="0.0" class="order-value" />
+                </ui:VisualElement>
+                <ui:VisualElement class="order-line">
+                    <ui:Label text="예상 체결가" class="order-label" />
+                    <ui:Label name="order-fill" text="0.0" class="order-value" />
+                </ui:VisualElement>
+                <ui:VisualElement class="order-line">
+                    <ui:Label text="예상 합계" class="order-label" />
+                    <ui:Label name="order-total" text="0.0" class="order-value" />
+                </ui:VisualElement>
+                <ui:VisualElement class="order-line">
+                    <ui:Label text="현금" class="order-label" />
+                    <ui:Label name="order-cash" text="0" class="order-value" />
+                </ui:VisualElement>
+
+                <ui:Label name="order-hint" text="체결 시 가격이 달라질 수 있어요." class="notice" />
+
+                <ui:Button name="submit-button" text="매수" class="cta btn--buy" />
+                <ui:Label name="order-message" text="" class="notice" />
+
+                <ui:Label name="pending-title" text="대기 주문" class="t-body-strong hidden" style="margin-top: 16px;" />
+                <ui:VisualElement name="pending-list" />
+
+                <ui:VisualElement class="grow" />
+
+                <ui:VisualElement style="height: 1px; background-color: #E3E7ED; margin-bottom: 8px;" />
+                <ui:VisualElement class="order-line">
+                    <ui:Label text="보유 수량" class="order-label" />
+                    <ui:Label name="hold-qty" text="0주" class="order-value" />
+                </ui:VisualElement>
+                <ui:VisualElement class="order-line">
+                    <ui:Label text="평균 매입가" class="order-label" />
+                    <ui:Label name="hold-avg" text="0.0" class="order-value" />
+                </ui:VisualElement>
+                <ui:VisualElement class="order-line">
+                    <ui:Label text="유동성" class="order-label" />
+                    <ui:Label name="hold-liquidity" text="0" class="order-value" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

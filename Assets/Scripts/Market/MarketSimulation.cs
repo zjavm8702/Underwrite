@@ -34,6 +34,7 @@ namespace Underwrite.Market
         private readonly List<AdventurerStock> StockOrder = new List<AdventurerStock>();
         private readonly List<MarketEventStep> Schedule = new List<MarketEventStep>();
         private readonly List<InfoEntry> InfoEntries = new List<InfoEntry>();
+        private readonly List<PendingOrder> Pending = new List<PendingOrder>();
         private readonly Random Rng;
 
         private int NextEventIndex;
@@ -47,6 +48,18 @@ namespace Underwrite.Market
 
         /// <summary>마지막 틱에 결과가 확정된 사건이 있었는지. 자동 정지 판단에 쓴다. 기획서 §11.</summary>
         public bool HasPendingAlert { get; private set; }
+
+        /// <summary>대기 중이거나 끝난 지정가 주문. 최신이 뒤에 온다.</summary>
+        public IReadOnlyList<PendingOrder> PendingOrders
+        {
+            get
+            {
+                return Pending;
+            }
+        }
+
+        /// <summary>마지막 Step에서 체결된 지정가 주문 수. 알림에 쓴다.</summary>
+        public int LastFilledCount { get; private set; }
 
         public MarketSimulation(int seed, float startingCash)
         {
@@ -128,9 +141,9 @@ namespace Underwrite.Market
         }
 
         /// <summary>장을 연다. 휴장일이면 가격이 멈춘 상태로 연다.</summary>
-        public void OpenSession(bool isInspectionDay)
+        public void OpenSession(bool isInspectionDay, MarketSession session = MarketSession.Session_Morning)
         {
-            Clock.OpenSession(isInspectionDay);
+            Clock.OpenSession(isInspectionDay, session);
 
             for (var i = 0; i < StockOrder.Count; i++)
             {
@@ -177,6 +190,203 @@ namespace Underwrite.Market
                     stock.SetPrice(PriceModel.NextPrice(stock, Sentiment, gaussian));
                     stock.RecordHistory();
                 }
+
+                // 가격이 움직인 뒤에 지정가를 확인한다. 순서가 바뀌면 한 틱 늦게 체결된다.
+                ResolvePending();
+            }
+        }
+
+        /// <summary>
+        /// 현재가가 통과한 지정가 주문을 체결한다. 체결가는 지정가 그대로다.
+        /// 시장가와 달리 유리한 가격이 보장되는 대신 체결 자체는 보장되지 않는다.
+        /// </summary>
+        private void ResolvePending()
+        {
+            LastFilledCount = 0;
+
+            for (var i = 0; i < Pending.Count; i++)
+            {
+                var order = Pending[i];
+
+                if (order.State != PendingState.Pending_Waiting)
+                {
+                    continue;
+                }
+
+                AdventurerStock stock;
+
+                if (StockTable.TryGetValue(order.StockId, out stock) == false || stock.IsTradable == false)
+                {
+                    continue;
+                }
+
+                if (order.ShouldFill(stock.Price) == false)
+                {
+                    continue;
+                }
+
+                if (order.Side == OrderSide.Side_Buy)
+                {
+                    Wallet.ReleaseCash(order.ReservedCash);
+                    Wallet.Buy(order.StockId, order.Quantity, order.LimitPrice);
+                }
+                else
+                {
+                    Wallet.ReleaseShares(order.StockId, order.Quantity);
+                    Wallet.Sell(order.StockId, order.Quantity, order.LimitPrice);
+                }
+
+                order.MarkFilled();
+                LastFilledCount++;
+
+                // 체결도 가격을 민다. 시장가와 같은 유동성 규칙을 쓴다.
+                var impact = PriceModel.OrderImpact(stock, order.Side, order.Quantity);
+                stock.SetPrice(PriceModel.ClampMove(stock.Price, stock.Price + impact));
+                stock.AdjustLiquidity(order.Quantity * 0.1f);
+            }
+        }
+
+        /// <summary>
+        /// 지정가 주문을 건다. 매수는 현금을, 매도는 지분을 묶어 둔다.
+        /// 묶지 않으면 같은 자산으로 주문을 무한히 걸 수 있다.
+        /// </summary>
+        public OrderReceipt SubmitLimitOrder(string stockId, OrderSide side, int quantity, float limitPrice)
+        {
+            if (quantity <= 0)
+            {
+                return Reject(OrderResult.Result_RejectedBadQuantity, StringConstants.TEXT_ORDER_BAD_QUANTITY);
+            }
+
+            if (PlayerAtMarket == false)
+            {
+                return Reject(OrderResult.Result_RejectedNotAtMarket, StringConstants.TEXT_ORDER_NOT_AT_MARKET);
+            }
+
+            if (Clock.IsPaused == true)
+            {
+                return Reject(OrderResult.Result_RejectedPaused, StringConstants.TEXT_ORDER_PAUSED);
+            }
+
+            if (Clock.AcceptsOrders == false)
+            {
+                return Reject(OrderResult.Result_RejectedMarketClosed, StringConstants.TEXT_ORDER_MARKET_CLOSED);
+            }
+
+            AdventurerStock stock;
+
+            if (StockTable.TryGetValue(stockId, out stock) == false || stock.IsTradable == false)
+            {
+                return Reject(OrderResult.Result_RejectedMarketClosed, StringConstants.TEXT_ORDER_MARKET_CLOSED);
+            }
+
+            var price = OrderBook.SnapToTick(limitPrice, stock.Price);
+
+            if (price < Constants.PRICE_FLOOR)
+            {
+                return Reject(OrderResult.Result_RejectedBadPrice, StringConstants.TEXT_ORDER_BAD_PRICE);
+            }
+
+            if (CountWaiting(stockId) >= Constants.PENDING_MAX_PER_STOCK)
+            {
+                return Reject(OrderResult.Result_RejectedBadQuantity, StringConstants.TEXT_ORDER_TOO_MANY);
+            }
+
+            var reserved = 0f;
+
+            if (side == OrderSide.Side_Buy)
+            {
+                reserved = price * quantity;
+
+                if (Wallet.ReserveCash(reserved) == false)
+                {
+                    return Reject(OrderResult.Result_RejectedNoCash, StringConstants.TEXT_ORDER_NO_CASH);
+                }
+            }
+            else
+            {
+                if (Wallet.ReserveShares(stockId, quantity) == false)
+                {
+                    return Reject(OrderResult.Result_RejectedNoShares, StringConstants.TEXT_ORDER_NO_SHARES);
+                }
+            }
+
+            Pending.Add(new PendingOrder(stockId, side, price, quantity, Clock.Tick, reserved));
+
+            return new OrderReceipt
+            {
+                Result = OrderResult.Result_Queued,
+                Quantity = quantity,
+                FillPrice = price,
+                TotalAmount = price * quantity,
+                Message = StringConstants.TEXT_ORDER_QUEUED
+            };
+        }
+
+        private int CountWaiting(string stockId)
+        {
+            var count = 0;
+
+            for (var i = 0; i < Pending.Count; i++)
+            {
+                if (Pending[i].State == PendingState.Pending_Waiting && Pending[i].StockId == stockId)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        /// <summary>대기 중인 지정가 주문을 취소하고 묶어 둔 자산을 푼다.</summary>
+        public bool CancelOrder(int orderId)
+        {
+            for (var i = 0; i < Pending.Count; i++)
+            {
+                var order = Pending[i];
+
+                if (order.Id != orderId || order.State != PendingState.Pending_Waiting)
+                {
+                    continue;
+                }
+
+                if (order.Side == OrderSide.Side_Buy)
+                {
+                    Wallet.ReleaseCash(order.ReservedCash);
+                }
+                else
+                {
+                    Wallet.ReleaseShares(order.StockId, order.Quantity);
+                }
+
+                order.MarkCancelled();
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>폐장 시 남은 지정가 주문을 정리한다. 다음 장으로 넘기지 않는다.</summary>
+        public void ExpirePendingAtClose()
+        {
+            for (var i = 0; i < Pending.Count; i++)
+            {
+                var order = Pending[i];
+
+                if (order.State != PendingState.Pending_Waiting)
+                {
+                    continue;
+                }
+
+                if (order.Side == OrderSide.Side_Buy)
+                {
+                    Wallet.ReleaseCash(order.ReservedCash);
+                }
+                else
+                {
+                    Wallet.ReleaseShares(order.StockId, order.Quantity);
+                }
+
+                order.MarkExpired();
             }
         }
 

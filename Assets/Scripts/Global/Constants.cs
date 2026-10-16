@@ -32,6 +32,9 @@ namespace Underwrite.Global
         public const string TEXT_ORDER_NO_CASH = "현금이 부족합니다.";
         public const string TEXT_ORDER_NO_SHARES = "보유 지분이 부족합니다.";
         public const string TEXT_ORDER_BAD_QUANTITY = "수량은 1 이상이어야 합니다.";
+        public const string TEXT_ORDER_BAD_PRICE = "호가를 올바르게 지정하세요.";
+        public const string TEXT_ORDER_TOO_MANY = "이 종목에 걸 수 있는 주문 수를 넘었습니다.";
+        public const string TEXT_ORDER_QUEUED = "지정가 주문을 걸었습니다. 가격이 닿으면 체결됩니다.";
 
         public const string TEXT_SOURCE_TAVERN_TALK = "여관 소문";
         public const string TEXT_SOURCE_GUILD_RECORD = "길드 기록";
@@ -46,12 +49,21 @@ namespace Underwrite.Global
     public static class Constants
     {
         // ── 시장 시간 ──────────────────────────────
-        /// <summary>한 틱이 나타내는 게임 내 분.</summary>
+        /// <summary>한 틱이 나타내는 게임 내 분. 가격은 이 간격으로 갱신된다.</summary>
         public const int MARKET_MINUTES_PER_TICK = 5;
-        /// <summary>장중 길이(분). 개장부터 폐장까지.</summary>
-        public const int MARKET_SESSION_MINUTES = 480;
-        /// <summary>실시간 1초가 흐르는 게임 내 분. 배속 1.0 기준.</summary>
-        public const float MARKET_MINUTES_PER_REAL_SECOND = 2f;
+        /// <summary>한 장의 길이(분). 6시간이다. 72틱이 된다.</summary>
+        public const int MARKET_SESSION_MINUTES = 360;
+        /// <summary>
+        /// 실시간 1초가 흐르는 게임 내 분. 배속 1.0 기준.
+        /// 0.3333이면 한 틱이 실시간 15초, 한 장이 약 18분이다.
+        /// 이보다 빠르면 가격이 눈으로 따라가기 어렵고, 판단할 틈이 없다.
+        /// </summary>
+        public const float MARKET_MINUTES_PER_REAL_SECOND = 0.3333f;
+
+        /// <summary>오전장 개장 시각. 09시부터 15시까지다.</summary>
+        public const int MARKET_MORNING_START_HOUR = 9;
+        /// <summary>오후장 개장 시각. 21시부터 다음 날 03시까지다.</summary>
+        public const int MARKET_EVENING_START_HOUR = 21;
 
         // ── 가격 모델 (기획서 §7의 6요인) ──────────
         /// <summary>가격이 목표가를 향해 올라갈 때의 수렴 속도.</summary>
@@ -104,6 +116,20 @@ namespace Underwrite.Global
         // ── 플레이어 자금 ─────────────────────────
         /// <summary>시제품 시작 현금. 종잣돈 퀘스트 전 기본값이며 검증에서 조정한다.</summary>
         public const float STARTING_CASH = 500f;
+
+        // ── 호가와 지정가 ─────────────────────────
+        /// <summary>호가창에 보여줄 매수·매도 각 단계 수.</summary>
+        public const int BOOK_LEVELS = 5;
+        /// <summary>호가 단위를 가격의 몇 배로 잡을지. 126.8이면 약 0.5가 된다.</summary>
+        public const float BOOK_TICK_RATIO = 0.004f;
+        /// <summary>호가 단위의 하한.</summary>
+        public const float BOOK_TICK_MIN = 0.1f;
+        /// <summary>1단계 호가에 쌓이는 수량을 유동성의 몇 배로 잡을지.</summary>
+        public const float BOOK_DEPTH_BASE = 0.12f;
+        /// <summary>단계가 멀어질수록 수량이 늘어나는 비율.</summary>
+        public const float BOOK_DEPTH_GROWTH = 0.45f;
+        /// <summary>한 종목에 동시에 걸 수 있는 지정가 주문 수.</summary>
+        public const int PENDING_MAX_PER_STOCK = 5;
 
         // ── 차트 ──────────────────────────────────
         /// <summary>종목별로 보관하는 가격 이력 길이.</summary>

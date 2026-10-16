@@ -1,0 +1,587 @@
+/*
+ * 지하거래소 거래 화면 스타일.
+ * 토큰 값은 Outputs/MarketUI_v1/Modern_v1/README.md의 설계 규격을 그대로 옮긴 것이다.
+ * 수치를 여기서 바꾸면 시안과 어긋나므로, 바꿀 때는 그 문서도 함께 갱신한다.
+ */
+
+:root {
+    /* ── 색 ───────────────────────────────── */
+    --color-canvas: #F5F6F8;
+    --color-panel: #FFFFFF;
+    --color-text: #202632;
+    --color-text-weak: #626C7A;
+    --color-divider: #E3E7ED;
+    --color-input-border: #7A8493;
+
+    --color-rise: #C53643;
+    --color-rise-soft: #FFF0F1;
+    --color-fall: #245EC7;
+    --color-fall-soft: #EDF3FF;
+
+    --color-private: #6741B0;
+    --color-private-soft: #F3EDFF;
+
+    --color-halt: #80510D;
+    --color-halt-soft: #FFF4DE;
+
+    --color-disabled: #E3E7ED;
+
+    /* ── 여백 (4px 배수) ──────────────────── */
+    --gap-xs: 4px;
+    --gap-sm: 8px;
+    --gap-md: 12px;
+    --gap-lg: 16px;
+    --gap-xl: 24px;
+    --gap-2xl: 32px;
+    --gap-3xl: 48px;
+}
+
+/* ── 바탕 ─────────────────────────────────── */
+
+.market-root {
+    flex-grow: 1;
+    background-color: var(--color-canvas);
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 24px;
+    padding-bottom: 64px;
+    color: var(--color-text);
+}
+
+.panel {
+    background-color: var(--color-panel);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+/* ── 글자 단계 ────────────────────────────── */
+
+.t-title {
+    font-size: 28px;
+    -unity-font-style: bold;
+}
+
+.t-price {
+    font-size: 48px;
+    -unity-font-style: bold;
+}
+
+.t-asset {
+    font-size: 32px;
+    -unity-font-style: bold;
+}
+
+.t-panel {
+    font-size: 24px;
+    -unity-font-style: bold;
+}
+
+.t-body {
+    font-size: 20px;
+}
+
+.t-body-strong {
+    font-size: 20px;
+    -unity-font-style: bold;
+}
+
+.t-note {
+    font-size: 16px;
+    color: var(--color-text-weak);
+}
+
+.weak {
+    color: var(--color-text-weak);
+}
+
+/* ── 상단 ─────────────────────────────────── */
+
+.header {
+    flex-direction: row;
+    align-items: center;
+    height: 88px;
+}
+
+/* 브랜드 블록이 줄어들면 오른쪽 상태줄과 겹친다. 줄어들지 않게 고정한다.
+   Unity USS는 :nth-child를 지원하지 않으므로 클래스로 지정한다. */
+.brand {
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--color-text-weak);
+}
+
+.header-status {
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.status-chip {
+    font-size: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 8px;
+    margin-left: 8px;
+}
+
+.status-chip--halt {
+    background-color: var(--color-halt-soft);
+    color: var(--color-halt);
+    -unity-font-style: bold;
+}
+
+/* ── 버튼 ─────────────────────────────────── */
+
+.btn {
+    height: 56px;
+    min-width: 72px;
+    border-radius: 12px;
+    font-size: 20px;
+    border-width: 0;
+    background-color: var(--color-disabled);
+    color: var(--color-text);
+    margin-left: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn--small {
+    height: 44px;
+    min-width: 48px;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 6px;
+    flex-shrink: 1;
+}
+
+.btn--selected {
+    background-color: var(--color-text);
+    color: var(--color-panel);
+    -unity-font-style: bold;
+}
+
+.btn--buy {
+    background-color: var(--color-rise);
+    color: var(--color-panel);
+    -unity-font-style: bold;
+}
+
+.btn--sell {
+    background-color: var(--color-fall);
+    color: var(--color-panel);
+    -unity-font-style: bold;
+}
+
+.btn--disabled {
+    background-color: var(--color-disabled);
+    color: var(--color-text-weak);
+}
+
+.tab {
+    flex-grow: 1;
+    height: 56px;
+    border-radius: 12px;
+    font-size: 20px;
+    border-width: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-text-weak);
+    margin-right: 8px;
+}
+
+.tab--buy-on {
+    background-color: var(--color-rise-soft);
+    color: var(--color-rise);
+    -unity-font-style: bold;
+}
+
+.tab--sell-on {
+    background-color: var(--color-fall-soft);
+    color: var(--color-fall);
+    -unity-font-style: bold;
+}
+
+/* ── 자산 줄 ──────────────────────────────── */
+
+.asset-row {
+    flex-direction: row;
+    margin-top: 24px;
+}
+
+.asset-card {
+    flex-grow: 1;
+    flex-basis: 0;
+    background-color: var(--color-panel);
+    border-radius: 16px;
+    padding: 24px;
+    margin-right: 24px;
+}
+
+.asset-card--last {
+    margin-right: 0;
+}
+
+/* ── 본문 3열 ─────────────────────────────── */
+
+.body {
+    flex-direction: row;
+    flex-grow: 1;
+    margin-top: 24px;
+}
+
+/* 고정폭을 쓰지 않는다. Game 뷰 크기와 PanelSettings의 ScaleWithScreenSize 때문에
+   논리 폭이 1920이 아닐 수 있다. 실제로 872x1160 창에서는 1142px로 해석된다.
+   기준 폭을 flex-basis로 주고 최소폭까지 줄어들게 해 좁은 화면에서도 3열을 유지한다. */
+.col-stocks {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 500px;
+    min-width: 300px;
+    margin-right: 24px;
+}
+
+.col-center {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 320px;
+    margin-right: 24px;
+}
+
+.col-order {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 420px;
+    min-width: 300px;
+}
+
+/* ── 종목 행 ──────────────────────────────── */
+
+.stock-row {
+    height: 120px;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--color-divider);
+    justify-content: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 12px;
+}
+
+.stock-row--selected {
+    background-color: var(--color-canvas);
+}
+
+.stock-line {
+    flex-direction: row;
+    align-items: center;
+}
+
+.stock-name {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 0;
+    font-size: 20px;
+    -unity-font-style: bold;
+}
+
+.stock-price {
+    font-size: 20px;
+    -unity-font-style: bold;
+    min-width: 80px;
+    flex-shrink: 0;
+    -unity-text-align: middle-right;
+}
+
+.stock-change {
+    font-size: 20px;
+    -unity-font-style: bold;
+    min-width: 110px;
+    flex-shrink: 0;
+    -unity-text-align: middle-right;
+}
+
+.rise {
+    color: var(--color-rise);
+}
+
+.fall {
+    color: var(--color-fall);
+}
+
+.flat {
+    color: var(--color-text-weak);
+}
+
+/* ── 차트 ─────────────────────────────────── */
+
+.chart {
+    height: 280px;
+    margin-top: 16px;
+}
+
+/* ── 정보 카드 ────────────────────────────── */
+
+.info-card {
+    min-height: 120px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: var(--color-canvas);
+}
+
+.info-card--private {
+    background-color: var(--color-private-soft);
+    border-left-width: 4px;
+    border-left-color: var(--color-private);
+}
+
+.info-tag {
+    font-size: 18px;
+    -unity-font-style: bold;
+    flex-shrink: 0;
+}
+
+.info-head {
+    flex-direction: column;
+}
+
+.info-meta {
+    font-size: 16px;
+    color: var(--color-text-weak);
+    margin-top: 2px;
+    white-space: normal;
+}
+
+.info-tag--private {
+    color: var(--color-private);
+}
+
+.info-tag--public {
+    color: var(--color-text-weak);
+}
+
+.info-headline {
+    font-size: 20px;
+    -unity-font-style: bold;
+    white-space: normal;
+    margin-top: 8px;
+}
+
+/* ── 주문 ─────────────────────────────────── */
+
+.order-line {
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    flex-shrink: 0;
+    margin-bottom: 2px;
+}
+
+/* 주문 패널은 위에서 아래로 쌓인다. 어느 요소도 겹치지 않게 모두 줄어들지 않게 둔다. */
+.col-order > * {
+    flex-shrink: 0;
+}
+
+.order-label {
+    flex-grow: 1;
+    font-size: 20px;
+    color: var(--color-text-weak);
+}
+
+.order-value {
+    font-size: 20px;
+    -unity-font-style: bold;
+}
+
+.qty-box {
+    flex-direction: row;
+    align-items: center;
+    border-width: 1px;
+    border-color: var(--color-input-border);
+    border-radius: 12px;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+.qty-step {
+    width: 48px;
+    height: 56px;
+    font-size: 24px;
+    background-color: transparent;
+    border-width: 0;
+    color: var(--color-text);
+    margin-left: 0;
+}
+
+.qty-value {
+    width: 72px;
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.cta {
+    height: 56px;
+    border-radius: 12px;
+    font-size: 20px;
+    -unity-font-style: bold;
+    border-width: 0;
+    margin-top: 16px;
+    margin-left: 0;
+}
+
+/* ── 배너 ─────────────────────────────────── */
+
+.banner {
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--color-halt-soft);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.banner-text {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: var(--color-halt);
+}
+
+.notice {
+    font-size: 16px;
+    color: var(--color-text-weak);
+    margin-top: 8px;
+    white-space: normal;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ── 호가창 ───────────────────────────────── */
+
+.book-hint {
+    font-size: 14px;
+    color: var(--color-text-weak);
+    white-space: normal;
+    margin-top: 4px;
+}
+
+.book-row {
+    flex-direction: row;
+    align-items: center;
+    height: 34px;
+    border-radius: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.book-row:hover {
+    background-color: var(--color-divider);
+}
+
+.book-row--ask {
+    background-color: var(--color-rise-soft);
+}
+
+.book-row--bid {
+    background-color: var(--color-fall-soft);
+}
+
+.book-row--mid {
+    background-color: var(--color-text);
+    height: 40px;
+}
+
+.book-price {
+    width: 90px;
+    font-size: 18px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-right;
+}
+
+.book-qty {
+    flex-grow: 1;
+    font-size: 16px;
+    color: var(--color-text-weak);
+    -unity-text-align: middle-right;
+}
+
+.book-mid-price {
+    flex-grow: 1;
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: var(--color-panel);
+    -unity-text-align: middle-center;
+}
+
+/* ── 대기 주문 ────────────────────────────── */
+
+.pending-row {
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    flex-shrink: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--color-divider);
+}
+
+.pending-text {
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.pending-cancel {
+    height: 32px;
+    min-width: 48px;
+    font-size: 16px;
+    border-radius: 8px;
+    border-width: 0;
+    background-color: var(--color-disabled);
+    color: var(--color-text);
+    margin-left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.type-tab {
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 44px;
+    border-radius: 10px;
+    font-size: 18px;
+    border-width: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-text-weak);
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.type-tab--on {
+    background-color: var(--color-text);
+    color: var(--color-panel);
+    -unity-font-style: bold;
+}

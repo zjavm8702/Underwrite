@@ -20,6 +20,42 @@ namespace Underwrite.Market
 
         public MarketPhase Phase { get; private set; } = MarketPhase.Phase_Closed;
 
+        /// <summary>지금 열려 있는 장. 하루에 오전·오후 두 번 열린다.</summary>
+        public MarketSession Session { get; private set; } = MarketSession.Session_Morning;
+
+        /// <summary>장이 시작하는 시각(시). 오전장 09시, 오후장 21시.</summary>
+        public int StartHour
+        {
+            get
+            {
+                if (Session == MarketSession.Session_Evening)
+                {
+                    return Constants.MARKET_EVENING_START_HOUR;
+                }
+
+                return Constants.MARKET_MORNING_START_HOUR;
+            }
+        }
+
+        /// <summary>현재 게임 내 시각의 시 부분. 오후장은 자정을 넘어 03시까지 간다.</summary>
+        public int ClockHour
+        {
+            get
+            {
+                var total = StartHour * 60 + ElapsedMinutes;
+                return total / 60 % 24;
+            }
+        }
+
+        /// <summary>현재 게임 내 시각의 분 부분.</summary>
+        public int ClockMinute
+        {
+            get
+            {
+                return ElapsedMinutes % 60;
+            }
+        }
+
         /// <summary>
         /// 마지막 <see cref="Advance"/>를 시작할 때의 상태. 한 번의 Advance가 장 마감을 넘어설 수 있으므로,
         /// 그 배치에서 넘어온 틱이 장중 틱이었는지는 이 값으로 판단한다.
@@ -99,10 +135,11 @@ namespace Underwrite.Market
         }
 
         /// <summary>장을 연다. 휴장일이면 Halted로 연다 — 가격은 흐르지 않고 마지막 가격만 보인다.</summary>
-        public void OpenSession(bool isInspectionDay)
+        public void OpenSession(bool isInspectionDay, MarketSession session = MarketSession.Session_Morning)
         {
             Tick = 0;
             Accumulated = 0f;
+            Session = session;
 
             if (isInspectionDay == true)
             {

@@ -18,6 +18,16 @@ namespace Underwrite.Enumeration
         Sentiment_Drained
     }
 
+    /// <summary>
+    /// 하루의 두 장. 지하시장은 낮과 밤에 한 번씩 열린다.
+    /// 오전장은 모험가들이 의뢰를 받고 나가는 시간이고, 오후장은 돌아온 뒤의 시간이다.
+    /// </summary>
+    public enum MarketSession
+    {
+        Session_Morning,
+        Session_Evening
+    }
+
     /// <summary>지하시장의 개장 상태. 영주 조사일에는 휴장한다. 기획서 §11.</summary>
     public enum MarketPhase
     {
@@ -32,6 +42,24 @@ namespace Underwrite.Enumeration
         Side_Sell
     }
 
+    /// <summary>
+    /// 주문 유형. 시장가는 즉시 체결되고, 지정가는 가격이 지정한 값을 통과할 때까지 기다린다.
+    /// </summary>
+    public enum OrderType
+    {
+        Type_Market,
+        Type_Limit
+    }
+
+    /// <summary>대기 중인 지정가 주문의 상태.</summary>
+    public enum PendingState
+    {
+        Pending_Waiting,
+        Pending_Filled,
+        Pending_Cancelled,
+        Pending_ExpiredAtClose
+    }
+
     /// <summary>주문 처리 결과. 실패 사유를 호출하는 쪽에 알린다.</summary>
     public enum OrderResult
     {
@@ -41,7 +69,9 @@ namespace Underwrite.Enumeration
         Result_RejectedNotAtMarket,
         Result_RejectedNoCash,
         Result_RejectedNoShares,
-        Result_RejectedBadQuantity
+        Result_RejectedBadQuantity,
+        Result_RejectedBadPrice,
+        Result_Queued
     }
 
     /// <summary>
