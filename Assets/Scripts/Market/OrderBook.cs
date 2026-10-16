@@ -21,7 +21,8 @@ namespace Underwrite.Market
     /// 플레이어가 보는 것은 "지금 이 가격 근처에 얼마나 물량이 있는가"이므로, 그 모습만
     /// 가격과 유동성에서 만들어 내면 판단에 필요한 정보는 모두 전달된다.
     ///
-    /// 같은 틱이면 같은 호가가 나온다. 매 프레임 숫자가 흔들리면 읽을 수 없다.
+    /// 같은 미세 갱신(seq)이면 같은 호가가 나온다. 매 프레임이 아니라 0.1초 남짓마다 바뀐다.
+    /// 실제 호가창이 쉬지 않고 흔들리는 모습을 흉내 내되, 읽을 수 없을 만큼 빠르지는 않게 둔다.
     /// </summary>
     public static class OrderBook
     {
@@ -45,20 +46,20 @@ namespace Underwrite.Market
         /// <summary>
         /// 매도 호가를 1단계부터 채운다. 현재가보다 비싸다. 가장 싼 매도가 먼저 온다.
         /// </summary>
-        public static void FillAsks(AdventurerStock stock, int tick, List<BookLevel> target)
+        public static void FillAsks(AdventurerStock stock, int seq, List<BookLevel> target)
         {
-            Fill(stock, tick, target, OrderSide.Side_Sell);
+            Fill(stock, seq, target, OrderSide.Side_Sell);
         }
 
         /// <summary>
         /// 매수 호가를 1단계부터 채운다. 현재가보다 싸다. 가장 비싼 매수가 먼저 온다.
         /// </summary>
-        public static void FillBids(AdventurerStock stock, int tick, List<BookLevel> target)
+        public static void FillBids(AdventurerStock stock, int seq, List<BookLevel> target)
         {
-            Fill(stock, tick, target, OrderSide.Side_Buy);
+            Fill(stock, seq, target, OrderSide.Side_Buy);
         }
 
-        private static void Fill(AdventurerStock stock, int tick, List<BookLevel> target, OrderSide side)
+        private static void Fill(AdventurerStock stock, int seq, List<BookLevel> target, OrderSide side)
         {
             if (stock == null)
             {
@@ -75,9 +76,13 @@ namespace Underwrite.Market
             var step = TickSize(stock.Price);
             var sign = side == OrderSide.Side_Sell ? 1f : -1f;
 
+            // 호가는 눈금 위에만 선다. 실시간 호가를 눈금에 맞춰 중심을 잡으면
+            // 값이 흐르지 않고 한 칸씩 건너뛰어 실제 호가창처럼 보인다.
+            var center = SnapToTick(stock.LivePrice, stock.Price);
+
             for (var i = 1; i <= Constants.BOOK_LEVELS; i++)
             {
-                var price = stock.Price + sign * step * i;
+                var price = center + sign * step * i;
 
                 if (price < Constants.PRICE_FLOOR)
                 {
@@ -87,23 +92,23 @@ namespace Underwrite.Market
                 target.Add(new BookLevel
                 {
                     Price = price,
-                    Quantity = DepthAt(stock, tick, i, side)
+                    Quantity = DepthAt(stock, seq, i, side)
                 });
             }
         }
 
         /// <summary>
         /// 한 단계에 쌓인 수량. 유동성이 클수록 두껍고, 멀수록 두껍다.
-        /// 흔들림은 틱·단계·종목에서 만든 결정적 값이라 같은 틱이면 같은 숫자가 나온다.
+        /// 흔들림은 갱신 번호·단계·종목에서 만든 결정적 값이라 같은 갱신이면 같은 숫자가 나온다.
         /// </summary>
-        public static int DepthAt(AdventurerStock stock, int tick, int level, OrderSide side)
+        public static int DepthAt(AdventurerStock stock, int seq, int level, OrderSide side)
         {
             var baseDepth = stock.Liquidity * Constants.BOOK_DEPTH_BASE;
             var grown = baseDepth * (1f + (level - 1) * Constants.BOOK_DEPTH_GROWTH);
 
             // 결정적 흔들림. 0.75 ~ 1.25 사이로 섞는다.
             var sideSalt = side == OrderSide.Side_Sell ? 17 : 31;
-            var hash = stock.Id.GetHashCode() ^ (tick * 73856093) ^ (level * 19349663) ^ sideSalt;
+            var hash = stock.Id.GetHashCode() ^ (seq * 73856093) ^ (level * 19349663) ^ sideSalt;
             var noise = 0.75f + (hash & 0xFF) / 255f * 0.5f;
 
             var quantity = (int)Math.Round(grown * noise);

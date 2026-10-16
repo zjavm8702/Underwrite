@@ -32,6 +32,7 @@ namespace Underwrite.UI
         private const int CHART_AXIS_MAX = 7;
         private const float CHART_LABEL_EDGE = 26f;
         private const int INFO_MAX_ROWS = 20;
+        private const int RATIO_FIT_STEPS = 4;
 
         private enum InfoFilter
         {
@@ -173,6 +174,10 @@ namespace Underwrite.UI
             }
 
             var delta = Mathf.Min(Time.unscaledDeltaTime, MAX_DELTA_SECONDS);
+
+            // 틱보다 잦은 호가 흔들림. 틱 가격과 별개로 돈다.
+            Sim.MicroStep(delta);
+
             var ticks = Sim.Clock.Advance(delta);
 
             if (ticks > 0)
@@ -330,6 +335,11 @@ namespace Underwrite.UI
 
             BindQuantityField();
             BindLimitField();
+
+            Click("ratio-25", () => ApplyRatio(0.25f));
+            Click("ratio-50", () => ApplyRatio(0.5f));
+            Click("ratio-75", () => ApplyRatio(0.75f));
+            Click("ratio-100", () => ApplyRatio(1f));
 
             var head = Root.Q<VisualElement>("info-head");
 
@@ -598,6 +608,57 @@ namespace Underwrite.UI
             return element.Contains(focused);
         }
 
+        /// <summary>
+        /// 현금이나 보유 수량의 몇 할로 수량을 채운다.
+        /// 매수는 충격 때문에 체결가가 현재가보다 비싸므로 한 번 더 줄여 잡는다.
+        /// 모자라게 잡는 것은 괜찮지만 넘치면 주문이 거절된다.
+        /// </summary>
+        private void ApplyRatio(float ratio)
+        {
+            AdventurerStock stock;
+
+            if (Sim.StockLookup.TryGetValue(SelectedId, out stock) == false)
+            {
+                return;
+            }
+
+            if (Side == OrderSide.Side_Sell)
+            {
+                var owned = Sim.Wallet.AvailableQuantityOf(stock.Id);
+                Quantity = Mathf.Clamp(Mathf.FloorToInt(owned * ratio), QUANTITY_MIN, QUANTITY_MAX);
+                return;
+            }
+
+            var budget = Sim.Wallet.AvailableCash * ratio;
+            var unit = Type == OrderType.Type_Limit ? LimitPrice : stock.LivePrice;
+
+            if (unit <= 0f)
+            {
+                return;
+            }
+
+            var quantity = Mathf.FloorToInt(budget / unit);
+
+            // 시장가는 주문이 가격을 밀어 올린다. 예상 체결가로 다시 재어 넘치면 줄인다.
+            if (Type == OrderType.Type_Market)
+            {
+                for (var i = 0; i < RATIO_FIT_STEPS && quantity > 0; i++)
+                {
+                    var impact = PriceModel.OrderImpact(stock, Side, quantity);
+                    var fill = stock.LivePrice + impact * 0.5f;
+
+                    if (fill * quantity <= budget)
+                    {
+                        break;
+                    }
+
+                    quantity = Mathf.FloorToInt(budget / fill);
+                }
+            }
+
+            Quantity = Mathf.Clamp(quantity, QUANTITY_MIN, QUANTITY_MAX);
+        }
+
         /// <summary>지정가로 바꿀 때 아직 손대지 않았으면 현재가를 기본값으로 채운다.</summary>
         private void SwitchToLimit()
         {
@@ -778,7 +839,7 @@ namespace Underwrite.UI
             }
 
             SetText("chart-name", stock.DisplayName);
-            SetText("chart-price", stock.Price.ToString("N1"));
+            SetText("chart-price", stock.LivePrice.ToString("N1"));
 
             var halted = Sim.Clock.Phase == MarketPhase.Phase_Halted;
             SetText("chart-footer", halted == true
@@ -1288,14 +1349,14 @@ namespace Underwrite.UI
                 return;
             }
 
-            if (BookTickShown == Sim.Clock.Tick)
+            if (BookTickShown == Sim.MicroSeq)
             {
                 return;
             }
 
-            BookTickShown = Sim.Clock.Tick;
-            OrderBook.FillAsks(stock, Sim.Clock.Tick, Asks);
-            OrderBook.FillBids(stock, Sim.Clock.Tick, Bids);
+            BookTickShown = Sim.MicroSeq;
+            OrderBook.FillAsks(stock, Sim.MicroSeq, Asks);
+            OrderBook.FillBids(stock, Sim.MicroSeq, Bids);
 
             list.Clear();
 
@@ -1307,7 +1368,7 @@ namespace Underwrite.UI
             var mid = new VisualElement();
             mid.AddToClassList("book-row");
             mid.AddToClassList("book-row--mid");
-            var midLabel = new Label(stock.Price.ToString("N1"));
+            var midLabel = new Label(OrderBook.SnapToTick(stock.LivePrice, stock.Price).ToString("N1"));
             midLabel.AddToClassList("book-mid-price");
             mid.Add(midLabel);
             list.Add(mid);
@@ -1459,12 +1520,12 @@ namespace Underwrite.UI
 
             var halted = Sim.Clock.Phase != MarketPhase.Phase_Open;
             var impact = PriceModel.OrderImpact(stock, Side, Quantity);
-            var fill = stock.Price + impact * 0.5f;
+            var fill = stock.LivePrice + impact * 0.5f;
 
             var shown = limiting == true ? LimitPrice : fill;
 
             SetText("price-label", halted == true ? "마지막 거래가" : "현재가");
-            SetText("order-price", stock.Price.ToString("N1"));
+            SetText("order-price", stock.LivePrice.ToString("N1"));
             SetText("order-fill", halted == true ? "—" : shown.ToString("N1"));
             SetText("order-total", halted == true ? "—" : (shown * Quantity).ToString("N1"));
             SetText("order-cash", Sim.Wallet.AvailableCash.ToString("N0"));
@@ -1485,6 +1546,17 @@ namespace Underwrite.UI
                 qtyBox.SetEnabled(nothingToSell == false);
                 qtyBox.EnableInClassList("qty-box--off", nothingToSell);
             }
+
+            var ratioRow = Root.Q<VisualElement>("ratio-row");
+
+            if (ratioRow != null)
+            {
+                ratioRow.SetEnabled(nothingToSell == false);
+                ratioRow.EnableInClassList("qty-box--off", nothingToSell);
+            }
+
+            // 매수는 현금의 몇 할, 매도는 보유의 몇 할이다. 마지막 칸만 말이 달라진다.
+            SetButtonText("ratio-100", buying == true ? "최대" : "전량");
 
             SetText("hold-qty", held == available ? $"{held}주" : $"{held}주 (가용 {available})");
             SetText("hold-avg", Sim.Wallet.AverageCostOf(stock.Id).ToString("N1"));
@@ -1667,6 +1739,18 @@ namespace Underwrite.UI
         }
 
         // ── 보조 ──────────────────────────────────
+
+        private void SetButtonText(string elementName, string value)
+        {
+            var button = Root.Q<Button>(elementName);
+
+            if (button == null)
+            {
+                return;
+            }
+
+            button.text = value;
+        }
 
         private void SetText(string elementName, string value)
         {

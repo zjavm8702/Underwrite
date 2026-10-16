@@ -21,9 +21,28 @@ namespace Underwrite.Market
     public static class PriceModel
     {
         /// <summary>
-        /// 한 틱의 가격을 계산한다. 엔진에 의존하지 않으므로 테스트에서 그대로 호출할 수 있다.
+        /// 다음 틱의 흐름. 직전 흐름을 일부 남기고 새 충격을 더한다(AR(1)).
+        ///
+        /// 매 틱 독립인 잡음에 강한 되돌림을 걸면 가격이 목표가 주위를 오르내리기만 한다.
+        /// 그러면 플레이어는 "싸지면 사고 비싸지면 판다"만 반복하면 되고, 그건 판단이 아니다.
+        /// 흐름을 이어 두면 내려가던 것이 더 내려갈 수 있어 되돌림 매매가 공짜가 아니게 된다.
         /// </summary>
-        public static float NextPrice(AdventurerStock stock, MarketSentiment sentiment, float gaussian)
+        public static float NextMomentum(AdventurerStock stock, MarketSentiment sentiment, float gaussian)
+        {
+            if (stock == null)
+            {
+                throw new ArgumentNullException(nameof(stock));
+            }
+
+            var sigma = Constants.PRICE_NOISE_BASE * stock.VolatilityMultiplier * SentimentVolatility(sentiment);
+            return stock.Momentum * Constants.PRICE_MOMENTUM_RETENTION + sigma * gaussian;
+        }
+
+        /// <summary>
+        /// 한 틱의 가격을 계산한다. 엔진에 의존하지 않으므로 테스트에서 그대로 호출할 수 있다.
+        /// 흐름은 <see cref="NextMomentum"/>이 만든 값을 받는다.
+        /// </summary>
+        public static float NextPrice(AdventurerStock stock, MarketSentiment sentiment, float momentum)
         {
             if (stock == null)
             {
@@ -32,8 +51,9 @@ namespace Underwrite.Market
 
             var price = stock.Price;
 
-            // 1. 목표가를 향한 수렴. 내재가치와 시장 기대가 목표를 만든다.
-            //    내려가는 쪽이 더 빠르다. 기대가 꺾였을 때 가파르게 무너져야 공포가 체감된다.
+            // 1. 목표가를 향한 느린 수렴. 내재가치와 시장 기대가 목표를 만든다.
+            //    용수철처럼 당기지 않는다. 소식이 가격에 스며드는 데 한 장이 걸린다.
+            //    내려가는 쪽이 조금 더 빠르다. 기대가 꺾였을 때 가파르게 무너져야 공포가 체감된다.
             var gap = stock.TargetPrice - price;
             var reversion = gap < 0f
                 ? Constants.PRICE_REVERSION_DOWN_PER_TICK
@@ -43,13 +63,40 @@ namespace Underwrite.Market
             // 2. 시장 분위기가 모든 종목에 공통으로 거는 흐름.
             var drift = price * SentimentDrift(sentiment);
 
-            // 3. 무작위 변동. 종목 성격과 분위기가 폭을 키운다.
-            var sigma = Constants.PRICE_NOISE_BASE * stock.VolatilityMultiplier * SentimentVolatility(sentiment);
-            var noise = price * sigma * gaussian;
+            // 3. 이어지는 흐름. 여기가 무작위 걸음을 만든다.
+            var wave = price * momentum;
 
-            var next = price + pull + drift + noise;
+            var next = price + pull + drift + wave;
 
             return ClampMove(price, next);
+        }
+
+        /// <summary>
+        /// 틱 사이의 미세 호가. 틱 종가 주위를 쉬지 않고 떠다닌다.
+        /// 호가창이 틱마다 한 번만 바뀌면 멈춰 있는 가격에 느긋하게 사고팔 수 있다.
+        /// </summary>
+        public static float NextMicroOffset(AdventurerStock stock, float gaussian)
+        {
+            if (stock == null)
+            {
+                throw new ArgumentNullException(nameof(stock));
+            }
+
+            var amplitude = Constants.MICRO_AMPLITUDE * stock.VolatilityMultiplier;
+            var next = stock.MicroOffset * Constants.MICRO_RETENTION + amplitude * gaussian;
+            var limit = Constants.MICRO_LIMIT * stock.VolatilityMultiplier;
+
+            if (next > limit)
+            {
+                return limit;
+            }
+
+            if (next < -limit)
+            {
+                return -limit;
+            }
+
+            return next;
         }
 
         /// <summary>

@@ -36,6 +36,8 @@ namespace Underwrite.Market
         private readonly List<InfoEntry> InfoEntries = new List<InfoEntry>();
         private readonly List<PendingOrder> Pending = new List<PendingOrder>();
         private readonly Random Rng;
+        private readonly Random MicroRng;
+        private float MicroTimer;
 
         private int NextEventIndex;
 
@@ -61,8 +63,12 @@ namespace Underwrite.Market
         /// <summary>마지막 Step에서 체결된 지정가 주문 수. 알림에 쓴다.</summary>
         public int LastFilledCount { get; private set; }
 
+        /// <summary>미세 호가가 몇 번 바뀌었는가. 호가창 잔량이 이 값으로 섞인다.</summary>
+        public int MicroSeq { get; private set; }
+
         public MarketSimulation(int seed, float startingCash)
         {
+            MicroRng = new Random(seed ^ 0x5F3759DF);
             Rng = new Random(seed);
             Wallet = new Portfolio(startingCash);
         }
@@ -187,7 +193,9 @@ namespace Underwrite.Market
 
                     stock.DecayExpectation(Constants.EXPECTATION_DECAY_PER_TICK);
                     var gaussian = PriceModel.Gaussian(Rng);
-                    stock.SetPrice(PriceModel.NextPrice(stock, Sentiment, gaussian));
+                    var momentum = PriceModel.NextMomentum(stock, Sentiment, gaussian);
+                    stock.SetMomentum(momentum);
+                    stock.SetPrice(PriceModel.NextPrice(stock, Sentiment, momentum));
                     stock.RecordHistory();
                 }
 
@@ -220,7 +228,7 @@ namespace Underwrite.Market
                     continue;
                 }
 
-                if (order.ShouldFill(stock.Price) == false)
+                if (order.ShouldFill(stock.LivePrice) == false)
                 {
                     continue;
                 }
@@ -244,6 +252,47 @@ namespace Underwrite.Market
                 stock.SetPrice(PriceModel.ClampMove(stock.Price, stock.Price + impact));
                 stock.AdjustLiquidity(order.Quantity * 0.1f);
             }
+        }
+
+        /// <summary>
+        /// 틱 사이의 미세 호가를 돌린다. 매 프레임 불린다.
+        ///
+        /// 틱 종가는 건드리지 않고 그 주위에서만 떨린다. 실제 호가창은 틱 단위로 멈춰 있지 않고
+        /// 쉬지 않고 흔들리며, 그래서 "지금 이 값에 그냥 걸어 두면 된다"가 성립하지 않는다.
+        /// 지정가도 여기서 확인하므로 틱을 기다리지 않고 체결된다.
+        /// 장이 멈춰 있으면 호가도 멈춘다. 주문을 받지 않는 동안 호가만 움직이면 거짓말이 된다.
+        /// </summary>
+        public void MicroStep(float deltaSeconds)
+        {
+            if (Clock.AcceptsOrders == false)
+            {
+                return;
+            }
+
+            MicroTimer += deltaSeconds;
+
+            if (MicroTimer < Constants.MARKET_MICRO_SECONDS)
+            {
+                return;
+            }
+
+            MicroTimer = 0f;
+            MicroSeq++;
+
+            for (var i = 0; i < StockOrder.Count; i++)
+            {
+                var stock = StockOrder[i];
+
+                if (stock.IsTradable == false)
+                {
+                    continue;
+                }
+
+                var gaussian = PriceModel.Gaussian(MicroRng);
+                stock.SetMicroOffset(PriceModel.NextMicroOffset(stock, gaussian));
+            }
+
+            ResolvePending();
         }
 
         /// <summary>
@@ -502,7 +551,7 @@ namespace Underwrite.Market
             }
 
             var impact = PriceModel.OrderImpact(stock, side, quantity);
-            var fill = stock.Price + impact * 0.5f;
+            var fill = stock.LivePrice + impact * 0.5f;
 
             if (fill < Constants.PRICE_FLOOR)
             {

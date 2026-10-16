@@ -41,6 +41,37 @@ namespace Underwrite.Market
         /// <summary>장 시작 시점의 가격. 등락률 표시에 쓴다.</summary>
         public float SessionOpenPrice { get; private set; }
 
+        /// <summary>
+        /// 직전 틱들이 남긴 흐름. 매 틱 독립인 잡음만 쓰면 가격이 한 수준에서 맴돈다.
+        /// 흐름을 이어 두면 떨어지던 종목이 더 떨어질 수도 있어 되돌림을 노린 매매가 공짜가 아니게 된다.
+        /// </summary>
+        public float Momentum { get; private set; }
+
+        /// <summary>
+        /// 틱 사이의 미세 호가 흔들림. 틱 종가 대비 비율이다.
+        /// 실제 호가창은 틱 단위로 멈춰 있지 않고 쉬지 않고 흔들린다.
+        /// </summary>
+        public float MicroOffset { get; private set; }
+
+        /// <summary>
+        /// 지금 이 순간의 호가. 틱 종가에 미세 흔들림을 더한 값이다.
+        /// 체결가와 지정가 판정은 모두 이 값을 본다. 차트는 틱 종가를 그대로 쓴다.
+        /// </summary>
+        public float LivePrice
+        {
+            get
+            {
+                var live = Price * (1f + MicroOffset);
+
+                if (live < Constants.PRICE_FLOOR)
+                {
+                    return Constants.PRICE_FLOOR;
+                }
+
+                return live;
+            }
+        }
+
         public AdventurerStock(string id, string displayName, StockPersonality personality,
             float trueValue, float liquidity)
         {
@@ -148,9 +179,20 @@ namespace Underwrite.Market
             }
         }
 
+        internal void SetMomentum(float value)
+        {
+            Momentum = value;
+        }
+
+        internal void SetMicroOffset(float value)
+        {
+            MicroOffset = value;
+        }
+
         internal void BeginSession()
         {
             SessionOpenPrice = Price;
+            MicroOffset = 0f;
 
             // 차트는 "한 장"만 보여 준다. 지난 장의 점을 남겨 두면
             // 틱 수보다 점이 많아져 선이 차트 밖으로 흘러나간다.

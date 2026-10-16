@@ -67,16 +67,35 @@ namespace Underwrite.Global
 
         // ── 가격 모델 (기획서 §7의 6요인) ──────────
         /// <summary>가격이 목표가를 향해 올라갈 때의 수렴 속도.</summary>
-        public const float PRICE_REVERSION_PER_TICK = 0.12f;
+        public const float PRICE_REVERSION_PER_TICK = 0.02f;
         /// <summary>
         /// 가격이 목표가를 향해 내려갈 때의 수렴 속도. 올라갈 때보다 빠르다.
         /// 실제 급등주는 무너지는 속도가 오르는 속도보다 훨씬 빠르다. GameStop 2021은
         /// 오르는 데 20일, 정점에서 80퍼센트 빠지는 데 3거래일이 걸렸다.
         /// 상한(PRICE_MAX_DROP_PER_TICK)은 극단적 충격만 막고, 평소의 붕괴 속도는 이 값이 만든다.
         /// </summary>
-        public const float PRICE_REVERSION_DOWN_PER_TICK = 0.22f;
+        public const float PRICE_REVERSION_DOWN_PER_TICK = 0.035f;
         /// <summary>틱마다 더하는 무작위 변동의 기본 폭. 종목 성격과 분위기로 배율이 걸린다.</summary>
-        public const float PRICE_NOISE_BASE = 0.006f;
+        public const float PRICE_NOISE_BASE = 0.0032f;
+
+        /// <summary>
+        /// 추세 지속. 직전 틱의 흐름이 다음 틱에 남는 비율.
+        /// 0이면 매 틱이 서로 독립이라 가격이 한 수준에서 맴돌고, 그 수준만 알면 사고파는 게 공짜가 된다.
+        /// 실제 주가가 예측하기 어려운 이유는 변동이 커서가 아니라 방향이 이어지기 때문이다.
+        /// </summary>
+        public const float PRICE_MOMENTUM_RETENTION = 0.62f;
+
+        /// <summary>미세 호가를 다시 뽑는 간격(실시간 초). 틱과 무관하게 돈다.</summary>
+        public const float MARKET_MICRO_SECONDS = 0.12f;
+
+        /// <summary>미세 호가 흔들림 한 번의 크기. 틱 종가 대비 비율이다.</summary>
+        public const float MICRO_AMPLITUDE = 0.0013f;
+
+        /// <summary>미세 흔들림이 남는 비율. 1에 가까울수록 천천히 제자리로 돌아온다.</summary>
+        public const float MICRO_RETENTION = 0.72f;
+
+        /// <summary>미세 흔들림의 한계. 틱 종가에서 이보다 멀어지지 않는다.</summary>
+        public const float MICRO_LIMIT = 0.007f;
         /// <summary>기대가 실제 가치로 식어가는 속도. 소문은 시간이 지나면 힘을 잃는다.</summary>
         public const float EXPECTATION_DECAY_PER_TICK = 0.02f;
         /// <summary>주문 한 주가 유동성 대비 가격을 밀어내는 정도.</summary>
