@@ -1,0 +1,31 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <!--
+        공용 대화상자. 인물이 말하는 자리는 전부 이것을 쓴다.
+        왼쪽에 인물 상반신, 오른쪽에 말. 정보 타임 연출과 영지에서 묻는 일이 같은 틀을 쓴다.
+    -->
+    <ui:VisualElement name="dialogue-root" class="dialogue-root">
+        <ui:VisualElement class="dialogue-stage">
+
+            <!-- 왼쪽: 인물. 전신 그림을 위에서 잘라 상반신만 보인다. -->
+            <ui:VisualElement name="dialogue-figure-frame" class="dialogue-figure-frame">
+                <ui:VisualElement name="dialogue-figure" class="dialogue-figure" />
+            </ui:VisualElement>
+
+            <!-- 오른쪽: 말 -->
+            <ui:VisualElement name="dialogue-box" class="dialogue-box">
+                <ui:VisualElement class="row" style="align-items: center;">
+                    <ui:Label name="dialogue-speaker" text="" class="dialogue-speaker grow" />
+                    <ui:Label name="dialogue-count" text="" class="dialogue-note" />
+                </ui:VisualElement>
+                <ui:Label name="dialogue-tag" text="" class="dialogue-tag" />
+                <ui:Label name="dialogue-text" text="" class="dialogue-text" />
+                <ui:VisualElement class="grow" />
+                <ui:VisualElement class="row" style="align-items: center; margin-top: 12px;">
+                    <ui:Label name="dialogue-note" text="" class="dialogue-note grow" />
+                    <ui:Button name="dialogue-next" text="다음" class="cta dialogue-next" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -208,8 +208,8 @@ namespace Underwrite.Editor
         {
             var tree = AssetDatabase.LoadAssetAtPath<UIElements.VisualTreeAsset>(
                 "Assets/UI/VillageScreen.uxml");
-            var popup = AssetDatabase.LoadAssetAtPath<UIElements.VisualTreeAsset>(
-                "Assets/UI/CommonPopup.uxml");
+            var dialogue = AssetDatabase.LoadAssetAtPath<UIElements.VisualTreeAsset>(
+                "Assets/UI/CommonDialogue.uxml");
             var panel = AssetDatabase.LoadAssetAtPath<UIElements.PanelSettings>(
                 "Assets/UI/MarketPanelSettings.asset");
             var data = AssetDatabase.LoadAssetAtPath<Data.GameDataSet>("Assets/Data/GameDataSet.asset");
@@ -221,7 +221,7 @@ namespace Underwrite.Editor
 
             var controller = go.AddComponent<UI.VillageScreenController>();
             var so = new SerializedObject(controller);
-            so.FindProperty("PopupTree").objectReferenceValue = popup;
+            so.FindProperty("DialogueTree").objectReferenceValue = dialogue;
             so.FindProperty("Data").objectReferenceValue = data;
             so.ApplyModifiedPropertiesWithoutUndo();
         }

@@ -20,14 +20,14 @@ namespace Underwrite.UI
     [RequireComponent(typeof(UIDocument))]
     public sealed class VillageScreenController : MonoBehaviour
     {
-        [Tooltip("확인 창 한 벌. 캐낸 소식을 여기에 띄운다.")]
-        [SerializeField] private VisualTreeAsset PopupTree;
+        [Tooltip("대화상자 한 벌. 캐낸 소식을 인물이 말해 준다.")]
+        [SerializeField] private VisualTreeAsset DialogueTree;
 
         [Tooltip("표에서 사건을 읽는다. 비어 있으면 아무것도 캐지 못한다.")]
         [SerializeField] private GameDataSet Data;
 
         private VisualElement Root;
-        private UI_Popup Popup;
+        private UI_Dialogue Dialogue;
         private VillageSpot Here;
 
         private void OnEnable()
@@ -55,14 +55,14 @@ namespace Underwrite.UI
                 }
             }
 
-            if (Popup == null && PopupTree != null)
+            if (Dialogue == null && DialogueTree != null)
             {
-                Popup = new UI_Popup(Root, PopupTree);
+                Dialogue = new UI_Dialogue(Root, DialogueTree);
             }
 
             RefreshPrompt();
 
-            if (Here == null || Popup == null || Popup.IsOpen == true)
+            if (Here == null || Dialogue == null || Dialogue.IsOpen == true)
             {
                 return;
             }
@@ -100,7 +100,9 @@ namespace Underwrite.UI
                 return;
             }
 
-            prompt.EnableInClassList("hidden", Here == null);
+            // 대화 중에는 안내를 감춘다. 두 개가 같이 떠 있으면 무엇을 누르라는지 모른다.
+            var talking = Dialogue != null && Dialogue.IsOpen == true;
+            prompt.EnableInClassList("hidden", Here == null || talking);
             SetText("village-visits", $"오늘 더 들를 수 있는 곳 {GatherSession.VisitsLeft}");
 
             if (Here == null)
@@ -123,11 +125,12 @@ namespace Underwrite.UI
         /// </summary>
         private void Gather(VillageSpot spot)
         {
+            Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
+
             if (GatherSession.CanVisit == false)
             {
-                Popup.Show(spot.Name, "틈이 없다",
-                    "오늘은 더 돌아볼 틈이 없습니다. 장이 열리면 다시 하루가 시작됩니다.",
-                    "알겠다", null, null, null);
+                Say(spot, "오늘은 더 돌아볼 틈이 없습니다. 장이 열리면 다시 하루가 시작됩니다.",
+                    null, false);
                 return;
             }
 
@@ -136,9 +139,7 @@ namespace Underwrite.UI
             if (rows.Count == 0)
             {
                 GatherSession.Visit(spot.Price, null);
-                Popup.Show(spot.Name, "건질 것이 없다",
-                    "아직 돌고 있는 이야기가 없습니다. 값만 치렀습니다.",
-                    "알겠다", null, null, null);
+                Say(spot, "아직 돌고 있는 이야기가 없습니다.", null, false);
                 return;
             }
 
@@ -175,9 +176,91 @@ namespace Underwrite.UI
             }
 
             GatherSession.Visit(spot.Price, note);
+            Say(spot, body, PortraitOf(pick.StockId), note != null);
+        }
 
-            var tail = spot.Price > 0f ? $"\n\n{spot.Price:N0}을 썼습니다." : string.Empty;
-            Popup.Show($"{spot.Name} · 나만 아는 정보", title, body + tail, "알겠다", null, null, null);
+        /// <summary>
+        /// 자리의 주인이 말한다. 묻는 쪽은 플레이어이므로 말하는 이는 늘 그 자리의 사람이다.
+        /// </summary>
+        private void Say(VillageSpot spot, string text, Sprite portrait, bool secret)
+        {
+            var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
+            line.Portrait = portrait;
+            line.IsSecret = secret;
+            line.Note = BuildNote(spot, secret);
+
+            Dialogue.Play(new List<DialogueLine> { line }, null);
+        }
+
+        private string BuildNote(VillageSpot spot, bool secret)
+        {
+            var spent = spot.Price > 0f ? $"{spot.Price:N0}을 썼습니다. " : string.Empty;
+            var left = $"오늘 더 들를 수 있는 곳 {GatherSession.VisitsLeft}.";
+
+            if (secret == false)
+            {
+                return spent + left;
+            }
+
+            return spent + "시장은 아직 모르는 이야기입니다. " + left;
+        }
+
+        private static string SpeakerOf(InfoSource source)
+        {
+            switch (source)
+            {
+                case InfoSource.Source_GuildRecord:
+                {
+                    return "기록 담당";
+                }
+                case InfoSource.Source_MarketBoard:
+                {
+                    return "게시판";
+                }
+                default:
+                {
+                    return "여관 주인";
+                }
+            }
+        }
+
+        private static string BackgroundOf(InfoSource source)
+        {
+            switch (source)
+            {
+                case InfoSource.Source_GuildRecord:
+                {
+                    return "dialogue-root--guild";
+                }
+                case InfoSource.Source_MarketBoard:
+                {
+                    return "dialogue-root--board";
+                }
+                default:
+                {
+                    return "dialogue-root--tavern";
+                }
+            }
+        }
+
+        private Sprite PortraitOf(string stockId)
+        {
+            if (Data == null || Data.StockRows == null)
+            {
+                return null;
+            }
+
+            var rows = Data.StockRows.Rows;
+
+            for (var i = 0; i < rows.Count; i++)
+            {
+                if (rows[i].Id == stockId)
+                {
+                    return rows[i].Portrait;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>다음 정보 타임에 들어올 소식. 그것을 미리 캐는 것이 조사다.</summary>

@@ -1240,3 +1240,113 @@
     color: var(--color-halt);
     margin-top: 8px;
 }
+
+/* ── 공용 대화상자 ────────────────────────── */
+
+/* 왼쪽에 인물 상반신, 오른쪽에 말. 비주얼 노벨의 기본 배치다.
+   전신을 다 보여 주면 얼굴이 작아져 표정이 안 읽힌다. */
+.dialogue-root {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #140F0A;
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.dialogue-root--underworld {
+    background-image: url("project://database/Assets/UI/Images/underworld_room.png");
+}
+
+.dialogue-root--tavern {
+    background-image: url("project://database/Assets/UI/Images/place_tavern.png");
+}
+
+.dialogue-root--guild {
+    background-image: url("project://database/Assets/UI/Images/place_guild.png");
+}
+
+.dialogue-root--board {
+    background-image: url("project://database/Assets/UI/Images/place_board.png");
+}
+
+.dialogue-stage {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+/* 상반신 그림을 통째로 둔다. 전신을 잘라 쓰지 않는다.
+   표정이 바뀌는 그림이 따로 들어오므로 잘라 맞추면 표정이 어긋난다. */
+.dialogue-figure-frame {
+    width: 620px;
+    height: 820px;
+    flex-shrink: 0;
+    align-self: flex-end;
+}
+
+.dialogue-figure {
+    flex-grow: 1;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.dialogue-box {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 420px;
+    max-height: 560px;
+    margin-left: 48px;
+    background-color: var(--color-panel);
+    border-radius: 18px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    padding-top: 28px;
+    padding-bottom: 24px;
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+.dialogue-speaker {
+    font-size: 30px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+}
+
+.dialogue-tag {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: var(--color-text-weak);
+    margin-top: 4px;
+}
+
+/* 시장이 아직 모르는 이야기는 색으로 가른다. */
+.dialogue-tag--secret {
+    color: var(--color-private);
+}
+
+.dialogue-text {
+    font-size: 27px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+    white-space: normal;
+    margin-top: 18px;
+}
+
+.dialogue-note {
+    font-size: 16px;
+    color: var(--color-text-weak);
+    white-space: normal;
+}
+
+.dialogue-next {
+    width: 160px;
+    margin-top: 0;
+    margin-left: 12px;
+    background-color: var(--color-text);
+    color: var(--color-panel);
+}
