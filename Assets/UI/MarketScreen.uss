@@ -616,18 +616,91 @@
 
 /* 본문 위에 떠 있다. 자리를 차지하지 않으므로 차트와 호가가 넓게 쓴다.
    손잡이를 눌러 접으면 머리만 남는다. */
-.info-popup {
+/* 가운데 열 폭에 딱 맞춘 하단 바. 띠 두 개가 나란히 선다.
+   접으면 머리 한 줄만 남고, 그 한 줄 자리는 .col-center가 아래 여백으로 비워 둔다.
+   flex-end로 맞춰 두면 펼친 띠만 위로 자란다. */
+.bottom-bar {
     position: absolute;
-    /* 가운데 열 폭에 딱 맞춘다. 접으면 머리 한 줄만 남고,
-       그 한 줄 자리는 .col-center가 아래 여백으로 비워 둔다. */
     left: 572px;
     right: 492px;
     bottom: 16px;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.info-popup {
+    flex-grow: 1;
+    flex-shrink: 1;
     background-color: var(--color-panel);
     border-radius: 16px;
     border-width: 1px;
     border-color: var(--color-divider);
     overflow: hidden;
+}
+
+/* 보유는 종목 수가 적어 폭이 덜 필요하다. 소식 쪽에 넓은 자리를 준다.
+   왼쪽에 둔다. 오른쪽에 두면 펼쳤을 때 호가창을 덮는데, 보유 목록은 팔기 직전에 보는 것이라
+   그때 호가가 가려지면 곤란하다. 소식은 읽는 동안 거래가 멈추므로 오른쪽이라도 괜찮다. */
+.holdings-popup {
+    width: 360px;
+    flex-shrink: 0;
+    margin-right: 16px;
+    background-color: var(--color-panel);
+    border-radius: 16px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    overflow: hidden;
+}
+
+.holdings-popup--collapsed .info-popup-body {
+    display: none;
+}
+
+.holdings-profit {
+    font-size: 19px;
+    -unity-font-style: bold;
+}
+
+/* ── 보유 행 ──────────────────────────────── */
+
+.holding-row {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.holding-row:hover {
+    background-color: var(--color-canvas);
+}
+
+.holding-line {
+    flex-direction: row;
+    align-items: center;
+}
+
+.holding-name {
+    flex-grow: 1;
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.holding-qty {
+    font-size: 17px;
+    -unity-font-style: bold;
+}
+
+.holding-sub {
+    flex-grow: 1;
+    font-size: 15px;
+    color: var(--color-text-weak);
+}
+
+.holding-profit {
+    font-size: 16px;
+    -unity-font-style: bold;
 }
 
 .info-popup-head {
@@ -661,10 +734,18 @@
 
 /* 접었을 때 머리에 보이는 최근 소식 한 줄. 펼치면 비운다. */
 .info-latest {
+    /* 글자 길이만큼 자리를 요구하면 띠 밖으로 밀려 잘린다.
+       flex-basis를 0으로 두어 남는 자리만 쓰게 하고, 넘치면 말줄임표로 끊는다. */
+    min-width: 0;
+    flex-basis: 0;
+    flex-shrink: 1;
     font-size: 16px;
     color: var(--color-text-weak);
     margin-left: 16px;
+    margin-right: 12px;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     -unity-text-align: middle-left;
 }
 
@@ -821,4 +902,9 @@
 .day-value {
     font-size: 17px;
     -unity-font-style: bold;
+}
+
+/* 보유 목록은 종목 수가 적다. 소식만큼 높일 이유가 없다. */
+.holdings-popup .info-popup-body {
+    height: 240px;
 }

@@ -80,6 +80,8 @@ namespace Underwrite.UI
         private string Message = "";
 
         private bool InfoCollapsed = true;
+        private bool HoldingsCollapsed = true;
+        private int HoldingsSeqShown = -1;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
         private bool LimitTouched;
@@ -358,6 +360,17 @@ namespace Underwrite.UI
                 });
             }
 
+            var holdingsHead = Root.Q<VisualElement>("holdings-head");
+
+            if (holdingsHead != null)
+            {
+                holdingsHead.RegisterCallback<ClickEvent>(evt =>
+                {
+                    HoldingsCollapsed = HoldingsCollapsed == false;
+                    HoldingsSeqShown = -1;
+                });
+            }
+
             Click("filter-all", () => SetFilter(InfoFilter.Filter_All));
             Click("filter-private", () => SetFilter(InfoFilter.Filter_Private));
             Click("filter-public", () => SetFilter(InfoFilter.Filter_Public));
@@ -431,6 +444,7 @@ namespace Underwrite.UI
             ChartTickShown = -1;
             BookTickShown = -1;
             PendingCountShown = -1;
+            HoldingsSeqShown = -1;
         }
 
         private void RefreshSkipButton()
@@ -714,6 +728,7 @@ namespace Underwrite.UI
             RefreshOrder();
             RefreshPending();
             RefreshInfo();
+            RefreshHoldings();
         }
 
         private void RefreshHeader()
@@ -1712,6 +1727,155 @@ namespace Underwrite.UI
             SetText("order-message", Message);
         }
 
+        /// <summary>
+        /// 하단 보유 띠. 어떤 종목을 얼마나 들고 있고 지금 얼마가 되었는가.
+        /// 접혀 있어도 머리줄의 종목 수와 평가손익은 갱신한다. 그걸 보려고 접어 두는 것이다.
+        /// </summary>
+        private void RefreshHoldings()
+        {
+            var popup = Root.Q<VisualElement>("holdings-popup");
+
+            if (popup == null)
+            {
+                return;
+            }
+
+            popup.EnableInClassList("holdings-popup--collapsed", HoldingsCollapsed);
+
+            var icon = Root.Q<Label>("holdings-toggle-icon");
+
+            if (icon != null)
+            {
+                icon.text = HoldingsCollapsed == true ? "▸" : "▾";
+            }
+
+            var holdings = Sim.Wallet.AllHoldings;
+            var owned = 0;
+            var profit = 0f;
+
+            foreach (var pair in holdings)
+            {
+                var holding = pair.Value;
+
+                if (holding.Quantity <= 0)
+                {
+                    continue;
+                }
+
+                AdventurerStock stock;
+
+                if (Sim.StockLookup.TryGetValue(holding.StockId, out stock) == false)
+                {
+                    continue;
+                }
+
+                owned++;
+                profit += (stock.LivePrice - holding.AverageCost) * holding.Quantity;
+            }
+
+            SetText("holdings-count", $"{owned}종목");
+
+            var profitLabel = Root.Q<Label>("holdings-profit");
+
+            if (profitLabel != null)
+            {
+                profitLabel.text = owned == 0 ? "—" : (profit >= 0f ? "+" : "") + profit.ToString("N1");
+                profitLabel.EnableInClassList("rise", owned > 0 && profit > 0f);
+                profitLabel.EnableInClassList("fall", owned > 0 && profit < 0f);
+            }
+
+            // 접혀 있으면 목록은 만들지 않는다. 보이지도 않는 행을 매번 짓는 것은 낭비다.
+            if (HoldingsCollapsed == true)
+            {
+                return;
+            }
+
+            // 값이 실시간으로 움직이므로 미세 호가가 바뀔 때마다 다시 짓는다. 행 수가 적어 부담이 없다.
+            if (HoldingsSeqShown == Sim.MicroSeq)
+            {
+                return;
+            }
+
+            HoldingsSeqShown = Sim.MicroSeq;
+
+            var list = Root.Q<ScrollView>("holdings-list");
+
+            if (list == null)
+            {
+                return;
+            }
+
+            list.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
+            list.Clear();
+
+            for (var i = 0; i < Sim.Stocks.Count; i++)
+            {
+                var stock = Sim.Stocks[i];
+                var quantity = Sim.Wallet.QuantityOf(stock.Id);
+
+                if (quantity <= 0)
+                {
+                    continue;
+                }
+
+                list.Add(BuildHoldingRow(stock, quantity));
+            }
+
+            var empty = Root.Q<Label>("holdings-empty");
+
+            if (empty != null)
+            {
+                empty.EnableInClassList("hidden", owned > 0);
+            }
+        }
+
+        private VisualElement BuildHoldingRow(AdventurerStock stock, int quantity)
+        {
+            var averageCost = Sim.Wallet.AverageCostOf(stock.Id);
+            var value = stock.LivePrice * quantity;
+            var profit = (stock.LivePrice - averageCost) * quantity;
+            var ratio = averageCost <= 0f ? 0f : (stock.LivePrice - averageCost) / averageCost;
+
+            var row = new VisualElement();
+            row.AddToClassList("holding-row");
+
+            var top = new VisualElement();
+            top.AddToClassList("holding-line");
+
+            var name = new Label(stock.DisplayName);
+            name.AddToClassList("holding-name");
+
+            var qty = new Label($"{quantity}주");
+            qty.AddToClassList("holding-qty");
+
+            top.Add(name);
+            top.Add(qty);
+
+            var bottom = new VisualElement();
+            bottom.AddToClassList("holding-line");
+
+            var sub = new Label($"평균 {averageCost:N1} · 평가 {value:N1}");
+            sub.AddToClassList("holding-sub");
+
+            var profitText = (profit >= 0f ? "+" : "") + profit.ToString("N1")
+                + " (" + (ratio >= 0f ? "+" : "") + (ratio * 100f).ToString("N1") + "%)";
+            var profitLabel = new Label(profitText);
+            profitLabel.AddToClassList("holding-profit");
+            profitLabel.AddToClassList(profit >= 0f ? "rise" : "fall");
+
+            bottom.Add(sub);
+            bottom.Add(profitLabel);
+
+            row.Add(top);
+            row.Add(bottom);
+
+            // 누르면 그 종목으로 넘어간다. 보유 목록을 여는 이유는 대개 팔기 위해서다.
+            var id = stock.Id;
+            row.RegisterCallback<ClickEvent>(evt => SelectStock(id));
+
+            return row;
+        }
+
         private void RefreshInfo()
         {
             var list = Root.Q<ScrollView>("info-list");
@@ -1791,6 +1955,11 @@ namespace Underwrite.UI
 
             SetText("info-count", $"{log.Count}건");
 
+            // 접혀 있으면 필터는 거를 목록이 없다. 버튼을 치워야 최근 소식 한 줄이 들어간다.
+            ShowFilterButton("filter-all");
+            ShowFilterButton("filter-private");
+            ShowFilterButton("filter-public");
+
             var latest = Root.Q<Label>("info-latest");
 
             if (latest == null)
@@ -1805,6 +1974,18 @@ namespace Underwrite.UI
             }
 
             latest.text = log[log.Count - 1].Headline;
+        }
+
+        private void ShowFilterButton(string elementName)
+        {
+            var button = Root.Q<Button>(elementName);
+
+            if (button == null)
+            {
+                return;
+            }
+
+            button.EnableInClassList("hidden", InfoCollapsed);
         }
 
         private VisualElement BuildInfoCard(InfoEntry entry)

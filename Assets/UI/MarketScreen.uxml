@@ -209,7 +209,23 @@
 
         </ui:VisualElement>
 
-        <!-- 정보 기록 — 화면 위에 떠 있는 팝업. 손잡이를 눌러 접고 편다. -->
+        <!-- 하단 띠 두 개. 손잡이를 눌러 접고 편다. 접으면 머리 한 줄만 남는다. -->
+        <ui:VisualElement name="bottom-bar" class="bottom-bar">
+
+        <ui:VisualElement name="holdings-popup" class="holdings-popup">
+            <ui:VisualElement name="holdings-head" class="info-popup-head">
+                <ui:Label name="holdings-toggle-icon" text="▸" class="info-popup-icon" />
+                <ui:Label text="보유" class="t-panel" />
+                <ui:Label name="holdings-count" text="0종목" class="t-note" style="margin-left: 8px;" />
+                <ui:VisualElement class="grow" />
+                <ui:Label name="holdings-profit" text="—" class="holdings-profit" />
+            </ui:VisualElement>
+            <ui:VisualElement name="holdings-body" class="info-popup-body">
+                <ui:Label name="holdings-empty" text="보유한 종목이 없습니다." class="t-note" />
+                <ui:ScrollView name="holdings-list" style="flex-grow: 1;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
         <ui:VisualElement name="info-popup" class="info-popup">
             <ui:VisualElement name="info-head" class="info-popup-head">
                 <ui:Label name="info-toggle-icon" text="▾" class="info-popup-icon" />
@@ -224,6 +240,8 @@
                 <ui:Label name="info-empty" text="아직 들어온 소식이 없습니다." class="t-note" />
                 <ui:ScrollView name="info-list" style="flex-grow: 1;" />
             </ui:VisualElement>
+        </ui:VisualElement>
+
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
