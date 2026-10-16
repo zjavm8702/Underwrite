@@ -25,7 +25,12 @@ namespace Underwrite.UI
         private const int QUANTITY_MAX = 999;
         private const float CHART_LINE_WIDTH = 3f;
         private const float CHART_DOT_RADIUS = 5f;
-        private const float CHART_MARKER_MARGIN = 34f;
+        private const float CHART_MARKER_MARGIN = 40f;
+        private const float CHART_AXIS_WIDTH = 76f;
+        private const float CHART_PLOT_LEFT = 10f;
+        private const float CHART_RANGE_PAD = 0.12f;
+        private const int CHART_AXIS_MAX = 7;
+        private const float CHART_LABEL_EDGE = 26f;
         private const int INFO_MAX_ROWS = 20;
 
         private enum InfoFilter
@@ -323,6 +328,9 @@ namespace Underwrite.UI
             Click("qty-minus", () => Quantity = Mathf.Max(QUANTITY_MIN, Quantity - QUANTITY_STEP));
             Click("qty-plus", () => Quantity = Mathf.Min(QUANTITY_MAX, Quantity + QUANTITY_STEP));
 
+            BindQuantityField();
+            BindLimitField();
+
             var head = Root.Q<VisualElement>("info-head");
 
             if (head != null)
@@ -466,6 +474,128 @@ namespace Underwrite.UI
             }
 
             Message = receipt.Message;
+        }
+
+        /// <summary>
+        /// 수량은 직접 친다. +/− 는 보조다.
+        /// 지우는 중에는 빈 칸이 되므로 그때 되돌리면 글자를 칠 수 없다. 칸을 떠날 때 바로잡는다.
+        /// </summary>
+        private void BindQuantityField()
+        {
+            var field = Root.Q<TextField>("qty-value");
+
+            if (field == null)
+            {
+                return;
+            }
+
+            field.isDelayed = false;
+
+            field.RegisterValueChangedCallback(evt =>
+            {
+                int typed;
+
+                if (int.TryParse(evt.newValue, out typed) == false)
+                {
+                    return;
+                }
+
+                Quantity = Mathf.Clamp(typed, QUANTITY_MIN, QUANTITY_MAX);
+            });
+
+            field.RegisterCallback<BlurEvent>(evt => field.SetValueWithoutNotify(Quantity.ToString()));
+        }
+
+        /// <summary>지정가도 직접 친다. 칸을 떠날 때 호가 단위로 맞춘다.</summary>
+        private void BindLimitField()
+        {
+            var field = Root.Q<TextField>("limit-value");
+
+            if (field == null)
+            {
+                return;
+            }
+
+            field.isDelayed = false;
+
+            field.RegisterValueChangedCallback(evt =>
+            {
+                float typed;
+
+                if (float.TryParse(evt.newValue, out typed) == false)
+                {
+                    return;
+                }
+
+                if (typed <= 0f)
+                {
+                    return;
+                }
+
+                LimitPrice = typed;
+                LimitTouched = true;
+                Type = OrderType.Type_Limit;
+            });
+
+            field.RegisterCallback<BlurEvent>(evt =>
+            {
+                AdventurerStock stock;
+
+                if (Sim.StockLookup.TryGetValue(SelectedId, out stock) == true)
+                {
+                    LimitPrice = OrderBook.SnapToTick(LimitPrice, stock.Price);
+                }
+
+                field.SetValueWithoutNotify(LimitPrice.ToString("N1"));
+            });
+        }
+
+        /// <summary>
+        /// 입력칸의 글자를 코드에서 덮어쓴다.
+        /// 치고 있는 칸을 건드리면 커서가 튀므로 포커스를 가진 칸은 두고 본다.
+        /// </summary>
+        private void SetFieldValue(string elementName, string value)
+        {
+            var field = Root.Q<TextField>(elementName);
+
+            if (field == null)
+            {
+                return;
+            }
+
+            if (HasFocus(field) == true)
+            {
+                return;
+            }
+
+            if (field.value == value)
+            {
+                return;
+            }
+
+            field.SetValueWithoutNotify(value);
+        }
+
+        private static bool HasFocus(VisualElement element)
+        {
+            if (element.focusController == null)
+            {
+                return false;
+            }
+
+            var focused = element.focusController.focusedElement as VisualElement;
+
+            if (focused == null)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(focused, element) == true)
+            {
+                return true;
+            }
+
+            return element.Contains(focused);
         }
 
         /// <summary>지정가로 바꿀 때 아직 손대지 않았으면 현재가를 기본값으로 채운다.</summary>
@@ -682,9 +812,9 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 저가·시작가·고가를 차트 위 제자리에 찍는다.
-        /// 아래에 나란히 적으면 선의 어느 지점이 저가인지 알 수 없다.
-        /// 저·고의 자리는 매 틱 바뀌므로 좌표를 여기서 계산해 절대 배치로 준다.
+        /// 차트 위에 얹는 글자를 모두 다시 앉힌다.
+        /// 오른쪽에 가격 눈금과 현재가 꼬리표, 선 위에 저·시작·고 라벨이다.
+        /// 값도 자리도 매 틱 바뀌므로 좌표를 여기서 계산해 절대 배치로 준다.
         /// </summary>
         private void RefreshChartMarkers(AdventurerStock stock)
         {
@@ -704,6 +834,8 @@ namespace Underwrite.UI
                 HideMarker(chart, "marker-low");
                 HideMarker(chart, "marker-open");
                 HideMarker(chart, "marker-high");
+                HideMarker(chart, "price-tag");
+                HideAxisLabels(chart, 0);
                 return;
             }
 
@@ -713,14 +845,41 @@ namespace Underwrite.UI
             int highIndex;
             ChartRange(stock, out min, out max, out lowIndex, out highIndex);
 
-            var span = max - min;
+            var span = ChartSpan(min, max);
+            var plotWidth = PlotWidth(width);
+            var total = Sim.Clock.TicksPerSession;
 
-            if (span <= 0.0001f)
+            // 오른쪽 가격 눈금. 값이 적혀 있지 않으면 선의 높낮이가 얼마인지 알 수 없다.
+            var step = NiceStep(span / 4f);
+            var first = Mathf.Ceil(min / step) * step;
+            var priceY = ChartY(stock.Price, min, span, height);
+            var shown = 0;
+
+            for (var i = 0; i < CHART_AXIS_MAX; i++)
             {
-                span = 1f;
+                var value = first + step * i;
+
+                if (value > max)
+                {
+                    break;
+                }
+
+                var gridY = ChartY(value, min, span, height);
+
+                // 현재가 꼬리표가 덮을 자리의 눈금은 적지 않는다. 숫자 두 개가 겹쳐 보인다.
+                if (Mathf.Abs(gridY - priceY) < CHART_LABEL_EDGE)
+                {
+                    continue;
+                }
+
+                PlaceAxisLabel(chart, shown, value, PlotLeft() + plotWidth + 10f, gridY);
+                shown++;
             }
 
-            var total = Sim.Clock.TicksPerSession;
+            HideAxisLabels(chart, shown);
+
+            // 현재가 꼬리표 — 증권사 차트처럼 오른쪽 끝에 지금 값을 붙인다.
+            PlacePriceTag(chart, stock, min, span, width, height);
 
             var lowX = ChartX(lowIndex, total, width);
             var highX = ChartX(highIndex, total, width);
@@ -728,15 +887,28 @@ namespace Underwrite.UI
             var highY = ChartY(history[highIndex], min, span, height);
             var openY = ChartY(stock.SessionOpenPrice, min, span, height);
 
+            // 고점이 위쪽 끝에 붙으면 라벨을 점 아래로 내린다. 저점은 반대다.
             PlaceMarker(chart, "marker-low", "chart-marker-label--low",
-                $"저 {history[lowIndex]:N1}", lowX, lowY, width, false);
+                $"저 {history[lowIndex]:N1}", lowX, lowY, plotWidth,
+                lowY > height - CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
             PlaceMarker(chart, "marker-high", "chart-marker-label--high",
-                $"고 {history[highIndex]:N1}", highX, highY, width, true);
+                $"고 {history[highIndex]:N1}", highX, highY, plotWidth,
+                highY > CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
+
+            // 시작 라벨은 점 오른쪽에 눕힌다. 위로 올리면 종목 이름·가격 글자와 겹친다.
             PlaceMarker(chart, "marker-open", "chart-marker-label--open",
-                $"시작 {stock.SessionOpenPrice:N1}", 0f, openY, width, true);
+                $"시작 {stock.SessionOpenPrice:N1}", PlotLeft() + 12f, openY, plotWidth,
+                true, MarkerAnchor.Anchor_Left);
         }
 
-        /// <summary>차트가 쓰는 가격 범위와 저·고 지점을 함께 구한다. 선과 마커가 같은 자를 써야 한다.</summary>
+        /// <summary>라벨을 점의 어디에 붙일지.</summary>
+        private enum MarkerAnchor
+        {
+            Anchor_Center,
+            Anchor_Left
+        }
+
+        /// <summary>차트가 쓰는 가격 범위와 저·고 지점을 함께 구한다. 선과 글자가 같은 자를 써야 한다.</summary>
         private static void ChartRange(AdventurerStock stock, out float min, out float max,
             out int lowIndex, out int highIndex)
         {
@@ -769,22 +941,57 @@ namespace Underwrite.UI
             {
                 max = stock.SessionOpenPrice;
             }
+
+            // 위아래를 조금 비운다. 고·저 점이 테두리에 붙으면 라벨이 차트 밖으로 나간다.
+            var pad = (max - min) * CHART_RANGE_PAD;
+
+            if (pad <= 0.0001f)
+            {
+                pad = Mathf.Max(0.5f, max * 0.01f);
+            }
+
+            min -= pad;
+            max += pad;
+        }
+
+        private static float ChartSpan(float min, float max)
+        {
+            var span = max - min;
+
+            if (span <= 0.0001f)
+            {
+                return 1f;
+            }
+
+            return span;
+        }
+
+        /// <summary>선이 그려지는 왼쪽 끝. 0으로 두면 시작 점이 테두리에 반쯤 잘린다.</summary>
+        private static float PlotLeft()
+        {
+            return CHART_PLOT_LEFT;
+        }
+
+        /// <summary>오른쪽 눈금 자리를 뺀 나머지가 선이 쓰는 폭이다.</summary>
+        private static float PlotWidth(float width)
+        {
+            return Mathf.Max(10f, width - CHART_AXIS_WIDTH - CHART_PLOT_LEFT);
         }
 
         private static float ChartX(int index, int total, float width)
         {
             if (total <= 0)
             {
-                return 0f;
+                return CHART_PLOT_LEFT;
             }
 
-            // 점이 틱 수보다 많아도 선이 차트 밖으로 나가지 않게 막는다.
+            // 점이 틱 수보다 많아도 선이 눈금 자리로 넘어가지 않게 막는다.
             if (index > total)
             {
                 index = total;
             }
 
-            return (float)index / total * width;
+            return CHART_PLOT_LEFT + (float)index / total * PlotWidth(width);
         }
 
         private static float ChartY(float value, float min, float span, float height)
@@ -792,12 +999,95 @@ namespace Underwrite.UI
             return height - (value - min) / span * height;
         }
 
+        /// <summary>눈금 간격을 1·2·5 단위로 떨어뜨린다. 61.9, 63.0 같은 값은 눈금으로 쓰기 나쁘다.</summary>
+        private static float NiceStep(float rough)
+        {
+            if (rough <= 0f)
+            {
+                return 1f;
+            }
+
+            var power = Mathf.Pow(10f, Mathf.Floor(Mathf.Log10(rough)));
+            var fraction = rough / power;
+
+            if (fraction <= 1f)
+            {
+                return power;
+            }
+
+            if (fraction <= 2f)
+            {
+                return 2f * power;
+            }
+
+            if (fraction <= 5f)
+            {
+                return 5f * power;
+            }
+
+            return 10f * power;
+        }
+
+        private static void PlaceAxisLabel(VisualElement chart, int index, float value, float x, float y)
+        {
+            var name = "axis-" + index;
+            var label = chart.Q<Label>(name);
+
+            if (label == null)
+            {
+                label = new Label();
+                label.name = name;
+                label.pickingMode = PickingMode.Ignore;
+                label.AddToClassList("chart-axis-label");
+                chart.Add(label);
+            }
+
+            label.RemoveFromClassList("hidden");
+            label.text = value.ToString("N1");
+            label.style.left = x;
+            label.style.top = y;
+            label.style.translate = new Translate(0f, Length.Percent(-50f));
+        }
+
+        private static void HideAxisLabels(VisualElement chart, int from)
+        {
+            for (var i = from; i < CHART_AXIS_MAX; i++)
+            {
+                HideMarker(chart, "axis-" + i);
+            }
+        }
+
+        private void PlacePriceTag(VisualElement chart, AdventurerStock stock,
+            float min, float span, float width, float height)
+        {
+            var tag = chart.Q<Label>("price-tag");
+
+            if (tag == null)
+            {
+                tag = new Label();
+                tag.name = "price-tag";
+                tag.pickingMode = PickingMode.Ignore;
+                tag.AddToClassList("chart-price-tag");
+                chart.Add(tag);
+            }
+
+            var rising = stock.SessionChangeRatio >= -0.0005f;
+
+            tag.RemoveFromClassList("hidden");
+            tag.text = stock.Price.ToString("N1");
+            tag.EnableInClassList("chart-price-tag--up", rising);
+            tag.EnableInClassList("chart-price-tag--down", rising == false);
+            tag.style.left = PlotLeft() + PlotWidth(width) + 6f;
+            tag.style.top = ChartY(stock.Price, min, span, height);
+            tag.style.translate = new Translate(0f, Length.Percent(-50f));
+        }
+
         /// <summary>
         /// 라벨을 한 번 만들어 두고 자리만 옮긴다. 매 틱 새로 만들면 쓰레기가 쌓인다.
         /// above가 참이면 점 위에, 거짓이면 점 아래에 붙인다.
         /// </summary>
         private static void PlaceMarker(VisualElement chart, string name, string toneClass,
-            string text, float x, float y, float width, bool above)
+            string text, float x, float y, float plotWidth, bool above, MarkerAnchor anchor)
         {
             var label = chart.Q<Label>(name);
 
@@ -814,14 +1104,25 @@ namespace Underwrite.UI
             label.RemoveFromClassList("hidden");
             label.text = text;
 
-            // 끝에 붙은 점의 라벨이 차트 밖으로 나가지 않게 안쪽으로 당긴다.
-            var clampedX = Mathf.Clamp(x, CHART_MARKER_MARGIN, Mathf.Max(CHART_MARKER_MARGIN, width - CHART_MARKER_MARGIN));
+            var left = x;
+            var shift = Length.Percent(-50f);
 
-            label.style.left = clampedX;
+            if (anchor == MarkerAnchor.Anchor_Left)
+            {
+                shift = Length.Percent(0f);
+            }
+            else
+            {
+                // 끝에 붙은 점의 라벨이 눈금이나 테두리를 넘지 않게 안쪽으로 당긴다.
+                var right = CHART_PLOT_LEFT + plotWidth - CHART_MARKER_MARGIN;
+                left = Mathf.Clamp(x, CHART_PLOT_LEFT + CHART_MARKER_MARGIN, Mathf.Max(CHART_PLOT_LEFT, right));
+            }
+
+            label.style.left = left;
             label.style.top = y;
             label.style.translate = above == true
-                ? new Translate(Length.Percent(-50f), Length.Percent(-135f))
-                : new Translate(Length.Percent(-50f), Length.Percent(35f));
+                ? new Translate(shift, Length.Percent(-135f))
+                : new Translate(shift, Length.Percent(35f));
         }
 
         private static void HideMarker(VisualElement chart, string name)
@@ -869,23 +1170,40 @@ namespace Underwrite.UI
             int highIndex;
             ChartRange(stock, out min, out max, out lowIndex, out highIndex);
 
-            var span = max - min;
-
-            if (span <= 0.0001f)
-            {
-                span = 1f;
-            }
-
+            var span = ChartSpan(min, max);
             var painter = context.painter2D;
             var total = Sim.Clock.TicksPerSession;
+            var plotRight = CHART_PLOT_LEFT + PlotWidth(size.width);
 
-            // 장 시작가 기준선. 점선 대신 옅은 실선으로 둔다.
-            var baseY = size.height - (stock.SessionOpenPrice - min) / span * size.height;
-            painter.strokeColor = new Color(0.78f, 0.81f, 0.85f, 1f);
+            // 가격 눈금선. 오른쪽 라벨과 같은 값에 긋는다.
+            var step = NiceStep(span / 4f);
+            var first = Mathf.Ceil(min / step) * step;
+            painter.strokeColor = new Color(0.55f, 0.50f, 0.43f, 0.22f);
+            painter.lineWidth = 1f;
+
+            for (var i = 0; i < CHART_AXIS_MAX; i++)
+            {
+                var value = first + step * i;
+
+                if (value > max)
+                {
+                    break;
+                }
+
+                var gridY = ChartY(value, min, span, size.height);
+                painter.BeginPath();
+                painter.MoveTo(new Vector2(CHART_PLOT_LEFT, gridY));
+                painter.LineTo(new Vector2(plotRight, gridY));
+                painter.Stroke();
+            }
+
+            // 장 시작가 기준선. 눈금선보다 진하게 둬서 기준임을 드러낸다.
+            var baseY = ChartY(stock.SessionOpenPrice, min, span, size.height);
+            painter.strokeColor = new Color(0.45f, 0.40f, 0.33f, 0.55f);
             painter.lineWidth = 1f;
             painter.BeginPath();
-            painter.MoveTo(new Vector2(0f, baseY));
-            painter.LineTo(new Vector2(size.width, baseY));
+            painter.MoveTo(new Vector2(CHART_PLOT_LEFT, baseY));
+            painter.LineTo(new Vector2(plotRight, baseY));
             painter.Stroke();
 
             // 가격 선. 휴장이면 회색으로 둔다.
@@ -915,7 +1233,7 @@ namespace Underwrite.UI
             painter.Stroke();
 
             // 저·시작·고 지점에 점을 찍는다. 라벨만으로는 선의 어디를 가리키는지 알 수 없다.
-            var openPoint = new Vector2(0f, size.height - (stock.SessionOpenPrice - min) / span * size.height);
+            var openPoint = new Vector2(CHART_PLOT_LEFT, baseY);
             var lowPoint = new Vector2(ChartX(lowIndex, total, size.width),
                 ChartY(history[lowIndex], min, span, size.height));
             var highPoint = new Vector2(ChartX(highIndex, total, size.width),
@@ -1119,7 +1437,7 @@ namespace Underwrite.UI
                 sellTab.EnableInClassList("tab--sell-on", buying == false);
             }
 
-            SetText("qty-value", $"{Quantity}주");
+            SetFieldValue("qty-value", Quantity.ToString());
 
             var limiting = Type == OrderType.Type_Limit;
             Toggle("type-market", "type-tab--on", limiting == false);
@@ -1137,7 +1455,7 @@ namespace Underwrite.UI
                 LimitPrice = OrderBook.SnapToTick(stock.Price, stock.Price);
             }
 
-            SetText("limit-value", LimitPrice.ToString("N1"));
+            SetFieldValue("limit-value", LimitPrice.ToString("N1"));
 
             var halted = Sim.Clock.Phase != MarketPhase.Phase_Open;
             var impact = PriceModel.OrderImpact(stock, Side, Quantity);
@@ -1152,11 +1470,22 @@ namespace Underwrite.UI
             SetText("order-cash", Sim.Wallet.AvailableCash.ToString("N0"));
 
             SetText("order-hint", limiting == true
-                ? "가격이 지정가에 닿으면 체결됩니다. 닿지 않으면 폐장 때 사라집니다."
+                ? "지정가에 닿으면 체결, 폐장 때 소멸."
                 : "체결 시 가격이 달라질 수 있어요.");
 
             var held = Sim.Wallet.QuantityOf(stock.Id);
             var available = Sim.Wallet.AvailableQuantityOf(stock.Id);
+
+            // 없는 주식을 팔 수는 없다. 수량칸을 눌러도 아무 일이 없는 것보다 잠가 두는 쪽이 낫다.
+            var nothingToSell = buying == false && available <= 0;
+            var qtyBox = Root.Q<VisualElement>("qty-box");
+
+            if (qtyBox != null)
+            {
+                qtyBox.SetEnabled(nothingToSell == false);
+                qtyBox.EnableInClassList("qty-box--off", nothingToSell);
+            }
+
             SetText("hold-qty", held == available ? $"{held}주" : $"{held}주 (가용 {available})");
             SetText("hold-avg", Sim.Wallet.AverageCostOf(stock.Id).ToString("N1"));
             SetText("hold-liquidity", stock.Liquidity.ToString("N0"));
@@ -1165,13 +1494,18 @@ namespace Underwrite.UI
 
             if (submit != null)
             {
-                var blocked = Sim.Clock.AcceptsOrders == false || Sim.PlayerAtMarket == false;
+                var blocked = Sim.Clock.AcceptsOrders == false || Sim.PlayerAtMarket == false
+                    || nothingToSell == true;
                 submit.SetEnabled(blocked == false);
                 submit.EnableInClassList("btn--buy", blocked == false && buying);
                 submit.EnableInClassList("btn--sell", blocked == false && buying == false);
                 submit.EnableInClassList("btn--disabled", blocked);
 
-                if (Sim.Clock.Phase == MarketPhase.Phase_Halted)
+                if (nothingToSell == true)
+                {
+                    submit.text = "보유 주식 없음";
+                }
+                else if (Sim.Clock.Phase == MarketPhase.Phase_Halted)
                 {
                     submit.text = "휴장 중";
                 }

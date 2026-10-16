@@ -177,3 +177,8 @@
 .chart-marker-label {
     background-color: rgba(242, 231, 210, 0.85);
 }
+
+/* 입력칸 바탕 — 양피지 위에서는 종이보다 살짝 밝게 파인 자리로 둔다. */
+.qty-input .unity-base-text-field__input {
+    color: #2A2118;
+}

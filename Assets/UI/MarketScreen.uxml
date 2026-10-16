@@ -113,16 +113,17 @@
                     <ui:Label text="지정가" class="order-label" />
                     <ui:VisualElement class="qty-box">
                         <ui:Button name="limit-minus" text="−" class="qty-step" />
-                        <ui:Label name="limit-value" text="0.0" class="qty-value" />
+                        <ui:TextField name="limit-value" value="0.0" class="qty-input" />
                         <ui:Button name="limit-plus" text="+" class="qty-step" />
                     </ui:VisualElement>
                 </ui:VisualElement>
 
                 <ui:VisualElement class="row" style="align-items: center; margin-top: 8px;">
                     <ui:Label text="수량" class="order-label" />
-                    <ui:VisualElement class="qty-box">
+                    <ui:VisualElement name="qty-box" class="qty-box">
                         <ui:Button name="qty-minus" text="−" class="qty-step" />
-                        <ui:Label name="qty-value" text="10주" class="qty-value" />
+                        <ui:TextField name="qty-value" value="10" class="qty-input" />
+                        <ui:Label text="주" class="qty-unit" />
                         <ui:Button name="qty-plus" text="+" class="qty-step" />
                     </ui:VisualElement>
                 </ui:VisualElement>
@@ -157,17 +158,19 @@
                 <ui:VisualElement class="grow" />
 
                 <ui:VisualElement style="height: 1px; background-color: #E3E7ED; margin-bottom: 8px;" />
-                <ui:VisualElement class="order-line">
-                    <ui:Label text="보유 수량" class="order-label" />
-                    <ui:Label name="hold-qty" text="0주" class="order-value" />
-                </ui:VisualElement>
-                <ui:VisualElement class="order-line">
-                    <ui:Label text="평균 매입가" class="order-label" />
-                    <ui:Label name="hold-avg" text="0.0" class="order-value" />
-                </ui:VisualElement>
-                <ui:VisualElement class="order-line">
-                    <ui:Label text="유동성" class="order-label" />
-                    <ui:Label name="hold-liquidity" text="0" class="order-value" />
+                <ui:VisualElement class="hold-row">
+                    <ui:VisualElement class="hold-cell">
+                        <ui:Label text="보유 수량" class="hold-label" />
+                        <ui:Label name="hold-qty" text="0주" class="hold-value" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="hold-cell">
+                        <ui:Label text="평균 매입가" class="hold-label" />
+                        <ui:Label name="hold-avg" text="0.0" class="hold-value" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="hold-cell">
+                        <ui:Label text="유동성" class="hold-label" />
+                        <ui:Label name="hold-liquidity" text="0" class="hold-value" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
 

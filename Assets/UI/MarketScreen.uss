@@ -667,3 +667,86 @@
     overflow: hidden;
     -unity-text-align: middle-left;
 }
+
+/* ── 수량·지정가 입력칸 ───────────────────── */
+
+/* 숫자를 직접 치는 칸. 증권사 앱과 같게 +/− 는 보조로 남긴다. */
+.qty-input {
+    width: 86px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.qty-input .unity-base-text-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-right;
+    color: var(--color-text);
+}
+
+.qty-unit {
+    font-size: 18px;
+    color: var(--color-text-weak);
+    margin-left: 2px;
+}
+
+/* 팔 주식이 없으면 수량칸 자체를 못 쓰게 잠근다. */
+.qty-box--off {
+    opacity: 0.4;
+}
+
+/* ── 차트 가격 눈금 ───────────────────────── */
+
+.chart-axis-label {
+    position: absolute;
+    font-size: 15px;
+    color: var(--color-text-weak);
+}
+
+/* 오른쪽 끝의 현재가 꼬리표. 눈금만 있으면 지금 값이 어디인지 바로 안 보인다. */
+.chart-price-tag {
+    position: absolute;
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: #FFFFFF;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 4px;
+}
+
+.chart-price-tag--up {
+    background-color: var(--color-rise);
+}
+
+.chart-price-tag--down {
+    background-color: var(--color-fall);
+}
+
+/* ── 보유 요약 ────────────────────────────── */
+
+/* 세 줄로 쌓으면 지정가 줄이 생길 때 주문 열이 넘친다. 가로 세 칸으로 눕힌다. */
+.hold-row {
+    flex-direction: row;
+    flex-shrink: 0;
+}
+
+.hold-cell {
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: hidden;
+}
+
+.hold-label {
+    font-size: 16px;
+    color: var(--color-text-weak);
+}
+
+.hold-value {
+    font-size: 19px;
+    -unity-font-style: bold;
+    margin-top: 2px;
+}
