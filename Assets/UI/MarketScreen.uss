@@ -971,6 +971,68 @@
     margin-top: 2px;
 }
 
+/* ── 주문 결과 쪽지 ───────────────────────── */
+
+/* 체결은 한순간이라 주문 패널 아래 작은 글자로는 놓친다.
+   눈이 가 있는 자리(주문 패널 위쪽)에 잠깐 띄우고 스스로 사라지게 한다. */
+.toast-area {
+    position: absolute;
+    right: 48px;
+    top: 150px;
+    width: 420px;
+    align-items: flex-end;
+}
+
+.toast {
+    flex-shrink: 0;
+    margin-bottom: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    background-color: var(--color-panel);
+    max-width: 420px;
+}
+
+.toast-text {
+    font-size: 17px;
+    -unity-font-style: bold;
+    white-space: normal;
+}
+
+.toast-note {
+    font-size: 15px;
+    color: var(--color-text-weak);
+    white-space: normal;
+    margin-top: 2px;
+}
+
+/* 매수는 붉게, 매도는 푸르게, 막힌 주문은 잉크로. 색만 봐도 무슨 일인지 안다. */
+.toast--buy {
+    border-color: var(--color-rise);
+    background-color: var(--color-rise-soft);
+}
+
+.toast--sell {
+    border-color: var(--color-fall);
+    background-color: var(--color-fall-soft);
+}
+
+.toast--deny {
+    border-color: var(--color-text-weak);
+}
+
+/* 떠나기로 공고된 종목. 설계안 §5의 사전 확인을 행에 적는다. */
+.stock-notice {
+    font-size: 15px;
+    color: var(--color-halt);
+    -unity-font-style: bold;
+    margin-top: 2px;
+}
+
 /* ── 정보 타임 연출 ───────────────────────── */
 
 /* 거래 화면을 통째로 덮는다. 정보 타임은 알림이 아니라 하나의 사건이다.
@@ -1259,6 +1321,10 @@
     background-image: url("project://database/Assets/UI/Images/underworld_room.png");
 }
 
+.dialogue-root--underworld-dim {
+    background-image: url("project://database/Assets/UI/Images/underworld_room_dim.png");
+}
+
 .dialogue-root--tavern {
     background-image: url("project://database/Assets/UI/Images/place_tavern.png");
 }
@@ -1347,6 +1413,17 @@
     width: 160px;
     margin-top: 0;
     margin-left: 12px;
+    background-color: var(--color-text);
+    color: var(--color-panel);
+}
+
+/* 거래소로 돌아가는 단추. 영지 화면 오른쪽 아래에 둔다. */
+.village-leave {
+    position: absolute;
+    right: 36px;
+    bottom: 36px;
+    width: 180px;
+    margin-top: 0;
     background-color: var(--color-text);
     color: var(--color-panel);
 }

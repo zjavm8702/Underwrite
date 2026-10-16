@@ -103,6 +103,15 @@ namespace Underwrite.Market
             }
         }
 
+        /// <summary>다음 정보 타임의 번호. 영지에서 캐낼 소식이 이 묶음에서 나온다.</summary>
+        public int NextBriefingSlot
+        {
+            get
+            {
+                return NextSlot;
+            }
+        }
+
         /// <summary>이번 장에서 몇 번째 정보 타임인가. 1 또는 2.</summary>
         public int BriefingOrder { get; private set; }
 
@@ -116,6 +125,34 @@ namespace Underwrite.Market
             {
                 return Notices;
             }
+        }
+
+        /// <summary>
+        /// 영지에서 한 일을 받아 적용한다. 장을 열기 전에 한 번 부른다.
+        ///
+        /// 돈은 여기서 빠진다. 영지가 직접 지갑을 건드리면 잔고가 두 군데가 되고,
+        /// 어느 쪽이 맞는지 알 수 없게 된다.
+        /// 캐낸 소식은 **나만 아는 정보**로 들어간다. 시장은 아직 모르므로 가격은 움직이지 않는다.
+        /// </summary>
+        public int ApplyGatherSession()
+        {
+            var spent = GatherSession.Spent;
+
+            if (spent > 0f)
+            {
+                Wallet.SpendPatronage(spent);
+            }
+
+            var notes = GatherSession.Gathered;
+
+            for (var i = 0; i < notes.Count; i++)
+            {
+                var note = notes[i];
+                InfoEntries.Add(new InfoEntry(Clock.Tick, note.StockId, note.Headline,
+                    note.Source, EventStage.Stage_Report, false));
+            }
+
+            return notes.Count;
         }
 
         /// <summary>보고를 읽었다. 장이 다시 움직인다.</summary>

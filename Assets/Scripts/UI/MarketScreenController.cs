@@ -7,6 +7,7 @@ using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Utility;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Underwrite.UI
@@ -40,10 +41,6 @@ namespace Underwrite.UI
         private const int TOAST_MAX = 3;
         private const float TOAST_SLIDE_SECONDS = 0.22f;
         private const float TOAST_SLIDE_FROM = 36f;
-        private const float SCENE_RISE_SECONDS = 0.26f;
-        private const float SCENE_RISE_FROM = 40f;
-        private const float FIGURE_SLIDE_SECONDS = 0.34f;
-        private const float FIGURE_SLIDE_FROM = 48f;
 
         private enum InfoFilter
         {
@@ -60,6 +57,9 @@ namespace Underwrite.UI
         [Header("공용 UI")]
         [Tooltip("확인이 필요한 일에 띄우는 팝업 한 벌. 비워 두면 팝업 없이 쪽지만 뜬다.")]
         [SerializeField] private VisualTreeAsset PopupTree;
+
+        [Tooltip("대화상자 한 벌. 정보 타임 연출이 이것을 쓴다.")]
+        [SerializeField] private VisualTreeAsset DialogueTree;
 
         [Header("데이터")]
         [Tooltip("표에서 읽어 온다. 비워 두면 코드에 박힌 프로토타입 값을 쓴다.")]
@@ -103,7 +103,7 @@ namespace Underwrite.UI
         private bool HoldingsCollapsed = true;
         private int SceneIndex = -1;
         private UI_Popup Popup;
-        private Sprite FigureShown;
+        private UI_Dialogue Dialogue;
         private int HoldingsSeqShown = -1;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
@@ -402,12 +402,15 @@ namespace Underwrite.UI
         /// <summary>팝업 한 벌을 화면에 붙인다. 띄우는 것은 필요할 때다.</summary>
         private void BuildPopup()
         {
-            if (PopupTree == null || Popup != null)
+            if (PopupTree != null && Popup == null)
             {
-                return;
+                Popup = new UI_Popup(Root, PopupTree);
             }
 
-            Popup = new UI_Popup(Root, PopupTree);
+            if (DialogueTree != null && Dialogue == null)
+            {
+                Dialogue = new UI_Dialogue(Root, DialogueTree);
+            }
         }
 
         private void BuildStockRows()
@@ -505,8 +508,8 @@ namespace Underwrite.UI
             Click("speed-1", () => Sim.Clock.SetSpeedScale(1f));
             Click("speed-4", () => Sim.Clock.SetSpeedScale(4f));
             Click("skip-button", SkipOrOpen);
-            Click("scene-next", NextSceneLine);
             Click("place-button", () => Sim.PlayerAtMarket = Sim.PlayerAtMarket == false);
+            Click("village-button", GoToVillage);
 
             Click("side-buy", () => Side = OrderSide.Side_Buy);
             Click("side-sell", () => Side = OrderSide.Side_Sell);
@@ -633,6 +636,16 @@ namespace Underwrite.UI
             if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
             {
                 Sim.OpenNextSession(IsInspectionDay);
+
+                var brought = Sim.ApplyGatherSession();
+
+                if (brought > 0)
+                {
+                    ShowToast("영지에서 들은 것", $"캐낸 소식 {brought}건이 정보 기록에 들어왔습니다.",
+                        Side, true);
+                }
+
+                GatherSession.BeginBreak(Sim.NextBriefingSlot);
                 ResetViewState();
                 Message = string.Format(StringConstants.TEXT_SESSION_OPENED,
                     SessionName(Sim.Clock.Session));
@@ -685,6 +698,40 @@ namespace Underwrite.UI
             {
                 BuildStockRows();
             }
+        }
+
+        /// <summary>
+        /// 영지로 나간다. 장이 열려 있는 동안에는 자리를 뜨지 않는다.
+        ///
+        /// 기획서 §11의 하루는 장 → 영지 → 장 → 취침으로 돈다.
+        /// 장중에 나갈 수 있으면 가격이 흐르는 동안 정보를 캐게 되어 두 층이 겹친다.
+        /// </summary>
+        private void GoToVillage()
+        {
+            if (Sim.Clock.Phase == MarketPhase.Phase_Open)
+            {
+                Message = "장이 열려 있는 동안에는 자리를 뜰 수 없습니다.";
+                ShowToast("나갈 수 없다", Message, Side, false);
+                return;
+            }
+
+            GatherSession.BeginBreak(Sim.NextBriefingSlot);
+            SceneManager.LoadScene(SceneRoutes.VILLAGE);
+        }
+
+        /// <summary>장이 닫혀 있을 때만 영지로 나갈 수 있다.</summary>
+        private void RefreshVillageButton()
+        {
+            var button = Root.Q<Button>("village-button");
+
+            if (button == null)
+            {
+                return;
+            }
+
+            var closed = Sim.Clock.Phase == MarketPhase.Phase_Closed;
+            button.SetEnabled(closed);
+            button.EnableInClassList("btn--disabled", closed == false);
         }
 
         /// <summary>화면이 다시 그려지도록 캐시를 비운다.</summary>
@@ -992,7 +1039,6 @@ namespace Underwrite.UI
             RefreshPending();
             RefreshInfo();
             RefreshHoldings();
-            RefreshScene();
         }
 
         private void RefreshHeader()
@@ -1029,6 +1075,7 @@ namespace Underwrite.UI
             Select("speed-1", Mathf.Approximately(Sim.Clock.SpeedScale, 1f));
             Select("speed-4", Mathf.Approximately(Sim.Clock.SpeedScale, 4f));
             RefreshSkipButton();
+            RefreshVillageButton();
 
             var banner = Root.Q<VisualElement>("halt-banner");
 
@@ -2157,80 +2204,98 @@ namespace Underwrite.UI
                 return;
             }
 
+            if (Dialogue == null)
+            {
+                // 대화상자가 아직 붙지 않았으면 소식만 흘려보낸다. 장이 멈춘 채로 둘 수는 없다.
+                Sim.AcknowledgeBriefing();
+                return;
+            }
+
             // 읽는 동안 장이 흐르면 읽을 틈이 없다.
             Sim.Clock.SetPaused(true);
             SceneIndex = 0;
-            PlaySceneEnter();
+
+            Dialogue.SetBackground(SceneBackground());
+            Dialogue.Play(BuildBriefingLines(), CloseBriefingScene);
+        }
+
+        /// <summary>대화가 끝났다. 장이 다시 흐른다.</summary>
+        private void CloseBriefingScene()
+        {
+            SceneIndex = -1;
+            Sim.AcknowledgeBriefing();
+            Sim.Clock.SetPaused(false);
+            InfoCountShown = -1;
         }
 
         /// <summary>
-        /// 지하실이 밝아지고 글자 상자가 떠오른다.
-        /// 장면이 통째로 튀어나오면 거래 화면에서 넘어온 것인지 알아보기 어렵다.
+        /// 이번 정보 타임에 들어온 소식을 대화 줄로 옮긴다.
+        /// 소식의 주인이 말하는 것이 아니라, 그 사람 이야기가 화면에 서는 것이다.
         /// </summary>
-        private void PlaySceneEnter()
+        private List<DialogueLine> BuildBriefingLines()
         {
-            var scene = Root.Q<VisualElement>("scene");
-            var box = Root.Q<VisualElement>("scene-box");
+            var lines = new List<DialogueLine>();
+            var session = Sim.Clock.Session == MarketSession.Session_Evening
+                ? StringConstants.TEXT_SESSION_EVENING
+                : StringConstants.TEXT_SESSION_MORNING;
 
-            if (scene == null || box == null)
+            for (var i = 0; i < Sim.BriefingEntries.Count; i++)
             {
-                return;
+                var entry = Sim.BriefingEntries[i];
+
+                AdventurerStock stock;
+                var name = Sim.StockLookup.TryGetValue(entry.StockId, out stock) == true
+                    ? stock.DisplayName
+                    : entry.StockId;
+
+                var line = new DialogueLine(name,
+                    $"{SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {session}"
+                    + $" {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}",
+                    entry.Headline);
+
+                line.Portrait = PortraitOf(entry.StockId, EmotionOf(entry));
+                line.Emotion = EmotionOf(entry);
+                line.IsSecret = entry.IsPublic == false;
+                line.Note = entry.IsPublic == true
+                    ? StringConstants.TEXT_SCENE_PUBLIC
+                    : StringConstants.TEXT_SCENE_PRIVATE;
+
+                lines.Add(line);
             }
 
-            scene.style.opacity = 0f;
-            box.style.translate = new Translate(0f, SCENE_RISE_FROM);
-
-            var progress = 0f;
-            DOTween.To(() => progress, value =>
-            {
-                progress = value;
-
-                if (scene.panel == null)
-                {
-                    return;
-                }
-
-                scene.style.opacity = value;
-                box.style.translate = new Translate(0f, Mathf.Lerp(SCENE_RISE_FROM, 0f, value));
-            }, 1f, SCENE_RISE_SECONDS).SetEase(Ease.OutCubic).SetUpdate(true);
+            return lines;
         }
 
         /// <summary>
-        /// 소식의 주인을 화면에 세운다. 누구 이야기인지 글자보다 그림이 먼저 말한다.
-        /// 그림이 없는 종목이면 자리를 비운다.
+        /// 소식의 무게로 얼굴을 고른다. 결과가 확정된 소식이 가장 무겁다.
+        /// 글자를 읽기 전에 분위기가 먼저 전해져야 한다.
         /// </summary>
-        private void ShowSceneFigure(string stockId)
+        private static PortraitEmotion EmotionOf(InfoEntry entry)
         {
-            var figure = Root.Q<VisualElement>("scene-figure");
-
-            if (figure == null)
+            if (entry.Stage == EventStage.Stage_Outcome)
             {
-                return;
+                return PortraitEmotion.Emotion_Shocked;
             }
 
-            var portrait = PortraitOf(stockId);
-
-            if (portrait == null)
+            if (entry.IsPublic == false)
             {
-                figure.style.backgroundImage = StyleKeyword.None;
-                figure.EnableInClassList("hidden", true);
-                return;
+                return PortraitEmotion.Emotion_Anxious;
             }
 
-            figure.EnableInClassList("hidden", false);
-
-            // 같은 사람이면 다시 띄우지 않는다. 넘길 때마다 깜빡이면 거슬린다.
-            if (ReferenceEquals(FigureShown, portrait) == true)
-            {
-                return;
-            }
-
-            FigureShown = portrait;
-            figure.style.backgroundImage = new StyleBackground(portrait);
-            PlayFigureEnter(figure);
+            return PortraitEmotion.Emotion_Neutral;
         }
 
-        private Sprite PortraitOf(string stockId)
+        /// <summary>분위기가 가라앉으면 등불이 꺼져 가는 방을 쓴다. 같은 지하실이고 빛만 다르다.</summary>
+        private string SceneBackground()
+        {
+            var grim = Sim.Sentiment == MarketSentiment.Sentiment_Fear
+                || Sim.Sentiment == MarketSentiment.Sentiment_Drained;
+
+            return grim == true ? "dialogue-root--underworld-dim" : "dialogue-root--underworld";
+        }
+
+        /// <summary>표정 묶음이 있으면 그쪽이 먼저다. 없으면 한 장짜리 그림으로 내려간다.</summary>
+        private Sprite PortraitOf(string stockId, PortraitEmotion emotion)
         {
             if (Data == null || Data.StockRows == null)
             {
@@ -2241,115 +2306,25 @@ namespace Underwrite.UI
 
             for (var i = 0; i < rows.Count; i++)
             {
-                if (rows[i].Id == stockId)
+                if (rows[i].Id != stockId)
                 {
-                    return rows[i].Portrait;
+                    continue;
                 }
+
+                if (rows[i].Portraits != null)
+                {
+                    var face = rows[i].Portraits.Get(emotion);
+
+                    if (face != null)
+                    {
+                        return face;
+                    }
+                }
+
+                return rows[i].Portrait;
             }
 
             return null;
-        }
-
-        /// <summary>등불 쪽에서 걸어 나오듯 옆에서 스며든다.</summary>
-        private static void PlayFigureEnter(VisualElement figure)
-        {
-            figure.style.opacity = 0f;
-            figure.style.translate = new Translate(-FIGURE_SLIDE_FROM, 0f);
-
-            var progress = 0f;
-            DOTween.To(() => progress, value =>
-            {
-                progress = value;
-
-                if (figure.panel == null)
-                {
-                    return;
-                }
-
-                figure.style.opacity = value;
-                figure.style.translate = new Translate(Mathf.Lerp(-FIGURE_SLIDE_FROM, 0f, value), 0f);
-            }, 1f, FIGURE_SLIDE_SECONDS).SetEase(Ease.OutCubic).SetUpdate(true);
-        }
-
-        /// <summary>다음 소식으로 넘긴다. 마지막이면 거래 화면으로 돌아간다.</summary>
-        private void NextSceneLine()
-        {
-            if (SceneIndex < 0)
-            {
-                return;
-            }
-
-            SceneIndex++;
-
-            if (SceneIndex < Sim.BriefingEntries.Count)
-            {
-                return;
-            }
-
-            SceneIndex = -1;
-            FigureShown = null;
-            Sim.AcknowledgeBriefing();
-            Sim.Clock.SetPaused(false);
-            InfoCountShown = -1;
-        }
-
-        /// <summary>연출 화면을 현재 소식에 맞춘다.</summary>
-        private void RefreshScene()
-        {
-            var scene = Root.Q<VisualElement>("scene");
-
-            if (scene == null)
-            {
-                return;
-            }
-
-            var showing = SceneIndex >= 0 && SceneIndex < Sim.BriefingEntries.Count;
-            scene.EnableInClassList("hidden", showing == false);
-
-            if (showing == false)
-            {
-                return;
-            }
-
-            // 분위기가 가라앉으면 등불이 꺼져 가는 판을 쓴다. 같은 방이고 빛만 다르다.
-            var grim = Sim.Sentiment == MarketSentiment.Sentiment_Fear
-                || Sim.Sentiment == MarketSentiment.Sentiment_Drained;
-            scene.EnableInClassList("scene--dim", grim);
-
-            var entry = Sim.BriefingEntries[SceneIndex];
-            var session = Sim.Clock.Session == MarketSession.Session_Evening ? "오후장" : "오전장";
-
-            SetText("scene-when",
-                $"{Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {session}"
-                + $" {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}");
-            SetText("scene-count", $"{SceneIndex + 1} / {Sim.BriefingEntries.Count}");
-
-            AdventurerStock stock;
-            var name = Sim.StockLookup.TryGetValue(entry.StockId, out stock) == true
-                ? stock.DisplayName
-                : entry.StockId;
-
-            SetText("scene-source", $"{SourceText(entry.Source)} · {name}");
-
-            var source = Root.Q<Label>("scene-source");
-
-            if (source != null)
-            {
-                source.EnableInClassList("scene-source--private", entry.IsPublic == false);
-            }
-
-            SetText("scene-line", entry.Headline);
-            ShowSceneFigure(entry.StockId);
-            SetText("scene-hint", entry.IsPublic == true
-                ? StringConstants.TEXT_SCENE_PUBLIC
-                : StringConstants.TEXT_SCENE_PRIVATE);
-
-            var next = Root.Q<Button>("scene-next");
-
-            if (next != null)
-            {
-                next.text = SceneIndex + 1 >= Sim.BriefingEntries.Count ? "거래로" : "다음";
-            }
         }
 
         private void RefreshInfo()

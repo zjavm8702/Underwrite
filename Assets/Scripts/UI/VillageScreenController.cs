@@ -6,6 +6,7 @@ using Underwrite.Global;
 using Underwrite.Market;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Underwrite.UI
@@ -29,6 +30,7 @@ namespace Underwrite.UI
         private VisualElement Root;
         private UI_Dialogue Dialogue;
         private VillageSpot Here;
+        private bool LeaveBound;
 
         private void OnEnable()
         {
@@ -60,6 +62,7 @@ namespace Underwrite.UI
                 Dialogue = new UI_Dialogue(Root, DialogueTree);
             }
 
+            BindLeave();
             RefreshPrompt();
 
             if (Here == null || Dialogue == null || Dialogue.IsOpen == true)
@@ -76,6 +79,25 @@ namespace Underwrite.UI
             }
 
             Gather(Here);
+        }
+
+        /// <summary>거래소로 돌아가는 단추. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
+        private void BindLeave()
+        {
+            if (LeaveBound == true)
+            {
+                return;
+            }
+
+            var button = Root.Q<Button>("village-leave");
+
+            if (button == null)
+            {
+                return;
+            }
+
+            LeaveBound = true;
+            button.clicked += () => SceneManager.LoadScene(SceneRoutes.MARKET);
         }
 
         private void OnEnter(VillageSpot spot)

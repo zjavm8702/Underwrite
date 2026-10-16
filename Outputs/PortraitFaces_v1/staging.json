@@ -1,0 +1,39 @@
+{
+  "status": "in_progress",
+  "scope": "PNG only; no Assets writes",
+  "destination": "Outputs/PortraitFaces_v1",
+  "characters": [
+    "sella",
+    "brann"
+  ],
+  "expressions": [
+    "neutral",
+    "happy",
+    "anxious",
+    "angry",
+    "shocked",
+    "sad",
+    "relieved"
+  ],
+  "canvas": [
+    820,
+    1080
+  ],
+  "pivot": "not imported; UI canvas reference bottom-center (410,0)",
+  "tool": "built-in image_gen",
+  "neutralNormalization": {
+    "source": [
+      1221,
+      1288
+    ],
+    "resize": [
+      760,
+      802
+    ],
+    "offset": [
+      30,
+      60
+    ]
+  },
+  "frames": "static expression alternatives, not 8-direction animation"
+}

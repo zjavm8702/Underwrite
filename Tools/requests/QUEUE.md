@@ -13,7 +13,9 @@
 | 5 | `hero_cutout_v1.md` | `HeroCutout_v1` | **반려** — 갇힌 흰 영역이 남음 |
 | 6 | `gather_places_v1.md` | `GatherPlaces_v1` | **완료** — 들임 |
 | 7 | `hero_cutout_v2.md` | `HeroCutout_v2` | **완료** — 검수 통과, 적용함 |
-| 8 | (미정) | | 대기 |
+| 8 | `portrait_faces_v1.md` | `PortraitFaces_v1` | 진행 중 — 대화용 상반신 표정 |
+
+영지 타일셋·배경은 걸지 않는다. 사용자가 "코덱스로 해결되지 않는다"고 판단했고, 에셋 탐색 결과도 기대와 멀었다.
 
 ## 왜 이 순서인가
 

@@ -26,6 +26,7 @@
                 <ui:Button name="speed-4" text="4배" class="btn btn--small" />
                 <ui:Button name="skip-button" text="오전장 넘기기" class="btn" />
                 <ui:Button name="place-button" text="지하시장에 있음" class="btn" />
+                <ui:Button name="village-button" text="영지로" class="btn" />
             </ui:VisualElement>
         </ui:VisualElement>
 
@@ -246,22 +247,5 @@
         </ui:VisualElement>
 
         </ui:VisualElement>
-        <!-- 정보 타임 연출. 주식 패널을 덮고 지하세계 장면을 보여 준다. -->
-        <ui:VisualElement name="scene" class="scene hidden">
-            <ui:VisualElement name="scene-figure" class="scene-figure" />
-            <ui:VisualElement name="scene-box" class="scene-box">
-                <ui:VisualElement class="row" style="align-items: center;">
-                    <ui:Label name="scene-when" text="" class="scene-when grow" />
-                    <ui:Label name="scene-count" text="" class="scene-when" />
-                </ui:VisualElement>
-                <ui:Label name="scene-source" text="" class="scene-source" />
-                <ui:Label name="scene-line" text="" class="scene-line" />
-                <ui:VisualElement class="row" style="align-items: center; margin-top: 12px;">
-                    <ui:Label name="scene-hint" text="눌러서 넘깁니다" class="scene-hint grow" />
-                    <ui:Button name="scene-next" text="다음" class="cta scene-next" />
-                </ui:VisualElement>
-            </ui:VisualElement>
-        </ui:VisualElement>
-
     </ui:VisualElement>
 </ui:UXML>
