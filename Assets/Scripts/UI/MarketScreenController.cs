@@ -209,6 +209,9 @@ namespace Underwrite.UI
 
             Sim = new MarketSimulation(Seed, Constants.STARTING_CASH);
 
+            // 영지도 같은 시계를 본다. 각자 들면 시각이 어긋난다.
+            BreakClock.Current = Sim.Clock;
+
             var stocks = BuildStocks();
 
             for (var i = 0; i < stocks.Count; i++)
@@ -635,6 +638,7 @@ namespace Underwrite.UI
         {
             if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
             {
+                Sim.Clock.EndBreak();
                 Sim.OpenNextSession(IsInspectionDay);
 
                 var brought = Sim.ApplyGatherSession();
@@ -716,6 +720,7 @@ namespace Underwrite.UI
             }
 
             GatherSession.BeginBreak(Sim.NextBriefingSlot);
+            Sim.Clock.BeginBreak();
             SceneManager.LoadScene(SceneRoutes.VILLAGE);
         }
 

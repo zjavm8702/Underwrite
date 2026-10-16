@@ -13,9 +13,10 @@
 | 5 | `hero_cutout_v1.md` | `HeroCutout_v1` | **반려** — 갇힌 흰 영역이 남음 |
 | 6 | `gather_places_v1.md` | `GatherPlaces_v1` | **완료** — 들임 |
 | 7 | `hero_cutout_v2.md` | `HeroCutout_v2` | **완료** — 검수 통과, 적용함 |
-| 8 | `portrait_faces_v1.md` | `PortraitFaces_v1` | 진행 중 — 대화용 상반신 표정 |
+| 8 | `portrait_faces_v1.md` | `PortraitFaces_v1` | **완료** — 검수 대기 |
+| 9 | `village_ground_v1.md` | `VillageGround_v1` | 진행 중 — 걸어 다니는 영지 바닥 |
 
-영지 타일셋·배경은 걸지 않는다. 사용자가 "코덱스로 해결되지 않는다"고 판단했고, 에셋 탐색 결과도 기대와 멀었다.
+영지는 **타일셋을 쓰지 않는다.** 도트 타일셋은 비도트 캐릭터와 해상도가 섞인다. 대신 그려진 배경 한 장 위를 걸어 다닌다. 화풍이 맞는 것은 시험으로 확인했다.
 
 ## 왜 이 순서인가
 

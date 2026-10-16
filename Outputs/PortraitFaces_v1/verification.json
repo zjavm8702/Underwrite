@@ -1,0 +1,778 @@
+{
+  "status": "draft_for_visual_approval",
+  "generatedTool": "built-in image_gen",
+  "canvas": [
+    820,
+    1080
+  ],
+  "coordinates": "top-left; inclusive bbox",
+  "whiteRule": "alpha>=200 && min(R,G,B)>=244 && max(R,G,B)-min(R,G,B)<=10; denominator alpha>=200",
+  "eyeMethod": "Fixed eye ROIs; dark eye-line/iris pixel bbox center Y, R<150 G<110 B<110. Closed-eye lid is included; diagnostic of eye line, not head-position alone. ROIs and marked images recorded.",
+  "eyeROIs": {
+    "sella": [
+      [
+        480,
+        315,
+        525,
+        346
+      ],
+      [
+        577,
+        352,
+        610,
+        381
+      ]
+    ],
+    "brann": [
+      [
+        450,
+        231,
+        488,
+        258
+      ],
+      [
+        535,
+        253,
+        562,
+        282
+      ]
+    ]
+  },
+  "files": [
+    {
+      "name": "face_sella_neutral.png",
+      "sha256": "36889b72dd4810b74b5376ec82f400ffcf5d6e06a011bd972e22e905d53f5c54",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        44,
+        75,
+        755,
+        838
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 15309,
+      "opaque": 340416,
+      "whitePixels": 1,
+      "whiteRatio": 0.0000029375822523030646,
+      "components": [
+        348325
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            480,
+            315,
+            524,
+            338
+          ],
+          "centerY": 326.5,
+          "pixels": 479
+        },
+        {
+          "bboxInclusive": [
+            577,
+            353,
+            609,
+            380
+          ],
+          "centerY": 366.5,
+          "pixels": 444
+        }
+      ],
+      "meanEyeY": 346.5,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_sella_happy.png",
+      "sha256": "71b9cfcd59a1bf0bf2441d5d2540c6ee8ed67af0fb0262a658be26260e308ee0",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        44,
+        75,
+        755,
+        838
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 15309,
+      "opaque": 340416,
+      "whitePixels": 10,
+      "whiteRatio": 0.000029375822523030645,
+      "components": [
+        348325
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            480,
+            315,
+            524,
+            339
+          ],
+          "centerY": 327,
+          "pixels": 528
+        },
+        {
+          "bboxInclusive": [
+            577,
+            352,
+            609,
+            380
+          ],
+          "centerY": 366,
+          "pixels": 420
+        }
+      ],
+      "meanEyeY": 346.5,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_sella_anxious.png",
+      "sha256": "e43c9a405c55cd8b09fce8d2ef7ff635b4679c291d0285ab32983ff1aba8f7c4",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        44,
+        75,
+        755,
+        838
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 15309,
+      "opaque": 340416,
+      "whitePixels": 3,
+      "whiteRatio": 0.000008812746756909194,
+      "components": [
+        348325
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            480,
+            315,
+            524,
+            340
+          ],
+          "centerY": 327.5,
+          "pixels": 447
+        },
+        {
+          "bboxInclusive": [
+            578,
+            352,
+            609,
+            380
+          ],
+          "centerY": 366,
+          "pixels": 320
+        }
+      ],
+      "meanEyeY": 346.75,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_sella_angry.png",
+      "sha256": "6a982f11e7e23a77854fdd8d1b1a6a7ddc73806cf146a151da6b5f375fb8d2fd",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        44,
+        75,
+        755,
+        838
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 15309,
+      "opaque": 340416,
+      "whitePixels": 1,
+      "whiteRatio": 0.0000029375822523030646,
+      "components": [
+        348325
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            480,
+            315,
+            524,
+            340
+          ],
+          "centerY": 327.5,
+          "pixels": 542
+        },
+        {
+          "bboxInclusive": [
+            577,
+            352,
+            609,
+            378
+          ],
+          "centerY": 365,
+          "pixels": 270
+        }
+      ],
+      "meanEyeY": 346.25,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_sella_shocked.png",
+      "sha256": "55ed1c8355982b883b6af63589e3f88d2a03daec62803e5c997ca3ff3946afd8",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        44,
+        75,
+        755,
+        838
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 15309,
+      "opaque": 340416,
+      "whitePixels": 7,
+      "whiteRatio": 0.00002056307576612145,
+      "components": [
+        348325
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            480,
+            315,
+            524,
+            336
+          ],
+          "centerY": 325.5,
+          "pixels": 199
+        },
+        {
+          "bboxInclusive": [
+            577,
+            352,
+            609,
+            380
+          ],
+          "centerY": 366,
+          "pixels": 233
+        }
+      ],
+      "meanEyeY": 345.75,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_sella_sad.png",
+      "sha256": "ceba6c89d32368a54541f57cf102d81bd7eeaa410994273bcf032847825c2da6",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        44,
+        75,
+        755,
+        838
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 15309,
+      "opaque": 340416,
+      "whitePixels": 1,
+      "whiteRatio": 0.0000029375822523030646,
+      "components": [
+        348325
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            480,
+            315,
+            524,
+            343
+          ],
+          "centerY": 329,
+          "pixels": 565
+        },
+        {
+          "bboxInclusive": [
+            577,
+            356,
+            609,
+            380
+          ],
+          "centerY": 368,
+          "pixels": 460
+        }
+      ],
+      "meanEyeY": 348.5,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_sella_relieved.png",
+      "sha256": "879252ef053565acb7e93844ad614611188e78acd3972c073e6c8be7d8b609df",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        44,
+        75,
+        755,
+        838
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 15309,
+      "opaque": 340416,
+      "whitePixels": 1,
+      "whiteRatio": 0.0000029375822523030646,
+      "components": [
+        348325
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            480,
+            319,
+            524,
+            343
+          ],
+          "centerY": 331,
+          "pixels": 455
+        },
+        {
+          "bboxInclusive": [
+            577,
+            365,
+            609,
+            380
+          ],
+          "centerY": 372.5,
+          "pixels": 244
+        }
+      ],
+      "meanEyeY": 351.75,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_brann_neutral.png",
+      "sha256": "1726af055f43b210c69283bec2be9a82784ec29b3dd57de33bf734b9b56ae58d",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        46,
+        97,
+        774,
+        823
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 4919,
+      "opaque": 343197,
+      "whitePixels": 2308,
+      "whiteRatio": 0.0067250005099112175,
+      "components": [
+        345652
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            450,
+            234,
+            487,
+            249
+          ],
+          "centerY": 241.5,
+          "pixels": 239
+        },
+        {
+          "bboxInclusive": [
+            535,
+            253,
+            561,
+            281
+          ],
+          "centerY": 267,
+          "pixels": 244
+        }
+      ],
+      "meanEyeY": 254.25,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_brann_happy.png",
+      "sha256": "1ef2451f27dad4002e8cf9412bbb8241b43f3c370b2b4436ea766a5c41061dd9",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        46,
+        97,
+        774,
+        823
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 4919,
+      "opaque": 343197,
+      "whitePixels": 2329,
+      "whiteRatio": 0.006786189855971935,
+      "components": [
+        345652
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            450,
+            234,
+            487,
+            247
+          ],
+          "centerY": 240.5,
+          "pixels": 261
+        },
+        {
+          "bboxInclusive": [
+            535,
+            253,
+            560,
+            279
+          ],
+          "centerY": 266,
+          "pixels": 248
+        }
+      ],
+      "meanEyeY": 253.25,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_brann_anxious.png",
+      "sha256": "096b1d441bc462987f83df3883c57cc439c8de0896a53fba893402382321db66",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        46,
+        97,
+        774,
+        823
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 4919,
+      "opaque": 343197,
+      "whitePixels": 2346,
+      "whiteRatio": 0.006835724088497277,
+      "components": [
+        345652
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            450,
+            231,
+            487,
+            249
+          ],
+          "centerY": 240,
+          "pixels": 286
+        },
+        {
+          "bboxInclusive": [
+            535,
+            253,
+            561,
+            280
+          ],
+          "centerY": 266.5,
+          "pixels": 241
+        }
+      ],
+      "meanEyeY": 253.25,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_brann_angry.png",
+      "sha256": "bbc63c636a5258536a8719bf688875b93f8584a6535dde2e42af4f7053453261",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        46,
+        97,
+        774,
+        823
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 4919,
+      "opaque": 343197,
+      "whitePixels": 2320,
+      "whiteRatio": 0.006759965850517341,
+      "components": [
+        345652
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            455,
+            231,
+            487,
+            254
+          ],
+          "centerY": 242.5,
+          "pixels": 320
+        },
+        {
+          "bboxInclusive": [
+            538,
+            253,
+            561,
+            279
+          ],
+          "centerY": 266,
+          "pixels": 391
+        }
+      ],
+      "meanEyeY": 254.25,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_brann_shocked.png",
+      "sha256": "9f9b4c289de2b4b517a9b6feb5d8a10a1b452cb2712b6acbbc1a1c6b829ceef9",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        46,
+        97,
+        774,
+        823
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 4919,
+      "opaque": 343197,
+      "whitePixels": 2364,
+      "whiteRatio": 0.006888172099406464,
+      "components": [
+        345652
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            455,
+            231,
+            487,
+            248
+          ],
+          "centerY": 239.5,
+          "pixels": 171
+        },
+        {
+          "bboxInclusive": [
+            537,
+            253,
+            561,
+            281
+          ],
+          "centerY": 267,
+          "pixels": 191
+        }
+      ],
+      "meanEyeY": 253.25,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_brann_sad.png",
+      "sha256": "c29e803f9fc5adb7a292ac83ed7686cffc5bd94a737256a5354ca2a2bad7af7c",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        46,
+        97,
+        774,
+        823
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 4919,
+      "opaque": 343197,
+      "whitePixels": 2311,
+      "whiteRatio": 0.006733741845062749,
+      "components": [
+        345652
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            450,
+            231,
+            487,
+            254
+          ],
+          "centerY": 242.5,
+          "pixels": 391
+        },
+        {
+          "bboxInclusive": [
+            535,
+            253,
+            561,
+            281
+          ],
+          "centerY": 267,
+          "pixels": 330
+        }
+      ],
+      "meanEyeY": 254.75,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    },
+    {
+      "name": "face_brann_relieved.png",
+      "sha256": "898682c4845a77409f3e21dd7a2db109fec32dfe09318257ed189a52acbaf0a6",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        46,
+        97,
+        774,
+        823
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 4919,
+      "opaque": 343197,
+      "whitePixels": 2307,
+      "whiteRatio": 0.006722086731527374,
+      "components": [
+        345652
+      ],
+      "eyeFeatures": [
+        {
+          "bboxInclusive": [
+            450,
+            238,
+            487,
+            249
+          ],
+          "centerY": 243.5,
+          "pixels": 158
+        },
+        {
+          "bboxInclusive": [
+            535,
+            253,
+            560,
+            281
+          ],
+          "centerY": 267,
+          "pixels": 137
+        }
+      ],
+      "meanEyeY": 255.25,
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0
+    }
+  ],
+  "characters": {
+    "sella": {
+      "count": 7,
+      "topYRange": 0,
+      "nearEyeYRange": 5.5,
+      "farEyeYRange": 7.5,
+      "meanEyeYRange": 6,
+      "maxWhitePercent": 0.0029375822523030645,
+      "alphaInvariant": true,
+      "outsideFaceInvariant": true
+    },
+    "brann": {
+      "count": 7,
+      "topYRange": 0,
+      "nearEyeYRange": 4,
+      "farEyeYRange": 1,
+      "meanEyeYRange": 2,
+      "maxWhitePercent": 0.6888172099406463,
+      "alphaInvariant": true,
+      "outsideFaceInvariant": true
+    }
+  },
+  "meta": {
+    "beforeCount": 472,
+    "preserved": 472,
+    "changed": [],
+    "deleted": [],
+    "new": [
+      "Scripts/Global/SceneRoutes.cs.meta"
+    ]
+  },
+  "pass": true,
+  "sourceReferences": [
+    {
+      "path": "Outputs/HeroCutout_v2/hero_2_swordswoman.png",
+      "sha256": "883ead0c8be445ef0c41679bf0cf861b1f4388ab3a33d411c18c2c4230d1216e",
+      "unchanged": true
+    },
+    {
+      "path": "Outputs/HeroCutout_v2/hero_4_warrior.png",
+      "sha256": "33ab0a4b28605c77abaccba5eca033a24fceee06c3ddee5fa53c21eb1ef453db",
+      "unchanged": true
+    },
+    {
+      "path": "Outputs/GatherPlaces_v1/place_tavern.png",
+      "sha256": "1b7c20ac5fc10127e2f43774d30e857fd10107b3e93205ca2e551f43c6e14f5b",
+      "unchanged": true
+    }
+  ],
+  "visualQA": {
+    "checked": true,
+    "approvalPending": true,
+    "checks": [
+      "14 expressions visually inspected",
+      "same-position seven-expression overlays",
+      "dark #141014 and white edge inspection",
+      "requested tavern composites",
+      "original full-body side-by-side identity comparison",
+      "hair-neck gaps and earring correction"
+    ],
+    "unityPlayback": "not applicable: static expression PNG scope",
+    "browserReview": "review.html supplied, not browser-executed"
+  }
+}

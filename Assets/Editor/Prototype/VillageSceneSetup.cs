@@ -26,7 +26,13 @@ namespace Underwrite.Editor
         private const string SAMPLE_SCENE = "Assets/Scenes/SampleScene.unity";
         private const string VILLAGE_SCENE = "Assets/Scenes/VillageTest.unity";
 
+        private const string VILLAGE_ART = "Assets/UI/Images/village_ground.png";
+        private const float CHARACTER_SCALE = 0.27f;
         private const float GROUND_SIZE = 44f;
+
+        // 그림이 들어오면 그 크기를 따른다. 없으면 단색 바닥의 크기를 쓴다.
+        private static float GroundWidth = GROUND_SIZE;
+        private static float GroundHeight = GROUND_SIZE;
         private const float WALL_THICK = 1.5f;
 
         [MenuItem("Underwrite/영지 시험 씬 만들기")]
@@ -59,6 +65,10 @@ namespace Underwrite.Editor
             var player = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             player.name = "Character";
             player.transform.position = Vector3.zero;
+
+            // 캐릭터 원화는 640×724로 크다. 그대로 두면 사람이 건물만 해진다.
+            // 화면 높이(카메라 15유닛)의 1/8쯤 되도록 줄인다.
+            player.transform.localScale = Vector3.one * CHARACTER_SCALE;
 
             BuildLight(lightPrefab);
             BuildCamera(player);
@@ -113,38 +123,71 @@ namespace Underwrite.Editor
             return prefab;
         }
 
+        /// <summary>
+        /// 영지 바닥. 타일을 깔지 않고 **그려진 배경 한 장**을 둔다.
+        ///
+        /// 도트 타일셋을 쓰면 한 화면에 두 해상도가 섞인다. 타일은 한 픽셀이 화면 서너 픽셀인데
+        /// 캐릭터는 1:1이라 캐릭터만 떠 보이거나 배경이 뭉갠다.
+        /// 기획서가 비도트로 못 박혀 있으므로 배경도 같은 손길로 그린다.
+        /// </summary>
         private static void BuildGround()
         {
-            var ground = CreateQuad("Ground", Vector2.zero,
-                new Vector2(GROUND_SIZE, GROUND_SIZE), new Color(0.16f, 0.14f, 0.11f), -10);
-            ground.transform.SetAsFirstSibling();
+            var art = AssetDatabase.LoadAssetAtPath<Sprite>(VILLAGE_ART);
+
+            if (art == null)
+            {
+                UnderwriteLog.Warning($"영지 배경이 없어 단색으로 깝니다: {VILLAGE_ART}");
+                var fallback = CreateQuad("Ground", Vector2.zero,
+                    new Vector2(GROUND_SIZE, GROUND_SIZE), new Color(0.16f, 0.14f, 0.11f), -10);
+                fallback.transform.SetAsFirstSibling();
+                return;
+            }
+
+            var go = new GameObject("Ground");
+            var renderer = go.AddComponent<SpriteRenderer>();
+            renderer.sprite = art;
+            renderer.sortingOrder = -10;
+
+            // 그림이 걸어 다닐 범위를 정한다. 벽과 카메라 경계가 이 크기를 따른다.
+            var size = renderer.bounds.size;
+            GroundWidth = size.x;
+            GroundHeight = size.y;
+
+            go.transform.SetAsFirstSibling();
         }
 
         /// <summary>바깥으로 걸어 나가지 못하게 막는다. 임시 씬이라 네모난 벽이면 충분하다.</summary>
         private static void BuildWalls()
         {
-            var half = GROUND_SIZE * 0.5f;
+            var halfX = GroundWidth * 0.5f;
+            var halfY = GroundHeight * 0.5f;
             var walls = new GameObject("Walls");
 
-            MakeWall(walls, "North", new Vector2(0f, half), new Vector2(GROUND_SIZE, WALL_THICK));
-            MakeWall(walls, "South", new Vector2(0f, -half), new Vector2(GROUND_SIZE, WALL_THICK));
-            MakeWall(walls, "West", new Vector2(-half, 0f), new Vector2(WALL_THICK, GROUND_SIZE));
-            MakeWall(walls, "East", new Vector2(half, 0f), new Vector2(WALL_THICK, GROUND_SIZE));
+            MakeWall(walls, "North", new Vector2(0f, halfY), new Vector2(GroundWidth, WALL_THICK));
+            MakeWall(walls, "South", new Vector2(0f, -halfY), new Vector2(GroundWidth, WALL_THICK));
+            MakeWall(walls, "West", new Vector2(-halfX, 0f), new Vector2(WALL_THICK, GroundHeight));
+            MakeWall(walls, "East", new Vector2(halfX, 0f), new Vector2(WALL_THICK, GroundHeight));
         }
 
         private static void MakeWall(GameObject parent, string name, Vector2 at, Vector2 size)
         {
-            var wall = CreateQuad(name, at, size, new Color(0.10f, 0.09f, 0.07f), -9);
+            // 벽은 보이지 않는다. 그림에 이미 담이 그려져 있다.
+            var wall = new GameObject(name);
+            wall.transform.position = new Vector3(at.x, at.y, 0f);
             wall.transform.SetParent(parent.transform);
             var box = wall.AddComponent<BoxCollider2D>();
             box.size = size;
         }
 
+        /// <summary>
+        /// 들어갈 수 있는 자리. 건물은 그림에 이미 그려져 있으므로 보이는 것을 두지 않는다.
+        /// 여기서 두는 것은 **막는 몸통과 말을 거는 문** 둘뿐이다.
+        /// </summary>
         private static void BuildSpot(string name, Vector2 at, Color color, InfoSource source, float cost)
         {
-            var spot = CreateQuad(name, at, new Vector2(7f, 5f), color, 0);
+            var spot = new GameObject(name);
+            spot.transform.position = new Vector3(at.x, at.y, 0f);
 
-            // 건물 자체는 막고, 그 앞에 선 자리에서 말을 건다.
             var body = spot.AddComponent<BoxCollider2D>();
             body.size = new Vector2(7f, 5f);
 
@@ -277,7 +320,7 @@ namespace Underwrite.Editor
 
             var camera = go.AddComponent<Camera>();
             camera.orthographic = true;
-            camera.orthographicSize = 12f;
+            camera.orthographicSize = 7.5f;
             camera.backgroundColor = new Color(0.07f, 0.06f, 0.05f);
             camera.clearFlags = CameraClearFlags.SolidColor;
 
@@ -292,7 +335,7 @@ namespace Underwrite.Editor
             var vcam = rig.AddComponent<CinemachineCamera>();
             vcam.Follow = body;
             // Orthographic 여부는 Main Camera를 따라간다. 여기서는 크기만 맞춘다.
-            vcam.Lens.OrthographicSize = 12f;
+            vcam.Lens.OrthographicSize = 7.5f;
 
             // 화면 가운데 작은 네모 안에서는 카메라가 가만히 있는다.
             // 그래야 제자리걸음이나 미세한 흔들림에 화면이 따라 움직이지 않는다.
@@ -306,13 +349,14 @@ namespace Underwrite.Editor
             var bounds = new GameObject("Camera Bounds");
             var shape = bounds.AddComponent<PolygonCollider2D>();
             shape.isTrigger = true;
-            var half = GROUND_SIZE * 0.5f;
+            var halfX = GroundWidth * 0.5f;
+            var halfY = GroundHeight * 0.5f;
             shape.points = new[]
             {
-                new Vector2(-half, -half),
-                new Vector2(half, -half),
-                new Vector2(half, half),
-                new Vector2(-half, half)
+                new Vector2(-halfX, -halfY),
+                new Vector2(halfX, -halfY),
+                new Vector2(halfX, halfY),
+                new Vector2(-halfX, halfY)
             };
 
             var confiner = rig.AddComponent<CinemachineConfiner2D>();

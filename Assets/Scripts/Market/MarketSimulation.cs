@@ -136,11 +136,16 @@ namespace Underwrite.Market
         /// </summary>
         public int ApplyGatherSession()
         {
-            var spent = GatherSession.Spent;
+            // 쓴 돈과 번 돈을 함께 셈한다. 영지는 돈을 쓰기만 하는 곳이 아니다.
+            var net = GatherSession.NetChange;
 
-            if (spent > 0f)
+            if (net < 0f)
             {
-                Wallet.SpendPatronage(spent);
+                Wallet.SpendPatronage(-net);
+            }
+            else if (net > 0f)
+            {
+                Wallet.Earn(net);
             }
 
             var notes = GatherSession.Gathered;

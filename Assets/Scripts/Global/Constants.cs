@@ -128,10 +128,22 @@ namespace Underwrite.Global
         public static int SESSIONS_PER_CYCLE = 4;
 
         /// <summary>
-        /// 장과 장 사이에 들를 수 있는 곳의 수. 기획서 §11의 "자금 및 정보 모으기".
-        /// 돈만 자원이면 부자가 다 사 버린다. 시간도 함께 들어야 고르는 일이 된다.
+        /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.
+        /// 장중과 달리 압축하지 않는다. 그 시간이 플레이어의 것이기 때문이다.
         /// </summary>
-        public static int GATHER_VISITS_PER_BREAK = 2;
+        public static float BREAK_MINUTES_PER_REAL_SECOND = 1f / 60f;
+
+        /// <summary>
+        /// 「시간 넘기기」로 건너뛸 때 다음 장 몇 분 전에 멈추는가.
+        /// 바로 개장에 떨어뜨리면 숨 돌릴 틈 없이 장이 시작된다.
+        /// </summary>
+        public static int BREAK_SKIP_MARGIN_MINUTES = 10;
+
+        /// <summary>
+        /// 영지에서 한 가지 일을 하는 데 드는 게임 시간(분).
+        /// 영지의 자원은 횟수가 아니라 시간이다. 시간을 다 쓰면 장이 열린다.
+        /// </summary>
+        public static int GATHER_MINUTES_PER_VISIT = 60;
 
         /// <summary>상장 자리의 기본 수. 설계안 §6에 따라 분위기와 연차로 늘거나 준다.</summary>
         public static int LISTING_SLOTS = 3;

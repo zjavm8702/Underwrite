@@ -14,6 +14,7 @@ namespace Underwrite.Market
     public sealed class MarketClock
     {
         private float Accumulated;
+        private float BreakAccumulated;
         private int SessionsDone;
 
         /// <summary>장이 열린 뒤 지난 틱 수. 사건 일정의 기준이다.</summary>
@@ -21,6 +22,132 @@ namespace Underwrite.Market
 
         /// <summary>며칠째인가. 오후장이 끝나면 하루가 넘어간다.</summary>
         public int Day { get; private set; } = 1;
+
+        /// <summary>
+        /// 장과 장 사이, 지금 시각(분). 자정 기준이며 0~1439 사이다.
+        /// 장중 시각은 Tick이 만들지만 영지의 시각은 이 값이 든다.
+        /// </summary>
+        public int BreakMinuteOfDay { get; private set; }
+
+        /// <summary>영지 시간이 흐르는 중인가.</summary>
+        public bool IsBreak { get; private set; }
+
+        public int BreakHour
+        {
+            get
+            {
+                return BreakMinuteOfDay / 60 % 24;
+            }
+        }
+
+        public int BreakMinute
+        {
+            get
+            {
+                return BreakMinuteOfDay % 60;
+            }
+        }
+
+        /// <summary>다음 장이 열리는 시각(분). 오전장 다음은 오후장, 오후장 다음은 이튿날 오전장이다.</summary>
+        public int NextSessionMinute
+        {
+            get
+            {
+                if (Session == MarketSession.Session_Morning)
+                {
+                    return Constants.MARKET_EVENING_START_HOUR * 60;
+                }
+
+                return (Constants.MARKET_MORNING_START_HOUR + 24) * 60;
+            }
+        }
+
+        /// <summary>다음 장까지 남은 시간(분). 영지에서 쓸 수 있는 전부다.</summary>
+        public int BreakMinutesLeft
+        {
+            get
+            {
+                var left = NextSessionMinute - BreakMinuteOfDay;
+
+                if (left < 0)
+                {
+                    return 0;
+                }
+
+                return left;
+            }
+        }
+
+        /// <summary>
+        /// 장이 끝나고 영지의 시간이 시작된다. 폐장 시각부터 흐른다.
+        /// </summary>
+        public void BeginBreak()
+        {
+            IsBreak = true;
+            BreakMinuteOfDay = StartHour * 60 + Constants.MARKET_SESSION_MINUTES;
+        }
+
+        /// <summary>영지의 시간을 실시간 속도로 흘린다. 매 프레임 불린다.</summary>
+        public void AdvanceBreak(float deltaSeconds)
+        {
+            if (IsBreak == false)
+            {
+                return;
+            }
+
+            BreakAccumulated += deltaSeconds * Constants.BREAK_MINUTES_PER_REAL_SECOND;
+
+            while (BreakAccumulated >= 1f)
+            {
+                BreakAccumulated -= 1f;
+                SpendBreakMinutes(1);
+            }
+        }
+
+        /// <summary>
+        /// 영지에서 시간을 쓴다. 한 가지 일을 하면 그만큼 시간이 간다.
+        /// 다음 장을 넘어서면 거기서 멈춘다. 시간을 빚질 수는 없다.
+        /// </summary>
+        public void SpendBreakMinutes(int minutes)
+        {
+            if (IsBreak == false || minutes <= 0)
+            {
+                return;
+            }
+
+            BreakMinuteOfDay += minutes;
+
+            if (BreakMinuteOfDay > NextSessionMinute)
+            {
+                BreakMinuteOfDay = NextSessionMinute;
+            }
+        }
+
+        /// <summary>
+        /// 남은 시간을 건너뛰어 다음 장 직전으로 간다.
+        /// 볼일을 다 봤는데 실시간으로 기다리게 할 이유가 없다.
+        /// </summary>
+        public void SkipBreak()
+        {
+            if (IsBreak == false)
+            {
+                return;
+            }
+
+            var target = NextSessionMinute - Constants.BREAK_SKIP_MARGIN_MINUTES;
+
+            if (target > BreakMinuteOfDay)
+            {
+                BreakMinuteOfDay = target;
+            }
+        }
+
+        /// <summary>장이 열린다. 영지의 시간은 멈춘다.</summary>
+        public void EndBreak()
+        {
+            IsBreak = false;
+            BreakAccumulated = 0f;
+        }
 
         /// <summary>
         /// 몇 주기째인가. 주기는 원정 한 번이고 40주기가 10년이다. 설계안 §2.

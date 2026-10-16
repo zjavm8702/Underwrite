@@ -21,6 +21,10 @@ namespace Underwrite.Market
     /// <summary>
     /// 장과 장 사이에 영지에서 한 일을 적어 둔다. 기획서 §11의 "자금 및 정보 모으기".
     ///
+    /// **자원은 시간이다.** 들를 수 있는 횟수를 따로 세지 않는다.
+    /// 영지의 시간은 실시간 1:1로 흐르고, 한 가지 일을 하면 그만큼 시각이 간다.
+    /// 다음 장이 열릴 시각에 닿으면 더는 할 수 없다. 어디에 쓸지 고르는 일이 곧 선택이다.
+    ///
     /// 영지는 지갑을 직접 건드리지 않는다. 돈은 <see cref="Portfolio"/>에 있고,
     /// 영지가 그것을 따로 들고 있으면 어느 쪽이 맞는 잔고인지 알 수 없게 된다.
     /// 여기에는 **무엇을 했는지만** 적고, 거래 화면으로 돌아올 때 한꺼번에 반영한다.
@@ -31,11 +35,11 @@ namespace Underwrite.Market
     {
         private static readonly List<GatheredNote> Notes = new List<GatheredNote>();
 
-        /// <summary>이번 쉬는 동안 더 들를 수 있는 곳의 수. 시간이 자원이다.</summary>
-        public static int VisitsLeft { get; private set; } = Global.Constants.GATHER_VISITS_PER_BREAK;
-
         /// <summary>쓴 돈. 거래 화면으로 돌아올 때 지갑에서 뺀다.</summary>
         public static float Spent { get; private set; }
+
+        /// <summary>번 돈. 퀘스트로 종잣돈을 모으는 길이다. 기획서 §10.</summary>
+        public static float Earned { get; private set; }
 
         /// <summary>다음 정보 타임의 번호. 캐내는 소식은 이 묶음에서 나온다.</summary>
         public static int NextSlot { get; set; }
@@ -48,24 +52,20 @@ namespace Underwrite.Market
             }
         }
 
-        public static bool CanVisit
+        /// <summary>지갑에 더해질 값. 번 것에서 쓴 것을 뺀다.</summary>
+        public static float NetChange
         {
             get
             {
-                return VisitsLeft > 0;
+                return Earned - Spent;
             }
         }
 
-        /// <summary>한 곳을 들렀다. 돈과 횟수를 함께 쓴다.</summary>
-        public static void Visit(float cost, GatheredNote note)
+        /// <summary>한 가지 일을 했다. 돈과 소식만 적는다. 시간은 시계가 센다.</summary>
+        public static void Record(float cost, float reward, GatheredNote note)
         {
-            if (VisitsLeft <= 0)
-            {
-                return;
-            }
-
-            VisitsLeft--;
             Spent += cost;
+            Earned += reward;
 
             if (note != null)
             {
@@ -73,11 +73,11 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>장이 열릴 때 부른다. 쉬는 시간이 끝났으므로 횟수를 되돌린다.</summary>
+        /// <summary>장이 끝나 영지의 시간이 시작된다.</summary>
         public static void BeginBreak(int nextSlot)
         {
-            VisitsLeft = Global.Constants.GATHER_VISITS_PER_BREAK;
             Spent = 0f;
+            Earned = 0f;
             NextSlot = nextSlot;
             Notes.Clear();
         }

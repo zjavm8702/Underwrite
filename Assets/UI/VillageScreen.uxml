@@ -5,6 +5,7 @@
     <ui:VisualElement name="village-root" class="village-root" picking-mode="Ignore">
         <!-- 오늘 남은 걸음. 시간도 자원이다. -->
         <ui:Label name="village-visits" text="" class="village-visits" />
+        <ui:Button name="village-skip" text="시간 넘기기" class="cta village-skip" />
         <ui:Button name="village-leave" text="거래소로" class="cta village-leave" />
 
         <!-- 자리에 다가서면 뜬다. -->

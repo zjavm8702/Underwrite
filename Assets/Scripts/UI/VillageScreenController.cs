@@ -32,6 +32,15 @@ namespace Underwrite.UI
         private VillageSpot Here;
         private bool LeaveBound;
 
+        /// <summary>영지에서도 시각이 흐른다. 거래 화면의 시계와 같은 것을 쓴다.</summary>
+        private MarketClock Clock
+        {
+            get
+            {
+                return BreakClock.Current;
+            }
+        }
+
         private void OnEnable()
         {
             VillageSpotEvents.Entered += OnEnter;
@@ -63,6 +72,13 @@ namespace Underwrite.UI
             }
 
             BindLeave();
+
+            // 영지의 시간은 실시간 1:1로 흐른다. 기획서 §11.
+            if (Clock != null)
+            {
+                Clock.AdvanceBreak(Time.unscaledDeltaTime);
+            }
+
             RefreshPrompt();
 
             if (Here == null || Dialogue == null || Dialogue.IsOpen == true)
@@ -98,6 +114,20 @@ namespace Underwrite.UI
 
             LeaveBound = true;
             button.clicked += () => SceneManager.LoadScene(SceneRoutes.MARKET);
+
+            var skip = Root.Q<Button>("village-skip");
+
+            if (skip != null)
+            {
+                // 볼일을 다 봤는데 실시간으로 기다리게 할 이유가 없다.
+                skip.clicked += () =>
+                {
+                    if (Clock != null)
+                    {
+                        Clock.SkipBreak();
+                    }
+                };
+            }
         }
 
         private void OnEnter(VillageSpot spot)
@@ -125,7 +155,11 @@ namespace Underwrite.UI
             // 대화 중에는 안내를 감춘다. 두 개가 같이 떠 있으면 무엇을 누르라는지 모른다.
             var talking = Dialogue != null && Dialogue.IsOpen == true;
             prompt.EnableInClassList("hidden", Here == null || talking);
-            SetText("village-visits", $"오늘 더 들를 수 있는 곳 {GatherSession.VisitsLeft}");
+            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
+            var hour = Clock == null ? 0 : Clock.BreakHour;
+            var minute = Clock == null ? 0 : Clock.BreakMinute;
+            SetText("village-visits",
+                $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분");
 
             if (Here == null)
             {
@@ -134,9 +168,9 @@ namespace Underwrite.UI
 
             SetText("village-place", Here.Name);
             SetText("village-cost", Here.Price > 0f ? $"{Here.Price:N0}을 낸다" : "값은 없다");
-            SetText("village-key", GatherSession.CanVisit == true
+            SetText("village-key", HasTime() == true
                 ? "E — 묻는다"
-                : "오늘은 더 돌아볼 틈이 없다");
+                : "다음 장이 코앞이다");
         }
 
         /// <summary>
@@ -149,10 +183,9 @@ namespace Underwrite.UI
         {
             Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
 
-            if (GatherSession.CanVisit == false)
+            if (HasTime() == false)
             {
-                Say(spot, "오늘은 더 돌아볼 틈이 없습니다. 장이 열리면 다시 하루가 시작됩니다.",
-                    null, false);
+                Say(spot, "다음 장이 코앞입니다. 지금 가면 개장을 놓칩니다.", null, false);
                 return;
             }
 
@@ -160,7 +193,8 @@ namespace Underwrite.UI
 
             if (rows.Count == 0)
             {
-                GatherSession.Visit(spot.Price, null);
+                SpendTime(spot);
+                GatherSession.Record(spot.Price, 0f, null);
                 Say(spot, "아직 돌고 있는 이야기가 없습니다.", null, false);
                 return;
             }
@@ -197,7 +231,8 @@ namespace Underwrite.UI
                 }
             }
 
-            GatherSession.Visit(spot.Price, note);
+            SpendTime(spot);
+            GatherSession.Record(spot.Price, 0f, note);
             Say(spot, body, PortraitOf(pick.StockId), note != null);
         }
 
@@ -214,10 +249,28 @@ namespace Underwrite.UI
             Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
+        /// <summary>다음 장까지 한 가지 일을 할 시간이 남아 있는가.</summary>
+        private bool HasTime()
+        {
+            return Clock != null && Clock.BreakMinutesLeft >= Constants.GATHER_MINUTES_PER_VISIT;
+        }
+
+        /// <summary>한 가지 일에 쓴 시간만큼 시각을 민다.</summary>
+        private void SpendTime(VillageSpot spot)
+        {
+            if (Clock == null)
+            {
+                return;
+            }
+
+            Clock.SpendBreakMinutes(Constants.GATHER_MINUTES_PER_VISIT);
+        }
+
         private string BuildNote(VillageSpot spot, bool secret)
         {
             var spent = spot.Price > 0f ? $"{spot.Price:N0}을 썼습니다. " : string.Empty;
-            var left = $"오늘 더 들를 수 있는 곳 {GatherSession.VisitsLeft}.";
+            var minutes = Clock == null ? 0 : Clock.BreakMinutesLeft;
+            var left = $"다음 장까지 {minutes / 60}시간 {minutes % 60}분.";
 
             if (secret == false)
             {

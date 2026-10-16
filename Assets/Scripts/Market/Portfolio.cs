@@ -276,6 +276,20 @@ namespace Underwrite.Market
         /// <summary>
         /// 후원 지출. 시장 거래가 아니므로 보유 지분을 바꾸지 않고 현금만 줄인다. 기획서 §9.
         /// </summary>
+        /// <summary>
+        /// 거래 밖에서 들어온 돈. 영지의 퀘스트로 번 종잣돈이 여기로 들어온다. 기획서 §10.
+        /// 매매 손익과 섞지 않는다. 실현손익은 거래로 번 것만 세야 한다.
+        /// </summary>
+        public void Earn(float amount)
+        {
+            if (amount <= 0f)
+            {
+                return;
+            }
+
+            Cash += amount;
+        }
+
         public bool SpendPatronage(float amount)
         {
             if (amount <= 0f)

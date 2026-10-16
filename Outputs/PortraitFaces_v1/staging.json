@@ -1,39 +1,109 @@
 {
-  "status": "in_progress",
-  "scope": "PNG only; no Assets writes",
-  "destination": "Outputs/PortraitFaces_v1",
-  "characters": [
-    "sella",
-    "brann"
+  "status": "PNG_delivery_complete_draft_for_visual_approval",
+  "scope": "Outputs only; no Assets or Unity changes",
+  "completedUTC": "2026-10-16T14:26:33.477Z",
+  "files": [
+    {
+      "path": "Outputs/PortraitFaces_v1/face_sella_neutral.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "36889b72dd4810b74b5376ec82f400ffcf5d6e06a011bd972e22e905d53f5c54"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_sella_happy.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "71b9cfcd59a1bf0bf2441d5d2540c6ee8ed67af0fb0262a658be26260e308ee0"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_sella_anxious.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "e43c9a405c55cd8b09fce8d2ef7ff635b4679c291d0285ab32983ff1aba8f7c4"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_sella_angry.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "6a982f11e7e23a77854fdd8d1b1a6a7ddc73806cf146a151da6b5f375fb8d2fd"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_sella_shocked.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "55ed1c8355982b883b6af63589e3f88d2a03daec62803e5c997ca3ff3946afd8"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_sella_sad.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "ceba6c89d32368a54541f57cf102d81bd7eeaa410994273bcf032847825c2da6"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_sella_relieved.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "879252ef053565acb7e93844ad614611188e78acd3972c073e6c8be7d8b609df"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_brann_neutral.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "1726af055f43b210c69283bec2be9a82784ec29b3dd57de33bf734b9b56ae58d"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_brann_happy.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "1ef2451f27dad4002e8cf9412bbb8241b43f3c370b2b4436ea766a5c41061dd9"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_brann_anxious.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "096b1d441bc462987f83df3883c57cc439c8de0896a53fba893402382321db66"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_brann_angry.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "bbc63c636a5258536a8719bf688875b93f8584a6535dde2e42af4f7053453261"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_brann_shocked.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "9f9b4c289de2b4b517a9b6feb5d8a10a1b452cb2712b6acbbc1a1c6b829ceef9"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_brann_sad.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "c29e803f9fc5adb7a292ac83ed7686cffc5bd94a737256a5354ca2a2bad7af7c"
+    },
+    {
+      "path": "Outputs/PortraitFaces_v1/face_brann_relieved.png",
+      "width": 820,
+      "height": 1080,
+      "sha256": "898682c4845a77409f3e21dd7a2db109fec32dfe09318257ed189a52acbaf0a6"
+    }
   ],
-  "expressions": [
-    "neutral",
-    "happy",
-    "anxious",
-    "angry",
-    "shocked",
-    "sad",
-    "relieved"
-  ],
-  "canvas": [
-    820,
-    1080
-  ],
-  "pivot": "not imported; UI canvas reference bottom-center (410,0)",
-  "tool": "built-in image_gen",
-  "neutralNormalization": {
-    "source": [
-      1221,
-      1288
-    ],
-    "resize": [
-      760,
-      802
-    ],
-    "offset": [
-      30,
-      60
-    ]
-  },
-  "frames": "static expression alternatives, not 8-direction animation"
+  "pivot": "not imported / not configured; preserve full common canvas",
+  "references": [
+    {
+      "path": "Outputs/HeroCutout_v2/hero_2_swordswoman.png",
+      "sha256": "883ead0c8be445ef0c41679bf0cf861b1f4388ab3a33d411c18c2c4230d1216e",
+      "unchanged": true
+    },
+    {
+      "path": "Outputs/HeroCutout_v2/hero_4_warrior.png",
+      "sha256": "33ab0a4b28605c77abaccba5eca033a24fceee06c3ddee5fa53c21eb1ef453db",
+      "unchanged": true
+    },
+    {
+      "path": "Outputs/GatherPlaces_v1/place_tavern.png",
+      "sha256": "1b7c20ac5fc10127e2f43774d30e857fd10107b3e93205ca2e551f43c6e14f5b",
+      "unchanged": true
+    }
+  ]
 }

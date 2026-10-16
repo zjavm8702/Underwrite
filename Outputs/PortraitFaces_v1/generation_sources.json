@@ -1,0 +1,122 @@
+[
+  {
+    "local": "sources/brann_angry.png",
+    "sha256": "edf498bee133bc2d1faf5b01ebfd89a5dc182f51f464967a7d9630680448b920",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-b8f32ff2-cf14-45fd-9eab-f1a76b4bd346.png",
+      "createdUTC": "2026-10-16T14:12:47.348Z"
+    }
+  },
+  {
+    "local": "sources/brann_anxious.png",
+    "sha256": "9c2c6fdd3d23dc8aae7bbeaa6329821147dbcf990abb632865b4b58d8a13ac4a",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-f9f4c983-0258-4027-9d03-7ae0b2abf77a.png",
+      "createdUTC": "2026-10-16T14:11:33.930Z"
+    }
+  },
+  {
+    "local": "sources/brann_happy.png",
+    "sha256": "5ed002b3bc2b827d3ee716fe0d91c61efecb40f2eb2f4ddeb434a1b061829bd1",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-40336f55-2359-4ab1-8c0e-a9163ac11305.png",
+      "createdUTC": "2026-10-16T14:10:36.786Z"
+    }
+  },
+  {
+    "local": "sources/brann_neutral.png",
+    "sha256": "bfafcd961c59e5bc60f6a47d8a105f883bb245ba7e51e69d700ba52d1a92ea9a",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-ba528390-e1df-4f73-b9c7-6294a3bf8558.png",
+      "createdUTC": "2026-10-16T14:03:28.720Z"
+    }
+  },
+  {
+    "local": "sources/brann_relieved.png",
+    "sha256": "69f4e403ac30a3cbe0f6da8790cc3450db5206533fb9d0992fe12cda77e06d01",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-9e14417b-644f-4227-a42e-e04b312c272f.png",
+      "createdUTC": "2026-10-16T14:15:19.074Z"
+    }
+  },
+  {
+    "local": "sources/brann_sad.png",
+    "sha256": "855bc1fe55e2079dcb60555d3128f0b0bad4251f4f83dc10658038cc381e0da5",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-0af545e7-78ac-4b2b-a903-911ec2aca8cd.png",
+      "createdUTC": "2026-10-16T14:14:34.636Z"
+    }
+  },
+  {
+    "local": "sources/brann_shocked.png",
+    "sha256": "b6de7f9b9240d8462e982a22b048e2c4e6edc45df1e0d0e40147aba81e31a575",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-6ccf9d7c-94f7-4308-9eeb-f5fd53689060.png",
+      "createdUTC": "2026-10-16T14:13:44.750Z"
+    }
+  },
+  {
+    "local": "sources/sella_angry.png",
+    "sha256": "61502e8b2bb7ffb731b34f9a59fecdd69c33452dc5f95092226f66fd44475e62",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-8a35d6a9-4d4f-44c8-91db-d821172ce0ca.png",
+      "createdUTC": "2026-10-16T14:07:09.730Z"
+    }
+  },
+  {
+    "local": "sources/sella_anxious.png",
+    "sha256": "bf1faa2410d27222d04bf1e36bb5ddb91d6fcb5723b50e43e6520647b9bf1f3d",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-45d21b45-6dde-4afe-b201-71d0ee3cd461.png",
+      "createdUTC": "2026-10-16T14:06:16.447Z"
+    }
+  },
+  {
+    "local": "sources/sella_earring_correction.png",
+    "sha256": "03be52f8575824974cce20bc7329e97f61e3151ba7cc2e755f5995568a3046fc",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-9840bde4-7dba-453c-8104-da927c4ed25a.png",
+      "createdUTC": "2026-10-16T14:20:27.282Z"
+    }
+  },
+  {
+    "local": "sources/sella_happy.png",
+    "sha256": "06970f8001ab114a0ceeedb4710d458fd641116cd155f6cd8de93f6a7668a0c9",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-29b66d52-8871-45a1-9556-04237ed64e60.png",
+      "createdUTC": "2026-10-16T14:05:22.832Z"
+    }
+  },
+  {
+    "local": "sources/sella_neutral.png",
+    "sha256": "0b53954dc94c9274806a0d0a88cbd114770c457c8c8a4c99dedc21057d9a26ea",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-76768208-403a-48cd-94dd-37aec49058d3.png",
+      "createdUTC": "2026-10-16T14:02:07.217Z"
+    }
+  },
+  {
+    "local": "sources/sella_relieved.png",
+    "sha256": "c97fb66a105bff3b3d64bb20558c8083a84ded8d96824947ed763141bae1b289",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-c1c0f0c2-7dec-48b4-9db9-f07a2e70c7fc.png",
+      "createdUTC": "2026-10-16T14:09:40.616Z"
+    }
+  },
+  {
+    "local": "sources/sella_sad.png",
+    "sha256": "90c8ff0517063dfeca91f4e05d83c508c044aa87cdc50b547cefbe9def184498",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-6e283fee-6f74-43d8-9a01-7a2be6e9afd8.png",
+      "createdUTC": "2026-10-16T14:08:43.360Z"
+    }
+  },
+  {
+    "local": "sources/sella_shocked.png",
+    "sha256": "d5e498b738e136dd51093fd8c0b88861f22abdd4c9633270ed71bc0bd4be570a",
+    "generated": {
+      "path": "C:/Users/SKY/.codex/generated_images/01a14503-3efa-77a3-a4ac-4992bff356aa/exec-353eb055-ef8e-45dd-b1d5-835a331a0b17.png",
+      "createdUTC": "2026-10-16T14:07:51.615Z"
+    }
+  }
+]
