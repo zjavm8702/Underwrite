@@ -1,0 +1,55 @@
+{
+  "scope": "Outputs PNG only; no Assets writes; no Unity changes",
+  "files": [
+    {
+      "path": "Outputs/InfoSourceMarks_v1/mark_tavern.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "format": "RGBA PNG",
+      "pivot": "not embedded; suggested UI center (48,48)",
+      "sha256": "ba967af74e4c0e5b049a15e72c96cce96e32b7aa085c06d5dd66d6e7048176bf"
+    },
+    {
+      "path": "Outputs/InfoSourceMarks_v1/mark_guild.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "format": "RGBA PNG",
+      "pivot": "not embedded; suggested UI center (48,48)",
+      "sha256": "4980e2f1f3dd4ad06838f4f0e5b6264a99f7966ba21dd56a758844bda9618dc2"
+    },
+    {
+      "path": "Outputs/InfoSourceMarks_v1/mark_letter.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "format": "RGBA PNG",
+      "pivot": "not embedded; suggested UI center (48,48)",
+      "sha256": "cfcf9524304648658d41cb317a100f8ca0f06a916e1c9e24d4d0d9d289bda87e"
+    },
+    {
+      "path": "Outputs/InfoSourceMarks_v1/mark_board.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "format": "RGBA PNG",
+      "pivot": "not embedded; suggested UI center (48,48)",
+      "sha256": "c760940e5b2a2bb4466ccaa6c32ae0237fbfcc003d22211c307281c84c891d1c"
+    },
+    {
+      "path": "Outputs/InfoSourceMarks_v1/mark_broker.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "format": "RGBA PNG",
+      "pivot": "not embedded; suggested UI center (48,48)",
+      "sha256": "a287e43515d60d271c21405d4031cc559e294c880d4fdf93aa8434214f558054"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "time": "2026-10-16T12:45:36.416Z",
+  "sources": {
+    "tavern": {
+      "generated": "C:/Users/SKY/.codex/generated_images/01a144b9-1e05-73c0-8195-f33b799eccfe/exec-0f8c5423-3092-43d6-9818-43a1ffbad0e7.png",
+      "archived": "sources/tavern.png"
+    },
+    "guild": {
+      "generated": "C:/Users/SKY/.codex/generated_images/01a144b9-1e05-73c0-8195-f33b799eccfe/exec-5359ddaa-731c-4eaf-b037-2daeb90d5e52.png",
+      "archived": "sources/guild.png"
+    },
+    "letter": {
+      "generated": "C:/Users/SKY/.codex/generated_images/01a144b9-1e05-73c0-8195-f33b799eccfe/exec-3407f085-9c22-4742-8455-f68d5503ed6f.png",
+      "archived": "sources/letter.png"
+    },
+    "board": {
+      "generated": "C:/Users/SKY/.codex/generated_images/01a144b9-1e05-73c0-8195-f33b799eccfe/exec-5a255bb9-3756-4b08-97e3-d30f09d31893.png",
+      "archived": "sources/board.png"
+    },
+    "broker": {
+      "generated": "C:/Users/SKY/.codex/generated_images/01a144b9-1e05-73c0-8195-f33b799eccfe/exec-e14cfaf9-b540-4ec4-a4a9-8049d3280b23.png",
+      "archived": "sources/broker.png"
+    }
+  }
+}

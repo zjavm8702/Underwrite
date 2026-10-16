@@ -217,7 +217,7 @@
 
         <ui:VisualElement name="holdings-popup" class="holdings-popup">
             <ui:VisualElement name="holdings-head" class="info-popup-head">
-                <ui:Label name="holdings-toggle-icon" text="▸" class="info-popup-icon" />
+                <ui:VisualElement name="holdings-toggle-icon" class="info-popup-icon icon" />
                 <ui:Label text="보유" class="t-panel" />
                 <ui:Label name="holdings-count" text="0종목" class="t-note" style="margin-left: 8px;" />
                 <ui:VisualElement class="grow" />
@@ -231,7 +231,7 @@
 
         <ui:VisualElement name="info-popup" class="info-popup">
             <ui:VisualElement name="info-head" class="info-popup-head">
-                <ui:Label name="info-toggle-icon" text="▾" class="info-popup-icon" />
+                <ui:VisualElement name="info-toggle-icon" class="info-popup-icon icon" />
                 <ui:Label text="정보 기록" class="t-panel" />
                 <ui:Label name="info-count" text="0건" class="t-note" style="margin-left: 8px;" />
                 <ui:Label name="info-latest" text="" class="info-latest grow" />

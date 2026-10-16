@@ -1,0 +1,252 @@
+{
+  "time": "2026-10-16T12:44:55.471Z",
+  "status": "draft_awaiting_user_approval",
+  "files": {
+    "tavern": {
+      "dimensions": [
+        96,
+        96
+      ],
+      "alphaWeightedAreaPixels": 2004.016,
+      "alphaWeightedAreaRatioPct": 21.745,
+      "coverageRatioPct": 23.047,
+      "hiddenRGBPixels": 0,
+      "nonWhitePixels": 0,
+      "pixelsInside6pxMargin": 0,
+      "bbox": [
+        18,
+        22,
+        76,
+        72
+      ],
+      "margins": [
+        18,
+        22,
+        19,
+        23
+      ],
+      "components": [
+        2124
+      ],
+      "partialAlphaPixels": 334
+    },
+    "guild": {
+      "dimensions": [
+        96,
+        96
+      ],
+      "alphaWeightedAreaPixels": 2010.4,
+      "alphaWeightedAreaRatioPct": 21.814,
+      "coverageRatioPct": 22.624,
+      "hiddenRGBPixels": 0,
+      "nonWhitePixels": 0,
+      "pixelsInside6pxMargin": 0,
+      "bbox": [
+        14,
+        15,
+        81,
+        79
+      ],
+      "margins": [
+        14,
+        15,
+        14,
+        16
+      ],
+      "components": [
+        2085
+      ],
+      "partialAlphaPixels": 257
+    },
+    "letter": {
+      "dimensions": [
+        96,
+        96
+      ],
+      "alphaWeightedAreaPixels": 1963.153,
+      "alphaWeightedAreaRatioPct": 21.302,
+      "coverageRatioPct": 22.515,
+      "hiddenRGBPixels": 0,
+      "nonWhitePixels": 0,
+      "pixelsInside6pxMargin": 0,
+      "bbox": [
+        13,
+        31,
+        82,
+        63
+      ],
+      "margins": [
+        13,
+        31,
+        13,
+        32
+      ],
+      "components": [
+        1372,
+        703
+      ],
+      "partialAlphaPixels": 351
+    },
+    "board": {
+      "dimensions": [
+        96,
+        96
+      ],
+      "alphaWeightedAreaPixels": 1991.153,
+      "alphaWeightedAreaRatioPct": 21.605,
+      "coverageRatioPct": 23.796,
+      "hiddenRGBPixels": 0,
+      "nonWhitePixels": 0,
+      "pixelsInside6pxMargin": 0,
+      "bbox": [
+        18,
+        17,
+        76,
+        78
+      ],
+      "margins": [
+        18,
+        17,
+        19,
+        17
+      ],
+      "components": [
+        1215,
+        978
+      ],
+      "partialAlphaPixels": 533
+    },
+    "broker": {
+      "dimensions": [
+        96,
+        96
+      ],
+      "alphaWeightedAreaPixels": 1856.302,
+      "alphaWeightedAreaRatioPct": 20.142,
+      "coverageRatioPct": 22.114,
+      "hiddenRGBPixels": 0,
+      "nonWhitePixels": 0,
+      "pixelsInside6pxMargin": 0,
+      "bbox": [
+        10,
+        12,
+        85,
+        82
+      ],
+      "margins": [
+        10,
+        12,
+        10,
+        13
+      ],
+      "components": [
+        2038
+      ],
+      "partialAlphaPixels": 502
+    }
+  },
+  "sourceProcessing": {
+    "tavern": {
+      "sourceComponents": [
+        244572,
+        65332
+      ],
+      "kept": 2,
+      "sourceBox": [
+        311,
+        364,
+        1042,
+        992
+      ],
+      "scale": 0.08068481707636667
+    },
+    "guild": {
+      "sourceComponents": [
+        266311
+      ],
+      "kept": 1,
+      "sourceBox": [
+        238,
+        253,
+        1015,
+        999
+      ],
+      "scale": 0.0869321329942421
+    },
+    "letter": {
+      "sourceComponents": [
+        246702,
+        125050
+      ],
+      "kept": 2,
+      "sourceBox": [
+        148,
+        407,
+        1104,
+        859
+      ],
+      "scale": 0.07362810001235028
+    },
+    "board": {
+      "sourceComponents": [
+        176667,
+        155292
+      ],
+      "kept": 2,
+      "sourceBox": [
+        249,
+        232,
+        1005,
+        1025
+      ],
+      "scale": 0.07810931724845802
+    },
+    "broker": {
+      "sourceComponents": [
+        320993
+      ],
+      "kept": 1,
+      "sourceBox": [
+        131,
+        177,
+        1120,
+        1105
+      ],
+      "scale": 0.07676767676767676
+    }
+  },
+  "method": "Generated alpha preserved; components below max(20,1.5% of largest source component) removed; alpha >=250 made opaque; uniform scaling with area averaging, max dimension 76 and area target 2000; final alpha <32 removed; visible RGB set to white, transparent RGB zero.",
+  "visualReview": {
+    "sizes": [
+      20,
+      24,
+      28
+    ],
+    "backgrounds": [
+      "#2A2118",
+      "#F2E7D2"
+    ],
+    "result": "Distinct mug loop, stamp knob and base, horizontal envelope, vertical noticeboard with feet, pointed hood and shoulders remain distinguishable at all three native sizes.",
+    "intentionalComponents": {
+      "tavern": 1,
+      "guild": 1,
+      "letter": 2,
+      "board": 2,
+      "broker": 1
+    },
+    "strayComponents": 0,
+    "animation": "not applicable: five static UI marks"
+  },
+  "metaHashes": {
+    "beforeCount": 416,
+    "afterCount": 418,
+    "unchanged": 416,
+    "changedOrMissing": [],
+    "added": [
+      "Assets/Temp/ui_fav.png.meta",
+      "Assets/Temp.meta"
+    ],
+    "finalAuditTime": "2026-10-16T12:45:47.151Z"
+  },
+  "alphaAreaMaxMinRatio": 1.0830134320816334
+}

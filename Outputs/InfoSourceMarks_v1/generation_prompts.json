@@ -1,0 +1,26 @@
+{
+  "tool": "image_gen.imagegen",
+  "reference": "Outputs/MarketUI_Icons_v1/MarketUI_Icons_preview.png",
+  "prompts": [
+    {
+      "name": "tavern",
+      "prompt": "Use case: logo-brand. Create ONE small medieval fantasy game information-source UI mark. Reference image is STYLE ONLY: match the simple solid white silhouette, mildly hand-cut edges, subtle tapered ends of MarketUI_Icons_v1. Pure white #FFFFFF flat fill, genuinely transparent background. No gray, no shading, no texture, no glow, no shadow, no typography, no border around image. Readable at 20 pixels: bold massing, few features, openings at least 8% of icon width, no hairline strokes, no disconnected specks. Center the mark on square canvas, generous 15% transparent margin all around. This will be uniformly scaled down to a 96x96 PNG and shown at 20-28px. Subject: A squat medieval drinking tankard with a large open loop handle protruding clearly to the RIGHT, a softly uneven foam lip. Bold cup body, no steam, no decorative lines. Distinct outer contour: low mug with side loop."
+    },
+    {
+      "name": "guild",
+      "prompt": "Use case: logo-brand. Create ONE small medieval fantasy game information-source UI mark. Reference image is STYLE ONLY: match the simple solid white silhouette, mildly hand-cut edges, subtle tapered ends of MarketUI_Icons_v1. Pure white #FFFFFF flat fill, genuinely transparent background. No gray, no shading, no texture, no glow, no shadow, no typography, no border around image. Readable at 20 pixels: bold massing, few features, openings at least 8% of icon width, no hairline strokes, no disconnected specks. Center the mark on square canvas, generous 15% transparent margin all around. This will be uniformly scaled down to a 96x96 PNG and shown at 20-28px. Subject: An upright official wooden rubber-stamp silhouette: large rounded knob on a narrow stem, connected to a broad low horizontal stamp base. Distinct outer contour: mushroom-like tall handle and wide base. No book, no lettering, no seal circle."
+    },
+    {
+      "name": "letter",
+      "prompt": "Use case: logo-brand. Create ONE small medieval fantasy game information-source UI mark. Reference image is STYLE ONLY: match the simple solid white silhouette, mildly hand-cut edges, subtle tapered ends of MarketUI_Icons_v1. Pure white #FFFFFF flat fill, genuinely transparent background. No gray, no shading, no texture, no glow, no shadow, no typography, no border around image. Readable at 20 pixels: bold massing, few features, openings at least 8% of icon width, no hairline strokes, no disconnected specks. Center the mark on square canvas, generous 15% transparent margin all around. This will be uniformly scaled down to a 96x96 PNG and shown at 20-28px. Subject: A wide horizontal closed folded envelope, with a single bold transparent V-shaped fold cutout separating its upper triangular flap from its body. A tiny integrated round wax seal at the center bottom of the V. Distinct outer contour: wide low rectangle, softly hand-cut corners."
+    },
+    {
+      "name": "board",
+      "prompt": "Use case: logo-brand. Create ONE small medieval fantasy game information-source UI mark. Reference image is STYLE ONLY: match the simple solid white silhouette, mildly hand-cut edges, subtle tapered ends of MarketUI_Icons_v1. Pure white #FFFFFF flat fill, genuinely transparent background. No gray, no shading, no texture, no glow, no shadow, no typography, no border around image. Readable at 20 pixels: bold massing, few features, openings at least 8% of icon width, no hairline strokes, no disconnected specks. Center the mark on square canvas, generous 15% transparent margin all around. This will be uniformly scaled down to a 96x96 PNG and shown at 20-28px. Subject: A tall narrow public noticeboard silhouette: a broad flat roof-like top plank projecting on both sides, vertical rectangular pinned sheet below it, and two short legs extending below. One bold transparent rectangle separates sheet from frame if needed. Distinct outer contour: tall board with top overhang and two feet. No envelope flap, no handwriting."
+    },
+    {
+      "name": "broker",
+      "prompt": "Use case: logo-brand. Create ONE small medieval fantasy game information-source UI mark. Reference image is STYLE ONLY: match the simple solid white silhouette, mildly hand-cut edges, subtle tapered ends of MarketUI_Icons_v1. Pure white #FFFFFF flat fill, genuinely transparent background. No gray, no shading, no texture, no glow, no shadow, no typography, no border around image. Readable at 20 pixels: bold massing, few features, openings at least 8% of icon width, no hairline strokes, no disconnected specks. Center the mark on square canvas, generous 15% transparent margin all around. This will be uniformly scaled down to a 96x96 PNG and shown at 20-28px. Subject: A hooded anonymous informant bust. Pointed hood leaning slightly to one side, broad sloped shoulders, one large asymmetric face opening in transparent negative space, lower face hidden by a scarf. No eyes or tiny details. Distinct outer contour: pointed hood and triangular shoulders, one connected mark."
+    }
+  ]
+}

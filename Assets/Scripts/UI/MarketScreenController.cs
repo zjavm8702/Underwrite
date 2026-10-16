@@ -76,6 +76,7 @@ namespace Underwrite.UI
         private readonly StringBuilder Builder = new StringBuilder();
         private readonly List<VisualElement> StockRows = new List<VisualElement>();
         private readonly List<string> RowStockIds = new List<string>();
+        private readonly HashSet<string> Favourites = new HashSet<string>();
 
         private string SelectedId = "";
         private OrderSide Side = OrderSide.Side_Buy;
@@ -367,6 +368,20 @@ namespace Underwrite.UI
 
         // ── 구성 ──────────────────────────────────
 
+        /// <summary>
+        /// 눈여겨보는 종목을 목록 위로 올린다.
+        /// 상장이 늘면 목록이 길어지는데, 그때 매번 찾아 내려가는 것은 일이 된다.
+        /// </summary>
+        private void ToggleFavourite(string stockId)
+        {
+            if (Favourites.Remove(stockId) == false)
+            {
+                Favourites.Add(stockId);
+            }
+
+            BuildStockRows();
+        }
+
         private void BuildStockRows()
         {
             var list = Root.Q<VisualElement>("stock-list");
@@ -380,7 +395,9 @@ namespace Underwrite.UI
             StockRows.Clear();
             RowStockIds.Clear();
 
-            var stocks = Sim.Stocks;
+            // 즐겨찾기가 위로 온다. 그 안에서는 상장 순서를 그대로 둔다.
+            var stocks = new List<AdventurerStock>(Sim.Stocks);
+            stocks.Sort(CompareByFavourite);
 
             for (var i = 0; i < stocks.Count; i++)
             {
@@ -399,6 +416,12 @@ namespace Underwrite.UI
                 var top = new VisualElement();
                 top.AddToClassList("stock-line");
 
+                var star = new Button();
+                star.AddToClassList("star");
+                star.EnableInClassList("star--on", Favourites.Contains(stock.Id));
+                var starId = stock.Id;
+                star.clicked += () => ToggleFavourite(starId);
+
                 var name = new Label(stock.DisplayName);
                 name.AddToClassList("stock-name");
                 var price = new Label("0.0");
@@ -408,6 +431,7 @@ namespace Underwrite.UI
                 change.AddToClassList("stock-change");
                 change.name = "change";
 
+                top.Add(star);
                 top.Add(name);
                 top.Add(price);
                 top.Add(change);
@@ -422,10 +446,20 @@ namespace Underwrite.UI
                 // 떠나기로 공고된 종목은 그 사실을 행에 적는다. 설계안 §5가 사전 확인을 요구한다.
                 if (stock.NoticedDelistCycle > 0)
                 {
-                    var notice = new Label($"{stock.NoticedDelistCycle}주기 상장 폐지 예고"
+                    var line = new VisualElement();
+                    line.AddToClassList("notice-line");
+
+                    var mark = new VisualElement();
+                    mark.AddToClassList("icon");
+                    mark.AddToClassList("icon--warning");
+
+                    var notice = new Label($" {stock.NoticedDelistCycle}주기 상장 폐지 예고"
                         + $" · 청산율 {stock.LiquidationRatio * 100f:N0}퍼센트");
                     notice.AddToClassList("stock-notice");
-                    row.Add(notice);
+
+                    line.Add(mark);
+                    line.Add(notice);
+                    row.Add(line);
                 }
 
                 var id = stock.Id;
@@ -517,6 +551,34 @@ namespace Underwrite.UI
             }
 
             button.clicked += action;
+        }
+
+        /// <summary>즐겨찾기를 위로 올린다. 같은 무리 안에서는 순서를 바꾸지 않는다.</summary>
+        private int CompareByFavourite(AdventurerStock left, AdventurerStock right)
+        {
+            var leftStar = Favourites.Contains(left.Id) ? 0 : 1;
+            var rightStar = Favourites.Contains(right.Id) ? 0 : 1;
+
+            if (leftStar != rightStar)
+            {
+                return leftStar.CompareTo(rightStar);
+            }
+
+            return StockOrderOf(left).CompareTo(StockOrderOf(right));
+        }
+
+        /// <summary>상장 순서. IReadOnlyList에는 IndexOf가 없어 직접 센다.</summary>
+        private int StockOrderOf(AdventurerStock stock)
+        {
+            for (var i = 0; i < Sim.Stocks.Count; i++)
+            {
+                if (ReferenceEquals(Sim.Stocks[i], stock) == true)
+                {
+                    return i;
+                }
+            }
+
+            return int.MaxValue;
         }
 
         private void SelectStock(string id)
@@ -1897,12 +1959,7 @@ namespace Underwrite.UI
 
             popup.EnableInClassList("holdings-popup--collapsed", HoldingsCollapsed);
 
-            var icon = Root.Q<Label>("holdings-toggle-icon");
-
-            if (icon != null)
-            {
-                icon.text = HoldingsCollapsed == true ? "▸" : "▾";
-            }
+            SetToggleIcon("holdings-toggle-icon", HoldingsCollapsed);
 
             var holdings = Sim.Wallet.AllHoldings;
             var owned = 0;
@@ -2199,12 +2256,7 @@ namespace Underwrite.UI
                 popup.EnableInClassList("info-popup--collapsed", InfoCollapsed);
             }
 
-            var icon = Root.Q<Label>("info-toggle-icon");
-
-            if (icon != null)
-            {
-                icon.text = InfoCollapsed == true ? "▸" : "▾";
-            }
+            SetToggleIcon("info-toggle-icon", InfoCollapsed);
 
             SetText("info-count", $"{log.Count}건");
 
@@ -2367,6 +2419,20 @@ namespace Underwrite.UI
             }
 
             return stockId;
+        }
+
+        /// <summary>접기 손잡이의 그림을 상태에 맞춘다.</summary>
+        private void SetToggleIcon(string elementName, bool collapsed)
+        {
+            var icon = Root.Q<VisualElement>(elementName);
+
+            if (icon == null)
+            {
+                return;
+            }
+
+            icon.EnableInClassList("icon--collapse", collapsed);
+            icon.EnableInClassList("icon--expand", collapsed == false);
         }
 
         private void SetText(string elementName, string value)

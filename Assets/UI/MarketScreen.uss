@@ -1053,3 +1053,77 @@
 .scene-source--private {
     color: var(--color-private);
 }
+
+/* ── 아이콘 ───────────────────────────────── */
+
+/* 유니코드 글자로 찍던 기호를 손으로 그은 그림으로 바꾼다.
+   흰 단색 그림이므로 tint로 색을 입힌다. */
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.icon--rise {
+    background-image: url("project://database/Assets/UI/Images/icon_rise.png");
+    -unity-background-image-tint-color: var(--color-rise);
+}
+
+.icon--fall {
+    background-image: url("project://database/Assets/UI/Images/icon_fall.png");
+    -unity-background-image-tint-color: var(--color-fall);
+}
+
+.icon--flat {
+    background-image: url("project://database/Assets/UI/Images/icon_flat.png");
+    -unity-background-image-tint-color: var(--color-text-weak);
+}
+
+.icon--expand {
+    background-image: url("project://database/Assets/UI/Images/icon_expand.png");
+    -unity-background-image-tint-color: var(--color-text-weak);
+}
+
+.icon--collapse {
+    background-image: url("project://database/Assets/UI/Images/icon_collapse.png");
+    -unity-background-image-tint-color: var(--color-text-weak);
+}
+
+.icon--warning {
+    background-image: url("project://database/Assets/UI/Images/icon_warning.png");
+    -unity-background-image-tint-color: var(--color-halt);
+    width: 18px;
+    height: 18px;
+}
+
+/* ── 즐겨찾기 ─────────────────────────────── */
+
+/* 상장이 늘면 목록이 길어진다. 눈여겨보는 종목을 위로 올린다. */
+.star {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    margin-right: 6px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    background-image: url("project://database/Assets/UI/Images/icon_star_off.png");
+    -unity-background-image-tint-color: var(--color-divider);
+    -unity-background-scale-mode: scale-to-fit;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.star--on {
+    background-image: url("project://database/Assets/UI/Images/icon_star_on.png");
+    -unity-background-image-tint-color: var(--color-halt);
+}
+
+/* 예고 줄의 경고 표식과 글자를 한 줄에 둔다. */
+.notice-line {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2px;
+}
