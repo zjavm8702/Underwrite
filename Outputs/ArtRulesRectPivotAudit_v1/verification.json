@@ -1,0 +1,838 @@
+{
+  "date": "2026-10-16",
+  "scope": "문서만 수정",
+  "updatedDocument": "Documents/Codex/Underwrite_아트_작업규칙.md",
+  "sections": [
+    {
+      "section": "preamble",
+      "unchanged": true
+    },
+    {
+      "section": "1",
+      "unchanged": true
+    },
+    {
+      "section": "2",
+      "unchanged": true
+    },
+    {
+      "section": "3",
+      "unchanged": true
+    },
+    {
+      "section": "4",
+      "unchanged": true
+    },
+    {
+      "section": "5",
+      "unchanged": true
+    },
+    {
+      "section": "6",
+      "unchanged": true
+    },
+    {
+      "section": "7",
+      "unchanged": false
+    },
+    {
+      "section": "8",
+      "unchanged": true
+    },
+    {
+      "section": "9",
+      "unchanged": true
+    },
+    {
+      "section": "10",
+      "unchanged": false
+    }
+  ],
+  "historicalRecordsPreserved": true,
+  "metaHashCount": 263,
+  "pngHashCount": 224,
+  "changedAssets": [],
+  "alphaComponents": "미검사: 문서 수정 범위",
+  "femaleImages": [
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 343,
+      "outsideOld255": 7,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 823,
+      "outsideOld255": 12,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 2153,
+      "outsideOld255": 36,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 777,
+      "outsideOld255": 15,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 1515,
+      "outsideOld255": 39,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/E/idle_e_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 404,
+      "outsideOld255": 4,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/N/idle_n_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 36,
+      "outsideOld255": 2,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/N/idle_n_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 285,
+      "outsideOld255": 8,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/N/idle_n_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 546,
+      "outsideOld255": 3,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/N/idle_n_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 20,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/N/idle_n_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 42,
+      "outsideOld255": 1,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/N/idle_n_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 23,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NE/idle_ne_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 51,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NE/idle_ne_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 56,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NE/idle_ne_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 134,
+      "outsideOld255": 4,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NE/idle_ne_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 116,
+      "outsideOld255": 5,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NE/idle_ne_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 712,
+      "outsideOld255": 9,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NE/idle_ne_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 186,
+      "outsideOld255": 5,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NW/idle_nw_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 82,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NW/idle_nw_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 143,
+      "outsideOld255": 4,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NW/idle_nw_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 248,
+      "outsideOld255": 2,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NW/idle_nw_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 46,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NW/idle_nw_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 292,
+      "outsideOld255": 5,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/NW/idle_nw_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 73,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/S/idle_s_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 498,
+      "outsideOld255": 19,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/S/idle_s_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 502,
+      "outsideOld255": 20,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/S/idle_s_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 1004,
+      "outsideOld255": 16,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/S/idle_s_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 532,
+      "outsideOld255": 9,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/S/idle_s_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 979,
+      "outsideOld255": 10,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/S/idle_s_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 434,
+      "outsideOld255": 16,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SE/idle_se_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 547,
+      "outsideOld255": 19,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SE/idle_se_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 841,
+      "outsideOld255": 12,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SE/idle_se_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 934,
+      "outsideOld255": 13,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SE/idle_se_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 305,
+      "outsideOld255": 13,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SE/idle_se_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 957,
+      "outsideOld255": 25,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SE/idle_se_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 563,
+      "outsideOld255": 6,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SW/idle_sw_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 14,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SW/idle_sw_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 490,
+      "outsideOld255": 5,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SW/idle_sw_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 482,
+      "outsideOld255": 3,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SW/idle_sw_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 128,
+      "outsideOld255": 0,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SW/idle_sw_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 904,
+      "outsideOld255": 15,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/SW/idle_sw_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 295,
+      "outsideOld255": 1,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/W/idle_w_00.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 295,
+      "outsideOld255": 3,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/W/idle_w_01.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 1421,
+      "outsideOld255": 14,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/W/idle_w_02.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 1264,
+      "outsideOld255": 22,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/W/idle_w_03.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 291,
+      "outsideOld255": 8,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/W/idle_w_04.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 1412,
+      "outsideOld255": 7,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    },
+    {
+      "path": "Assets/Images/Characters/Heroes/HumanFemale/Idle/W/idle_w_05.png",
+      "width": 512,
+      "height": 724,
+      "outsideCurrent32": 0,
+      "outsideOld32": 262,
+      "outsideOld255": 4,
+      "hiddenRGB": 0,
+      "canvasContact": 0
+    }
+  ],
+  "femalePivot": {
+    "spriteCount": 48,
+    "alignment": 9,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "byDirection": {
+      "E": {
+        "count": 6,
+        "xMin": 247.5,
+        "xMax": 256,
+        "xRange": 8.5,
+        "yMin": 320,
+        "yMax": 320.5
+      },
+      "N": {
+        "count": 6,
+        "xMin": 256,
+        "xMax": 264.5,
+        "xRange": 8.5,
+        "yMin": 313.5,
+        "yMax": 313.5
+      },
+      "NE": {
+        "count": 6,
+        "xMin": 249,
+        "xMax": 258.5,
+        "xRange": 9.5,
+        "yMin": 320,
+        "yMax": 320
+      },
+      "NW": {
+        "count": 6,
+        "xMin": 255.5,
+        "xMax": 261,
+        "xRange": 5.5,
+        "yMin": 318,
+        "yMax": 318
+      },
+      "S": {
+        "count": 6,
+        "xMin": 253.5,
+        "xMax": 259.5,
+        "xRange": 6,
+        "yMin": 316.5,
+        "yMax": 317
+      },
+      "SE": {
+        "count": 6,
+        "xMin": 250,
+        "xMax": 256.5,
+        "xRange": 6.5,
+        "yMin": 318,
+        "yMax": 318.5
+      },
+      "SW": {
+        "count": 6,
+        "xMin": 257,
+        "xMax": 268.5,
+        "xRange": 11.5,
+        "yMin": 320.5,
+        "yMax": 320.5
+      },
+      "W": {
+        "count": 6,
+        "xMin": 257.5,
+        "xMax": 271,
+        "xRange": 13.5,
+        "yMin": 322.5,
+        "yMax": 323
+      }
+    }
+  },
+  "protagonistPivotReportOnly": {
+    "spriteCounts": {
+      "Idle": 48,
+      "Walking": 64,
+      "Cheer": 64
+    },
+    "alignment": 0,
+    "effectivePivot": [
+      0.5,
+      0.5
+    ],
+    "matchesDocumentFootAnchor": false,
+    "settingsUnchanged": true,
+    "byActionAndDirection": {
+      "Idle": {
+        "E": {
+          "count": 6,
+          "xMin": 180,
+          "xMax": 180.5,
+          "xRange": 0.5,
+          "yMin": 362,
+          "yMax": 362.5
+        },
+        "N": {
+          "count": 6,
+          "xMin": 180,
+          "xMax": 182.5,
+          "xRange": 2.5,
+          "yMin": 361,
+          "yMax": 362.5
+        },
+        "NE": {
+          "count": 6,
+          "xMin": 173,
+          "xMax": 174,
+          "xRange": 1,
+          "yMin": 361.5,
+          "yMax": 362.5
+        },
+        "NW": {
+          "count": 6,
+          "xMin": 179.5,
+          "xMax": 189,
+          "xRange": 9.5,
+          "yMin": 362,
+          "yMax": 362.5
+        },
+        "S": {
+          "count": 6,
+          "xMin": 176.5,
+          "xMax": 180.5,
+          "xRange": 4,
+          "yMin": 361.5,
+          "yMax": 362.5
+        },
+        "SE": {
+          "count": 6,
+          "xMin": 171,
+          "xMax": 172,
+          "xRange": 1,
+          "yMin": 362,
+          "yMax": 362.5
+        },
+        "SW": {
+          "count": 6,
+          "xMin": 172.5,
+          "xMax": 173.5,
+          "xRange": 1,
+          "yMin": 362,
+          "yMax": 362.5
+        },
+        "W": {
+          "count": 6,
+          "xMin": 180.5,
+          "xMax": 181.5,
+          "xRange": 1,
+          "yMin": 361.5,
+          "yMax": 362.5
+        }
+      },
+      "Walking": {
+        "E": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        },
+        "N": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        },
+        "NE": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        },
+        "NW": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        },
+        "S": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        },
+        "SE": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        },
+        "SW": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        },
+        "W": {
+          "count": 8,
+          "xMin": 320,
+          "xMax": 320,
+          "xRange": 0,
+          "yMin": 362,
+          "yMax": 362
+        }
+      },
+      "Cheer": {
+        "E": {
+          "count": 8,
+          "xMin": 240,
+          "xMax": 275.5,
+          "xRange": 35.5,
+          "yMin": 330.5,
+          "yMax": 382.5
+        },
+        "N": {
+          "count": 8,
+          "xMin": 254,
+          "xMax": 257,
+          "xRange": 3,
+          "yMin": 327,
+          "yMax": 376
+        },
+        "NE": {
+          "count": 8,
+          "xMin": 228,
+          "xMax": 256.5,
+          "xRange": 28.5,
+          "yMin": 329,
+          "yMax": 373
+        },
+        "NW": {
+          "count": 8,
+          "xMin": 250.5,
+          "xMax": 257.5,
+          "xRange": 7,
+          "yMin": 331,
+          "yMax": 377.5
+        },
+        "S": {
+          "count": 8,
+          "xMin": 250,
+          "xMax": 259.5,
+          "xRange": 9.5,
+          "yMin": 339.5,
+          "yMax": 364.5
+        },
+        "SE": {
+          "count": 8,
+          "xMin": 242,
+          "xMax": 256,
+          "xRange": 14,
+          "yMin": 325,
+          "yMax": 371.5
+        },
+        "SW": {
+          "count": 8,
+          "xMin": 253.5,
+          "xMax": 256.5,
+          "xRange": 3,
+          "yMin": 326.5,
+          "yMax": 369
+        },
+        "W": {
+          "count": 8,
+          "xMin": 234,
+          "xMax": 262,
+          "xRange": 28,
+          "yMin": 335,
+          "yMax": 382
+        }
+      }
+    }
+  },
+  "historicalMeasurements": {
+    "suppliedAlpha255": 14445,
+    "reproducedAlpha255": 421,
+    "reproducedAlpha32": 24460
+  },
+  "backupCounts": {
+    "Outputs/SpriteBatchTrim/20261016_164353": 42,
+    "Outputs/SpriteBatchTrim/20261016_151956": 6
+  },
+  "toolDefault": "TrimOptions.Scope = Scope_WholeTexture",
+  "unityPlayback": "미실행: 문서 수정 범위",
+  "remainingDocumentMismatch": "Documents/Shared/Underwrite_기획서_v0.4.md §18 인간 여성 Idle (256,13) 표기 유지: Shared 소유 문서이며 이번 수정 대상 아님"
+}

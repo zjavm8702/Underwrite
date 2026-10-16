@@ -73,6 +73,13 @@ namespace Underwrite.Market
 
         private void Update()
         {
+            // 플레이 중 재컴파일로 도메인이 리로드되면 Sim이 사라진다. 직렬화되지 않는 순수 객체다.
+            // 이때 방치하면 매 프레임 NullReferenceException이 쌓인다.
+            if (Sim == null)
+            {
+                return;
+            }
+
             // 에디터 창이 비활성이었다가 돌아오면 deltaTime이 크게 튄다. 그대로 넘기면 수십 틱이
             // 한 배치로 몰려 사건 타이밍이 뭉개진다. 한 프레임이 보낼 수 있는 시간을 제한한다.
             var delta = Mathf.Min(Time.unscaledDeltaTime, MAX_DELTA_SECONDS);
@@ -95,6 +102,13 @@ namespace Underwrite.Market
 
         private void OnGUI()
         {
+            if (Sim == null)
+            {
+                GUI.Label(new Rect(12f, 12f, 520f, 40f),
+                    "재컴파일로 시장 상태가 사라졌습니다. 재생을 멈췄다가 다시 시작하세요.");
+                return;
+            }
+
             GUILayout.BeginArea(new Rect(12f, 12f, 560f, Screen.height - 24f));
 
             DrawHeader();

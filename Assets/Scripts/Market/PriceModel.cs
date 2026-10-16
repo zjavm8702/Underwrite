@@ -33,7 +33,12 @@ namespace Underwrite.Market
             var price = stock.Price;
 
             // 1. 목표가를 향한 수렴. 내재가치와 시장 기대가 목표를 만든다.
-            var pull = (stock.TargetPrice - price) * Constants.PRICE_REVERSION_PER_TICK;
+            //    내려가는 쪽이 더 빠르다. 기대가 꺾였을 때 가파르게 무너져야 공포가 체감된다.
+            var gap = stock.TargetPrice - price;
+            var reversion = gap < 0f
+                ? Constants.PRICE_REVERSION_DOWN_PER_TICK
+                : Constants.PRICE_REVERSION_PER_TICK;
+            var pull = gap * reversion;
 
             // 2. 시장 분위기가 모든 종목에 공통으로 거는 흐름.
             var drift = price * SentimentDrift(sentiment);
@@ -122,19 +127,23 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>한 틱의 변동을 상한으로 묶는다. 급등락은 허용하되 폭주는 막는다.</summary>
+        /// <summary>
+        /// 한 틱의 변동을 상한으로 묶는다. 급등락은 허용하되 폭주는 막는다.
+        /// 상한은 비대칭이다. 무너지는 속도가 오르는 속도보다 빠르다.
+        /// </summary>
         public static float ClampMove(float previous, float next)
         {
-            var limit = previous * Constants.PRICE_MAX_MOVE_PER_TICK;
+            var riseLimit = previous * Constants.PRICE_MAX_MOVE_PER_TICK;
+            var dropLimit = previous * Constants.PRICE_MAX_DROP_PER_TICK;
             var delta = next - previous;
 
-            if (delta > limit)
+            if (delta > riseLimit)
             {
-                delta = limit;
+                delta = riseLimit;
             }
-            else if (delta < -limit)
+            else if (delta < -dropLimit)
             {
-                delta = -limit;
+                delta = -dropLimit;
             }
 
             var result = previous + delta;

@@ -85,10 +85,20 @@ namespace Underwrite.Market
                     InfoSource.Source_GuildRecord, InfoVisibility.Visibility_Public,
                     expectationDelta: 0.08f),
 
+                new MarketEventStep(44, STOCK_VETERAN, EventStage.Stage_Outcome,
+                    "브란이 1차 호위를 무사히 마쳤다. 보수가 확정됐다.",
+                    InfoSource.Source_GuildRecord, InfoVisibility.Visibility_Public,
+                    valueDelta: 0.07f),
+
                 new MarketEventStep(66, STOCK_VETERAN, EventStage.Stage_Outcome,
-                    "브란이 예정대로 의뢰를 마쳤다. 놀랄 일은 없었다.",
+                    "브란이 2차 호위도 예정대로 마쳤다. 놀랄 일은 없었다.",
                     InfoSource.Source_GuildRecord, InfoVisibility.Visibility_Public,
                     valueDelta: 0.06f),
+
+                new MarketEventStep(86, STOCK_VETERAN, EventStage.Stage_Outcome,
+                    "브란이 장기 계약을 따냈다. 실적이 쌓인다.",
+                    InfoSource.Source_GuildRecord, InfoVisibility.Visibility_Public,
+                    valueDelta: 0.08f),
 
                 // ── 블랙무어 단: 큰 성공과 큰 실패 ───────────────
                 new MarketEventStep(14, STOCK_HIGH_RISK, EventStage.Stage_Rumor,

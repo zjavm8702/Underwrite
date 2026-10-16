@@ -53,27 +53,44 @@ namespace Underwrite.Global
         public const float MARKET_MINUTES_PER_REAL_SECOND = 2f;
 
         // ── 가격 모델 (기획서 §7의 6요인) ──────────
-        /// <summary>가격이 내재가치와 기대로 만들어진 목표가를 향해 수렴하는 속도.</summary>
+        /// <summary>가격이 목표가를 향해 올라갈 때의 수렴 속도.</summary>
         public const float PRICE_REVERSION_PER_TICK = 0.12f;
+        /// <summary>
+        /// 가격이 목표가를 향해 내려갈 때의 수렴 속도. 올라갈 때보다 빠르다.
+        /// 실제 급등주는 무너지는 속도가 오르는 속도보다 훨씬 빠르다. GameStop 2021은
+        /// 오르는 데 20일, 정점에서 80퍼센트 빠지는 데 3거래일이 걸렸다.
+        /// 상한(PRICE_MAX_DROP_PER_TICK)은 극단적 충격만 막고, 평소의 붕괴 속도는 이 값이 만든다.
+        /// </summary>
+        public const float PRICE_REVERSION_DOWN_PER_TICK = 0.22f;
         /// <summary>틱마다 더하는 무작위 변동의 기본 폭. 종목 성격과 분위기로 배율이 걸린다.</summary>
         public const float PRICE_NOISE_BASE = 0.006f;
         /// <summary>기대가 실제 가치로 식어가는 속도. 소문은 시간이 지나면 힘을 잃는다.</summary>
         public const float EXPECTATION_DECAY_PER_TICK = 0.02f;
         /// <summary>주문 한 주가 유동성 대비 가격을 밀어내는 정도.</summary>
         public const float ORDER_IMPACT_SCALE = 0.9f;
-        /// <summary>한 틱에 허용하는 최대 변동률. 급등락을 허용하되 폭주는 막는다.</summary>
+        /// <summary>한 틱에 허용하는 최대 상승률. 급등을 허용하되 폭주는 막는다.</summary>
         public const float PRICE_MAX_MOVE_PER_TICK = 0.18f;
+        /// <summary>
+        /// 한 틱에 허용하는 최대 하락률. 상승 상한보다 크다.
+        /// 실제 급등주는 무너지는 속도가 오르는 속도보다 훨씬 빠르다.
+        /// GameStop 2021은 오르는 데 20일, 정점에서 80퍼센트 빠지는 데 3거래일이 걸렸다.
+        /// 조사 기록: Documents/Claude/Underwrite_시장모델_실제자료_샘플.md
+        /// </summary>
+        public const float PRICE_MAX_DROP_PER_TICK = 0.30f;
         /// <summary>가격 하한. 0 이하로 내려가지 않게 한다.</summary>
         public const float PRICE_FLOOR = 1f;
 
         // ── 종목 성격별 배율 ───────────────────────
-        public const float VOLATILITY_VETERAN = 0.6f;
+        // 현실 대형주의 일 변동성은 1퍼센트대다. 모델은 짧은 장에서 체감이 필요해 더 크게 잡지만,
+        // 베테랑만은 낮춰 종목 성격 사이의 대비를 키운다. 전부 현실에 맞추면 셋 다 밋밋해진다.
+        public const float VOLATILITY_VETERAN = 0.45f;
         public const float VOLATILITY_ROOKIE = 1.8f;
         public const float VOLATILITY_HIGH_RISK = 2.4f;
         public const float VOLATILITY_FAMOUS = 1.0f;
 
         // ── 시장 분위기별 배율 ────────────────────
-        public const float SENTIMENT_DRIFT_CALM = 0f;
+        // NASDAQ 10년(2016~2025)은 상승 8년 / 하락 2년이었다. 평온한 장에 약한 상승 편향을 둔다.
+        public const float SENTIMENT_DRIFT_CALM = 0.0005f;
         public const float SENTIMENT_DRIFT_FEVER = 0.004f;
         public const float SENTIMENT_DRIFT_FEAR = -0.006f;
         public const float SENTIMENT_DRIFT_DRAINED = -0.002f;
