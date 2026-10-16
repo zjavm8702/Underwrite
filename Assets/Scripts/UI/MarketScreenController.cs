@@ -42,10 +42,19 @@ namespace Underwrite.UI
         [Header("진행")]
         [SerializeField] private bool AutoPauseOnOutcome = true;
 
+        /// <summary>덮어씌울 수 있는 테마. 색 토큰과 배경만 바꾸고 레이아웃은 건드리지 않는다.</summary>
+        private enum ScreenTheme
+        {
+            Theme_Light,
+            Theme_Underground,
+            Theme_Parchment
+        }
+
         [Header("테마")]
-        [Tooltip("켜면 어두운 지하 테마를 덮어씌운다. 색 토큰만 바뀌고 레이아웃은 같다.")]
-        [SerializeField] private bool UseUndergroundTheme;
+        [Tooltip("F2로 재생 중 돌려 가며 비교할 수 있다. 색과 배경만 바뀌고 레이아웃은 같다.")]
+        [SerializeField] private ScreenTheme Theme = ScreenTheme.Theme_Parchment;
         [SerializeField] private StyleSheet UndergroundTheme;
+        [SerializeField] private StyleSheet ParchmentTheme;
 
         private MarketSimulation Sim;
         private VisualElement Root;
@@ -180,22 +189,28 @@ namespace Underwrite.UI
         /// </summary>
         private void ApplyTheme()
         {
-            if (UndergroundTheme == null)
+            SetSheet(UndergroundTheme, Theme == ScreenTheme.Theme_Underground);
+            SetSheet(ParchmentTheme, Theme == ScreenTheme.Theme_Parchment);
+        }
+
+        private void SetSheet(StyleSheet sheet, bool on)
+        {
+            if (sheet == null)
             {
                 return;
             }
 
-            var has = Root.styleSheets.Contains(UndergroundTheme);
+            var has = Root.styleSheets.Contains(sheet);
 
-            if (UseUndergroundTheme == true && has == false)
+            if (on == true && has == false)
             {
-                Root.styleSheets.Add(UndergroundTheme);
+                Root.styleSheets.Add(sheet);
                 return;
             }
 
-            if (UseUndergroundTheme == false && has == true)
+            if (on == false && has == true)
             {
-                Root.styleSheets.Remove(UndergroundTheme);
+                Root.styleSheets.Remove(sheet);
             }
         }
 
@@ -210,10 +225,28 @@ namespace Underwrite.UI
             evt.StopPropagation();
         }
 
-        /// <summary>재생 중 F2로 테마를 전환한다. 두 안을 바로 비교하기 위한 것이다.</summary>
+        /// <summary>재생 중 F2로 테마를 돌려 가며 비교한다.</summary>
         public void ToggleTheme()
         {
-            UseUndergroundTheme = UseUndergroundTheme == false;
+            switch (Theme)
+            {
+                case ScreenTheme.Theme_Light:
+                {
+                    Theme = ScreenTheme.Theme_Underground;
+                    break;
+                }
+                case ScreenTheme.Theme_Underground:
+                {
+                    Theme = ScreenTheme.Theme_Parchment;
+                    break;
+                }
+                default:
+                {
+                    Theme = ScreenTheme.Theme_Light;
+                    break;
+                }
+            }
+
             ApplyTheme();
         }
 

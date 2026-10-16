@@ -1,0 +1,163 @@
+/*
+ * 지하거래소 — 양피지 테마.
+ *
+ * 색 토큰과 패널 배경 이미지만 덮어쓴다. 구조·간격·폰트는 MarketScreen.uss 그대로다.
+ * 이미지: Outputs/MarketUI_Parchment_v1 (Codex 제작). 9-slice Border는 패널 48px, 선택 24px.
+ *
+ * 가독성이 최우선이다. 질감 때문에 숫자가 안 읽히면 실패다.
+ * 글자가 놓이는 자리는 거의 단색이어야 하므로 질감의 명암 대비를 낮게 유지한다.
+ */
+
+:root {
+    /* 바탕과 면 — 이미지가 덮으므로 색은 보조 역할이다. */
+    --color-canvas: #2A1F17;
+    --color-panel: #F2E7D2;
+    --color-divider: #C9BBA2;
+    --color-input-border: #8A7A62;
+    --color-disabled: #DCCDB4;
+
+    /* 글자 — 양피지 위의 잉크 */
+    --color-text: #2A2118;
+    --color-text-weak: #6E6052;
+
+    /* 상승·하락. 양피지 위에서도 구별되도록 채도를 유지한다. */
+    --color-rise: #B5323E;
+    --color-rise-soft: #F6E0DC;
+    --color-fall: #1F56B8;
+    --color-fall-soft: #DEE7F7;
+
+    /* 나만 아는 정보 */
+    --color-private: #5B3BA3;
+    --color-private-soft: #E8E0F5;
+
+    /* 휴장 */
+    --color-halt: #7A4A0C;
+    --color-halt-soft: #F6E6C8;
+}
+
+/* 상단 줄은 패널 밖이라 어두운 나무 위에 놓인다. 잉크색이면 묻히므로 밝게 쓴다. */
+.header,
+.header Label {
+    color: #E8DCC6;
+}
+
+.brand-mark {
+    color: #A89880;
+}
+
+/* 화면 바탕 — 지하실의 어두운 나무 탁자 */
+.market-root {
+    background-image: url("project://database/Assets/UI/Images/market_background.png");
+    -unity-background-scale-mode: scale-and-crop;
+    background-color: #2A1F17;
+}
+
+/* 패널 — 양피지. 9-slice로 늘어난다. */
+.panel,
+.asset-card,
+.info-popup {
+    background-image: url("project://database/Assets/UI/Images/market_panel.png");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-left: 48;
+    -unity-slice-right: 48;
+    -unity-slice-top: 48;
+    -unity-slice-bottom: 48;
+    -unity-slice-scale: 0.5;
+    border-width: 0;
+}
+
+/* 선택된 종목 행 — 톤이 다른 양피지 */
+.stock-row--selected {
+    background-image: url("project://database/Assets/UI/Images/market_selection.png");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-left: 24;
+    -unity-slice-right: 24;
+    -unity-slice-top: 24;
+    -unity-slice-bottom: 24;
+    -unity-slice-scale: 0.5;
+}
+
+/* 양피지 위에서는 중성 버튼이 묻힌다. 잉크색 테두리로 형태를 잡는다. */
+.btn,
+.btn--small,
+.tab,
+.type-tab,
+.pending-cancel {
+    background-color: rgba(42, 33, 24, 0.07);
+    border-width: 1px;
+    border-color: rgba(42, 33, 24, 0.22);
+}
+
+.btn--selected,
+.type-tab--on {
+    background-color: var(--color-text);
+    color: #F2E7D2;
+    border-color: var(--color-text);
+}
+
+.btn--buy {
+    background-color: var(--color-rise);
+    color: #F7EFE2;
+    border-color: var(--color-rise);
+}
+
+.btn--sell {
+    background-color: var(--color-fall);
+    color: #F7EFE2;
+    border-color: var(--color-fall);
+}
+
+.btn--disabled {
+    background-color: rgba(42, 33, 24, 0.06);
+    color: var(--color-text-weak);
+    border-color: rgba(42, 33, 24, 0.14);
+}
+
+/* 호가창 — 양피지 위에서 띠가 과하지 않게 */
+.book-row--mid {
+    background-color: var(--color-text);
+}
+
+.book-mid-price {
+    color: #F2E7D2;
+}
+
+/* 수량·지정가 입력은 테두리를 또렷하게 */
+.qty-box {
+    border-color: rgba(42, 33, 24, 0.35);
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* 정보 카드는 --color-canvas를 쓰는데, 양피지에서는 그게 어두운 나무색이라 검게 나온다.
+   패널보다 살짝 어두운 종이색으로 따로 지정한다. */
+.info-card {
+    background-color: rgba(42, 33, 24, 0.07);
+}
+
+.info-card--private {
+    background-color: var(--color-private-soft);
+}
+
+/* 탭의 기본 배경도 같은 이유로 바로잡는다. */
+.tab,
+.type-tab {
+    background-color: rgba(42, 33, 24, 0.07);
+}
+
+/* 팝업 머리를 누를 때의 강조도 어두운 나무색이 아니라 종이색으로. */
+.info-popup-head:hover {
+    background-color: rgba(42, 33, 24, 0.06);
+}
+
+/* 호가창 띠가 양피지 위에서 과하지 않게 톤을 낮춘다. */
+.book-row--ask {
+    background-color: rgba(181, 50, 62, 0.10);
+}
+
+.book-row--bid {
+    background-color: rgba(31, 86, 184, 0.10);
+}
+
+.book-row:hover {
+    background-color: rgba(42, 33, 24, 0.10);
+}
