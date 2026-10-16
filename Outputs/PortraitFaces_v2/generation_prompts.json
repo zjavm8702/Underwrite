@@ -154,5 +154,11 @@
     "prompt": "Precise local edit of IMAGE 1: keep this exact portrait and change ONLY the eyebrows, eyelids and mouth. ANGRY: clearly angry stern frown, eyebrows pulled downward toward nose, narrowed eyes, firmly compressed mouth; retain character personality. Do not change his three-quarter angle at all. Preserve the glasses rims exactly in place, the eye centers, face width and chin, ear, tousled hair, shoulders, costume and all outlines. Preserve EXACT composition and transparent margins. Do not redraw a different pose or crop. Transparent background, same illustration style. Face expression must be recognisable.",
     "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-69dd9f42-6a5c-4a39-95cd-d2c71e297072.png",
     "time": "2026-10-16T15:36:44.868Z"
+  },
+  {
+    "id": "fairy_bust_framing",
+    "prompt": "Precise composition edit. Keep this EXACT fairy portrait in the same canvas position, scale and head coordinates. Do NOT zoom or reframe. Remove only the lower torso to make an upper-chest dialogue bust like a visual novel portrait. End the bust at the UPPER CHEST just below her neckline bow, with a smooth gently rounded lower cutout contour, around y=740 on the provided 820x1080 canvas. Lower wing parts should end with this same bust cutout. Keep full head, upper wings, normal human ears, orange hair, cream flower on screen-right, face, clothing details ABOVE the cut line pixel-identical where possible. Everything below that bust contour becomes fully transparent. No white background, no glow, no shadow. Final remains 820x1080 transparent canvas.",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a1453f-e043-7af3-8db6-d2258ec69076\\exec-313a3616-39b2-4f75-975e-83b2664d5bad.png",
+    "time": "2026-10-16T15:50:09.511Z"
   }
 ]

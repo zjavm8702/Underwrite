@@ -1,34 +1,188 @@
 {
-  "neutral": {
-    "scholar": {
-      "source": "exec-9eaa90dc-5c04-4b5f-a28b-1ca629543f50.png",
-      "resize": [
-        760,
-        1000
-      ],
-      "paste": [
-        30,
-        40
-      ]
-    },
-    "elf": {
-      "source": "preserved_existing/face_elf_neutral.png",
-      "method": "adopt same neutral actually referenced by happy/anxious/angry/shocked; no new shape edits"
-    },
-    "fairy": {
-      "source": "exec-63426d83-2a64-4d9a-835c-b7e146a808f0.png",
-      "resize": [
-        760,
-        1000
-      ],
-      "paste": [
-        30,
-        40
-      ]
-    }
+  "elf_happy": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
   },
-  "expressions": {
-    "method": "generated expression normalized to 820x1080; RGB blended only within saved face polygon, 7px feather; base alpha exactly retained",
-    "rejected": "elf sad/relieved first pass and fairy angry/shocked first pass used mixed reference composition; preserved, regenerate against locked_bases"
+  "elf_anxious": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "elf_angry": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "elf_shocked": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "elf_sad": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "elf_relieved": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      -1
+    ]
+  },
+  "fairy_happy": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "fairy_anxious": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "fairy_angry": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "fairy_shocked": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "fairy_sad": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "fairy_relieved": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      -4
+    ]
+  },
+  "scholar_happy": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ],
+    "source": "sources/scholar_happy.png"
+  },
+  "scholar_anxious": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ],
+    "source": "sources/scholar_anxious_fix.png"
+  },
+  "scholar_angry": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ],
+    "source": "sources/scholar_angry_fix.png"
+  },
+  "scholar_shocked": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ],
+    "source": "sources/scholar_shocked.png"
+  },
+  "scholar_sad": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ],
+    "source": "sources/scholar_sad.png"
+  },
+  "scholar_relieved": {
+    "scale": [
+      820,
+      1080
+    ],
+    "translate": [
+      0,
+      0
+    ],
+    "source": "sources/scholar_relieved.png"
   }
 }

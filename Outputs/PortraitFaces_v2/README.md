@@ -1,70 +1,72 @@
-# PortraitFaces v2 — scholar · elf · fairy
+# PortraitFaces v2 — 나머지 세 인물 상반신 표정 시안
 
-2026-10-17 / PNG 제작·수치 검증 완료, 사용자 시각 승인 전 시안. Assets·Unity 연결 제외.
+학자·엘프·페어리 각 7표정, PNG 21장 제작·배치 및 수치 검수 완료. 사용자 시각 승인 전 시안이다. 전신을 잘라 쓰지 않고 기본 제공 image_gen으로 새 상반신과 표정을 제작했다. CLI/API 대체 생성은 사용하지 않았다.
 
-## 납품
+## 납품 파일
 
-루트의 face_{scholar|elf|fairy}_{표정}.png 21장. 전부 820×1080 8bit RGBA. 피봇·PPU 미설정. 전신을 자르지 않고 상반신을 새로 그렸다.
+이 폴더 바로 아래 face_scholar_*.png / face_elf_*.png / face_fairy_*.png 각 7장만 납품용이다. 모든 파일은 820×1080 8bit RGBA다. 피봇·PPU는 PNG 단계에서 미설정이다. Assets 쓰기와 Unity 연결은 이번 범위에서 제외했다.
 
-열 순서: neutral → happy → anxious → angry → shocked → sad → relieved. 3명×7개의 정지 표정이며 8방향 애니메이션이 아니다. 표정별 게임 재생 시간은 정하지 않았다.
+표정/미리보기 열 순서: neutral, happy, anxious, angry, shocked, sad, relieved. 3명×7개의 정지 표정 대체 이미지이며 8방향 애니메이션이 아니다. 반복·총 재생 시간·게임 입력·전환 조건은 설정하지 않았다.
 
-## 숫자 검수
+## 검증
 
-bbox 원점은 왼쪽 위, 끝 좌표 포함. 알파 32 미만 제거 후 알파>0의 bbox다. 같은 인물 7장 모두 왼쪽 x·머리 꼭대기 y 편차 0px. 전체 알파 및 얼굴 합성 마스크 밖 RGBA 변경도 0픽셀.
+- scholar: 7장, 머리 꼭대기/왼쪽 경계 편차 0/0px, 눈선 근/원 편차 5/0px, 흰색 후보 최대 0.040807%.
+- elf: 7장, 머리 꼭대기/왼쪽 경계 편차 0/0px, 눈선 근/원 편차 5.5/9.5px, 흰색 후보 최대 0.024012%.
+- fairy: 7장, 머리 꼭대기/왼쪽 경계 편차 0/0px, 눈선 근/원 편차 8.5/9.5px, 흰색 후보 최대 0.053530%.
 
-흰색 후보: alpha≥200, RGB 모두≥244, max(R,G,B)-min(R,G,B)≤10. 분모는 alpha≥200 픽셀 수. 전부 1% 미만(0.004516~0.053841%).
+- 21장 모두 8연결 성분 1개, 분리 잔점 0. 숨은 RGB 0, 알파 1~31 픽셀 0, 캔버스 접촉 0.
+- 인물별 전체 알파 및 얼굴 합성 영역 밖 RGBA 차이 0픽셀. 몸·의상·머리 외곽·날개와 구도를 고정했다. 표정별 최종 PNG 해시가 모두 다름을 확인했다.
+- 흰색 후보는 알파≥200, RGB 모두≥244, max-min≤10. 분모는 알파≥200 픽셀 수. 전부 1% 미만이며 밝은 의상·날개 무늬는 보존했다.
+- 기존 Assets .meta 495개 중 495개 유지, 변경 0개, 삭제 0개, 외부 신규 관찰 29개. 본 작업은 Assets에 쓰지 않았다.
+- 얼굴 확대와 7장 나란히 보기에서 평상·기쁨·불안·분노·놀람·슬픔·안도를 육안 대조했다. 흰색·어두운색·여관 배경과 원본 전신 비교를 보관한다. 사용자 외형·표정 강도 승인은 남아 있다.
 
-| 파일 | bbox (x0,y0,x1,y1) | 머리 y | 왼쪽 x | 흰색 후보 % |
-|---|---|---:|---:|---:|
-| face_scholar_neutral.png | (36, 101, 783, 950) | 101 | 36 | 0.005645 |
-| face_scholar_happy.png | (36, 101, 783, 950) | 101 | 36 | 0.004516 |
-| face_scholar_anxious.png | (36, 101, 783, 950) | 101 | 36 | 0.004516 |
-| face_scholar_angry.png | (36, 101, 783, 950) | 101 | 36 | 0.004516 |
-| face_scholar_shocked.png | (36, 101, 783, 950) | 101 | 36 | 0.004516 |
-| face_scholar_sad.png | (36, 101, 783, 950) | 101 | 36 | 0.005363 |
-| face_scholar_relieved.png | (36, 101, 783, 950) | 101 | 36 | 0.004799 |
-| face_elf_neutral.png | (33, 66, 789, 855) | 66 | 33 | 0.013492 |
-| face_elf_happy.png | (33, 66, 789, 855) | 66 | 33 | 0.023783 |
-| face_elf_anxious.png | (33, 66, 789, 855) | 66 | 33 | 0.037275 |
-| face_elf_angry.png | (33, 66, 789, 855) | 66 | 33 | 0.019209 |
-| face_elf_shocked.png | (33, 66, 789, 855) | 66 | 33 | 0.039105 |
-| face_elf_sad.png | (33, 66, 789, 855) | 66 | 33 | 0.008004 |
-| face_elf_relieved.png | (33, 66, 789, 855) | 66 | 33 | 0.006403 |
-| face_fairy_neutral.png | (38, 108, 781, 964) | 108 | 38 | 0.034358 |
-| face_fairy_happy.png | (38, 108, 781, 964) | 108 | 38 | 0.042319 |
-| face_fairy_anxious.png | (38, 108, 781, 964) | 108 | 38 | 0.053841 |
-| face_fairy_angry.png | (38, 108, 781, 964) | 108 | 38 | 0.030377 |
-| face_fairy_shocked.png | (38, 108, 781, 964) | 108 | 38 | 0.035615 |
-| face_fairy_sad.png | (38, 108, 781, 964) | 108 | 38 | 0.033101 |
-| face_fairy_relieved.png | (38, 108, 781, 964) | 108 | 38 | 0.028911 |
+## 21장 알파 bbox 좌표표
 
-각 장 연결 성분 1개(본체), 분리 잡성분 0개, 숨은 RGB 0픽셀, 캔버스 접촉 0픽셀, alpha1~31 0픽셀. 넓은 내부 불투명과 가장자리 안티앨리어싱을 보존했다.
+왼쪽 위 원점, bbox 끝 좌표 포함. 편차는 같은 인물 neutral 대비다. 머리 꼭대기와 왼쪽 x의 인물별 최대-최소도 모두 0px다.
 
-눈선 수치는 verification.json과 alignment_table.csv에 기록했다. 검출창은 v1과 다른 인물별 창이며 R<150,G<110,B<110 조건을 사용한다. 안경·속눈썹·감은 눈꺼풀이 수치에 포함되어 실제 머리 이동을 뜻하지 않는다. 정렬 통과 수치는 요청한 머리 꼭대기·왼쪽 x 편차이며, 눈선 수치를 v1의 해부학적 눈 위치와 직접 비교하지 않는다.
+| 인물 / 표정 | 알파 bbox (끝 포함) | 머리 위 y | 왼쪽 x 편차 | 머리 위 y 편차 | 흰색 후보 비율 |
+|---|---|---:|---:|---:|---:|
+| scholar / neutral | (37, 74, 783, 835) | 74 | 0px | 0px | 0.020704% |
+| scholar / happy | (37, 74, 783, 835) | 74 | 0px | 0px | 0.024604% |
+| scholar / anxious | (37, 74, 783, 835) | 74 | 0px | 0px | 0.020704% |
+| scholar / angry | (37, 74, 783, 835) | 74 | 0px | 0px | 0.020704% |
+| scholar / shocked | (37, 74, 783, 835) | 74 | 0px | 0px | 0.040807% |
+| scholar / sad | (37, 74, 783, 835) | 74 | 0px | 0px | 0.020404% |
+| scholar / relieved | (37, 74, 783, 835) | 74 | 0px | 0px | 0.020404% |
+| elf / neutral | (33, 66, 789, 855) | 66 | 0px | 0px | 0.013492% |
+| elf / happy | (33, 66, 789, 855) | 66 | 0px | 0px | 0.024012% |
+| elf / anxious | (33, 66, 789, 855) | 66 | 0px | 0px | 0.017609% |
+| elf / angry | (33, 66, 789, 855) | 66 | 0px | 0px | 0.009605% |
+| elf / shocked | (33, 66, 789, 855) | 66 | 0px | 0px | 0.023326% |
+| elf / sad | (33, 66, 789, 855) | 66 | 0px | 0px | 0.007318% |
+| elf / relieved | (33, 66, 789, 855) | 66 | 0px | 0px | 0.008690% |
+| fairy / neutral | (53, 108, 772, 799) | 108 | 0px | 0px | 0.043152% |
+| fairy / happy | (53, 108, 772, 799) | 108 | 0px | 0px | 0.053530% |
+| fairy / anxious | (53, 108, 772, 799) | 108 | 0px | 0px | 0.049160% |
+| fairy / angry | (53, 108, 772, 799) | 108 | 0px | 0px | 0.037963% |
+| fairy / shocked | (53, 108, 772, 799) | 108 | 0px | 0px | 0.037689% |
+| fairy / sad | (53, 108, 772, 799) | 108 | 0px | 0px | 0.038782% |
+| fairy / relieved | (53, 108, 772, 799) | 108 | 0px | 0px | 0.036051% |
 
-## 미리보기
+## 제작 및 정렬
 
-- PortraitFaces_preview.png: 세 인물×일곱 표정 전체 비교.
-- previews/{인물}_dark_preview.png, {인물}_white_preview.png: #141014·흰색 배경, 7장 나란히.
-- previews/{인물}_seven_overlay.png: 일곱 장 평균 겹침.
-- previews/tavern_all_preview.png: 기준 여관 배경 위 21장.
-- previews/fullbody_comparison.png: 요청한 원본 전신과 새 상반신 비교.
-- review.html: 개별 표정 및 700ms 교체(검수용 4.9초 반복; 게임 시간 규칙 아님).
+인물별 기준 원화를 aligned/*_neutral_base.png에 동결한 뒤 생성된 실제 표정을 얼굴 마스크 안에만 합성했다. 새 눈·입을 코드로 그리지 않았다. 얼굴 마스크는 lock-expression.mjs, 실제 채택 원본과 변환은 sources/ 및 aligned/, alignment_transforms.json에 보관한다. 학자 불안·분노의 초기 구도가 달라 재생성한 *_fix 원본을 사용했다. 학자 기준 캔버스 환산 혼용과 중간 합성 경계 차이는 최종 일괄 조립에서 수정했다.
 
-## 제작·보존 이력
+기본 학자·엘프 상반신은 생성 원본 전체를 760×802로 환산하여 (30,60)에 배치했다. 페어리는 꽃 장식의 해부학적 왼쪽 위치를 이미지 도구로 보완했다. 페어리의 추가 가슴 구도 편집은 이미지 도구로 만들고, y≥650 영역의 하단 알파만 7표정에 동일 적용하여 기존 얼굴과 상단 날개를 보존했다. 전신 원본 크롭이 아니다. 해당 적용 코드는 crop-fairy.mjs다.
 
-기본 제공 image_gen을 사용했다. 모든 표정은 생성 도구로 새로 그렸고, 코드로 눈·입을 그리거나 표정을 변형하지 않았다. 생성 표정을 공통 캔버스에 정렬한 뒤 얼굴 영역 RGB만 7px 경계 혼합으로 합성했다. 전체 알파와 머리·몸·의상 바깥 영역은 인물별 평상 원화와 같다.
+표정 원본은 820×1080으로 환산했다. 안도는 눈·코·턱 대조와 눈선 기준에 맞춰 엘프 (0,-1px), 페어리 (0,-4px)의 강체 이동을 적용했다. 프레임마다 몸이나 머리 외곽을 이동시킨 처리가 아니다. 머리와 몸은 고정 원화이며 새 표정 작화만 합성했다.
 
-generation_prompts.json은 기존 공유 작업의 프롬프트와 이번 생성·교정 프롬프트 전문을 함께 보존한다. generation_current/에는 최종 채택 생성 원본, generation_sources.json에는 해시가 있다. locked_bases/는 최종 고정 원화다. face_masks.json과 rebuild-current.mjs로 최종 합성을 재현한다.
+눈선은 v1과 동일한 어두운 픽셀 bbox 중앙 y 방식이다. 검출창은 인물별 눈 위치에 맞춰 별도 정의했고 verification.json과 previews/*_eye_windows.png에 남겼다. 감은 눈꺼풀의 이동도 포함하므로 해부학적 눈 중심이나 머리 이동 자체와 같지 않다.
 
-작업 중 같은 Outputs 폴더의 평상·기쁨 파일 등이 다른 구도로 변경되는 상황을 감지했다. 현재본을 preserved_existing/에 보존하고, 최종은 독립 verified_delivery/에서 구성·검증한 뒤 루트에 배치했다. 엘프 기준 원화는 실제 초반 네 표정이 참조했던 기존 생성본을 채택했다. 구도가 섞인 엘프 sad/relieved 및 페어리 angry/shocked는 고정 원화를 참조해 재생성했으며 잘못된 중간본은 *_rejected.png로 남겼다. 중간 세로 정렬 보정 시도는 최종에 적용하지 않았다.
+## 미리보기와 재현
 
-검증·보존본은 face_ 접두사를 피하여 재귀 임포터가 중복 묶음을 만들지 않도록 했다. 루트의 정확한 face_*.png 21장만 납품 대상이다.
+- PortraitFaces_preview.png: 위부터 scholar, elf, fairy, 각 7장.
+- *_dark_preview.png / *_white_preview.png / *_tavern_preview.png: 배경별 7장 나란히 보기.
+- previews/*_faces_detail.png: 표정 7종 얼굴 확대.
+- *_seven_overlay.png: 동일 위치 7장 평균 겹침.
+- *_source_comparison.png: 왼쪽 제공 원본 전신, 오른쪽 새 상반신.
+- previews/의 raw·pair·sources 이미지는 제작 중 진단 자료이며 최종 납품 PNG가 아니다.
 
-before.json은 기존 시작 기록, before_current.json은 이번 세션 시작 기록이다. 기존 Assets 메타 495개 해시 유지, 변경 0개. 검사 중 Materials/CharacterShadow.mat.meta, Materials.meta, UI/Images/character_shadow.png.meta 3개가 외부에서 추가된 것을 관측했다. 본 작업은 Assets에 쓰지 않았고 해당 추가 파일을 건드리지 않았다.
+rebuild.mjs의 rebuild(id)는 동결된 최종 기준 원화와 생성 원본에서 표정을 조립한다. verify.mjs의 verifyCharacter(id)는 픽셀 전수 검증과 기본 미리보기를 만든다. extra-previews.mjs의 extra(id)는 여관·전신 비교를 만든다. finalize.mjs의 finish()는 보고와 21행 좌표표를 작성한다. 생성 프롬프트 전문 27건, 원본 해시·기록 시간, before/after, staging, 검증 JSON을 함께 보관한다.
 
-## 문서 갱신·주의
-
-기존 Documents/Codex/Underwrite_대화용_상반신_표정_제작기준.md에 v2 좌표와 고정 참조본 보관 지침을 추가했다. 상시 지시서 요약의 Assets 배치 일반 규칙보다 이번 요청의 Outputs 전용·PNG까지 범위를 우선했다.
-
-사용자 시각 승인이 남아 있다. 의상·장식의 새 상반신 해석과 표정 강도는 전신 비교 및 미리보기로 검토한다. Unity 임포트·피봇·PPU·게임 내 표시 검증은 요청 범위 밖이다.
+기존 제작 기준 문서 Documents/Codex/Underwrite_대화용_상반신_표정_제작기준.md에 v2 범위·좌표·정렬 및 동결 원화 주의 사항을 추가했다. 상위 아트 규칙·기획서·상시 지시서는 수정하지 않았다. 최신 사용자 요청의 Outputs/PNG 범위를 적용했으며 정지 표정 작업에 8방향 연결을 추가하지 않았다.

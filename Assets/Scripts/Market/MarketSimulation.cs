@@ -160,6 +160,45 @@ namespace Underwrite.Market
             return notes.Count;
         }
 
+        /// <summary>
+        /// 플레이어가 쉬기로 한 장을 실제로 치른다. 기획서 §11 — 장에 나가는 것은 선택이다.
+        ///
+        /// **쉰다는 것은 시장이 멈춘다는 뜻이 아니다.** 그 장도 열리고 닫힌다.
+        /// 가격이 움직이고, 소식이 돌고, 주기가 넘어가면 상장과 이탈이 일어난다.
+        /// 플레이어만 그 자리에 없을 뿐이다. 그래야 "오늘 쉰 대가"가 생긴다.
+        ///
+        /// 정보 타임도 지나간다. 다만 대화로 전해 줄 사람이 없으므로 연출은 건너뛴다.
+        /// 소식 자체는 <see cref="InfoEntries"/>에 남아 정보 기록에서 볼 수 있다.
+        /// 현장에서 듣는 것은 놓치되 기록은 남는 셈이다.
+        ///
+        /// 걸어 둔 지정가 주문은 그대로 일한다. 쉬는 것은 플레이어이지 주문이 아니다.
+        /// 다만 폐장 때 남은 것은 평소와 같이 정리된다.
+        /// </summary>
+        /// <returns>치른 장의 수.</returns>
+        public int RunSkippedSessions(bool isInspectionDay)
+        {
+            var count = Clock.SkippedSessions;
+
+            if (count <= 0)
+            {
+                return 0;
+            }
+
+            for (var i = 0; i < count; i++)
+            {
+                OpenNextSession(isInspectionDay);
+                SkipToClose();
+                EndSessionAndRoll();
+            }
+
+            // 연출을 띄울 사람이 없었다. 쌓인 보고는 내려놓는다.
+            HasBriefing = false;
+            Briefing.Clear();
+
+            Clock.ClearSkippedSessions();
+            return count;
+        }
+
         /// <summary>보고를 읽었다. 장이 다시 움직인다.</summary>
         public void AcknowledgeBriefing()
         {

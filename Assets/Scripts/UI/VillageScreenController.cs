@@ -152,6 +152,42 @@ namespace Underwrite.UI
                     }
                 };
             }
+
+            var rest = Root.Q<Button>("village-rest");
+
+            if (rest != null)
+            {
+                rest.clicked += ToggleRest;
+            }
+        }
+
+        /// <summary>
+        /// 오늘 장에 나가지 않기로 한다. 기획서 §11 — 장에 나가는 것은 선택이다.
+        ///
+        /// 쉬면 그 장이 열리고 닫히는 동안의 시간이 통째로 영지의 것이 된다.
+        /// 거래로 벌 수 있었던 하루를, 정보와 종잣돈으로 바꾸는 것이다.
+        ///
+        /// 아직 그 시간을 쓰지 않았다면 다시 눌러 무를 수 있다.
+        /// 이미 써 버린 뒤에는 무를 수 없다. 시간을 빚질 수는 없기 때문이다.
+        /// </summary>
+        private void ToggleRest()
+        {
+            if (Clock == null)
+            {
+                return;
+            }
+
+            if (Clock.SkippedSessions > 0)
+            {
+                if (Clock.UndoSkippedSession() == false)
+                {
+                    UnderwriteLog.Info("이미 쓴 시간이 있어 쉬기를 무를 수 없습니다.");
+                }
+
+                return;
+            }
+
+            Clock.SkipNextSession();
         }
 
         private void OnEnter(VillageSpot spot)
@@ -182,8 +218,20 @@ namespace Underwrite.UI
             var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
             var hour = Clock == null ? 0 : Clock.BreakHour;
             var minute = Clock == null ? 0 : Clock.BreakMinute;
-            SetText("village-visits",
-                $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분");
+            var resting = Clock != null && Clock.SkippedSessions > 0;
+
+            SetText("village-visits", resting == true
+                ? $"{hour:00}:{minute:00} · 오늘 장을 쉽니다 · 다음 장까지 {left / 60}시간 {left % 60}분"
+                : $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분");
+
+            var rest = Root.Q<Button>("village-rest");
+
+            if (rest != null)
+            {
+                // 누르면 무엇이 되는지를 단추가 말한다. 상태를 따로 읽게 하지 않는다.
+                rest.text = resting == true ? "장 쉬기 취소" : "오늘 장 쉬기";
+                rest.EnableInClassList("village-rest--on", resting);
+            }
 
             if (Here == null)
             {

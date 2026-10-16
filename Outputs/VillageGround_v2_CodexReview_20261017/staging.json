@@ -1,0 +1,109 @@
+{
+  "requested": "Outputs/VillageGround_v2/",
+  "actual": "Outputs/VillageGround_v2_CodexReview_20261017/",
+  "assetsWritten": false,
+  "unity": false,
+  "status": "draft; requested path blocked by concurrent writer",
+  "files": [
+    "village_ground.png",
+    "village_walkable.png"
+  ],
+  "anchors": [
+    {
+      "name": "tavern",
+      "source": [
+        311,
+        558
+      ],
+      "pixel": [
+        714,
+        1281
+      ],
+      "component": 1,
+      "crop": [
+        0,
+        631
+      ]
+    },
+    {
+      "name": "guild",
+      "source": [
+        1305,
+        346
+      ],
+      "pixel": [
+        2997,
+        794
+      ],
+      "component": 1,
+      "crop": [
+        1920,
+        144
+      ]
+    },
+    {
+      "name": "board",
+      "source": [
+        834,
+        811
+      ],
+      "pixel": [
+        1915,
+        1862
+      ],
+      "component": 1,
+      "crop": [
+        955,
+        1080
+      ]
+    },
+    {
+      "name": "forge",
+      "source": [
+        1365,
+        620
+      ],
+      "pixel": [
+        3135,
+        1423
+      ],
+      "component": 1,
+      "crop": [
+        1920,
+        773
+      ]
+    },
+    {
+      "name": "manor",
+      "source": [
+        839,
+        328
+      ],
+      "pixel": [
+        1927,
+        753
+      ],
+      "component": 1,
+      "crop": [
+        967,
+        103
+      ]
+    },
+    {
+      "name": "underground",
+      "source": [
+        139,
+        789
+      ],
+      "pixel": [
+        319,
+        1811
+      ],
+      "component": 1,
+      "crop": [
+        0,
+        1080
+      ]
+    }
+  ]
+}

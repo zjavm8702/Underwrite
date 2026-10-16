@@ -1,191 +1,580 @@
 {
-  "time": "2026-10-16T15:35:34.505Z",
-  "status": "draft awaiting visual approval; PNG deliverables complete",
-  "size": [
-    3840,
-    2160
-  ],
-  "ground": {
-    "alphaMin": 255,
-    "alphaMax": 255,
-    "transparentPixels": 0,
-    "hiddenRGBPixels": 0,
-    "opaquePixels": 8294400,
-    "alphaComponents": 1,
-    "alphaDetachedComponents": 0
-  },
-  "mask": {
-    "alphaMin": 255,
-    "alphaMax": 255,
-    "transparentPixels": 0,
-    "hiddenRGBPixels": 0,
-    "opaquePixels": 8294400,
-    "alphaComponents": 1,
-    "alphaDetachedComponents": 0,
-    "values": [
-      0,
-      255
-    ],
-    "whiteMeansWalkable": true,
-    "walkablePixels": 3454241,
-    "walkablePercent": 41.64545958719136,
-    "components": [
-      3454241
-    ],
-    "isolatedPixelsRemoved": 2294,
-    "anchors": [
-      {
-        "name": "tavern",
-        "x": 855,
-        "y": 895,
-        "crop": [
-          0,
-          250
+  "status": "시안: PNG 제작·검수 완료, 사용자 시각 승인 전",
+  "dateKST": "2026-10-17",
+  "completedUTC": "2026-10-16T15:50:25.188Z",
+  "deliverables": {
+    "ground": {
+      "path": "village_ground.png",
+      "width": 3840,
+      "height": 2160,
+      "nonOpaque": 0,
+      "hiddenRGB": 0,
+      "nonBinaryOrNonGray": 8294262,
+      "alphaComponents": 1,
+      "alphaDetachedComponents": 0,
+      "opaquePixels": 8294400,
+      "canvasContact": "intentional full-bleed; six destinations not clipped",
+      "sha256": "ba424e495d6c944511f0b879fd8ce31e5b9a591a46f30d84e7f7e8ef6674e8b6"
+    },
+    "walkable": {
+      "path": "village_walkable.png",
+      "width": 3840,
+      "height": 2160,
+      "nonOpaque": 0,
+      "hiddenRGB": 0,
+      "nonBinaryOrNonGray": 0,
+      "alphaComponents": 1,
+      "alphaDetachedComponents": 0,
+      "whiteMeansWalkable": true,
+      "values": [
+        0,
+        255
+      ],
+      "walkablePixels": 3496931,
+      "walkablePercent": 42.160144193672835,
+      "walkableComponents": 1,
+      "reachablePixelsFromTavern": 3496931,
+      "allSixDoorPointsReached": true,
+      "doorPoints": [
+        {
+          "name": "tavern",
+          "xy": [
+            767,
+            675
+          ],
+          "reached": true
+        },
+        {
+          "name": "manor",
+          "xy": [
+            1918,
+            613
+          ],
+          "reached": true
+        },
+        {
+          "name": "guild",
+          "xy": [
+            3114,
+            725
+          ],
+          "reached": true
+        },
+        {
+          "name": "smith",
+          "xy": [
+            579,
+            1513
+          ],
+          "reached": true
+        },
+        {
+          "name": "board",
+          "xy": [
+            2974,
+            1481
+          ],
+          "reached": true
+        },
+        {
+          "name": "underworld",
+          "xy": [
+            269,
+            1816
+          ],
+          "reached": true
+        }
+      ],
+      "isolatedNativePixelsRemoved": 190,
+      "widthTest": {
+        "method": "exact squared Euclidean distance transform; keep distance>=81 output px, 4-neighbor flood fill among six street approach points (door thresholds tested separately)",
+        "minimumDiameterPx": 162,
+        "points": [
+          {
+            "name": "tavern",
+            "xy": [
+              767,
+              803
+            ],
+            "reached": true
+          },
+          {
+            "name": "manor",
+            "xy": [
+              1918,
+              712
+            ],
+            "reached": true
+          },
+          {
+            "name": "guild",
+            "xy": [
+              3114,
+              861
+            ],
+            "reached": true
+          },
+          {
+            "name": "smith",
+            "xy": [
+              579,
+              1584
+            ],
+            "reached": true
+          },
+          {
+            "name": "board",
+            "xy": [
+              2974,
+              1584
+            ],
+            "reached": true
+          },
+          {
+            "name": "underworld",
+            "xy": [
+              517,
+              1813
+            ],
+            "reached": true
+          }
         ],
-        "walkable": true
+        "allReached": true
       },
-      {
-        "name": "guild",
-        "x": 3090,
-        "y": 925,
-        "crop": [
-          1920,
-          260
-        ],
-        "walkable": true
-      },
-      {
-        "name": "board",
-        "x": 1920,
-        "y": 1830,
-        "crop": [
-          960,
-          1080
-        ],
-        "walkable": true
-      }
-    ],
-    "allEdgesBlocked": true,
-    "projectedSilhouetteConservative": true,
-    "actualValues": [
-      0,
-      255
-    ],
-    "edgeWalkablePixels": 0
+      "sha256": "dde72e8a282fb609be62d5d22ba81620f0c08158448db942bb712d51c683974e"
+    }
   },
   "measurements": {
-    "method": "Manual visible horizontal-plane boundary measurement on source, excluding vertical bevel/lip, tabletop thickness, well masonry wall, chimneys and gable fronts. Coordinates top-left, x/y continuous pixel boundary; estimated source tolerance about1px. Exact same full-frame bilinear resize for output, no perspective warp.",
-    "sourceSize": [
-      1672,
-      941
-    ],
-    "outputSize": [
-      3840,
-      2160
-    ],
-    "roundTops": [
+    "coordinateSystem": "source pixels, top-left; output factors x=3840/1672, y=2160/941; manually marked visible landmarks, 1–2px uncertainty",
+    "circularTops": [
       {
-        "name": "tavern_round_table",
+        "name": "tavern round table",
         "bbox": [
-          178,
-          322,
-          228,
-          348
+          231,
+          261,
+          274,
+          282
         ],
-        "width": 50,
-        "height": 26,
-        "ratio": 0.52,
-        "pass": true,
-        "outputBbox": [
-          408.8038277511962,
-          739.1285866099894,
-          523.6363636363636,
-          798.8097768331562
-        ]
+        "width": 43,
+        "height": 21,
+        "ratio": 0.4883720930232558,
+        "outputRatio": 0.48811259669327534
       },
       {
-        "name": "inn_upright_barrel_lid",
+        "name": "central well outer horizontal rim",
         "bbox": [
-          161,
-          258,
-          185,
-          271
+          800,
+          405,
+          876,
+          443
         ],
-        "width": 24,
-        "height": 13,
-        "ratio": 0.5416666666666666,
-        "pass": true,
-        "outputBbox": [
-          369.7607655502392,
-          592.221041445271,
-          424.88038277511964,
-          622.0616365568544
-        ]
+        "width": 76,
+        "height": 38,
+        "ratio": 0.5,
+        "outputRatio": 0.4997343251859724
       },
       {
-        "name": "central_well_stone_rim_horizontal_plane",
+        "name": "smith water tub horizontal lip",
         "bbox": [
-          775,
-          412,
-          898,
-          475
+          328,
+          590,
+          366,
+          609
         ],
-        "width": 123,
-        "height": 63,
-        "ratio": 0.5121951219512195,
-        "pass": true,
-        "outputBbox": [
-          1779.9043062200956,
-          945.7173219978746,
-          2062.3923444976076,
-          1090.3294367693943
-        ]
+        "width": 38,
+        "height": 19,
+        "ratio": 0.5,
+        "outputRatio": 0.4997343251859724
       }
     ],
     "buildings": [
       {
-        "name": "inn",
-        "sampleX": 440,
-        "ridgeY": 142,
-        "eaveY": 190,
-        "groundY": 326,
-        "wall": 136,
-        "roof": 48,
-        "ratio": 2.8333333333333335,
-        "pass": true
+        "name": "tavern main",
+        "x": 300,
+        "ridge": 132,
+        "eave": 161,
+        "ground": 263,
+        "wallRoofRatio": 3.5172413793103448
+      },
+      {
+        "name": "tavern left wing",
+        "x": 160,
+        "ridge": 139,
+        "eave": 158,
+        "ground": 238,
+        "wallRoofRatio": 4.2105263157894735
+      },
+      {
+        "name": "tavern right wing",
+        "x": 421,
+        "ridge": 156,
+        "eave": 174,
+        "ground": 260,
+        "wallRoofRatio": 4.777777777777778
+      },
+      {
+        "name": "manor main",
+        "x": 740,
+        "ridge": 57,
+        "eave": 103,
+        "ground": 211,
+        "wallRoofRatio": 2.347826086956522
+      },
+      {
+        "name": "manor left wing",
+        "x": 674,
+        "ridge": 83,
+        "eave": 111,
+        "ground": 211,
+        "wallRoofRatio": 3.5714285714285716
+      },
+      {
+        "name": "manor right wing",
+        "x": 1000,
+        "ridge": 84,
+        "eave": 114,
+        "ground": 210,
+        "wallRoofRatio": 3.2
+      },
+      {
+        "name": "guild main",
+        "x": 1305,
+        "ridge": 135,
+        "eave": 180,
+        "ground": 280,
+        "wallRoofRatio": 2.2222222222222223
+      },
+      {
+        "name": "smith main",
+        "x": 260,
+        "ridge": 480,
+        "eave": 513,
+        "ground": 616,
+        "wallRoofRatio": 3.121212121212121
+      },
+      {
+        "name": "smith attached lean-to",
+        "x": 370,
+        "ridge": 517,
+        "eave": 542,
+        "ground": 608,
+        "wallRoofRatio": 2.64
+      },
+      {
+        "name": "market noticeboard",
+        "x": 1294,
+        "ridge": 526,
+        "eave": 549,
+        "ground": 620,
+        "wallRoofRatio": 3.0869565217391304
+      },
+      {
+        "name": "NW residence1",
+        "x": 249,
+        "ridge": 83,
+        "eave": 102,
+        "ground": 151,
+        "wallRoofRatio": 2.5789473684210527
+      },
+      {
+        "name": "NW residence2",
+        "x": 369,
+        "ridge": 107,
+        "eave": 122,
+        "ground": 163,
+        "wallRoofRatio": 2.7333333333333334
+      },
+      {
+        "name": "NW residence3",
+        "x": 489,
+        "ridge": 105,
+        "eave": 123,
+        "ground": 176,
+        "wallRoofRatio": 2.9444444444444446
+      },
+      {
+        "name": "NW residence4",
+        "x": 558,
+        "ridge": 91,
+        "eave": 109,
+        "ground": 173,
+        "wallRoofRatio": 3.5555555555555554
+      },
+      {
+        "name": "NE residence1",
+        "x": 1090,
+        "ridge": 105,
+        "eave": 121,
+        "ground": 174,
+        "wallRoofRatio": 3.3125
+      },
+      {
+        "name": "NE residence2",
+        "x": 1179,
+        "ridge": 91,
+        "eave": 115,
+        "ground": 175,
+        "wallRoofRatio": 2.5
+      },
+      {
+        "name": "NE residence3",
+        "x": 1444,
+        "ridge": 96,
+        "eave": 116,
+        "ground": 165,
+        "wallRoofRatio": 2.45
+      },
+      {
+        "name": "NE residence3 side wing",
+        "x": 1488,
+        "ridge": 126,
+        "eave": 146,
+        "ground": 210,
+        "wallRoofRatio": 3.2
+      },
+      {
+        "name": "south residence1",
+        "x": 580,
+        "ridge": 742,
+        "eave": 767,
+        "ground": 856,
+        "wallRoofRatio": 3.56
+      },
+      {
+        "name": "south residence2",
+        "x": 675,
+        "ridge": 757,
+        "eave": 779,
+        "ground": 856,
+        "wallRoofRatio": 3.5
+      },
+      {
+        "name": "south residence3",
+        "x": 758,
+        "ridge": 746,
+        "eave": 772,
+        "ground": 856,
+        "wallRoofRatio": 3.230769230769231
+      },
+      {
+        "name": "south residence4",
+        "x": 854,
+        "ridge": 749,
+        "eave": 775,
+        "ground": 856,
+        "wallRoofRatio": 3.1153846153846154
+      },
+      {
+        "name": "south residence5",
+        "x": 913,
+        "ridge": 749,
+        "eave": 778,
+        "ground": 856,
+        "wallRoofRatio": 2.689655172413793
+      },
+      {
+        "name": "south residence6",
+        "x": 985,
+        "ridge": 749,
+        "eave": 772,
+        "ground": 856,
+        "wallRoofRatio": 3.652173913043478
+      },
+      {
+        "name": "south residence7",
+        "x": 1035,
+        "ridge": 756,
+        "eave": 775,
+        "ground": 856,
+        "wallRoofRatio": 4.2631578947368425
+      },
+      {
+        "name": "south residence8",
+        "x": 1140,
+        "ridge": 745,
+        "eave": 775,
+        "ground": 856,
+        "wallRoofRatio": 2.7
+      },
+      {
+        "name": "west edge residence",
+        "x": 46,
+        "ridge": 447,
+        "eave": 490,
+        "ground": 623,
+        "wallRoofRatio": 3.0930232558139537
+      }
+    ],
+    "excludedStructures": [
+      "underground entrance: stone arch/stairs, no pitched roof",
+      "castle walls and gate: fortification, not roofed destination",
+      "cloth stalls: non-building tent canopies; blocked in collision mask"
+    ]
+  },
+  "composite": {
+    "source": "Assets/UI/Images/Heroes/protagonist.png",
+    "original": [
+      495,
+      1483
+    ],
+    "display": [
+      45,
+      135
+    ],
+    "camera": [
+      1920,
+      1080
+    ],
+    "heightFraction": 0.125,
+    "feet": [
+      {
+        "name": "tavern",
+        "xy": [
+          767,
+          675
+        ]
+      },
+      {
+        "name": "manor",
+        "xy": [
+          1918,
+          613
+        ]
       },
       {
         "name": "guild",
-        "sampleX": 1431,
-        "ridgeY": 137,
-        "eaveY": 202,
-        "groundY": 343,
-        "wall": 141,
-        "roof": 65,
-        "ratio": 2.169230769230769,
-        "pass": true
+        "xy": [
+          3114,
+          725
+        ]
       },
       {
-        "name": "market_noticeboard",
-        "sampleX": 916,
-        "ridgeY": 617,
-        "eaveY": 647,
-        "groundY": 727,
-        "wall": 80,
-        "roof": 30,
-        "ratio": 2.6666666666666665,
-        "pass": true
+        "name": "smith",
+        "xy": [
+          579,
+          1513
+        ]
+      },
+      {
+        "name": "board",
+        "xy": [
+          2974,
+          1481
+        ]
+      },
+      {
+        "name": "underworld",
+        "xy": [
+          269,
+          1816
+        ]
       }
-    ]
+    ],
+    "crops": [
+      {
+        "name": "tavern",
+        "crop": [
+          0,
+          75,
+          1920,
+          1080
+        ]
+      },
+      {
+        "name": "manor",
+        "crop": [
+          958,
+          13,
+          1920,
+          1080
+        ]
+      },
+      {
+        "name": "guild",
+        "crop": [
+          1920,
+          125,
+          1920,
+          1080
+        ]
+      },
+      {
+        "name": "smith",
+        "crop": [
+          0,
+          913,
+          1920,
+          1080
+        ]
+      },
+      {
+        "name": "board",
+        "crop": [
+          1920,
+          881,
+          1920,
+          1080
+        ]
+      },
+      {
+        "name": "underworld",
+        "crop": [
+          0,
+          1080,
+          1920,
+          1080
+        ]
+      }
+    ],
+    "visualResult": "Six feet on visible paving/steps; no artificial contact shadows added. Final visual approval pending."
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "calls": 5,
+    "selected": "source/generation_05.png",
+    "native": [
+      1672,
+      941
+    ],
+    "output": [
+      3840,
+      2160
+    ],
+    "resize": "whole-image bilinear, no crop, no native 4K claim"
   },
   "meta": {
-    "beforeCount": 498,
-    "afterCount": 498,
-    "preserved": 498,
+    "before": 498,
+    "after": 522,
+    "unchanged": 498,
     "changed": [],
-    "deleted": [],
-    "added": [],
-    "before": {
+    "removed": [],
+    "added": [
+      "Assets/Data/Portraits/elf.asset.meta",
+      "Assets/Data/Portraits/fairy.asset.meta",
+      "Assets/Data/Portraits/scholar.asset.meta",
+      "Assets/UI/Images/Faces/face_elf_angry.png.meta",
+      "Assets/UI/Images/Faces/face_elf_anxious.png.meta",
+      "Assets/UI/Images/Faces/face_elf_happy.png.meta",
+      "Assets/UI/Images/Faces/face_elf_neutral.png.meta",
+      "Assets/UI/Images/Faces/face_elf_relieved.png.meta",
+      "Assets/UI/Images/Faces/face_elf_sad.png.meta",
+      "Assets/UI/Images/Faces/face_elf_shocked.png.meta",
+      "Assets/UI/Images/Faces/face_fairy_angry.png.meta",
+      "Assets/UI/Images/Faces/face_fairy_anxious.png.meta",
+      "Assets/UI/Images/Faces/face_fairy_happy.png.meta",
+      "Assets/UI/Images/Faces/face_fairy_neutral.png.meta",
+      "Assets/UI/Images/Faces/face_fairy_relieved.png.meta",
+      "Assets/UI/Images/Faces/face_fairy_sad.png.meta",
+      "Assets/UI/Images/Faces/face_fairy_shocked.png.meta",
+      "Assets/UI/Images/Faces/face_scholar_angry.png.meta",
+      "Assets/UI/Images/Faces/face_scholar_anxious.png.meta",
+      "Assets/UI/Images/Faces/face_scholar_happy.png.meta",
+      "Assets/UI/Images/Faces/face_scholar_neutral.png.meta",
+      "Assets/UI/Images/Faces/face_scholar_relieved.png.meta",
+      "Assets/UI/Images/Faces/face_scholar_sad.png.meta",
+      "Assets/UI/Images/Faces/face_scholar_shocked.png.meta"
+    ],
+    "beforeHashes": {
       "Assets/Animations/Clib/Cheer/Cheer_E.anim.meta": "e71aff033d583ca381a28007f699dcb76461ab970154fd6f274c74f9b3f6a2b6",
       "Assets/Animations/Clib/Cheer/Cheer_N.anim.meta": "f014adcb84bf17ea55af3c24e0014fd409dd5d8b081ed428c64778ae0e20a18d",
       "Assets/Animations/Clib/Cheer/Cheer_NE.anim.meta": "630d898b4dfb1dec1eafa7b1bb710b6a3dedc7c5795654531aafa9c7eb2314e4",
@@ -685,7 +1074,7 @@
       "Assets/UI.meta": "8cc68f4c5ea9eaa530841cdb118bb1f1d1fa53cafc6878efe21a757e5c6dc4b9",
       "Assets/UniversalRenderPipelineGlobalSettings.asset.meta": "746a38b93f8f49b644ff6893456cf24db401e5c342aaae3864e91560d37c5422"
     },
-    "after": {
+    "afterHashes": {
       "Assets/Animations/Clib/Cheer/Cheer_E.anim.meta": "e71aff033d583ca381a28007f699dcb76461ab970154fd6f274c74f9b3f6a2b6",
       "Assets/Animations/Clib/Cheer/Cheer_N.anim.meta": "f014adcb84bf17ea55af3c24e0014fd409dd5d8b081ed428c64778ae0e20a18d",
       "Assets/Animations/Clib/Cheer/Cheer_NE.anim.meta": "630d898b4dfb1dec1eafa7b1bb710b6a3dedc7c5795654531aafa9c7eb2314e4",
@@ -724,6 +1113,9 @@
       "Assets/Data/MarketTuningData.asset.meta": "f478715d3fa7ba79f58a7a5dd2d29f80a8f80ca27b30c9425884071e360c8c75",
       "Assets/Data/PersonalityTable.asset.meta": "011fae8f9243e002070011e817745ed483b48932403a8bf00fcbbc0d48681a29",
       "Assets/Data/Portraits/brann.asset.meta": "5abe8eda4e5618c13b98c2c0c0576c376517ddfa23eafde0643a1a9ebc33eec5",
+      "Assets/Data/Portraits/elf.asset.meta": "825f12e1d1b238b4c871d5edc85a7d17307c307c8b61e9e4de50ad90b73aa4d0",
+      "Assets/Data/Portraits/fairy.asset.meta": "f1687f692cfc2f0a151a77d49d3b8a31a171c04e63f2c9272153571a2d3c2729",
+      "Assets/Data/Portraits/scholar.asset.meta": "fb693b46ad2ddea81a02372705003a76d1105d4b0b7be6abe0c9746aa2907325",
       "Assets/Data/Portraits/sella.asset.meta": "9409210724fa3c247dbb1a3b2fc4f5fd43ad7961c694f442f66620ff00a57b23",
       "Assets/Data/Portraits.meta": "f6847a8948e7db204cb16c145eb1dd15983a6a88c58487b25889aa586521065f",
       "Assets/Data/SentimentTable.asset.meta": "2e8a72518ff9ca597ad4510ef467c710850458d02da5c720655011a3c6845d18",
@@ -1128,6 +1520,27 @@
       "Assets/UI/Images/Faces/face_brann_relieved.png.meta": "0525479e4362b5b7eddd3cda30ca84515d6e876a23b84e251d4597eadf4e552f",
       "Assets/UI/Images/Faces/face_brann_sad.png.meta": "b9353b8dbba8adeac4dac63dc69391ab5a00839b01c2d1e6dfff6520017bcd8a",
       "Assets/UI/Images/Faces/face_brann_shocked.png.meta": "7fe938cc302965fe6f5dfb868c80aa7222b5b4d364ff5265ef9fdb5dbea5460b",
+      "Assets/UI/Images/Faces/face_elf_angry.png.meta": "7e638c9ff88a4bad7b1192eb857dcaf01293e2a6fe84df2660ea4b447b3de8c4",
+      "Assets/UI/Images/Faces/face_elf_anxious.png.meta": "ddfe9d631a144000bfbe8f668597e5ceb3343c358b4594d00dea17ad88b43a86",
+      "Assets/UI/Images/Faces/face_elf_happy.png.meta": "15d532a6502d6ab5d1671c6aa5203c05ba748e262b2e06f2bef5f09b04acf3a5",
+      "Assets/UI/Images/Faces/face_elf_neutral.png.meta": "d9ca0757bdfca8e81dc90f6b1809157eb235e5324b6f55b6e7dbd48416723532",
+      "Assets/UI/Images/Faces/face_elf_relieved.png.meta": "db631356224f88423cc6c8d595a62fa0e452c48a81ef8cbf03cf84d0dcff93ee",
+      "Assets/UI/Images/Faces/face_elf_sad.png.meta": "c4a58e767894cf8e89475582f7f7b85144abbdfb4b266efba78fb96e88d73768",
+      "Assets/UI/Images/Faces/face_elf_shocked.png.meta": "bb9f3afd4ebaf440ed35dc1df6d3dabd93ab83d317a8d951ece58a5f845ca8d0",
+      "Assets/UI/Images/Faces/face_fairy_angry.png.meta": "04be01bc9b37b6c2a6bc428231192a00fd339ad09856cb6deaef1107a6d72de4",
+      "Assets/UI/Images/Faces/face_fairy_anxious.png.meta": "62c3054bf19aef32d94780eb5ec0dfe83261fb7cf22d72200f2db5759bf37d19",
+      "Assets/UI/Images/Faces/face_fairy_happy.png.meta": "23f2992172fdef942d852ca40b3809476a2f724e21375b57df02579dd5ebe98d",
+      "Assets/UI/Images/Faces/face_fairy_neutral.png.meta": "898b73dd77154e9c85a2a7b9514b8239be3e3e6f9233e0f8297ee0846006a1e0",
+      "Assets/UI/Images/Faces/face_fairy_relieved.png.meta": "62e15bca426faff67b6a1a02ea0b9eef8da3251c764d6944039b8b8a8d4e0380",
+      "Assets/UI/Images/Faces/face_fairy_sad.png.meta": "8e8f642d91bd61483fd4666ca28bf5325a16429cf3f1be3e204672b107ad2498",
+      "Assets/UI/Images/Faces/face_fairy_shocked.png.meta": "9bed8db1548b62f7f5dd96d50f32b17a67cda5466322a7aae4a7a24875627239",
+      "Assets/UI/Images/Faces/face_scholar_angry.png.meta": "1dc55253fad8a934c5f5982ec816b266a99f38767757cfd918985826e407440f",
+      "Assets/UI/Images/Faces/face_scholar_anxious.png.meta": "e68dd6141f0b92551722e4951dd5ea83b493bb3d03813c2d7590cbb8f484c281",
+      "Assets/UI/Images/Faces/face_scholar_happy.png.meta": "94ca6329bb96e75115798017776581f2a54b32317bc59f5c99aacda1d2bf5dde",
+      "Assets/UI/Images/Faces/face_scholar_neutral.png.meta": "8f7fde91684a992b91c99794b61a3ce309210794421dcdb7f374b924c819e672",
+      "Assets/UI/Images/Faces/face_scholar_relieved.png.meta": "ed9b6df3648f551f5a99cf4b054d1e645c0d7f01302e513ad0eb0efa01c8ba14",
+      "Assets/UI/Images/Faces/face_scholar_sad.png.meta": "55679a71703a08558aac0c8d21ac03f99c397076234cffbdb82b45fb577017f7",
+      "Assets/UI/Images/Faces/face_scholar_shocked.png.meta": "ee18e4adca9b886aa80e37ccf2978532bb518b657220801ada7f4723137e29cb",
       "Assets/UI/Images/Faces/face_sella_angry.png.meta": "b28bbea5e00db4bf1197d875eb7303e62eea51c5384c65920761dd99d28a92f1",
       "Assets/UI/Images/Faces/face_sella_anxious.png.meta": "0cbf33841dfa64067329e508dc0241d3b16d20dac94bc7b40c39c373e3ee8f4a",
       "Assets/UI/Images/Faces/face_sella_happy.png.meta": "5154f866e1a1a072a76b8be03670bec120ee8e7f7b88c63b1e161df272e60989",
@@ -1184,53 +1597,8 @@
       "Assets/UI Toolkit.meta": "1fae0058c36dfbf9c71010bf139906ec944763ad5282ed8f4db93c5aa5059e64",
       "Assets/UI.meta": "8cc68f4c5ea9eaa530841cdb118bb1f1d1fa53cafc6878efe21a757e5c6dc4b9",
       "Assets/UniversalRenderPipelineGlobalSettings.asset.meta": "746a38b93f8f49b644ff6893456cf24db401e5c342aaae3864e91560d37c5422"
-    }
-  },
-  "checks": {
-    "peopleAbsent": true,
-    "textAbsent": true,
-    "freestandingLamps": 4,
-    "buildings": 3,
-    "doorsFaceSouth": true,
-    "staticFrame": true,
-    "fullBleed": "intentional",
-    "playback": "not applicable to static background",
-    "visualComposite": "Three135px portraits inspected; no extra ground shadow added. Subjective grounding remains user review."
-  },
-  "nativeSource": [
-    1672,
-    941
-  ],
-  "outputHashes": {
-    "ground": "cca79c9507deeeacddd747680f270ee4bd926f52652b4ed65b3ba40ecd6d2703",
-    "walkable": "5f1936d6b5ed3f2e8cbaee4defa422f5e6a83709d563d5ce3c684b9ea6deccff"
-  },
-  "finalDiskRead": {
-    "groundSize": [
-      3840,
-      2160
-    ],
-    "maskSize": [
-      3840,
-      2160
-    ],
-    "groundAlpha": {
-      "alphaMin": 255,
-      "alphaMax": 255,
-      "transparentPixels": 0,
-      "hiddenRGBPixels": 0,
-      "opaquePixels": 8294400,
-      "alphaComponents": 1,
-      "alphaDetachedComponents": 0
     },
-    "maskAlpha": {
-      "alphaMin": 255,
-      "alphaMax": 255,
-      "transparentPixels": 0,
-      "hiddenRGBPixels": 0,
-      "opaquePixels": 8294400,
-      "alphaComponents": 1,
-      "alphaDetachedComponents": 0
-    }
-  }
+    "taskWroteAssets": false
+  },
+  "animation": "not applicable: static background and mask; no directions or playback"
 }

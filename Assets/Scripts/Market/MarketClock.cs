@@ -48,18 +48,75 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>다음 장이 열리는 시각(분). 오전장 다음은 오후장, 오후장 다음은 이튿날 오전장이다.</summary>
+        /// <summary>
+        /// 플레이어가 쉬기로 한 장의 수. 기획서 §11 — 장에 나가는 것은 선택이다.
+        ///
+        /// 쉰다고 해서 시간이 사라지지 않는다. 그 장이 열리고 닫히는 동안
+        /// 플레이어는 영지에 있을 뿐이다. 그래서 **다음 장이 그만큼 뒤로 밀린다.**
+        /// 거래 화면으로 돌아가면 쉰 장을 실제로 돌려 보고 0으로 되돌린다.
+        /// </summary>
+        public int SkippedSessions { get; private set; }
+
+        /// <summary>
+        /// 다음 장이 열리는 시각(분). 오전장 다음은 오후장, 오후장 다음은 이튿날 오전장이다.
+        ///
+        /// 장은 9시와 21시에 열린다. 간격이 12시간으로 고른 덕에, 쉰 장은
+        /// 횟수에 12시간을 곱해 더하는 것으로 끝난다. 장의 상태를 건드릴 필요가 없다.
+        /// </summary>
         public int NextSessionMinute
         {
             get
             {
-                if (Session == MarketSession.Session_Morning)
-                {
-                    return Constants.MARKET_EVENING_START_HOUR * 60;
-                }
+                var baseMinute = Session == MarketSession.Session_Morning
+                    ? Constants.MARKET_EVENING_START_HOUR * 60
+                    : (Constants.MARKET_MORNING_START_HOUR + 24) * 60;
 
-                return (Constants.MARKET_MORNING_START_HOUR + 24) * 60;
+                return baseMinute + SkippedSessions * SESSION_GAP_MINUTES;
             }
+        }
+
+        /// <summary>
+        /// 다음 장을 쉰다. 영지의 시간이 한 장만큼 길어진다.
+        ///
+        /// 쉬는 동안에도 시장은 돈다. 가격이 움직이고 소식이 돌고 상장과 이탈이 일어난다.
+        /// 플레이어만 그 자리에 없다. 거래로 벌 수 있었던 시간을 정보와 종잣돈으로 맞바꾸는 것이다.
+        /// </summary>
+        public void SkipNextSession()
+        {
+            if (IsBreak == false)
+            {
+                return;
+            }
+
+            SkippedSessions++;
+        }
+
+        /// <summary>
+        /// 쉬기로 한 것을 무른다. **아직 그 시간을 쓰지 않았을 때만** 된다.
+        ///
+        /// 쉬기로 하고 여섯 시간을 더 쓴 뒤에 무르면 시각이 다음 장을 넘어서 버린다.
+        /// 시간을 빚질 수는 없으므로, 되돌려도 남는 시간이 있을 때만 허락한다.
+        /// </summary>
+        public bool UndoSkippedSession()
+        {
+            if (SkippedSessions <= 0)
+            {
+                return false;
+            }
+
+            if (BreakMinuteOfDay > NextSessionMinute - SESSION_GAP_MINUTES)
+            {
+                return false;
+            }
+
+            SkippedSessions--;
+            return true;
+        }
+
+        /// <summary>쉰 장을 모두 치렀다. 거래 화면이 실제로 돌린 뒤에 부른다.</summary>
+        public void ClearSkippedSessions()
+        {
+            SkippedSessions = 0;
         }
 
         /// <summary>다음 장까지 남은 시간(분). 영지에서 쓸 수 있는 전부다.</summary>
@@ -148,6 +205,9 @@ namespace Underwrite.Market
             IsBreak = false;
             BreakAccumulated = 0f;
         }
+
+        // 장과 장 사이의 간격. 9시와 21시에 열리므로 12시간으로 고르다.
+        private const int SESSION_GAP_MINUTES = 12 * 60;
 
         /// <summary>
         /// 몇 주기째인가. 주기는 원정 한 번이고 40주기가 10년이다. 설계안 §2.

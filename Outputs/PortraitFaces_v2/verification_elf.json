@@ -1,28 +1,12 @@
 {
-  "id": "elf",
-  "group": {
-    "leftXSpread": 0,
-    "topYSpread": 0
-  },
-  "eyeWindows": [
-    [
-      407,
-      290,
-      452,
-      332
-    ],
-    [
-      536,
-      320,
-      577,
-      360
-    ]
-  ],
   "rows": [
     {
-      "file": "face_elf_neutral.png",
+      "id": "elf",
+      "expression": "neutral",
+      "name": "face_elf_neutral.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         33,
         66,
@@ -39,32 +23,29 @@
       "components": [
         441775
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
+      "whitePercent": 0.01349225224565961,
+      "eyeFeatures": [
+        {
+          "centerY": 306,
+          "pixels": 647
+        },
+        {
+          "centerY": 341,
+          "pixels": 451
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
       "changedPixels": 0,
-      "eyeLines": [
-        {
-          "y": 305,
-          "bboxY": [
-            290,
-            320
-          ],
-          "count": 791
-        },
-        {
-          "y": 339,
-          "bboxY": [
-            324,
-            354
-          ],
-          "count": 507
-        }
-      ]
+      "sha256": "cd66a74588e4784ba13c6eb71a239bad3c7b5f1b35a56472a70d7d21e8068a7d"
     },
     {
-      "file": "face_elf_happy.png",
+      "id": "elf",
+      "expression": "happy",
+      "name": "face_elf_happy.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         33,
         66,
@@ -76,37 +57,34 @@
       "alpha1to31": 0,
       "semiTransparent": 11554,
       "opaque": 437288,
-      "whitePixels": 104,
-      "whiteRatio": 0.00023782953110993213,
+      "whitePixels": 105,
+      "whiteRatio": 0.0002401163535244507,
       "components": [
         441775
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 28752,
-      "eyeLines": [
+      "whitePercent": 0.02401163535244507,
+      "eyeFeatures": [
         {
-          "y": 304.5,
-          "bboxY": [
-            290,
-            319
-          ],
-          "count": 763
+          "centerY": 305.5,
+          "pixels": 672
         },
         {
-          "y": 340,
-          "bboxY": [
-            325,
-            355
-          ],
-          "count": 456
+          "centerY": 341,
+          "pixels": 448
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 30689,
+      "sha256": "3962f0c51303c0844e8dea02ac2c1c6fff306ff0c7b28de35d10762341e68f8a"
     },
     {
-      "file": "face_elf_anxious.png",
+      "id": "elf",
+      "expression": "anxious",
+      "name": "face_elf_anxious.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         33,
         66,
@@ -118,37 +96,34 @@
       "alpha1to31": 0,
       "semiTransparent": 11554,
       "opaque": 437288,
-      "whitePixels": 163,
-      "whiteRatio": 0.00037275205356652823,
+      "whitePixels": 77,
+      "whiteRatio": 0.0001760853259179305,
       "components": [
         441775
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 28896,
-      "eyeLines": [
+      "whitePercent": 0.01760853259179305,
+      "eyeFeatures": [
         {
-          "y": 302.5,
-          "bboxY": [
-            290,
-            315
-          ],
-          "count": 647
+          "centerY": 305.5,
+          "pixels": 663
         },
         {
-          "y": 338.5,
-          "bboxY": [
-            322,
-            355
-          ],
-          "count": 487
+          "centerY": 341,
+          "pixels": 434
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 30822,
+      "sha256": "27f09b269524557996d6ae5a7f4e0c6601eb9cfac4d01b244a3d1efb3852f3cc"
     },
     {
-      "file": "face_elf_angry.png",
+      "id": "elf",
+      "expression": "angry",
+      "name": "face_elf_angry.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         33,
         66,
@@ -160,37 +135,34 @@
       "alpha1to31": 0,
       "semiTransparent": 11554,
       "opaque": 437288,
-      "whitePixels": 84,
-      "whiteRatio": 0.00019209308281956057,
+      "whitePixels": 42,
+      "whiteRatio": 0.00009604654140978028,
       "components": [
         441775
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 28608,
-      "eyeLines": [
+      "whitePercent": 0.009604654140978029,
+      "eyeFeatures": [
         {
-          "y": 305,
-          "bboxY": [
-            290,
-            320
-          ],
-          "count": 686
+          "centerY": 305.5,
+          "pixels": 612
         },
         {
-          "y": 338,
-          "bboxY": [
-            320,
-            356
-          ],
-          "count": 580
+          "centerY": 339,
+          "pixels": 401
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 31047,
+      "sha256": "f8945410971e0ae2a8f276f15e0edb6d53f9cf789070866519fed9f99e429a3a"
     },
     {
-      "file": "face_elf_shocked.png",
+      "id": "elf",
+      "expression": "shocked",
+      "name": "face_elf_shocked.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         33,
         66,
@@ -202,37 +174,34 @@
       "alpha1to31": 0,
       "semiTransparent": 11554,
       "opaque": 437288,
-      "whitePixels": 171,
-      "whiteRatio": 0.00039104663288267686,
+      "whitePixels": 102,
+      "whiteRatio": 0.00023325588628089498,
       "components": [
         441775
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 29439,
-      "eyeLines": [
+      "whitePercent": 0.0233255886280895,
+      "eyeFeatures": [
         {
-          "y": 303.5,
-          "bboxY": [
-            290,
-            317
-          ],
-          "count": 472
+          "centerY": 306,
+          "pixels": 359
         },
         {
-          "y": 337.5,
-          "bboxY": [
-            320,
-            355
-          ],
-          "count": 363
+          "centerY": 340,
+          "pixels": 202
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 30851,
+      "sha256": "9281db9d99591bd1d5e3aeda3954841e39c7c6dc232cf4d6f576d3342c281cea"
     },
     {
-      "file": "face_elf_sad.png",
+      "id": "elf",
+      "expression": "sad",
+      "name": "face_elf_sad.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         33,
         66,
@@ -244,37 +213,34 @@
       "alpha1to31": 0,
       "semiTransparent": 11554,
       "opaque": 437288,
-      "whitePixels": 35,
-      "whiteRatio": 0.00008003878450815024,
+      "whitePixels": 32,
+      "whiteRatio": 0.0000731783172645945,
       "components": [
         441775
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 29464,
-      "eyeLines": [
+      "whitePercent": 0.00731783172645945,
+      "eyeFeatures": [
         {
-          "y": 306,
-          "bboxY": [
-            291,
-            321
-          ],
-          "count": 736
+          "centerY": 308,
+          "pixels": 509
         },
         {
-          "y": 340.5,
-          "bboxY": [
-            329,
-            352
-          ],
-          "count": 481
+          "centerY": 345,
+          "pixels": 405
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 31105,
+      "sha256": "6553e60805b417658df6706d8929b9a6940c4d54aec25a77e5dd565a0aeb77b3"
     },
     {
-      "file": "face_elf_relieved.png",
+      "id": "elf",
+      "expression": "relieved",
+      "name": "face_elf_relieved.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
         33,
         66,
@@ -286,32 +252,36 @@
       "alpha1to31": 0,
       "semiTransparent": 11554,
       "opaque": 437288,
-      "whitePixels": 28,
-      "whiteRatio": 0.00006403102760652019,
+      "whitePixels": 38,
+      "whiteRatio": 0.00008689925175170597,
       "components": [
         441775
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 29363,
-      "eyeLines": [
+      "whitePercent": 0.008689925175170598,
+      "eyeFeatures": [
         {
-          "y": 313,
-          "bboxY": [
-            304,
-            322
-          ],
-          "count": 416
+          "centerY": 311,
+          "pixels": 391
         },
         {
-          "y": 350,
-          "bboxY": [
-            341,
-            359
-          ],
-          "count": 304
+          "centerY": 348.5,
+          "pixels": 235
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 31060,
+      "sha256": "40418055f4e27ffccb2da38d9e7b5aa610b64c203def6cab5ddf8fa1d45c5b86"
     }
-  ]
+  ],
+  "summary": {
+    "count": 7,
+    "topYRange": 0,
+    "leftXRange": 0,
+    "nearEyeRange": 5.5,
+    "farEyeRange": 9.5,
+    "maxWhitePercent": 0.02401163535244507,
+    "alphaInvariant": true,
+    "outsideFaceInvariant": true
+  }
 }

@@ -1,170 +1,177 @@
-[
-  {
-    "file": "generation_current/elf_angry.png",
-    "sha256": "7f2fbb8f8e4ba67645241588f2e41c6483129f1cdcd2808e4e081d6c80c81de4",
-    "recordedUTC": "2026-10-16T15:33:50.349Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-468f9fa9-c2c8-408a-81da-b2127a4a86f2.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:16:46.857Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:16:46.858Z"
-  },
-  {
-    "file": "generation_current/elf_anxious.png",
-    "sha256": "dcd8bc73506bc456b202d2ef7a2af3512d78d240e5d9d39bf9f6288f92b94a22",
-    "recordedUTC": "2026-10-16T15:33:50.350Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-cc70bd4f-4960-4821-a20c-ae6c55a4d682.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:15:48.460Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:15:48.460Z"
-  },
-  {
-    "file": "generation_current/elf_happy.png",
-    "sha256": "3fd74bdf378300d7da2ba29dcdecb707bc3de7d45997f25d8fe6a9c0d6d897ba",
-    "recordedUTC": "2026-10-16T15:33:50.352Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-74e49489-8fa1-4015-95b4-be106858a7c1.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:14:54.657Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:14:54.658Z"
-  },
-  {
-    "file": "generation_current/elf_neutral.png",
-    "sha256": "a7008070c5fcb292f19003c1e608b3b04dc1be6ed39516631c17e8eb5bbd1d68",
-    "recordedUTC": "2026-10-16T15:33:50.357Z",
-    "generatedPath": "C:/Users/SKY/.codex/generated_images/01a1453f-e043-7af3-8db6-d2258ec69076/exec-124f7fc8-e088-42f9-b040-a54b6938aa39.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:09:19.285Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:09:19.286Z"
-  },
-  {
-    "file": "generation_current/elf_relieved.png",
-    "sha256": "698852ce099daa9c09271514b7fb92902c2182befbd8fb4bcc711884d861f7ec",
-    "recordedUTC": "2026-10-16T15:33:50.358Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-646b6fc5-c0cd-44f6-98c7-c64af1e8ba03.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:23:40.880Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:23:40.880Z"
-  },
-  {
-    "file": "generation_current/elf_sad.png",
-    "sha256": "d7a0b84514f8cd6e713ee874d64e6ef68dd89a2cfd04d7e439b9ccbe482217b0",
-    "recordedUTC": "2026-10-16T15:33:50.360Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-bad1cb96-29b9-48c4-ad59-0a39d71a740f.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:22:53.087Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:22:53.088Z"
-  },
-  {
-    "file": "generation_current/elf_shocked.png",
-    "sha256": "784b07a2f9f69eb32e6716bdae1071eb1392d03c91f8bc3fbca5295f6627f9a1",
-    "recordedUTC": "2026-10-16T15:33:50.361Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-eef324f6-13d5-48f3-b1f6-c602bc1d7286.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:17:43.140Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:17:43.140Z"
-  },
-  {
-    "file": "generation_current/fairy_angry.png",
-    "sha256": "85ee6e5dd7ff6a145365ccf793bb14195173617710430e90e2a412f440238605",
-    "recordedUTC": "2026-10-16T15:33:50.362Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-7a2c1358-9f1e-4ff4-a455-38759d2163ed.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:24:04.151Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:24:04.151Z"
-  },
-  {
-    "file": "generation_current/fairy_anxious.png",
-    "sha256": "03e7d28663fd243f4c37cf7b264eaba68e003e724a8ced9055544c0b72e97c08",
-    "recordedUTC": "2026-10-16T15:33:50.364Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-c0d4d243-6edf-43a3-b691-896c8c41a0ab.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:16:39.246Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:16:39.246Z"
-  },
-  {
-    "file": "generation_current/fairy_happy.png",
-    "sha256": "aa505e62ba0852b8453b5eb75710904bb3aa24876b7d7bcd3455dfe6c316bf25",
-    "recordedUTC": "2026-10-16T15:33:50.366Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-d6238e99-f335-447f-b1f3-42ab6c416c13.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:15:38.023Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:15:38.024Z"
-  },
-  {
-    "file": "generation_current/fairy_neutral.png",
-    "sha256": "2ea3fe0b70a9ac380f5b629227a3d738617375c62662e01921a57173cce61d1c",
-    "recordedUTC": "2026-10-16T15:33:50.373Z",
-    "generatedPath": "C:/Users/SKY/.codex/generated_images/01a14540-2cfb-73f1-a66d-40e02cfc6f74/exec-63426d83-2a64-4d9a-835c-b7e146a808f0.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:13:46.959Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:13:46.959Z"
-  },
-  {
-    "file": "generation_current/fairy_relieved.png",
-    "sha256": "5f52a0bb877f81dada3fe98a558dc8f8a8b1876aa4b5739a2635494ad1981f9f",
-    "recordedUTC": "2026-10-16T15:33:50.375Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-81f3d986-b181-4df0-b120-9d7541416b30.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:20:14.946Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:20:14.947Z"
-  },
-  {
-    "file": "generation_current/fairy_sad.png",
-    "sha256": "7e6f340de9f161879bf9957697e12cccd123193a8aa99c4ede6b09f75da39bfb",
-    "recordedUTC": "2026-10-16T15:33:50.376Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-27978499-d546-4e0d-8232-3ebb1895dcc0.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:19:31.752Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:19:31.753Z"
-  },
-  {
-    "file": "generation_current/fairy_shocked.png",
-    "sha256": "9077fe306ed1c0884b7cbe742b0bb3389e465e371868a1593d1ca2e3cff5d37e",
-    "recordedUTC": "2026-10-16T15:33:50.377Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-2eb8cf41-dc8c-43fd-a3d1-3662ef2e3a54.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:24:57.036Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:24:57.037Z"
-  },
-  {
-    "file": "generation_current/scholar_angry.png",
-    "sha256": "8dde6437c25c2787f767654d25fb7c0d65ef8ef766755a73f79f88008dade2c0",
-    "recordedUTC": "2026-10-16T15:33:50.378Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-6c5825f9-2a7c-4fad-bb53-ed22855a043d.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:11:35.139Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:11:35.140Z"
-  },
-  {
-    "file": "generation_current/scholar_anxious.png",
-    "sha256": "45ed0f7f4d5977506eefc2f027f8b917ed81c4a27eb40738247e7b798d1378f0",
-    "recordedUTC": "2026-10-16T15:33:50.379Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-8fe83d53-9fea-4dea-8871-69878d5297c8.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:10:51.089Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:10:51.089Z"
-  },
-  {
-    "file": "generation_current/scholar_happy.png",
-    "sha256": "3587d8590ed573d568b5ab09a4824ecb926760184aa1b5a4b71e7c4fa3c61118",
-    "recordedUTC": "2026-10-16T15:33:50.380Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-d6b4c8c6-137a-47e8-bcc4-00f040bffd93.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:09:55.814Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:09:55.814Z"
-  },
-  {
-    "file": "generation_current/scholar_neutral.png",
-    "sha256": "d4c09408af7cc9d47098b8fe7a0a8305b3a56438d0270018b885297b7b79d4e0",
-    "recordedUTC": "2026-10-16T15:33:50.386Z",
-    "generatedPath": "C:/Users/SKY/.codex/generated_images/01a14540-2cfb-73f1-a66d-40e02cfc6f74/exec-9eaa90dc-5c04-4b5f-a28b-1ca629543f50.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:08:20.213Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:08:20.213Z"
-  },
-  {
-    "file": "generation_current/scholar_relieved.png",
-    "sha256": "f01cac330a4992d251f4147d1deace4004e50d57e87318a365068ffe60307775",
-    "recordedUTC": "2026-10-16T15:33:50.387Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-dba09511-382e-4c3e-a9c7-cf44d4f88da6.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:14:10.504Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:14:10.504Z"
-  },
-  {
-    "file": "generation_current/scholar_sad.png",
-    "sha256": "40c7677804085a21bcb2af64ea4e2b0ec4e0ef9a42c7bc0ea0dda6e309f95660",
-    "recordedUTC": "2026-10-16T15:33:50.388Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-7a698a95-f491-4293-88de-07b3df2d22ab.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:13:17.927Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:13:17.927Z"
-  },
-  {
-    "file": "generation_current/scholar_shocked.png",
-    "sha256": "4906a1e161b41f16ea7e82ac314a1ccfde23b3ca614758b8824cd661a76071de",
-    "recordedUTC": "2026-10-16T15:33:50.389Z",
-    "generatedPath": "C:\\Users\\SKY\\.codex\\generated_images\\01a14540-2cfb-73f1-a66d-40e02cfc6f74\\exec-c3e40053-cd8d-4608-a5e9-cb8890714638.png",
-    "generatedFileCreatedUTC": "2026-10-16T15:12:38.958Z",
-    "generatedFileModifiedUTC": "2026-10-16T15:12:38.958Z"
-  }
-]
+{
+  "tool": "built-in image_gen",
+  "generationCount": 27,
+  "recordedTimes": "UTC copy/record time in generation_prompts.json",
+  "sources": [
+    {
+      "path": "sources/elf_angry.png",
+      "bytes": 1416310,
+      "sha256": "7a4f38aae4c04128d480b125d37c835fef6f08c1a1231661d6d222de4e3d0885"
+    },
+    {
+      "path": "sources/elf_anxious.png",
+      "bytes": 1420988,
+      "sha256": "26eed22a2397bb08473168d86e7afcefdc6fe08d2a25ccaa6335c79419e6ff34"
+    },
+    {
+      "path": "sources/elf_happy.png",
+      "bytes": 1424046,
+      "sha256": "3fd74bdf378300d7da2ba29dcdecb707bc3de7d45997f25d8fe6a9c0d6d897ba"
+    },
+    {
+      "path": "sources/elf_neutral.png",
+      "bytes": 2005799,
+      "sha256": "1fc16b327e441b0d5d774ce937409ab29fe5e56e5d8b8c63c07b62205661dbca"
+    },
+    {
+      "path": "sources/elf_neutral_initial.png",
+      "bytes": 1838484,
+      "sha256": "59d27089ca99be20d664876d6da9ac3c3eb21e9c18027e66eb2fb34330ddf877"
+    },
+    {
+      "path": "sources/elf_neutral_middle.png",
+      "bytes": 1830106,
+      "sha256": "69d1f86ce6c140b92149c256c1e33c823568112496ea8cd91ec722323fce3829"
+    },
+    {
+      "path": "sources/elf_relieved.png",
+      "bytes": 1398714,
+      "sha256": "2037036a689aa91bbcdb3ebf4550efc8b0b6f5a69fc21b5714e6a724b6b84750"
+    },
+    {
+      "path": "sources/elf_relieved_rejected.png",
+      "bytes": 1545834,
+      "sha256": "83903fe9d833b89da29c5db6cd76c6ed152ded44fb936ff3f9599112062a9138"
+    },
+    {
+      "path": "sources/elf_sad.png",
+      "bytes": 1401175,
+      "sha256": "90ceb507ed40a57bc213e1c2383f2ce46d8e6b18dd32d2417e4aa4f0a502ea44"
+    },
+    {
+      "path": "sources/elf_sad_rejected.png",
+      "bytes": 1539649,
+      "sha256": "283c903f2b31408a7a36ff3b2c4ca729b76c3cf578dda78b00f126999e3f80fe"
+    },
+    {
+      "path": "sources/elf_shocked.png",
+      "bytes": 1432111,
+      "sha256": "0664a3ebfcaab6eb4b4918212377ff9c38e928859ec3f3249dcdf6adae1f9920"
+    },
+    {
+      "path": "sources/fairy_angry.png",
+      "bytes": 1530886,
+      "sha256": "85ee6e5dd7ff6a145365ccf793bb14195173617710430e90e2a412f440238605"
+    },
+    {
+      "path": "sources/fairy_angry_rejected.png",
+      "bytes": 1549452,
+      "sha256": "122a28ea2c26cd3026f4e42557b4c4f4a7c4e8983b1524bdfbeeccc7fe3bb94e"
+    },
+    {
+      "path": "sources/fairy_anxious.png",
+      "bytes": 1533644,
+      "sha256": "cc5e1c7cf180e84d9d15d4345d908c9dfba7ef82a6cd85fc4bfe5bd3195501b0"
+    },
+    {
+      "path": "sources/fairy_bust_framing.png",
+      "bytes": 1248235,
+      "sha256": "9d4fc7ecbbb62a6a027f88ba0b75c8d4dab66ffc5039c8bbc660e8e24d4847dc"
+    },
+    {
+      "path": "sources/fairy_direction_correct.png",
+      "bytes": 1829907,
+      "sha256": "a30e570173f3aede16d3a32c6fe2be1728f75791286ecff32154ac9d65212355"
+    },
+    {
+      "path": "sources/fairy_flower_fix.png",
+      "bytes": 1414748,
+      "sha256": "6bc06c1a7fea326d2b9fe86242db56ae82fd6d58e872d3a269f9cd22c770f407"
+    },
+    {
+      "path": "sources/fairy_happy.png",
+      "bytes": 1554708,
+      "sha256": "aa505e62ba0852b8453b5eb75710904bb3aa24876b7d7bcd3455dfe6c316bf25"
+    },
+    {
+      "path": "sources/fairy_neutral.png",
+      "bytes": 1814487,
+      "sha256": "2ea3fe0b70a9ac380f5b629227a3d738617375c62662e01921a57173cce61d1c"
+    },
+    {
+      "path": "sources/fairy_neutral_initial.png",
+      "bytes": 1871541,
+      "sha256": "ae8a4dad432cb747e847dce2898a36547320ee7e43c1eb370a108437c5c1920f"
+    },
+    {
+      "path": "sources/fairy_relieved.png",
+      "bytes": 1534152,
+      "sha256": "e0cd7c81d1065f7624efa91b7da8f8ad4777248eee3f90be57a6ddfd4d666586"
+    },
+    {
+      "path": "sources/fairy_sad.png",
+      "bytes": 1533028,
+      "sha256": "799712dd067bd727aeab55eb26c56650c674c7fa2c563f9e686a7b3df5a21963"
+    },
+    {
+      "path": "sources/fairy_shocked.png",
+      "bytes": 1528709,
+      "sha256": "255b93da8af2848f898778e65b7cfcfe1cd08d607e3597e543a543b21afdf2d8"
+    },
+    {
+      "path": "sources/fairy_shocked_rejected.png",
+      "bytes": 1397331,
+      "sha256": "c11ac805722af0ea57f5d5ae73f6eefa27cea2f56f55b6656941680c0650a538"
+    },
+    {
+      "path": "sources/scholar_angry.png",
+      "bytes": 1165944,
+      "sha256": "e783be0b713238a726e6539412c2a70b1b77482569d35e7e9d53bfbc713559b9"
+    },
+    {
+      "path": "sources/scholar_angry_fix.png",
+      "bytes": 1139628,
+      "sha256": "278a837b577ef8a15324b7ed6c4ed575a25a64e2c401ba3ed997f624f4d6f4b8"
+    },
+    {
+      "path": "sources/scholar_anxious.png",
+      "bytes": 1169554,
+      "sha256": "8bc26cb568c120599ed1cd44e73d3ea8509dc972461218559ec3cb2c67acb27b"
+    },
+    {
+      "path": "sources/scholar_anxious_fix.png",
+      "bytes": 1146406,
+      "sha256": "c7fbbc0a1eb02371dfe0f57f7dd1dbe5dddea70afaa18eb40f6d543ad8cf09fa"
+    },
+    {
+      "path": "sources/scholar_happy.png",
+      "bytes": 1137780,
+      "sha256": "e4912a83bce8bfa4949d4888d015a20277dadfd11e30f2056511c9ef32527c70"
+    },
+    {
+      "path": "sources/scholar_neutral.png",
+      "bytes": 1577129,
+      "sha256": "bfba29e8c11a5126802bb49f63f7aa5ef278636d3b8e23c44129c7c1162c1969"
+    },
+    {
+      "path": "sources/scholar_neutral_initial.png",
+      "bytes": 1390668,
+      "sha256": "d4c09408af7cc9d47098b8fe7a0a8305b3a56438d0270018b885297b7b79d4e0"
+    },
+    {
+      "path": "sources/scholar_relieved.png",
+      "bytes": 1222654,
+      "sha256": "08c878e04abe9c21cf390b6a057fa8cb7bbee092cb28d0f015b82f8b71a40133"
+    },
+    {
+      "path": "sources/scholar_sad.png",
+      "bytes": 1117972,
+      "sha256": "6fac74277838f7220e70edac3129306dcd77113acc9092caad7d2b026dc10b61"
+    },
+    {
+      "path": "sources/scholar_shocked.png",
+      "bytes": 1126127,
+      "sha256": "b7bc1617996cb9c6d0a764bf0c735b26b5cb71b57e92b6ac84e8319b8c911444"
+    }
+  ]
+}

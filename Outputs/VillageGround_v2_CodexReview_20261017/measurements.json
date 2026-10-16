@@ -1,0 +1,264 @@
+{
+  "coordinate": "1672x941 source, top-left",
+  "method": "manual screen vertical extents; exclude chimneys/gables/vertical top thickness. Roof samples visible primary facade sections; small hanging fairy houses not measured.",
+  "circles": [
+    {
+      "name": "inn_round_table",
+      "bbox": [
+        187,
+        514,
+        250,
+        545
+      ],
+      "note": "상판 두께 제외, 수동 경계 ±1~2px",
+      "ratio": 0.49206349206349204,
+      "pass": true
+    },
+    {
+      "name": "well_outer_top_horizontal_plane",
+      "bbox": [
+        794,
+        489,
+        892,
+        529
+      ],
+      "note": "수직 돌 테두리 제외. 경계 불확실성 약2px; 통과로 보지 않음",
+      "ratio": 0.40816326530612246,
+      "pass": false
+    },
+    {
+      "name": "well_right_barrel_top",
+      "bbox": [
+        892,
+        529,
+        915,
+        540
+      ],
+      "note": "작은 원본으로 경계 오차 약1px",
+      "ratio": 0.4782608695652174,
+      "pass": true
+    }
+  ],
+  "buildings": [
+    {
+      "name": "NW_left_stone",
+      "x": 104,
+      "ridgeY": 156,
+      "eaveY": 178,
+      "groundY": 270,
+      "wall": 92,
+      "roof": 22,
+      "ratio": 4.181818181818182,
+      "pass": true
+    },
+    {
+      "name": "NW_elf_front",
+      "x": 240,
+      "ridgeY": 95,
+      "eaveY": 119,
+      "groundY": 264,
+      "wall": 145,
+      "roof": 24,
+      "ratio": 6.041666666666667,
+      "pass": true
+    },
+    {
+      "name": "NW_upper_right",
+      "x": 442,
+      "ridgeY": 88,
+      "eaveY": 110,
+      "groundY": 245,
+      "wall": 135,
+      "roof": 22,
+      "ratio": 6.136363636363637,
+      "pass": true
+    },
+    {
+      "name": "NW_right_stone",
+      "x": 505,
+      "ridgeY": 87,
+      "eaveY": 112,
+      "groundY": 243,
+      "wall": 131,
+      "roof": 25,
+      "ratio": 5.24,
+      "pass": true
+    },
+    {
+      "name": "manor",
+      "x": 835,
+      "ridgeY": 12,
+      "eaveY": 32,
+      "groundY": 191,
+      "wall": 159,
+      "roof": 20,
+      "ratio": 7.95,
+      "pass": true
+    },
+    {
+      "name": "manor_service",
+      "x": 1024,
+      "ridgeY": 68,
+      "eaveY": 86,
+      "groundY": 174,
+      "wall": 88,
+      "roof": 18,
+      "ratio": 4.888888888888889,
+      "pass": true
+    },
+    {
+      "name": "guild",
+      "x": 1296,
+      "ridgeY": 91,
+      "eaveY": 118,
+      "groundY": 316,
+      "wall": 198,
+      "roof": 27,
+      "ratio": 7.333333333333333,
+      "pass": true
+    },
+    {
+      "name": "guild_left_wing",
+      "x": 1162,
+      "ridgeY": 121,
+      "eaveY": 144,
+      "groundY": 302,
+      "wall": 158,
+      "roof": 23,
+      "ratio": 6.869565217391305,
+      "pass": true
+    },
+    {
+      "name": "guild_right_stone",
+      "x": 1484,
+      "ridgeY": 114,
+      "eaveY": 139,
+      "groundY": 304,
+      "wall": 165,
+      "roof": 25,
+      "ratio": 6.6,
+      "pass": true
+    },
+    {
+      "name": "inn_left",
+      "x": 194,
+      "ridgeY": 365,
+      "eaveY": 391,
+      "groundY": 517,
+      "wall": 126,
+      "roof": 26,
+      "ratio": 4.846153846153846,
+      "pass": true
+    },
+    {
+      "name": "inn_tree",
+      "x": 333,
+      "ridgeY": 347,
+      "eaveY": 378,
+      "groundY": 539,
+      "wall": 161,
+      "roof": 31,
+      "ratio": 5.193548387096774,
+      "pass": true
+    },
+    {
+      "name": "inn_right",
+      "x": 571,
+      "ridgeY": 379,
+      "eaveY": 403,
+      "groundY": 536,
+      "wall": 133,
+      "roof": 24,
+      "ratio": 5.541666666666667,
+      "pass": true
+    },
+    {
+      "name": "forge",
+      "x": 1300,
+      "ridgeY": 413,
+      "eaveY": 444,
+      "groundY": 590,
+      "wall": 146,
+      "roof": 31,
+      "ratio": 4.709677419354839,
+      "pass": true
+    },
+    {
+      "name": "forge_lean_to",
+      "x": 1490,
+      "ridgeY": 509,
+      "eaveY": 533,
+      "groundY": 588,
+      "wall": 55,
+      "roof": 24,
+      "ratio": 2.2916666666666665,
+      "pass": true
+    },
+    {
+      "name": "board_left",
+      "x": 651,
+      "ridgeY": 646,
+      "eaveY": 673,
+      "groundY": 783,
+      "wall": 110,
+      "roof": 27,
+      "ratio": 4.074074074074074,
+      "pass": true
+    },
+    {
+      "name": "board_center",
+      "x": 822,
+      "ridgeY": 655,
+      "eaveY": 684,
+      "groundY": 766,
+      "wall": 82,
+      "roof": 29,
+      "ratio": 2.8275862068965516,
+      "pass": true
+    },
+    {
+      "name": "board_right",
+      "x": 997,
+      "ridgeY": 649,
+      "eaveY": 676,
+      "groundY": 785,
+      "wall": 109,
+      "roof": 27,
+      "ratio": 4.037037037037037,
+      "pass": true
+    },
+    {
+      "name": "SE_left",
+      "x": 1211,
+      "ridgeY": 713,
+      "eaveY": 739,
+      "groundY": 866,
+      "wall": 127,
+      "roof": 26,
+      "ratio": 4.884615384615385,
+      "pass": true
+    },
+    {
+      "name": "SE_tree",
+      "x": 1318,
+      "ridgeY": 700,
+      "eaveY": 728,
+      "groundY": 867,
+      "wall": 139,
+      "roof": 28,
+      "ratio": 4.964285714285714,
+      "pass": true
+    },
+    {
+      "name": "SE_right",
+      "x": 1514,
+      "ridgeY": 720,
+      "eaveY": 746,
+      "groundY": 866,
+      "wall": 120,
+      "roof": 26,
+      "ratio": 4.615384615384615,
+      "pass": true
+    }
+  ]
+}

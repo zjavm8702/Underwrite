@@ -1,5 +1,5 @@
 {
-  "time": "2026-10-16T15:33:50.479Z",
+  "time": "2026-10-16T15:53:23.332Z",
   "assetsMeta": {
     "Animations/Clib/Cheer/Cheer_E.anim.meta": "e71aff033d583ca381a28007f699dcb76461ab970154fd6f274c74f9b3f6a2b6",
     "Animations/Clib/Cheer/Cheer_N.anim.meta": "f014adcb84bf17ea55af3c24e0014fd409dd5d8b081ed428c64778ae0e20a18d",
@@ -39,6 +39,9 @@
     "Data/MarketTuningData.asset.meta": "f478715d3fa7ba79f58a7a5dd2d29f80a8f80ca27b30c9425884071e360c8c75",
     "Data/PersonalityTable.asset.meta": "011fae8f9243e002070011e817745ed483b48932403a8bf00fcbbc0d48681a29",
     "Data/Portraits/brann.asset.meta": "5abe8eda4e5618c13b98c2c0c0576c376517ddfa23eafde0643a1a9ebc33eec5",
+    "Data/Portraits/elf.asset.meta": "825f12e1d1b238b4c871d5edc85a7d17307c307c8b61e9e4de50ad90b73aa4d0",
+    "Data/Portraits/fairy.asset.meta": "f1687f692cfc2f0a151a77d49d3b8a31a171c04e63f2c9272153571a2d3c2729",
+    "Data/Portraits/scholar.asset.meta": "fb693b46ad2ddea81a02372705003a76d1105d4b0b7be6abe0c9746aa2907325",
     "Data/Portraits/sella.asset.meta": "9409210724fa3c247dbb1a3b2fc4f5fd43ad7961c694f442f66620ff00a57b23",
     "Data/Portraits.meta": "f6847a8948e7db204cb16c145eb1dd15983a6a88c58487b25889aa586521065f",
     "Data/SentimentTable.asset.meta": "2e8a72518ff9ca597ad4510ef467c710850458d02da5c720655011a3c6845d18",
@@ -428,6 +431,8 @@
     "Settings.meta": "0b5ba35daae66cbfcfa17bf61091aeab7f3bed07681f8db7bed3fb72d178c2d4",
     "SpriteLibrarys/Protagonist.spriteLib.meta": "7157b7cf91c5c7ba0900c0c8102a05291b67c6d747f6107199fa81900f52435f",
     "SpriteLibrarys.meta": "567269b3fbee12e9ef229212d13c4337f44f9df3bbf98c91b3f508185c93ed73",
+    "Temp/r1.png.meta": "c61645d53e324b22b4df6f738c4135b1b55e4b3ae76a3b3f0e82db7a38118c71",
+    "Temp.meta": "a69fd67a80d1fd63e0991d52491b744a22e6337719f2d2884ee6dee513da603e",
     "UI/CommonDialogue.uxml.meta": "32d6e9fffd73274aa9875aae46e9c7b05ab6f82ba2964dd5c8f5b46f8b065d45",
     "UI/CommonPopup.uxml.meta": "6e1177f803ec53c58aeafb3a749a96e141ceb613974f0a28c66d566c846e2570",
     "UI/Fonts/NotoSerifKR-SemiBold.ttf.meta": "89ab44b6c71bfc0095ba898670ebd489f4e090c64ede44b4c624d98a6cf4925e",
@@ -443,6 +448,27 @@
     "UI/Images/Faces/face_brann_relieved.png.meta": "0525479e4362b5b7eddd3cda30ca84515d6e876a23b84e251d4597eadf4e552f",
     "UI/Images/Faces/face_brann_sad.png.meta": "b9353b8dbba8adeac4dac63dc69391ab5a00839b01c2d1e6dfff6520017bcd8a",
     "UI/Images/Faces/face_brann_shocked.png.meta": "7fe938cc302965fe6f5dfb868c80aa7222b5b4d364ff5265ef9fdb5dbea5460b",
+    "UI/Images/Faces/face_elf_angry.png.meta": "7e638c9ff88a4bad7b1192eb857dcaf01293e2a6fe84df2660ea4b447b3de8c4",
+    "UI/Images/Faces/face_elf_anxious.png.meta": "ddfe9d631a144000bfbe8f668597e5ceb3343c358b4594d00dea17ad88b43a86",
+    "UI/Images/Faces/face_elf_happy.png.meta": "15d532a6502d6ab5d1671c6aa5203c05ba748e262b2e06f2bef5f09b04acf3a5",
+    "UI/Images/Faces/face_elf_neutral.png.meta": "d9ca0757bdfca8e81dc90f6b1809157eb235e5324b6f55b6e7dbd48416723532",
+    "UI/Images/Faces/face_elf_relieved.png.meta": "db631356224f88423cc6c8d595a62fa0e452c48a81ef8cbf03cf84d0dcff93ee",
+    "UI/Images/Faces/face_elf_sad.png.meta": "c4a58e767894cf8e89475582f7f7b85144abbdfb4b266efba78fb96e88d73768",
+    "UI/Images/Faces/face_elf_shocked.png.meta": "bb9f3afd4ebaf440ed35dc1df6d3dabd93ab83d317a8d951ece58a5f845ca8d0",
+    "UI/Images/Faces/face_fairy_angry.png.meta": "04be01bc9b37b6c2a6bc428231192a00fd339ad09856cb6deaef1107a6d72de4",
+    "UI/Images/Faces/face_fairy_anxious.png.meta": "62c3054bf19aef32d94780eb5ec0dfe83261fb7cf22d72200f2db5759bf37d19",
+    "UI/Images/Faces/face_fairy_happy.png.meta": "23f2992172fdef942d852ca40b3809476a2f724e21375b57df02579dd5ebe98d",
+    "UI/Images/Faces/face_fairy_neutral.png.meta": "898b73dd77154e9c85a2a7b9514b8239be3e3e6f9233e0f8297ee0846006a1e0",
+    "UI/Images/Faces/face_fairy_relieved.png.meta": "62e15bca426faff67b6a1a02ea0b9eef8da3251c764d6944039b8b8a8d4e0380",
+    "UI/Images/Faces/face_fairy_sad.png.meta": "8e8f642d91bd61483fd4666ca28bf5325a16429cf3f1be3e204672b107ad2498",
+    "UI/Images/Faces/face_fairy_shocked.png.meta": "9bed8db1548b62f7f5dd96d50f32b17a67cda5466322a7aae4a7a24875627239",
+    "UI/Images/Faces/face_scholar_angry.png.meta": "1dc55253fad8a934c5f5982ec816b266a99f38767757cfd918985826e407440f",
+    "UI/Images/Faces/face_scholar_anxious.png.meta": "e68dd6141f0b92551722e4951dd5ea83b493bb3d03813c2d7590cbb8f484c281",
+    "UI/Images/Faces/face_scholar_happy.png.meta": "94ca6329bb96e75115798017776581f2a54b32317bc59f5c99aacda1d2bf5dde",
+    "UI/Images/Faces/face_scholar_neutral.png.meta": "8f7fde91684a992b91c99794b61a3ce309210794421dcdb7f374b924c819e672",
+    "UI/Images/Faces/face_scholar_relieved.png.meta": "ed9b6df3648f551f5a99cf4b054d1e645c0d7f01302e513ad0eb0efa01c8ba14",
+    "UI/Images/Faces/face_scholar_sad.png.meta": "55679a71703a08558aac0c8d21ac03f99c397076234cffbdb82b45fb577017f7",
+    "UI/Images/Faces/face_scholar_shocked.png.meta": "ee18e4adca9b886aa80e37ccf2978532bb518b657220801ada7f4723137e29cb",
     "UI/Images/Faces/face_sella_angry.png.meta": "b28bbea5e00db4bf1197d875eb7303e62eea51c5384c65920761dd99d28a92f1",
     "UI/Images/Faces/face_sella_anxious.png.meta": "0cbf33841dfa64067329e508dc0241d3b16d20dac94bc7b40c39c373e3ee8f4a",
     "UI/Images/Faces/face_sella_happy.png.meta": "5154f866e1a1a072a76b8be03670bec120ee8e7f7b88c63b1e161df272e60989",
@@ -499,15 +525,5 @@
     "UI Toolkit.meta": "1fae0058c36dfbf9c71010bf139906ec944763ad5282ed8f4db93c5aa5059e64",
     "UI.meta": "8cc68f4c5ea9eaa530841cdb118bb1f1d1fa53cafc6878efe21a757e5c6dc4b9",
     "UniversalRenderPipelineGlobalSettings.asset.meta": "746a38b93f8f49b644ff6893456cf24db401e5c342aaae3864e91560d37c5422"
-  },
-  "comparison": {
-    "compared": 495,
-    "unchanged": 495,
-    "changed": [],
-    "added": [
-      "Materials/CharacterShadow.mat.meta",
-      "Materials.meta",
-      "UI/Images/character_shadow.png.meta"
-    ]
   }
 }

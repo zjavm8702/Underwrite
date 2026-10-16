@@ -1,317 +1,287 @@
 {
-  "id": "fairy",
-  "group": {
-    "leftXSpread": 0,
-    "topYSpread": 0
-  },
-  "eyeWindows": [
-    [
-      443,
-      380,
-      488,
-      430
-    ],
-    [
-      545,
-      390,
-      583,
-      441
-    ]
-  ],
   "rows": [
     {
-      "file": "face_fairy_neutral.png",
+      "id": "fairy",
+      "expression": "neutral",
+      "name": "face_fairy_neutral.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
-        38,
+        53,
         108,
-        781,
-        964
+        772,
+        799
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 8838,
-      "opaque": 477331,
-      "whitePixels": 164,
-      "whiteRatio": 0.00034357709849140326,
-      "components": [
-        481391
-      ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 0,
-      "eyeLines": [
-        {
-          "y": 402,
-          "bboxY": [
-            380,
-            424
-          ],
-          "count": 1094
-        },
-        {
-          "y": 415,
-          "bboxY": [
-            390,
-            440
-          ],
-          "count": 490
-        }
-      ]
-    },
-    {
-      "file": "face_fairy_happy.png",
-      "width": 820,
-      "height": 1080,
-      "bboxInclusive": [
-        38,
-        108,
-        781,
-        964
-      ],
-      "hiddenRGB": 0,
-      "edgeContact": 0,
-      "alpha1to31": 0,
-      "semiTransparent": 8838,
-      "opaque": 477331,
-      "whitePixels": 202,
-      "whiteRatio": 0.00042318642619063084,
-      "components": [
-        481391
-      ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 21912,
-      "eyeLines": [
-        {
-          "y": 401.5,
-          "bboxY": [
-            380,
-            423
-          ],
-          "count": 1086
-        },
-        {
-          "y": 415.5,
-          "bboxY": [
-            391,
-            440
-          ],
-          "count": 632
-        }
-      ]
-    },
-    {
-      "file": "face_fairy_anxious.png",
-      "width": 820,
-      "height": 1080,
-      "bboxInclusive": [
-        38,
-        108,
-        781,
-        964
-      ],
-      "hiddenRGB": 0,
-      "edgeContact": 0,
-      "alpha1to31": 0,
-      "semiTransparent": 8838,
-      "opaque": 477331,
-      "whitePixels": 257,
-      "whiteRatio": 0.0005384104531237233,
-      "components": [
-        481391
-      ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 21945,
-      "eyeLines": [
-        {
-          "y": 402,
-          "bboxY": [
-            380,
-            424
-          ],
-          "count": 1035
-        },
-        {
-          "y": 409.5,
-          "bboxY": [
-            390,
-            429
-          ],
-          "count": 444
-        }
-      ]
-    },
-    {
-      "file": "face_fairy_angry.png",
-      "width": 820,
-      "height": 1080,
-      "bboxInclusive": [
-        38,
-        108,
-        781,
-        964
-      ],
-      "hiddenRGB": 0,
-      "edgeContact": 0,
-      "alpha1to31": 0,
-      "semiTransparent": 8838,
-      "opaque": 477331,
-      "whitePixels": 145,
-      "whiteRatio": 0.00030377243464178947,
-      "components": [
-        481391
-      ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 21739,
-      "eyeLines": [
-        {
-          "y": 400,
-          "bboxY": [
-            381,
-            419
-          ],
-          "count": 793
-        },
-        {
-          "y": 417,
-          "bboxY": [
-            394,
-            440
-          ],
-          "count": 435
-        }
-      ]
-    },
-    {
-      "file": "face_fairy_shocked.png",
-      "width": 820,
-      "height": 1080,
-      "bboxInclusive": [
-        38,
-        108,
-        781,
-        964
-      ],
-      "hiddenRGB": 0,
-      "edgeContact": 0,
-      "alpha1to31": 0,
-      "semiTransparent": 8838,
-      "opaque": 477331,
-      "whitePixels": 170,
-      "whiteRatio": 0.0003561469923386497,
-      "components": [
-        481391
-      ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 21869,
-      "eyeLines": [
-        {
-          "y": 399,
-          "bboxY": [
-            380,
-            418
-          ],
-          "count": 643
-        },
-        {
-          "y": 415,
-          "bboxY": [
-            390,
-            440
-          ],
-          "count": 281
-        }
-      ]
-    },
-    {
-      "file": "face_fairy_sad.png",
-      "width": 820,
-      "height": 1080,
-      "bboxInclusive": [
-        38,
-        108,
-        781,
-        964
-      ],
-      "hiddenRGB": 0,
-      "edgeContact": 0,
-      "alpha1to31": 0,
-      "semiTransparent": 8838,
-      "opaque": 477331,
+      "semiTransparent": 8138,
+      "opaque": 366150,
       "whitePixels": 158,
-      "whiteRatio": 0.0003310072046441568,
+      "whiteRatio": 0.0004315171377850608,
       "components": [
-        481391
+        369760
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 21776,
-      "eyeLines": [
+      "whitePercent": 0.04315171377850608,
+      "eyeFeatures": [
         {
-          "y": 413,
-          "bboxY": [
-            399,
-            427
-          ],
-          "count": 799
+          "centerY": 405,
+          "pixels": 908
         },
         {
-          "y": 422.5,
-          "bboxY": [
-            405,
-            440
-          ],
-          "count": 472
+          "centerY": 410,
+          "pixels": 451
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 0,
+      "sha256": "dfd755d1ee8c17da79673f1d2ba4155c6167c0a06ac072666991ea2dfd94778b"
     },
     {
-      "file": "face_fairy_relieved.png",
+      "id": "fairy",
+      "expression": "happy",
+      "name": "face_fairy_happy.png",
       "width": 820,
       "height": 1080,
+      "channels": 4,
       "bboxInclusive": [
-        38,
+        53,
         108,
-        781,
-        964
+        772,
+        799
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 8838,
-      "opaque": 477331,
-      "whitePixels": 138,
-      "whiteRatio": 0.00028910755848666857,
+      "semiTransparent": 8138,
+      "opaque": 366150,
+      "whitePixels": 196,
+      "whiteRatio": 0.0005352997405434931,
       "components": [
-        481391
+        369760
       ],
-      "alphaChangedPixels": 0,
-      "outsideFaceChangedPixels": 0,
-      "changedPixels": 21826,
-      "eyeLines": [
+      "whitePercent": 0.05352997405434931,
+      "eyeFeatures": [
         {
-          "y": 412,
-          "bboxY": [
-            405,
-            419
-          ],
-          "count": 463
+          "centerY": 404.5,
+          "pixels": 972
         },
         {
-          "y": 429.5,
-          "bboxY": [
-            419,
-            440
-          ],
-          "count": 232
+          "centerY": 411,
+          "pixels": 532
         }
-      ]
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24412,
+      "sha256": "d66122e24c2c1c90f24580941bfc699c53d0569e7db1f8f0ec98becdf1651a83"
+    },
+    {
+      "id": "fairy",
+      "expression": "anxious",
+      "name": "face_fairy_anxious.png",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        53,
+        108,
+        772,
+        799
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8138,
+      "opaque": 366150,
+      "whitePixels": 180,
+      "whiteRatio": 0.0004916018025399426,
+      "components": [
+        369760
+      ],
+      "whitePercent": 0.04916018025399426,
+      "eyeFeatures": [
+        {
+          "centerY": 405,
+          "pixels": 858
+        },
+        {
+          "centerY": 410.5,
+          "pixels": 423
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24336,
+      "sha256": "166bb91e4c2b92727f7666193ea7a01fd9f2d95e80c6d5b8c37728962c8fac2e"
+    },
+    {
+      "id": "fairy",
+      "expression": "angry",
+      "name": "face_fairy_angry.png",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        53,
+        108,
+        772,
+        799
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8138,
+      "opaque": 366150,
+      "whitePixels": 139,
+      "whiteRatio": 0.0003796258364058446,
+      "components": [
+        369760
+      ],
+      "whitePercent": 0.03796258364058446,
+      "eyeFeatures": [
+        {
+          "centerY": 402.5,
+          "pixels": 756
+        },
+        {
+          "centerY": 410,
+          "pixels": 398
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24119,
+      "sha256": "93dcdd8e30e892d09901a69fc780bbf17f799441b72730519c31bdc36db1553d"
+    },
+    {
+      "id": "fairy",
+      "expression": "shocked",
+      "name": "face_fairy_shocked.png",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        53,
+        108,
+        772,
+        799
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8138,
+      "opaque": 366150,
+      "whitePixels": 138,
+      "whiteRatio": 0.00037689471528062267,
+      "components": [
+        369760
+      ],
+      "whitePercent": 0.03768947152806227,
+      "eyeFeatures": [
+        {
+          "centerY": 402.5,
+          "pixels": 555
+        },
+        {
+          "centerY": 411,
+          "pixels": 321
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24046,
+      "sha256": "0d877c31a3127b36e388fb72df60c93756bdf9cbfe44015f8d08aa95e83973e3"
+    },
+    {
+      "id": "fairy",
+      "expression": "sad",
+      "name": "face_fairy_sad.png",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        53,
+        108,
+        772,
+        799
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8138,
+      "opaque": 366150,
+      "whitePixels": 142,
+      "whiteRatio": 0.0003878191997815103,
+      "components": [
+        369760
+      ],
+      "whitePercent": 0.03878191997815103,
+      "eyeFeatures": [
+        {
+          "centerY": 411,
+          "pixels": 819
+        },
+        {
+          "centerY": 419,
+          "pixels": 419
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24259,
+      "sha256": "3bef01408c052c7fe387311159b4f14c0af9cdb8c7e6e36a16fd82383947595d"
+    },
+    {
+      "id": "fairy",
+      "expression": "relieved",
+      "name": "face_fairy_relieved.png",
+      "width": 820,
+      "height": 1080,
+      "channels": 4,
+      "bboxInclusive": [
+        53,
+        108,
+        772,
+        799
+      ],
+      "hiddenRGB": 0,
+      "edgeContact": 0,
+      "alpha1to31": 0,
+      "semiTransparent": 8138,
+      "opaque": 366150,
+      "whitePixels": 132,
+      "whiteRatio": 0.0003605079885292913,
+      "components": [
+        369760
+      ],
+      "whitePercent": 0.036050798852929125,
+      "eyeFeatures": [
+        {
+          "centerY": 407,
+          "pixels": 424
+        },
+        {
+          "centerY": 419.5,
+          "pixels": 200
+        }
+      ],
+      "alphaDiffFromNeutral": 0,
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 24070,
+      "sha256": "8e125aef0029a0682e493391bb862b8c608c7a28a82cd4c15fdf3c1e1565c3fc"
     }
-  ]
+  ],
+  "summary": {
+    "count": 7,
+    "topYRange": 0,
+    "leftXRange": 0,
+    "nearEyeRange": 8.5,
+    "farEyeRange": 9.5,
+    "maxWhitePercent": 0.05352997405434931,
+    "alphaInvariant": true,
+    "outsideFaceInvariant": true
+  }
 }

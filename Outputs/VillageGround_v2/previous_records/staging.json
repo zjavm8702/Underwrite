@@ -1,0 +1,60 @@
+{
+  "scope": "PNG only; no Assets writes; no Unity connection",
+  "outputs": [
+    "Outputs/VillageGround_v2/village_ground.png",
+    "Outputs/VillageGround_v2/village_walkable.png"
+  ],
+  "size": [
+    3840,
+    2160
+  ],
+  "maskConvention": {
+    "walkable": 255,
+    "blocked": 0,
+    "alpha": 255,
+    "origin": "top-left",
+    "type": "binary conservative projected obstacle silhouette",
+    "collision": "All buildings, walls, well, stalls, trees, props blocked; ground shadows remain walkable. Player-radius erosion is a runtime setting, not baked into map."
+  },
+  "hero": {
+    "source": "Assets/UI/Images/Heroes/protagonist.png",
+    "size": [
+      45,
+      135
+    ],
+    "camera": [
+      1920,
+      1080
+    ],
+    "heightFraction": 0.125,
+    "anchors": [
+      {
+        "name": "tavern",
+        "x": 855,
+        "y": 895,
+        "crop": [
+          0,
+          250
+        ]
+      },
+      {
+        "name": "guild",
+        "x": 3090,
+        "y": 925,
+        "crop": [
+          1920,
+          260
+        ]
+      },
+      {
+        "name": "board",
+        "x": 1920,
+        "y": 1830,
+        "crop": [
+          960,
+          1080
+        ]
+      }
+    ]
+  }
+}

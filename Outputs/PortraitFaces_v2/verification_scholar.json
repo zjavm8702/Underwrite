@@ -8,36 +8,36 @@
       "height": 1080,
       "channels": 4,
       "bboxInclusive": [
-        36,
-        101,
+        37,
+        74,
         783,
-        950
+        835
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 20,
-      "whiteRatio": 0.00005645411691647613,
+      "semiTransparent": 10969,
+      "opaque": 333276,
+      "whitePixels": 69,
+      "whiteRatio": 0.00020703561012494148,
       "components": [
-        360053
+        338027
       ],
-      "whitePercent": 0.005645411691647614,
+      "whitePercent": 0.020703561012494147,
       "eyeFeatures": [
         {
-          "centerY": 296.5,
-          "pixels": 271
+          "centerY": 292.5,
+          "pixels": 325
         },
         {
           "centerY": 315.5,
-          "pixels": 654
+          "pixels": 474
         }
       ],
       "alphaDiffFromNeutral": 0,
       "outsideFaceDiffFromNeutral": 0,
       "changedPixels": 0,
-      "sha256": "1700e9a36e54ccfece8d78e3857555634a80f967fafd92fdf8662045d0f4a00b"
+      "sha256": "723d3a001b96316a3bae6ab21023e11a5c2070e99bc80b0f4afb9193741017b4"
     },
     {
       "id": "scholar",
@@ -47,36 +47,36 @@
       "height": 1080,
       "channels": 4,
       "bboxInclusive": [
-        36,
-        101,
+        37,
+        74,
         783,
-        950
+        835
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 16,
-      "whiteRatio": 0.00004516329353318091,
+      "semiTransparent": 10969,
+      "opaque": 333276,
+      "whitePixels": 82,
+      "whiteRatio": 0.000246042319278916,
       "components": [
-        360053
+        338027
       ],
-      "whitePercent": 0.004516329353318091,
+      "whitePercent": 0.0246042319278916,
       "eyeFeatures": [
         {
-          "centerY": 296.5,
-          "pixels": 271
+          "centerY": 292.5,
+          "pixels": 351
         },
         {
           "centerY": 315.5,
-          "pixels": 654
+          "pixels": 444
         }
       ],
       "alphaDiffFromNeutral": 0,
-      "outsideFaceDiffFromNeutral": 13515,
-      "changedPixels": 25248,
-      "sha256": "6cb3ce0c456af0b33496d591d526753088cf434949786e4f414ecd0e015c340a"
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 25783,
+      "sha256": "bf558927b3f82e9c3747750a6a64b56f82a0f06fc0d8f26c9300d411af4b0612"
     },
     {
       "id": "scholar",
@@ -86,22 +86,22 @@
       "height": 1080,
       "channels": 4,
       "bboxInclusive": [
-        36,
-        101,
+        37,
+        74,
         783,
-        950
+        835
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 20,
-      "whiteRatio": 0.00005645411691647613,
+      "semiTransparent": 10969,
+      "opaque": 333276,
+      "whitePixels": 69,
+      "whiteRatio": 0.00020703561012494148,
       "components": [
-        360053
+        338027
       ],
-      "whitePercent": 0.005645411691647614,
+      "whitePercent": 0.020703561012494147,
       "eyeFeatures": [
         {
           "centerY": 295,
@@ -109,13 +109,13 @@
         },
         {
           "centerY": 315.5,
-          "pixels": 382
+          "pixels": 383
         }
       ],
       "alphaDiffFromNeutral": 0,
       "outsideFaceDiffFromNeutral": 0,
-      "changedPixels": 24233,
-      "sha256": "b9b1062e2afb66b920b001c5c591d886c69164bddb847b22df27cef40f182f1d"
+      "changedPixels": 25809,
+      "sha256": "9caf18da5d04a4e0299d4e983ba7e3632e44d5207dee136e3a994957a4b0e541"
     },
     {
       "id": "scholar",
@@ -125,22 +125,22 @@
       "height": 1080,
       "channels": 4,
       "bboxInclusive": [
-        36,
-        101,
+        37,
+        74,
         783,
-        950
+        835
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 20,
-      "whiteRatio": 0.00005645411691647613,
+      "semiTransparent": 10969,
+      "opaque": 333276,
+      "whitePixels": 69,
+      "whiteRatio": 0.00020703561012494148,
       "components": [
-        360053
+        338027
       ],
-      "whitePercent": 0.005645411691647614,
+      "whitePercent": 0.020703561012494147,
       "eyeFeatures": [
         {
           "centerY": 294.5,
@@ -148,13 +148,13 @@
         },
         {
           "centerY": 315.5,
-          "pixels": 454
+          "pixels": 458
         }
       ],
       "alphaDiffFromNeutral": 0,
       "outsideFaceDiffFromNeutral": 0,
-      "changedPixels": 24238,
-      "sha256": "663225f662b1432c4733fb906c93ab415d847cc74b57b6ab2ca6ab4479335201"
+      "changedPixels": 25847,
+      "sha256": "3fc6936e99783a49b220d4bbc88197bac96381cddd00c65a7d7ea09778f6fec7"
     },
     {
       "id": "scholar",
@@ -164,36 +164,36 @@
       "height": 1080,
       "channels": 4,
       "bboxInclusive": [
-        36,
-        101,
+        37,
+        74,
         783,
-        950
+        835
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 16,
-      "whiteRatio": 0.00004516329353318091,
+      "semiTransparent": 10969,
+      "opaque": 333276,
+      "whitePixels": 136,
+      "whiteRatio": 0.00040807018807234845,
       "components": [
-        360053
+        338027
       ],
-      "whitePercent": 0.004516329353318091,
+      "whitePercent": 0.04080701880723485,
       "eyeFeatures": [
         {
-          "centerY": 296.5,
-          "pixels": 271
+          "centerY": 296,
+          "pixels": 276
         },
         {
           "centerY": 315.5,
-          "pixels": 654
+          "pixels": 538
         }
       ],
       "alphaDiffFromNeutral": 0,
-      "outsideFaceDiffFromNeutral": 13305,
-      "changedPixels": 24974,
-      "sha256": "c83e93176e65703b74f2f270e27acd27ee733db1a896f4425afaf17e55b4a546"
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 25841,
+      "sha256": "d5b6ac4d6fdf70b2b43bc7a62c361e00903b851ac24a99ce31e99cbe90f1dc73"
     },
     {
       "id": "scholar",
@@ -203,36 +203,36 @@
       "height": 1080,
       "channels": 4,
       "bboxInclusive": [
-        36,
-        101,
+        37,
+        74,
         783,
-        950
+        835
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 19,
-      "whiteRatio": 0.000053631411070652326,
+      "semiTransparent": 10969,
+      "opaque": 333276,
+      "whitePixels": 68,
+      "whiteRatio": 0.00020403509403617423,
       "components": [
-        360053
+        338027
       ],
-      "whitePercent": 0.005363141107065233,
+      "whitePercent": 0.020403509403617424,
       "eyeFeatures": [
         {
-          "centerY": 296.5,
-          "pixels": 271
+          "centerY": 297.5,
+          "pixels": 368
         },
         {
           "centerY": 315.5,
-          "pixels": 654
+          "pixels": 532
         }
       ],
       "alphaDiffFromNeutral": 0,
-      "outsideFaceDiffFromNeutral": 13006,
-      "changedPixels": 24642,
-      "sha256": "fe4f20f32ae88459edd64e50572bbc39bad0ba4ed11bbb296cfe07f361221a7c"
+      "outsideFaceDiffFromNeutral": 0,
+      "changedPixels": 26078,
+      "sha256": "fb7e1b42a6b2431bb8e3543f9bfaf9ebd6105d9e68501799393882a1e877bbf1"
     },
     {
       "id": "scholar",
@@ -242,22 +242,22 @@
       "height": 1080,
       "channels": 4,
       "bboxInclusive": [
-        36,
-        101,
+        37,
+        74,
         783,
-        950
+        835
       ],
       "hiddenRGB": 0,
       "edgeContact": 0,
       "alpha1to31": 0,
-      "semiTransparent": 12718,
-      "opaque": 354270,
-      "whitePixels": 19,
-      "whiteRatio": 0.000053631411070652326,
+      "semiTransparent": 10969,
+      "opaque": 333276,
+      "whitePixels": 68,
+      "whiteRatio": 0.00020403509403617423,
       "components": [
-        360053
+        338027
       ],
-      "whitePercent": 0.005363141107065233,
+      "whitePercent": 0.020403509403617424,
       "eyeFeatures": [
         {
           "centerY": 296.5,
@@ -265,23 +265,23 @@
         },
         {
           "centerY": 315.5,
-          "pixels": 263
+          "pixels": 252
         }
       ],
       "alphaDiffFromNeutral": 0,
       "outsideFaceDiffFromNeutral": 0,
-      "changedPixels": 24214,
-      "sha256": "05cbca2ff2d6db9b3be600fd006361bf540cc0127c6d8653d8c20f6b7d52e448"
+      "changedPixels": 25830,
+      "sha256": "3817995071a3cd675e8d449286e8737ce34077505dfd97d8199e57a641d28fff"
     }
   ],
   "summary": {
     "count": 7,
     "topYRange": 0,
     "leftXRange": 0,
-    "nearEyeRange": 2,
+    "nearEyeRange": 5,
     "farEyeRange": 0,
-    "maxWhitePercent": 0.005645411691647614,
+    "maxWhitePercent": 0.04080701880723485,
     "alphaInvariant": true,
-    "outsideFaceInvariant": false
+    "outsideFaceInvariant": true
   }
 }

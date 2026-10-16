@@ -639,6 +639,7 @@ namespace Underwrite.UI
             if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
             {
                 Sim.Clock.EndBreak();
+                ReportSkippedSessions();
                 Sim.OpenNextSession(IsInspectionDay);
 
                 var brought = Sim.ApplyGatherSession();
@@ -665,6 +666,38 @@ namespace Underwrite.UI
             Message = filled > 0
                 ? string.Format(StringConstants.TEXT_SESSION_SKIPPED_FILLED, news, filled)
                 : string.Format(StringConstants.TEXT_SESSION_SKIPPED, news);
+        }
+
+        /// <summary>
+        /// 영지에서 쉬기로 한 장을 치르고, 그동안 무슨 일이 있었는지 알린다.
+        ///
+        /// 쉰 대가는 숫자로 보여야 한다. 그러지 않으면 쉬는 것이 공짜처럼 느껴지고,
+        /// 플레이어가 고르는 일이 아니게 된다. 자산이 얼마나 움직였는지를 적는다.
+        /// </summary>
+        private void ReportSkippedSessions()
+        {
+            if (Sim.Clock.SkippedSessions <= 0)
+            {
+                return;
+            }
+
+            var beforeValue = Sim.Wallet.TotalValue(Sim.StockLookup);
+            var beforeNews = Sim.InfoLog.Count;
+
+            var sessions = Sim.RunSkippedSessions(IsInspectionDay);
+
+            if (sessions <= 0)
+            {
+                return;
+            }
+
+            var moved = Sim.Wallet.TotalValue(Sim.StockLookup) - beforeValue;
+            var news = Sim.InfoLog.Count - beforeNews;
+            var sign = moved >= 0f ? "+" : string.Empty;
+
+            ShowToast("쉰 동안의 장",
+                $"장 {sessions}회가 지나갔습니다. 자산 {sign}{moved:N0}, 오간 소식 {news}건.",
+                Side, true);
         }
 
         /// <summary>
