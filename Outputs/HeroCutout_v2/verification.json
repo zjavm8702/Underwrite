@@ -1,0 +1,356 @@
+{
+  "status": "draft_pending_user_visual_approval",
+  "time": "2026-10-16T13:34:13.468Z",
+  "criteria": {
+    "white": "alpha >=200 AND min RGB >=244 AND maxRGB-minRGB <=10; ratio denominator is alpha>=200",
+    "components": "8-neighbor alpha>0",
+    "semi": "0<alpha<255; all existing semi RGBA must match exactly",
+    "candidate": "min RGB >=250, saturation<=4 measured; SD<1 rejected because true enclosed background SD=1.23..1.47; inspect full relaxed candidate components and select semantic gaps",
+    "growth": "Selected opaque candidate components grow through opaque minRGB>230 saturation<=24; inner 2px edge decontamination with nearby foreground; alpha<32 cleared; existing semi untouched"
+  },
+  "meta": {
+    "beforeCount": 457,
+    "maintained": 457,
+    "changed": [],
+    "added": [
+      "Editor/Prototype/VillageSceneSetup.cs.meta",
+      "Scripts/Characters/CameraFollow.cs.meta",
+      "Scripts/Characters/VillageSpot.cs.meta",
+      "Scripts/Characters/VillageSpotEvents.cs.meta"
+    ]
+  },
+  "v1Unchanged": true,
+  "files": [
+    {
+      "name": "hero_1_scholar",
+      "selectedComponents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "backgroundRemoved": 6736,
+      "newSemi": 96,
+      "before": {
+        "opaque200": 142516,
+        "white": 6934,
+        "semi": 2943,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 4.865418619663757
+      },
+      "after": {
+        "opaque200": 135686,
+        "white": 476,
+        "semi": 3039,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.3508099582860428
+      },
+      "components8": [
+        137824
+      ],
+      "existingSemiChanged": 0,
+      "resolution": [
+        356,
+        801
+      ],
+      "sha256": "dcddae29aa57ea829d01841ad9540b78e800b3c7132dfe51ba9973eb3ab5efc3"
+    },
+    {
+      "name": "hero_2_swordswoman",
+      "selectedComponents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "backgroundRemoved": 923,
+      "newSemi": 60,
+      "before": {
+        "opaque200": 97471,
+        "white": 950,
+        "semi": 5501,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.9746488699202839
+      },
+      "after": {
+        "opaque200": 96488,
+        "white": 173,
+        "semi": 5561,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.17929690738744714
+      },
+      "components8": [
+        100336
+      ],
+      "existingSemiChanged": 0,
+      "detachedOpaqueSpecksRemoved": 2,
+      "resolution": [
+        296,
+        710
+      ],
+      "sha256": "883ead0c8be445ef0c41679bf0cf861b1f4388ab3a33d411c18c2c4230d1216e"
+    },
+    {
+      "name": "hero_3_elf",
+      "selectedComponents": [
+        0
+      ],
+      "backgroundRemoved": 1058,
+      "newSemi": 33,
+      "before": {
+        "opaque200": 161891,
+        "white": 1543,
+        "semi": 33137,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.9531104261509287
+      },
+      "after": {
+        "opaque200": 160801,
+        "white": 531,
+        "semi": 33170,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.33022182697868796
+      },
+      "components8": [
+        162881
+      ],
+      "existingSemiChanged": 0,
+      "resolution": [
+        318,
+        767
+      ],
+      "sha256": "b5000d6532763744e6f6f437f28239f5bba40b7cc250b88e3132aee3aecc6fa9"
+    },
+    {
+      "name": "hero_4_warrior",
+      "selectedComponents": [
+        0
+      ],
+      "backgroundRemoved": 756,
+      "newSemi": 23,
+      "before": {
+        "opaque200": 268077,
+        "white": 2017,
+        "semi": 3362,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.7523957668878718
+      },
+      "after": {
+        "opaque200": 267298,
+        "white": 1347,
+        "semi": 3385,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.5039319411293761
+      },
+      "components8": [
+        269619
+      ],
+      "existingSemiChanged": 0,
+      "resolution": [
+        484,
+        864
+      ],
+      "sha256": "33ab0a4b28605c77abaccba5eca033a24fceee06c3ddee5fa53c21eb1ef453db"
+    },
+    {
+      "name": "hero_5_fairy",
+      "selectedComponents": [],
+      "backgroundRemoved": 0,
+      "newSemi": 0,
+      "before": {
+        "opaque200": 88444,
+        "white": 978,
+        "semi": 27690,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 1.1057844511781467
+      },
+      "after": {
+        "opaque200": 88444,
+        "white": 978,
+        "semi": 27690,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 1.1057844511781467
+      },
+      "components8": [
+        91962
+      ],
+      "existingSemiChanged": 0,
+      "resolution": [
+        323,
+        581
+      ],
+      "sha256": "c375e3bb0782a80ef2ce5305276e7b092305d642004f0540264690a63ff0b685"
+    },
+    {
+      "name": "protagonist",
+      "selectedComponents": [
+        3
+      ],
+      "backgroundRemoved": 264,
+      "newSemi": 7,
+      "before": {
+        "opaque200": 369937,
+        "white": 3064,
+        "semi": 3663,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.8282491343120585
+      },
+      "after": {
+        "opaque200": 369666,
+        "white": 2831,
+        "semi": 3670,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.7658264487402142
+      },
+      "components8": [
+        372323
+      ],
+      "existingSemiChanged": 0,
+      "resolution": [
+        495,
+        1483
+      ],
+      "sha256": "48590bb49079ba5e6bd9fb98304874b817ff0403dac304270d9cd6034f1a1cf7"
+    }
+  ],
+  "animation": "Not applicable: six static illustrations",
+  "limitations": [
+    "Fairy retained unchanged: candidate whites are wing, sleeve and skirt details; no confidently removable enclosed white background identified.",
+    "Protagonist outer arm white stripe is shirt highlight and retained; actual inner elbow gap removed.",
+    "True translucent alpha cannot be uniquely recovered from flattened source; v1 alpha/RGB preserved exactly."
+  ],
+  "visualReview": "Dark, white, basement composites and enlarged hair/cloth gaps inspected; remaining white detector hits are not automatically classified as background.",
+  "finalReadback": [
+    {
+      "name": "hero_1_scholar",
+      "stats": {
+        "opaque200": 135686,
+        "white": 476,
+        "semi": 3039,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.3508099582860428
+      },
+      "components": [
+        137824
+      ],
+      "sameData": true
+    },
+    {
+      "name": "hero_2_swordswoman",
+      "stats": {
+        "opaque200": 96488,
+        "white": 173,
+        "semi": 5561,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.17929690738744714
+      },
+      "components": [
+        100336
+      ],
+      "sameData": true
+    },
+    {
+      "name": "hero_3_elf",
+      "stats": {
+        "opaque200": 160801,
+        "white": 531,
+        "semi": 33170,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.33022182697868796
+      },
+      "components": [
+        162881
+      ],
+      "sameData": true
+    },
+    {
+      "name": "hero_4_warrior",
+      "stats": {
+        "opaque200": 267298,
+        "white": 1347,
+        "semi": 3385,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.5039319411293761
+      },
+      "components": [
+        269619
+      ],
+      "sameData": true
+    },
+    {
+      "name": "hero_5_fairy",
+      "stats": {
+        "opaque200": 88444,
+        "white": 978,
+        "semi": 27690,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 1.1057844511781467
+      },
+      "components": [
+        91962
+      ],
+      "sameData": true
+    },
+    {
+      "name": "protagonist",
+      "stats": {
+        "opaque200": 369666,
+        "white": 2831,
+        "semi": 3670,
+        "hiddenRGB": 0,
+        "canvasContact": 0,
+        "alphaBelow32": 0,
+        "whitePercent": 0.7658264487402142
+      },
+      "components": [
+        372323
+      ],
+      "sameData": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/UI/MarketScreen.uss" />
+    <Style src="project://database/Assets/UI/MarketScreen.Parchment.uss" />
+
+    <ui:VisualElement name="village-root" class="village-root" picking-mode="Ignore">
+        <!-- 오늘 남은 걸음. 시간도 자원이다. -->
+        <ui:Label name="village-visits" text="" class="village-visits" />
+
+        <!-- 자리에 다가서면 뜬다. -->
+        <ui:VisualElement name="village-prompt" class="village-prompt hidden">
+            <ui:Label name="village-place" text="" class="village-place" />
+            <ui:Label name="village-cost" text="" class="village-cost" />
+            <ui:Label name="village-key" text="" class="village-key" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

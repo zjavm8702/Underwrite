@@ -1187,3 +1187,56 @@
     background-color: var(--color-text);
     color: var(--color-panel);
 }
+
+/* ── 영지 화면 ────────────────────────────── */
+
+.village-root {
+    flex-grow: 1;
+}
+
+/* 오늘 더 돌아볼 수 있는 횟수. 시간이 자원이라는 것을 늘 보여 둔다. */
+.village-visits {
+    position: absolute;
+    top: 28px;
+    right: 36px;
+    font-size: 19px;
+    -unity-font-style: bold;
+    color: var(--color-panel);
+}
+
+/* 자리에 다가섰을 때만 뜬다. 화면 아래 가운데가 눈이 가장 먼저 가는 자리다. */
+.village-prompt {
+    position: absolute;
+    bottom: 56px;
+    left: 50%;
+    translate: -50% 0;
+    min-width: 420px;
+    background-color: var(--color-panel);
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 28px;
+    padding-right: 28px;
+    align-items: center;
+}
+
+.village-place {
+    font-size: 26px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+}
+
+.village-cost {
+    font-size: 17px;
+    color: var(--color-text-weak);
+    margin-top: 2px;
+}
+
+.village-key {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: var(--color-halt);
+    margin-top: 8px;
+}

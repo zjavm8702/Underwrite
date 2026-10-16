@@ -1,0 +1,60 @@
+{
+  "assetsWritten": false,
+  "unityConnected": false,
+  "files": [
+    {
+      "path": "Outputs/HeroCutout_v2/hero_1_scholar.png",
+      "resolution": [
+        356,
+        801
+      ],
+      "pivot": "not embedded; static illustration",
+      "frames": 1
+    },
+    {
+      "path": "Outputs/HeroCutout_v2/hero_2_swordswoman.png",
+      "resolution": [
+        296,
+        710
+      ],
+      "pivot": "not embedded; static illustration",
+      "frames": 1
+    },
+    {
+      "path": "Outputs/HeroCutout_v2/hero_3_elf.png",
+      "resolution": [
+        318,
+        767
+      ],
+      "pivot": "not embedded; static illustration",
+      "frames": 1
+    },
+    {
+      "path": "Outputs/HeroCutout_v2/hero_4_warrior.png",
+      "resolution": [
+        484,
+        864
+      ],
+      "pivot": "not embedded; static illustration",
+      "frames": 1
+    },
+    {
+      "path": "Outputs/HeroCutout_v2/hero_5_fairy.png",
+      "resolution": [
+        323,
+        581
+      ],
+      "pivot": "not embedded; static illustration",
+      "frames": 1
+    },
+    {
+      "path": "Outputs/HeroCutout_v2/protagonist.png",
+      "resolution": [
+        495,
+        1483
+      ],
+      "pivot": "not embedded; static illustration",
+      "frames": 1
+    }
+  ]
+}

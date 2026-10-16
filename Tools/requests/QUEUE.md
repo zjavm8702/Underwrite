@@ -10,11 +10,15 @@
 | 2 | `underworld_scene_v1.md` | `UnderworldScene_v1` | **완료** — 검수함, 적용은 연출 작업 때 |
 | 3 | `ui_icons_v1.md` | `MarketUI_Icons_v1` | **완료** — 적용 중 |
 | 4 | `info_source_marks_v1.md` | `InfoSourceMarks_v1` | **완료** — 적용 대기 |
-| 5 | `hero_cutout_v1.md` | `HeroCutout_v1` | 진행 중 — 있는 일러스트 가공 |
-| 6 | `stock_portraits_v1.md` | `StockPortraits_v1` | 대기 |
+| 5 | `hero_cutout_v1.md` | `HeroCutout_v1` | **반려** — 갇힌 흰 영역이 남음 |
+| 6 | `gather_places_v1.md` | `GatherPlaces_v1` | **완료** — 들임 |
+| 7 | `hero_cutout_v2.md` | `HeroCutout_v2` | **완료** — 검수 통과, 적용함 |
+| 8 | (미정) | | 대기 |
 
 ## 왜 이 순서인가
 
 2번이 먼저인 이유는 **지금 거래 화면 말고 보여줄 장면이 하나도 없기 때문**이다. 정보 타임 연출을 만들려면 배경이 먼저 있어야 한다.
 
-3·4번은 거래 화면의 빈 구석을 채운다. 5번은 종목이 늘어난 뒤에야 값을 하므로 뒤에 둔다.
+3·4번은 거래 화면의 빈 구석을 채운다. 6번은 장 사이 "정보 모으기" 단계가 쓸 장소다. 그 작업과 함께 들어간다.
+
+종목 초상은 뺐다. 용사 일러스트를 종목에 붙여서 당분간 중복이다.

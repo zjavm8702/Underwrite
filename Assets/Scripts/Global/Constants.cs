@@ -127,6 +127,12 @@ namespace Underwrite.Global
         /// </summary>
         public static int SESSIONS_PER_CYCLE = 4;
 
+        /// <summary>
+        /// 장과 장 사이에 들를 수 있는 곳의 수. 기획서 §11의 "자금 및 정보 모으기".
+        /// 돈만 자원이면 부자가 다 사 버린다. 시간도 함께 들어야 고르는 일이 된다.
+        /// </summary>
+        public static int GATHER_VISITS_PER_BREAK = 2;
+
         /// <summary>상장 자리의 기본 수. 설계안 §6에 따라 분위기와 연차로 늘거나 준다.</summary>
         public static int LISTING_SLOTS = 3;
 

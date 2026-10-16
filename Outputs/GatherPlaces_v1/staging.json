@@ -1,0 +1,36 @@
+{
+  "scope": "PNG only; Outputs only; no Assets writes",
+  "status": "draft",
+  "deliverables": [
+    {
+      "path": "Outputs/GatherPlaces_v1/place_tavern.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "RGBA8",
+      "alpha": 255,
+      "pivot": "not encoded; Unity unset",
+      "source": "source/tavern_generated.png"
+    },
+    {
+      "path": "Outputs/GatherPlaces_v1/place_guild.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "RGBA8",
+      "alpha": 255,
+      "pivot": "not encoded; Unity unset",
+      "source": "source/guild_generated.png"
+    },
+    {
+      "path": "Outputs/GatherPlaces_v1/place_board.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "RGBA8",
+      "alpha": 255,
+      "pivot": "not encoded; Unity unset",
+      "source": "source/board_generated.png"
+    }
+  ],
+  "reference": "Outputs/UnderworldScene_v1/underworld_room.png",
+  "appliedToAssets": false,
+  "unityConnected": false
+}

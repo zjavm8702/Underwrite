@@ -28,7 +28,9 @@ public class PlayerCharacterInput : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        var MoveInput = Vector2.ClampMagnitude(value.Get<Vector2>(), 1f);
+        // var를 붙이면 같은 이름의 지역 변수가 생겨 필드에 저장되지 않는다.
+        // 그 탓에 입력을 받아도 캐릭터가 움직이지 않았다.
+        MoveInput = Vector2.ClampMagnitude(value.Get<Vector2>(), 1f);
     }
 
     private void Update()

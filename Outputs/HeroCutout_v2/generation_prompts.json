@@ -1,0 +1,6 @@
+{
+  "imageGenerationUsed": false,
+  "prompts": [],
+  "reason": "User explicitly requested deterministic connected component alpha cleanup preserving existing art.",
+  "request": "HeroCutout v2: remove enclosed white background, preserve white clothes and v1 translucency."
+}
