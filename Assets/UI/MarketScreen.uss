@@ -794,3 +794,31 @@
     flex-grow: 1;
     min-height: 0;
 }
+
+/* ── 일중 요약 ────────────────────────────── */
+
+/* 호가 아래 남는 자리. 시가는 고정이고 고·저는 갱신될 때마다 바뀐다. */
+.day-stats {
+    flex-shrink: 0;
+    border-top-width: 1px;
+    border-top-color: var(--color-divider);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.day-line {
+    flex-direction: row;
+    align-items: center;
+    height: 28px;
+}
+
+.day-label {
+    flex-grow: 1;
+    font-size: 16px;
+    color: var(--color-text-weak);
+}
+
+.day-value {
+    font-size: 17px;
+    -unity-font-style: bold;
+}

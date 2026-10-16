@@ -29,9 +29,9 @@ namespace Underwrite.UI
         private const float CHART_AXIS_WIDTH = 76f;
         private const float CHART_PLOT_LEFT = 10f;
         private const float CHART_RANGE_PAD = 0.12f;
+        private const float CHART_MIN_SPAN_RATIO = 0.03f;
         private const int CHART_AXIS_MAX = 7;
         private const float CHART_LABEL_EDGE = 26f;
-        private const float CHART_OPEN_LABEL_WIDTH = 120f;
         private const int INFO_MAX_ROWS = 20;
         private const int RATIO_FIT_STEPS = 4;
 
@@ -891,7 +891,7 @@ namespace Underwrite.UI
             var height = chart.contentRect.height;
             var history = stock.PriceHistory;
 
-            if (width <= 0f || height <= 0f || history.Count < 2)
+            if (width <= 0f || height <= 0f || history.Count < 1)
             {
                 HideMarker(chart, "marker-low");
                 HideMarker(chart, "marker-open");
@@ -901,27 +901,25 @@ namespace Underwrite.UI
                 return;
             }
 
-            float min;
-            float max;
-            int lowIndex;
-            int highIndex;
-            ChartRange(stock, out min, out max, out lowIndex, out highIndex);
-
-            var span = ChartSpan(min, max);
+            var scale = BuildScale(stock);
+            var min = scale.Min;
+            var span = scale.Span;
             var plotWidth = PlotWidth(width);
             var total = Sim.Clock.TicksPerSession;
+
+            RefreshDayStats(stock, scale);
 
             // 오른쪽 가격 눈금. 값이 적혀 있지 않으면 선의 높낮이가 얼마인지 알 수 없다.
             var step = NiceStep(span / 4f);
             var first = Mathf.Ceil(min / step) * step;
-            var priceY = ChartY(stock.Price, min, span, height);
+            var priceY = ChartY(stock.LivePrice, min, span, height);
             var shown = 0;
 
             for (var i = 0; i < CHART_AXIS_MAX; i++)
             {
                 var value = first + step * i;
 
-                if (value > max)
+                if (value > scale.Max)
                 {
                     break;
                 }
@@ -943,44 +941,52 @@ namespace Underwrite.UI
             // 현재가 꼬리표 — 증권사 차트처럼 오른쪽 끝에 지금 값을 붙인다.
             PlacePriceTag(chart, stock, min, span, width, height);
 
-            var lowX = ChartX(lowIndex, total, width);
-            var highX = ChartX(highIndex, total, width);
-            var lowY = ChartY(history[lowIndex], min, span, height);
-            var highY = ChartY(history[highIndex], min, span, height);
-            var openY = ChartY(stock.SessionOpenPrice, min, span, height);
+            var openY = ChartY(scale.OpenValue, min, span, height);
 
-            // 고점이 위쪽 끝에 붙으면 라벨을 점 아래로 내린다. 저점은 반대다.
-            PlaceMarker(chart, "marker-low", "chart-marker-label--low",
-                $"저 {history[lowIndex]:N1}", lowX, lowY, plotWidth,
-                lowY > height - CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
-            PlaceMarker(chart, "marker-high", "chart-marker-label--high",
-                $"고 {history[highIndex]:N1}", highX, highY, plotWidth,
-                highY > CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
-
-            // 시작 라벨은 점 오른쪽에 눕힌다. 위로 올리면 종목 이름·가격 글자와 겹친다.
+            // 시작 라벨은 늘 왼쪽 끝 점 오른쪽에 눕힌다. 위로 올리면 종목 이름·가격 글자와 겹친다.
             PlaceMarker(chart, "marker-open", "chart-marker-label--open",
-                $"시작 {stock.SessionOpenPrice:N1}", PlotLeft() + 12f, openY, plotWidth,
+                $"시작 {scale.OpenValue:N1}", PlotLeft() + 12f, openY, plotWidth,
                 true, MarkerAnchor.Anchor_Left);
 
-            // 저점이나 고점이 장 시작가 바로 옆에 있으면 두 라벨이 포개진다.
-            // 그때는 시작 라벨을 접는다. 기준선이 이미 그 높이를 알려 준다.
-            var openHidden = Overlaps(openY, lowY, lowX) == true || Overlaps(openY, highY, highX) == true;
-
-            if (openHidden == true)
+            // 아직 시작가가 그대로 저가(고가)이면 같은 점에 라벨 두 개가 포개진다.
+            // 그때는 저·고를 적지 않는다. 장이 흘러 새 저가가 찍히면 그 자리에 나타난다.
+            if (IsOpenPoint(scale.LowIndex) == true)
             {
-                HideMarker(chart, "marker-open");
+                HideMarker(chart, "marker-low");
+            }
+            else
+            {
+                var lowY = ChartY(scale.LowValue, min, span, height);
+                PlaceMarker(chart, "marker-low", "chart-marker-label--low",
+                    $"저 {scale.LowValue:N1}", ChartXAt(scale.LowIndex, total, width), lowY, plotWidth,
+                    lowY > height - CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
+            }
+
+            if (IsOpenPoint(scale.HighIndex) == true)
+            {
+                HideMarker(chart, "marker-high");
+            }
+            else
+            {
+                var highY = ChartY(scale.HighValue, min, span, height);
+                PlaceMarker(chart, "marker-high", "chart-marker-label--high",
+                    $"고 {scale.HighValue:N1}", ChartXAt(scale.HighIndex, total, width), highY, plotWidth,
+                    highY > CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
             }
         }
 
-        /// <summary>시작 라벨 자리와 포개지는가. 시작 라벨은 왼쪽 끝에 눕혀 있다.</summary>
-        private static bool Overlaps(float openY, float otherY, float otherX)
+        /// <summary>그 지점이 아직 장 시작점인가. 시작 라벨이 이미 그 자리를 적고 있다.</summary>
+        private static bool IsOpenPoint(float index)
         {
-            if (Mathf.Abs(openY - otherY) > CHART_LABEL_EDGE)
-            {
-                return false;
-            }
+            return index < 0.5f;
+        }
 
-            return otherX < CHART_PLOT_LEFT + CHART_OPEN_LABEL_WIDTH;
+        /// <summary>호가 패널 아래의 일중 요약. 시가는 고정, 저가·고가는 갱신될 때마다 바뀐다.</summary>
+        private void RefreshDayStats(AdventurerStock stock, ChartScale scale)
+        {
+            SetText("day-open", scale.OpenValue.ToString("N1"));
+            SetText("day-high", scale.HighValue.ToString("N1"));
+            SetText("day-low", scale.LowValue.ToString("N1"));
         }
 
         /// <summary>라벨을 점의 어디에 붙일지.</summary>
@@ -990,61 +996,96 @@ namespace Underwrite.UI
             Anchor_Left
         }
 
-        /// <summary>차트가 쓰는 가격 범위와 저·고 지점을 함께 구한다. 선과 글자가 같은 자를 써야 한다.</summary>
-        private static void ChartRange(AdventurerStock stock, out float min, out float max,
-            out int lowIndex, out int highIndex)
+        /// <summary>
+        /// 차트 한 장의 세로 눈금과 세 지점.
+        /// 선·점·라벨·눈금이 모두 같은 자를 써야 하므로 한 번만 재서 돌려 쓴다.
+        /// </summary>
+        private struct ChartScale
+        {
+            public float Min;
+            public float Max;
+            public float Span;
+            public float OpenValue;
+            public float LowValue;
+            public float LowIndex;
+            public float HighValue;
+            public float HighIndex;
+            public float LiveIndex;
+        }
+
+        /// <summary>
+        /// 장 시작가와 그 뒤의 저가·고가를 찾는다.
+        ///
+        /// 시작가는 장이 열린 순간의 값으로 고정이다.
+        /// 저가와 고가는 그 뒤에 실제로 찍힌 자리에 남고, 더 낮은(높은) 값이 나오면 그리로 옮겨간다.
+        /// 지금 이 순간의 호가도 후보에 넣는다. 틱이 닫힐 때까지 기다리면 갱신이 한 박자 늦는다.
+        /// </summary>
+        private ChartScale BuildScale(AdventurerStock stock)
         {
             var history = stock.PriceHistory;
-            lowIndex = 0;
-            highIndex = 0;
+            var scale = new ChartScale();
+
+            scale.OpenValue = stock.SessionOpenPrice;
+            scale.LowValue = history[0];
+            scale.HighValue = history[0];
+            scale.LowIndex = 0f;
+            scale.HighIndex = 0f;
 
             for (var i = 1; i < history.Count; i++)
             {
-                if (history[i] < history[lowIndex])
+                if (history[i] < scale.LowValue)
                 {
-                    lowIndex = i;
+                    scale.LowValue = history[i];
+                    scale.LowIndex = i;
                 }
 
-                if (history[i] > history[highIndex])
+                if (history[i] > scale.HighValue)
                 {
-                    highIndex = i;
+                    scale.HighValue = history[i];
+                    scale.HighIndex = i;
                 }
             }
 
-            min = history[lowIndex];
-            max = history[highIndex];
+            scale.LiveIndex = history.Count - 1 + Sim.Clock.TickFraction;
+            var live = stock.LivePrice;
 
-            if (stock.SessionOpenPrice < min)
+            if (live < scale.LowValue)
             {
-                min = stock.SessionOpenPrice;
+                scale.LowValue = live;
+                scale.LowIndex = scale.LiveIndex;
             }
 
-            if (stock.SessionOpenPrice > max)
+            if (live > scale.HighValue)
             {
-                max = stock.SessionOpenPrice;
-            }
-
-            // 틱 사이의 실시간 호가도 그린다. 범위에 넣지 않으면 마지막 점이 눈금 밖으로 나간다.
-            if (stock.LivePrice < min)
-            {
-                min = stock.LivePrice;
-            }
-
-            if (stock.LivePrice > max)
-            {
-                max = stock.LivePrice;
+                scale.HighValue = live;
+                scale.HighIndex = scale.LiveIndex;
             }
 
             // 위아래를 조금 비운다. 고·저 점이 테두리에 붙으면 라벨이 차트 밖으로 나간다.
-            var pad = (max - min) * CHART_RANGE_PAD;
+            var pad = (scale.HighValue - scale.LowValue) * CHART_RANGE_PAD;
 
             if (pad <= 0.0001f)
             {
-                pad = Mathf.Max(0.5f, max * 0.01f);
+                pad = Mathf.Max(0.5f, scale.HighValue * 0.01f);
             }
 
-            min -= pad;
-            max += pad;
+            scale.Min = scale.LowValue - pad;
+            scale.Max = scale.HighValue + pad;
+
+            // 장이 막 열렸을 때는 고가와 저가가 붙어 있다. 그 폭에 눈금을 맞추면
+            // 0.1짜리 미세 흔들림이 차트 높이를 다 쓰는 큰 파동처럼 보인다.
+            // 최소 폭을 두면 초반에는 잔잔하고, 실제로 움직이기 시작하면 알아서 넓어진다.
+            var minimumSpan = Mathf.Max(0.5f, scale.OpenValue * CHART_MIN_SPAN_RATIO);
+
+            if (scale.Max - scale.Min < minimumSpan)
+            {
+                var center = (scale.Max + scale.Min) * 0.5f;
+                scale.Min = center - minimumSpan * 0.5f;
+                scale.Max = center + minimumSpan * 0.5f;
+            }
+
+            scale.Span = ChartSpan(scale.Min, scale.Max);
+            return scale;
         }
 
         private static float ChartSpan(float min, float max)
@@ -1251,7 +1292,7 @@ namespace Underwrite.UI
 
             var history = stock.PriceHistory;
 
-            if (history.Count < 2)
+            if (history.Count < 1)
             {
                 return;
             }
@@ -1263,13 +1304,9 @@ namespace Underwrite.UI
                 return;
             }
 
-            float min;
-            float max;
-            int lowIndex;
-            int highIndex;
-            ChartRange(stock, out min, out max, out lowIndex, out highIndex);
-
-            var span = ChartSpan(min, max);
+            var scale = BuildScale(stock);
+            var min = scale.Min;
+            var span = scale.Span;
             var painter = context.painter2D;
             var total = Sim.Clock.TicksPerSession;
             var plotRight = CHART_PLOT_LEFT + PlotWidth(size.width);
@@ -1284,7 +1321,7 @@ namespace Underwrite.UI
             {
                 var value = first + step * i;
 
-                if (value > max)
+                if (value > scale.Max)
                 {
                     break;
                 }
@@ -1297,7 +1334,7 @@ namespace Underwrite.UI
             }
 
             // 장 시작가 기준선. 눈금선보다 진하게 둬서 기준임을 드러낸다.
-            var baseY = ChartY(stock.SessionOpenPrice, min, span, size.height);
+            var baseY = ChartY(scale.OpenValue, min, span, size.height);
             painter.strokeColor = new Color(0.45f, 0.40f, 0.33f, 0.55f);
             painter.lineWidth = 1f;
             painter.BeginPath();
@@ -1336,19 +1373,24 @@ namespace Underwrite.UI
 
             painter.Stroke();
 
-            // 저·시작·고 지점에 점을 찍는다. 라벨만으로는 선의 어디를 가리키는지 알 수 없다.
-            var openPoint = new Vector2(CHART_PLOT_LEFT, baseY);
-            var lowPoint = new Vector2(ChartX(lowIndex, total, size.width),
-                ChartY(history[lowIndex], min, span, size.height));
-            var highPoint = new Vector2(ChartX(highIndex, total, size.width),
-                ChartY(history[highIndex], min, span, size.height));
-
+            // 시작·저·고 지점에 점을 찍는다. 라벨만으로는 선의 어디를 가리키는지 알 수 없다.
+            // 아직 시작점이 저가(고가)이면 점도 겹치므로 시작점 하나만 찍는다.
             DrawDot(painter, livePoint, halted == true
                 ? new Color32(0x61, 0x6B, 0x7A, 0xFF)
                 : HexColor(stock.SessionChangeRatio));
-            DrawDot(painter, openPoint, new Color32(0x6E, 0x60, 0x52, 0xFF));
-            DrawDot(painter, lowPoint, new Color32(0x24, 0x5E, 0xC7, 0xFF));
-            DrawDot(painter, highPoint, new Color32(0xC5, 0x36, 0x43, 0xFF));
+            DrawDot(painter, new Vector2(CHART_PLOT_LEFT, baseY), new Color32(0x6E, 0x60, 0x52, 0xFF));
+
+            if (IsOpenPoint(scale.LowIndex) == false)
+            {
+                DrawDot(painter, new Vector2(ChartXAt(scale.LowIndex, total, size.width),
+                    ChartY(scale.LowValue, min, span, size.height)), new Color32(0x24, 0x5E, 0xC7, 0xFF));
+            }
+
+            if (IsOpenPoint(scale.HighIndex) == false)
+            {
+                DrawDot(painter, new Vector2(ChartXAt(scale.HighIndex, total, size.width),
+                    ChartY(scale.HighValue, min, span, size.height)), new Color32(0xC5, 0x36, 0x43, 0xFF));
+            }
         }
 
         /// <summary>지금 이 순간의 호가가 찍히는 자리. 마지막 틱에서 다음 틱 쪽으로 조금 나아간다.</summary>
@@ -1614,8 +1656,25 @@ namespace Underwrite.UI
             SetButtonText("ratio-100", buying == true ? "최대" : "전량");
 
             SetText("hold-qty", held == available ? $"{held}주" : $"{held}주 (가용 {available})");
-            SetText("hold-avg", Sim.Wallet.AverageCostOf(stock.Id).ToString("N1"));
-            SetText("hold-liquidity", stock.Liquidity.ToString("N0"));
+            var averageCost = Sim.Wallet.AverageCostOf(stock.Id);
+            SetText("hold-avg", averageCost.ToString("N1"));
+
+            var profit = (stock.LivePrice - averageCost) * held;
+            var profitLabel = Root.Q<Label>("hold-profit");
+
+            if (profitLabel != null)
+            {
+                profitLabel.text = held == 0 ? "—" : (profit >= 0f ? "+" : "") + profit.ToString("N1");
+                profitLabel.EnableInClassList("rise", held > 0 && profit > 0f);
+                profitLabel.EnableInClassList("fall", held > 0 && profit < 0f);
+            }
+
+            // 유동성은 날것의 수치라 뜻이 와닿지 않는다. 이 수량이 가격을 얼마나 미는지로 적는다.
+            var impactRatio = stock.LivePrice <= 0f ? 0f : (fill - stock.LivePrice) / stock.LivePrice;
+            SetText("impact-label", $"체결 충격 ({Quantity}주)");
+            SetText("day-impact", halted == true
+                ? "—"
+                : (impactRatio >= 0f ? "+" : "") + (impactRatio * 100f).ToString("N1") + "%");
 
             var submit = Root.Q<Button>("submit-button");
 

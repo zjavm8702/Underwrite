@@ -98,6 +98,27 @@
                     <ui:Label text="호가" class="t-panel" />
                     <ui:Label name="book-hint" text="호가를 누르면 지정가로 들어갑니다." class="book-hint" />
                     <ui:VisualElement name="book-list" style="margin-top: 12px;" />
+
+                    <ui:VisualElement class="grow" />
+
+                    <ui:VisualElement class="day-stats">
+                        <ui:VisualElement class="day-line">
+                            <ui:Label text="시가" class="day-label" />
+                            <ui:Label name="day-open" text="0.0" class="day-value" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="day-line">
+                            <ui:Label text="고가" class="day-label" />
+                            <ui:Label name="day-high" text="0.0" class="day-value rise" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="day-line">
+                            <ui:Label text="저가" class="day-label" />
+                            <ui:Label name="day-low" text="0.0" class="day-value fall" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="day-line">
+                            <ui:Label name="impact-label" text="체결 충격" class="day-label" />
+                            <ui:Label name="day-impact" text="—" class="day-value" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
               </ui:VisualElement>
 
@@ -180,8 +201,8 @@
                         <ui:Label name="hold-avg" text="0.0" class="hold-value" />
                     </ui:VisualElement>
                     <ui:VisualElement class="hold-cell">
-                        <ui:Label text="유동성" class="hold-label" />
-                        <ui:Label name="hold-liquidity" text="0" class="hold-value" />
+                        <ui:Label text="평가손익" class="hold-label" />
+                        <ui:Label name="hold-profit" text="0" class="hold-value" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
