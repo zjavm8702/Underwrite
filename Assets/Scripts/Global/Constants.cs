@@ -46,6 +46,14 @@ namespace Underwrite.Global
     /// <summary>
     /// 숫자·조정값 상수. 가격 모델의 계수는 전부 여기에 모아 한곳에서 조정한다.
     /// </summary>
+    /// <summary>
+    /// 공용 상수.
+    ///
+    /// 밸런스를 보면서 고치는 값은 <c>static</c>이다. 표(MarketTuningData)가 장을 열기 전에
+    /// 덮어쓰기 때문이다. <c>const</c>면 컴파일 시점에 박혀 표가 아무 소용이 없다.
+    /// 구조와 안전장치(PRICE_FLOOR, BOOK_LEVELS 등)는 <c>const</c>로 남긴다.
+    /// 표에서 0이나 음수로 바뀌면 시뮬레이션이 깨지는데 인스펙터에는 그걸 막을 방법이 없다.
+    /// </summary>
     public static class Constants
     {
         // ── 시장 시간 ──────────────────────────────
@@ -58,7 +66,7 @@ namespace Underwrite.Global
         /// 0.3333이면 한 틱이 실시간 15초, 한 장이 약 18분이다.
         /// 이보다 빠르면 가격이 눈으로 따라가기 어렵고, 판단할 틈이 없다.
         /// </summary>
-        public const float MARKET_MINUTES_PER_REAL_SECOND = 0.3333f;
+        public static float MARKET_MINUTES_PER_REAL_SECOND = 0.3333f;
 
         /// <summary>오전장 개장 시각. 09시부터 15시까지다.</summary>
         public const int MARKET_MORNING_START_HOUR = 9;
@@ -81,86 +89,86 @@ namespace Underwrite.Global
 
         // ── 가격 모델 (기획서 §7의 6요인) ──────────
         /// <summary>가격이 목표가를 향해 올라갈 때의 수렴 속도.</summary>
-        public const float PRICE_REVERSION_PER_TICK = 0.02f;
+        public static float PRICE_REVERSION_PER_TICK = 0.02f;
         /// <summary>
         /// 가격이 목표가를 향해 내려갈 때의 수렴 속도. 올라갈 때보다 빠르다.
         /// 실제 급등주는 무너지는 속도가 오르는 속도보다 훨씬 빠르다. GameStop 2021은
         /// 오르는 데 20일, 정점에서 80퍼센트 빠지는 데 3거래일이 걸렸다.
         /// 상한(PRICE_MAX_DROP_PER_TICK)은 극단적 충격만 막고, 평소의 붕괴 속도는 이 값이 만든다.
         /// </summary>
-        public const float PRICE_REVERSION_DOWN_PER_TICK = 0.035f;
+        public static float PRICE_REVERSION_DOWN_PER_TICK = 0.035f;
         /// <summary>틱마다 더하는 무작위 변동의 기본 폭. 종목 성격과 분위기로 배율이 걸린다.</summary>
-        public const float PRICE_NOISE_BASE = 0.0032f;
+        public static float PRICE_NOISE_BASE = 0.0032f;
 
         /// <summary>
         /// 추세 지속. 직전 틱의 흐름이 다음 틱에 남는 비율.
         /// 0이면 매 틱이 서로 독립이라 가격이 한 수준에서 맴돌고, 그 수준만 알면 사고파는 게 공짜가 된다.
         /// 실제 주가가 예측하기 어려운 이유는 변동이 커서가 아니라 방향이 이어지기 때문이다.
         /// </summary>
-        public const float PRICE_MOMENTUM_RETENTION = 0.62f;
+        public static float PRICE_MOMENTUM_RETENTION = 0.62f;
 
         /// <summary>미세 호가를 다시 뽑는 간격(실시간 초). 틱과 무관하게 돈다.</summary>
-        public const float MARKET_MICRO_SECONDS = 0.12f;
+        public static float MARKET_MICRO_SECONDS = 0.12f;
 
         /// <summary>미세 호가 흔들림 한 번의 크기. 틱 종가 대비 비율이다.</summary>
-        public const float MICRO_AMPLITUDE = 0.0013f;
+        public static float MICRO_AMPLITUDE = 0.0013f;
 
         /// <summary>미세 흔들림이 남는 비율. 1에 가까울수록 천천히 제자리로 돌아온다.</summary>
-        public const float MICRO_RETENTION = 0.72f;
+        public static float MICRO_RETENTION = 0.72f;
 
         /// <summary>미세 흔들림의 한계. 틱 종가에서 이보다 멀어지지 않는다.</summary>
-        public const float MICRO_LIMIT = 0.007f;
+        public static float MICRO_LIMIT = 0.007f;
         /// <summary>기대가 실제 가치로 식어가는 속도. 소문은 시간이 지나면 힘을 잃는다.</summary>
-        public const float EXPECTATION_DECAY_PER_TICK = 0.02f;
+        public static float EXPECTATION_DECAY_PER_TICK = 0.02f;
         /// <summary>주문 한 주가 유동성 대비 가격을 밀어내는 정도.</summary>
-        public const float ORDER_IMPACT_SCALE = 0.9f;
+        public static float ORDER_IMPACT_SCALE = 0.9f;
         /// <summary>한 틱에 허용하는 최대 상승률. 급등을 허용하되 폭주는 막는다.</summary>
-        public const float PRICE_MAX_MOVE_PER_TICK = 0.18f;
+        public static float PRICE_MAX_MOVE_PER_TICK = 0.18f;
         /// <summary>
         /// 한 틱에 허용하는 최대 하락률. 상승 상한보다 크다.
         /// 실제 급등주는 무너지는 속도가 오르는 속도보다 훨씬 빠르다.
         /// GameStop 2021은 오르는 데 20일, 정점에서 80퍼센트 빠지는 데 3거래일이 걸렸다.
         /// 조사 기록: Documents/Claude/Underwrite_시장모델_실제자료_샘플.md
         /// </summary>
-        public const float PRICE_MAX_DROP_PER_TICK = 0.30f;
+        public static float PRICE_MAX_DROP_PER_TICK = 0.30f;
         /// <summary>가격 하한. 0 이하로 내려가지 않게 한다.</summary>
         public const float PRICE_FLOOR = 1f;
 
         // ── 종목 성격별 배율 ───────────────────────
         // 현실 대형주의 일 변동성은 1퍼센트대다. 모델은 짧은 장에서 체감이 필요해 더 크게 잡지만,
         // 베테랑만은 낮춰 종목 성격 사이의 대비를 키운다. 전부 현실에 맞추면 셋 다 밋밋해진다.
-        public const float VOLATILITY_VETERAN = 0.45f;
-        public const float VOLATILITY_ROOKIE = 1.8f;
-        public const float VOLATILITY_HIGH_RISK = 2.4f;
-        public const float VOLATILITY_FAMOUS = 1.0f;
+        public static float VOLATILITY_VETERAN = 0.45f;
+        public static float VOLATILITY_ROOKIE = 1.8f;
+        public static float VOLATILITY_HIGH_RISK = 2.4f;
+        public static float VOLATILITY_FAMOUS = 1.0f;
 
         // ── 시장 분위기별 배율 ────────────────────
         // NASDAQ 10년(2016~2025)은 상승 8년 / 하락 2년이었다. 평온한 장에 약한 상승 편향을 둔다.
-        public const float SENTIMENT_DRIFT_CALM = 0.0005f;
-        public const float SENTIMENT_DRIFT_FEVER = 0.004f;
-        public const float SENTIMENT_DRIFT_FEAR = -0.006f;
-        public const float SENTIMENT_DRIFT_DRAINED = -0.002f;
+        public static float SENTIMENT_DRIFT_CALM = 0.0005f;
+        public static float SENTIMENT_DRIFT_FEVER = 0.004f;
+        public static float SENTIMENT_DRIFT_FEAR = -0.006f;
+        public static float SENTIMENT_DRIFT_DRAINED = -0.002f;
 
-        public const float SENTIMENT_VOLATILITY_CALM = 1.0f;
-        public const float SENTIMENT_VOLATILITY_FEVER = 1.6f;
-        public const float SENTIMENT_VOLATILITY_FEAR = 2.0f;
-        public const float SENTIMENT_VOLATILITY_DRAINED = 1.2f;
+        public static float SENTIMENT_VOLATILITY_CALM = 1.0f;
+        public static float SENTIMENT_VOLATILITY_FEVER = 1.6f;
+        public static float SENTIMENT_VOLATILITY_FEAR = 2.0f;
+        public static float SENTIMENT_VOLATILITY_DRAINED = 1.2f;
 
         // ── 플레이어 자금 ─────────────────────────
         /// <summary>시제품 시작 현금. 종잣돈 퀘스트 전 기본값이며 검증에서 조정한다.</summary>
-        public const float STARTING_CASH = 500f;
+        public static float STARTING_CASH = 500f;
 
         // ── 호가와 지정가 ─────────────────────────
         /// <summary>호가창에 보여줄 매수·매도 각 단계 수.</summary>
         public const int BOOK_LEVELS = 5;
         /// <summary>호가 단위를 가격의 몇 배로 잡을지. 126.8이면 약 0.5가 된다.</summary>
-        public const float BOOK_TICK_RATIO = 0.004f;
+        public static float BOOK_TICK_RATIO = 0.004f;
         /// <summary>호가 단위의 하한.</summary>
         public const float BOOK_TICK_MIN = 0.1f;
         /// <summary>1단계 호가에 쌓이는 수량을 유동성의 몇 배로 잡을지.</summary>
-        public const float BOOK_DEPTH_BASE = 0.12f;
+        public static float BOOK_DEPTH_BASE = 0.12f;
         /// <summary>단계가 멀어질수록 수량이 늘어나는 비율.</summary>
-        public const float BOOK_DEPTH_GROWTH = 0.45f;
+        public static float BOOK_DEPTH_GROWTH = 0.45f;
         /// <summary>한 종목에 동시에 걸 수 있는 지정가 주문 수.</summary>
         public const int PENDING_MAX_PER_STOCK = 5;
 

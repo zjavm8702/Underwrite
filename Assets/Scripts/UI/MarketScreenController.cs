@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using Underwrite.Data;
 using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
@@ -46,6 +47,10 @@ namespace Underwrite.UI
         [SerializeField] private int Seed = 20261016;
         [SerializeField] private bool IsInspectionDay;
         [SerializeField] private MarketSentiment StartingSentiment = MarketSentiment.Sentiment_Calm;
+
+        [Header("데이터")]
+        [Tooltip("표에서 읽어 온다. 비워 두면 코드에 박힌 프로토타입 값을 쓴다.")]
+        [SerializeField] private GameDataSet Data;
 
         [Header("진행")]
         [SerializeField] private bool AutoPauseOnOutcome = true;
@@ -101,6 +106,50 @@ namespace Underwrite.UI
         /// 다른 하나는 UIDocument와의 초기화 순서가 뒤집힐 때다.
         /// 그래서 Update와 OnEnable에서도 불러 스스로 복구하게 둔다.
         /// </summary>
+        /// <summary>
+        /// 거래 대상을 표에서 만든다. 표가 없으면 코드에 박힌 프로토타입을 쓴다.
+        /// 표를 물리지 않았다고 화면이 비면 무엇이 잘못됐는지 알기 어렵다.
+        /// </summary>
+        private List<AdventurerStock> BuildStocks()
+        {
+            if (Data == null || Data.StockRows == null || Data.StockRows.Rows.Count == 0)
+            {
+                return PrototypeScenario.CreateStocks();
+            }
+
+            var rows = Data.StockRows.Rows;
+            var list = new List<AdventurerStock>(rows.Count);
+
+            for (var i = 0; i < rows.Count; i++)
+            {
+                var row = rows[i];
+                list.Add(new AdventurerStock(row.Id, row.DisplayName, row.Personality,
+                    row.TrueValue, row.Liquidity));
+            }
+
+            return list;
+        }
+
+        private List<MarketEventStep> BuildEvents()
+        {
+            if (Data == null || Data.EventRows == null || Data.EventRows.Rows.Count == 0)
+            {
+                return PrototypeScenario.CreateEvents();
+            }
+
+            var rows = Data.EventRows.Rows;
+            var list = new List<MarketEventStep>(rows.Count);
+
+            for (var i = 0; i < rows.Count; i++)
+            {
+                var row = rows[i];
+                list.Add(new MarketEventStep(row.Slot, row.StockId, row.Stage, row.Headline,
+                    row.Source, row.Visibility, row.ExpectationDelta, row.ValueDelta));
+            }
+
+            return list;
+        }
+
         private void EnsureSimulation()
         {
             if (Sim != null)
@@ -108,16 +157,22 @@ namespace Underwrite.UI
                 return;
             }
 
+            // 표의 수치를 먼저 덮어쓴다. 시뮬레이션을 만든 뒤에 하면 시작 자금이 이미 정해져 있다.
+            if (Data != null)
+            {
+                Data.Apply();
+            }
+
             Sim = new MarketSimulation(Seed, Constants.STARTING_CASH);
 
-            var stocks = PrototypeScenario.CreateStocks();
+            var stocks = BuildStocks();
 
             for (var i = 0; i < stocks.Count; i++)
             {
                 Sim.AddStock(stocks[i]);
             }
 
-            Sim.AddEvents(PrototypeScenario.CreateEvents());
+            Sim.AddEvents(BuildEvents());
             Sim.SetSentiment(StartingSentiment);
             Sim.OpenSession(IsInspectionDay);
             Sim.PlayerAtMarket = true;

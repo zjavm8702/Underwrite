@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec925e5b229d29b4989345b2de278d8d, type: 3}
+  m_Name: GameDataSet
+  m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.GameDataSet
+  Tuning: {fileID: 11400000, guid: b8d748236df1aa746b99ee1078b02d8a, type: 2}
+  Personalities: {fileID: 11400000, guid: 67bfbf758b38c1d4c8f3b1c2d49fcc5f, type: 2}
+  Sentiments: {fileID: 11400000, guid: 005e402329c252b4e95a41b544b473f4, type: 2}
+  Stocks: {fileID: 11400000, guid: c36365763f91a9540938ed72cddd69f7, type: 2}
+  Events: {fileID: 11400000, guid: 8ba6342276754464092edd86fe1abda8, type: 2}
+  Texts: {fileID: 11400000, guid: a40e1bc3d38402840b38bd2d33b909a0, type: 2}

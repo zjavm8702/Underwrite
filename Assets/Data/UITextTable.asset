@@ -1,0 +1,436 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ccb9581347196443b79aca0d1bdc5a9, type: 3}
+  m_Name: UITextTable
+  m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.UITextTable
+  Entries:
+  - Key: UI_T_TITLE
+    Korean: "\uC9C0\uD558\uAC70\uB798\uC18C"
+    HasFormat: 0
+  - Key: UI_PHASE_CHIP
+    Korean: "\uAC1C\uC7A5"
+    HasFormat: 0
+  - Key: UI_CLOCK_TEXT
+    Korean: "\uC7A5\uC911 \uACBD\uACFC 00:00 \xB7 0 / 96\uD2F1"
+    HasFormat: 0
+  - Key: UI_SENTIMENT_TEXT
+    Korean: "\uBD84\uC704\uAE30 \uD3C9\uC628"
+    HasFormat: 0
+  - Key: UI_PAUSE_BUTTON
+    Korean: "\uC77C\uC2DC\uC815\uC9C0"
+    HasFormat: 0
+  - Key: UI_SPEED_1
+    Korean: "1\uBC30"
+    HasFormat: 0
+  - Key: UI_SPEED_4
+    Korean: "4\uBC30"
+    HasFormat: 0
+  - Key: UI_SKIP_BUTTON
+    Korean: "\uC624\uC804\uC7A5 \uB118\uAE30\uAE30"
+    HasFormat: 0
+  - Key: UI_PLACE_BUTTON
+    Korean: "\uC9C0\uD558\uC2DC\uC7A5\uC5D0 \uC788\uC74C"
+    HasFormat: 0
+  - Key: UI_HALT_TEXT
+    Korean: "\uC601\uC8FC \uC870\uC0AC\uB85C \uC624\uB298\uC740 \uD734\uC7A5\uD574\uC694"
+    HasFormat: 0
+  - Key: UI_T_BODY
+    Korean: "\uC8FC\uBB38\uC740 \uD560 \uC218 \uC5C6\uC9C0\uB9CC \uC6D0\uC815 \uC18C\uC2DD\uACFC
+      \uC2DC\uAC04\uC740 \uACC4\uC18D \uD750\uB985\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: UI_T_BODY_2
+    Korean: "\uD604\uAE08"
+    HasFormat: 0
+  - Key: UI_T_BODY_3
+    Korean: "\uD3C9\uAC00\uC561"
+    HasFormat: 0
+  - Key: UI_T_BODY_4
+    Korean: "\uCD1D\uC790\uC0B0"
+    HasFormat: 0
+  - Key: UI_T_BODY_5
+    Korean: "\uC2E4\uD604\uC190\uC775"
+    HasFormat: 0
+  - Key: UI_T_PANEL
+    Korean: "\uAC70\uB798 \uC885\uBAA9"
+    HasFormat: 0
+  - Key: UI_PENDING_TITLE
+    Korean: "\uB300\uAE30 \uC8FC\uBB38"
+    HasFormat: 0
+  - Key: UI_T_NOTE
+    Korean: "\u203B \uC7A5 \uC2DC\uC791 \uB300\uBE44."
+    HasFormat: 0
+  - Key: UI_T_NOTE_2
+    Korean: "\uC7A5 \uC2DC\uC791 \uB300\uBE44"
+    HasFormat: 0
+  - Key: UI_CHART_FOOTER
+    Korean: "\uD55C \uC7A5 \xB7 72\uD2F1"
+    HasFormat: 0
+  - Key: UI_T_PANEL_2
+    Korean: "\uD638\uAC00"
+    HasFormat: 0
+  - Key: UI_BOOK_HINT
+    Korean: "\uD638\uAC00\uB97C \uB204\uB974\uBA74 \uC9C0\uC815\uAC00\uB85C \uB4E4\uC5B4\uAC11\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: UI_DAY_LABEL
+    Korean: "\uC2DC\uAC00"
+    HasFormat: 0
+  - Key: UI_DAY_LABEL_2
+    Korean: "\uACE0\uAC00"
+    HasFormat: 0
+  - Key: UI_DAY_LABEL_3
+    Korean: "\uC800\uAC00"
+    HasFormat: 0
+  - Key: UI_IMPACT_LABEL
+    Korean: "\uCCB4\uACB0 \uCDA9\uACA9"
+    HasFormat: 0
+  - Key: UI_T_PANEL_3
+    Korean: "\uC8FC\uBB38"
+    HasFormat: 0
+  - Key: UI_SIDE_BUY
+    Korean: "\uB9E4\uC218"
+    HasFormat: 0
+  - Key: UI_SIDE_SELL
+    Korean: "\uB9E4\uB3C4"
+    HasFormat: 0
+  - Key: UI_TYPE_MARKET
+    Korean: "\uC2DC\uC7A5\uAC00"
+    HasFormat: 0
+  - Key: UI_TYPE_LIMIT
+    Korean: "\uC9C0\uC815\uAC00"
+    HasFormat: 0
+  - Key: UI_ORDER_LABEL
+    Korean: "\uC9C0\uC815\uAC00"
+    HasFormat: 0
+  - Key: UI_ORDER_LABEL_2
+    Korean: "\uC218\uB7C9"
+    HasFormat: 0
+  - Key: UI_QTY_UNIT
+    Korean: "\uC8FC"
+    HasFormat: 0
+  - Key: UI_RATIO_100
+    Korean: "\uCD5C\uB300"
+    HasFormat: 0
+  - Key: UI_PRICE_LABEL
+    Korean: "\uD604\uC7AC\uAC00"
+    HasFormat: 0
+  - Key: UI_ORDER_LABEL_3
+    Korean: "\uC608\uC0C1 \uCCB4\uACB0\uAC00"
+    HasFormat: 0
+  - Key: UI_ORDER_LABEL_4
+    Korean: "\uC608\uC0C1 \uD569\uACC4"
+    HasFormat: 0
+  - Key: UI_ORDER_LABEL_5
+    Korean: "\uD604\uAE08"
+    HasFormat: 0
+  - Key: UI_ORDER_HINT
+    Korean: "\uCCB4\uACB0 \uC2DC \uAC00\uACA9\uC774 \uB2EC\uB77C\uC9C8 \uC218 \uC788\uC5B4\uC694."
+    HasFormat: 0
+  - Key: UI_SUBMIT_BUTTON
+    Korean: "\uB9E4\uC218"
+    HasFormat: 0
+  - Key: UI_HOLD_LABEL
+    Korean: "\uBCF4\uC720 \uC218\uB7C9"
+    HasFormat: 0
+  - Key: UI_HOLD_QTY
+    Korean: "0\uC8FC"
+    HasFormat: 0
+  - Key: UI_HOLD_LABEL_2
+    Korean: "\uD3C9\uADE0 \uB9E4\uC785\uAC00"
+    HasFormat: 0
+  - Key: UI_HOLD_LABEL_3
+    Korean: "\uD3C9\uAC00\uC190\uC775"
+    HasFormat: 0
+  - Key: UI_T_PANEL_4
+    Korean: "\uBCF4\uC720"
+    HasFormat: 0
+  - Key: UI_HOLDINGS_COUNT
+    Korean: "0\uC885\uBAA9"
+    HasFormat: 0
+  - Key: UI_HOLDINGS_EMPTY
+    Korean: "\uBCF4\uC720\uD55C \uC885\uBAA9\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: UI_T_PANEL_5
+    Korean: "\uC815\uBCF4 \uAE30\uB85D"
+    HasFormat: 0
+  - Key: UI_INFO_COUNT
+    Korean: "0\uAC74"
+    HasFormat: 0
+  - Key: UI_FILTER_ALL
+    Korean: "\uC804\uCCB4"
+    HasFormat: 0
+  - Key: UI_FILTER_PRIVATE
+    Korean: "\uB098\uB9CC \uC544\uB294"
+    HasFormat: 0
+  - Key: UI_FILTER_PUBLIC
+    Korean: "\uACF5\uAC1C"
+    HasFormat: 0
+  - Key: UI_INFO_EMPTY
+    Korean: "\uC544\uC9C1 \uB4E4\uC5B4\uC628 \uC18C\uC2DD\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: 
+    Korean: "{Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00} \uC815\uBCF4\uC6D0
+      \uBCF4\uACE0"
+    HasFormat: 1
+  - Key: 
+    Korean: " {Sim.BriefingEntries.Count}\uAC74\uC774 \uB4E4\uC5B4\uC654\uC2B5\uB2C8\uB2E4."
+    HasFormat: 1
+  - Key: 
+    Korean: "\uACB0\uACFC\uAC00 \uD655\uC815\uB418\uC5B4 \uC790\uB3D9 \uC815\uC9C0\uD588\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: 
+    Korean: "\uBCF4\uC720 0\uC8FC \xB7 \uD3C9\uADE0 \uB9E4\uC785\uAC00 0.0"
+    HasFormat: 0
+  - Key: 
+    Korean: "{SessionName(Sim.Clock.Session)}\uC774 \uC5F4\uB838\uC2B5\uB2C8\uB2E4."
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC7A5\uC744 \uB118\uACBC\uC2B5\uB2C8\uB2E4. \uC18C\uC2DD {news}\uAC74,
+      \uC9C0\uC815\uAC00 \uCCB4\uACB0 {filled}\uAC74."
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC7A5\uC744 \uB118\uACBC\uC2B5\uB2C8\uB2E4. \uC18C\uC2DD {news}\uAC74."
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC624\uD6C4\uC7A5"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uB2E4\uC74C \uB0A0 \uC624\uC804\uC7A5"
+    HasFormat: 0
+  - Key: 
+    Korean: " \uC5F4\uAE30"
+    HasFormat: 0
+  - Key: 
+    Korean: " \uB118\uAE30\uAE30"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC624\uD6C4\uC7A5"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC624\uC804\uC7A5"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uB9E4\uC218"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uB9E4\uB3C4"
+    HasFormat: 0
+  - Key: 
+    Korean: "{queued.FillPrice:N1}\uC5D0 {queued.Quantity}\uC8FC {verb} \uC8FC\uBB38\uC744
+      \uAC78\uC5C8\uC2B5\uB2C8\uB2E4."
+    HasFormat: 1
+  - Key: 
+    Korean: "{verb} {receipt.Quantity}\uC8FC @ {receipt.FillPrice:N1} = {receipt.TotalAmount:N0}"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC624\uD6C4\uC7A5"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC624\uC804\uC7A5"
+    HasFormat: 0
+  - Key: 
+    Korean: "{Sim.Clock.Day}\uC77C\uCC28 {label} {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}"
+    HasFormat: 1
+  - Key: 
+    Korean: " \xB7 {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}\uD2F1"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uBD84\uC704\uAE30 {SentimentText(Sim.Sentiment)}"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC7AC\uAC1C"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC77C\uC2DC\uC815\uC9C0"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC9C0\uD558\uC2DC\uC7A5\uC5D0 \uC788\uC74C"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC601\uC9C0 \uC774\uB3D9 \uC911"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uBCF4\uC720 "
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC8FC \xB7 \uD3C9\uADE0 \uB9E4\uC785\uAC00 "
+    HasFormat: 0
+  - Key: 
+    Korean: "\uD734\uC7A5\uC774\uB77C \uAC00\uACA9\uC774 \uAC31\uC2E0\uB418\uC9C0
+      \uC54A\uC544\uC694."
+    HasFormat: 0
+  - Key: 
+    Korean: "\uD55C \uC7A5 \xB7 {Sim.Clock.TicksPerSession}\uD2F1"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC2DC\uC791 {scale.OpenValue:N1}"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC800 {scale.LowValue:N1}"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uACE0 {scale.HighValue:N1}"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uB9E4\uC218"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uB9E4\uB3C4"
+    HasFormat: 0
+  - Key: 
+    Korean: "{name} \xB7 {order.LimitPrice:N1} {order.Quantity}\uC8FC {verb}"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uCDE8\uC18C"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC8FC\uBB38\uC744 \uCDE8\uC18C\uD588\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: 
+    Korean: "\uB9C8\uC9C0\uB9C9 \uAC70\uB798\uAC00"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uD604\uC7AC\uAC00"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC9C0\uC815\uAC00\uC5D0 \uB2FF\uC73C\uBA74 \uCCB4\uACB0, \uD3D0\uC7A5
+      \uB54C \uC18C\uBA78."
+    HasFormat: 0
+  - Key: 
+    Korean: "\uCCB4\uACB0 \uC2DC \uAC00\uACA9\uC774 \uB2EC\uB77C\uC9C8 \uC218 \uC788\uC5B4\uC694."
+    HasFormat: 0
+  - Key: 
+    Korean: "\uCD5C\uB300"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC804\uB7C9"
+    HasFormat: 0
+  - Key: 
+    Korean: "{held}\uC8FC"
+    HasFormat: 1
+  - Key: 
+    Korean: "{held}\uC8FC (\uAC00\uC6A9 {available})"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uCCB4\uACB0 \uCDA9\uACA9 ({Quantity}\uC8FC)"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uBCF4\uC720 \uC8FC\uC2DD \uC5C6\uC74C"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uD734\uC7A5 \uC911"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC815\uC9C0 \uC911"
+    HasFormat: 0
+  - Key: 
+    Korean: "{LimitPrice:N1}\uC5D0 {Quantity}\uC8FC {(buying == true ? "
+    HasFormat: 1
+  - Key: 
+    Korean: "{Quantity}\uC8FC {(buying == true ? "
+    HasFormat: 1
+  - Key: 
+    Korean: "{owned}\uC885\uBAA9"
+    HasFormat: 1
+  - Key: 
+    Korean: "{quantity}\uC8FC"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uD3C9\uADE0 {averageCost:N1} \xB7 \uD3C9\uAC00 {value:N1}"
+    HasFormat: 1
+  - Key: 
+    Korean: "{log.Count}\uAC74"
+    HasFormat: 1
+  - Key: 
+    Korean: "\uC2DC\uC7A5\uC5D0 \uACF5\uAC1C\uB428"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uB098\uB9CC \uC544\uB294 \uC815\uBCF4"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uD2F1"
+    HasFormat: 0
+  - Key: 
+    Korean: "\uC544\uC9C1 \uC2DC\uC7A5\uC5D0 \uACF5\uAC1C\uB418\uC9C0 \uC54A\uC74C."
+    HasFormat: 0
+  - Key: 
+    Korean: "\uD734\uC7A5"
+    HasFormat: 0
+  - Key: TEXT_MARKET_PHASE_CLOSED
+    Korean: "\uD3D0\uC7A5"
+    HasFormat: 0
+  - Key: TEXT_MARKET_PHASE_OPEN
+    Korean: "\uAC1C\uC7A5"
+    HasFormat: 0
+  - Key: TEXT_MARKET_PHASE_HALTED
+    Korean: "\uD734\uC7A5 \u2014 \uC601\uC8FC \uC870\uC0AC"
+    HasFormat: 0
+  - Key: TEXT_SENTIMENT_CALM
+    Korean: "\uD3C9\uC628"
+    HasFormat: 0
+  - Key: TEXT_SENTIMENT_FEVER
+    Korean: "\uD22C\uC790 \uC5F4\uD48D"
+    HasFormat: 0
+  - Key: TEXT_SENTIMENT_FEAR
+    Korean: "\uACF5\uD3EC"
+    HasFormat: 0
+  - Key: TEXT_SENTIMENT_DRAINED
+    Korean: "\uC790\uAE08 \uBD80\uC871"
+    HasFormat: 0
+  - Key: TEXT_ORDER_FILLED
+    Korean: "\uCCB4\uACB0\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_MARKET_CLOSED
+    Korean: "\uC9C0\uD558\uC2DC\uC7A5\uC774 \uC5F4\uB824 \uC788\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_PAUSED
+    Korean: "\uC2DC\uAC04\uC774 \uBA48\uCD98 \uB3D9\uC548\uC5D0\uB294 \uC8FC\uBB38\uD560
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_NOT_AT_MARKET
+    Korean: "\uC9C0\uD558\uC2DC\uC7A5\uC5D0\uC11C\uB9CC \uC8FC\uBB38\uD560 \uC218
+      \uC788\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_NO_CASH
+    Korean: "\uD604\uAE08\uC774 \uBD80\uC871\uD569\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_NO_SHARES
+    Korean: "\uBCF4\uC720 \uC9C0\uBD84\uC774 \uBD80\uC871\uD569\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_BAD_QUANTITY
+    Korean: "\uC218\uB7C9\uC740 1 \uC774\uC0C1\uC774\uC5B4\uC57C \uD569\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_BAD_PRICE
+    Korean: "\uD638\uAC00\uB97C \uC62C\uBC14\uB974\uAC8C \uC9C0\uC815\uD558\uC138\uC694."
+    HasFormat: 0
+  - Key: TEXT_ORDER_TOO_MANY
+    Korean: "\uC774 \uC885\uBAA9\uC5D0 \uAC78 \uC218 \uC788\uB294 \uC8FC\uBB38 \uC218\uB97C
+      \uB118\uC5C8\uC2B5\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_ORDER_QUEUED
+    Korean: "\uC9C0\uC815\uAC00 \uC8FC\uBB38\uC744 \uAC78\uC5C8\uC2B5\uB2C8\uB2E4.
+      \uAC00\uACA9\uC774 \uB2FF\uC73C\uBA74 \uCCB4\uACB0\uB429\uB2C8\uB2E4."
+    HasFormat: 0
+  - Key: TEXT_SOURCE_TAVERN_TALK
+    Korean: "\uC5EC\uAD00 \uC18C\uBB38"
+    HasFormat: 0
+  - Key: TEXT_SOURCE_GUILD_RECORD
+    Korean: "\uAE38\uB4DC \uAE30\uB85D"
+    HasFormat: 0
+  - Key: TEXT_SOURCE_PRIVATE_LETTER
+    Korean: "\uC0AC\uC801 \uC11C\uC2E0"
+    HasFormat: 0
+  - Key: TEXT_SOURCE_MARKET_BOARD
+    Korean: "\uC2DC\uC7A5 \uAC8C\uC2DC\uD310"
+    HasFormat: 0
+  - Key: TEXT_SOURCE_BROKER_LEAK
+    Korean: "\uC911\uAC1C\uC778 \uB204\uC124"
+    HasFormat: 0

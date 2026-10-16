@@ -42,6 +42,27 @@
 - `ValueDelta` — 실제 내재가치를 움직인다. 결과 단계에서만 쓴다.
 - `Visibility` — `Public`은 시장이 함께 알아 가격이 움직이고, `PlayerOnly`는 나만 알아 가격이 안 움직인다.
 
+## 자산으로 옮기는 법
+
+Unity 메뉴 **Underwrite → 테이블 가져오기**를 누르면 이 폴더의 CSV가 `Assets/Data/*.asset`으로 들어간다.
+
+방향은 한쪽이다. **표가 자산을 덮어쓴다.** 되돌리는 내보내기는 만들지 않았다. 양방향을 미리 만들면 어느 쪽이 맞는지 알 수 없게 된다.
+
+구글 시트에서 고쳤으면 `파일 → 다운로드 → CSV`로 받아 이 폴더에 같은 이름으로 덮어쓰고 메뉴를 누른다.
+
+## 코드와 이어진 자리
+
+| 자산 | 쓰이는 곳 |
+|---|---|
+| `MarketTuningData` | `Constants`의 튜닝 값 29개를 장 열기 전에 덮어쓴다 |
+| `PersonalityTable` | `Constants.VOLATILITY_*` |
+| `SentimentTable` | `Constants.SENTIMENT_*` |
+| `StockTable` | `MarketScreenController.BuildStocks()` |
+| `EventTable` | `MarketScreenController.BuildEvents()` |
+| `UITextTable` | **아직 안 이어졌다.** 표만 채워 둔 상태다 |
+
+표를 물리지 않으면 `PrototypeScenario`의 코드에 박힌 값으로 돌아간다. 화면이 비는 대신 예전처럼 돌아가므로, 표가 안 먹었을 때 바로 알아채기 어렵다는 점은 염두에 둔다.
+
 ## 다시 뽑는 법
 
-추출 스크립트는 일회성이라 저장하지 않았다. 코드가 바뀐 뒤 다시 뽑아야 하면 새로 쓴다. 어차피 ScriptableObject로 옮기고 나면 이 방향(코드 → 표)은 쓸 일이 없다.
+코드 → 표 방향의 추출 스크립트는 일회성이라 저장하지 않았다. 자산이 원본이 된 뒤로는 쓸 일이 없다.

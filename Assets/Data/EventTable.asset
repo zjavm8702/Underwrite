@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde51ae9cf5976642835b1d5c91c2796, type: 3}
+  m_Name: EventTable
+  m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.EventTable
+  Entries:
+  - Slot: 0
+    StockId: STOCK_ROOKIE
+    Stage: 0
+    Headline: "\uC140\uB77C\uAC00 \uACE0\uB09C\uB3C4 \uC720\uC801 \uC758\uB8B0\uB97C
+      \uC218\uB77D\uD588\uB2E4\uB294 \uC774\uC57C\uAE30\uAC00 \uB3C8\uB2E4."
+    Source: 0
+    Visibility: 2
+    ExpectationDelta: 0.1
+    ValueDelta: 0
+  - Slot: 0
+    StockId: STOCK_ROOKIE
+    Stage: 0
+    Headline: "\uC720\uBA85 \uAE30\uC0AC \uBE0C\uB780\uC774 \uB3D9\uD589\uD55C\uB2E4\uB294
+      \uC18C\uBB38\uC774 \uD37C\uC84C\uB2E4. \uB9E4\uC218\uAC00 \uBAB0\uB9B0\uB2E4."
+    Source: 3
+    Visibility: 2
+    ExpectationDelta: 0.45
+    ValueDelta: 0
+  - Slot: 1
+    StockId: STOCK_ROOKIE
+    Stage: 1
+    Headline: "\uBE0C\uB780\uC774 \uB2E4\uB978 \uC758\uB8B0\uB97C \uBA3C\uC800 \uBC1B\uC558\uB2E4\uACE0
+      \uC0AC\uC801\uC73C\uB85C \uC804\uD574 \uC654\uB2E4. \uB3D9\uD589\uC740 \uC5B4\uB824\uC6CC
+      \uBCF4\uC778\uB2E4."
+    Source: 2
+    Visibility: 1
+    ExpectationDelta: 0
+    ValueDelta: 0
+  - Slot: 1
+    StockId: STOCK_ROOKIE
+    Stage: 1
+    Headline: "\uB3D9\uD589 \uCDE8\uC18C\uAC00 \uACF5\uAC1C\uB410\uB2E4. \uAE30\uB300\uAC00
+      \uAEBE\uC774\uACE0 \uB9E4\uB3C4\uAC00 \uC3DF\uC544\uC9C4\uB2E4."
+    Source: 3
+    Visibility: 2
+    ExpectationDelta: -0.4
+    ValueDelta: 0
+  - Slot: 2
+    StockId: STOCK_ROOKIE
+    Stage: 1
+    Headline: "\uC6D0\uC815 \uC911 \uC5F0\uB77D\uC774 \uB04A\uACBC\uB2E4. \uACF5\uD3EC\uAC00
+      \uBC88\uC9C4\uB2E4."
+    Source: 1
+    Visibility: 2
+    ExpectationDelta: -0.25
+    ValueDelta: 0
+  - Slot: 2
+    StockId: STOCK_ROOKIE
+    Stage: 2
+    Headline: "\uC140\uB77C\uAC00 \uD76C\uADC0 \uC720\uBB3C\uACFC \uD568\uAED8 \uADC0\uD658\uD588\uB2E4.
+      \uC2E4\uB825\uC774 \uC7AC\uD3C9\uAC00\uB41C\uB2E4."
+    Source: 1
+    Visibility: 2
+    ExpectationDelta: 0
+    ValueDelta: 0.55
+  - Slot: 0
+    StockId: STOCK_VETERAN
+    Stage: 0
+    Headline: "\uBE0C\uB780\uC774 \uACE0\uC218\uC775 \uD638\uC704 \uC758\uB8B0\uB97C
+      \uB9E1\uC558\uB2E4."
+    Source: 1
+    Visibility: 2
+    ExpectationDelta: 0.08
+    ValueDelta: 0
+  - Slot: 1
+    StockId: STOCK_VETERAN
+    Stage: 2
+    Headline: "\uBE0C\uB780\uC774 1\uCC28 \uD638\uC704\uB97C \uBB34\uC0AC\uD788 \uB9C8\uCCE4\uB2E4.
+      \uBCF4\uC218\uAC00 \uD655\uC815\uB410\uB2E4."
+    Source: 1
+    Visibility: 2
+    ExpectationDelta: 0
+    ValueDelta: 0.07
+  - Slot: 2
+    StockId: STOCK_VETERAN
+    Stage: 2
+    Headline: "\uBE0C\uB780\uC774 2\uCC28 \uD638\uC704\uB3C4 \uC608\uC815\uB300\uB85C
+      \uB9C8\uCCE4\uB2E4. \uB180\uB784 \uC77C\uC740 \uC5C6\uC5C8\uB2E4."
+    Source: 1
+    Visibility: 2
+    ExpectationDelta: 0
+    ValueDelta: 0.06
+  - Slot: 3
+    StockId: STOCK_VETERAN
+    Stage: 2
+    Headline: "\uBE0C\uB780\uC774 \uC7A5\uAE30 \uACC4\uC57D\uC744 \uB530\uB0C8\uB2E4.
+      \uC2E4\uC801\uC774 \uC313\uC778\uB2E4."
+    Source: 1
+    Visibility: 2
+    ExpectationDelta: 0
+    ValueDelta: 0.08
+  - Slot: 0
+    StockId: STOCK_HIGH_RISK
+    Stage: 0
+    Headline: "\uBE14\uB799\uBB34\uC5B4 \uB2E8\uC774 \uBBF8\uC9C0\uC758 \uC2EC\uCE35
+      \uAD6C\uC5ED\uC5D0 \uB4E4\uC5B4\uAC04\uB2E4\uB294 \uC18C\uBB38\uC774\uB2E4."
+    Source: 0
+    Visibility: 2
+    ExpectationDelta: 0.3
+    ValueDelta: 0
+  - Slot: 1
+    StockId: STOCK_HIGH_RISK
+    Stage: 1
+    Headline: "\uC911\uAC1C\uC778\uC774 \uB2E8\uC7A5\uC758 \uC7A5\uBE44\uAC00 \uD30C\uC190\uB410\uB2E4\uACE0
+      \uD758\uB838\uB2E4. \uC2E0\uB8B0\uB3C4\uB294 \uB0AE\uB2E4."
+    Source: 4
+    Visibility: 2
+    ExpectationDelta: -0.12
+    ValueDelta: 0
+  - Slot: 2
+    StockId: STOCK_HIGH_RISK
+    Stage: 2
+    Headline: "\uB2E8\uC6D0 \uB458\uC744 \uC783\uACE0 \uBE48\uC190\uC73C\uB85C \uB3CC\uC544\uC654\uB2E4."
+    Source: 1
+    Visibility: 2
+    ExpectationDelta: 0
+    ValueDelta: -0.35

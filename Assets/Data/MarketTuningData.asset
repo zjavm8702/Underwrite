@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203abbfff7dda4e4a8fa76d650c18a39, type: 3}
+  m_Name: MarketTuningData
+  m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.MarketTuningData
+  MinutesPerRealSecond: 0.3333
+  ReversionPerTick: 0.02
+  ReversionDownPerTick: 0.035
+  NoiseBase: 0.0032
+  MomentumRetention: 0.62
+  ExpectationDecayPerTick: 0.02
+  MaxMovePerTick: 0.18
+  MaxDropPerTick: 0.3
+  MicroSeconds: 0.12
+  MicroAmplitude: 0.0013
+  MicroRetention: 0.72
+  MicroLimit: 0.007
+  OrderImpactScale: 0.9
+  BookTickRatio: 0.004
+  BookDepthBase: 0.12
+  BookDepthGrowth: 0.45
+  StartingCash: 500
