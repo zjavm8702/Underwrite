@@ -40,6 +40,9 @@ namespace Underwrite.Market
         private float MicroTimer;
 
         private int NextEventIndex;
+        private int InfoTimesOpened;
+        private int NextSlot;
+        private readonly List<InfoEntry> Briefing = new List<InfoEntry>();
 
         public MarketClock Clock { get; private set; } = new MarketClock();
         public Portfolio Wallet { get; private set; }
@@ -65,6 +68,31 @@ namespace Underwrite.Market
 
         /// <summary>미세 호가가 몇 번 바뀌었는가. 호가창 잔량이 이 값으로 섞인다.</summary>
         public int MicroSeq { get; private set; }
+
+        /// <summary>
+        /// 정보 타임이 열려 플레이어가 아직 확인하지 않은 상태인가.
+        /// 켜져 있는 동안 장을 세우고 보고를 보여 준다.
+        /// </summary>
+        public bool HasBriefing { get; private set; }
+
+        /// <summary>이번 정보 타임에 들어온 소식. 확인하면 비운다.</summary>
+        public IReadOnlyList<InfoEntry> BriefingEntries
+        {
+            get
+            {
+                return Briefing;
+            }
+        }
+
+        /// <summary>이번 장에서 몇 번째 정보 타임인가. 1 또는 2.</summary>
+        public int BriefingOrder { get; private set; }
+
+        /// <summary>보고를 읽었다. 장이 다시 움직인다.</summary>
+        public void AcknowledgeBriefing()
+        {
+            HasBriefing = false;
+            Briefing.Clear();
+        }
 
         public MarketSimulation(int seed, float startingCash)
         {
@@ -132,13 +160,13 @@ namespace Underwrite.Market
                 Schedule.Add(step);
             }
 
-            Schedule.Sort(CompareByTick);
+            Schedule.Sort(CompareBySlot);
             NextEventIndex = 0;
         }
 
-        private static int CompareByTick(MarketEventStep left, MarketEventStep right)
+        private static int CompareBySlot(MarketEventStep left, MarketEventStep right)
         {
-            return left.Tick.CompareTo(right.Tick);
+            return left.Slot.CompareTo(right.Slot);
         }
 
         public void SetSentiment(MarketSentiment sentiment)
@@ -150,6 +178,10 @@ namespace Underwrite.Market
         public void OpenSession(bool isInspectionDay, MarketSession session = MarketSession.Session_Morning)
         {
             Clock.OpenSession(isInspectionDay, session);
+
+            InfoTimesOpened = 0;
+            HasBriefing = false;
+            Briefing.Clear();
 
             for (var i = 0; i < StockOrder.Count; i++)
             {
@@ -175,7 +207,7 @@ namespace Underwrite.Market
 
             for (var step = 0; step < ticks; step++)
             {
-                ApplyDueEvents();
+                OpenBriefingIfDue();
 
                 if (priceMoves == false)
                 {
@@ -478,13 +510,64 @@ namespace Underwrite.Market
         }
 
         /// <summary>현재 틱까지 도달한 사건을 적용한다.</summary>
-        private void ApplyDueEvents()
+        /// <summary>
+        /// 정보 타임이 되면 그 번호의 소식을 한꺼번에 들여보낸다.
+        ///
+        /// 소식이 장중 아무 때나 흘러가면 플레이어가 판단할 "순간"이 없다.
+        /// 정해진 시각에 묶어서 주면 그 자리에서 읽고 결정하게 된다.
+        /// 들어온 소식은 지하세계가 동시에 알게 되므로 가격도 그 자리에서 함께 움직인다.
+        /// </summary>
+        private void OpenBriefingIfDue()
         {
-            while (NextEventIndex < Schedule.Count && Schedule[NextEventIndex].Tick <= Clock.Tick)
+            if (Clock.Tick < NextInfoTick)
+            {
+                return;
+            }
+
+            InfoTimesOpened++;
+            BriefingOrder = InfoTimesOpened;
+
+            var before = InfoEntries.Count;
+
+            while (NextEventIndex < Schedule.Count && Schedule[NextEventIndex].Slot <= NextSlot)
             {
                 var step = Schedule[NextEventIndex];
                 NextEventIndex++;
                 ApplyEvent(step);
+            }
+
+            NextSlot++;
+
+            Briefing.Clear();
+
+            for (var i = before; i < InfoEntries.Count; i++)
+            {
+                Briefing.Add(InfoEntries[i]);
+            }
+
+            // 빈 정보 타임은 세우지 않는다. 아무 소식도 없는데 멈추면 성가시기만 하다.
+            if (Briefing.Count > 0)
+            {
+                HasBriefing = true;
+            }
+        }
+
+        /// <summary>다음 정보 타임이 열리는 틱. 두 번을 다 쓰면 이 장에는 더 없다.</summary>
+        private int NextInfoTick
+        {
+            get
+            {
+                if (InfoTimesOpened == 0)
+                {
+                    return Constants.INFO_TIME_FIRST_TICK;
+                }
+
+                if (InfoTimesOpened == 1)
+                {
+                    return Constants.INFO_TIME_SECOND_TICK;
+                }
+
+                return int.MaxValue;
             }
         }
 

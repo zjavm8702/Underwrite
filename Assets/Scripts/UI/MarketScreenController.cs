@@ -187,7 +187,17 @@ namespace Underwrite.UI
             {
                 Sim.Step(ticks);
 
-                if (AutoPauseOnOutcome == true && Sim.HasPendingAlert == true)
+                if (Sim.HasBriefing == true)
+                {
+                    // TODO: 정보 타임 연출. 주식 패널을 내리고 지하세계 장면을 보여 준 뒤 돌아온다.
+                    //       설계는 Documents/Claude/Underwrite_일일시퀀스_설계안.md 참고.
+                    //       연출이 들어오기 전까지는 장을 세우지 않고 소식만 정보 기록으로 흘려보낸다.
+                    Message = $"{Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00} 정보원 보고"
+                        + $" {Sim.BriefingEntries.Count}건이 들어왔습니다.";
+                    Sim.AcknowledgeBriefing();
+                    InfoCountShown = -1;
+                }
+                else if (AutoPauseOnOutcome == true && Sim.HasPendingAlert == true)
                 {
                     Sim.Clock.SetPaused(true);
                     Message = "결과가 확정되어 자동 정지했습니다.";

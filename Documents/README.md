@@ -12,7 +12,7 @@
 
 | 문서 | 비고 |
 |---|---|
-| `Shared/Underwrite_기획서_v0.4.md` | **현행판.** §17·§18이 캐릭터·애니메이션 |
+| `Shared/Underwrite_기획서_v0.5.md` | **현행판.** §17·§18이 캐릭터·애니메이션 |
 | `Shared/Underwrite_기획서_v0.3.md` | 이전판. 4방향·리깅 기준이며 v0.4에서 대체됨 |
 
 ## Codex/ — 아트
@@ -47,6 +47,6 @@
 
 1. `Codex/Underwrite_아트_작업규칙.md` (아트)
 2. `Claude/Underwrite_코드_작업규칙.md` (코드)
-3. `Shared/Underwrite_기획서_v0.4.md` (기획)
+3. `Shared/Underwrite_기획서_v0.5.md` (기획)
 
 더 최신 날짜의 전문 문서를 따르고, 어긋난 지점을 보고에 남긴다. 기획서는 전문 문서보다 갱신이 늦을 수 있다.

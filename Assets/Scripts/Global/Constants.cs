@@ -61,6 +61,17 @@ namespace Underwrite.Global
         public const float MARKET_MINUTES_PER_REAL_SECOND = 0.3333f;
 
         /// <summary>오전장 개장 시각. 09시부터 15시까지다.</summary>
+        /// <summary>
+        /// 장중 정보 타임이 열리는 틱. 한 장에 두 번이다.
+        /// 지하세계로 모험 진행 상황이 들어오는 순간이고, 그때 시장이 함께 반응한다.
+        /// 72틱 장에서 24·48이면 장 시작 6분·12분 지점이다.
+        /// </summary>
+        public const int INFO_TIME_FIRST_TICK = 24;
+
+        public const int INFO_TIME_SECOND_TICK = 48;
+
+        public const int INFO_TIMES_PER_SESSION = 2;
+
         public const int MARKET_MORNING_START_HOUR = 9;
         /// <summary>오후장 개장 시각. 21시부터 다음 날 03시까지다.</summary>
         public const int MARKET_EVENING_START_HOUR = 21;

@@ -13,8 +13,12 @@ namespace Underwrite.Market
     /// </summary>
     public sealed class MarketEventStep
     {
-        /// <summary>이 단계가 발생하는 틱.</summary>
-        public int Tick { get; private set; }
+        /// <summary>
+        /// 이 단계가 들어오는 정보 타임 번호. 0부터 센다.
+        /// 틱이 아니라 번호인 이유는 장이 바뀌면 틱이 0으로 돌아가기 때문이다.
+        /// 한 장에 정보 타임이 두 번이므로 0·1은 첫 장, 2·3은 다음 장이 된다.
+        /// </summary>
+        public int Slot { get; private set; }
 
         public string StockId { get; private set; }
         public EventStage Stage { get; private set; }
@@ -36,13 +40,13 @@ namespace Underwrite.Market
         /// </summary>
         public InfoVisibility Visibility { get; private set; }
 
-        public MarketEventStep(int tick, string stockId, EventStage stage, string headline,
+        public MarketEventStep(int slot, string stockId, EventStage stage, string headline,
             InfoSource source, InfoVisibility visibility,
             float expectationDelta = 0f, float valueDelta = 0f)
         {
-            if (tick < 0)
+            if (slot < 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(tick), "Event tick must not be negative.");
+                throw new ArgumentOutOfRangeException(nameof(slot), "Event slot must not be negative.");
             }
 
             if (string.IsNullOrWhiteSpace(stockId) == true)
@@ -50,7 +54,7 @@ namespace Underwrite.Market
                 throw new ArgumentException("Event must target a stock id.", nameof(stockId));
             }
 
-            Tick = tick;
+            Slot = slot;
             StockId = stockId;
             Stage = stage;
             Headline = headline;
