@@ -151,6 +151,11 @@ namespace Underwrite.Market
         internal void BeginSession()
         {
             SessionOpenPrice = Price;
+
+            // 차트는 "한 장"만 보여 준다. 지난 장의 점을 남겨 두면
+            // 틱 수보다 점이 많아져 선이 차트 밖으로 흘러나간다.
+            History.Clear();
+            History.Add(Price);
         }
 
         /// <summary>소문이 기대를 움직인다. 내재가치는 건드리지 않는다.</summary>

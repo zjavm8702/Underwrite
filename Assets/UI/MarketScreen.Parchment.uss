@@ -18,7 +18,7 @@
 
     /* 글자 — 양피지 위의 잉크 */
     --color-text: #2A2118;
-    --color-text-weak: #6E6052;
+    --color-text-weak: #5B4D3E;
 
     /* 상승·하락. 양피지 위에서도 구별되도록 채도를 유지한다. */
     --color-rise: #B5323E;
@@ -35,14 +35,20 @@
     --color-halt-soft: #F6E6C8;
 }
 
-/* 상단 줄은 패널 밖이라 어두운 나무 위에 놓인다. 잉크색이면 묻히므로 밝게 쓴다. */
-.header,
-.header Label {
-    color: #E8DCC6;
-}
-
-.brand-mark {
-    color: #A89880;
+/* 상단 줄도 양피지 띠 위에 올린다.
+   밝은 글자로 나무 바탕에 직접 쓰면 버튼의 옅은 면과 테두리가 묻혀 보이지 않는다.
+   띠를 깔면 패널 안과 같은 잉크색을 그대로 쓸 수 있다. */
+.header {
+    background-image: url("project://database/Assets/UI/Images/market_panel.png");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-left: 48;
+    -unity-slice-right: 48;
+    -unity-slice-top: 48;
+    -unity-slice-bottom: 48;
+    -unity-slice-scale: 0.5;
+    height: 96px;
+    padding-left: 24px;
+    padding-right: 16px;
 }
 
 /* 화면 바탕 — 지하실의 어두운 나무 탁자 */
@@ -88,11 +94,16 @@
     border-color: rgba(42, 33, 24, 0.22);
 }
 
-.btn--selected,
-.type-tab--on {
-    background-color: var(--color-text);
-    color: #F2E7D2;
-    border-color: var(--color-text);
+/* 선택 상태는 잉크로 칠한 면이다. 글자는 종이색으로 뒤집어야 읽힌다.
+   var()를 쓰면 이 규칙에서 배경만 먹지 않아 흰 글자가 밝은 바탕에 남는다.
+   같은 명시도끼리는 뒤에 오는 규칙이 이기므로 .btn 지정보다 뒤에 둔다. */
+.btn.btn--selected,
+.type-tab.type-tab--on {
+    background-color: #2A2118;
+    color: #F7F0E2;
+    border-color: #2A2118;
+    border-width: 1px;
+    -unity-font-style: bold;
 }
 
 .btn--buy {
@@ -160,4 +171,9 @@
 
 .book-row:hover {
     background-color: rgba(42, 33, 24, 0.10);
+}
+
+/* 차트 마커 라벨 - 흰 알약은 양피지 위에서 뜬다. 종이색으로 맞춘다. */
+.chart-marker-label {
+    background-color: rgba(242, 231, 210, 0.85);
 }

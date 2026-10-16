@@ -68,7 +68,7 @@
 
             <!-- 가운데: 차트 + 호가창 + 정보 기록 -->
             <ui:VisualElement class="col-center">
-              <ui:VisualElement class="row" style="flex-shrink: 0;">
+              <ui:VisualElement class="row" style="flex-grow: 1;">
                 <ui:VisualElement class="panel grow">
                     <ui:VisualElement class="row" style="align-items: flex-end;">
                         <ui:Label name="chart-name" text="—" class="t-panel" />
@@ -82,7 +82,6 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="chart" class="chart" />
-                    <ui:VisualElement name="chart-axis" class="chart-axis" />
                     <ui:Label name="chart-footer" text="한 장 · 72틱" class="t-note" style="-unity-text-align: middle-right;" />
                 </ui:VisualElement>
 
@@ -180,7 +179,7 @@
                 <ui:Label name="info-toggle-icon" text="▾" class="info-popup-icon" />
                 <ui:Label text="정보 기록" class="t-panel" />
                 <ui:Label name="info-count" text="0건" class="t-note" style="margin-left: 8px;" />
-                <ui:VisualElement class="grow" />
+                <ui:Label name="info-latest" text="" class="info-latest grow" />
                 <ui:Button name="filter-all" text="전체" class="btn btn--small" />
                 <ui:Button name="filter-private" text="나만 아는" class="btn btn--small" />
                 <ui:Button name="filter-public" text="공개" class="btn btn--small" />

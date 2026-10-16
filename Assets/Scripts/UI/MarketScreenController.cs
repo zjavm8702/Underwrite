@@ -24,7 +24,8 @@ namespace Underwrite.UI
         private const int QUANTITY_MIN = 1;
         private const int QUANTITY_MAX = 999;
         private const float CHART_LINE_WIDTH = 3f;
-        private const int CHART_Y_LABELS = 3;
+        private const float CHART_DOT_RADIUS = 5f;
+        private const float CHART_MARKER_MARGIN = 34f;
         private const int INFO_MAX_ROWS = 20;
 
         private enum InfoFilter
@@ -71,7 +72,7 @@ namespace Underwrite.UI
         private int PendingCountShown = -1;
         private string Message = "";
 
-        private bool InfoCollapsed;
+        private bool InfoCollapsed = true;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
         private bool LimitTouched;
@@ -677,45 +678,87 @@ namespace Underwrite.UI
                 chart.MarkDirtyRepaint();
             }
 
-            RefreshChartAxis(stock);
+            RefreshChartMarkers(stock);
         }
 
         /// <summary>
-        /// 차트 아래에 가격 범위를 세 값으로 적는다. 격자 대신 이것만 둔다.
-        /// 축이 없으면 선의 높낮이가 얼마를 뜻하는지 알 수 없다.
+        /// 저가·시작가·고가를 차트 위 제자리에 찍는다.
+        /// 아래에 나란히 적으면 선의 어느 지점이 저가인지 알 수 없다.
+        /// 저·고의 자리는 매 틱 바뀌므로 좌표를 여기서 계산해 절대 배치로 준다.
         /// </summary>
-        private void RefreshChartAxis(AdventurerStock stock)
+        private void RefreshChartMarkers(AdventurerStock stock)
         {
-            var axis = Root.Q<VisualElement>("chart-axis");
+            var chart = Root.Q<VisualElement>("chart");
 
-            if (axis == null)
+            if (chart == null)
             {
                 return;
             }
 
+            var width = chart.contentRect.width;
+            var height = chart.contentRect.height;
             var history = stock.PriceHistory;
 
-            if (history.Count < 2)
+            if (width <= 0f || height <= 0f || history.Count < 2)
             {
-                axis.Clear();
+                HideMarker(chart, "marker-low");
+                HideMarker(chart, "marker-open");
+                HideMarker(chart, "marker-high");
                 return;
             }
 
-            var min = history[0];
-            var max = history[0];
+            float min;
+            float max;
+            int lowIndex;
+            int highIndex;
+            ChartRange(stock, out min, out max, out lowIndex, out highIndex);
+
+            var span = max - min;
+
+            if (span <= 0.0001f)
+            {
+                span = 1f;
+            }
+
+            var total = Sim.Clock.TicksPerSession;
+
+            var lowX = ChartX(lowIndex, total, width);
+            var highX = ChartX(highIndex, total, width);
+            var lowY = ChartY(history[lowIndex], min, span, height);
+            var highY = ChartY(history[highIndex], min, span, height);
+            var openY = ChartY(stock.SessionOpenPrice, min, span, height);
+
+            PlaceMarker(chart, "marker-low", "chart-marker-label--low",
+                $"저 {history[lowIndex]:N1}", lowX, lowY, width, false);
+            PlaceMarker(chart, "marker-high", "chart-marker-label--high",
+                $"고 {history[highIndex]:N1}", highX, highY, width, true);
+            PlaceMarker(chart, "marker-open", "chart-marker-label--open",
+                $"시작 {stock.SessionOpenPrice:N1}", 0f, openY, width, true);
+        }
+
+        /// <summary>차트가 쓰는 가격 범위와 저·고 지점을 함께 구한다. 선과 마커가 같은 자를 써야 한다.</summary>
+        private static void ChartRange(AdventurerStock stock, out float min, out float max,
+            out int lowIndex, out int highIndex)
+        {
+            var history = stock.PriceHistory;
+            lowIndex = 0;
+            highIndex = 0;
 
             for (var i = 1; i < history.Count; i++)
             {
-                if (history[i] < min)
+                if (history[i] < history[lowIndex])
                 {
-                    min = history[i];
+                    lowIndex = i;
                 }
 
-                if (history[i] > max)
+                if (history[i] > history[highIndex])
                 {
-                    max = history[i];
+                    highIndex = i;
                 }
             }
+
+            min = history[lowIndex];
+            max = history[highIndex];
 
             if (stock.SessionOpenPrice < min)
             {
@@ -726,18 +769,71 @@ namespace Underwrite.UI
             {
                 max = stock.SessionOpenPrice;
             }
-
-            axis.Clear();
-            AddAxisLabel(axis, $"저 {min:N1}");
-            AddAxisLabel(axis, $"시작 {stock.SessionOpenPrice:N1}");
-            AddAxisLabel(axis, $"고 {max:N1}");
         }
 
-        private static void AddAxisLabel(VisualElement parent, string text)
+        private static float ChartX(int index, int total, float width)
         {
-            var label = new Label(text);
-            label.AddToClassList("chart-axis-label");
-            parent.Add(label);
+            if (total <= 0)
+            {
+                return 0f;
+            }
+
+            // 점이 틱 수보다 많아도 선이 차트 밖으로 나가지 않게 막는다.
+            if (index > total)
+            {
+                index = total;
+            }
+
+            return (float)index / total * width;
+        }
+
+        private static float ChartY(float value, float min, float span, float height)
+        {
+            return height - (value - min) / span * height;
+        }
+
+        /// <summary>
+        /// 라벨을 한 번 만들어 두고 자리만 옮긴다. 매 틱 새로 만들면 쓰레기가 쌓인다.
+        /// above가 참이면 점 위에, 거짓이면 점 아래에 붙인다.
+        /// </summary>
+        private static void PlaceMarker(VisualElement chart, string name, string toneClass,
+            string text, float x, float y, float width, bool above)
+        {
+            var label = chart.Q<Label>(name);
+
+            if (label == null)
+            {
+                label = new Label();
+                label.name = name;
+                label.pickingMode = PickingMode.Ignore;
+                label.AddToClassList("chart-marker-label");
+                label.AddToClassList(toneClass);
+                chart.Add(label);
+            }
+
+            label.RemoveFromClassList("hidden");
+            label.text = text;
+
+            // 끝에 붙은 점의 라벨이 차트 밖으로 나가지 않게 안쪽으로 당긴다.
+            var clampedX = Mathf.Clamp(x, CHART_MARKER_MARGIN, Mathf.Max(CHART_MARKER_MARGIN, width - CHART_MARKER_MARGIN));
+
+            label.style.left = clampedX;
+            label.style.top = y;
+            label.style.translate = above == true
+                ? new Translate(Length.Percent(-50f), Length.Percent(-135f))
+                : new Translate(Length.Percent(-50f), Length.Percent(35f));
+        }
+
+        private static void HideMarker(VisualElement chart, string name)
+        {
+            var label = chart.Q<Label>(name);
+
+            if (label == null)
+            {
+                return;
+            }
+
+            label.AddToClassList("hidden");
         }
 
         /// <summary>
@@ -767,31 +863,11 @@ namespace Underwrite.UI
                 return;
             }
 
-            var min = history[0];
-            var max = history[0];
-
-            for (var i = 1; i < history.Count; i++)
-            {
-                if (history[i] < min)
-                {
-                    min = history[i];
-                }
-
-                if (history[i] > max)
-                {
-                    max = history[i];
-                }
-            }
-
-            if (stock.SessionOpenPrice < min)
-            {
-                min = stock.SessionOpenPrice;
-            }
-
-            if (stock.SessionOpenPrice > max)
-            {
-                max = stock.SessionOpenPrice;
-            }
+            float min;
+            float max;
+            int lowIndex;
+            int highIndex;
+            ChartRange(stock, out min, out max, out lowIndex, out highIndex);
 
             var span = max - min;
 
@@ -824,8 +900,8 @@ namespace Underwrite.UI
 
             for (var i = 0; i < history.Count; i++)
             {
-                var x = total <= 0 ? 0f : (float)i / total * size.width;
-                var y = size.height - (history[i] - min) / span * size.height;
+                var x = ChartX(i, total, size.width);
+                var y = ChartY(history[i], min, span, size.height);
 
                 if (i == 0)
                 {
@@ -837,6 +913,31 @@ namespace Underwrite.UI
             }
 
             painter.Stroke();
+
+            // 저·시작·고 지점에 점을 찍는다. 라벨만으로는 선의 어디를 가리키는지 알 수 없다.
+            var openPoint = new Vector2(0f, size.height - (stock.SessionOpenPrice - min) / span * size.height);
+            var lowPoint = new Vector2(ChartX(lowIndex, total, size.width),
+                ChartY(history[lowIndex], min, span, size.height));
+            var highPoint = new Vector2(ChartX(highIndex, total, size.width),
+                ChartY(history[highIndex], min, span, size.height));
+
+            DrawDot(painter, openPoint, new Color32(0x6E, 0x60, 0x52, 0xFF));
+            DrawDot(painter, lowPoint, new Color32(0x24, 0x5E, 0xC7, 0xFF));
+            DrawDot(painter, highPoint, new Color32(0xC5, 0x36, 0x43, 0xFF));
+        }
+
+        /// <summary>점 하나를 찍는다. 선 위에 겹쳐도 보이도록 밝은 테두리를 먼저 깐다.</summary>
+        private static void DrawDot(Painter2D painter, Vector2 center, Color color)
+        {
+            painter.fillColor = new Color(1f, 1f, 1f, 0.9f);
+            painter.BeginPath();
+            painter.Arc(center, CHART_DOT_RADIUS + 2f, Angle.Degrees(0f), Angle.Degrees(360f));
+            painter.Fill();
+
+            painter.fillColor = color;
+            painter.BeginPath();
+            painter.Arc(center, CHART_DOT_RADIUS, Angle.Degrees(0f), Angle.Degrees(360f));
+            painter.Fill();
         }
 
         private static Color HexColor(float changeRatio)
@@ -1105,41 +1206,13 @@ namespace Underwrite.UI
 
             var log = Sim.InfoLog;
 
-            var popupNow = Root.Q<VisualElement>("info-popup");
-
-            if (popupNow != null)
-            {
-                popupNow.EnableInClassList("info-popup--collapsed", InfoCollapsed);
-            }
-
-            var iconNow = Root.Q<Label>("info-toggle-icon");
-
-            if (iconNow != null)
-            {
-                iconNow.text = InfoCollapsed == true ? "▸" : "▾";
-            }
+            RefreshInfoHead(log);
 
             // 목록은 매 프레임 다시 만들지 않는다. 기록이 늘었을 때만 다시 그린다.
             if (InfoCountShown == log.Count)
             {
                 return;
             }
-
-            var popup = Root.Q<VisualElement>("info-popup");
-
-            if (popup != null)
-            {
-                popup.EnableInClassList("info-popup--collapsed", InfoCollapsed);
-            }
-
-            var icon = Root.Q<Label>("info-toggle-icon");
-
-            if (icon != null)
-            {
-                icon.text = InfoCollapsed == true ? "▸" : "▾";
-            }
-
-            SetText("info-count", $"{log.Count}건");
 
             InfoCountShown = log.Count;
             list.Clear();
@@ -1174,6 +1247,44 @@ namespace Underwrite.UI
             Select("filter-all", Filter == InfoFilter.Filter_All);
             Select("filter-private", Filter == InfoFilter.Filter_Private);
             Select("filter-public", Filter == InfoFilter.Filter_Public);
+        }
+
+        /// <summary>
+        /// 팝업 머리 — 접힘 표시, 건수, 그리고 접었을 때 보일 최근 소식 한 줄.
+        /// 접어 두면 새 소식이 들어온 줄 모르므로 머리에 마지막 한 줄만 흘려 둔다.
+        /// </summary>
+        private void RefreshInfoHead(IReadOnlyList<InfoEntry> log)
+        {
+            var popup = Root.Q<VisualElement>("info-popup");
+
+            if (popup != null)
+            {
+                popup.EnableInClassList("info-popup--collapsed", InfoCollapsed);
+            }
+
+            var icon = Root.Q<Label>("info-toggle-icon");
+
+            if (icon != null)
+            {
+                icon.text = InfoCollapsed == true ? "▸" : "▾";
+            }
+
+            SetText("info-count", $"{log.Count}건");
+
+            var latest = Root.Q<Label>("info-latest");
+
+            if (latest == null)
+            {
+                return;
+            }
+
+            if (InfoCollapsed == false || log.Count == 0)
+            {
+                latest.text = string.Empty;
+                return;
+            }
+
+            latest.text = log[log.Count - 1].Headline;
         }
 
         private VisualElement BuildInfoCard(InfoEntry entry)
