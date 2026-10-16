@@ -126,13 +126,21 @@
     -unity-font-style: bold;
 }
 
-/* 기본 버튼 규칙이 글자색을 덮어썼다. 고른 쪽이 무엇인지 색으로 바로 보여야 한다. */
+/* 고른 쪽이 무엇인지 한눈에 보여야 한다. 글자색만 바꾸면 약하다.
+   종이에 tint를 입혀 면 자체를 물들인다. 질감은 그대로 남고 색만 바뀐다. */
 .tab.tab--buy-on {
-    color: var(--color-rise);
+    -unity-background-image-tint-color: var(--color-rise);
+    color: #FBF3E6;
 }
 
 .tab.tab--sell-on {
-    color: var(--color-fall);
+    -unity-background-image-tint-color: var(--color-fall);
+    color: #FBF3E6;
+}
+
+/* 고르지 않은 쪽은 한 걸음 물러난다. */
+.tab {
+    color: var(--color-text-weak);
 }
 
 /* 못 쓰는 단추는 바랜 종이다. */
