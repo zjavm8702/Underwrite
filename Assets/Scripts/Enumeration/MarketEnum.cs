@@ -116,6 +116,14 @@ namespace Underwrite.Enumeration
         Source_GuildRecord,
         Source_PrivateLetter,
         Source_MarketBoard,
-        Source_BrokerLeak
+        Source_BrokerLeak,
+
+        /// <summary>
+        /// 대장간의 주문 장부. 누가 장비를 크게 맞췄는지로 원정 규모를 읽는다.
+        /// 내용이 아니라 **움직임의 크기**를 알려 주는 출처다.
+        ///
+        /// 뒤에 붙인 이유는 앞에 끼우면 이미 저장된 값이 한 칸씩 밀리기 때문이다.
+        /// </summary>
+        Source_SmithOrder
     }
 }

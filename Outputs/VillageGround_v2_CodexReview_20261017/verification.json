@@ -563,5 +563,28 @@
   "hashes": {
     "ground": "4e7dac581a2d16877ac0083135a2d4f895ed950a074dad4d0e331ec868657e2e",
     "mask": "2e1eb6670d4aaa32440afccfc78d02616e51149c7e3367cf3d59df2fbf0490eb"
+  },
+  "finalRead": {
+    "ground": [
+      3840,
+      2160
+    ],
+    "mask": [
+      3840,
+      2160
+    ],
+    "groundAlpha": {
+      "min": 255,
+      "max": 255,
+      "transparent": 0,
+      "hidden": 0
+    },
+    "maskAlpha": {
+      "min": 255,
+      "max": 255,
+      "transparent": 0,
+      "hidden": 0
+    },
+    "hashMatchesMemory": true
   }
 }

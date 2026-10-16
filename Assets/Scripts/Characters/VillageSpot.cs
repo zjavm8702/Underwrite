@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Underwrite.Characters
 {
     /// <summary>
-    /// 영지에서 들어갈 수 있는 자리. 여관·길드·게시판이 여기에 해당한다.
+    /// 영지에서 들어갈 수 있는 자리. 기획서 §5가 정한 여섯 곳이 여기에 해당한다.
     ///
     /// 기획서 §11의 "자금 및 정보 모으기"는 메뉴에서 고르는 것이 아니라
     /// 걸어가서 만나는 것이다. 그래야 영지가 지도가 아니라 장소가 된다.
@@ -12,6 +12,9 @@ namespace Underwrite.Characters
     [RequireComponent(typeof(Collider2D))]
     public sealed class VillageSpot : MonoBehaviour
     {
+        [Tooltip("이 자리에서 무엇을 하는가.")]
+        [SerializeField] private VillageActivity Activity = VillageActivity.Activity_Gather;
+
         [Tooltip("이 자리에서 얻는 정보의 출처. 소식에 이 이름이 붙는다.")]
         [SerializeField] private InfoSource Source = InfoSource.Source_TavernTalk;
 
@@ -29,6 +32,15 @@ namespace Underwrite.Characters
             get
             {
                 return Source;
+            }
+        }
+
+        /// <summary>이 자리에서 할 수 있는 일. 정보를 캐는 곳만 있는 것이 아니다.</summary>
+        public VillageActivity Kind
+        {
+            get
+            {
+                return Activity;
             }
         }
 

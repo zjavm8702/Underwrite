@@ -65,15 +65,22 @@ namespace Underwrite.Editor
             BuildGround();
             BuildBlockers();
 
-            // 세 자리는 기획서 §8의 정보 출처와 그대로 맞물린다.
-            // 좌표는 배경 그림의 문 앞에서 재어 왔다. 그림을 다시 그리면 이 값도 같이 바뀐다.
-            BuildSpot("여관", new Vector2(-15.21f, 3.33f), InfoSource.Source_TavernTalk, 20f);
-            BuildSpot("길드 기록실", new Vector2(16.39f, 2.08f), InfoSource.Source_GuildRecord, 80f);
-            BuildSpot("시장 게시판", new Vector2(-0.21f, -9.86f), InfoSource.Source_MarketBoard, 0f);
+            // 기획서 §5가 정한 여섯 곳. 값이 오를수록 이야기가 또렷해진다.
+            // 좌표는 배경 그림의 문 앞을 걸을 수 있는 마스크로 찾아 잰 값이다.
+            // 그림을 다시 그리면 이 값도 같이 다시 재야 한다.
+            BuildSpot("시장 게시판", new Vector2(15.18f, -6.28f), InfoSource.Source_MarketBoard, 0f);
+            BuildSpot("여관", new Vector2(-15.90f, 5.22f), InfoSource.Source_TavernTalk, 20f);
+            BuildSpot("대장간", new Vector2(-18.57f, -6.50f), InfoSource.Source_SmithOrder, 40f);
+            BuildSpot("길드 기록실", new Vector2(17.07f, 3.57f), InfoSource.Source_GuildRecord, 80f);
+            BuildSpot("영주관", new Vector2(0.40f, 6.15f), InfoSource.Source_PrivateLetter, 120f);
+
+            // 거래소로 가는 길은 화면 구석의 단추가 아니라 걸어가서 여는 문이다.
+            BuildEntrance("지하시장 입구", new Vector2(-22.50f, -10.35f));
 
             var player = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             player.name = "Character";
-            player.transform.position = Vector3.zero;
+            // 우물 앞 광장에서 시작한다. 여섯 곳 어디로도 걸어갈 수 있는 자리다.
+            player.transform.position = new Vector3(0f, -2f, 0f);
 
             // 캐릭터 원화는 640×724로 크다. 그대로 두면 사람이 건물만 해진다.
             // 화면 높이(카메라 15유닛)의 1/8쯤 되도록 줄인다.
@@ -275,9 +282,33 @@ namespace Underwrite.Editor
 
             var place = door.AddComponent<VillageSpot>();
             var so = new SerializedObject(place);
+            so.FindProperty("Activity").enumValueIndex = (int)VillageActivity.Activity_Gather;
             so.FindProperty("Source").enumValueIndex = (int)source;
             so.FindProperty("DisplayName").stringValue = name;
             so.FindProperty("Cost").floatValue = cost;
+            so.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        /// <summary>
+        /// 다른 곳으로 들어가는 문. 지하시장 입구가 여기에 해당한다.
+        ///
+        /// 정보를 캐는 자리와 생김새는 같지만 하는 일이 다르다.
+        /// 값을 받지 않고, 시간을 쓰지 않고, 씬을 넘긴다.
+        /// </summary>
+        private static void BuildEntrance(string name, Vector2 at)
+        {
+            var door = new GameObject(name);
+            door.transform.position = new Vector3(at.x, at.y, 0f);
+
+            var trigger = door.AddComponent<BoxCollider2D>();
+            trigger.size = new Vector2(DOOR_WIDTH, DOOR_HEIGHT);
+            trigger.isTrigger = true;
+
+            var place = door.AddComponent<VillageSpot>();
+            var so = new SerializedObject(place);
+            so.FindProperty("Activity").enumValueIndex = (int)VillageActivity.Activity_Enter;
+            so.FindProperty("DisplayName").stringValue = name;
+            so.FindProperty("Cost").floatValue = 0f;
             so.ApplyModifiedPropertiesWithoutUndo();
         }
 

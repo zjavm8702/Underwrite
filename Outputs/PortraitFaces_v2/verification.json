@@ -992,5 +992,32 @@
       "UI/Images/Faces/face_scholar_shocked.png.meta"
     ]
   },
-  "pass": true
+  "pass": true,
+  "externalImport": {
+    "time": "2026-10-16T15:54:11.523Z",
+    "matching": 1,
+    "different": [
+      "face_scholar_neutral.png",
+      "face_scholar_happy.png",
+      "face_scholar_anxious.png",
+      "face_scholar_angry.png",
+      "face_scholar_shocked.png",
+      "face_scholar_sad.png",
+      "face_scholar_relieved.png",
+      "face_elf_happy.png",
+      "face_elf_anxious.png",
+      "face_elf_angry.png",
+      "face_elf_shocked.png",
+      "face_elf_sad.png",
+      "face_elf_relieved.png",
+      "face_fairy_neutral.png",
+      "face_fairy_happy.png",
+      "face_fairy_anxious.png",
+      "face_fairy_angry.png",
+      "face_fairy_shocked.png",
+      "face_fairy_sad.png",
+      "face_fairy_relieved.png"
+    ],
+    "assetsWrittenByThisTask": false
+  }
 }

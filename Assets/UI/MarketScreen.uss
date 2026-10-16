@@ -1337,6 +1337,16 @@
     background-image: url("project://database/Assets/UI/Images/place_board.png");
 }
 
+/* 대장간과 영주관은 아직 그림이 없다. 가장 가까운 것을 빌려 쓴다.
+   place_smith.png / place_manor.png가 들어오면 이 두 줄만 바꾼다. */
+.dialogue-root--smith {
+    background-image: url("project://database/Assets/UI/Images/place_tavern.png");
+}
+
+.dialogue-root--manor {
+    background-image: url("project://database/Assets/UI/Images/place_guild.png");
+}
+
 .dialogue-stage {
     flex-grow: 1;
     flex-direction: row;

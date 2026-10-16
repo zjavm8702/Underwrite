@@ -16,6 +16,14 @@ namespace Underwrite.Enumeration
         Activity_Work,
 
         /// <summary>아무것도 하지 않고 다음 장을 기다린다.</summary>
-        Activity_Rest
+        Activity_Rest,
+
+        /// <summary>
+        /// 다른 곳으로 들어간다. 지하시장 입구가 여기에 해당한다.
+        ///
+        /// 거래소로 가는 길이 화면 구석의 단추가 아니라 **걸어가서 여는 문**이어야
+        /// 영지와 거래소가 한 세계로 이어진다.
+        /// </summary>
+        Activity_Enter
     }
 }

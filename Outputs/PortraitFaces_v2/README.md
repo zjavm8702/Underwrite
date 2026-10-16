@@ -70,3 +70,7 @@
 rebuild.mjs의 rebuild(id)는 동결된 최종 기준 원화와 생성 원본에서 표정을 조립한다. verify.mjs의 verifyCharacter(id)는 픽셀 전수 검증과 기본 미리보기를 만든다. extra-previews.mjs의 extra(id)는 여관·전신 비교를 만든다. finalize.mjs의 finish()는 보고와 21행 좌표표를 작성한다. 생성 프롬프트 전문 27건, 원본 해시·기록 시간, before/after, staging, 검증 JSON을 함께 보관한다.
 
 기존 제작 기준 문서 Documents/Codex/Underwrite_대화용_상반신_표정_제작기준.md에 v2 범위·좌표·정렬 및 동결 원화 주의 사항을 추가했다. 상위 아트 규칙·기획서·상시 지시서는 수정하지 않았다. 최신 사용자 요청의 Outputs/PNG 범위를 적용했으며 정지 표정 작업에 8방향 연결을 추가하지 않았다.
+
+## 외부 임포트 주의
+
+작업 중 외부에서 Assets/UI/Images/Faces/에 21장이 등록되었다. 최종 확정본과 SHA-256 대조 결과 1장(elf neutral) 일치, 20장 불일치다. 이번 작업이 Assets에 쓴 것은 아니다. 중간 산출물이 들어갔을 수 있으므로 최종 Outputs PNG로 재임포트해야 한다. 파일별 비교와 시점은 external_assets_comparison.json에 기록했다. Unity의 실제 표정 재생·연결 검증은 수행하지 않았다.

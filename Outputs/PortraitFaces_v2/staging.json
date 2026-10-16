@@ -93,5 +93,9 @@
       "path": "Outputs/PortraitFaces_v2/face_fairy_relieved.png",
       "sha256": "8e125aef0029a0682e493391bb862b8c608c7a28a82cd4c15fdf3c1e1565c3fc"
     }
+  ],
+  "externalImportComparison": "external_assets_comparison.json",
+  "documentsUpdated": [
+    "Documents/Codex/Underwrite_대화용_상반신_표정_제작기준.md"
   ]
 }

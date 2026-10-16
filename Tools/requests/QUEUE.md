@@ -16,7 +16,8 @@
 | 8 | `portrait_faces_v1.md` | `PortraitFaces_v1` | **완료** — 검수 통과, Unity 연결까지 끝 |
 | 9 | `village_ground_v1.md` | `VillageGround_v1` | **완료** — 들임. 충돌 마스크까지 적용 |
 | 10 | `portrait_faces_v2.md` | `PortraitFaces_v2` | 진행 중 — 나머지 세 인물 표정 21장 |
-| 11 | `village_ground_v2.md` | `VillageGround_v2` | 진행 중 — **시점 교정 + 밀도**. 캐릭터 15도 vs 배경 41도로 따로 놀았고, 건물 셋뿐이라 공터 같았다. 기획서 §5의 여섯 장소와 성벽 안쪽 영지로 다시 |
+| 11 | `village_ground_v2.md` | `VillageGround_v2` | **부분 통과** — 시점 0.66→0.44, 연결성·면적 통과. 밀도와 종족 미달 |
+| 12 | `village_ground_v3.md` | `VillageGround_v3` | 진행 중 — 가운데 채우기 + 종족 건축 |
 
 영지는 **타일셋을 쓰지 않는다.** 도트 타일셋은 비도트 캐릭터와 해상도가 섞인다. 대신 그려진 배경 한 장 위를 걸어 다닌다. 화풍이 맞는 것은 시험으로 확인했다.
 

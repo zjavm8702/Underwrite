@@ -253,6 +253,13 @@ namespace Underwrite.UI
         /// </summary>
         private void Gather(VillageSpot spot)
         {
+            // 정보를 캐는 곳만 있는 것이 아니다. 지하시장 입구는 걸어 들어가는 문이다.
+            if (spot.Kind == VillageActivity.Activity_Enter)
+            {
+                SceneManager.LoadScene(SceneRoutes.MARKET);
+                return;
+            }
+
             Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
 
             if (HasTime() == false)
@@ -292,6 +299,23 @@ namespace Underwrite.UI
                     title = "게시판을 훑는다";
                     body = "새로 붙은 종이는 없습니다. 이미 시장에 돈 이야기뿐입니다.";
                     note = null;
+                    break;
+                }
+                case InfoSource.Source_SmithOrder:
+                {
+                    // 대장간은 내용이 아니라 **움직임의 크기**를 알려 준다.
+                    // 누가 크게 준비하는지는 알지만 왜인지는 모른다.
+                    title = "주문 장부를 넘겨 본다";
+                    body = $"{name} 쪽에서 장비를 크게 맞췄습니다. 큰 원정을 준비하는 모양입니다.";
+                    note = new GatheredNote(pick.StockId, $"{name} 쪽이 장비를 크게 맞췄다", spot.InfoSource);
+                    break;
+                }
+                case InfoSource.Source_PrivateLetter:
+                {
+                    // 가장 비싼 만큼 가장 또렷하다. 소식의 내용이 그대로 나온다.
+                    title = "서신을 읽는다";
+                    body = pick.Headline;
+                    note = new GatheredNote(pick.StockId, pick.Headline, spot.InfoSource);
                     break;
                 }
                 default:
@@ -364,6 +388,14 @@ namespace Underwrite.UI
                 {
                     return "게시판";
                 }
+                case InfoSource.Source_SmithOrder:
+                {
+                    return "대장장이";
+                }
+                case InfoSource.Source_PrivateLetter:
+                {
+                    return "영주관 집사";
+                }
                 default:
                 {
                     return "여관 주인";
@@ -382,6 +414,14 @@ namespace Underwrite.UI
                 case InfoSource.Source_MarketBoard:
                 {
                     return "dialogue-root--board";
+                }
+                case InfoSource.Source_SmithOrder:
+                {
+                    return "dialogue-root--smith";
+                }
+                case InfoSource.Source_PrivateLetter:
+                {
+                    return "dialogue-root--manor";
                 }
                 default:
                 {
