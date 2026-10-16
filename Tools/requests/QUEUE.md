@@ -7,8 +7,8 @@
 | 순서 | 요청서 | 납품 폴더 | 상태 |
 |---|---|---|---|
 | 1 | `ui_controls_v1.md` | `MarketUI_Controls_v1` | **완료** — 적용함 |
-| 2 | `underworld_scene_v1.md` | `UnderworldScene_v1` | 진행 중 |
-| 3 | `ui_icons_v1.md` | `MarketUI_Icons_v1` | 대기 |
+| 2 | `underworld_scene_v1.md` | `UnderworldScene_v1` | **완료** — 검수함, 적용은 연출 작업 때 |
+| 3 | `ui_icons_v1.md` | `MarketUI_Icons_v1` | 진행 중 |
 | 4 | `info_source_marks_v1.md` | `InfoSourceMarks_v1` | 대기 |
 | 5 | `stock_portraits_v1.md` | `StockPortraits_v1` | 대기 |
 

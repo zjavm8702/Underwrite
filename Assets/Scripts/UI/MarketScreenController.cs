@@ -89,6 +89,7 @@ namespace Underwrite.UI
 
         private bool InfoCollapsed = true;
         private bool HoldingsCollapsed = true;
+        private int SceneIndex = -1;
         private int HoldingsSeqShown = -1;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
@@ -280,21 +281,18 @@ namespace Underwrite.UI
                     RollCycle();
                 }
 
-                if (Sim.HasBriefing == true)
-                {
-                    // TODO: 정보 타임 연출. 주식 패널을 내리고 지하세계 장면을 보여 준 뒤 돌아온다.
-                    //       설계는 Documents/Claude/Underwrite_일일시퀀스_설계안.md 참고.
-                    //       연출이 들어오기 전까지는 장을 세우지 않고 소식만 정보 기록으로 흘려보낸다.
-                    Message = $"{Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00} 정보원 보고"
-                        + $" {Sim.BriefingEntries.Count}건이 들어왔습니다.";
-                    Sim.AcknowledgeBriefing();
-                    InfoCountShown = -1;
-                }
-                else if (AutoPauseOnOutcome == true && Sim.HasPendingAlert == true)
+                if (AutoPauseOnOutcome == true && Sim.HasPendingAlert == true
+                    && Sim.HasBriefing == false)
                 {
                     Sim.Clock.SetPaused(true);
                     Message = "결과가 확정되어 자동 정지했습니다.";
                 }
+            }
+
+            // 보고는 틱과 무관하게 연다. 틱이 멈춘 뒤에 걸려 있으면 영영 안 열린다.
+            if (Sim.HasBriefing == true && SceneIndex < 0)
+            {
+                OpenScene();
             }
 
             Refresh();
@@ -445,6 +443,7 @@ namespace Underwrite.UI
             Click("speed-1", () => Sim.Clock.SetSpeedScale(1f));
             Click("speed-4", () => Sim.Clock.SetSpeedScale(4f));
             Click("skip-button", SkipOrOpen);
+            Click("scene-next", NextSceneLine);
             Click("place-button", () => Sim.PlayerAtMarket = Sim.PlayerAtMarket == false);
 
             Click("side-buy", () => Side = OrderSide.Side_Buy);
@@ -878,6 +877,7 @@ namespace Underwrite.UI
             RefreshPending();
             RefreshInfo();
             RefreshHoldings();
+            RefreshScene();
         }
 
         private void RefreshHeader()
@@ -2029,6 +2029,104 @@ namespace Underwrite.UI
             row.RegisterCallback<ClickEvent>(evt => SelectStock(id));
 
             return row;
+        }
+
+        /// <summary>
+        /// 정보 타임 연출을 연다. 장을 세우고 거래 화면을 덮는다.
+        ///
+        /// 정보 타임은 알림이 아니라 하나의 사건이다. 기획서 §11에 따라
+        /// 주식 패널을 내리고 지하세계 장면에서 소식을 한 건씩 전한다.
+        /// </summary>
+        private void OpenScene()
+        {
+            if (Sim.BriefingEntries.Count == 0)
+            {
+                Sim.AcknowledgeBriefing();
+                return;
+            }
+
+            // 읽는 동안 장이 흐르면 읽을 틈이 없다.
+            Sim.Clock.SetPaused(true);
+            SceneIndex = 0;
+        }
+
+        /// <summary>다음 소식으로 넘긴다. 마지막이면 거래 화면으로 돌아간다.</summary>
+        private void NextSceneLine()
+        {
+            if (SceneIndex < 0)
+            {
+                return;
+            }
+
+            SceneIndex++;
+
+            if (SceneIndex < Sim.BriefingEntries.Count)
+            {
+                return;
+            }
+
+            SceneIndex = -1;
+            Sim.AcknowledgeBriefing();
+            Sim.Clock.SetPaused(false);
+            InfoCountShown = -1;
+        }
+
+        /// <summary>연출 화면을 현재 소식에 맞춘다.</summary>
+        private void RefreshScene()
+        {
+            var scene = Root.Q<VisualElement>("scene");
+
+            if (scene == null)
+            {
+                return;
+            }
+
+            var showing = SceneIndex >= 0 && SceneIndex < Sim.BriefingEntries.Count;
+            scene.EnableInClassList("hidden", showing == false);
+
+            if (showing == false)
+            {
+                return;
+            }
+
+            // 분위기가 가라앉으면 등불이 꺼져 가는 판을 쓴다. 같은 방이고 빛만 다르다.
+            var grim = Sim.Sentiment == MarketSentiment.Sentiment_Fear
+                || Sim.Sentiment == MarketSentiment.Sentiment_Drained;
+            scene.EnableInClassList("scene--dim", grim);
+
+            var entry = Sim.BriefingEntries[SceneIndex];
+            var session = Sim.Clock.Session == MarketSession.Session_Evening ? "오후장" : "오전장";
+
+            SetText("scene-when",
+                $"{Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {session}"
+                + $" {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}");
+            SetText("scene-count", $"{SceneIndex + 1} / {Sim.BriefingEntries.Count}");
+
+            AdventurerStock stock;
+            var name = Sim.StockLookup.TryGetValue(entry.StockId, out stock) == true
+                ? stock.DisplayName
+                : entry.StockId;
+
+            SetText("scene-source", $"{SourceText(entry.Source)} · {name}");
+
+            var source = Root.Q<Label>("scene-source");
+
+            if (source != null)
+            {
+                source.EnableInClassList("scene-source--private", entry.IsPublic == false);
+            }
+
+            SetText("scene-line", entry.Headline);
+            SetText("scene-hint", entry.IsPublic == true
+                ? "지하세계가 같은 순간에 들었습니다. 가격은 이미 움직였습니다."
+                : "아직 시장에 돌지 않은 이야기입니다.");
+
+            var next = Root.Q<Button>("scene-next");
+
+            if (next != null)
+            {
+                next.text = SceneIndex + 1 >= Sim.BriefingEntries.Count ? "거래로" : "다음";
+            }
         }
 
         private void RefreshInfo()

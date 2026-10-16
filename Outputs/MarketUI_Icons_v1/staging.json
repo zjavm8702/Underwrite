@@ -1,0 +1,217 @@
+{
+  "assetsWritten": false,
+  "files": [
+    {
+      "name": "rise",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_rise.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_rise.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        207,
+        278,
+        1043,
+        991
+      ],
+      "scale": 0.04778179132067189,
+      "sourceComponents": [
+        299205
+      ],
+      "keptComponents": 1,
+      "sha256": "d13f769ef2bb80da678d6b247012598834097aafa21a4d67dbb6641f3fffd829"
+    },
+    {
+      "name": "fall",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_fall.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_fall.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        232,
+        386,
+        1021,
+        977
+      ],
+      "scale": 0.054134181040890794,
+      "sourceComponents": [
+        233283
+      ],
+      "keptComponents": 1,
+      "sha256": "94e89f36846f677a89881e482e8e83686be48913c6f3e2eb61a0e8049e213c23"
+    },
+    {
+      "name": "flat",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_flat.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_flat.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        227,
+        563,
+        1041,
+        717
+      ],
+      "scale": 0.0687116564417178,
+      "sourceComponents": [
+        92863
+      ],
+      "keptComponents": 1,
+      "sha256": "a6648042acfbe3083101ee39afe9a5fa32120258eeee9b4a699016263ea9d64d"
+    },
+    {
+      "name": "expand",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_expand.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_expand.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        183,
+        385,
+        1070,
+        969
+      ],
+      "scale": 0.05630630630630631,
+      "sourceComponents": [
+        160776
+      ],
+      "keptComponents": 1,
+      "sha256": "9af2785f8d470181368399dcac290d6cb26bd50aaedae51efb46257431df4370"
+    },
+    {
+      "name": "collapse",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_collapse.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_collapse.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        358,
+        211,
+        983,
+        1054
+      ],
+      "scale": 0.05924170616113744,
+      "sourceComponents": [
+        172172
+      ],
+      "keptComponents": 1,
+      "sha256": "f54fc6528312f028b0c4938dc9fdb2068c2a7bda29c7cfb1afabec45d690a28a"
+    },
+    {
+      "name": "cancel",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_cancel.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_cancel.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        168,
+        201,
+        1084,
+        1057
+      ],
+      "scale": 0.04936630629090288,
+      "sourceComponents": [
+        281367
+      ],
+      "keptComponents": 1,
+      "sha256": "9757c42cb4a2ba691f6a110d77e5f66c23b074413cf8abbe021d146a731cb0ca"
+    },
+    {
+      "name": "star_on",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_star_on.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_star_on.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        161,
+        200,
+        1096,
+        1085
+      ],
+      "scale": 0.044746817253757114,
+      "sourceComponents": [
+        341626
+      ],
+      "keptComponents": 1,
+      "sha256": "643ccdff5438a7b7af443d1743d9c28173149cf868ee021897eac30e98978016"
+    },
+    {
+      "name": "star_off",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_star_off.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_star_off.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        149,
+        166,
+        1104,
+        1099
+      ],
+      "scale": 0.05230125523012552,
+      "sourceComponents": [
+        222193
+      ],
+      "keptComponents": 1,
+      "sha256": "235194beae7659322ba4ed11d79c17d8b589abd731b67dfaa1053c850cb03543"
+    },
+    {
+      "name": "locked",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_locked.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_locked.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        278,
+        213,
+        974,
+        1044
+      ],
+      "scale": 0.041388962588493304,
+      "sourceComponents": [
+        399071
+      ],
+      "keptComponents": 1,
+      "sha256": "fcd26a3fcd6ded0df9f36ee2710a456118bdc9a198a6714c388cf65c34def043"
+    },
+    {
+      "name": "warning",
+      "source": "Outputs/MarketUI_Icons_v1/sources/icon_warning.png",
+      "destination": "Outputs/MarketUI_Icons_v1/icon_warning.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceBox": [
+        122,
+        194,
+        1132,
+        1089
+      ],
+      "scale": 0.04945598417408507,
+      "sourceComponents": [
+        220783,
+        35084,
+        14932
+      ],
+      "keptComponents": 3,
+      "sha256": "0f2b680269eed11600cd5e1a51512199bd4a38eabc03248864c4993d51e47764"
+    }
+  ]
+}

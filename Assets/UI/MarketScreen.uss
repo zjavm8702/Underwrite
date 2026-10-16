@@ -970,3 +970,86 @@
     -unity-font-style: bold;
     margin-top: 2px;
 }
+
+/* ── 정보 타임 연출 ───────────────────────── */
+
+/* 거래 화면을 통째로 덮는다. 정보 타임은 알림이 아니라 하나의 사건이다.
+   기획서 §11: 주식 패널을 내리고 지하세계 장면을 보여 준 뒤 돌아온다. */
+.scene {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url("project://database/Assets/UI/Images/underworld_room.png");
+    -unity-background-scale-mode: scale-and-crop;
+    background-color: #140F0A;
+}
+
+/* 분위기가 나쁠 때는 등불이 꺼져 가는 판을 쓴다. 같은 방이고 빛만 다르다. */
+.scene--dim {
+    background-image: url("project://database/Assets/UI/Images/underworld_room_dim.png");
+}
+
+/* 정보원이 설 자리. 인물 그림이 들어오기 전까지는 비워 둔다. */
+.scene-figure {
+    position: absolute;
+    left: 300px;
+    top: 324px;
+    width: 600px;
+    bottom: 162px;
+}
+
+/* 글자 상자는 화면 아래 1/3에 깔린다. 배경이 그 자리를 비워 두고 있다. */
+.scene-box {
+    position: absolute;
+    left: 110px;
+    right: 110px;
+    bottom: 48px;
+    background-color: var(--color-panel);
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    padding-top: 22px;
+    padding-bottom: 20px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.scene-when {
+    font-size: 17px;
+    color: var(--color-text-weak);
+}
+
+.scene-source {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: var(--color-text-weak);
+    margin-top: 6px;
+}
+
+.scene-line {
+    font-size: 27px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+    white-space: normal;
+    margin-top: 8px;
+    min-height: 76px;
+}
+
+.scene-hint {
+    font-size: 16px;
+    color: var(--color-text-weak);
+}
+
+.scene-next {
+    width: 160px;
+    margin-top: 0;
+    background-color: var(--color-text);
+    color: var(--color-panel);
+}
+
+/* 나만 아는 정보는 색으로 구분한다. 시장이 아직 모르는 이야기다. */
+.scene-source--private {
+    color: var(--color-private);
+}

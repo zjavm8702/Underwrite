@@ -227,3 +227,27 @@
     background-color: #F2E7D2;
     border-color: #C9BBA2;
 }
+
+/* 연출 글자 상자도 같은 종이다. */
+.scene-box {
+    background-image: url("project://database/Assets/UI/Images/market_panel.png");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-left: 48;
+    -unity-slice-right: 48;
+    -unity-slice-top: 48;
+    -unity-slice-bottom: 48;
+    -unity-slice-scale: 0.5;
+    border-width: 0;
+}
+
+.scene-next {
+    background-image: url("project://database/Assets/UI/Images/ui_button_pressed.png");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-left: 48;
+    -unity-slice-right: 48;
+    -unity-slice-top: 48;
+    -unity-slice-bottom: 48;
+    -unity-slice-scale: 0.25;
+    color: #F7F0E2;
+    border-width: 0;
+}

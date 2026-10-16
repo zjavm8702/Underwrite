@@ -1,0 +1,45 @@
+{
+  "tool": "image_gen built-in",
+  "prompts": [
+    {
+      "name": "icon_rise.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a filled upward triangle, with a slightly curved ascending left edge and confident upward apex, no stem. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_fall.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a filled downward triangle, slightly bowed dropping edges and downward apex, no stem. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_flat.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a broad short horizontal dash with subtly uneven quill-cut ends. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_expand.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a bold downward open chevron, two thick connected strokes, large open upper interior. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_collapse.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a bold rightward open chevron, two thick connected strokes, large open left interior. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_cancel.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a bold diagonal cross, two thick connected diagonal strokes with subtly quill-cut ends. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_star_on.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a simple filled five-point star with broad arms and generous valleys. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_star_off.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a simple hollow five-point star, thick continuous outline and a very large star-shaped transparent hole. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_locked.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a simple closed padlock silhouette, broad solid body and thick arch with large transparent opening, NO keyhole. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    },
+    {
+      "name": "icon_warning.png",
+      "prompt": "Use case: logo-brand. A SINGLE game UI icon, hand drawn by a medieval ledger scribe with a broad quill. Subject: a hollow warning triangle with thick outline, containing one bold vertical warning stroke and one large round dot; no text or letters. White #FFFFFF silhouette only, truly transparent background. Flat opaque white interior, no shading, no grey, no texture, no paper, no shadow, no decorative speckles. Gentle controlled handmade asymmetry, clean smooth edges, thick bold strokes and generous negative spaces. Readability at 16 pixels is essential. Centered in a square with 15 percent clear margin on every side. Similar visual weight to a 40px-wide filled triangle on a 64px canvas. No text, no labels, no extra icons. This is production icon artwork, not a sheet or mockup."
+    }
+  ]
+}
