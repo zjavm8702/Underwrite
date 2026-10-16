@@ -27,6 +27,9 @@ namespace Underwrite.Data
 
         [Tooltip("떠나는 사유. 예고가 있는 이탈과 없는 이탈을 가른다.")]
         public DelistReason DelistReason = DelistReason.Delist_None;
+
+        [Tooltip("정보 타임 연출에 세울 그림. 비어 있으면 인물 없이 글자만 나온다.")]
+        public Sprite Portrait;
     }
 
     /// <summary>

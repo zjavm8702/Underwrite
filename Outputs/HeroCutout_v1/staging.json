@@ -1,0 +1,96 @@
+{
+  "assetsWritten": false,
+  "unityConnected": false,
+  "files": [
+    {
+      "path": "Outputs/HeroCutout_v1/hero_1_scholar.png",
+      "resolution": [
+        356,
+        801
+      ],
+      "sourceBox": [
+        50,
+        69,
+        406,
+        870
+      ],
+      "padding": 8,
+      "pivot": "not embedded; UI illustration"
+    },
+    {
+      "path": "Outputs/HeroCutout_v1/hero_2_swordswoman.png",
+      "resolution": [
+        296,
+        710
+      ],
+      "sourceBox": [
+        398,
+        165,
+        694,
+        875
+      ],
+      "padding": 8,
+      "pivot": "not embedded; UI illustration"
+    },
+    {
+      "path": "Outputs/HeroCutout_v1/hero_3_elf.png",
+      "resolution": [
+        318,
+        767
+      ],
+      "sourceBox": [
+        662,
+        95,
+        980,
+        862
+      ],
+      "padding": 8,
+      "pivot": "not embedded; UI illustration"
+    },
+    {
+      "path": "Outputs/HeroCutout_v1/hero_4_warrior.png",
+      "resolution": [
+        484,
+        864
+      ],
+      "sourceBox": [
+        967,
+        4,
+        1451,
+        868
+      ],
+      "padding": 8,
+      "pivot": "not embedded; UI illustration"
+    },
+    {
+      "path": "Outputs/HeroCutout_v1/hero_5_fairy.png",
+      "resolution": [
+        323,
+        581
+      ],
+      "sourceBox": [
+        1431,
+        264,
+        1754,
+        845
+      ],
+      "padding": 8,
+      "pivot": "not embedded; UI illustration"
+    },
+    {
+      "path": "Outputs/HeroCutout_v1/protagonist.png",
+      "resolution": [
+        495,
+        1483
+      ],
+      "sourceBox": [
+        268,
+        12,
+        763,
+        1495
+      ],
+      "padding": 8,
+      "pivot": "not embedded; UI illustration"
+    }
+  ]
+}

@@ -244,6 +244,7 @@ MonoBehaviour:
   Seed: 20261016
   IsInspectionDay: 0
   StartingSentiment: 0
+  PopupTree: {fileID: 9197481963319205126, guid: 2d7a9f161be599941a6d74dfb5fc2b4e, type: 3}
   Data: {fileID: 11400000, guid: 9d92527f4cc06b044b4f10b2117dde1b, type: 2}
   AutoPauseOnOutcome: 1
   Theme: 2

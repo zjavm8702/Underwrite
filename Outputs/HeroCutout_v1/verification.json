@@ -1,0 +1,316 @@
+{
+  "status": "draft_cutout_complete_pending_visual_approval",
+  "generatedAt": "2026-10-16T13:13:17.533Z",
+  "meta": {
+    "beforeCount": 445,
+    "afterCount": 450,
+    "changed": [],
+    "added": [
+      "Scripts/UI/UI_Popup.cs.meta",
+      "Temp/ui_popup.png.meta",
+      "Temp/ui_popup2.png.meta",
+      "Temp.meta",
+      "UI/CommonPopup.uxml.meta"
+    ],
+    "removed": []
+  },
+  "sourcesUnchanged": {
+    "Assets/Images/Illustration/Underwrite_용사5인_컨셉_v10.png": "5f939f88b54839c76564ec24fa9b63ff22c5f75abe7ad6d8e669c12ec02f1b60",
+    "Assets/Images/Illustration/Underwrite_주인공_컨셉_v2.png": "f5e3a946c76adaa161176aeb3974632f9f1cb45a01b2e65697a14713b7971752"
+  },
+  "sourceHashesAfter": {
+    "Assets/Images/Illustration/Underwrite_용사5인_컨셉_v10.png": "5f939f88b54839c76564ec24fa9b63ff22c5f75abe7ad6d8e669c12ec02f1b60",
+    "Assets/Images/Illustration/Underwrite_주인공_컨셉_v2.png": "f5e3a946c76adaa161176aeb3974632f9f1cb45a01b2e65697a14713b7971752"
+  },
+  "criteria": {
+    "nonwhite": "min(R,G,B) < 245; crop includes background texture, cast shadows and neighboring artwork. Count difference is not equivalent to character damage.",
+    "referenceMask": "largest 4-connected foreground after exterior near-white/blue-shadow flood and manually bounded enclosed-hole floods; inferred, not ground truth",
+    "components": "8-neighbor, alpha>0",
+    "alphaCutoff": 32,
+    "transparency": "RGB flattened against white; original opacity is underdetermined. Thin cloth/wing alpha estimated in hand-bounded feathered regions; opaque interior retained.",
+    "color": "Opaque RGB unchanged; semi-transparent RGB decontaminated by inverse white composite. White recomposition equality does not validate true alpha."
+  },
+  "files": [
+    {
+      "file": "hero_1_scholar.png",
+      "resolution": [
+        356,
+        801
+      ],
+      "source_box_xyxy_exclusive": [
+        50,
+        69,
+        406,
+        870
+      ],
+      "scale": 1,
+      "padding": 8,
+      "alpha": {
+        "opaque": 141617,
+        "semi": 2943,
+        "transparent": 140596
+      },
+      "components8": [
+        144560
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "original_crop_nonwhite_minRGB_below245": 139953,
+      "retained_original_nonwhite": 137705,
+      "removed_original_nonwhite": 2248,
+      "reference_mask_nonwhite": 137658,
+      "reference_mask_nonwhite_removed": 146,
+      "opaque_RGB_channel_differences": 0,
+      "white_recomposition_MAE": 0,
+      "white_recomposition_max_error": 0
+    },
+    {
+      "file": "hero_2_swordswoman.png",
+      "resolution": [
+        296,
+        710
+      ],
+      "source_box_xyxy_exclusive": [
+        398,
+        165,
+        694,
+        875
+      ],
+      "scale": 1,
+      "padding": 8,
+      "alpha": {
+        "opaque": 95760,
+        "semi": 5501,
+        "transparent": 108899
+      },
+      "components8": [
+        101261
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "original_crop_nonwhite_minRGB_below245": 106442,
+      "retained_original_nonwhite": 100333,
+      "removed_original_nonwhite": 6109,
+      "reference_mask_nonwhite": 100163,
+      "reference_mask_nonwhite_removed": 128,
+      "opaque_RGB_channel_differences": 0,
+      "white_recomposition_MAE": 0,
+      "white_recomposition_max_error": 0
+    },
+    {
+      "file": "hero_3_elf.png",
+      "resolution": [
+        318,
+        767
+      ],
+      "source_box_xyxy_exclusive": [
+        662,
+        95,
+        980,
+        862
+      ],
+      "scale": 1,
+      "padding": 8,
+      "alpha": {
+        "opaque": 130802,
+        "semi": 33137,
+        "transparent": 79967
+      },
+      "components8": [
+        163939
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "original_crop_nonwhite_minRGB_below245": 166580,
+      "retained_original_nonwhite": 162364,
+      "removed_original_nonwhite": 4216,
+      "reference_mask_nonwhite": 161776,
+      "reference_mask_nonwhite_removed": 55,
+      "opaque_RGB_channel_differences": 0,
+      "white_recomposition_MAE": 0,
+      "white_recomposition_max_error": 0
+    },
+    {
+      "file": "hero_4_warrior.png",
+      "resolution": [
+        484,
+        864
+      ],
+      "source_box_xyxy_exclusive": [
+        967,
+        4,
+        1451,
+        868
+      ],
+      "scale": 1,
+      "padding": 8,
+      "alpha": {
+        "opaque": 267013,
+        "semi": 3362,
+        "transparent": 147801
+      },
+      "components8": [
+        270375
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "original_crop_nonwhite_minRGB_below245": 274890,
+      "retained_original_nonwhite": 268459,
+      "removed_original_nonwhite": 6431,
+      "reference_mask_nonwhite": 268228,
+      "reference_mask_nonwhite_removed": 137,
+      "opaque_RGB_channel_differences": 0,
+      "white_recomposition_MAE": 0,
+      "white_recomposition_max_error": 0
+    },
+    {
+      "file": "hero_5_fairy.png",
+      "resolution": [
+        323,
+        581
+      ],
+      "source_box_xyxy_exclusive": [
+        1431,
+        264,
+        1754,
+        845
+      ],
+      "scale": 1,
+      "padding": 8,
+      "alpha": {
+        "opaque": 64272,
+        "semi": 27690,
+        "transparent": 95701
+      },
+      "components8": [
+        91962
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "original_crop_nonwhite_minRGB_below245": 93843,
+      "retained_original_nonwhite": 90595,
+      "removed_original_nonwhite": 3248,
+      "reference_mask_nonwhite": 90446,
+      "reference_mask_nonwhite_removed": 24,
+      "opaque_RGB_channel_differences": 0,
+      "white_recomposition_MAE": 0,
+      "white_recomposition_max_error": 0
+    },
+    {
+      "file": "protagonist.png",
+      "resolution": [
+        495,
+        1483
+      ],
+      "source_box_xyxy_exclusive": [
+        268,
+        12,
+        763,
+        1495
+      ],
+      "scale": 1,
+      "padding": 8,
+      "alpha": {
+        "opaque": 368924,
+        "semi": 3663,
+        "transparent": 361498
+      },
+      "components8": [
+        372587
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "original_crop_nonwhite_minRGB_below245": 382378,
+      "retained_original_nonwhite": 369688,
+      "removed_original_nonwhite": 12690,
+      "reference_mask_nonwhite": 369426,
+      "reference_mask_nonwhite_removed": 85,
+      "opaque_RGB_channel_differences": 0,
+      "white_recomposition_MAE": 0,
+      "white_recomposition_max_error": 0
+    }
+  ],
+  "visualReview": {
+    "checked": [
+      "black/white/basement composites",
+      "hair tips and enclosed hair holes",
+      "elf sleeves and dress hem",
+      "fairy wing outline",
+      "boots and ground-shadow removal",
+      "removed nonwhite overlays"
+    ],
+    "limits": [
+      "Exact original translucent alpha cannot be recovered from flattened RGB.",
+      "Minor AA fringe pixels removed by alpha<32 cleanup; reference mask is inferred and cannot prove zero character pixel loss."
+    ],
+    "animation": "not applicable: 6 static illustrations"
+  },
+  "finalFilesReadback": [
+    {
+      "file": "hero_1_scholar.png",
+      "RGBA": true,
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "b8c176c6c0a3ecd7e3e907ba495a01d3a5f461b5daf5271cca4ba543f5ae322d"
+    },
+    {
+      "file": "hero_2_swordswoman.png",
+      "RGBA": true,
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "bf144f546d963a2ff67fbf55b186491a93afcd7f07d5f5ef2af1b705302b7f19"
+    },
+    {
+      "file": "hero_3_elf.png",
+      "RGBA": true,
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "9d10919db0cc6ba3ab58483866efac7fc57953212b620d6026503af445cf28d6"
+    },
+    {
+      "file": "hero_4_warrior.png",
+      "RGBA": true,
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "f6732c4fde9f9564f4f1edd8d50c2935ea97b339a04c370c40d3a785a9d43087"
+    },
+    {
+      "file": "hero_5_fairy.png",
+      "RGBA": true,
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "c375e3bb0782a80ef2ce5305276e7b092305d642004f0540264690a63ff0b685"
+    },
+    {
+      "file": "protagonist.png",
+      "RGBA": true,
+      "padding": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "3b06ee527254a64dc74ddaff804e0524c74e8a95a03586c7554ada397104dd60"
+    }
+  ]
+}

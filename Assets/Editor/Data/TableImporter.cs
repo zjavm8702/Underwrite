@@ -22,6 +22,7 @@ namespace Underwrite.Editor
     {
         private const string TABLE_FOLDER = "Tables";
         private const string ASSET_FOLDER = "Assets/Data";
+        private const string PORTRAIT_FOLDER = "Assets/UI/Images/Heroes";
 
         [MenuItem("Underwrite/테이블 가져오기")]
         public static void Import()
@@ -151,6 +152,7 @@ namespace Underwrite.Editor
                 entry.ListCycle = System.Math.Max(1, ParseInt(Field(rows[i], "ListCycle")));
                 entry.DelistCycle = ParseInt(Field(rows[i], "DelistCycle"));
                 entry.DelistReason = ParseEnum<DelistReason>("Delist_", Field(rows[i], "DelistReason"));
+                entry.Portrait = LoadPortrait(Field(rows[i], "Portrait"));
                 list.Add(entry);
             }
 
@@ -203,6 +205,28 @@ namespace Underwrite.Editor
 
             asset.Replace(list);
             EditorUtility.SetDirty(asset);
+        }
+
+        /// <summary>
+        /// 표에 적힌 파일 이름으로 인물 그림을 찾는다.
+        /// 표에 경로를 다 적게 하면 폴더를 옮길 때마다 표를 고쳐야 한다. 이름만 적는다.
+        /// </summary>
+        private static Sprite LoadPortrait(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName) == true)
+            {
+                return null;
+            }
+
+            var path = PORTRAIT_FOLDER + "/" + fileName + ".png";
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+
+            if (sprite == null)
+            {
+                UnderwriteLog.Warning($"인물 그림을 찾지 못했습니다: {path}");
+            }
+
+            return sprite;
         }
 
         // ── CSV ───────────────────────────────────

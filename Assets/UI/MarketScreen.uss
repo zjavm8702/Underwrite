@@ -995,9 +995,10 @@
 .scene-figure {
     position: absolute;
     left: 300px;
-    top: 324px;
+    top: 150px;
     width: 600px;
-    bottom: 162px;
+    bottom: 300px;
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 /* 글자 상자는 화면 아래 1/3에 깔린다. 배경이 그 자리를 비워 두고 있다. */
@@ -1126,4 +1127,63 @@
     flex-direction: row;
     align-items: center;
     margin-top: 2px;
+}
+
+/* ── 공용 팝업 ────────────────────────────── */
+
+/* 확인이 필요한 일에만 쓴다. 흘려보내도 되는 소식은 쪽지가 맡는다. */
+.popup-veil {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(20, 15, 10, 0.62);
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    width: 620px;
+    background-color: var(--color-panel);
+    border-radius: 18px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    padding-top: 28px;
+    padding-bottom: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.popup-tag {
+    font-size: 17px;
+    color: var(--color-text-weak);
+    -unity-font-style: bold;
+}
+
+.popup-title {
+    font-size: 28px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+    margin-top: 4px;
+    white-space: normal;
+}
+
+.popup-body {
+    font-size: 19px;
+    color: var(--color-text);
+    white-space: normal;
+    margin-top: 12px;
+}
+
+.popup-button {
+    width: 150px;
+    height: 48px;
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+.popup-button--main {
+    background-color: var(--color-text);
+    color: var(--color-panel);
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using DG.Tweening;
 using Underwrite.Data;
 using Underwrite.Enumeration;
 using Underwrite.Global;
@@ -37,6 +38,12 @@ namespace Underwrite.UI
         private const int RATIO_FIT_STEPS = 4;
         private const float TOAST_SECONDS = 2.8f;
         private const int TOAST_MAX = 3;
+        private const float TOAST_SLIDE_SECONDS = 0.22f;
+        private const float TOAST_SLIDE_FROM = 36f;
+        private const float SCENE_RISE_SECONDS = 0.26f;
+        private const float SCENE_RISE_FROM = 40f;
+        private const float FIGURE_SLIDE_SECONDS = 0.34f;
+        private const float FIGURE_SLIDE_FROM = 48f;
 
         private enum InfoFilter
         {
@@ -49,6 +56,10 @@ namespace Underwrite.UI
         [SerializeField] private int Seed = 20261016;
         [SerializeField] private bool IsInspectionDay;
         [SerializeField] private MarketSentiment StartingSentiment = MarketSentiment.Sentiment_Calm;
+
+        [Header("공용 UI")]
+        [Tooltip("확인이 필요한 일에 띄우는 팝업 한 벌. 비워 두면 팝업 없이 쪽지만 뜬다.")]
+        [SerializeField] private VisualTreeAsset PopupTree;
 
         [Header("데이터")]
         [Tooltip("표에서 읽어 온다. 비워 두면 코드에 박힌 프로토타입 값을 쓴다.")]
@@ -91,6 +102,8 @@ namespace Underwrite.UI
         private bool InfoCollapsed = true;
         private bool HoldingsCollapsed = true;
         private int SceneIndex = -1;
+        private UI_Popup Popup;
+        private Sprite FigureShown;
         private int HoldingsSeqShown = -1;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
@@ -290,6 +303,10 @@ namespace Underwrite.UI
                 }
             }
 
+            // 팝업 한 벌은 늦게 붙어도 된다. 화면을 만들 때 한 번만 시도하면
+            // 그 순간 자산이 준비되지 않았을 때 영영 붙지 않는다.
+            BuildPopup();
+
             // 보고는 틱과 무관하게 연다. 틱이 멈춘 뒤에 걸려 있으면 영영 안 열린다.
             if (Sim.HasBriefing == true && SceneIndex < 0)
             {
@@ -380,6 +397,17 @@ namespace Underwrite.UI
             }
 
             BuildStockRows();
+        }
+
+        /// <summary>팝업 한 벌을 화면에 붙인다. 띄우는 것은 필요할 때다.</summary>
+        private void BuildPopup()
+        {
+            if (PopupTree == null || Popup != null)
+            {
+                return;
+            }
+
+            Popup = new UI_Popup(Root, PopupTree);
         }
 
         private void BuildStockRows()
@@ -630,9 +658,27 @@ namespace Underwrite.UI
         {
             Sim.EndSessionAndRoll();
 
+            var liquidation = string.Empty;
+
             for (var i = 0; i < Sim.CycleNotices.Count; i++)
             {
-                ShowToast($"{Sim.Clock.Cycle}주기", Sim.CycleNotices[i], Side, true);
+                var notice = Sim.CycleNotices[i];
+
+                // 청산은 돈을 잃는 사건이다. 흘려보내지 않고 확인을 받는다.
+                if (notice.Contains("청산했습니다") == true)
+                {
+                    liquidation = liquidation.Length == 0 ? notice : liquidation + "\n" + notice;
+                    continue;
+                }
+
+                ShowToast($"{Sim.Clock.Cycle}주기", notice, Side, true);
+            }
+
+            if (liquidation.Length > 0 && Popup != null)
+            {
+                Sim.Clock.SetPaused(true);
+                Popup.Show($"{Sim.Clock.Cycle}주기", "상장 폐지", liquidation, "확인", null,
+                    () => Sim.Clock.SetPaused(false), null);
             }
 
             if (Sim.CycleNotices.Count > 0)
@@ -2114,6 +2160,115 @@ namespace Underwrite.UI
             // 읽는 동안 장이 흐르면 읽을 틈이 없다.
             Sim.Clock.SetPaused(true);
             SceneIndex = 0;
+            PlaySceneEnter();
+        }
+
+        /// <summary>
+        /// 지하실이 밝아지고 글자 상자가 떠오른다.
+        /// 장면이 통째로 튀어나오면 거래 화면에서 넘어온 것인지 알아보기 어렵다.
+        /// </summary>
+        private void PlaySceneEnter()
+        {
+            var scene = Root.Q<VisualElement>("scene");
+            var box = Root.Q<VisualElement>("scene-box");
+
+            if (scene == null || box == null)
+            {
+                return;
+            }
+
+            scene.style.opacity = 0f;
+            box.style.translate = new Translate(0f, SCENE_RISE_FROM);
+
+            var progress = 0f;
+            DOTween.To(() => progress, value =>
+            {
+                progress = value;
+
+                if (scene.panel == null)
+                {
+                    return;
+                }
+
+                scene.style.opacity = value;
+                box.style.translate = new Translate(0f, Mathf.Lerp(SCENE_RISE_FROM, 0f, value));
+            }, 1f, SCENE_RISE_SECONDS).SetEase(Ease.OutCubic).SetUpdate(true);
+        }
+
+        /// <summary>
+        /// 소식의 주인을 화면에 세운다. 누구 이야기인지 글자보다 그림이 먼저 말한다.
+        /// 그림이 없는 종목이면 자리를 비운다.
+        /// </summary>
+        private void ShowSceneFigure(string stockId)
+        {
+            var figure = Root.Q<VisualElement>("scene-figure");
+
+            if (figure == null)
+            {
+                return;
+            }
+
+            var portrait = PortraitOf(stockId);
+
+            if (portrait == null)
+            {
+                figure.style.backgroundImage = StyleKeyword.None;
+                figure.EnableInClassList("hidden", true);
+                return;
+            }
+
+            figure.EnableInClassList("hidden", false);
+
+            // 같은 사람이면 다시 띄우지 않는다. 넘길 때마다 깜빡이면 거슬린다.
+            if (ReferenceEquals(FigureShown, portrait) == true)
+            {
+                return;
+            }
+
+            FigureShown = portrait;
+            figure.style.backgroundImage = new StyleBackground(portrait);
+            PlayFigureEnter(figure);
+        }
+
+        private Sprite PortraitOf(string stockId)
+        {
+            if (Data == null || Data.StockRows == null)
+            {
+                return null;
+            }
+
+            var rows = Data.StockRows.Rows;
+
+            for (var i = 0; i < rows.Count; i++)
+            {
+                if (rows[i].Id == stockId)
+                {
+                    return rows[i].Portrait;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>등불 쪽에서 걸어 나오듯 옆에서 스며든다.</summary>
+        private static void PlayFigureEnter(VisualElement figure)
+        {
+            figure.style.opacity = 0f;
+            figure.style.translate = new Translate(-FIGURE_SLIDE_FROM, 0f);
+
+            var progress = 0f;
+            DOTween.To(() => progress, value =>
+            {
+                progress = value;
+
+                if (figure.panel == null)
+                {
+                    return;
+                }
+
+                figure.style.opacity = value;
+                figure.style.translate = new Translate(Mathf.Lerp(-FIGURE_SLIDE_FROM, 0f, value), 0f);
+            }, 1f, FIGURE_SLIDE_SECONDS).SetEase(Ease.OutCubic).SetUpdate(true);
         }
 
         /// <summary>다음 소식으로 넘긴다. 마지막이면 거래 화면으로 돌아간다.</summary>
@@ -2132,6 +2287,7 @@ namespace Underwrite.UI
             }
 
             SceneIndex = -1;
+            FigureShown = null;
             Sim.AcknowledgeBriefing();
             Sim.Clock.SetPaused(false);
             InfoCountShown = -1;
@@ -2183,6 +2339,7 @@ namespace Underwrite.UI
             }
 
             SetText("scene-line", entry.Headline);
+            ShowSceneFigure(entry.StockId);
             SetText("scene-hint", entry.IsPublic == true
                 ? StringConstants.TEXT_SCENE_PUBLIC
                 : StringConstants.TEXT_SCENE_PRIVATE);
@@ -2409,15 +2566,64 @@ namespace Underwrite.UI
 
             // 새 쪽지가 위에 온다. 아래로 밀려날수록 오래된 것이다.
             area.Insert(0, card);
+            PlaySlideIn(card);
 
             // 실시간 기준으로 센다. 배속이나 일시정지에 끌려가면 안 된다.
-            card.schedule.Execute(() =>
+            card.schedule.Execute(() => PlayFadeOut(card))
+                .StartingIn((long)(TOAST_SECONDS * 1000f));
+        }
+
+        /// <summary>
+        /// 오른쪽에서 밀려 들어온다. 갑자기 나타나면 눈이 어디서 생겼는지 따라가지 못한다.
+        /// 실시간 기준으로 돌린다. 장이 멈춰 있어도 쪽지는 움직여야 한다.
+        /// </summary>
+        private static void PlaySlideIn(VisualElement card)
+        {
+            card.style.opacity = 0f;
+            card.style.translate = new Translate(TOAST_SLIDE_FROM, 0f);
+
+            var progress = 0f;
+            DOTween.To(() => progress, value =>
             {
-                if (card.parent != null)
+                progress = value;
+
+                if (card.panel == null)
                 {
-                    card.RemoveFromHierarchy();
+                    return;
                 }
-            }).StartingIn((long)(TOAST_SECONDS * 1000f));
+
+                card.style.opacity = value;
+                card.style.translate = new Translate(Mathf.Lerp(TOAST_SLIDE_FROM, 0f, value), 0f);
+            }, 1f, TOAST_SLIDE_SECONDS).SetEase(Ease.OutCubic).SetUpdate(true);
+        }
+
+        /// <summary>흐려지며 사라진다. 다 흐려진 뒤에 떼어 낸다.</summary>
+        private static void PlayFadeOut(VisualElement card)
+        {
+            if (card.parent == null)
+            {
+                return;
+            }
+
+            var progress = 1f;
+            DOTween.To(() => progress, value =>
+            {
+                progress = value;
+
+                if (card.panel == null)
+                {
+                    return;
+                }
+
+                card.style.opacity = value;
+            }, 0f, TOAST_SLIDE_SECONDS).SetEase(Ease.InQuad).SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    if (card.parent != null)
+                    {
+                        card.RemoveFromHierarchy();
+                    }
+                });
         }
 
         private string StockName(string stockId)

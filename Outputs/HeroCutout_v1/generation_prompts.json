@@ -1,0 +1,5 @@
+{
+  "imageGenerationUsed": false,
+  "prompts": [],
+  "reason": "User explicitly requested processing existing illustrations without redrawing. Deterministic PNG masking, crop, and white-matte inversion only."
+}
