@@ -27,6 +27,7 @@ namespace Underwrite.Global
 
         public const string TEXT_ORDER_FILLED = "체결되었습니다.";
         public const string TEXT_ORDER_MARKET_CLOSED = "지하시장이 열려 있지 않습니다.";
+        public const string TEXT_ORDER_PAUSED = "시간이 멈춘 동안에는 주문할 수 없습니다.";
         public const string TEXT_ORDER_NOT_AT_MARKET = "지하시장에서만 주문할 수 있습니다.";
         public const string TEXT_ORDER_NO_CASH = "현금이 부족합니다.";
         public const string TEXT_ORDER_NO_SHARES = "보유 지분이 부족합니다.";

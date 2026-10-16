@@ -1,0 +1,186 @@
+{
+  "status": "시안",
+  "originals": [
+    {
+      "id": "fullResult",
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a143b6-bcd9-7190-b2c2-f9476c46e3fa\\exec-bc725de8-f082-41da-89a1-95e81d6a0702.png"
+    },
+    {
+      "id": "reducedResult",
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a143b6-bcd9-7190-b2c2-f9476c46e3fa\\exec-f094b41a-be52-458b-b14a-cdcb0e001e2e.png"
+    },
+    {
+      "id": "closedResult",
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a143b6-bcd9-7190-b2c2-f9476c46e3fa\\exec-0a580143-d7fe-456e-afb5-6e9edfc22886.png"
+    },
+    {
+      "id": "componentsResult",
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a143b6-bcd9-7190-b2c2-f9476c46e3fa\\exec-7632c53d-c29e-41c8-996b-d9d875e620b6.png"
+    },
+    {
+      "id": "fullFixedResult",
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a143b6-bcd9-7190-b2c2-f9476c46e3fa\\exec-e9aec2e8-f0ac-43a7-a74d-4d898b6771a6.png"
+    },
+    {
+      "id": "reducedFixedResult",
+      "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a143b6-bcd9-7190-b2c2-f9476c46e3fa\\exec-9bfdffd1-459d-49e6-8fa7-a98eb41118f5.png"
+    }
+  ],
+  "files": [
+    {
+      "path": "MarketUI_full.png",
+      "width": 1920,
+      "height": 1080,
+      "original": [
+        1672,
+        941
+      ],
+      "pivot": null,
+      "role": "시안"
+    },
+    {
+      "path": "MarketUI_beginner.png",
+      "width": 1920,
+      "height": 1080,
+      "original": [
+        1672,
+        941
+      ],
+      "pivot": null,
+      "role": "시안"
+    },
+    {
+      "path": "MarketUI_halted.png",
+      "width": 1920,
+      "height": 1080,
+      "original": [
+        1672,
+        941
+      ],
+      "pivot": null,
+      "role": "시안"
+    },
+    {
+      "path": "MarketUI_components.png",
+      "width": 1920,
+      "height": 1080,
+      "original": [
+        1672,
+        941
+      ],
+      "pivot": null,
+      "role": "시안"
+    },
+    {
+      "path": "components/panel.png",
+      "width": 920,
+      "height": 206,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        22,
+        20,
+        802,
+        180
+      ]
+    },
+    {
+      "path": "components/buttons.png",
+      "width": 920,
+      "height": 205,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        846,
+        20,
+        806,
+        180
+      ]
+    },
+    {
+      "path": "components/stock_selected.png",
+      "width": 920,
+      "height": 231,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        22,
+        213,
+        802,
+        201
+      ]
+    },
+    {
+      "path": "components/stock_falling.png",
+      "width": 920,
+      "height": 229,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        846,
+        213,
+        806,
+        201
+      ]
+    },
+    {
+      "path": "components/information_private.png",
+      "width": 920,
+      "height": 272,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        22,
+        423,
+        802,
+        237
+      ]
+    },
+    {
+      "path": "components/information_public.png",
+      "width": 920,
+      "height": 271,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        846,
+        423,
+        806,
+        237
+      ]
+    },
+    {
+      "path": "components/sources.png",
+      "width": 920,
+      "height": 284,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        22,
+        670,
+        802,
+        248
+      ]
+    },
+    {
+      "path": "components/states.png",
+      "width": 920,
+      "height": 283,
+      "pivot": null,
+      "source": "originals/componentsResult.png",
+      "sourceRect": [
+        846,
+        670,
+        806,
+        248
+      ]
+    },
+    {
+      "path": "MarketUI_preview.png",
+      "width": 1920,
+      "height": 1080,
+      "role": "2×2 미리보기: 완성형/축소판/휴장/조각"
+    }
+  ],
+  "processing": "이미지 생성 원본 보존. 납품 크기만 bilinear 정규화, 조각 보드는 사각형 추출. 그림·글자·숫자 수정은 image_gen 사용."
+}

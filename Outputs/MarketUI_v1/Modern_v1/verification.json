@@ -1,0 +1,222 @@
+{
+  "timestamp": "2026-10-16T08:11:36.985Z",
+  "status": "approval draft; delivery verified",
+  "pngs": [
+    {
+      "path": "market_full.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 5996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "cafb47d44689bc1dbbbdc33f017b9c47cbc8b3415385611ddb412d54c034fe40"
+    },
+    {
+      "path": "market_beginner.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 5996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "daa688ef96289c30ba2487bd658e6f85d4adba1a4f3c73dcf3c0368d06d7d1f2"
+    },
+    {
+      "path": "market_halted.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 5996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "85c16be32994b02c4e3ec06cb91bce3d15e06e110819fbeccb9510f25cc55aff"
+    },
+    {
+      "path": "components_sheet.png",
+      "width": 1920,
+      "height": 1080,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 5996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "5186e82bc654e69de1debace09dffc0c275f4f84039405199d05687d05c48f40"
+    },
+    {
+      "path": "components/buttons_quantity.png",
+      "width": 960,
+      "height": 540,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 2996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "bb07911443b6670b51fa06a67c97e8922e957ab475da993b46df8c285e8e6478"
+    },
+    {
+      "path": "components/information_cards.png",
+      "width": 960,
+      "height": 540,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 2996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "ce5dcec201680e79542fcc2a5959f075627a70cca52bc9f0edefa8ce3425b9d5"
+    },
+    {
+      "path": "components/panel.png",
+      "width": 960,
+      "height": 540,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 2996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "d5d083d873ac15cda4d63159692fdc35d5158a82dd2fc431e4088c19b8022a5c"
+    },
+    {
+      "path": "components/stock_rows.png",
+      "width": 960,
+      "height": 540,
+      "format": "RGBA8",
+      "minAlpha": 255,
+      "maxAlpha": 255,
+      "transparentPixels": 0,
+      "semitransparentPixels": 0,
+      "hiddenRGBPixels": 0,
+      "alphaComponents": 1,
+      "separatedAlphaComponents": 0,
+      "boundaryOpaquePixels": 2996,
+      "boundaryStatus": "intentional full-frame opaque UI canvas; not a sprite silhouette",
+      "sha256": "a88d0bb1c0082aa6ccc17c4fe8083127ea743709dbb22ca45824fc755603d705"
+    }
+  ],
+  "protected": {
+    "files": 399,
+    "metaCount": 355,
+    "changed": [],
+    "missing": []
+  },
+  "contrastChecks": [
+    {
+      "role": "body",
+      "fg": "#202632",
+      "bg": "#FFFFFF",
+      "ratio": 15.17,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "role": "secondary",
+      "fg": "#626C7A",
+      "bg": "#FFFFFF",
+      "ratio": 5.32,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "role": "up",
+      "fg": "#C53643",
+      "bg": "#FFFFFF",
+      "ratio": 5.27,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "role": "down",
+      "fg": "#245EC7",
+      "bg": "#FFFFFF",
+      "ratio": 6,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "role": "private",
+      "fg": "#6741B0",
+      "bg": "#F3EDFF",
+      "ratio": 6.21,
+      "target": 4.5,
+      "pass": true
+    },
+    {
+      "role": "halted",
+      "fg": "#80510D",
+      "bg": "#FFF4DE",
+      "ratio": 6.21,
+      "target": 4.5,
+      "pass": true
+    }
+  ],
+  "visualReview": {
+    "screens": 3,
+    "components": 4,
+    "clippedContent": "none observed after export and quadrant extraction",
+    "privateVsPublic": "lock + violet background + left edge + explicit label",
+    "priceDirections": "up red with plus/triangle; down blue with minus/triangle",
+    "orderMath": {
+      "price": 56,
+      "quantity": 2,
+      "liquidity": 60,
+      "impactScale": 0.9,
+      "fill": 56.84,
+      "amount": 113.68,
+      "displayFill": "56.8",
+      "displayTotal": "113.7"
+    },
+    "chart": "full and beginner line ends near34/96; future region blank; conceptual curve not engine history",
+    "halted": "orders inactive; world/time/info active; example of a retained48tick history from an earlier session",
+    "totalFinalPngs": 8
+  },
+  "animation": {
+    "applicable": false,
+    "reason": "static UI concepts, no8-direction animation; motion specified but not runtime tested"
+  },
+  "limitations": [
+    "Generated image fills contain subtle tone variations and some selected-control colors differ from normative HEX tokens. Use README tokens for implementation.",
+    "No UI Toolkit runtime or narrow-screen implementation tested.",
+    "Source screenshot comparisons use public official evidence, not authenticated native apps."
+  ],
+  "scope": "Outputs/MarketUI_v1/Modern_v1 only",
+  "concurrentOutputPreservation": "Other files appeared in parent folder during task; kept untouched and excluded from this manifest.",
+  "copyHashMismatches": []
+}

@@ -235,6 +235,12 @@ namespace Underwrite.Market
                 return Reject(OrderResult.Result_RejectedNotAtMarket, StringConstants.TEXT_ORDER_NOT_AT_MARKET);
             }
 
+            // 정지와 휴장을 나눠 알린다. 플레이어가 무엇을 풀어야 하는지 알아야 한다.
+            if (Clock.IsPaused == true)
+            {
+                return Reject(OrderResult.Result_RejectedPaused, StringConstants.TEXT_ORDER_PAUSED);
+            }
+
             if (Clock.AcceptsOrders == false)
             {
                 return Reject(OrderResult.Result_RejectedMarketClosed, StringConstants.TEXT_ORDER_MARKET_CLOSED);

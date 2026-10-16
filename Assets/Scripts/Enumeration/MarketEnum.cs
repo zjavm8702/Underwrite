@@ -37,6 +37,7 @@ namespace Underwrite.Enumeration
     {
         Result_Filled,
         Result_RejectedMarketClosed,
+        Result_RejectedPaused,
         Result_RejectedNotAtMarket,
         Result_RejectedNoCash,
         Result_RejectedNoShares,

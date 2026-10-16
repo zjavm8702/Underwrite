@@ -81,12 +81,20 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>주문을 받을 수 있는 상태인지. 휴장일에는 받지 않는다.</summary>
+        /// <summary>
+        /// 주문을 받을 수 있는 상태인지. 휴장일과 일시정지 중에는 받지 않는다.
+        ///
+        /// 기획서 §11은 "정지 중 주문 입력과 체결 허용 여부는 상세 규칙으로 확정해야 한다"고
+        /// 미결정으로 두었다. 사용자 결정(2026-10-16): **정지 중에는 주문할 수 없다.**
+        /// 정지해 두고 천천히 고르는 것이 유리해지면 실시간 시장의 긴장이 사라진다.
+        /// 대화 중 자동 정지(§11)는 읽는 속도가 손실을 결정하지 않게 하려는 장치이지,
+        /// 생각할 시간을 공짜로 주려는 장치가 아니다.
+        /// </summary>
         public bool AcceptsOrders
         {
             get
             {
-                return Phase == MarketPhase.Phase_Open;
+                return Phase == MarketPhase.Phase_Open && IsPaused == false;
             }
         }
 

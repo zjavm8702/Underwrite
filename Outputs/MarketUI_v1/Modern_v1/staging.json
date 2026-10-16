@@ -1,0 +1,114 @@
+{
+  "status": "approval draft",
+  "scope": "research and static PNG concepts; no Unity implementation",
+  "finalRoot": "Outputs/MarketUI_v1/Modern_v1",
+  "files": [
+    {
+      "path": "market_full.png",
+      "width": 1920,
+      "height": 1080,
+      "pivot": null,
+      "role": "screen or board",
+      "sha256": "cafb47d44689bc1dbbbdc33f017b9c47cbc8b3415385611ddb412d54c034fe40"
+    },
+    {
+      "path": "market_beginner.png",
+      "width": 1920,
+      "height": 1080,
+      "pivot": null,
+      "role": "screen or board",
+      "sha256": "daa688ef96289c30ba2487bd658e6f85d4adba1a4f3c73dcf3c0368d06d7d1f2"
+    },
+    {
+      "path": "market_halted.png",
+      "width": 1920,
+      "height": 1080,
+      "pivot": null,
+      "role": "screen or board",
+      "sha256": "85c16be32994b02c4e3ec06cb91bce3d15e06e110819fbeccb9510f25cc55aff"
+    },
+    {
+      "path": "components_sheet.png",
+      "width": 1920,
+      "height": 1080,
+      "pivot": null,
+      "role": "screen or board",
+      "sha256": "5186e82bc654e69de1debace09dffc0c275f4f84039405199d05687d05c48f40"
+    },
+    {
+      "path": "components/buttons_quantity.png",
+      "width": 960,
+      "height": 540,
+      "pivot": null,
+      "role": "component specimen",
+      "sha256": "bb07911443b6670b51fa06a67c97e8922e957ab475da993b46df8c285e8e6478"
+    },
+    {
+      "path": "components/information_cards.png",
+      "width": 960,
+      "height": 540,
+      "pivot": null,
+      "role": "component specimen",
+      "sha256": "ce5dcec201680e79542fcc2a5959f075627a70cca52bc9f0edefa8ce3425b9d5"
+    },
+    {
+      "path": "components/panel.png",
+      "width": 960,
+      "height": 540,
+      "pivot": null,
+      "role": "component specimen",
+      "sha256": "d5d083d873ac15cda4d63159692fdc35d5158a82dd2fc431e4088c19b8022a5c"
+    },
+    {
+      "path": "components/stock_rows.png",
+      "width": 960,
+      "height": 540,
+      "pivot": null,
+      "role": "component specimen",
+      "sha256": "a88d0bb1c0082aa6ccc17c4fe8083127ea743709dbb22ca45824fc755603d705"
+    }
+  ],
+  "export": {
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "finalBoardSize": [
+      1920,
+      1080
+    ],
+    "method": "System.Drawing high-quality bicubic export to RGBA32; no generative content altered",
+    "componentRegions": {
+      "panel": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "buttons_quantity": [
+        960,
+        0,
+        960,
+        540
+      ],
+      "stock_rows": [
+        0,
+        540,
+        960,
+        540
+      ],
+      "information_cards": [
+        960,
+        540,
+        960,
+        540
+      ]
+    }
+  },
+  "unityConnected": false,
+  "assetPathsAdded": [],
+  "sourceFolder": "source/",
+  "prompts": "generation_prompts.json",
+  "research": "../../MarketUI_Research_v1/README.md",
+  "concurrentFiles": "Parent contains another output set; preserved and excluded"
+}
