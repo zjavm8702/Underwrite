@@ -5,9 +5,24 @@
     <ui:VisualElement name="village-root" class="village-root" picking-mode="Ignore">
         <!-- 오늘 남은 걸음. 시간도 자원이다. -->
         <ui:Label name="village-visits" text="" class="village-visits" />
-        <ui:Button name="village-rest" text="오늘 장 쉬기" class="cta village-rest" />
-        <ui:Button name="village-skip" text="시간 넘기기" class="cta village-skip" />
-        <ui:Button name="village-leave" text="거래소로" class="cta village-leave" />
+        <!-- 2026-10-17 사용자 결정: 단추는 「메뉴」 하나. 누르면 위로 목록이 펼쳐진다.
+             항목은 코드가 채운다. 나중에 항목이 많이 늘어난다. -->
+        <ui:VisualElement name="village-menu-list" class="village-menu-list hidden" />
+        <ui:Button name="village-menu" text="메뉴" class="village-button village-menu" />
+
+        <!-- 「시간 넘기기」의 원형 시계. 바늘을 끌어 몇 시까지 보낼지 고른다. -->
+        <ui:VisualElement name="village-clock" class="village-clock hidden">
+            <ui:VisualElement class="village-clock-panel popup">
+                <ui:Label name="village-clock-title" text="" class="popup-title" />
+                <ui:VisualElement name="village-clock-dial" class="village-clock-dial" />
+                <ui:Label name="village-clock-pick" text="" class="village-clock-pick" />
+                <ui:Label name="village-clock-limit" text="" class="popup-body" />
+                <ui:VisualElement class="row village-clock-buttons">
+                    <ui:Button name="village-clock-cancel" text="" class="popup-button" />
+                    <ui:Button name="village-clock-confirm" text="" class="popup-button popup-button--main" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
 
         <!-- 자리에 다가서면 뜬다. -->
         <ui:VisualElement name="village-prompt" class="village-prompt hidden">

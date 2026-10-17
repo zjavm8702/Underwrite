@@ -1,0 +1,139 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "name": "dialogue_box",
+      "width": 1024,
+      "height": 512,
+      "border": 64,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas requested 1024x512, aspect ratio 2. Border 64px each edge. Intimate visual-novel dialogue box, warm dark walnut slim frame surrounding soft luminous cream paper #F2E7D2. Small restrained antique bronze vine corner fittings contained entirely within 64px corner squares. Softer and more affectionate than a trading ledger. Frame thickness about 32px. Center perfectly quiet.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-f9dc7ac5-ff51-4fc8-9cb3-9d6bde3f3e91.png",
+      "recordedAt": "2026-10-17T06:42:30.688Z"
+    },
+    {
+      "name": "dialogue_nameplate",
+      "width": 512,
+      "height": 128,
+      "border": 40,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas requested 512x128, aspect ratio 4. Border 40px each edge. Speaker nameplate, dark walnut inset with subdued bronze slim edging, elegantly rounded oblong rectangular plaque. Deep dark brown center #2A2118 for light letters later. Small corner fittings within 40px squares, no central ornament.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-e83f6256-96b7-4258-ae9f-064c600854b8.png",
+      "recordedAt": "2026-10-17T06:42:30.691Z"
+    },
+    {
+      "name": "dialogue_next",
+      "width": 256,
+      "height": 128,
+      "border": 32,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas requested 256x128, aspect ratio 2. Border 32px each edge. Small gently rounded oblong token button for next dialogue, dark walnut rim and warm cream inset, intimate and simple. Completely blank, NO arrow or symbol. Thin 12px rim.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-ff3f8833-e2ad-4bb6-afda-d4e3a9e78ad4.png",
+      "recordedAt": "2026-10-17T06:42:30.694Z"
+    },
+    {
+      "name": "choice_normal",
+      "width": 512,
+      "height": 128,
+      "border": 40,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x128, aspect 4, edge border 40px. Long thin cream paper ribbon dialogue choice, soft warm brown fine edge, gently rounded rectangular corners. No wood frame. Blank ivory center #F2E7D2, restrained side curl contained in 40px side bands. Outer contour inset 4px.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-da437bc8-6cb6-4a96-8b84-7f9a38c1f446.png",
+      "recordedAt": "2026-10-17T06:42:30.696Z"
+    },
+    {
+      "name": "choice_hover",
+      "width": 512,
+      "height": 128,
+      "border": 40,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x128, aspect 4, edge border 40px. Long thin cream paper ribbon dialogue choice HOVER, warm honey fine edge, a tiny burgundy fabric bookmark attached entirely INSIDE the LEFT 40px border strip, no icon. Blank cream center, gently rounded corners. Outer contour inset 4px.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-9dd268eb-55dd-49e2-a34d-ae70e6ca42ac.png",
+      "recordedAt": "2026-10-17T06:42:30.698Z"
+    },
+    {
+      "name": "choice_pressed",
+      "width": 512,
+      "height": 128,
+      "border": 40,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x128, aspect 4, edge border 40px. Long thin cream paper ribbon dialogue choice PRESSED, gently recessed muted cream center, narrow inner dark warm brown upper edge and lower pale edge, gently rounded corners. No wood. Side curls within 40px. Outer contour inset 4px. Same geometry as normal; shading only changes.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-a744d49a-6cc8-420c-a568-9d471e4beced.png",
+      "recordedAt": "2026-10-17T06:42:30.699Z"
+    },
+    {
+      "name": "choice_locked",
+      "width": 512,
+      "height": 128,
+      "border": 40,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x128, aspect 4, edge border 40px. Long thin faded desaturated gray cream paper ribbon dialogue choice LOCKED, hairline age cracks ONLY within 40px outer border bands, all center blank clear for text and reason later. Gently rounded corners, no locks or symbols. Outer contour inset 4px.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-2adca177-26c3-4e93-aee4-88b35169fdce.png",
+      "recordedAt": "2026-10-17T06:42:30.701Z"
+    },
+    {
+      "name": "popup_panel",
+      "width": 768,
+      "height": 512,
+      "border": 64,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 768x512, aspect 1.5, edge border 64px. Sealed letter panel: warm ivory folded correspondence paper #F2E7D2, straight rectangular shape softly rounded corners. Subtle folded lip along top 40px, faint folds ONLY at outer edges. Small EMPTY unmarked matte wine-red wax seal tucked at LOWER LEFT CORNER, diameter 40px and entirely inside lower 64px and left 64px bands. Center completely blank no diagonal envelope lines through center. No stamp symbol.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-e17cd1ea-b83e-4f6c-b934-d0317c1fc3e8.png",
+      "recordedAt": "2026-10-17T06:42:30.704Z"
+    },
+    {
+      "name": "popup_button_normal",
+      "width": 512,
+      "height": 160,
+      "border": 48,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x160, aspect 3.2, edge border 48px. Blank long pill-shaped wine-red matte wax stamped button for a sealed letter, muted burgundy surface with irregular hand-pressed wax rim, thin controlled edges. Center blank nearly flat deep oxblood for cream text. No emblem or round central seal. Outer contour inset 4px.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-116061be-8e5d-47e1-b69c-9b6656b8e81f.png",
+      "recordedAt": "2026-10-17T06:42:30.707Z"
+    },
+    {
+      "name": "popup_button_pressed",
+      "width": 512,
+      "height": 160,
+      "border": 48,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x160, aspect 3.2, edge border 48px. Blank long pill-shaped wine-red matte wax stamped button PRESSED recessed wax surface, darker upper inner rim and softly lighter lower inner rim. Center blank deep oxblood. No emblem or central seal. Outer contour inset 4px. Same outer silhouette as normal, no shifted geometry.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-1d89ab61-dd8b-43e4-82c1-c20ed135dfa7.png",
+      "recordedAt": "2026-10-17T06:42:30.710Z"
+    },
+    {
+      "name": "scene_box",
+      "width": 1024,
+      "height": 512,
+      "border": 64,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 1024x512, aspect 2, edge border 64px. Dark underground narrative scene panel: blackened wood frame with thin rusty iron corner brackets entirely within 64px corner squares. Deep dark brown center #2A2118, flat opaque for light text. Sober shadowy atmosphere, no paper, no ornament in center. All frame thickness under 48px.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-d1945a4a-8b81-4ba8-8e46-aec8dcc634bc.png",
+      "recordedAt": "2026-10-17T06:42:30.712Z"
+    },
+    {
+      "name": "village_button_normal",
+      "width": 512,
+      "height": 160,
+      "border": 48,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x160, aspect 3.2, edge border 48px. Small village bottom action button made of warm rustic matte wooden plank, honey walnut brown surface, slim beveled rim, tiny iron nail heads in side border bands only. Horizontal long rounded rectangle, blank nearly flat central wood, NO wood grain across center. Outer contour inset 4px.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-090e0b41-01c5-453f-bdc9-d4ef7c237271.png",
+      "recordedAt": "2026-10-17T06:42:30.714Z"
+    },
+    {
+      "name": "village_button_pressed",
+      "width": 512,
+      "height": 160,
+      "border": 48,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 512x160, aspect 3.2, edge border 48px. Small village action button PRESSED made of warm rustic matte wooden plank, recessed darkened face, slim beveled rim upper dark lower light, tiny iron nail heads in side border bands. Horizontal long rounded rectangle, blank nearly flat central wood. Outer contour inset 4px. Identical silhouette and rim positions as normal.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-1151401f-50ac-44bb-b51a-25f172b27eaf.png",
+      "recordedAt": "2026-10-17T06:42:30.716Z"
+    },
+    {
+      "name": "village_prompt",
+      "width": 768,
+      "height": 256,
+      "border": 64,
+      "prompt": "Use case: stylized-concept. Production 2D fantasy game UI texture, one single isolated blank object viewed perfectly front-on orthographic, full rectangular asset fills the canvas nearly edge to edge, transparent exterior only. Warm delicate hand-drawn contours and soft clean matte cel coloring, medieval lived-in world. Upper left illumination, shadows ONLY inside its own rim. No exterior drop shadow, no glow. Absolutely NO letters, numbers, icons, symbols, lettering, logos or watermark. Interior fully opaque. Quiet nearly flat center for game text, NO grain, stippling, hatching or dense material texture. 9-slice texture: ALL trim, corner ornaments, folds, cracks, nails must stay within specified edge border bands; large central rectangular stretch area blank and nearly uniform. Straight parallel edges, rounded corners; no perspective. Canvas 768x256, aspect 3, edge border 64px. Small hanging wooden village sign, warm dark walnut plank with thin softly beveled edge, two tiny hanging iron loops embedded at upper left/right corners entirely inside outer 64px border bands. Compact straight rectangular rounded sign. Blank nearly uniform warm wood center for light labels. No long ropes, no protruding ornaments, no wood grain across center.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-f1bfc38d-62d2-45d8-b46f-6f2815efed33.png",
+      "recordedAt": "2026-10-17T06:42:30.721Z"
+    }
+  ],
+  "retries": [
+    {
+      "name": "village_button_pressed",
+      "prompt": "Use case: precise-object-edit. Edit this exact blank wooden village UI button into its PRESSED state. Keep exactly the same outline, corner radius, nails and border positions, same blank rectangular proportions. Change ONLY the large inner wooden face: gently and evenly a little darker with a soft inset shadow immediately along the inner top rim. Face must be nearly uniformly matte warm ochre brown. Absolutely no additional rectangle inside the face, no central stripe, no grain lines or cracks across the center, no pointed center shapes. No text or symbols. No exterior shadow. Transparent exterior, fully opaque face. Same 512x160 aspect. Clean delicate 2D fantasy illustration.",
+      "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a14891-8860-7a22-8fa7-215a04266070\\exec-7957c02c-3477-4e71-9c1e-23539251e16b.png",
+      "reason": "Remove dark center rectangle, preserve near-flat pressed wood"
+    }
+  ]
+}

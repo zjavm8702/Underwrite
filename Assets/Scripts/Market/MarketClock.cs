@@ -227,6 +227,15 @@ namespace Underwrite.Market
             }
         }
 
+        /// <summary>시간 넘기기로 갈 수 있는 가장 늦은 시각(하루 기준 분). 다음 장 직전이다.</summary>
+        public int LatestBreakMinute
+        {
+            get
+            {
+                return NextSessionMinute - Constants.BREAK_SKIP_MARGIN_MINUTES;
+            }
+        }
+
         /// <summary>
         /// 남은 시간을 건너뛰어 다음 장 직전으로 간다.
         /// 볼일을 다 봤는데 실시간으로 기다리게 할 이유가 없다.

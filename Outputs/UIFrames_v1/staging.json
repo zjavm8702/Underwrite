@@ -1,0 +1,232 @@
+{
+  "time": "2026-10-17T06:51:49.984Z",
+  "scope": "new PNG only",
+  "overwrite": false,
+  "unityConnected": false,
+  "assets": [
+    {
+      "name": "dialogue_box.png",
+      "path": "Assets/UI/Images/dialogue_box.png",
+      "sha256": "e1cea8b37439b4e384c8ca5b88e8378386a0ea8296c8fd5498fd08fc848adb48",
+      "size": [
+        1024,
+        512
+      ],
+      "border": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "dialogue_nameplate.png",
+      "path": "Assets/UI/Images/dialogue_nameplate.png",
+      "sha256": "2cf3058643992c66021b5684c446e161deb31dcab71c306cf95f132b9284b69f",
+      "size": [
+        512,
+        128
+      ],
+      "border": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "dialogue_next.png",
+      "path": "Assets/UI/Images/dialogue_next.png",
+      "sha256": "871c10d826738b7b2a0f48eb0add683db204f9825b7af7f2bad92af21d11ba3f",
+      "size": [
+        256,
+        128
+      ],
+      "border": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "choice_normal.png",
+      "path": "Assets/UI/Images/choice_normal.png",
+      "sha256": "e93a68b2a0bae35c96375f301db10724a38e9290b60aa3cf6a000a9a97a02b98",
+      "size": [
+        512,
+        128
+      ],
+      "border": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "choice_hover.png",
+      "path": "Assets/UI/Images/choice_hover.png",
+      "sha256": "d7bbad7b184a395da7be4d9183460282cb664fe49ab5e31494dde0c8bff58515",
+      "size": [
+        512,
+        128
+      ],
+      "border": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "choice_pressed.png",
+      "path": "Assets/UI/Images/choice_pressed.png",
+      "sha256": "b3ffe8deb7cba240c0dd6b1d889a648dbfaa866a7cbda9b193c256d53df71b17",
+      "size": [
+        512,
+        128
+      ],
+      "border": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "choice_locked.png",
+      "path": "Assets/UI/Images/choice_locked.png",
+      "sha256": "311dd3dffc06682fd70ac792202bd4e7e1bf02a41307cae2981351238924be87",
+      "size": [
+        512,
+        128
+      ],
+      "border": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "popup_panel.png",
+      "path": "Assets/UI/Images/popup_panel.png",
+      "sha256": "07a5e6c9ae81b1b717e32bba515aab5efd0b5898c42fa45b3c622861aebb1cc7",
+      "size": [
+        768,
+        512
+      ],
+      "border": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "popup_button_normal.png",
+      "path": "Assets/UI/Images/popup_button_normal.png",
+      "sha256": "68d5b604df5b9231a69bb29845e92c3046d52de5dfe80984d18343cfc798d9ff",
+      "size": [
+        512,
+        160
+      ],
+      "border": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "popup_button_pressed.png",
+      "path": "Assets/UI/Images/popup_button_pressed.png",
+      "sha256": "5e2fc828bd743bc75fce962fcaf2c9ff5d4aaf7ff84853248a0f076b2c725227",
+      "size": [
+        512,
+        160
+      ],
+      "border": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "scene_box.png",
+      "path": "Assets/UI/Images/scene_box.png",
+      "sha256": "98a3804f5488a12c0e941b34083cecee12a72daf4f477658fba2306946f2bda7",
+      "size": [
+        1024,
+        512
+      ],
+      "border": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "village_button_normal.png",
+      "path": "Assets/UI/Images/village_button_normal.png",
+      "sha256": "a978c73c626efe16c2dc77866fb130fb4adb14e24d4e888b2fbf032cef4518c9",
+      "size": [
+        512,
+        160
+      ],
+      "border": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "village_button_pressed.png",
+      "path": "Assets/UI/Images/village_button_pressed.png",
+      "sha256": "9c69293b04ebb50a5366ca036659b730b434a7cff3850d01a6344f5abd5162dc",
+      "size": [
+        512,
+        160
+      ],
+      "border": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    },
+    {
+      "name": "village_prompt.png",
+      "path": "Assets/UI/Images/village_prompt.png",
+      "sha256": "130a8442250a65be7ad5892d5b5842299838062db86c6aaf9ab1439020241733",
+      "size": [
+        768,
+        256
+      ],
+      "border": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "pivot": "not set; recommended Center(0.5,0.5)"
+    }
+  ]
+}

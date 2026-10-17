@@ -98,6 +98,18 @@ namespace Underwrite.Global
         public static string TEXT_WORK_RUMOR = "그러고 보니 일하다 들었는데, {0} 쪽에 무슨 일이 있답니다.";
         public static string TEXT_WORK_RESULT = "{0:N0}을 받았습니다. 다음 장까지 {1}시간 {2}분.";
 
+        // 영지 메뉴와 원형 시계 (2026-10-17)
+        public static string TEXT_MENU = "메뉴";
+        public static string TEXT_MENU_SLEEP_LOCKED = "오후장이 끝난 뒤에만";
+        public static string TEXT_MENU_MARKET = "지하거래소로";
+        public static string TEXT_MENU_MARKET_LOCKED = "아직 모른다";
+        public static string TEXT_MENU_NO_TIME = "다음 장이 코앞이다";
+        public static string TEXT_CLOCK_TITLE = "몇 시까지 보낼까";
+        public static string TEXT_CLOCK_PICK = "{0:00}:{1:00}까지 · {2}시간 {3}분";
+        public static string TEXT_CLOCK_LIMIT = "다음 장은 {0:00}:{1:00}에 열린다. 그 직전까지 고를 수 있다.";
+        public static string TEXT_CLOCK_CONFIRM = "그때까지 보낸다";
+        public static string TEXT_CLOCK_CANCEL = "그만둔다";
+
         // 하루 끝 (기획서 §11의 넷째 단계 — 정보 정리 및 취침)
         public static string TEXT_SKIP_BREAK = "시간 넘기기";
         public static string TEXT_SLEEP = "잠자리에 든다";

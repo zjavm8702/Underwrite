@@ -38,6 +38,7 @@ namespace Underwrite.UI
         private UI_Dialogue Dialogue;
         private VillageSpot Here;
         private VillageNpc NearNpc;
+        private TimeDial Dial;
         private Transform Player;
         private bool LeaveBound;
 
@@ -122,7 +123,8 @@ namespace Underwrite.UI
                 return;
             }
 
-            if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true)
+            if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
+                || ClockOpen == true)
             {
                 return;
             }
@@ -747,7 +749,7 @@ namespace Underwrite.UI
             Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
-        /// <summary>거래소로 돌아가는 단추. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
+        /// <summary>메뉴 단추와 원형 시계. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
         private void BindLeave()
         {
             if (LeaveBound == true)
@@ -755,74 +757,190 @@ namespace Underwrite.UI
                 return;
             }
 
-            var button = Root.Q<Button>("village-leave");
+            var menu = Root.Q<Button>("village-menu");
 
-            if (button == null)
+            if (menu == null)
             {
                 return;
             }
 
             LeaveBound = true;
-            button.clicked += () => SceneManager.LoadScene(SceneRoutes.MARKET);
+            menu.text = StringConstants.TEXT_MENU;
+            menu.clicked += ToggleMenu;
 
-            var skip = Root.Q<Button>("village-skip");
+            var slot = Root.Q<VisualElement>("village-clock-dial");
 
-            if (skip != null)
+            if (slot != null)
             {
-                // 볼일을 다 봤는데 실시간으로 기다리게 할 이유가 없다.
-                // 밤이면 같은 단추가 하루를 닫는다.
-                skip.clicked += () =>
-                {
-                    if (Clock == null || (Dialogue != null && Dialogue.IsOpen == true))
-                    {
-                        return;
-                    }
-
-                    if (Clock.CanSleep == true)
-                    {
-                        Sleep();
-                        return;
-                    }
-
-                    Clock.SkipBreak();
-                };
+                Dial = new TimeDial();
+                Dial.style.flexGrow = 1f;
+                Dial.Changed += ShowClockPick;
+                slot.Add(Dial);
             }
 
-            var rest = Root.Q<Button>("village-rest");
+            var cancel = Root.Q<Button>("village-clock-cancel");
 
-            if (rest != null)
+            if (cancel != null)
             {
-                rest.clicked += ToggleRest;
+                cancel.text = StringConstants.TEXT_CLOCK_CANCEL;
+                cancel.clicked += CloseClock;
+            }
+
+            var confirm = Root.Q<Button>("village-clock-confirm");
+
+            if (confirm != null)
+            {
+                confirm.text = StringConstants.TEXT_CLOCK_CONFIRM;
+                confirm.clicked += ConfirmClock;
+            }
+
+            SetText("village-clock-title", StringConstants.TEXT_CLOCK_TITLE);
+        }
+
+        // ── 메뉴 (드롭업) ─────────────────────────
+
+        private bool MenuOpen
+        {
+            get
+            {
+                var list = Root.Q<VisualElement>("village-menu-list");
+                return list != null && list.ClassListContains("hidden") == false;
             }
         }
 
+        private bool ClockOpen
+        {
+            get
+            {
+                var clock = Root.Q<VisualElement>("village-clock");
+                return clock != null && clock.ClassListContains("hidden") == false;
+            }
+        }
+
+        private void ToggleMenu()
+        {
+            if (Dialogue != null && Dialogue.IsOpen == true)
+            {
+                return;
+            }
+
+            if (MenuOpen == true)
+            {
+                CloseMenu();
+                return;
+            }
+
+            BuildMenu();
+        }
+
         /// <summary>
-        /// 오늘 장에 나가지 않기로 한다. 기획서 §11 — 장에 나가는 것은 선택이다.
-        ///
-        /// 쉬면 그 장이 열리고 닫히는 동안의 시간이 통째로 영지의 것이 된다.
-        /// 거래로 벌 수 있었던 하루를, 정보와 종잣돈으로 바꾸는 것이다.
-        ///
-        /// 아직 그 시간을 쓰지 않았다면 다시 눌러 무를 수 있다.
-        /// 이미 써 버린 뒤에는 무를 수 없다. 시간을 빚질 수는 없기 때문이다.
+        /// 메뉴 항목을 연다. 열 때마다 새로 채운다 — 잠자리처럼 때에 따라 잠기는 항목이 있다.
+        /// 항목을 늘릴 때는 여기에 MenuItem 한 줄을 더한다.
         /// </summary>
-        private void ToggleRest()
+        private void BuildMenu()
+        {
+            var list = Root.Q<VisualElement>("village-menu-list");
+
+            if (list == null || Clock == null)
+            {
+                return;
+            }
+
+            list.Clear();
+
+            var canSkip = Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
+            MenuItem(list, StringConstants.TEXT_SKIP_BREAK, canSkip, StringConstants.TEXT_MENU_NO_TIME, OpenClock);
+            MenuItem(list, StringConstants.TEXT_SLEEP, Clock.CanSleep, StringConstants.TEXT_MENU_SLEEP_LOCKED, Sleep);
+            MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound,
+                StringConstants.TEXT_MENU_MARKET_LOCKED, () => SceneManager.LoadScene(SceneRoutes.MARKET));
+
+            list.RemoveFromClassList("hidden");
+            Root.Q<Button>("village-menu").AddToClassList("village-button--on");
+        }
+
+        private void MenuItem(VisualElement list, string text, bool enabled, string lockedNote, System.Action action)
+        {
+            var button = new Button(() =>
+            {
+                CloseMenu();
+                action();
+            });
+
+            button.AddToClassList("village-button");
+            button.AddToClassList("village-menu-item");
+            // 잠긴 항목도 보여 준다. 언제 열리는지를 작은 글씨로 아랫줄에 붙인다.
+            button.text = enabled == true ? text : $"{text}\n<size=13>{lockedNote}</size>";
+            button.SetEnabled(enabled);
+
+            list.Add(button);
+        }
+
+        private void CloseMenu()
+        {
+            var list = Root.Q<VisualElement>("village-menu-list");
+
+            if (list != null)
+            {
+                list.AddToClassList("hidden");
+            }
+
+            var menu = Root.Q<Button>("village-menu");
+
+            if (menu != null)
+            {
+                menu.RemoveFromClassList("village-button--on");
+            }
+        }
+
+        // ── 원형 시계 ─────────────────────────────
+
+        /// <summary>
+        /// 몇 시까지 보낼지 고른다. 지금부터 다음 장 직전까지가 고를 수 있는 구간이다(2026-10-17 사용자 요청).
+        /// </summary>
+        private void OpenClock()
+        {
+            if (Clock == null || Dial == null)
+            {
+                return;
+            }
+
+            Dial.SetRange(Clock.BreakMinuteOfDay, Clock.LatestBreakMinute);
+
+            var next = Clock.NextSessionMinute;
+            SetText("village-clock-limit", string.Format(StringConstants.TEXT_CLOCK_LIMIT, next / 60 % 24, next % 60));
+            Root.Q<VisualElement>("village-clock").RemoveFromClassList("hidden");
+        }
+
+        private void ShowClockPick(int minute)
         {
             if (Clock == null)
             {
                 return;
             }
 
-            if (Clock.SkippedSessions > 0)
-            {
-                if (Clock.UndoSkippedSession() == false)
-                {
-                    UnderwriteLog.Info("이미 쓴 시간이 있어 쉬기를 무를 수 없습니다.");
-                }
+            var spend = minute - Clock.BreakMinuteOfDay;
+            SetText("village-clock-pick", string.Format(StringConstants.TEXT_CLOCK_PICK,
+                minute / 60 % 24, minute % 60, spend / 60, spend % 60));
+        }
 
-                return;
+        private void ConfirmClock()
+        {
+            if (Clock != null && Dial != null)
+            {
+                Clock.SpendBreakMinutes(Dial.SelectedMinute - Clock.BreakMinuteOfDay);
             }
 
-            Clock.SkipNextSession();
+            CloseClock();
+        }
+
+        private void CloseClock()
+        {
+            var clock = Root.Q<VisualElement>("village-clock");
+
+            if (clock != null)
+            {
+                clock.AddToClassList("hidden");
+            }
         }
 
         private void OnEnter(VillageSpot spot)
@@ -853,29 +971,8 @@ namespace Underwrite.UI
             var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
             var hour = Clock == null ? 0 : Clock.BreakHour;
             var minute = Clock == null ? 0 : Clock.BreakMinute;
-            var resting = Clock != null && Clock.SkippedSessions > 0;
-
-            SetText("village-visits", (resting == true
-                ? $"{hour:00}:{minute:00} · 오늘 장을 쉽니다 · 다음 장까지 {left / 60}시간 {left % 60}분"
-                : $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분") + InspectionTag());
-
-            var skip = Root.Q<Button>("village-skip");
-
-            if (skip != null && Clock != null)
-            {
-                skip.text = Clock.CanSleep == true
-                    ? StringConstants.TEXT_SLEEP
-                    : StringConstants.TEXT_SKIP_BREAK;
-            }
-
-            var rest = Root.Q<Button>("village-rest");
-
-            if (rest != null)
-            {
-                // 누르면 무엇이 되는지를 단추가 말한다. 상태를 따로 읽게 하지 않는다.
-                rest.text = resting == true ? "장 쉬기 취소" : "오늘 장 쉬기";
-                rest.EnableInClassList("village-rest--on", resting);
-            }
+            SetText("village-visits",
+                $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분" + InspectionTag());
 
             if (Here == null)
             {
