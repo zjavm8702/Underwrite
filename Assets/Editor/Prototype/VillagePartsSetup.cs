@@ -40,6 +40,22 @@ namespace Underwrite.Editor
         // 광장 우물 앞, 조금 아래에서 시작한다. 여섯 곳 어디로도 걸어갈 수 있는 자리다.
         private static readonly Vector2 START_BELOW_WELL = new Vector2(0f, -1.6f);
 
+        // 충돌을 그림보다 작게 잡는다(2026-10-17 사용자 요청 — 너무 부딪힌다).
+        // 발 닿는 면은 가운데로 줄이고, 건물 뒤편 막기는 좌우만 줄여 옆으로 비켜 지나가기 쉽게 한다.
+        private const float FOOTPRINT_SHRINK_X = 0.75f;
+        private const float FOOTPRINT_SHRINK_Y = 0.8f;
+        private const float BLOCK_SHRINK_X = 0.85f;
+
+        // 대장간 화로 입구(대장간 PNG 안의 픽셀, 2배 그림 기준). 배치표에 불 자리가 없어 그림을 보고 쟀다.
+        private const string SMITH_FILE = "smith.png";
+        private static readonly Vector2 SMITH_FORGE_IN_PNG = new Vector2(650f, 740f);
+
+        private const float FORGE_LIGHT_INTENSITY = 1.1f;
+        private const float FORGE_LIGHT_RADIUS = 2.2f;
+        private static readonly Color FORGE_COLOR = new Color(1f, 0.55f, 0.2f);
+        private const string SPRITE_UNLIT_MATERIAL =
+            "Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat";
+
         // 이번에 세우는 판의 그림 폴더. 메뉴마다 바뀐다.
         private static string AssetFolder = PILOT_ASSETS;
         private const string LAYOUT_FILE = "layout.json";
@@ -674,11 +690,12 @@ namespace Underwrite.Editor
 
             if (part.Footprint.Count >= 3)
             {
-                var points = new Vector2[part.Footprint.Count];
+                var shrunk = Shrink(part.Footprint, FOOTPRINT_SHRINK_X, FOOTPRINT_SHRINK_Y);
+                var points = new Vector2[shrunk.Count];
 
                 for (var i = 0; i < points.Length; i++)
                 {
-                    points[i] = ToWorld(part.Footprint[i], groundSize) - foot;
+                    points[i] = ToWorld(shrunk[i], groundSize) - foot;
                 }
 
                 go.AddComponent<PolygonCollider2D>().points = points;
@@ -692,11 +709,12 @@ namespace Underwrite.Editor
                     continue;
                 }
 
-                var points = new Vector2[block.Count];
+                var shrunk = Shrink(block, BLOCK_SHRINK_X, 1f);
+                var points = new Vector2[shrunk.Count];
 
                 for (var i = 0; i < points.Length; i++)
                 {
-                    points[i] = ToWorld(block[i], groundSize) - foot;
+                    points[i] = ToWorld(shrunk[i], groundSize) - foot;
                 }
 
                 go.AddComponent<PolygonCollider2D>().points = points;
@@ -706,6 +724,99 @@ namespace Underwrite.Editor
             {
                 go.AddComponent<PartSway>();
             }
+
+            if (part.File == SMITH_FILE)
+            {
+                // PNG 안 자리를 지도 1배로: 발밑 + (PNG 점 - 피벗) / 배율. PNG는 아래로 +.
+                var scale = sprite.pixelsPerUnit / PIXELS_PER_UNIT;
+                var mapPoint = part.Foot + (SMITH_FORGE_IN_PNG - part.Pivot) / scale;
+                BuildForge(ToWorld(mapPoint, groundSize), foot.y, go.transform);
+            }
+        }
+
+        /// <summary>다각형을 가로·세로로 줄인다. 기준은 둘러싼 상자의 가운데.</summary>
+        private static List<Vector2> Shrink(List<Vector2> polygon, float scaleX, float scaleY)
+        {
+            var min = polygon[0];
+            var max = polygon[0];
+
+            for (var i = 1; i < polygon.Count; i++)
+            {
+                min = Vector2.Min(min, polygon[i]);
+                max = Vector2.Max(max, polygon[i]);
+            }
+
+            var center = (min + max) * 0.5f;
+            var result = new List<Vector2>(polygon.Count);
+
+            for (var i = 0; i < polygon.Count; i++)
+            {
+                var offset = polygon[i] - center;
+                result.Add(center + new Vector2(offset.x * scaleX, offset.y * scaleY));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 대장간 화로의 불(2026-10-17 사용자 요청). 불빛은 2D 라이트로 일렁이고, 불꽃 알갱이가 화로 안에서 피어오른다.
+        /// 그림에 불을 그리지 않은 것은 아트 규칙(불빛 번짐은 코드가 붙인다) 그대로다.
+        /// </summary>
+        private static void BuildForge(Vector2 at, float ownerFootY, Transform parent)
+        {
+            var go = new GameObject("Forge Fire");
+            go.transform.SetParent(parent);
+            go.transform.position = new Vector3(at.x, at.y, 0f);
+
+            var light = go.AddComponent<Light2D>();
+            light.lightType = Light2D.LightType.Point;
+            light.color = FORGE_COLOR;
+            light.intensity = FORGE_LIGHT_INTENSITY;
+            light.pointLightOuterRadius = FORGE_LIGHT_RADIUS;
+            light.pointLightInnerRadius = 0f;
+            go.AddComponent<LampFlicker>();
+
+            var system = go.AddComponent<ParticleSystem>();
+            var main = system.main;
+            main.startLifetime = new ParticleSystem.MinMaxCurve(0.5f, 0.9f);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(0.2f, 0.5f);
+            main.startSize = new ParticleSystem.MinMaxCurve(0.18f, 0.34f);
+            main.startColor = new ParticleSystem.MinMaxGradient(new Color(1f, 0.85f, 0.35f, 0.9f),
+                new Color(1f, 0.42f, 0.12f, 0.9f));
+            main.maxParticles = 40;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
+            main.prewarm = true;
+
+            var emission = system.emission;
+            emission.rateOverTime = 26f;
+
+            var shape = system.shape;
+            shape.shapeType = ParticleSystemShapeType.Box;
+            shape.scale = new Vector3(0.9f, 0.12f, 0.1f);
+            // 원뿔·상자는 기본으로 +Z를 향한다. 화면 위(+Y)로 피어오르게 눕힌다.
+            shape.rotation = new Vector3(-90f, 0f, 0f);
+
+            var size = system.sizeOverLifetime;
+            size.enabled = true;
+            size.size = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.Linear(0f, 1f, 1f, 0.1f));
+
+            var color = system.colorOverLifetime;
+            color.enabled = true;
+            var gradient = new Gradient();
+            gradient.SetKeys(
+                new[] { new GradientColorKey(new Color(1f, 0.9f, 0.5f), 0f), new GradientColorKey(new Color(1f, 0.3f, 0.08f), 1f) },
+                new[] { new GradientAlphaKey(0f, 0f), new GradientAlphaKey(0.95f, 0.15f), new GradientAlphaKey(0f, 1f) });
+            color.color = gradient;
+
+            var sheet = system.textureSheetAnimation;
+            sheet.enabled = true;
+            sheet.mode = ParticleSystemAnimationMode.Sprites;
+            sheet.SetSprite(0, EnsureSmokeSprite());
+
+            // 불은 스스로 빛난다. 조명에 먹히지 않게 Unlit을 쓴다.
+            var renderer = go.GetComponent<ParticleSystemRenderer>();
+            renderer.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>(SPRITE_UNLIT_MATERIAL);
+            renderer.sortingOrder = YSortRenderer.OrderFor(ownerFootY) + 1;
         }
 
         private static void BuildLamp(Vector2 at, Transform parent)

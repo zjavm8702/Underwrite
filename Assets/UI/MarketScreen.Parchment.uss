@@ -428,3 +428,27 @@
 .village-prompt .village-key {
     color: #F2C46B;
 }
+
+/* 영지 장소 이름표 (2026-10-17). 나무 간판 색 — 영지 안내판(village-prompt)과 같은 계열, 더 작게. */
+.world-sign {
+    position: absolute;
+    padding: 4px 14px 5px 14px;
+    border-radius: 8px;
+    background-color: rgba(58, 38, 24, 0.86);
+    border-width: 2px;
+    border-color: rgb(140, 98, 56);
+    align-items: center;
+}
+
+.world-sign-title {
+    color: rgb(255, 236, 200);
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.world-sign-sub {
+    color: rgb(232, 196, 120);
+    font-size: 13px;
+    -unity-text-align: middle-center;
+}

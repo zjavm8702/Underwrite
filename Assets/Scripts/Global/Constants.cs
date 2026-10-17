@@ -180,6 +180,13 @@ namespace Underwrite.Global
         public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
         public static string TEXT_DAY_COUNT = "{0}일째";
 
+        // 장소 이름표 아래 줄 — 거기서 무엇을 할 수 있는가(2026-10-17)
+        public static string TEXT_SIGN_TAVERN = "소문 · 일거리 · 용사단";
+        public static string TEXT_SIGN_GUILD = "기록 · 익명 의뢰 · 일거리";
+        public static string TEXT_SIGN_SMITH = "장비 사정 · 일거리";
+        public static string TEXT_SIGN_MANOR = "서신";
+        public static string TEXT_SIGN_BOARD = "공개된 소식";
+
         // 영지에서 정보를 파는 주민(장소의 주인). 지하 정보 타임에서는 거래소를 운영하는 「정보상」이 전한다(2026-10-17).
         // 순서는 InfoSource와 같다: 여관 소문 · 길드 기록 · 서신 · 게시판 · 중개 귀띔 · 대장간
         public static string TEXT_FOLK_INNKEEPER = "여관 주인";
@@ -559,6 +566,9 @@ namespace Underwrite.Global
         // 지하 방. 주식판·정보상에 말을 걸 수 있는 거리(유닛), 정보상이 부르는 간격(초),
         // 투자꾼이 반응하는 한 틱 등락률과 그 사이 쉬는 시간(초).
         public static float ROOM_REACH_DISTANCE = 2.4f;
+
+        // 장소 이름표를 문 앞 자리에서 얼마나 위에 띄우는가(유닛). 문 위, 처마 아래쯤.
+        public static float SIGN_HEIGHT_UNITS = 2.9f;
         public static float ROOM_CALL_INTERVAL_SECONDS = 3f;
         public static float ROOM_INVESTOR_MOVE_RATIO = 0.012f;
         public static float ROOM_INVESTOR_COOLDOWN_SECONDS = 2.5f;

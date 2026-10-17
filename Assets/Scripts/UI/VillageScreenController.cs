@@ -163,8 +163,10 @@ namespace Underwrite.UI
 
             if (Dialogue == null && DialogueTree != null)
             {
+                WorldSigns.Attach(Root);
                 WorldBubbles.Attach(Root);
                 Dialogue = new UI_Dialogue(Root, DialogueTree);
+                AddSigns();
             }
 
             BindLeave();
@@ -187,6 +189,8 @@ namespace Underwrite.UI
 
             NpcAmbient.Player = Player;
             WorldBubbles.Tick(Dialogue != null && Dialogue.IsOpen == true);
+            WorldSigns.Tick((Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true || NotebookOpen == true,
+                Constants.SIGN_HEIGHT_UNITS);
             PlayPendingReaction();
             PlayCollapseIfNeeded();
 
@@ -1993,6 +1997,42 @@ namespace Underwrite.UI
             }
 
             return spent + "시장은 아직 모르는 이야기입니다. " + left;
+        }
+
+        // 장소마다 이름표를 세운다. 무엇을 하는 곳인지 다가가기 전에 알 수 있게.
+        private void AddSigns()
+        {
+            foreach (var spot in FindObjectsByType<VillageSpot>(FindObjectsSortMode.None))
+            {
+                WorldSigns.Add(spot.transform, spot.Name, SignOf(spot.InfoSource));
+            }
+        }
+
+        private static string SignOf(InfoSource source)
+        {
+            switch (source)
+            {
+                case InfoSource.Source_GuildRecord:
+                {
+                    return StringConstants.TEXT_SIGN_GUILD;
+                }
+                case InfoSource.Source_SmithOrder:
+                {
+                    return StringConstants.TEXT_SIGN_SMITH;
+                }
+                case InfoSource.Source_PrivateLetter:
+                {
+                    return StringConstants.TEXT_SIGN_MANOR;
+                }
+                case InfoSource.Source_MarketBoard:
+                {
+                    return StringConstants.TEXT_SIGN_BOARD;
+                }
+                default:
+                {
+                    return StringConstants.TEXT_SIGN_TAVERN;
+                }
+            }
         }
 
         /// <summary>
