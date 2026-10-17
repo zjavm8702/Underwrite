@@ -17,6 +17,9 @@ namespace Underwrite.Editor
     public static class BandWalkerSetup
     {
         private const string SOURCE = "Outputs/NpcField_v2";
+
+        // 걷기 다리 재작업(2026-10-18). 같은 상대 경로의 파일이 여기 있으면 이쪽을 쓴다 — 대기는 v2 그대로.
+        private const string WALK_FIX = "Outputs/NpcField_v2_walkfix";
         private const string ASSET_FOLDER = "Assets/Images/Characters/Band";
         private const string MULTIPLY_SHADER = "Assets/Shaders/SpriteMultiply.shader";
         private const string MULTIPLY_MATERIAL = "Assets/Images/Characters/Band/BandCloth.mat";
@@ -67,7 +70,8 @@ namespace Underwrite.Editor
                                 var file = (string)frame[key];
                                 var to = ASSET_FOLDER + "/" + file;
                                 Directory.CreateDirectory(Path.GetDirectoryName(to));
-                                File.Copy(Path.Combine(SOURCE, file), to, true);
+                                var fixedFile = Path.Combine(WALK_FIX, file);
+                                File.Copy(File.Exists(fixedFile) == true ? fixedFile : Path.Combine(SOURCE, file), to, true);
                                 paths.Add(new KeyValuePair<string, Vector2>(to, pivot));
                             }
                         }

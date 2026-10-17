@@ -1,0 +1,159 @@
+[
+  {
+    "type": "leader",
+    "direction": "S",
+    "prompt": "Edit target mercenary leader using reference 1 (single leader sprite); reference 2 is an exact pose template of eight protagonist walking frames laid out 4 columns x 2 rows, numbered implicitly 00 01 02 03 / 04 05 06 07. Create an eight-frame leader walk sprite sheet in precisely the same 4x2 layout, S front view throughout. Copy EACH corresponding reference pose exactly: same anatomical left/right leg leading, knees, ankles, shoe angle, sole visibility, planted versus lifted foot and opposite arm phase. Do not invent a generic walk or repeat a planted leg. Preserve leader face, hair, adult proportions, brown fitted leather vest, dark rolled sleeves, brown trousers and tall cuffed boots, short light neutral gray shoulder cape, single metal shoulder guard, gloves and sheathed sword. Clothes and equipment alone change from protagonist, poses stay exact. Same character size, fixed hip center and common ground baseline per row; ample transparent padding. Smooth non-pixel 2D warm delicate outlines, light matte cel colors, stable shadows, no texture, no ground shadow. Full body in every cell, no labels or decorations. Transparent RGBA background.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-f8623570-104c-4db9-a74d-a54908d2b1a0.png",
+    "time": "2026-10-17T15:55:13.774Z"
+  },
+  {
+    "type": "leader",
+    "direction": "SE",
+    "prompt": "Edit target mercenary leader using reference 1 (single leader sprite); reference 2 is an exact pose template of eight protagonist walking frames laid out 4 columns x 2 rows, numbered implicitly 00 01 02 03 / 04 05 06 07. Create an eight-frame leader walk sprite sheet in precisely the same 4x2 layout, SE three-quarter front facing screen right throughout. Copy EACH corresponding reference pose exactly: same anatomical left/right leg leading, knees, ankles, shoe angle, sole visibility, planted versus lifted foot and opposite arm phase. Do not invent a generic walk or repeat a planted leg. Preserve leader face, hair, adult proportions, brown fitted leather vest, dark rolled sleeves, brown trousers and tall cuffed boots, short light neutral gray shoulder cape, single metal shoulder guard, gloves and sheathed sword. Clothes and equipment alone change from protagonist, poses stay exact. Same character size, fixed hip center and common ground baseline per row; ample transparent padding. Smooth non-pixel 2D warm delicate outlines, light matte cel colors, stable shadows, no texture, no ground shadow. Full body in every cell, no labels or decorations. Transparent RGBA background.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-773c1722-4881-48cd-b357-935c2dcf42cf.png",
+    "time": "2026-10-17T15:55:13.783Z"
+  },
+  {
+    "type": "leader",
+    "direction": "E",
+    "prompt": "Edit target mercenary leader using reference 1 (single leader sprite); reference 2 is an exact pose template of eight protagonist walking frames laid out 4 columns x 2 rows, numbered implicitly 00 01 02 03 / 04 05 06 07. Create an eight-frame leader walk sprite sheet in precisely the same 4x2 layout, E exact right side profile view throughout. Copy EACH corresponding reference pose exactly: same anatomical left/right leg leading, knees, ankles, shoe angle, sole visibility, planted versus lifted foot and opposite arm phase. Do not invent a generic walk or repeat a planted leg. Preserve leader face, hair, adult proportions, brown fitted leather vest, dark rolled sleeves, brown trousers and tall cuffed boots, short light neutral gray shoulder cape, single metal shoulder guard, gloves and sheathed sword. Clothes and equipment alone change from protagonist, poses stay exact. Same character size, fixed hip center and common ground baseline per row; ample transparent padding. Smooth non-pixel 2D warm delicate outlines, light matte cel colors, stable shadows, no texture, no ground shadow. Full body in every cell, no labels or decorations. Transparent RGBA background.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-1fe5498f-5a36-46d8-a271-17fdc2876d85.png",
+    "time": "2026-10-17T15:55:13.783Z"
+  },
+  {
+    "type": "leader",
+    "direction": "NE",
+    "prompt": "Edit target mercenary leader using reference 1 (single leader sprite); reference 2 is an exact pose template of eight protagonist walking frames laid out 4 columns x 2 rows, numbered implicitly 00 01 02 03 / 04 05 06 07. Create an eight-frame leader walk sprite sheet in precisely the same 4x2 layout, NE three-quarter BACK view, walking away toward upper right, show back and right profile, throughout. Copy EACH corresponding reference pose exactly: same anatomical left/right leg leading, knees, ankles, shoe angle, sole visibility, planted versus lifted foot and opposite arm phase. Do not invent a generic walk or repeat a planted leg. Preserve leader face, hair, adult proportions, brown fitted leather vest, dark rolled sleeves, brown trousers and tall cuffed boots, short light neutral gray shoulder cape, single metal shoulder guard, gloves and sheathed sword. Clothes and equipment alone change from protagonist, poses stay exact. Same character size, fixed hip center and common ground baseline per row; ample transparent padding. Smooth non-pixel 2D warm delicate outlines, light matte cel colors, stable shadows, no texture, no ground shadow. Full body in every cell, no labels or decorations. Transparent RGBA background.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-48a8f7e7-4b38-4e3d-b3ec-857edc426bf1.png",
+    "time": "2026-10-17T15:55:13.783Z"
+  },
+  {
+    "type": "leader",
+    "direction": "N",
+    "prompt": "Edit target mercenary leader using reference 1 (single leader sprite); reference 2 is an exact pose template of eight protagonist walking frames laid out 4 columns x 2 rows, numbered implicitly 00 01 02 03 / 04 05 06 07. Create an eight-frame leader walk sprite sheet in precisely the same 4x2 layout, N straight BACK view, walking away toward top, throughout. Copy EACH corresponding reference pose exactly: same anatomical left/right leg leading, knees, ankles, shoe angle, sole visibility, planted versus lifted foot and opposite arm phase. Do not invent a generic walk or repeat a planted leg. Preserve leader face, hair, adult proportions, brown fitted leather vest, dark rolled sleeves, brown trousers and tall cuffed boots, short light neutral gray shoulder cape, single metal shoulder guard, gloves and sheathed sword. Clothes and equipment alone change from protagonist, poses stay exact. Same character size, fixed hip center and common ground baseline per row; ample transparent padding. Smooth non-pixel 2D warm delicate outlines, light matte cel colors, stable shadows, no texture, no ground shadow. Full body in every cell, no labels or decorations. Transparent RGBA background.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-54122a55-a842-43e5-a3a3-479c9e76d2e2.png",
+    "time": "2026-10-17T15:55:13.783Z"
+  },
+  {
+    "type": "archer",
+    "direction": "S",
+    "prompt": "Reference 1 is the archer edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the ARCHER in exactly these eight corresponding walking poses, same S front view. Transfer anatomical left/right legs, hip-knee-ankle angles, shoe positions, soles, leading foot, ground contact and contralateral arm swing faithfully per cell. Match pose not protagonist identity/clothing. Preserve archer: slender adult female elf, short pale ash blond bob, pointed ears, brown eyes, olive rolled sleeves, fitted brown leather vest, dark brown trousers, tall brown boots, pale neutral gray folded hood/cowl, bow and quiver strapped on back, bare hands, belt pouches. No cape, no sword, no protagonist clothes. Equipment follows torso. Eight separate full bodies, exact 4x2 order, consistent adult size and hip position, common ground baseline. Nonpixel 2D warm fine outlines, light matte cel shading, minimal wrinkles, stable colors and shadow. True transparent RGBA background, no ground shadows, no text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-9b170490-c409-4b4e-af84-843222931c33.png",
+    "time": "2026-10-17T15:55:13.783Z"
+  },
+  {
+    "type": "archer",
+    "direction": "SE",
+    "prompt": "Reference 1 is the archer edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the ARCHER in exactly these eight corresponding walking poses, same SE three-quarter front facing screen right view. Transfer anatomical left/right legs, hip-knee-ankle angles, shoe positions, soles, leading foot, ground contact and contralateral arm swing faithfully per cell. Match pose not protagonist identity/clothing. Preserve archer: slender adult female elf, short pale ash blond bob, pointed ears, brown eyes, olive rolled sleeves, fitted brown leather vest, dark brown trousers, tall brown boots, pale neutral gray folded hood/cowl, bow and quiver strapped on back, bare hands, belt pouches. No cape, no sword, no protagonist clothes. Equipment follows torso. Eight separate full bodies, exact 4x2 order, consistent adult size and hip position, common ground baseline. Nonpixel 2D warm fine outlines, light matte cel shading, minimal wrinkles, stable colors and shadow. True transparent RGBA background, no ground shadows, no text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-f5779205-1176-4fbf-b2c5-b224ce25d14a.png",
+    "time": "2026-10-17T15:55:13.783Z"
+  },
+  {
+    "type": "archer",
+    "direction": "E",
+    "prompt": "Reference 1 is the archer edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the ARCHER in exactly these eight corresponding walking poses, same E exact right side profile view. Transfer anatomical left/right legs, hip-knee-ankle angles, shoe positions, soles, leading foot, ground contact and contralateral arm swing faithfully per cell. Match pose not protagonist identity/clothing. Preserve archer: slender adult female elf, short pale ash blond bob, pointed ears, brown eyes, olive rolled sleeves, fitted brown leather vest, dark brown trousers, tall brown boots, pale neutral gray folded hood/cowl, bow and quiver strapped on back, bare hands, belt pouches. No cape, no sword, no protagonist clothes. Equipment follows torso. Eight separate full bodies, exact 4x2 order, consistent adult size and hip position, common ground baseline. Nonpixel 2D warm fine outlines, light matte cel shading, minimal wrinkles, stable colors and shadow. True transparent RGBA background, no ground shadows, no text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-42a01a0e-cb15-48d9-8d13-2a9065f961a7.png",
+    "time": "2026-10-17T15:55:13.783Z"
+  },
+  {
+    "type": "archer",
+    "direction": "NE",
+    "prompt": "Reference 1 is the archer edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the ARCHER in exactly these eight corresponding walking poses, same NE three-quarter BACK view walking away toward upper right, back and right profile visible. Transfer anatomical left/right legs, hip-knee-ankle angles, shoe positions, soles, leading foot, ground contact and contralateral arm swing faithfully per cell. Match pose not protagonist identity/clothing. Preserve archer: slender adult female elf, short pale ash blond bob, pointed ears, brown eyes, olive rolled sleeves, fitted brown leather vest, dark brown trousers, tall brown boots, pale neutral gray folded hood/cowl, bow and quiver strapped on back, bare hands, belt pouches. No cape, no sword, no protagonist clothes. Equipment follows torso. Eight separate full bodies, exact 4x2 order, consistent adult size and hip position, common ground baseline. Nonpixel 2D warm fine outlines, light matte cel shading, minimal wrinkles, stable colors and shadow. True transparent RGBA background, no ground shadows, no text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-b3582411-fe7d-405c-9186-195d58486ab5.png",
+    "time": "2026-10-17T15:56:11.949Z"
+  },
+  {
+    "type": "archer",
+    "direction": "N",
+    "prompt": "Reference 1 is the archer edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the ARCHER in exactly these eight corresponding walking poses, same N straight BACK view walking away toward top. Transfer anatomical left/right legs, hip-knee-ankle angles, shoe positions, soles, leading foot, ground contact and contralateral arm swing faithfully per cell. Match pose not protagonist identity/clothing. Preserve archer: slender adult female elf, short pale ash blond bob, pointed ears, brown eyes, olive rolled sleeves, fitted brown leather vest, dark brown trousers, tall brown boots, pale neutral gray folded hood/cowl, bow and quiver strapped on back, bare hands, belt pouches. No cape, no sword, no protagonist clothes. Equipment follows torso. Eight separate full bodies, exact 4x2 order, consistent adult size and hip position, common ground baseline. Nonpixel 2D warm fine outlines, light matte cel shading, minimal wrinkles, stable colors and shadow. True transparent RGBA background, no ground shadows, no text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-f45e309e-fc1d-4898-906d-7d42e9009c5b.png",
+    "time": "2026-10-17T15:57:31.551Z"
+  },
+  {
+    "type": "shield",
+    "direction": "S",
+    "prompt": "Reference 1 is the SHIELD mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw this shield soldier in these eight corresponding walking poses in the same S front view. Copy anatomical left/right leg leading, hip/knee/ankle angles, shoe positions and orientation, lifted versus grounded feet, visible soles, and opposite arm swing per cell exactly. Only character identity, clothes, equipment change. Preserve adult dark brown skinned bald male soldier, robust original build without extra muscle, blue gray mail shirt with rolled blue sleeves, brown leather straps, belt, dark trousers, tall brown boots, brown full finger gloves and wrist bracers, light neutral gray waist sash and short hanging cloth, round wooden shield strapped to his BACK. Hands free and swing, shield moves with torso. Eight full bodies, same adult scale and stable hip center, uniform ground baseline. Soft clean nonpixel 2D warm lines and matte cel shading, minimal chainmail noise and wrinkles, stable shadows. Transparent RGBA, no background or ground shadow, no labels.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-6028f9c3-27bd-41fb-be06-aa1b85410ff6.png",
+    "time": "2026-10-17T15:58:53.883Z"
+  },
+  {
+    "type": "shield",
+    "direction": "SE",
+    "prompt": "Reference 1 is the SHIELD mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw this shield soldier in these eight corresponding walking poses in the same SE three-quarter front view facing screen right. Copy anatomical left/right leg leading, hip/knee/ankle angles, shoe positions and orientation, lifted versus grounded feet, visible soles, and opposite arm swing per cell exactly. Only character identity, clothes, equipment change. Preserve adult dark brown skinned bald male soldier, robust original build without extra muscle, blue gray mail shirt with rolled blue sleeves, brown leather straps, belt, dark trousers, tall brown boots, brown full finger gloves and wrist bracers, light neutral gray waist sash and short hanging cloth, round wooden shield strapped to his BACK. Hands free and swing, shield moves with torso. Eight full bodies, same adult scale and stable hip center, uniform ground baseline. Soft clean nonpixel 2D warm lines and matte cel shading, minimal chainmail noise and wrinkles, stable shadows. Transparent RGBA, no background or ground shadow, no labels.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-f68f815a-a899-4504-ab3b-9377ddadc2be.png",
+    "time": "2026-10-17T15:59:41.729Z"
+  },
+  {
+    "type": "shield",
+    "direction": "E",
+    "prompt": "Reference 1 is the SHIELD mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw this shield soldier in these eight corresponding walking poses in the same E exact right side profile view. Copy anatomical left/right leg leading, hip/knee/ankle angles, shoe positions and orientation, lifted versus grounded feet, visible soles, and opposite arm swing per cell exactly. Only character identity, clothes, equipment change. Preserve adult dark brown skinned bald male soldier, robust original build without extra muscle, blue gray mail shirt with rolled blue sleeves, brown leather straps, belt, dark trousers, tall brown boots, brown full finger gloves and wrist bracers, light neutral gray waist sash and short hanging cloth, round wooden shield strapped to his BACK. Hands free and swing, shield moves with torso. Eight full bodies, same adult scale and stable hip center, uniform ground baseline. Soft clean nonpixel 2D warm lines and matte cel shading, minimal chainmail noise and wrinkles, stable shadows. Transparent RGBA, no background or ground shadow, no labels. Do not add any sword, scabbard, weapon, cape or unrelated straps. Shield only.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-f21a8649-2c24-4078-b6de-c41359c5149f.png",
+    "time": "2026-10-17T16:00:47.793Z"
+  },
+  {
+    "type": "shield",
+    "direction": "NE",
+    "prompt": "Reference 1 is the SHIELD mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw this shield soldier in these eight corresponding walking poses in the same NE three-quarter BACK view walking away toward upper right. Copy anatomical left/right leg leading, hip/knee/ankle angles, shoe positions and orientation, lifted versus grounded feet, visible soles, and opposite arm swing per cell exactly. Only character identity, clothes, equipment change. Preserve adult dark brown skinned bald male soldier, robust original build without extra muscle, blue gray mail shirt with rolled blue sleeves, brown leather straps, belt, dark trousers, tall brown boots, brown full finger gloves and wrist bracers, light neutral gray waist sash and short hanging cloth, round wooden shield strapped to his BACK. Hands free and swing, shield moves with torso. Eight full bodies, same adult scale and stable hip center, uniform ground baseline. Soft clean nonpixel 2D warm lines and matte cel shading, minimal chainmail noise and wrinkles, stable shadows. Transparent RGBA, no background or ground shadow, no labels. Do not add any sword, scabbard, weapon, cape or unrelated straps. Shield only.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-b137c42c-be7f-466f-93a3-7ebc7209e198.png",
+    "time": "2026-10-17T16:01:50.350Z"
+  },
+  {
+    "type": "shield",
+    "direction": "N",
+    "prompt": "Reference 1 is the SHIELD mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw this shield soldier in these eight corresponding walking poses in the same N straight BACK view walking away toward top. Copy anatomical left/right leg leading, hip/knee/ankle angles, shoe positions and orientation, lifted versus grounded feet, visible soles, and opposite arm swing per cell exactly. Only character identity, clothes, equipment change. Preserve adult dark brown skinned bald male soldier, robust original build without extra muscle, blue gray mail shirt with rolled blue sleeves, brown leather straps, belt, dark trousers, tall brown boots, brown full finger gloves and wrist bracers, light neutral gray waist sash and short hanging cloth, round wooden shield strapped to his BACK. Hands free and swing, shield moves with torso. Eight full bodies, same adult scale and stable hip center, uniform ground baseline. Soft clean nonpixel 2D warm lines and matte cel shading, minimal chainmail noise and wrinkles, stable shadows. Transparent RGBA, no background or ground shadow, no labels. Do not add any sword, scabbard, weapon, cape or unrelated straps. Shield only.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-45fac521-d63a-43a5-b10c-b456b2d09755.png",
+    "time": "2026-10-17T16:02:29.206Z"
+  },
+  {
+    "type": "shield",
+    "direction": "SE",
+    "revision": 2,
+    "prompt": "Reference 1 is the SHIELD mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw this shield soldier in these eight corresponding walking poses in the same SE three-quarter front view facing screen right. Copy anatomical left/right leg leading, hip/knee/ankle angles, shoe positions and orientation, lifted versus grounded feet, visible soles, and opposite arm swing per cell exactly. Only character identity, clothes, equipment change. Preserve adult dark brown skinned bald male soldier, robust original build without extra muscle, blue gray mail shirt with rolled blue sleeves, brown leather straps, belt, dark trousers, tall brown boots, brown full finger gloves and wrist bracers, light neutral gray waist sash and short hanging cloth, round wooden shield strapped to his BACK. Hands free and swing, shield moves with torso. Eight full bodies, same adult scale and stable hip center, uniform ground baseline. Soft clean nonpixel 2D warm lines and matte cel shading, minimal chainmail noise and wrinkles, stable shadows. Transparent RGBA, no background or ground shadow, no labels. IMPORTANT: round shield is the ONLY equipment. Absolutely NO sword, no sheath, no scabbard, no weapon at waist or behind hips in ANY frame. Preserve both brown gloves and bracers in every frame.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-c75d76cb-e611-4d15-8ac3-c8bfe94d7cb4.png",
+    "time": "2026-10-17T16:03:54.366Z"
+  },
+  {
+    "type": "porter",
+    "direction": "S",
+    "prompt": "Reference 1 is the PORTER mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the porter in these eight corresponding walking poses in the same S front view. Transfer exactly the anatomical left/right leg leading, knees, ankles, shoe direction and sole visibility, grounded versus lifted feet, and opposite arm swing per cell. Preserve original adult man with short dark curly hair and thin mustache, warm medium skin, ochre rolled sleeve shirt, brown tied waist apron, brown trousers and low lace-up brown boots, pale neutral gray scarf, large brown backpack with olive rolled bedroll, coiled rope on anatomical right, copper pot on anatomical left, bare hands. Keep backpack equipment consistent as torso moves. No sword, shield, bow, new weapons, gloves or new bags. Full body all eight cells, fixed adult proportions, same size and hip center, common ground baseline. Smooth nonpixel 2D delicate warm outlines, light matte cel shading, minimal texture and wrinkles, stable colors and shadows. True transparent RGBA, no ground shadow, background or text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-58335738-6075-4904-a575-3c2e08ad00fc.png",
+    "time": "2026-10-17T16:05:00.351Z"
+  },
+  {
+    "type": "porter",
+    "direction": "SE",
+    "prompt": "Reference 1 is the PORTER mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the porter in these eight corresponding walking poses in the same SE three-quarter front view facing screen right. Transfer exactly the anatomical left/right leg leading, knees, ankles, shoe direction and sole visibility, grounded versus lifted feet, and opposite arm swing per cell. Preserve original adult man with short dark curly hair and thin mustache, warm medium skin, ochre rolled sleeve shirt, brown tied waist apron, brown trousers and low lace-up brown boots, pale neutral gray scarf, large brown backpack with olive rolled bedroll, coiled rope on anatomical right, copper pot on anatomical left, bare hands. Keep backpack equipment consistent as torso moves. No sword, shield, bow, new weapons, gloves or new bags. Full body all eight cells, fixed adult proportions, same size and hip center, common ground baseline. Smooth nonpixel 2D delicate warm outlines, light matte cel shading, minimal texture and wrinkles, stable colors and shadows. True transparent RGBA, no ground shadow, background or text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-515711ef-c79e-40a1-b3b6-0eea56bf7dcf.png",
+    "time": "2026-10-17T16:06:17.349Z"
+  },
+  {
+    "type": "porter",
+    "direction": "E",
+    "prompt": "Reference 1 is the PORTER mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the porter in these eight corresponding walking poses in the same E exact right side profile view. Transfer exactly the anatomical left/right leg leading, knees, ankles, shoe direction and sole visibility, grounded versus lifted feet, and opposite arm swing per cell. Preserve original adult man with short dark curly hair and thin mustache, warm medium skin, ochre rolled sleeve shirt, brown tied waist apron, brown trousers and low lace-up brown boots, pale neutral gray scarf, large brown backpack with olive rolled bedroll, coiled rope on anatomical right, copper pot on anatomical left, bare hands. Keep backpack equipment consistent as torso moves. No sword, shield, bow, new weapons, gloves or new bags. Full body all eight cells, fixed adult proportions, same size and hip center, common ground baseline. Smooth nonpixel 2D delicate warm outlines, light matte cel shading, minimal texture and wrinkles, stable colors and shadows. True transparent RGBA, no ground shadow, background or text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-ddf3eada-8e12-43d5-b516-899b0303e96d.png",
+    "time": "2026-10-17T16:07:10.723Z"
+  },
+  {
+    "type": "porter",
+    "direction": "NE",
+    "prompt": "Reference 1 is the PORTER mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the porter in these eight corresponding walking poses in the same NE three-quarter BACK view walking away toward upper right. Transfer exactly the anatomical left/right leg leading, knees, ankles, shoe direction and sole visibility, grounded versus lifted feet, and opposite arm swing per cell. Preserve original adult man with short dark curly hair and thin mustache, warm medium skin, ochre rolled sleeve shirt, brown tied waist apron, brown trousers and low lace-up brown boots, pale neutral gray scarf, large brown backpack with olive rolled bedroll, coiled rope on anatomical right, copper pot on anatomical left, bare hands. Keep backpack equipment consistent as torso moves. No sword, shield, bow, new weapons, gloves or new bags. Full body all eight cells, fixed adult proportions, same size and hip center, common ground baseline. Smooth nonpixel 2D delicate warm outlines, light matte cel shading, minimal texture and wrinkles, stable colors and shadows. True transparent RGBA, no ground shadow, background or text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-20f8db31-1f32-4a06-8dc7-7ccbb44bb8ed.png",
+    "time": "2026-10-17T16:08:08.933Z"
+  },
+  {
+    "type": "porter",
+    "direction": "N",
+    "prompt": "Reference 1 is the PORTER mercenary edit target. Reference 2 is the exact eight-frame protagonist pose template, 4 columns x 2 rows, 00 01 02 03 / 04 05 06 07. Redraw the porter in these eight corresponding walking poses in the same N straight BACK view walking away toward top. Transfer exactly the anatomical left/right leg leading, knees, ankles, shoe direction and sole visibility, grounded versus lifted feet, and opposite arm swing per cell. Preserve original adult man with short dark curly hair and thin mustache, warm medium skin, ochre rolled sleeve shirt, brown tied waist apron, brown trousers and low lace-up brown boots, pale neutral gray scarf, large brown backpack with olive rolled bedroll, coiled rope on anatomical right, copper pot on anatomical left, bare hands. Keep backpack equipment consistent as torso moves. No sword, shield, bow, new weapons, gloves or new bags. Full body all eight cells, fixed adult proportions, same size and hip center, common ground baseline. Smooth nonpixel 2D delicate warm outlines, light matte cel shading, minimal texture and wrinkles, stable colors and shadows. True transparent RGBA, no ground shadow, background or text.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-c8066d6e-5b00-4906-abbd-891e98d6ffb4.png",
+    "time": "2026-10-17T16:09:19.005Z"
+  },
+  {
+    "type": "leader",
+    "direction": "S",
+    "frame": 5,
+    "revision": "glove-only",
+    "prompt": "Edit only the bare right hand and wrist on the viewer LEFT of this leader sprite: add the same matte brown leather full-finger glove and wrist bracer as on the other hand and as all other frames. Preserve every other pixel, silhouette, face, clothing, shoes, leg pose, sword and gray cape exactly. Keep transparent RGBA background and original 640x724 canvas. No new objects or shadow.",
+    "path": "C:\\Users\\SKY\\.codex\\generated_images\\01a14a89-ba32-7d50-b664-09b3e3daaa2a\\exec-4cf97285-3d77-4f4f-aaa0-1e16272f72a4.png",
+    "recorded_at": "2026-10-17T16:09:40.866Z"
+  }
+]

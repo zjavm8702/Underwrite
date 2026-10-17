@@ -1,0 +1,3909 @@
+{
+  "timestamp": "2026-10-17T15:48:19.503Z",
+  "records": [
+    {
+      "path": "Outputs/NpcField_v2/aggregate.mjs",
+      "sha256": "0436ed1fa32a1a2e249fdde055de0b77b2f9d3d679a2ae706d20198dc5d76cae"
+    },
+    {
+      "path": "Outputs/NpcField_v2/alignment_audit_worker.mjs",
+      "sha256": "1269daa09830ac5b481f44b2673aa7638e5fd1093ce34a2ce8b61cdc663853d3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/alignment_source_audit.json",
+      "sha256": "4b1de746f25900a80281cb49f2da732f0d8dcb1431d966523b3c5b97a7d8d061"
+    },
+    {
+      "path": "Outputs/NpcField_v2/alignment_verification.json",
+      "sha256": "53ed544fe459d3d98043df91a10ec14479edccfb276747a9734969fccdbd5957"
+    },
+    {
+      "path": "Outputs/NpcField_v2/anchors.mjs",
+      "sha256": "76adea424cf2e55d7111d84210d1040eae06f437bf1a847c6187ca217235f360"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/edges_light_dark.png",
+      "sha256": "4a6ac92d91a9b20735abadc99c3683eb80df32b5e61895efa6b1891068ff484d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/E_placement.json",
+      "sha256": "8b2f73e31116d4091d36bd95aba129d1ba8274aa23bfa401f4d0b2a07df28dc7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/E_timing.json",
+      "sha256": "0fd8b9ad164fef65c36bb6e7efd08b5ccc05da585684e9da4384245305d436bf"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/E_verification.json",
+      "sha256": "c4183741a43f503cc1a7a490accd8471bd292f49c13b3fc1a881ab05472facd9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_00.png",
+      "sha256": "0b495e113bb84acf809bbe0143c6234b7d6a02f453cadb4ce86e10263ac9eb0d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_00_mask.png",
+      "sha256": "1fac835d3250616941ddb9c8cd7a3aa09f477de1e7bb96556581420695b672cb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_01.png",
+      "sha256": "4aa4a361317518a0346eded763a4cf922757e30c67e86c2e71bd8703f3af5085"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_01_mask.png",
+      "sha256": "735c700595dfeea82ffb0af3bbe0913f4e5acf78d1d981816d325e30c33d8308"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_02.png",
+      "sha256": "a0bb58816515e3251ad8d15d2b8def92f1916066fff0bd4a84ed37e05b5ac5fd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_02_mask.png",
+      "sha256": "8a9aab631c428f017c2bb35a555e6d929103be30cee8fe5213e187b52a276ef7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_03.png",
+      "sha256": "17c48fd601d2d5ae5bb7923366e47e7c3efcbf5f7e46d33227c20007d56f117a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_03_mask.png",
+      "sha256": "74e133780ad313268a8b8d08c8217c5aeab12714add9cb88531e654f0e739760"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_04.png",
+      "sha256": "b9efc40bf6445e1aeed145fabcec22e907d8b0e312d353992f02e1d8e75327a7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_04_mask.png",
+      "sha256": "b16f97bd421642fbacbfed4ef66ba955e82c4db4f415d36dc3505e47c31e6a78"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_05.png",
+      "sha256": "f12dda1a62e825e64f2b0bc8a2db910cf8c263d02827dae3f75102565bf1f0d4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/E/E_05_mask.png",
+      "sha256": "a4396d1c2260be3cbe990f29fe6193e319a69d3cbf232c0f19100dafdabfffde"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_00.png",
+      "sha256": "089d5ebeaa8c02d372f859447d59e88601c92b51e50e1c09175e9bcacb0d1f51"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_00_mask.png",
+      "sha256": "b08478efe001ca870c2aed9347aa9836f9079818fb637c708fea2b149fa14d8c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_01.png",
+      "sha256": "b4634a6d290d0ed9426aab5a135ab58cbf81d11e45edbc7d7ddde297a6c3158c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_01_mask.png",
+      "sha256": "b53d9cac26d28d40fee993c81595e6be040eea4dc3b620fa94af2dbc9069cd1f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_02.png",
+      "sha256": "97cd9aaad241141643b2be04a8ee86abadb1dd6aef7028a5a06478a549d6b51a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_02_mask.png",
+      "sha256": "83ff119208efbd0829c64f0645b161d898f5814837ee6bd718f6edaed37af2c4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_03.png",
+      "sha256": "7828cddbebdfab6e5c8ce07e2c0087647b53d01d20bac4882d0bc3e872cc9e8c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_03_mask.png",
+      "sha256": "c64c9b93cb263d6fd742d1e06068c2fdac7ebc43182b17c23c8134f9be81ba7b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_04.png",
+      "sha256": "1a78c1b193c24c3de403a1c526a73f412d44eb64225dbc735a37e91ea8461061"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_04_mask.png",
+      "sha256": "69ebe8756edfca103dd6b65e03067d4864d7a8fd5e1fd8208ef7cbbd6d9f37c2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_05.png",
+      "sha256": "d087efec8afaadd9c6c7ccd3667d3ea0050804ee7765f08b74e72f1bb4699bee"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/N/N_05_mask.png",
+      "sha256": "f6954a004ab625204456063685deb4475c2f97caa266f11916491c0f8d2414ab"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_00.png",
+      "sha256": "9ed0a5b223271019dfad8d3b05ea754d09cb9b420013536d87fdc0a71293f947"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_00_mask.png",
+      "sha256": "8edc6e78f479acb4877e6d3d39efc1b00c9dfc4f74e8e84d8cd60edb14c58d27"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_01.png",
+      "sha256": "c62dedba755ec69b8a9599ae75c7900108a99aa44cf568ffd55f7d62fa76c385"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_01_mask.png",
+      "sha256": "fb8411e3ff1f08daee6436da57a7ade0829617c418ef2400e59a9b9f17645381"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_02.png",
+      "sha256": "e861e0825310ce3bba8883c23948c579cf7e49e1783a9238ad2cd48ee63e440d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_02_mask.png",
+      "sha256": "8d3b5c4ef396e09902b42f56f4c38ff2dd9a88128dcfce9b9035dc3089cf58d5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_03.png",
+      "sha256": "7887a038b48d570ba0ba22c58d595beeeee8f8df89cdb2dbda4f508cc04db168"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_03_mask.png",
+      "sha256": "531bb9a43f78aac07c1300df89e863da39a8e2a529394564535f246088afc9b0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_04.png",
+      "sha256": "0737fec6371a421ce3af5bdcd5c199667473db20362998128f26e4b877d7e4de"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_04_mask.png",
+      "sha256": "28452f0363ad43cf9de960a4461796c7c0cc5487c98e44541309e083621b6589"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_05.png",
+      "sha256": "d57039b142882e5830bbdb03885ba690c8f9b2ca699803f5499b3ec374a04a92"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/NE/NE_05_mask.png",
+      "sha256": "1fbc6dca0af7f0382c099977117abf882344ee3ea437d33c7d62608d1602dd19"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_00.png",
+      "sha256": "741929018396d02c72b1f80efc765fb0992200bbd0325d4bb6b5d1eee185569d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_00_mask.png",
+      "sha256": "d5ac54a17f0b4150b8877dfd4d399b83396d459026a41339abe47adc159852e2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_01.png",
+      "sha256": "8a8662873263d7167b5101cb539d4f125478d0dd8bd7dd8be1062fae58268845"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_01_mask.png",
+      "sha256": "e63cfb778150acb173b1fa9cf045112b64e52c426e34a1d75459e0cd3faf5570"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_02.png",
+      "sha256": "d667630e88073110db71ff1252e2aedd723fe60c0b4df3ee2cd6f63a0d91d7f4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_02_mask.png",
+      "sha256": "2b0ff089b9672804494470688d79e50d408898cd718ee155c5a17c6baf60b369"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_03.png",
+      "sha256": "1c9edbd4bc708c002ad36b48f7cf31430b696f638e25886a57168d43596285fa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_03_mask.png",
+      "sha256": "344676333da21e3fb831ace3d66e34f4eafe9711be5091032d2ff368334a50fc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_04.png",
+      "sha256": "3ad1fdd07ee78893a2043b18376669a3f6234e52c08b0f792b3a54787e84c8e0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_04_mask.png",
+      "sha256": "414e59101c5555a12c06dc52227ef260b74693de5d35ee6f0b77e1bd8046730a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_05.png",
+      "sha256": "8761992b9e1b14a056e74cfccaa6ae7968d4742f6d4500cc93ce5c7f46d589bb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/S/S_05_mask.png",
+      "sha256": "3dc31eb01b10c147e71d1f17f21430f27f5f4bb5c2a8e43ec8b1f5ca69fa3e78"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_00.png",
+      "sha256": "a70d32d99285fa9c694b07da2a1e790cd7f74b3018bdbfb9cec023a655fbcd87"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_00_mask.png",
+      "sha256": "5249953cd7f6b59c45b288cec8e52d256fbe7abec6e3e2c1112b3686a824768c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_01.png",
+      "sha256": "3a49d225080bcc0eb6fa6ed5abc632b9ae45059a254221662a3e9ca599f5dc5a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_01_mask.png",
+      "sha256": "d81036953bf427a7e32e1d8bba484fd0c942c97d2e6863c29c92bc4c4278635f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_02.png",
+      "sha256": "d97f5977d03a1494f22a09b09753955a0c6946cd41db0b1c8701d823ce68b179"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_02_mask.png",
+      "sha256": "a12eb0a66d3b56927fee9efcd2090ec11a4bf0a7d1f453242d20bd097ccfc0f7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_03.png",
+      "sha256": "20806286b9d97d60330e56e402f7fbc2a8a7e8be53bc3baf99b46cfcfaee473a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_03_mask.png",
+      "sha256": "cff2f62ec583ddd498d024f94db74073a34e5a1dcea347f5e0c8342e6ad28b54"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_04.png",
+      "sha256": "1c281fb95fa9bd49ecc9bde4a47377645aa28cd07cb5e3da176134c3247808b3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_04_mask.png",
+      "sha256": "acf489b6cb3a088a57c3d4f4b2ef8a89474d9a79545e8e361f6464fd3a0fb220"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_05.png",
+      "sha256": "c4eb7b5e09ae46da997a7d9f2fcfe082c72bee0fe34f0bc8c6ecb43104536eb5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle/SE/SE_05_mask.png",
+      "sha256": "642d703701a3988a156089c41455460163e49826651f09afc0ab75f6111441a1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle_E_animation.apng",
+      "sha256": "41d42ebfdb50c53f10e194681fa5c4ab9161abeddd98821ebbcfffebbb374d76"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle_NE_animation.apng",
+      "sha256": "d8c8748384b60d7aab7565e459973f3cc3f40c54b6168a3e4a71d3be82d33983"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle_N_animation.apng",
+      "sha256": "4baaac30130e3b6b2883e0b14c0e2977ee08c6b9aec2c11e4eb07cc0ecb1f907"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle_SE_animation.apng",
+      "sha256": "c91d27ca9f5db34c87a580455139f6b727c63c57ad9a5453be02ee08fa1b00fd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Idle_S_animation.apng",
+      "sha256": "5a59f6c1f2508af50568063a577bfc21230930a91858dd848b3480c1751dde6a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/NE_placement.json",
+      "sha256": "60333c9a6a9c7e64cd6c5aabe46d6b1da4fbfa7c8400ee8f72627fe292132338"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/NE_timing.json",
+      "sha256": "ab71909eb69d89b60bed017d75c6f4b7a4f79d2597a39d514982fa650028a00f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/NE_verification.json",
+      "sha256": "46ac8436b461e8857a2ceba7bebf04970fcc20a273b2c8c3ba85ba3ab9098777"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/N_placement.json",
+      "sha256": "85e014114a78917e7f5d85c454ce5f28f9409a676863fb86e8c9b2acc75cf0b7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/N_timing.json",
+      "sha256": "20dd527235cd8109c3e086fa1745e86d44996203362cb89424195d8c4f34e97a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/N_verification.json",
+      "sha256": "d760b1c862bb3c6a8ba50d448761ee00eadf7e615129181ae010fac5e189a649"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/SE_placement.json",
+      "sha256": "a79c4d9aa7ccd38a971c1b5576904216a8b676231a99e5cee70d226910c2993b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/SE_timing.json",
+      "sha256": "2e2188e7f6ce28110338da8dc30fe72d3a9bae26f5e12e388214bd0a7b5ff835"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/SE_verification.json",
+      "sha256": "9ee031b5cd1a1c3ea3042f4e2bb08b2ba0a4c9aae2330ebab3f32885fad514a8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/S_placement.json",
+      "sha256": "ef86be13bcbf11cdbd7bfb4de5e1714eb4c63dba14544c40fe98fd764efb7afb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/S_timing.json",
+      "sha256": "ba6d900be92adefc5225f52590b6fde2c0fadbb6620c9ee82c73e5b853b89df8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/S_verification.json",
+      "sha256": "8e0302ea1eb301f27367e5d8d5de126cb599e169f5bdf968417c5bbb0f7405f1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/team_colors_and_W.png",
+      "sha256": "d5210a5599651b6870815ac87a12a8657037b56155abcf4f2e6229b1e85c1d02"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/timing.json",
+      "sha256": "bdbe6266e8a7221b0f9f3253860bd30e6ce2e6423b8ba38cca251a830e836c7d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/verification.json",
+      "sha256": "9e6a6b4fa05a72c04c1486c8be43149974088f6b636dffae187dcb84834278a8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_00.png",
+      "sha256": "e1104fa2fc60874abd05d004c1b809cea0140f65099de37e627dd555d5d31245"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_00_mask.png",
+      "sha256": "a3cb1e2817a375c547d9dac1cb8ed8d2a342914347675f37dc7e7b98da5970e9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_01.png",
+      "sha256": "a2556f5f17d2c6298879de7bcd73110bebb0d386296f6c1cbc7ae8dbe34a4119"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_01_mask.png",
+      "sha256": "b7af05b2c2ffc17703344e02fa75d65e2d640adcc9877f4158eadeb1b55e75ed"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_02.png",
+      "sha256": "2a12ea79ad263aa245e5b07bd9924b886cc0c8e011930415c6ace1a687b943ec"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_02_mask.png",
+      "sha256": "44258af268c750f76ba55ea8b0213ef960311bff31956fe504be9ee69cf12b4e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_03.png",
+      "sha256": "de2f893bc60f72d0cf05de2930b182348fac022d7b32da096bb27b19f0f25456"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_03_mask.png",
+      "sha256": "a0d2a2e998499b6b5630951cc41f36aa152fecc1645eee52011ea38fd1d6a5f9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_04.png",
+      "sha256": "24d09e4abb9f1bc47f8dd3bc9883ae99b790622fe29393767d835919c0bbda3b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_04_mask.png",
+      "sha256": "33720c776ba84fc89678eeeab8530a1df808eb63f258766fc09ce521a74b92a2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_05.png",
+      "sha256": "5c8a61546d6f82132741a590eef7621c99809b40ec01ce1ee4a9976d08f3fd4f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_05_mask.png",
+      "sha256": "2ad1d760c1f1f1e57d03d186a16fdfa27e9e2640a7d6b03f660613c3e7a75581"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_06.png",
+      "sha256": "db90d9d9fb6a18a0d12598e3517102b4ec7d771238ca04dfbbe5834547202772"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_06_mask.png",
+      "sha256": "8c2964919980d020f8aa9170dce146ec910856aca405a3e9b8f9b0a1de334b70"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_07.png",
+      "sha256": "e4d95e009592be19b62c6008f1d4a3a87c9f915f372e52f6f560e71a5cc054ca"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/E/E_07_mask.png",
+      "sha256": "b047f4cf168d81ba5201e5fa313d2590ec7ecd10be788b7ed9e9bb341c919e4d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_00.png",
+      "sha256": "71c81dc4d4604b3b6f7ff99f00ffc367da39dd2a7c6731296e0e7395677636b3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_00_mask.png",
+      "sha256": "8c42cd410e109761776b4079ad1e9f76d33180f24914aac6807b01941077409e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_01.png",
+      "sha256": "ff3ac83fea978ee8fd1872c852a5dd403e7481aa27d0b88ce0046b51ff83290f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_01_mask.png",
+      "sha256": "66518d5ef8baea21523f5c07e2dff5baac0d50544a2efdc3c34ecd165eb87c89"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_02.png",
+      "sha256": "877cba0490e61d5f4fa7652fdc01ea6eae97e150a54432fe69ecf1cfa36bb49c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_02_mask.png",
+      "sha256": "1fc8c18f3814330df5d4c07a7722a5daf390dc308100fb6bdc99b0d41755cd2a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_03.png",
+      "sha256": "aeb96a59a3eb9b9c62f5b749f4263b818d05f7979e543709dd0f562fca735631"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_03_mask.png",
+      "sha256": "85e1578561340d36b20f29315261b9d69ce59ad3f6f75e34686e80e94031d4fc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_04.png",
+      "sha256": "92263554d8d6d9a3bc7a5ba82b53d5e4a061d465b7a6ad73e68599d619f2a7aa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_04_mask.png",
+      "sha256": "8b509a4fc40b6037748e1991647cc70da62aa9fcc66a72eb08141a2de57df811"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_05.png",
+      "sha256": "56734ed95c5060a89757a9f2087df0c72ecedf4c86f35845df7ce6c998e98010"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_05_mask.png",
+      "sha256": "c99f82fab88011ef7e4611477f926538835353d0093211be5a93d45f42e34a8f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_06.png",
+      "sha256": "030e290d3642ce168f0125675de89902d0330debf0a274cc854719ecf7b06ba5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_06_mask.png",
+      "sha256": "4e1ebaaf66e7ea55dd69400ebb84ebf88a187cb6ea0b79b9cba6521024c366c4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_07.png",
+      "sha256": "c08717bb5b07a6d64b586ed0b11908e7e6fb6b55a4a05355438226897f1b4bcb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/N/N_07_mask.png",
+      "sha256": "4b0534438fe80d2a7611bdf8f9c697caddbaeec34adaeeaa103cbcbbb554a5e6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_00.png",
+      "sha256": "970831d9da18ce5d9d34fd263912edc2e088ef9cd486157edce19b75841ab543"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_00_mask.png",
+      "sha256": "65e0c2b348a7552cf82852a55c54e4302ecd8a91b8ff885fa3fed5be1eadffba"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_01.png",
+      "sha256": "f3b12f4fb5f8c08042f79b651374f5aaf320429a9ca9a817ce546f4e4dd70562"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_01_mask.png",
+      "sha256": "e707260ba1ba547c09194f425212009037fbc9d6c67829557555ed3cafd6d140"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_02.png",
+      "sha256": "9b5ae308830c6248dec81c83ef0784e7680e9a9841e0656aa5178492a6f632e1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_02_mask.png",
+      "sha256": "a8e0a1332a74f2667901e4bf79677b6159499907eca6b11dda5c06c9466baed9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_03.png",
+      "sha256": "7f7c7aca97e30e3835cd5b22a81f12a3b569d70461f32a8ae560ac54f30df8bc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_03_mask.png",
+      "sha256": "a99ebea2833884c98da3a9bc177bc52cc49abf9239f39cfd5f1bc104d3b523ea"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_04.png",
+      "sha256": "2fe7dee28ef7de427d11c969b62d629812d041549bb7881ea039de93a999beca"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_04_mask.png",
+      "sha256": "85cb89b80615092dfa5008e9464359d9d5adcfdd3967661df2c213f940318d3a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_05.png",
+      "sha256": "ee12e1d508b6f0aa49a3417b3412951dcbc4494df7ea72239309794b36920af7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_05_mask.png",
+      "sha256": "fe4df1eb6455421cb8c4b376e50f8801f4a9868e45df016f12dbf17deba86c10"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_06.png",
+      "sha256": "e695ad70ae6a2e9612b125ed5b7be57d43f7c54818573d50d264c418409e8f70"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_06_mask.png",
+      "sha256": "2b9aabdfda8cd7c6b6ae4cbad451c9ed12935516dc372a586decbeda99932664"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_07.png",
+      "sha256": "0600ef7c366d08c6771f12d0554eb8027b08be06d4bcdc148fffa9cbc039c36c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/NE/NE_07_mask.png",
+      "sha256": "f752d464a3884cc75802fc1c2c8320c600ccd9d8acd9be908caa9aab6cce23e6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_00.png",
+      "sha256": "8512b949bcf1c8a1fb8d1d04c52c44344eb4e5e15ef04ffe2994c452ed37d117"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_00_mask.png",
+      "sha256": "35c9b8bc5192054ffc6743a2f5f2eb18264c74fdc9f1b64562fb2a2429c7ac26"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_01.png",
+      "sha256": "a2395664dbd3d55f5c2a43af0148fd4aa52f04edeb02853bc20107b87182ec21"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_01_mask.png",
+      "sha256": "22e5ba222da7b86dbba503db95d4a13e756a6f72fb4a7add5de42e6362eec720"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_02.png",
+      "sha256": "7866246ccd5a644c0ecedb9b86a617571f0135b6f68d823a48e6047e9c07ae67"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_02_mask.png",
+      "sha256": "b89a1b1cacedb4389f71b4276b47fc2ce0c1d868f1c77a300cee8a9da7ef3714"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_03.png",
+      "sha256": "462c779f85a397a1eb625d4b829de44fb7cc41b79f51b348e4aaf21c915a7d73"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_03_mask.png",
+      "sha256": "818476b308c49b174afaaeb6ee46560f69c25932af445b490fef76877241452e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_04.png",
+      "sha256": "f69f56c791d86e153138136b28bb1a1742ffb776b887772a6b947e88ae5e0eb2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_04_mask.png",
+      "sha256": "f0b0862d6ba2942aab06e98659a4b3a5fce3fdad0805db22d50b0eb6a2aecbcd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_05.png",
+      "sha256": "d3039e594900a9ee3d614f8a722492ddc9009082627b2873273ecf1d22499c78"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_05_mask.png",
+      "sha256": "f43d7a21518d71b22bd4755d0103b592fd56086264c5da621608e9c8e630883e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_06.png",
+      "sha256": "19f47623e6c116316e71f65514cce1149c4e6dfdf5da4da04b18d3d3e9cf8590"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_06_mask.png",
+      "sha256": "c11600c00124a4bb8098f9af406b4729aba685faa24aa3b3b67a75043d4abfff"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_07.png",
+      "sha256": "08c10989702cee3c55efe60a83a2936e43cfda424d7ad23e055cd131361c0928"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/S/S_07_mask.png",
+      "sha256": "8fcd008a653f54e4eda2f22357432607e152e8c434eec4842e712e63b8ac070f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_00.png",
+      "sha256": "e2b192a284d0455321cfbe32cf4ce6a4dc916f98a6a704e0f7fa2ae8c3e6e2fa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_00_mask.png",
+      "sha256": "501aa6961e2d1422db7fe862f27ba39dac69b17a880ccebc991de89f16da3fd8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_01.png",
+      "sha256": "4e1a9e839783c7a3a64cc7563aa8a83aa9f717d902f2825e241c30f4a7fd109e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_01_mask.png",
+      "sha256": "ba6e46d4fa3d5723331e041a376a5a8e570adc4ab2b308ad398bd03a86c1a5c3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_02.png",
+      "sha256": "7ddd7a6e2584ba32ceb5252e303ea5614b9440039b93429c52d700bcb523a781"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_02_mask.png",
+      "sha256": "55f6973cb3bae44524b689d1c513d529133ad3758f1779982505c9b703dfddc2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_03.png",
+      "sha256": "5f3170da37379ac37f43b10e3ca3816513d69dcfcf7bd8b7268debfe0268954c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_03_mask.png",
+      "sha256": "a401cd07bf5b2d1478a712df71f052608a359b28ef5a8d9e4fd71f2666fd560b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_04.png",
+      "sha256": "7da8da491627f40da6ee8c1b10253a640cad09fafa796c27b1c1a58210c8819b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_04_mask.png",
+      "sha256": "e9294453e4776eec132bdcf7d2d1814934ef2e26a73fd048e241db993d21f6fa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_05.png",
+      "sha256": "c89c98eb9987b7fa3180c2c97d715076adf069d5707db8cb9c781a60a24f7b9e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_05_mask.png",
+      "sha256": "6d53e40e4999c213247ae91f2506d4b8da4c92fb94715c7df9f85413e9f996f0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_06.png",
+      "sha256": "f5740211c0a16666dbd5f93c5da10585ebe21cbd08be155fdc90d441c5bc410f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_06_mask.png",
+      "sha256": "afe3785b6854f33577f92e2a4f39a2fb6cb171eef712d2cb0c174d787a9bb22e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_07.png",
+      "sha256": "51a7530d44db3d9cebaa376b26b9431175e77365ee7d4740f525e18c9152504c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking/SE/SE_07_mask.png",
+      "sha256": "dc1fce1cacff9e4bd54df62cd9edd66c43ceeddb626296ce91d5520b0d125db2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking_5directions.png",
+      "sha256": "faaf8c009bf3073735f252834da7399a5344393c1233767c86c50e9e9265e12f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking_E_animation.apng",
+      "sha256": "443f0ff323768f2f9033ec4f56ad96511136ea299fa24b23d751ee0d7d54e28c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking_NE_animation.apng",
+      "sha256": "859682faa031df294c9f9ad2e9f3509709bf0851bff9156b083e33c4ac596b1f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking_N_animation.apng",
+      "sha256": "2fe8e71ee2e4cd86e02e7b671adf6d1418e72f121e7833d03b4bfab3be38a44c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking_SE_animation.apng",
+      "sha256": "34d9a7b7c2c1c37375f4ebfb106a332eeea55eca88e6310795eac9998a32aba2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking_S_animation.apng",
+      "sha256": "3cf2eb2227605c1e87e6fc69665eef49a205dd08423c2c11d1ad5b4accda881e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/archer/Walking_W_mirrored.png",
+      "sha256": "d095cf4d066dd7b1d36b9b54fef83acdb9a4b5d89add5436d7b4efe281f057c6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/before.json",
+      "sha256": "a02c0451db54fee2454574f19ee272d95906292525c2a4833054134eeb5bc819"
+    },
+    {
+      "path": "Outputs/NpcField_v2/delivery_audit_worker.mjs",
+      "sha256": "54ccdb3125532771110ac72901292bcc8fe0a08b071ce676a5f626e40e1c8fe7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/finalize.mjs",
+      "sha256": "2d21f4d5d6577957b3d8a3356fba4af4b0e4f99c645218f19d2dfe54c675ece1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/finish_delivery_worker.mjs",
+      "sha256": "4526104928e33957725261a311d9a35104a16b5437ffcd5221e631272c557778"
+    },
+    {
+      "path": "Outputs/NpcField_v2/generation_manifest.json",
+      "sha256": "1b269de85e989d7387f7d0d2bdf86cb2f820183c9f3a585a5269701357fc06c6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/generation_prompts.json",
+      "sha256": "a666ef028b42166b9e2a6c0720eaba21d7423ffa0743531cddaeea3aec97d343"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/edges_light_dark.png",
+      "sha256": "2b74da904465cdee155e969bf70ff0c803d1da223f058ddbf506e6485310f7f6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/E_placement.json",
+      "sha256": "cb9e42cd75a529a18f8da4a9ca8c96889212db367faf43fc771e2f67a426515a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/E_timing.json",
+      "sha256": "91a294e21b343ae07c61b6bc55e0d620fc3d256608cac5a0a3980eb4a30f5755"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/E_verification.json",
+      "sha256": "0d95733789d9ad98e8ce1fbf5404a520cd0a081198839be57da4cdaa7824edfa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_00.png",
+      "sha256": "61215737562caca04a45563bb1c3f3661618cab6b701d479183cc6d3d85a5079"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_00_mask.png",
+      "sha256": "48bb63a3752c72385c23577c2701528cfe0424064873e23582ccab28c0aed197"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_01.png",
+      "sha256": "0a765c3030d29ca9b2ced05ce5e05f0d5101f6f25a5b704560a308222b5641dd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_01_mask.png",
+      "sha256": "a7523bce9baf35730b1d5633a4442ff4b5e203aec2b255029e7e109190af7a3d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_02.png",
+      "sha256": "adee1541870067c7bef3eb4ab0b5551b05292f9d5739fb127303af42dd30d3a7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_02_mask.png",
+      "sha256": "1a1e0d6790b9b44f4f109ac34390ddbc63429410f17fd80eb891a794ff905350"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_03.png",
+      "sha256": "6893f0b5ce7b1d56cc4b2339c79bc88e3579a7215572c634c4b680c8df5dec3f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_03_mask.png",
+      "sha256": "ee9fc436e36e5daeff38a90558dc9b53f30a10431d13dd1f97dd1d4858a364da"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_04.png",
+      "sha256": "ef32604c330057c2ba3a019377b5513268de0feff3ff0f3c4f0382b72e486c9f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_04_mask.png",
+      "sha256": "0369e177a101d347484f155402ff7fac7083ddea12219321fb5b79701a5d4a4e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_05.png",
+      "sha256": "4cf7806b2f5467c673939eb245dbb8322981f23a01480c2e46cc9de132721092"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/E/E_05_mask.png",
+      "sha256": "0576819467e3808dd2c2c1df2f6805171ebfd9d835a1505fcf6fca6961f4d37b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_00.png",
+      "sha256": "ef15125e38525117801e4e4e7fc31b83700ad73de4436bf623ee02d9786e3c27"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_00_mask.png",
+      "sha256": "5fbe44d115abada4c5385acd15a2cd6c6bee932d5f5b059f143559053b7f28a0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_01.png",
+      "sha256": "075932de6287c1be8be49fb0fbd790ba3b8c8e7a0753d60f5cd07cbe8f592540"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_01_mask.png",
+      "sha256": "068cdf569224d0c0ff24c8b941f11f757c03576900786c0d50d3f37c1d7bed56"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_02.png",
+      "sha256": "3c49dd2baaf09d87f05fd28b0e7593d6812b803debc916fefd2a9a774d7bac51"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_02_mask.png",
+      "sha256": "c8e43f1423cf234013f44a593e11d799caa8b0c40735bd95fec5e8a34996b92f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_03.png",
+      "sha256": "cd94d4d6b7b70bf701d3eebd85233bf0b92f8d0aafe994ed07e48e9389a27b46"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_03_mask.png",
+      "sha256": "b093a2b6b4a1e325c2fc9d9f3c192983eb81bd2dd5406caf0ccf9a0a494ac7ec"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_04.png",
+      "sha256": "f1544a8257ec9c0d98db5a6acb03f78e26f1995081734fb2bd8d2c0b46ff1da5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_04_mask.png",
+      "sha256": "19ae6a6f39d7a8ec9d05b2bde8874c5ac98d786d15b3de53e57b22f1dd455849"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_05.png",
+      "sha256": "1d074c91bfdb1638f1c1299f1fe31248105a3e42a0df42e7c783bed64d2f77ee"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/N/N_05_mask.png",
+      "sha256": "1dfc21755e1fc62a9d01c5679ee91b76bebef0324e52177ddcbe4601ee64a31a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_00.png",
+      "sha256": "781abccac007f10df874e8e1cdd86762c9cf48dc7c8292ceded7c02ffd68fa07"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_00_mask.png",
+      "sha256": "faca49660160ba51671b9194a87901b9bf885b30c099bc5d1316a3a823744cf7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_01.png",
+      "sha256": "a5925f4fa512c131ea278eea1966cf147ecc9769941400c0cc70effe108c9445"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_01_mask.png",
+      "sha256": "5965a625161dfd8c78117a764cfd51472b309189ccf2c322c4cd56a6cca176be"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_02.png",
+      "sha256": "4aca725b927b0c9bcd9def3907481f99d1e70dbd5d5ea3ea7147c0323352495a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_02_mask.png",
+      "sha256": "8f604841e4496088f5824950b56cd02db48a2e729c1ff3d15901758d0165e9be"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_03.png",
+      "sha256": "da0641474f0e581b5ecd208d3db9673cfff8a852f5554410964639a11d29c4aa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_03_mask.png",
+      "sha256": "114b02c4375e734c10698c66a9cf93a326b8a0e837986c148c25ba9f87b3ccec"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_04.png",
+      "sha256": "5ab9d89cd36bc9611f2c187ce096bc7dfe4110441547f2101d6ec83764b9ea75"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_04_mask.png",
+      "sha256": "9af29bae2c0f084d7096ed2c42d33988e14ef2178996fe0d9003216a0ba43949"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_05.png",
+      "sha256": "24f3fd014b4de4417d08abb05ae48de7d5995f79ed64740de6ff7a234e6cb73e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/NE/NE_05_mask.png",
+      "sha256": "b3ed1a0ba21024e95f14afd0cb96e7b3eb915c4e80aa02604de14e1e5a244f83"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_00.png",
+      "sha256": "97d94d0a809de6f69a44b65ec9cb63f982ad3185e90d8bcd67c96389ed2479a2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_00_mask.png",
+      "sha256": "a389027a4d22372241cb0e36f7d83e6e7f011233d8a8450aeb01403ad3b2e6c7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_01.png",
+      "sha256": "e9297f8122fce11eef6e0c021ce1b67ef97a4aa4b97f0ea97f35ca0dbe9ed61f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_01_mask.png",
+      "sha256": "fc7d076579df80912c772aa3d0532e22ae96fd2d7c4befeee34acb379a51bae8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_02.png",
+      "sha256": "f72ef0f8a8399210ead61f92a447457ea4d42e1d957b2abfa0a157974482a437"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_02_mask.png",
+      "sha256": "e5556e66b152d99a5f5a986ca945897b95ee74e377f77c5a0942bf0f62dd3a9b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_03.png",
+      "sha256": "0459fb5c99ec6cb6b81ca3f8417edaa138bda9178cd5acd2c8518f753442a684"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_03_mask.png",
+      "sha256": "df0513143ad7549c5f64af45e916d3e17ed934ee08f885794f2178dca801d9bb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_04.png",
+      "sha256": "b6f31fcbfbce8b16b4976b5b984218460a9c15e1be5f42598d120580f50b64ed"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_04_mask.png",
+      "sha256": "4a37e5f1c08dab2ba516442a9be598229955e083664a0076fa77880a417640f2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_05.png",
+      "sha256": "af974e2cc27f5a64a0f5649da51824edeef8db584723305bea4d1cc6f9fb9294"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/S/S_05_mask.png",
+      "sha256": "64f142f697757df172486acf2e1cddba4e547abe25221e86275e3daec811a7d9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_00.png",
+      "sha256": "cbd9654b2d358e72ec5c5e19f6f89a84f7918b4f96c8b099212f7bf3e8afbb57"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_00_mask.png",
+      "sha256": "6a0a196ba9e28abbb2d9e002f41d233b0005313eaae055904102e39200d38e01"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_01.png",
+      "sha256": "0ad2327c0d25a1d96ba7ac79edf9862c19ff5633bb77de9b1253fda74aa331bb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_01_mask.png",
+      "sha256": "06b040cfbb17b892721498be293641bff9ec7d0caaad67ccc203ed56b74dc6a7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_02.png",
+      "sha256": "9d3b4ecf0554ff8f22b10701bf7be0bbb1dbbe24610c5b51ce1c05e88ac34747"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_02_mask.png",
+      "sha256": "730e455b569e690b1c14fd6cc03029bcabff145970761bc407a09f8709894c00"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_03.png",
+      "sha256": "bac8f5df9ff51f08cbe94ffb3fedc5b9d8cf90bc1c792daf97b3d95f5e24adfa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_03_mask.png",
+      "sha256": "9c512cc6ae07efc96ce6aacfb8b0e41b542a5bba8490d99432fcb962f87f47ed"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_04.png",
+      "sha256": "3d3f62a44c108b54c91bf09be6338a8b9a55361c9ff57f6d19d60a34f2a92aea"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_04_mask.png",
+      "sha256": "136ab7a2ae00d2cb4b6d6e6279dd8b2e2fdd896e40d4c1bf406d49944755fec9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_05.png",
+      "sha256": "5944124f22b7cf4a73d11b87b8c2ed99fe54352bf76769e4d3cbca32a71aad4e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle/SE/SE_05_mask.png",
+      "sha256": "7441ba403055ad15e227e67d8e350f8c411bedce1493ee60a8e1a4e628bf92d3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle_E_animation.apng",
+      "sha256": "f62631619d6098ac1614d0352c55d93dda3745f4acdadacc41198c4418465785"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle_NE_animation.apng",
+      "sha256": "e71f3471e59ac33b3e903518775453f0674be10ab705dcb310292a7b206ca93c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle_N_animation.apng",
+      "sha256": "481567247e83ec4df274f462697ba270c501ac01ef422761718abcafac47b221"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle_SE_animation.apng",
+      "sha256": "d7d29f30ad0a636a1c20bb58b8e168f7a58002d16f4659af0d290fed98c59adc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Idle_S_animation.apng",
+      "sha256": "9a303b080d179a0fe94860fde16ee81f52b644e1e2d97d5c0e43c67ea458c3e6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/NE_placement.json",
+      "sha256": "b19f3acb1e9c8c8c5769b996f03f8734ef426580c41875c1d8313af42e40e6e7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/NE_timing.json",
+      "sha256": "b51a74ac9b20c8423112c3396c5dcc387e13bbe7d37ee690e04b2c379b339318"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/NE_verification.json",
+      "sha256": "6ab910cbe430ae519acf401775849f3fb7b170b83d121a2a10582856ecc6435e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/N_placement.json",
+      "sha256": "f312c8bedfd5b5116ccf2fc03f4fe05a4f0a78c9a1a4427e2c0d1d9d7359101c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/N_timing.json",
+      "sha256": "46b4a4412d94208c28ac8e07c1f50c2a8f4918bd94ebe33980ef33af60f03cf0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/N_verification.json",
+      "sha256": "515cea6c08fd5a980f9c35b85ffd1bcfa09e64948db0f89bbcfc75e0c289f499"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/SE_placement.json",
+      "sha256": "9c209fe60e49f68c68a18d1a734ec819045e05659ae1d2a176ec8415ec72092e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/SE_timing.json",
+      "sha256": "c40d98ee38dfdb268db254290a13e9dbbd854526fc6e13339a0c300d0791b648"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/SE_verification.json",
+      "sha256": "4a6e9677005e331e0840b7c28c200beda6a81b0665deef9ad85e6ac83f393bbd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/S_placement.json",
+      "sha256": "80957355ae17dc28c5fedf0efbcb6b08c6420e6f49fbf4dabaff5f169e158da1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/S_timing.json",
+      "sha256": "15982f156d4d9187e14d9b286868ecb4ac287541920c0502684acd126f240caa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/S_verification.json",
+      "sha256": "2f48cf30d7331273c8011eac2cc7a04027b22d85dcd20057763d1523b59675db"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/team_colors_and_W.png",
+      "sha256": "570a49f608cce606411025de586cdee40856de2f2026404ba598bbd435e4bd04"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/timing.json",
+      "sha256": "d2ec2e5622ccf6bacef49bf668d06e2f10644536e6bd465ce83f67944834fa9e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/verification.json",
+      "sha256": "bdb407014ab269c5ff188c46d762602d3d7d933ab3f1be5f8d04572c8241a80a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_00.png",
+      "sha256": "5120e3414fbd7317804c1cbf319439950f0816b41d151b07a2ae1eeb48e351bc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_00_mask.png",
+      "sha256": "97823aff26581fb94d46d8befe05f6c09d28d9947697b11f9056b3126433bf6a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_01.png",
+      "sha256": "dbb3f496f891508cda0049d95c93a5a023f28a46213fd25bac908852f65193fc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_01_mask.png",
+      "sha256": "5bcc5a264a9d383b9a61970782e7811f6027dbf5bc54b73215279312ac080bc4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_02.png",
+      "sha256": "4597a8dd3acdb89f5fef7c9b99f246147d7b66ddd153741f6deedce386edf73a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_02_mask.png",
+      "sha256": "925c8f9a502aa8de47274cd9226225e8c6867246022064fca24766d9ce17b1bd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_03.png",
+      "sha256": "20e13b00130a496d6a55361645ba84e2eb93d7f29b42aa5a03cc3ead60ee6603"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_03_mask.png",
+      "sha256": "07c97e51b2e6bacac9a2ce1ec52cde44d0b51a0e6a0027a5df928df58cfe1b58"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_04.png",
+      "sha256": "cea3770bec00172a473cccda8e7d6e0deb22125573a4ebd6ef8bbefe3d35ab07"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_04_mask.png",
+      "sha256": "35687cf666fd96b9e7e1c6ac7e11a1d0c59665cb85705397e8f5c3ba8d0c4e2a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_05.png",
+      "sha256": "69a731b94b63403e39025a34df08db572211ca5ea7ee185762a44ea89d029e03"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_05_mask.png",
+      "sha256": "ba454faafae0216e7429606680bdba6a85e8b0e7949f4dfd69ae1169ae0eb57c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_06.png",
+      "sha256": "573848018346da402b4a5b8aaac95d2a26720e0977f91b672a905b09e1dc6f2f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_06_mask.png",
+      "sha256": "30b1d767e1c77be7815ed4f071c62cc17be2f9eb433e7cb8b31f36a2b91c7c9b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_07.png",
+      "sha256": "a48c50ddb48957a52ec912cc604c18a0b06543c4b0cb187c904e6b1c0eff0e37"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/E/E_07_mask.png",
+      "sha256": "9b4c9f424d0d9bb361dd814d75af6403fbfc92adba19a7f2d833e91d80252ce9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_00.png",
+      "sha256": "0d18622b9e1b5306c5408e2cc074b528dbc6d6afbb0ea6e83a610c1d2d72fb3b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_00_mask.png",
+      "sha256": "affb68b7b4a77d17e7b6cb188c64e05162cc527fc4e2b47f21cf6548d43375be"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_01.png",
+      "sha256": "1d91869ab0f2b526f948d8645e2eb830c69e0d4dec906e1b165425b45491e192"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_01_mask.png",
+      "sha256": "92f75035e73eb547f75cc16f7581e83642fd8e0ad96a1da943130e5fa1156158"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_02.png",
+      "sha256": "da0a29d69d9b1f47c998819cb066144e48dc18958b6a54a1d6e2310194133ab1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_02_mask.png",
+      "sha256": "19ba0328b375a785082b5f202ee8d86f219a631af5efa96a1d7e4bd09fd9c849"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_03.png",
+      "sha256": "6c066d9678996234cda5b43547c58d835584d5f2cb512201c982df11ac476245"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_03_mask.png",
+      "sha256": "3fe156d1779256a9c94c98faad41407e305dd609ca76b0a9b717c7424ccc06be"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_04.png",
+      "sha256": "9f5d35971ae5e696169fe0d6e5df96b97af62c5a5b8c4ab776d7571718b8c2f3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_04_mask.png",
+      "sha256": "5e5914599c90a82181935ab9f86e3fb6b0d164dad546d2d568b91771fe8209d0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_05.png",
+      "sha256": "2bc605f53542bb071bcf091545d456ac3c772931906eb8afdb563fcd5b131766"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_05_mask.png",
+      "sha256": "ed5dc7fc725d5f5de2c90b3c5e5828f9834d0d8dc7dceb3c29bb5598d43701b6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_06.png",
+      "sha256": "a89a5077c1978bc20ba09b9a1ae5a83d4bef633e8b4202701a84a419275f1a81"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_06_mask.png",
+      "sha256": "3b084edd155e97b6d9dd0642d7a272723d83ed2181fb26cea9391e50caaee327"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_07.png",
+      "sha256": "0c0c34eeb7654e7080cd3547ac923e10503686d74c576db7b1c6e7af21b64ada"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/N/N_07_mask.png",
+      "sha256": "e63512a7d116800fd8d421acda42fda5121f00b196f32e13af98bc727c781571"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_00.png",
+      "sha256": "03bf86be2dda993d7f802f04063f6805be95b4dd085d805062855b321fd39aac"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_00_mask.png",
+      "sha256": "6084b25a0e913ea96d20d3d642090056d151ef0020a7d88cf0f5b8cb41880277"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_01.png",
+      "sha256": "e07ce1125a1c693c6de20e387f0dfb4822470a2342b798f3f4f989a43b8e6575"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_01_mask.png",
+      "sha256": "29c2ebe1b4ecc729343770e00e18ec4417274c977cf83176a61a75e529743670"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_02.png",
+      "sha256": "18fd4dcb6b16c734fa96e432603e0438b1acde423ff5bf95bfbe9976341b24de"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_02_mask.png",
+      "sha256": "7f34c677edf702784c43f6d1dd4bb1a902fbb14e517172dbb8b83615ce8d3544"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_03.png",
+      "sha256": "6edd7539136b2588639855137e5bb3d5537db873a2bc3e88945568efc89f0552"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_03_mask.png",
+      "sha256": "25a6101a7e7d0cfab7735190506b39e8aa57cf455b3ef0912df5451c03e178e6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_04.png",
+      "sha256": "b9495454decc57049931fa049d86d3952dbbaf8b664faf23107a501eef40d030"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_04_mask.png",
+      "sha256": "fac71f03d391013d1b1ee10adadc081f4c23fd0a99485df11a8be07779ed8168"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_05.png",
+      "sha256": "16e8f47d20d366a2213f238af6cd4cb13bc305787e1bbe04871c6a5d88df4f43"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_05_mask.png",
+      "sha256": "3ec8b129115a7fed98ff9b27c485a4099cec8c2b653d9957874e03447ac1bf74"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_06.png",
+      "sha256": "7741e0fa1328461245ae3fdd28e05a8aa27c3a503124f7a6954a56efa4852d40"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_06_mask.png",
+      "sha256": "9e9976fbf39fe825f68d9b3dffd04b1b9c84a778eafc9484dcb5c3bd07d7081f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_07.png",
+      "sha256": "cbb9b264159dd4e14d18404633285f6e837ea9a5c1e38f197c84c8a5f853b353"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/NE/NE_07_mask.png",
+      "sha256": "57bd6c7c124728ead428ee89cdee6e86a7bcfe2d2d8d598a3b63da76f409206f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_00.png",
+      "sha256": "0475a209c0960a7954090868ff73f28f7deca9d9fa223542a8e4209536fc0c46"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_00_mask.png",
+      "sha256": "61f802800af661372ea10511b6ce9757bf5d8d17ed7265b583dfb73f14ac1878"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_01.png",
+      "sha256": "f1e173c906e5983cd30ca8c3340c14f86bcece68e444f21465288e64e8b9f80f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_01_mask.png",
+      "sha256": "e2c22660348d7d2439620f0a3513ea7bddb8c7d12064cd58be4de79e93d24658"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_02.png",
+      "sha256": "535f3b532c02a1dbc83799480917897e343fba86fb3921657186218561cc354c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_02_mask.png",
+      "sha256": "5cfe12acdca698c9e754dd96370b6eac27f273d528a49fdd6b78ecf82d58d1dd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_03.png",
+      "sha256": "b0b83c07154d436d4d350f6d62cf997baf3705a88011f65dd2399b074e7dff72"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_03_mask.png",
+      "sha256": "c937ba84972e25be9a4992d6d95750079b12c947474c7d10018998bed65fd66a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_04.png",
+      "sha256": "39a8359c7464923f979ca1612e54d4df38b98ada1fe63cf900afada238ad9a3f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_04_mask.png",
+      "sha256": "9828edb844cc24ba72c913220dda750793009db2f620ab39fb276c275675d6f0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_05.png",
+      "sha256": "1d25331487a382bec7e523d2c850010f61cf193e24f4511aa7ba917bcb32f826"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_05_mask.png",
+      "sha256": "4021927f5039f4c0c567092a2c82117f273e36d9fbd3040a15e9a56c848ab9bd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_06.png",
+      "sha256": "ddfe2ab514ee257645c8a978661cbdd24e02e9fbb4b8a8d971dca02623cc27b7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_06_mask.png",
+      "sha256": "2a802643750418f53f1530c2dacc56dacfe8b358801dad1244db04061b1ad66c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_07.png",
+      "sha256": "b0cd8376a69b996b163ab0460671d7d8810a9742b3088c6809f0440dbbbc63c0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/S/S_07_mask.png",
+      "sha256": "305ef432b8a0b548aa86a6131b2f539524110bffe924ef00ec80d7404cbce6c6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_00.png",
+      "sha256": "b45250d7166ec78e95f636533b384e56b80dbff35fd9f27819bb2974e51b2ad6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_00_mask.png",
+      "sha256": "9c480c77769933bbe01ddb21ace9abe5cf06d9ad1c529655c42302ca63ac3cd3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_01.png",
+      "sha256": "4aad49f3e0b341e2a54caef8899ec091502a4ae069e54257f4e0fc301cb5f39a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_01_mask.png",
+      "sha256": "de1f6a06f0f6aebb47140886e300047d70631268a80d5e2c5be7e078ea1d5b51"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_02.png",
+      "sha256": "8e2c93bba8d10ee3c0ef51dfc6e71ff692250a37e82d9e2f82d3e1510790876a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_02_mask.png",
+      "sha256": "4d6da9c38f7b7a1ea4b02533838b2a982ed190b23f9cbcfbf6d057d0a44f560b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_03.png",
+      "sha256": "e9cd3d23d48aee3464ebca77e5b869fbfe40d270771f917e25a731ef1de50798"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_03_mask.png",
+      "sha256": "32da0f47724b16ea0c3ea50e8555b199b526ee7d88a3e9e1e848d6b7504bb61a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_04.png",
+      "sha256": "b946afa26fc7fa23870871f9c6e70b328d9f5ed3ed677892735dcb9907ad1cab"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_04_mask.png",
+      "sha256": "5256d3120a6448c50831ad8d9810df7dbc2f6fd971da542b8414805de9e35926"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_05.png",
+      "sha256": "a0d5995845b0aa773263d22a92402c9bc7db6ccf55fbdb30502a9ebbbd269b6d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_05_mask.png",
+      "sha256": "454d509a021fb3aad28a5e99d364bba3b35a0e4d3d4ce63118761d0a0cfe6a69"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_06.png",
+      "sha256": "d3a38681296346c37151a47d0fdaa3981c17d971512c1c0a79c803ad2a78533e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_06_mask.png",
+      "sha256": "44435586796f087de23950c4153928ee8f81c5ea10288b00cfefa358bd5471d6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_07.png",
+      "sha256": "3f363a00cf7e808f79a8e64562e9f979069ce66b5976a13d1513e9e4d94b61ef"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking/SE/SE_07_mask.png",
+      "sha256": "1a6d97404ed4d8ee3ba23d2c03c485908cf50b4833d7a22905e55946b61be91d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking_5directions.png",
+      "sha256": "191b8e37199183b7c579d24a90f8b6a6e25f50c5f114a928860014c90cd86914"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking_E_animation.apng",
+      "sha256": "3564ec8d35c019751d8fc7a6296710e33d1487cc211de156d26784ae8b905e45"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking_NE_animation.apng",
+      "sha256": "5e2b32f2e6fa3eb099650273c28f8422219ca1662f03959b159d4488b6a420d3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking_N_animation.apng",
+      "sha256": "726ec5ef79355d34ea8674e5a994fc2c210e0397a1e51f59e2669eac08db2f89"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking_SE_animation.apng",
+      "sha256": "086c3c0cd77ecf9a72446b988889288307b2203af5ed55a9b59a6030848f143e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking_S_animation.apng",
+      "sha256": "6b1acae39c66b223f428ca30cc738fdc91aebedbdd8afa34dab3f5e354d01967"
+    },
+    {
+      "path": "Outputs/NpcField_v2/leader/Walking_W_mirrored.png",
+      "sha256": "351e001aec98a87953af3ba3abbf13a7a2d7ad23ed54888e19e3dc2855bcae3d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/map_group_preview.png",
+      "sha256": "48f8b54aae9f08bde142d6a4c676c687504f14602f3b5fa01e87f40343aa590e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/map_placement.json",
+      "sha256": "0630484d8d21b38254f32f48fab997f4749b29f2a001106266bb840e6c466d64"
+    },
+    {
+      "path": "Outputs/NpcField_v2/NpcField_v2_preview.png",
+      "sha256": "6e9bf7ab98acf0b24702e2fa710d87b6ba982dd6cdbf7b7d87b2446b3650679d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/pipeline.mjs",
+      "sha256": "bda6a8565080f5d3d95d2ceeb29c71c1e932f4405f5cf8071ab16ec25b53dddc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/edges_light_dark.png",
+      "sha256": "4b1843d3e0c89b0229405cb12a86af21ac1971a45386c3e01e616a4248e5d0fe"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/E_placement.json",
+      "sha256": "9730b27d9d0e0ea5cfc18117c3cb3ace95651873cdfd57b7336f8b6fd6e10d1e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/E_timing.json",
+      "sha256": "4840864391052b828d7718a03747dd7dea1a13aa10fd24ac4643cccd3d607857"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/E_verification.json",
+      "sha256": "a0efd641a33eb3a2451559bd00a0bd7bbff15453d514962a117c09baeff49f00"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_00.png",
+      "sha256": "ce4883bf7b202ac9679a5bf33ea8e707d1aa890460e36bbd5f7482643d85523a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_00_mask.png",
+      "sha256": "2d88c155714a0107af30c830f94cda4c665bdeee9cca94187a0b547cb6dbb6ab"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_01.png",
+      "sha256": "b63c2565460c66db824156b83a3f50af75c06f9665fc93bcfad62ec0b8fdc121"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_01_mask.png",
+      "sha256": "3173df2b7afc6afc36095a3e2a89bc240dde0b9be3bd2f73344a0bca210cfacd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_02.png",
+      "sha256": "2c828af8fa3bcf903c3dae0a63fceb7d1ab78e87e778c4a4d22ee8eadc4168f7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_02_mask.png",
+      "sha256": "17fee4143dbc1d49bc6f045359d5b7aef289fff6b609cf1a14e3bd70ccf5cedf"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_03.png",
+      "sha256": "5b50570d3a14406b4822f683045c28226412b3a5ef7dbd0680e16b7b7c1f395d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_03_mask.png",
+      "sha256": "96e4a69a6710e37ddbd1002c874f7e461ebd533ddbcf3f480a24c0511d22f9ed"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_04.png",
+      "sha256": "578b903dd6482fe2252a37830c6f7bca1517be67fe904a2e4f9aabee4a18c2cf"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_04_mask.png",
+      "sha256": "7f962748f4ffde2950378d0a977d9a00d32f2d79e66f1f0f1333e70f9e4ca431"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_05.png",
+      "sha256": "09cb99dd2504440d227f3573db9711d9cd914175043a662ea18abfe9af9c7516"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/E/E_05_mask.png",
+      "sha256": "9aee431d305efa9462ce1cf9b1e06559da299e3f8bbe79455f7538be72fa053a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_00.png",
+      "sha256": "3d7cc018b9fb60574074e1a68dc402078efb7020b2386438d2ded74f36c5d26a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_00_mask.png",
+      "sha256": "22d0f737c88c57eee1e3eba296695b9d313e73ba365799de6ddc5d44769dae3a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_01.png",
+      "sha256": "84ca9d839384104e8a1c092092fe95b1cb9ce97a3f897deded224fd3ce0fa531"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_01_mask.png",
+      "sha256": "b2287e37d38b545f788aaab584200708bb89d95d2474ba5235ab273b244f88a1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_02.png",
+      "sha256": "ba162b96dc22379a6d03ccdaac0e17a427490626739869760ef0007a4b300c3e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_02_mask.png",
+      "sha256": "753c535bdcf55cafd3b92ce805be109ade87a33202094e720d34b072abe64ef9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_03.png",
+      "sha256": "73e4128eb360d8e0450f69358482e4331b789a4e680bdeaf6e368b38c71784ab"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_03_mask.png",
+      "sha256": "8e23425b1cefc227a24842c710a0a9bd04fa653473ac73e5b44a66d5a2353e5d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_04.png",
+      "sha256": "cdfd7259aa42e90d998ebd58fb7f21f865fc9f08b9cc82853b5429a929edb2fd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_04_mask.png",
+      "sha256": "b11653fb99be5cff49abee8eb9079fc722807761fd4ad8f7d61e8cf08d74a4d6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_05.png",
+      "sha256": "8ed31b1fb59b0d57cb3b85134b6e32220f2b3ae0d92c55f9efc385d087a4902e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/N/N_05_mask.png",
+      "sha256": "e7e1c83fdd033f754deaab5dcf8bd60021f8589ea568b70602705556dc706901"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_00.png",
+      "sha256": "de13af5fde359dbc535eeaab370bda87cbaf29c7421af7c8921097d72878314e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_00_mask.png",
+      "sha256": "14180f1012a0d51cd94829bf478e3d34b5ab6bef58c55fe97f76d45d8dca1489"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_01.png",
+      "sha256": "1eb28c8327392881fd9a8ed353ffc7372544019e88cdd5bb458346ffc3b42f77"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_01_mask.png",
+      "sha256": "4ee041f7cd0ea0141a84a9e074eaf57a6f32ccb2b4ebfea69a012102d027e227"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_02.png",
+      "sha256": "cea354efef7042ae941eb37f8f9fc319c6a952e4f798bf39fb24ba6ec59e9250"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_02_mask.png",
+      "sha256": "db00facf64c9575b5a36139b86cecd856f0508834b562fc77084ed414b6e5a28"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_03.png",
+      "sha256": "0f798c84bc95a8620533fd8a3f8e7f2dac2ba86f6dc06a727b1f0c46bfa7a894"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_03_mask.png",
+      "sha256": "0b185d8b5f4a59349cdde378eacb9c56daec9c53216edd9d2c2817712277e8f3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_04.png",
+      "sha256": "ae72ec0dafa232cb292f5a44b70b86dd12242335f9a0611eeaa55658e74ac15f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_04_mask.png",
+      "sha256": "484499553bfa24c0102f5e0098f597c1a1c0ce765c12502f3528cee46a0103f9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_05.png",
+      "sha256": "afeb0bf70b00196affda402e04100d858789778ee62b971ad08699154be322dc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/NE/NE_05_mask.png",
+      "sha256": "da1b5f8b4901f802624296d2ed992e6fd8ba5d0afb6dd35866e98fef6b2fa5d9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_00.png",
+      "sha256": "85e8aa7ee00d740b7ec046670ebb337196b2f7f8ae1c794e07042e262525b9de"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_00_mask.png",
+      "sha256": "32fff91a2c349c4d7333522e479b95b59fd28d8c3e8c2cf4beced862b9e889a9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_01.png",
+      "sha256": "71a8264bcc2d7a52f9da1f60fbd0d4e9f703ee96dc7d9449e9d438afe0381e51"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_01_mask.png",
+      "sha256": "33e07edb6ea4c8536cc693499c51b6cb6b60621c3db0ce739bb17b2cd496a89c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_02.png",
+      "sha256": "a3a248ab3594b4033a0cb414689eb15a807c65fba46fb4b44c6f870bf50a4d0f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_02_mask.png",
+      "sha256": "d51bba7bc24033d96f8d808c8b3df5be01f970feab309a515608ead9f77d432e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_03.png",
+      "sha256": "89e677047d8df5912f2b9a75e44de8494b611bc3e98280ded7fbc3baf6b5373d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_03_mask.png",
+      "sha256": "ea702bdac8c8bab27d846fd8df7dd1ebf3d31a6add16cded939b50c4160e329e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_04.png",
+      "sha256": "217f81102c94996bb744dc162f49bda428521208f6ba5ccc106374cb9259fe0c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_04_mask.png",
+      "sha256": "4dbbc157b4e2718cbbf3969eab8d567ddcf4440618dca1663c1710e3e40dbd73"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_05.png",
+      "sha256": "1b5e8ada4d91195ffe55810a9c6a1a1b6e8932ff9fa3f885d02e92e002bc12ed"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/S/S_05_mask.png",
+      "sha256": "04888b8a5ca967885d15275537ee8ba15504e7cd6a82fb0af9db4ada96db2bc0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_00.png",
+      "sha256": "d8c382f30ae119cefb066f4a68b3ec5d0f2cec9e361efedc0ac5e956bb4d7b09"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_00_mask.png",
+      "sha256": "b4a98d45652e72ae5fc7e69b2f229b5bab5ab033850982f37c6f4da3ba44d5fc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_01.png",
+      "sha256": "783f2a975abfd73442efb500b04a9aac3b897fdfdc5564a5f402e4ef9e0a9f12"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_01_mask.png",
+      "sha256": "8ee799dbe2f49f70bc0c0c900cecf088d62310e4b26ab19fc5db476767d21a4d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_02.png",
+      "sha256": "4b4e6f7e9fcf30df5b88f68e4b7ced34598ad12eb598538fc048a4a6e1cce8a9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_02_mask.png",
+      "sha256": "1588c953f573444bc57f3e0c9a250d6cb85c37cb3ff893e99778efa6148d4f9a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_03.png",
+      "sha256": "0dc6a9aca5ac56e9b067d2ea16abc5ba3c471c1d4bb519c3d42ddc0e1c6b313d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_03_mask.png",
+      "sha256": "cea003c1e25a97811e3c3df487f3a4a33b691762b057fd00f73d7401a09d24c8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_04.png",
+      "sha256": "282b75c4e10d316058676b60d9e4e77d67674bf7ffc1678463dcaa910e86b261"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_04_mask.png",
+      "sha256": "fc85cc8233c2551ab9c690ba426eaec331e0cdc35ebd92a1e7f2aba8eba172be"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_05.png",
+      "sha256": "25edadb8919d0a974d7d1eb6f5cc80d0013a920215ef802997876dc944154298"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle/SE/SE_05_mask.png",
+      "sha256": "c7b6e014bf6d6b5174f92ec1d0152b3a4a14b9dbdf32fcbdb1fe709bbee22e3f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle_E_animation.apng",
+      "sha256": "23a02a990ec810aac7e6f03e6b1f5d5f239f271f5844614d41a20877c1093df9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle_NE_animation.apng",
+      "sha256": "8710ce2fe6e55f811dea4a8b2eb31be291e3eaee12da19aff6e61c098b86513c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle_N_animation.apng",
+      "sha256": "8635f17ac4ba2ba1c75a16621d630a5fd102118aa46fb9690e408d0644aa4611"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle_SE_animation.apng",
+      "sha256": "2217d0656d5356ed463d1c2ef5f4c0dfd4b508265180b6faa5393555fb441e04"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Idle_S_animation.apng",
+      "sha256": "399a05cff18b55841fa819781dc3a6c7961e11ea78d0631d8e13780f6eaee9f9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/NE_placement.json",
+      "sha256": "4de52b8b6e2e9bdf3d86cb137faca51b85af119912e24f916365d65c077a6192"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/NE_timing.json",
+      "sha256": "9d43216ffdab50c62fd6a9acd772e11cec2fa092af43fc71088da88bd02aee91"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/NE_verification.json",
+      "sha256": "5c2fb4b09cce57a2abb9796b7e1c327ca4d73aceb073d156d0739bc6de7ba35b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/N_placement.json",
+      "sha256": "834e1d5a0e2bb2cacd1aca1b43383b45fce948b45af79a29315040713fb933fd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/N_timing.json",
+      "sha256": "d3939bfe631c8fbbd8a78e47086268b8f9e7cf2c41dc90fd0387d6020aa1cb04"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/N_verification.json",
+      "sha256": "6bc40470a309db88b7e6444f4773e0a9dfd55aa69770afbcdb0c96692d4ebb97"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/SE_placement.json",
+      "sha256": "621e95cfc429498ddaed1acbcda4e4e4a1e040ad85cb8cea47644f5f33ee912e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/SE_timing.json",
+      "sha256": "3777629ece9c7af45a54846bc863d1058126c70be28a1ca5c0aaf0556caaeb8c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/SE_verification.json",
+      "sha256": "3d7a4acfcceb12f09dac408583b0b84b2d2ef3a463163df2a3499830dd49430f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/S_placement.json",
+      "sha256": "9c60344a868fb35ade62bae1f321f31e19a366670166b2257d870c6c1dbe0a91"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/S_timing.json",
+      "sha256": "21ed293f2931e76c4f1cde8969fbe1a295bb52c3f24ba2497168209c98eecadb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/S_verification.json",
+      "sha256": "77ed5e0c6dd01372615a1c54fbb7eb17a353334418b5b80ab9d601ae04cd8fe8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/team_colors_and_W.png",
+      "sha256": "b14969d9b6fba74d237fde59e56fb5b630b7cd9652acabb3873cefd01adbef55"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/timing.json",
+      "sha256": "2e6a71bb0797bb263b73746275d09af300c75ee2508167ed74f8055e9b00b58b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/verification.json",
+      "sha256": "bdecd0beb987d605d3ad27813a75ffea5f2a14eac3af77b1991064d3a914b7bc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_00.png",
+      "sha256": "b0adbb3e3eb06f2bb6186200f8ab0f4f0bfcb03b9327945f8c97f1d683c61d44"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_00_mask.png",
+      "sha256": "0fa617399213c9feea8cc7f30be41e236b3cefe745552f042694c7a2cf7d9d8b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_01.png",
+      "sha256": "fa54fc10d39a6ce71282bcf1a8ec8be46091ff7d44fdb033785316db402c27ae"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_01_mask.png",
+      "sha256": "5c403c95aaa06f2067523b87e0fc22151797da5a61a54b8466857b90a6830e16"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_02.png",
+      "sha256": "d9257fa9893b3b3420769bbd694b0925b4861783e8645ea94bf9b3acc9843aac"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_02_mask.png",
+      "sha256": "2c03f4cad514c67d4ef39e237de45d398ab0c2bbcd07081601fdf10ead509a4e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_03.png",
+      "sha256": "7f105429c7275ff4cff956959d8b38e25e10a0adb0c05d048dcb529d1df320a9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_03_mask.png",
+      "sha256": "f9eb12d0c505c3a8e0dbde9c1494e55efa568e04512b1c51ab77b286b57e8c75"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_04.png",
+      "sha256": "0301e079e77db396e42c0ba5772ba058a235448f6fbc4322130a57175324da84"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_04_mask.png",
+      "sha256": "e15182acf03e07766ec36237b5b0ca8b0da181c45177c3e90b11d602db8a4acb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_05.png",
+      "sha256": "9098b0786b3bc68b3167c8107c4175f7f58705628a1bd92423cd956726cbf5ad"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_05_mask.png",
+      "sha256": "87656748eac84e3a146c138c002f9bf5917d97308342d112192498015c8640b6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_06.png",
+      "sha256": "8ad90050943f458e59320033508e7e9a10b4865e17ec833645cf8784c831bc90"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_06_mask.png",
+      "sha256": "e4cef51cb0816cb66bbc85f64b14d702f33b6907367dc83da54edc30c6c83cc9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_07.png",
+      "sha256": "70ed8afa7c7d4de159deaee3d614bfba1647044316f824ea078999f3ab67fe30"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/E/E_07_mask.png",
+      "sha256": "c80d6146e304e800642074368a9903d76b776da045377207b9932d371679bb4d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_00.png",
+      "sha256": "a3a3c956c075baf3305e5ad04e614ef532c7145a73046f1491af02943502c5d2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_00_mask.png",
+      "sha256": "b73cf5fabd90e61834bc53c2c8bc4cc7ad1531956568e46adba3acbe92cce1eb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_01.png",
+      "sha256": "0f8b58f7f18c7a4a33c276d47c6ee353812ff3dc5e7827d16856d3f16ea781f1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_01_mask.png",
+      "sha256": "6c716c10c92ed8f208aded3c98afa6710c1684319daafe6006fa4f1a51354e4d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_02.png",
+      "sha256": "c6a97585fa8f96500df77ef5704583fd8c2789a4cd507ec2a46c1b69432e3710"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_02_mask.png",
+      "sha256": "92e23a4e4007322dc68ad2802163e2916380577c7158e1ba819fbd4ab29ee401"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_03.png",
+      "sha256": "e25ce508fc7a7cf3898c5945ce0be6e8598abaf1e9854120cbb943c95cc710ff"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_03_mask.png",
+      "sha256": "3d742e29f4549c660d470319cc769d4e64ad841dc873da2670d02cf172954a7a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_04.png",
+      "sha256": "ab107606b1c046283b35589cbd229a7ead17e28e511efe55fe09703c8b2785bc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_04_mask.png",
+      "sha256": "ac2c26b56ccdb1177e8abc826ce04b81c9f85914d3197fe57481bfdcf7a0a060"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_05.png",
+      "sha256": "f4989d7025f64fea2ee070667d7ccf54b40993e3e2fbee35267b37c892304069"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_05_mask.png",
+      "sha256": "66f87399b65918b0a95acf50721d4510479f70bfadb4c0756069a15357e04a47"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_06.png",
+      "sha256": "c590f6b9bda677021ccfc2bb815e88099de4cf0f5a45266d1fd0ed64b0f901e3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_06_mask.png",
+      "sha256": "b86b76e5d1cdf80f45e07acfe1fae7eb92ee35a317ac4dbf6d5a3a36983d66c6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_07.png",
+      "sha256": "fc151a7fdef7e8b6ed5b0eed7efc64c88b3b22517e2ce7fe9bd7196158a3b8c9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/N/N_07_mask.png",
+      "sha256": "2b7aff10d90f3ee4551faf1c1f20d9f06509a6844bbe705286553709e5464ffd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_00.png",
+      "sha256": "984256868c9cd123b5e66f29afc905d67053923f895a2ae6d0b5e15aea689ee6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_00_mask.png",
+      "sha256": "4cdd13b33871c5f4133e3c4f97d1772d79f8c7863b36d9630ba568800d18e9ff"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_01.png",
+      "sha256": "6e49ef5f4c4a7e831ef0b8cf50675b8619336c0c59b795eeaedcd86dd1138abb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_01_mask.png",
+      "sha256": "47352f0dfcbdfbc881dde6d8cd711ea394ddfb9deca0643192c4c13341308aa3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_02.png",
+      "sha256": "167ca194cdfd7ac11ea97041995aaaadda5f38d3a5af938207ed90fac12df175"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_02_mask.png",
+      "sha256": "32395c1eba3fb2ed7350cab3f99ffd260589e2f520e1f92d30ad3ab72377d7b7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_03.png",
+      "sha256": "f9d3c0d00efecec7ed52d8f395ffa3c867eebb7c15c34c228160a31d6e58edd4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_03_mask.png",
+      "sha256": "161c07ac9fbdecce788702224812616190043bf8f70d9f43f4df0e6dd315c244"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_04.png",
+      "sha256": "9242fe3f67fae05094c20a92188643b70c8f245370307a99f9834bd51112a292"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_04_mask.png",
+      "sha256": "64afc0b2d48628f9fed52b8e75de4b089219522cba530dd39eeb685800c1f484"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_05.png",
+      "sha256": "4ead2738c9bed3e3f42f2f705b1e2e5d771c9b369869990866aa4072543fe677"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_05_mask.png",
+      "sha256": "f9df44c144c4a13a0cd9e5feb3a6d2949a11bfec1026dbca6458b889f32517a4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_06.png",
+      "sha256": "07a4982c2f797870de3ee280dba56a1ef019a4472d4f0c8e4837c6c497774524"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_06_mask.png",
+      "sha256": "c05e5fd1e4fbea4cab9641e61d96908f2c9df56edfba05a80799937094dec267"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_07.png",
+      "sha256": "2465b30020ab96d44a226b518819ab6d7ad859a1e90acf1d22015669636bd19d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/NE/NE_07_mask.png",
+      "sha256": "85a16e86e8ded7d05fb1ae6153ebd32d7ed83167f31ac952bc724781c8123ec8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_00.png",
+      "sha256": "d99e579f244480c61797e6e96d76b9a194781439c0176942a529fd30b498cda1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_00_mask.png",
+      "sha256": "54f0416bb6c67688ec580f7b56fd5c700a0dbca9a503cf76006a3a55e43b316b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_01.png",
+      "sha256": "0855c099b91cb084aca7a2469a31c89d4c31fa14721a03841230c5b35bce5b98"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_01_mask.png",
+      "sha256": "c0e33cd833836b57835090b6f5a08fbe610974d3eddbbe4cf4415920ed232b32"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_02.png",
+      "sha256": "6cf4fca325266606f5a3b7572503f30ad876a1f0387c61704fa01e3add5c1a23"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_02_mask.png",
+      "sha256": "98e141ef8c169e2a68e25acfabd5bef0cfdf1b25918394518825c0202b6d9513"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_03.png",
+      "sha256": "2e29f3098bea48d38e1edb4b482d16f70ec72243a8d443b3c374c51a6ce08903"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_03_mask.png",
+      "sha256": "fd7acc8a21bee61d7b7bf17ba2270080754ce669685bf4d1d6a33662040cb2d5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_04.png",
+      "sha256": "52536d3ff736bff78f8b126113470363c824f098e180983420555360c3f76f1f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_04_mask.png",
+      "sha256": "4bf717300f86ee2b2391d635bd35fc43107c52233b8fe72cad96207a122b49d8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_05.png",
+      "sha256": "363a84f588b148f064ee36818aa2dc5a63fcab849bd2bb1f249459150ca4c19c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_05_mask.png",
+      "sha256": "a2dee741009ae89a4cdd145a60375abf63dce265234d2caa955b031cde9bd3d8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_06.png",
+      "sha256": "ef10a09901a5e15e5f4aa1980389e370d2a7b096462b98b22e5bbe43c6ec2f0c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_06_mask.png",
+      "sha256": "38d514b7ddd3dad9abc0960ad5c95a0fe4c0ce9cda60d0a9d170c0b003c8e5c9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_07.png",
+      "sha256": "9cf1ddf7a35951f25185d4a0acd190fab868eb72e6edf06dba6b47a30924c65c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/S/S_07_mask.png",
+      "sha256": "d462cb661fea2b697829a364a7cdca6cd62312c858a16e6cd206e355b4f5a9f1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_00.png",
+      "sha256": "a99914650128d2dacab6a702d8709c050cb10b4c35d5b27cc3c43c23c248c869"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_00_mask.png",
+      "sha256": "e1a55ad2666f200fb1215f7eb0bfe60cdc6b41ad91c69698118490c098639568"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_01.png",
+      "sha256": "5ac4e2ba5ad93864bce01f20a048ea00b2542d222b390ccecd15f3ea297faaeb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_01_mask.png",
+      "sha256": "c486a583b544c9eb0ea325ec86e21a69dcfb087e888427c73a073409af47c0b3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_02.png",
+      "sha256": "0d1ce5d28f9eea932b791c4898ca526f9ea54f61cfb4e836e17fa9bdb3de9f56"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_02_mask.png",
+      "sha256": "6d69b9f7df0f34457a8bcf5a7f2ba8f8e859ec89c5a9e4e9e47656e61c29ee48"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_03.png",
+      "sha256": "0ef9aba7445c0bb692011d87440725ca265e549c49e99137dd8c8c64d7f048b2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_03_mask.png",
+      "sha256": "ffca191035af95671a4abe0b0522e4b24562d86b3e9ba5094daf66ea470b0841"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_04.png",
+      "sha256": "a9341879321c60327105365b5e4ae9d542df8fd8cae107d7516f2a63e8b2b13b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_04_mask.png",
+      "sha256": "1c5ac8ff402dad9633840cbae144c5dfef8dc691b2a1faffa9468bdc102d8f86"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_05.png",
+      "sha256": "90a512ac288038806bb0329d40f8cb8ca5126ba631c4653b695d04358dbea5a2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_05_mask.png",
+      "sha256": "ecab7b18eb374bd0d393208bf6c0936704bb7c16ea391aa18b836e92a9966cb3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_06.png",
+      "sha256": "4cd348b772ec069d45cbd1414f6a2814c993e13da5e12ca3fcc5e12cc8159734"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_06_mask.png",
+      "sha256": "b7e7dbf7bd57a00470372461d3e1aa6ef55169a5208839d5b4f3259c724622b3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_07.png",
+      "sha256": "06d747b3ce76682d2cc1c7f17ce4b668f3ecb0b93bb38d5fc05b2be428c8292f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking/SE/SE_07_mask.png",
+      "sha256": "41543bbce557f8736e0e49f1e85b8245fb85b7cc27aa7d83e66dce8e73baf704"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking_5directions.png",
+      "sha256": "0b0e5b9dd4597df0d732407adc38fc04434d6357db0ee8577fffee6259a1f14b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking_E_animation.apng",
+      "sha256": "fee65520090f55b72180e545183e770f7fcbfe3763467ba09ad1dba4b97ae46b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking_NE_animation.apng",
+      "sha256": "098302f4e85f262b0778c2bc4707f877cbd10bdb6dbfb68576e41d6bacf613b7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking_N_animation.apng",
+      "sha256": "5e68c64cb659d75986d3afa882e6cfae03a044e0fb8eb99910374acfa74506e0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking_SE_animation.apng",
+      "sha256": "5c1f087767c854c0b7d3437cb81ad67e8bec4112dc1cab762725f592f3c7eae9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking_S_animation.apng",
+      "sha256": "344822d9e95a68868d808527024aea16e4e5833dfd7a611885713286af3a3253"
+    },
+    {
+      "path": "Outputs/NpcField_v2/porter/Walking_W_mirrored.png",
+      "sha256": "e3261a2e7c1716a44f1be0d5c1e74f9a842c5038a92e0afd3a9dff55555615c2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/preview_worker.mjs",
+      "sha256": "052a62d5e287bc560b7331e989ce83b44444602c83482a4ff0c6185d3363191e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/README.md",
+      "sha256": "3dacb7e80c32096630c075d6e96a6a30979dedae6ead71008a4479f9cc371954"
+    },
+    {
+      "path": "Outputs/NpcField_v2/rebuild_final.mjs",
+      "sha256": "ab824c500ea0e896daf8ce031c3452a043ee033683edbb763525f8ec8135f46b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/reference/npc_v1_scale.png",
+      "sha256": "ce6d9589b5d36c0ddecd543687d580cf5ed4f54ee3745bc37bbe855802114abb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/reference/protagonist_S.png",
+      "sha256": "367c94e2e53a38993f11ac9444840fa09e6fa9871e46ad0f52f22bb93e119d99"
+    },
+    {
+      "path": "Outputs/NpcField_v2/reference/protagonist_walk_E.png",
+      "sha256": "3c4405d6715963b0dec87da2286145e6c1840dd1fef860ce1c34b443899a9abb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/review.html",
+      "sha256": "ce912067dcfcbcd0dddb6b9593305d0112c51ee7f71f30117c2467bb7947d16e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/scale_verification.json",
+      "sha256": "707de03460fbf2ce884fbb4c00423f0a71637fe8025a93c78c4addbff0efdb67"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/edges_light_dark.png",
+      "sha256": "10ea4add90dfcff14e5704cae20b6bf85fe45564f3a863db39202ce172032d84"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/E_placement.json",
+      "sha256": "54b22ad815e88c9a9d8a83ff89e45f20a7e807bd51bc4551685df075e672d0ac"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/E_timing.json",
+      "sha256": "8e675dd605157823132a0c5ad13d2ed8bd05c74e1fbda303b76fe25f82c426f1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/E_verification.json",
+      "sha256": "17ec94cbd69922034374a74fc59726bf7ad434246d194c33407eb8dd979187b2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_00.png",
+      "sha256": "638c53b7fcc76113dee1bbb3f2b4ee116c00d82fde6dd2317f86829e5306bdec"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_00_mask.png",
+      "sha256": "ff8d014400b3fa9a172147b995a9d88f5d55dfff3cdf3ee30ffe20cf97341d33"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_01.png",
+      "sha256": "2aabf1d3150267f065465a14bc77fda4f08ee5bb1934e0e07dac44ba79b6c62e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_01_mask.png",
+      "sha256": "d8d64237b0db3d9b35150e374470a517aa2612186e4bea4365fafc3f6eaa9cc4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_02.png",
+      "sha256": "7fe96521e0f804f2e5c5f7186de35285b0b110c2accaa68e5534390473548e97"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_02_mask.png",
+      "sha256": "e0969be378304e8ae714aba846b630fda865503209d5baf2802bb6eb6d396f72"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_03.png",
+      "sha256": "f6a4d4ac4d0c202ae4368d756e1dc68ca526ef4dba4b7c487e3088ea283050eb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_03_mask.png",
+      "sha256": "78592082afe9f60285eb95ca976a4146de7e6f5b7e16c2c38e5031c50cbb6c98"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_04.png",
+      "sha256": "aadf4e79ba1fc5113f0fbee4e16063ff25f49889fafa28d14649ef18fc4962e3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_04_mask.png",
+      "sha256": "903075f405341d696581500ebb5e9a2f08686c8fbc92080b40f925aabd10639e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_05.png",
+      "sha256": "8dba79624664405b72daecea80ab06ac45fbf4f73904c53db13230cff8c83464"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/E/E_05_mask.png",
+      "sha256": "397dd1167b83d001c356ad1df37f1e96c1fe1795d25f92d238efef28bb2eed3b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_00.png",
+      "sha256": "67b16d92cae7ef3d8637a521ce8a166842a03c0690fdc555f914cb008f0b7b12"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_00_mask.png",
+      "sha256": "3a40748e50820649f9a7413678ef0a36146fa9260c358c3c69d23549a5da2e01"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_01.png",
+      "sha256": "af6507b2338d1d08c722998769a5eea89bd8b2f49af3bb5028bc451f984d92d4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_01_mask.png",
+      "sha256": "fec7567737c033a8c7946be4f1e436a91b1fa304a3a090a9de2df67daa3fe35c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_02.png",
+      "sha256": "729b8a7b1eceda25047dd7f7790a0a8fd1402c477afe3deeb6c05fb1b98ef0ff"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_02_mask.png",
+      "sha256": "1c44be3b51ff98f9ea48218c998cbbba193c622198b4866fab42b05816a0aaf0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_03.png",
+      "sha256": "62cf0850ea3dff9a7d431e716f286ee7ed1991e0688992f58c5464ee1d1ba558"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_03_mask.png",
+      "sha256": "21fe1b792b74c879dfdd0cbc2533cfebc7a06c355bccddb8bbcc70268247fb57"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_04.png",
+      "sha256": "db1a870b6434676ef622c2694ec79326ffa51767e19c7b29407e086764e05d6f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_04_mask.png",
+      "sha256": "d119ec4036c20db0e02ee408b7da116e7b9a28bba9135ea46e52b8002404d181"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_05.png",
+      "sha256": "92fcc5a116a12b1d9efb6a6e0c75715f2d5a6ce1bd58315b381d5333358433f5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/N/N_05_mask.png",
+      "sha256": "68a7b8db80cb85701c8215eaa08d87dafe0841f4f8e21cb05763b9f662aed783"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_00.png",
+      "sha256": "916476aa5ba44d8e3a10c8e2d9b2bf1e43e8888805612bd91020538f847cbc13"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_00_mask.png",
+      "sha256": "71a5cd33b2a13ba87e9d4858f7c0c99fb1c7f0d2979fbf4b66d23bcdc8d8b3f7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_01.png",
+      "sha256": "b858c9beb11b59284ef18710b4951335e1486608cdcb889841ef28b0f79ddad0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_01_mask.png",
+      "sha256": "d1b1a412a0ce7c50a4f7a3fb90abdc8799b9531691694cfd5071e79c454ff1a7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_02.png",
+      "sha256": "88e81c0c146e0bd515d6cd012e25db67b368766b0fbd396ac64e103c5c62b79e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_02_mask.png",
+      "sha256": "d7fdcd7ef1b3767535596cf0ec59284edfc78d627aa52a00a10ab78f84a7f9e5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_03.png",
+      "sha256": "14c7350028a6a8cc56fbf92ec4f3c0b4badb93a2ad2de2306a10e3c0c0a30acc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_03_mask.png",
+      "sha256": "303b6a853ca0d21be25097315379b92373be00e8f3f17043d0932358920398a6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_04.png",
+      "sha256": "9cb3b9075028bc0a1b946b621710e1cc14b969b8e387797a9a3f33101174e17d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_04_mask.png",
+      "sha256": "ba2f31b452ecd3f8e3195e261f0860713d9f2d24f841b7744fcb8a85c9fb4516"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_05.png",
+      "sha256": "0dd5acc56aca31df2adb39117cc3eea7a65225d5b589164cca51828f3ebdf1e5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/NE/NE_05_mask.png",
+      "sha256": "79a60676c839e2d34ae6ca39e6162efb511fa6d61ebdbb115462b58140ce2538"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_00.png",
+      "sha256": "1674c20bfeabb9661c2a465ca6e35399973e14bcde8f12dd6a6110e024dbb281"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_00_mask.png",
+      "sha256": "d5988e7393f55c2c42a65c034965145bd055549d7e0508c960d4044e748580af"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_01.png",
+      "sha256": "a1cdfe3d330f512108efc5926701bdef1e926cc05080656362b80db0c72711e7"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_01_mask.png",
+      "sha256": "76c410894b25aab73fbefe4eed30ed96d591595fd1a20c505c5f4f015cacc67d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_02.png",
+      "sha256": "89c5ec04c98dc898a120bb644cf2249fdf01a5212204a1fc8e9168592e10003f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_02_mask.png",
+      "sha256": "9c3007fc1d5be6c3eb9e14ed3b120ff973bb5d7fa8d03abe9b0b20830425f829"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_03.png",
+      "sha256": "07e5598bd05992a984a1247fe4331b3505817b6587eae3ce52e6c7493770f791"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_03_mask.png",
+      "sha256": "c123b8cbc335249af99c711ed0ec5812d39b7ae571857069dc699378caecbd17"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_04.png",
+      "sha256": "8e67f3bfa46f04c91c10c290b40ddec6737c1f47633c1689633804152bbadbc1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_04_mask.png",
+      "sha256": "3f78598bc9696f5e7636517d52e045c4268b37a903397ec1ce06924fd39125d0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_05.png",
+      "sha256": "dead1eab1155ddf018907bf7a3a0a0eef8fdc5b8eef15f8bcd2011c84ee17cc8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/S/S_05_mask.png",
+      "sha256": "c1f88e64f4e0e9812103cb3e4d241a7d041f371e9ad700a1a88b6e79b6194603"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_00.png",
+      "sha256": "26bedb955c042ae639dcb61ba61ec5c921ceac2c9d1bb65684aebb198b8944d3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_00_mask.png",
+      "sha256": "56334fdd7ba4eb8a07d28eb907ac138b6f31dbf609394d08535638892184581a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_01.png",
+      "sha256": "1649ff61e018b79c15c8a49a6b5bf2ea7b822eb2dc9ad35029ebfbe98369ebaa"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_01_mask.png",
+      "sha256": "37460c348f683c8ccee5f81a4d478f4bda9379cec931614bfa02d48b52c2b3c8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_02.png",
+      "sha256": "f920cdbef7d1e5652ed46e117ae7f4d7ec5e6b1e1e8a3d25fa431a86564750c5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_02_mask.png",
+      "sha256": "1689f0e498efdac23b019c27ac73434fef95948ec11f18c4e2637e9aefe37ec6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_03.png",
+      "sha256": "ae42ef74b5c97b797861451c0f61ffdc6778f6dbc740f604bd04089b7dc93d72"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_03_mask.png",
+      "sha256": "21cbba60f70aded00c751b8e648e243693db5b96fab1f96f2e94d59fd0bb75e9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_04.png",
+      "sha256": "b4f862143729005a496a80f57d84eb90a74b392b98dada230e06caacf9c1102e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_04_mask.png",
+      "sha256": "2bacc660bf514670311a57cc43a4c24ef9f7a2fca201579b6f4ed26b6e5bf6b6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_05.png",
+      "sha256": "1816a3dc0ab33267652aec8e3b1d651641b064985550ea0c569c948fd9d3a664"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle/SE/SE_05_mask.png",
+      "sha256": "156e45471da04347c4919f75e3e0aa6a07b704e4c823ea97988da51d91e09887"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle_E_animation.apng",
+      "sha256": "83c3fabe122ec7b986f7773328ca1187f3ab3ed2e7b11c9b421f367748a53078"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle_NE_animation.apng",
+      "sha256": "9a5deffc81fd241bdc49b6c727da173909ae5f2909b85d99cc9ad51ba2f55fdb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle_N_animation.apng",
+      "sha256": "6fc6e88d5309f2db2946fbb1fae65e859738187302213b48b988003b852ebee9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle_SE_animation.apng",
+      "sha256": "5a61c476436c98cfb3c6b81f0cdc2456d742a2505c5487e63c9dc8870975d718"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Idle_S_animation.apng",
+      "sha256": "8ce3c09160657175e74e83153ba269fed57baee9fdedd0fc99ce7abf5b2e74cd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/NE_placement.json",
+      "sha256": "ee7cce31be38b886a879dc8284819f01d677f1aaa6341553a0a6c9a5f8d88832"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/NE_timing.json",
+      "sha256": "9607420638b8eb1d520ec7991e43f49cc1f63171daccdf440b573e1b2f38ebd2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/NE_verification.json",
+      "sha256": "c8aacb27aa75279682c1a990b1eceb831b363cdde24f00d5c5ece383f1005c16"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/N_placement.json",
+      "sha256": "95f5d9b9fefba76c9c72a7cf9024e5e6cec3abeb9071843f02fc659b554dcd63"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/N_timing.json",
+      "sha256": "155b7757887e5097d5ff0faa39ecaec8a1a38c804eafea69fb56efeb754e0920"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/N_verification.json",
+      "sha256": "85ee773e5405ce37f47ea74a49293eee53e431af1bbc9fff2cffeed935bff67f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/SE_placement.json",
+      "sha256": "7da251370b64687aea40e39c1665d2a911f0ca4da7475d1ec5696d64aa161780"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/SE_timing.json",
+      "sha256": "f2d33bce382680c9eb7212ef460659cd70bd7679f631e8d039d7c866a6e0d7ac"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/SE_verification.json",
+      "sha256": "8f0343e9d46948da30e9165ea806307e6bd07b732a3b4c79a7ee573907f0afcb"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/S_placement.json",
+      "sha256": "d0c83fed32b922023d539730bdf78a669ef06f62a5493a1ceecb743bf06a62a9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/S_timing.json",
+      "sha256": "2d047ad6fba5f04608c755dd38bebc3a4d7ab78946a43c1d809b316df03c5817"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/S_verification.json",
+      "sha256": "f9a62a512d53c7cd2aa25d6ef8b8b8b742e54b02bc7ac2ec83b1d6bb9ca64a65"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/team_colors_and_W.png",
+      "sha256": "bfc3f7b039f75edcf6174bdf406b3309fbff58898a69f034daf76f71b758dcde"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/timing.json",
+      "sha256": "d68811a0cc495ac2b5151bc1053b9987e6812cdfd86978a1ef2492e97e47d1e9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/verification.json",
+      "sha256": "36797ff01330e3544744238b2a7806f4c8dbf8c088f2cc888c80daca6ac7a11d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_00.png",
+      "sha256": "ad89e4b2d4844d0d69e6ba0d6c46c49def244824a8957e614480ecb354f4b9ca"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_00_mask.png",
+      "sha256": "bd7dc0a07e03137d60d33c3103e572e8f552bc6b5a60dc2a0bb7d903e9065ae9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_01.png",
+      "sha256": "f022169d2e671a0ff17c9f46551c9c17670512ed7dcc615b304fe33b52710108"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_01_mask.png",
+      "sha256": "35786503e6fab84e276c37228d6235a2a73a46cfd4ef523adc5e19e8def04d74"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_02.png",
+      "sha256": "e580c110e8f4d2d54d9bb11e61a08a308b71b14a53aac112f373c677e2c57a2f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_02_mask.png",
+      "sha256": "5969ea5a8abf33e34a9afd4949a722710e5f9e4669634be2373455544cd6bd73"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_03.png",
+      "sha256": "f4f143d420df72a9b766098cff2cc83ac70a61457a7ff559d78d5f911ee40714"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_03_mask.png",
+      "sha256": "d07bd3298daa25a670284691641557c6e3aba3027755fae159a007a972821d17"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_04.png",
+      "sha256": "c8ea51ebc93d76709df6d58d4c53563b21ac2432dc6c1d4437b34ffb063fa431"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_04_mask.png",
+      "sha256": "18accf4f12f71770286941dded017b3bf7e68fa3ac8e0c84a881fe352d4b14a3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_05.png",
+      "sha256": "af36f0b87086399205baa4408638068fda9a7b80425fc83a031e08deb64e7051"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_05_mask.png",
+      "sha256": "31c05e92a2f4135d97b9a4ac9e18809b90a311b63a4037f6f031fcd9854187ce"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_06.png",
+      "sha256": "c170d7e6b1fa14309a791bb3328837acf239e4e0e33cdc3011a3f93fdb531f4a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_06_mask.png",
+      "sha256": "72f3b04c982ff1816133b6c90ea378a76ea2f07d74ad4c8a9dbe4598696db9b6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_07.png",
+      "sha256": "fd35ac9874131b1cef64144f90dcc179730ceca76e1dd6e70e28e1d97771708b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/E/E_07_mask.png",
+      "sha256": "049e499dd49e236d7acf22b8b6e28d6324b3406a59c6bfd4130b907a58f0dee1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_00.png",
+      "sha256": "2b9ee5559476501faf88c85984b577abac03b8e8ed43db785a0af48ac6de34a8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_00_mask.png",
+      "sha256": "d669f84feb03f6de5e0f6e3a6213fa2743e5074d1e9dc8ea2029b4a7bc1ed7dd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_01.png",
+      "sha256": "518af83cd74849ef0b75045cdf6346a3333c07e61005a884ac821af0933c46ea"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_01_mask.png",
+      "sha256": "64d5cb6fe77dcb0b76dca24169306344abc5f7f48c9810eca2a6d3146e3ca299"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_02.png",
+      "sha256": "ff8ae5577b881993d61d0d92956cacb6314f0996c5f23560fe02b0ca8bec324f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_02_mask.png",
+      "sha256": "5fb55f2f312ec96f1f60a9aa8e1e7d953e4fe7f34e939e6bbb2def7177587117"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_03.png",
+      "sha256": "c82e06ccd9a40d5bca3d9b3af06fa5a032e8c9817e3f75642934d767e31bb4cf"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_03_mask.png",
+      "sha256": "a6537b37a753ac1b4ffd5c82e62b5375a95f9b744b271cca708d84eb06025c26"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_04.png",
+      "sha256": "0f581b9e115163a31bb681cfd5f2294f1bf98dd6756b6aa041f34f327dfdc346"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_04_mask.png",
+      "sha256": "8918795b6b1f6c2070d3eafb89c4093be6e58eaab5c324f2cc96f620a06a2e9a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_05.png",
+      "sha256": "5c9739250214bf2a31e13740430a7c7cc4e877192979f2ead50a20c02f045704"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_05_mask.png",
+      "sha256": "188ba1a7ead8ef7cac659a631e2c4c433904f8d1ffc2209be36bdd791eb8970a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_06.png",
+      "sha256": "eb578f3af931ba113619fd0b511cdd220333335c775e70bcdbb14b11fe5ce69a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_06_mask.png",
+      "sha256": "9b342c52477fe17932090b0a40753723067849bfd4d4ace23452e6fd25c1fa15"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_07.png",
+      "sha256": "21465cdfa459d12cfe77d4a30eabd13cd71e225f29507a69437c1e774d44780e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/N/N_07_mask.png",
+      "sha256": "1947cc95be560cf33526cd4976a91671fc154945c3ee521c037b840fc727a49d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_00.png",
+      "sha256": "0f6de529e113b599a40e71b172744aca5d754a8262a5db6532f9a44c9091222d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_00_mask.png",
+      "sha256": "1e954c7d3ad84084d5563d6157094b0f34511fb23bcbb020065bb1e3e2078b35"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_01.png",
+      "sha256": "c2de09b95bf8a20447b884eabc3d4fea1fe62a754c5abc0932daec81fab6bf6f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_01_mask.png",
+      "sha256": "f67b721e74169e36b15db655d2e697a32aec1d18262420913fc44fa6b021d1d0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_02.png",
+      "sha256": "3a12c31a6eb977002634031e70ea0035cb2b389cfa4aacd659c4a46843f7326a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_02_mask.png",
+      "sha256": "f0b5c7292f324e71d60e9d2df1cf053a6692836dd558df3dfdfff439696ab4ce"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_03.png",
+      "sha256": "f6c2817a29e55a1511439ca6a2c737e8578823762b2d261effff346aa5133386"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_03_mask.png",
+      "sha256": "bc1f20e949c7359c8b953ebbb7a85acbc50f8c189f8ac657f2cf2abbd61363b0"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_04.png",
+      "sha256": "98df210f98fe3518e707f567682aba39a0d8b953c53240fa02d67884c3ec6a3d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_04_mask.png",
+      "sha256": "fb3dcaf5aba0afad1a2f6ba463c897cc696a53592ef9b3510ec7811cfe919173"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_05.png",
+      "sha256": "e17c54c89c1682ab881b07bb4ccf94e4ef63f75043a4dd31f7d77eb24e98ca9c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_05_mask.png",
+      "sha256": "f75d65c7cad0c9c2b750fc8baa81cf6c87bd597c7438f5394d9c3fc750cec62f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_06.png",
+      "sha256": "5c361704af132fa1db40309ab59b9550c1888e318cc59be0ee6d80792b08495b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_06_mask.png",
+      "sha256": "06e7423020bd468d51e5ac152a44cd422bdcfca7ef911ff426c0c0e3144b4d60"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_07.png",
+      "sha256": "7c0016aae08463f99c201e6ab81bb7bf8c7802cd0f0ccbb51202cacb571b91a6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/NE/NE_07_mask.png",
+      "sha256": "b02eeb989aede2be28e93159a06096a82bcd31fc4d56ba4b439dd8bdaadff26e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_00.png",
+      "sha256": "dab14249974f0038acc6b2730bb7979a5bedc9e93e23e0c7a8fcc07d36db4c0d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_00_mask.png",
+      "sha256": "1617b0bdb756dc623ee34c1e2f683d6e1e851fa2db4d8cfb3a720b1f334d2758"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_01.png",
+      "sha256": "e574371fb0a33f429575551b4b0481ba889bca3c8cfeb4bb8ff991a1f22dddea"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_01_mask.png",
+      "sha256": "03504193dd7785cb29e673f6d41922e9422a9136887491d10cbfe9b7df4b5a12"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_02.png",
+      "sha256": "e9bc4e9e9b813be86d596e18b33003b4a39041f1db83c12d278f1ad642c376dc"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_02_mask.png",
+      "sha256": "25b16071147509fab63d08818dd75af86153d6410f8ed6246aa36695161ff30a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_03.png",
+      "sha256": "a1803c47849a4ad744e4909699252352ca4fbee6d6f4a2d7756ec1fe11cd19b8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_03_mask.png",
+      "sha256": "aa471eceab6e0c5136eeb8941288e2d93e6aea0b31bd498087f5f2660c21b587"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_04.png",
+      "sha256": "e8ec06a689deefed0629254ba3e1f8054723ad16c5f12bfad9602c7a984ac341"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_04_mask.png",
+      "sha256": "3ce533133335c13941bac56666d1ab4b24123d0ece46833e6a1f59c2eee2ce24"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_05.png",
+      "sha256": "1e47e4b3472c8a948b073deb4ca6132869ff65838b252a0aafba56f3f63d0d56"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_05_mask.png",
+      "sha256": "4907f5bb311d7fcc29e7a05e607d698d7d924055ce8616a4b91f7fe82766f97a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_06.png",
+      "sha256": "a997da4b71b55a409a57e8e9567d2aeaeb4a4d627e12e0bc4689a5715600efe3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_06_mask.png",
+      "sha256": "843fb1f2ae32f4358dcac9aedf344e356b4d465d9f201ec51902f662d6a00064"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_07.png",
+      "sha256": "4f898ae04736112303232752fa20ea840bcba4d23af6d537356247c53e381cc1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/S/S_07_mask.png",
+      "sha256": "0dc321829a7a9d69a0db1c1cbe7a12161cdd45d90e2ac47ea9a907679b5e9258"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_00.png",
+      "sha256": "f45bf8324e576e9c3382e202137c5fc7f83dae8f596241047e2df35223b11090"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_00_mask.png",
+      "sha256": "1dda63dfd5b79f59515b99f51ca46537935f7426ee4ac6eaa0a5f86501ea1725"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_01.png",
+      "sha256": "25d1f14507c8e85d14031e26e42f16f5c5ac8df9c78905303f07536f949e03c3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_01_mask.png",
+      "sha256": "be8d6cd8d9828c0c44bc9a018c6a023f0d34f6d64828e3c39b76117545525ffd"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_02.png",
+      "sha256": "aa56539d74421e7e3a44244baa41f56eee1b084f91bc4e846fb2217f432a64d2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_02_mask.png",
+      "sha256": "7a659b81841b9aa7d1dbf5bbd2df97fa9d38fb56f90a95b8dec6f86d1e6961ff"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_03.png",
+      "sha256": "acb6e2e55ae147670db79458532617b04d88e2452e984bd9744975d34887a241"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_03_mask.png",
+      "sha256": "91c186d63b234e8baec6af9f42ecb59da929db88af00ca51abe4d1e17c69b20a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_04.png",
+      "sha256": "78a0f216893b981cfa02c01250db6e974bf61a6863f8689339aff92480659cd3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_04_mask.png",
+      "sha256": "56ad667956980e8dc0a535ffd1aecd6d6c60b900e4c2f3e25061e7ff5ee7af35"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_05.png",
+      "sha256": "3dec604ab1294ced33085ee18512e0fd4faa0ef2c9397ec25a59170ed838caa8"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_05_mask.png",
+      "sha256": "c6d32fd46347c63dfdd31035025a678137808e159b2f3e85d3c545bd1b940f0a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_06.png",
+      "sha256": "79bd6245ed1fe9dfd2c1c7ace287f36d235ccdb9db9d381416e09b183a50bde5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_06_mask.png",
+      "sha256": "9ede90699b4a6ca624cdf0b49b3ef4fe04230e3358cf3ed02867ec212372f3f2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_07.png",
+      "sha256": "8603290c9631432b700ecc514b11b1e2553b00d482e3da60ef0d12eeac38ad10"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking/SE/SE_07_mask.png",
+      "sha256": "174c5ef24875b2282614f72390ab01dcbb5652dea0e94018f326032de29a98fe"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking_5directions.png",
+      "sha256": "85c754b1c29db76317052a4b9c78e8b563394532f00b402070671a886f9b6c5f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking_E_animation.apng",
+      "sha256": "a9f777c8388d5316f4d62ff17924d38b5d410d6db120bdaa1a707427a0000144"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking_NE_animation.apng",
+      "sha256": "fa1b07f53e2a2e72d2be0bd9458ef3dfaab566ce27092318862b032547323ec9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking_N_animation.apng",
+      "sha256": "545cfa3ea749bf6d3f04b37024cef8837e693edea0c107b0e99ee98b0bcf279d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking_SE_animation.apng",
+      "sha256": "08d35ca4088710109266dbd492e70da54454641a57c410ce2a2173c4fd59f496"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking_S_animation.apng",
+      "sha256": "fc221eea9ef9c4302d8a64150c35fd86672130f978a27de3f9fde491a5d6dec9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/shield/Walking_W_mirrored.png",
+      "sha256": "12e384e2d277833681cc00c641528b52a55deb576c059418bd9c81649e5a8a67"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/archer_E.png",
+      "sha256": "5e839b575e28ed78a328a25aca5e2e75d1550f1da9097fdeec2f63720b322b0f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/archer_N.png",
+      "sha256": "6aa9e342b61f006f3b83925081c5d700ebfe0dbe6b94c67d103b87fb1eb7ae29"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/archer_NE.png",
+      "sha256": "16dd988fcdb7d9d55be4ea980f33de1b64bd55cc2b047908cffa0493ac5426a9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/archer_SE.png",
+      "sha256": "1d24027eecfe47a546c7ae366867cc0666f547ebc9e917087b0bc3db2a980c25"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/archer_S_initial.png",
+      "sha256": "255e9a8471c97013395b1e0b6ef6e74565dd43fe20f3c556edfd61c15a3f5571"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_archer_E.png",
+      "sha256": "5e839b575e28ed78a328a25aca5e2e75d1550f1da9097fdeec2f63720b322b0f"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_archer_N.png",
+      "sha256": "6aa9e342b61f006f3b83925081c5d700ebfe0dbe6b94c67d103b87fb1eb7ae29"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_archer_NE.png",
+      "sha256": "16dd988fcdb7d9d55be4ea980f33de1b64bd55cc2b047908cffa0493ac5426a9"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_archer_S.png",
+      "sha256": "255e9a8471c97013395b1e0b6ef6e74565dd43fe20f3c556edfd61c15a3f5571"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_archer_SE.png",
+      "sha256": "1d24027eecfe47a546c7ae366867cc0666f547ebc9e917087b0bc3db2a980c25"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_archer_S_initial.png",
+      "sha256": "bd53b37ed60726606973bb22db4469cabaecbf6011067d6b169052394700d464"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_E.png",
+      "sha256": "3dddbeea4c4414be30bd776f336e31e7c1940ba954072dd224cd10b82ffdc471"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_E_compact.png",
+      "sha256": "0fc6421ab46bbab4add20fd28eb14d3fffafd1e61478cdbc67f4a2288bb183e6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_Idle.png",
+      "sha256": "2842f3f2ccf935dbe0b4b7c273aa15288edf8e08bad6c383ee989d871b7abe7b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_N.png",
+      "sha256": "d22f11dc8e52fe01eac5faa7eae325de4f481e7fd8cff058357f6c7102367cd3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_NE.png",
+      "sha256": "ae3dd80043f15af6d352845e19fcc71b8c952676e64b03186669ade0263c10ef"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_NE_compact.png",
+      "sha256": "59eefe6c498ccc443732c1da466920f98403fe592587068cb8de391893c1fb06"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_N_compact.png",
+      "sha256": "5f347865d2ff524f384175ec3939da96854aa5bb8c8aeb7acef450226f4a2aa1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_S.png",
+      "sha256": "d791233c15d6a2de01536667e5a1858bc4d9aaa0ad5c9b537d0f5b7cd7a58c52"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_SE.png",
+      "sha256": "0a42c0a3cd9359a395fd6b2ad9b3aded1e03e07215445e83d5613ce17ece402b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_SE_compact.png",
+      "sha256": "352c0d77657419cb4c5aed8945fdeae2f5cb6fd9f4d25b07fda0c3dc76d40410"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_S_compact.png",
+      "sha256": "8b845a9cfe28d237eb0230908e2aba7423417295fe5673e3e02ea15a295bf172"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_Walking_initial.png",
+      "sha256": "a01a46fdfce4463ed388b2858496323fa05b04dd9682d75ada7bb663aeb47ae2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_leader_Walking_rejected.png",
+      "sha256": "e8cd27a73efd63d04a2fc9e1134c0d362d74a02e79f0ee40a06afa4d36187c03"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_porter_E.png",
+      "sha256": "3e0f7a5f609aa493fbad2f85826cc38d5ade2fc3c52ad65eabbba5e6fc0ff68c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_porter_N.png",
+      "sha256": "07646b391f355c9274f3291e82e8c5ea15af512e79b3980b5f0d535ddaa10f67"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_porter_NE.png",
+      "sha256": "78a7949088e68ae36aad91f308b03eeaebe719df64e4324b8e54edef2dbaa9f6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_porter_S.png",
+      "sha256": "2d84373ffd60c60a3cdfdbd1c64c1c101aa02a601cd8a11531c4438bb339d0b3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_porter_SE.png",
+      "sha256": "55391025f1c25f2b277091a3f20cadcb4b51e082a13f125d657532ba42e820ea"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_shield_E.png",
+      "sha256": "0091d1a961ff7599f83e9c0aed193fd469d75a33d39efe4090c98a1e3e5569d4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_shield_N.png",
+      "sha256": "4abf874e487f2dbde841ab63f0660d8bf25499d174f0af326e3eee3cf1f0b85a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_shield_NE.png",
+      "sha256": "1e8ab892b17ab03d0acb9a4494e207adbd152d117c1e6ec3e337eed3844cf8d3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_shield_N_corrected.png",
+      "sha256": "73936cf34d114ed749ebebcb617f35b08405c6cd5f95b29bb556068105fcbee6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_shield_S.png",
+      "sha256": "2886b713299401da9fe4d815f0a161277e1fe36b2c5b962c5b61ec250fb51b6d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/generation_shield_SE.png",
+      "sha256": "b18c104aa66c49629c0aadb0093ede77e4a1efbbb7a4dd632b605a820fb8d874"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_E.png",
+      "sha256": "3dddbeea4c4414be30bd776f336e31e7c1940ba954072dd224cd10b82ffdc471"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_E_compact.png",
+      "sha256": "0fc6421ab46bbab4add20fd28eb14d3fffafd1e61478cdbc67f4a2288bb183e6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_Idle.png",
+      "sha256": "2842f3f2ccf935dbe0b4b7c273aa15288edf8e08bad6c383ee989d871b7abe7b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_N.png",
+      "sha256": "d22f11dc8e52fe01eac5faa7eae325de4f481e7fd8cff058357f6c7102367cd3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_NE.png",
+      "sha256": "ae3dd80043f15af6d352845e19fcc71b8c952676e64b03186669ade0263c10ef"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_NE_compact.png",
+      "sha256": "59eefe6c498ccc443732c1da466920f98403fe592587068cb8de391893c1fb06"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_N_compact.png",
+      "sha256": "5f347865d2ff524f384175ec3939da96854aa5bb8c8aeb7acef450226f4a2aa1"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_S.png",
+      "sha256": "d791233c15d6a2de01536667e5a1858bc4d9aaa0ad5c9b537d0f5b7cd7a58c52"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_SE.png",
+      "sha256": "0a42c0a3cd9359a395fd6b2ad9b3aded1e03e07215445e83d5613ce17ece402b"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_SE_compact.png",
+      "sha256": "352c0d77657419cb4c5aed8945fdeae2f5cb6fd9f4d25b07fda0c3dc76d40410"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_S_compact.png",
+      "sha256": "8b845a9cfe28d237eb0230908e2aba7423417295fe5673e3e02ea15a295bf172"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_Walking_initial.png",
+      "sha256": "a01a46fdfce4463ed388b2858496323fa05b04dd9682d75ada7bb663aeb47ae2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/leader_Walking_rejected.png",
+      "sha256": "e8cd27a73efd63d04a2fc9e1134c0d362d74a02e79f0ee40a06afa4d36187c03"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/porter_E.png",
+      "sha256": "3e0f7a5f609aa493fbad2f85826cc38d5ade2fc3c52ad65eabbba5e6fc0ff68c"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/porter_N.png",
+      "sha256": "07646b391f355c9274f3291e82e8c5ea15af512e79b3980b5f0d535ddaa10f67"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/porter_NE.png",
+      "sha256": "78a7949088e68ae36aad91f308b03eeaebe719df64e4324b8e54edef2dbaa9f6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/porter_S.png",
+      "sha256": "2d84373ffd60c60a3cdfdbd1c64c1c101aa02a601cd8a11531c4438bb339d0b3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/porter_SE.png",
+      "sha256": "55391025f1c25f2b277091a3f20cadcb4b51e082a13f125d657532ba42e820ea"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/shield_E.png",
+      "sha256": "0091d1a961ff7599f83e9c0aed193fd469d75a33d39efe4090c98a1e3e5569d4"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/shield_N.png",
+      "sha256": "4abf874e487f2dbde841ab63f0660d8bf25499d174f0af326e3eee3cf1f0b85a"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/shield_NE.png",
+      "sha256": "1e8ab892b17ab03d0acb9a4494e207adbd152d117c1e6ec3e337eed3844cf8d3"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/shield_N_corrected.png",
+      "sha256": "73936cf34d114ed749ebebcb617f35b08405c6cd5f95b29bb556068105fcbee6"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/shield_S.png",
+      "sha256": "2886b713299401da9fe4d815f0a161277e1fe36b2c5b962c5b61ec250fb51b6d"
+    },
+    {
+      "path": "Outputs/NpcField_v2/sources/shield_SE.png",
+      "sha256": "b18c104aa66c49629c0aadb0093ede77e4a1efbbb7a4dd632b605a820fb8d874"
+    },
+    {
+      "path": "Outputs/NpcField_v2/staging.json",
+      "sha256": "86e1b54e44075c5f6a0e792e3ac614c272787b056483a6a69d9ac94bcf8fb583"
+    },
+    {
+      "path": "Outputs/NpcField_v2/timing.json",
+      "sha256": "d9930e7642cde3f0dc226f7d8e0b4fad53717675880289baefcff983373eb35e"
+    },
+    {
+      "path": "Outputs/NpcField_v2/verification.json",
+      "sha256": "76e97c56fba81efe2c278e072e547058ec7641fdc3313f98e0e4791b45b895f2"
+    },
+    {
+      "path": "Outputs/NpcField_v2/verification_working.json",
+      "sha256": "a0c989b5816d6a405719075cf766851fd2488126dec27480406c9784100a5475"
+    },
+    {
+      "path": "Outputs/NpcField_v2/verify_worker.mjs",
+      "sha256": "c8743f684ba10896fb40d41a9d1bf6d6e62f5c86933dec6c0b9a4ba2d5c31eee"
+    },
+    {
+      "path": "Outputs/NpcField_v2/vs_protagonist.png",
+      "sha256": "0539401c5c2a5574daad4c0871ed6eefa30ad2be0caf6d79e7fae6f06389aad5"
+    },
+    {
+      "path": "Outputs/NpcField_v2/vs_protagonist_at_game_scale.png",
+      "sha256": "83e2af71c6c052a86a2e7695b580dcc66ad63ab15a83839b3e623ecb904eee15"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_00.png.meta",
+      "sha256": "027fcb3d9f082f1638ec4f899380b630a4289a5bf72f07dec7011eab51f971af"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_01.png.meta",
+      "sha256": "4ef854d8317d75372980024ec32cf6511b21f5fb938d0893bf4575021c0c05a6"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_02.png.meta",
+      "sha256": "404dba4cf1de54935da5710a4bbaab297346297e3c01ea58dff9a245b0b7e294"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_03.png.meta",
+      "sha256": "afada9fde037e632a7237a3059d62f521395f03a9c6a0da24d010b06c65078c9"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_04.png.meta",
+      "sha256": "fee955cb1e8f393a9d5f196e86806c09ecff02e5c763a4bf273dd902b8df3be4"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_05.png.meta",
+      "sha256": "66ebb30521608be52b6126f314cda65458a881ca81b2e51c157a46a245dc5cd9"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_06.png.meta",
+      "sha256": "48678fd40154e50e0af6566cb22151940eef2fcee11944fb91061ff5056df883"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E/cheer_e_07.png.meta",
+      "sha256": "1c33f0c0e921002337768a59eee3657f0cb1b73d8aee0a29cc8e00aaf82de2d0"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/E.meta",
+      "sha256": "64d16991e77bf9808fb658f3dc2db8b2706239bf0ef42d586e81084e74709cc0"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_00.png.meta",
+      "sha256": "31659d94f195033d8900ec530e5e1250367d75440844a8c636181c86c94a43a1"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_01.png.meta",
+      "sha256": "7027870c229190541f3e2322a8d773d38e53370fe820a72b4523b7119c9cc889"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_02.png.meta",
+      "sha256": "1bb70e17181096758eecdc1160093d821bb9c9c237f0f969262a26b53d62108a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_03.png.meta",
+      "sha256": "7901924ec49a32a34c04595b3d98831680a1a762b208d3013de8870211fb1b88"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_04.png.meta",
+      "sha256": "b29317a2c0af2262fe624daa6f33ca1a339ed60f39f77afd2fee53f8205eeabf"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_05.png.meta",
+      "sha256": "6c94456d4920047a03cb97ed1eb6783da1221b50167613112a92b9d7a8e657bc"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_06.png.meta",
+      "sha256": "0d62d5593c5a9107333b93e87542917c114b0a80ac10ca13f9a33061701e5d16"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N/cheer_n_07.png.meta",
+      "sha256": "41f8b2e26275416a1e4660012291b0f5fd586d216eb349d268882c60a513da89"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/N.meta",
+      "sha256": "7683a077feaa7bb3b9f2cdd01f197ba27b4638fe9caf0579f42593f94a301705"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_00.png.meta",
+      "sha256": "235102834b728b369fb9f0809b36c95e673323e67dfa400b230f172e0845b502"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_01.png.meta",
+      "sha256": "c6996f8641f0dbf7433a0d740f8003eeb53e30632a39a05db772fd73ef505e43"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_02.png.meta",
+      "sha256": "89dc669ccdee227ffcb1097bfd532023c840b886fbc20eb7d9280104056bd20f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_03.png.meta",
+      "sha256": "c586a3106ca122329f2437e51e3e34fa7f834337101c2c2534133d6a5c12a1bb"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_04.png.meta",
+      "sha256": "7d7506cb75d50828320045fdff58efa6c9c43027e2a6ba9a7cfe0509661ac8f0"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_05.png.meta",
+      "sha256": "4c4de656db7e87ac3f08a888878a700ce535113542e5775f1c58ab910e76f216"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_06.png.meta",
+      "sha256": "14adb2984ee8ac9b0badac13777521e961f50fec40ea19a6966270f903e7c71d"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE/cheer_ne_07.png.meta",
+      "sha256": "665af9a86e57fc01b6c5c1c0daa64b58c07b536dac5367d2d0f7f2d5f9045906"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NE.meta",
+      "sha256": "235d2c3fd3f250677651f345f67781ec5ec4851dcc41a25d821f61c4591b4744"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_00.png.meta",
+      "sha256": "291c2206991d96a9e1ed48f95c988391ea22d556bad24efcec4f3113642b6f1b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_01.png.meta",
+      "sha256": "db0393eadc0e408abf9df55dacb0e2d1452222f73d47a366403f6fa925a7a8f5"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_02.png.meta",
+      "sha256": "7b1b61923604bf46b28c349e3da45a97d08cf4479986c502f557b44e226de753"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_03.png.meta",
+      "sha256": "65e9416aea9c096af5568bd359d9b2b5f680047ce8a1c8420715fcbcaecdb801"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_04.png.meta",
+      "sha256": "d2d697326782cbf09db8f780095dd3b5e390e00ebfedce08a3c8495f563119f1"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_05.png.meta",
+      "sha256": "723e0a903cb2c77fc929c622415f187322fd58f4509bf1bac4f5a652f9cdf218"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_06.png.meta",
+      "sha256": "5f544af3e36d7b187f670660ec4b3969d258fb1386ae0c7a9ddac7488ec1a7d8"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW/cheer_nw_07.png.meta",
+      "sha256": "2596bc3230d9505728b6dbe37565de04a536d2d7f67ac1e7092132f265dc54f6"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/NW.meta",
+      "sha256": "8051e73e715a0532ab3cd31a56282280becc63d5e7ad9913f573bb88c5cda377"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_00.png.meta",
+      "sha256": "f317cd425eeef4ef746475194d27f6cdd8dcc177eaff4b9d9f459a55b87b6e49"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_01.png.meta",
+      "sha256": "a5a3821af829ed05a86e7badc89ad11b6b5577d8b84e69c693ecdc53b8736f25"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_02.png.meta",
+      "sha256": "b89e4edc85bcc4450e6f646ad54338ea040394e61a9320db6529ff3b12966afa"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_03.png.meta",
+      "sha256": "e1f2fbfc73954fd6b0c965f22ad005f9a180ad49899bc4710458a3170307c344"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_04.png.meta",
+      "sha256": "7f348583d5e37666bed2cdc0c1d09293d6388f38c6f08bb49d44db1ff1b3aca7"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_05.png.meta",
+      "sha256": "1037618a41acd4f54186d7e4d2a78393879877942b1374e747f42d2f428f351b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_06.png.meta",
+      "sha256": "85d935bf05485ce835ab584aa95690a6e050fb826c552bdcca81552a905c9054"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S/cheer_s_07.png.meta",
+      "sha256": "71aedf65b50fe31d720b9583edb6063d0aded839df92a3512a982f6ff42a3d00"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/S.meta",
+      "sha256": "1e41e8affd6fa2def0fee6dd3ec5536af157eaba42af00e6437b8f28c5595754"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_00.png.meta",
+      "sha256": "f53acf3df66dca2f9cb887867297ece11829afa6c42a27f01989b1452f20f188"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_01.png.meta",
+      "sha256": "8f83644765e619d0232f21afee451015e31c0c0fc9582dedcbbe151639fb6d84"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_02.png.meta",
+      "sha256": "8c80d7f00569050c67d453869427439581336b12c5dd821a33f57d27f8f57146"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_03.png.meta",
+      "sha256": "db4910f7b31ac8a06acbab7b62fc2fc48f878810fe4ab548c753a24363b24f69"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_04.png.meta",
+      "sha256": "6917813b6fa82197bdb2358ffe54e9bc6a1ad696f6406b07f0cb09e2a4094966"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_05.png.meta",
+      "sha256": "2855c4adafef5a59e8e3f959bcd076c6854252f8b00fef824a0760f11fc23d40"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_06.png.meta",
+      "sha256": "e2523caaadb1b08dcaace34c0499fdaa74f9a55bfa7601f81b99976e62e35962"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE/cheer_se_07.png.meta",
+      "sha256": "dc63c8f4952a7503bd981ecee7e3ba3b92cef89bd8f01cb62e57df90d96e975e"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SE.meta",
+      "sha256": "cefd1a2078cccf20083d168312620b4343cfcc5bcd74869e4bc616be92360af6"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_00.png.meta",
+      "sha256": "6f8cd2264f3e4db149b808f3bab4123c79b9962a75d802ddb42ed4681c836792"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_01.png.meta",
+      "sha256": "1b0b824724922e439ac484d5f46e103d56b1f97f893de0ad5838d66335a56dd9"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_02.png.meta",
+      "sha256": "b2489d04cff6e7a04a5bd8933df4045a1c56212fd431dd2fc1721d43b21e1719"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_03.png.meta",
+      "sha256": "7c9d78d528b2e8546a933e5bd61f663aa27943da23c130ff1083706790788c2c"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_04.png.meta",
+      "sha256": "c9a8640008a62c81cc6cfd137e49b82729c224b4df0052ce5f871272f1ec9d6b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_05.png.meta",
+      "sha256": "cf9ca46f03ebeaa3e3e4a94c2f967b9a0ac38d2f44efe06fb7733cd9a5de3f8f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_06.png.meta",
+      "sha256": "093a382d4c2a373246ff4b89292b851b8a470883753318d09cbb995b85b41f4b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW/cheer_sw_07.png.meta",
+      "sha256": "99c6c31d822a6d54f22bc3791ac6f4fd5f2dad18aaa90579c415367dbae35d90"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/SW.meta",
+      "sha256": "611189aae923b3df9505f64fdbd1af64de478f482bf3972e5696cc1cce48ae02"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_00.png.meta",
+      "sha256": "919be22f6564103486ca83ba927ece0da4a4616a86facb02989d9d8206629ac4"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_01.png.meta",
+      "sha256": "d09e677f7a5e1094a423f63321e40d9d3303ff821e1b19ea46f36c4ee506282a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_02.png.meta",
+      "sha256": "14e8ff6f6479a10be74a2b63cbd4916174b2ec1b3393a5ea794d656979597b77"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_03.png.meta",
+      "sha256": "b13a890067a360ea8749048c5ed7ae775172cc3da1f01a141e7e29a31da28e58"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_04.png.meta",
+      "sha256": "78eafb6bae2250537c19634441ae3f3379f6a129294b03901ec0f363ac9069bc"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_05.png.meta",
+      "sha256": "e38a5d95cf61d3d4023e4518bac413a453f00a2ffee301ea5df801e13c5a43a2"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_06.png.meta",
+      "sha256": "abc8fd2dbd2e56f7b24f6206b73f8ef6f9bf563995c7b41c3406f46e35a2de0f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W/cheer_w_07.png.meta",
+      "sha256": "c19dfd1b36bece2ca9e94cddb250a81cef5b3add66213f8521d668f4787e38b0"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer/W.meta",
+      "sha256": "7a6b24fc8681a6983f36ec6a9a7a1d252272c5b697c84ea81c27ba4d027982c0"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Cheer.meta",
+      "sha256": "a697301f6a960516469c265ac6ee56dca820852ea5f17024fde1db036ac0e2a2"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/E/idle_E_00.png.meta",
+      "sha256": "9033e84b6d372ff59d463d38960ffe324904eeecad1b1c41875ee7ac8af8e818"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/E/idle_E_01.png.meta",
+      "sha256": "8cb47542d5d704c97b7a350faf53e2a0c0839e2f069ce1187ebec9ea7f2ce372"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/E/idle_E_02.png.meta",
+      "sha256": "704f0f40f4a4c264c1146c6022ddbb1804fdc9b001bc4b840cfbc424a196ebde"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/E/idle_E_03.png.meta",
+      "sha256": "2d7869c0de7239cdacc2f15e588b14b69d1bc15efd67b88ea9a57bd5b264b509"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/E/idle_E_04.png.meta",
+      "sha256": "ecbc480a0ab71ba749548c1bcffaabfb0cccd4339742332e4f90c8150b5a3136"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/E/idle_E_05.png.meta",
+      "sha256": "cd2ff2429fbf49249c293f160aa765bcb5d91a43e81cfd043cd39f7e10250f20"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/E.meta",
+      "sha256": "764cd7cb8e327f7d102777300f862f2796962df2f79e0cd93f424201c5100ff8"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/N/idle_N_00.png.meta",
+      "sha256": "f5de8ad50db73b2e27de9e96ff842b0f9f71621d72f0e43ee37980d7bfd5b0d0"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/N/idle_N_01.png.meta",
+      "sha256": "e08af94cd8720f0d70bb8e4a068251a3b63a40f855ff496bdd07557c78264d18"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/N/idle_N_02.png.meta",
+      "sha256": "057496f8498b68a5454e292bfd6e26b226e9384ce9f5b7231dd5d6f32ccaae5b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/N/idle_N_03.png.meta",
+      "sha256": "89fd4b9b67675b85c1ccf453de6e034fae21451b01cf90f30ba0efabbf994b1a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/N/idle_N_04.png.meta",
+      "sha256": "ddb16d02117332cd1e38143959b447b05ac63093277149e7d3324ec066c6f17f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/N/idle_N_05.png.meta",
+      "sha256": "1bb5b0dedf11b33cb4b95db4f139fed7b636f8eb51ca316bea0c4e178de6a495"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/N.meta",
+      "sha256": "f9b4cc6e3f06ac9e42d4a7c5a8948a6010de042c9c245ecc03a6b3c6a613927c"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_00.png.meta",
+      "sha256": "950b44be0bd7f06ddc44c810a6e5010696b5394a1ef2998f75bca63c4aee2eb2"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_01.png.meta",
+      "sha256": "b8297abff255bea430443f8896f7e63469a3c4f5de6b1432f0dc4a317e312fa3"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_02.png.meta",
+      "sha256": "907cd3fadb9a11a34b7ddd4699c8244cad211693e7009e41d488503fdb5db47f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_03.png.meta",
+      "sha256": "738cb0f969470d8439b5c58d4d5e4af539681deaaba36a5d136b11405d895d67"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_04.png.meta",
+      "sha256": "d0b3ba20f4115f55901f2992c1820a60a80e89d4379b8b133ff79c3dedd34bd4"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NE/idle_NE_05.png.meta",
+      "sha256": "ed7a1d3bb3c8e589286deecbb8334911b2026f0595704839acfbb78dbbed6b4f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NE.meta",
+      "sha256": "49d56c0a77636b0134f9358be886f74c0c99fb16fd860f5a4558088fa028a110"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_00.png.meta",
+      "sha256": "e4a9d93cd0ecd1479f5d632a580404cfc45c9f5330b5ceff5123286d39346b3d"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_01.png.meta",
+      "sha256": "e013454a8548e80ac4bc272ea3b50b21be5bbae442faa71c21ccde041790d95d"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_02.png.meta",
+      "sha256": "3e3daf7215832bbaace85dd1f54e39f40a7f6369142e189cb33a57ac0a122928"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_03.png.meta",
+      "sha256": "4bce26563c69b0efe52fe86dccc8538e680b826b471bd6b548d799ce188da79f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_04.png.meta",
+      "sha256": "12c8ff8e02b8b3c327e2c82d8d8c47b53650ebbb78d640f6fb16cb78f544aab3"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NW/idle_NW_05.png.meta",
+      "sha256": "3a21ded1c01aa67fd8b7320c4bb456551bb34d05db22fa350a0afca911779762"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/NW.meta",
+      "sha256": "16f26c1eb4210c79450bcbb46cde6ba7e9d1898e24f1fd8a40f37b0f51d8c77a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/S/idle_S_00.png.meta",
+      "sha256": "67364283b4e7654caa8b0863d8233030eb522bc4982e6dd6642ba9bc7713c60a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/S/idle_S_01.png.meta",
+      "sha256": "cf8349c63c7e1555310d43be98ade69a2eb83560f9d66da6cadf7089d5ba5f08"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/S/idle_S_02.png.meta",
+      "sha256": "31b7b6f138ff484eb3f37ed3fff177beeafb68f1b90f30161c2ac23418323243"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/S/idle_S_03.png.meta",
+      "sha256": "c5c6a1bd0f3ecdd0a58fe58114efebfbac54206f098a941b66010aa478dc518a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/S/idle_S_04.png.meta",
+      "sha256": "f28037497db8bacad4653120b4de9dda27fc010263e00f10fd4140d3d6f6ae19"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/S/idle_S_05.png.meta",
+      "sha256": "f050a55a43053fef8815c470e534c9c55d47ddaa0de07d5102a64880f0fa97ea"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/S.meta",
+      "sha256": "d2e9cce85f28af6df3dc59ad6ca5f69ab53af2b465b5892fcc03297c3956af4e"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_00.png.meta",
+      "sha256": "158b04b9ad5230b287d07c1d469d7601dae3bbce5ccf5780820fccab32bdb948"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_01.png.meta",
+      "sha256": "216e8b4c8f5189749aad18bc4dc5f8240d1bd6b121666247d6b4707c18a872a2"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_02.png.meta",
+      "sha256": "f442a214bb920bcba156ddd6b8c8407ed91669255a27e1e61e79f96a2bacdde1"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_03.png.meta",
+      "sha256": "459b1cd1065eba59849f7d6a8f7138b967ef0518907da6039697a89544620da3"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_04.png.meta",
+      "sha256": "0eb849586bc21ce526d7cb7039b02eb5a990f2b201a1a7241abd50aef85df5fd"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SE/idle_SE_05.png.meta",
+      "sha256": "e3720ae3a38c9d847054329830523922febea4dd34f4bbc4689ab403b6a2eafc"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SE.meta",
+      "sha256": "f19619753ec6c6e150bbafa4aa27ace7416a981242b25a7dd28fffe33af03d61"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_00.png.meta",
+      "sha256": "70c1fa5975050c864c416bd970e267b1d2ed94495d3b3ccad8b9672011d1fc33"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_01.png.meta",
+      "sha256": "375e3e11e5b732ba8ad0da8a5829e43fa3ff24cbeee93b597cb55d07b5be4524"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_02.png.meta",
+      "sha256": "2a632119165dfd86cc5ac314b98fbd9aa703a5531e647e9684a4fd11d8d9c2d6"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_03.png.meta",
+      "sha256": "9c0c18c158a2e6249ae058f3253949fe69ff6202fa1bf1cf291ebacf2c63b960"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_04.png.meta",
+      "sha256": "55bcffc10e4f66df64d51007b09d79d5c27ef9ca6cf9e49dcc7e7997b9a0d660"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SW/idle_SW_05.png.meta",
+      "sha256": "a3a725f2195e4e2f6a2e3090fb59b4f24770d4a9d9f0e45cc5cfa9c65dc62742"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/SW.meta",
+      "sha256": "5e0c52c10a27125ebf470f858b15330d48e5f7631c1d4d0063037937d6271013"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/W/idle_W_00.png.meta",
+      "sha256": "290d56a43caf97a3b61169d6c0a664b72709da8bea4f09793cb6c453ec1a0c18"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/W/idle_W_01.png.meta",
+      "sha256": "5e72c01deaffb1a059ff62f160f12aca4ac87c711fbb05c62dac15b1b3aa25ec"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/W/idle_W_02.png.meta",
+      "sha256": "d689fb79f2741fd9a7bdf3b88be07dfbc88910976ac50ca3e33ed38959594fa0"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/W/idle_W_03.png.meta",
+      "sha256": "a5d6e1f74d46e5caf6b3f2e9b0b6ae363ac505479262bdcd550e0497fdd66531"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/W/idle_W_04.png.meta",
+      "sha256": "eedc87551a54bae5802575730c326a8f0d11f5ae808e7a70e7a15766c85e1ec3"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/W/idle_W_05.png.meta",
+      "sha256": "8854409f896bae1f09b6395a4a96337a9554616f8920b9e2f74fe576a5c78c35"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle/W.meta",
+      "sha256": "64cbf1be2791de2c1897082f831b0be6aa30d7368f7d6f76928b90d796611ae2"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Idle.meta",
+      "sha256": "44a01bce99aa889d8951726fc0a7d9ea0436f834698cd94043b6af1ce70e9df8"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_00.png.meta",
+      "sha256": "0d8ecb93f991e8d8691a5bf2c82e9c607f05c44afea41a146b6aa4b5ab91839b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_01.png.meta",
+      "sha256": "87661a2db17949a8ea74dc1ddf82a3e0be3922fe70b0473aa9b513853585d29e"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_02.png.meta",
+      "sha256": "ff8ed214fd7b59915e5fb4cf2a68e9f4363ce5eb297d1c443dc2fecce5aee8c8"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_03.png.meta",
+      "sha256": "d808b57acdb4aef5eeec5d3326eb8e6f209433e3fad2ce4b117f3d0e242b2314"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_04.png.meta",
+      "sha256": "2e11b597c8419af7ab80a170ef51e97fc67c7d457ef594d582145cdb3ec3a1d1"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_05.png.meta",
+      "sha256": "107476b34e3dabc6f7e26ea9508149291e88b305ebd0b3a12c87cb159da77f26"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_06.png.meta",
+      "sha256": "22ee5b0d1230353916ee2411f9ef3ffc176235c7d935fbd46a2dea42a0f68bbd"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E/walk_e_07.png.meta",
+      "sha256": "4349880b7594a13cee9ee315576170da9f6302ab2edd6276742a8999887631d7"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/E.meta",
+      "sha256": "ece52feb3d184d7b65bd0434124fca19b8ec6f9afb8b67a0cb12d06e0415b34a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_00.png.meta",
+      "sha256": "c9a8efc2fdf874c5e749c9a0b65d958a80c48ac3d44325e655f0eb1644d69d35"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_01.png.meta",
+      "sha256": "173ff7127571610d72226e76d2c46226129684929f999c036cdce846357a8055"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_02.png.meta",
+      "sha256": "a36493be9bde26890d9c76e37729d0a373f34bbfa06d8d4eb7fa3d0b48afd110"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_03.png.meta",
+      "sha256": "d4470fd13d8c4c92790d59659744528d1e1495c4a63c7d768819a139f84c77d7"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_04.png.meta",
+      "sha256": "ce7bd16a3ce9723dc75c965c8c6569a0ca8d8432d7a2e492ac2c8d6a880f4628"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_05.png.meta",
+      "sha256": "5774167218c3c4b5455e89d304867ef728d16350d7099cb370bd85ddb39036d4"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_06.png.meta",
+      "sha256": "0f43397fdb922685e87085c08cec278c548fc70696b35f31d589092e4f54de7e"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N/walk_n_07.png.meta",
+      "sha256": "c75f864c315b46dff43d61b37a822746a14966171bce1a33bac14c46277ad09e"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/N.meta",
+      "sha256": "e27765a7b2736653d24145758040bafe6562b53f2e4bd6c186cab1780154aff9"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_00.png.meta",
+      "sha256": "b1bdd1d9299b7e8dfe5736ac24ff60ac04740acd0a8a59c3a1dd64d0cd953744"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_01.png.meta",
+      "sha256": "8b6c9e520f81f844a583ab2fd864f8f3a630c428b90458fd117125e642e9f46b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_02.png.meta",
+      "sha256": "a6c4491da7e26f1543bbc8472e2cbcb381bc929e9b9dc2d2a7368a6f31980717"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_03.png.meta",
+      "sha256": "9b214d2f1478397d97d196e8b0604670dc2e2dc06d2529db93c0f171e6a2f3e6"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_04.png.meta",
+      "sha256": "75ef19860474f57a03b4d323c2b5ecf13c374e23a8f7d933b62bf627d2af01d4"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_05.png.meta",
+      "sha256": "01f4d232487f85e8e091cf3fd49f11c9941b6ff543b602841449b4b9ea627330"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_06.png.meta",
+      "sha256": "b6814fd6b4f40eb8cc9e245c771153ccf6f5cb04d22e14b766b73485c97cbee3"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE/walk_ne_07.png.meta",
+      "sha256": "8ad6cb941b493af712a630d875e8c15eb1694a8ad0b620edaf34c71a0c9cd712"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NE.meta",
+      "sha256": "a1c7485f1b520fd842e0a034b6c496c9128100ef11f43ce5d0322b480958f8f1"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_00.png.meta",
+      "sha256": "548979ade0311810812ce8e0755dd32429b8105444997ad2dce78b201f1c22ee"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_01.png.meta",
+      "sha256": "3b860f4225764bcbbb178ea71a0d381332b7661781d382da6dbfdbec50924de6"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_02.png.meta",
+      "sha256": "af786101bc40a7001fd969379686ea8b97d2ffcdc7fc8e680f1cd44b3471c841"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_03.png.meta",
+      "sha256": "a5faec3e7acd0be88d88206315f983badf760365dada0ec132eef7b078ae3d26"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_04.png.meta",
+      "sha256": "d0ab4d6b9c5de23fa8fba4623ce6151152a0e3688436e64524575dc9cb5797ff"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_05.png.meta",
+      "sha256": "a432fe577f2ee0a4de06b44774a6a0c7584ac35b11dae9900b50ee27bd679816"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_06.png.meta",
+      "sha256": "3c788113ce129a2d57b68937cb2e46b9905962e23ac1a23194b08e6f03687b57"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW/walk_nw_07.png.meta",
+      "sha256": "c1fc8227ec52aa013674dbf80653657d798d4df192839e40d88ea975e62fb361"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/NW.meta",
+      "sha256": "85de39938ac22abcb84f82914912c1761dae43e4cdac4ea1328c1a078f055d5e"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_00.png.meta",
+      "sha256": "06c3a36ef73d1d8f9f08b1b85d6de0bdcbcaf6fa0b0f12709f10a750ac7684b5"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_01.png.meta",
+      "sha256": "5fbcf4945ce66265cbc5258a3ec697b137d6ee621d18833fa709399015f6238d"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_02.png.meta",
+      "sha256": "e9632541953d2aa868fe210324eb8060bb0cbc669981fae1d3b4ee4654ad41f9"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_03.png.meta",
+      "sha256": "dfa8b454af04d95f1aca74de15f7f5a808d357f837e3c7de367aea7fbbfabc52"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_04.png.meta",
+      "sha256": "91065a594cf85b9ae3f3b5ec504cf6ef9aaa2586f005d6634a4d868ccc6a6556"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_05.png.meta",
+      "sha256": "64390e2bda49ee86de3f303833e209e869e1b6f877b173250f19620faf5a3e26"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_06.png.meta",
+      "sha256": "4fd1e7f414fb8e5457f7563da35d8b361ee398b961d3b56d4293182714a34b37"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S/walk_s_07.png.meta",
+      "sha256": "c88b712ae4832b962ed0c1227c78c9ad38cf31e481ec691a3f5eae3832d6f087"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/S.meta",
+      "sha256": "fe5a3c2ee7103a717653a6774a205343462ba9e8a0136b617801469ed35ae87a"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_00.png.meta",
+      "sha256": "8fc47a86367ba91b8a53205e4af2989f2ffd5a2d1c3c4a05c488184a77e70fe3"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_01.png.meta",
+      "sha256": "8e9ef74afb9037cfd1c1d5a1d7d3ec6d2853891728a84642df87c4fe14ab6deb"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_02.png.meta",
+      "sha256": "4065e75714a614eee230a986cd005e31546108b0ec5f834584b8dec04829d633"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_03.png.meta",
+      "sha256": "0755cf8d65284183093c3ed4ff633350f2010e2c2080b6efecf3d35a17a0b891"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_04.png.meta",
+      "sha256": "eafee442d35ca7e5f93287cc5fa0d7d19b73c8e10a3c77541417c31cf0650de8"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_05.png.meta",
+      "sha256": "63ca3d6cd225c13997a3ba23ea1f13b69d2b872dbd4809a8bacda134ba79de50"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_06.png.meta",
+      "sha256": "322807a2b928f03242c1a672072e078daacaac44eee71d498d0a162dc53d9439"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE/walk_se_07.png.meta",
+      "sha256": "b3fc1750ecf04751fd29757b99f06e5e5ea7051f2f799d75fa26f97b415b5e1b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SE.meta",
+      "sha256": "903799d9705ed09a66e6f7f2541943993459d179799197e50be53cd6966d9d4c"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_00.png.meta",
+      "sha256": "658168fc10e309d4a234f4ed36cd73c493d210b1115c0204d8163af9ef7b590b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_01.png.meta",
+      "sha256": "7e7504abedf9f662f3d66e8b6cca95dc5f60342718692184c8882af132dc7369"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_02.png.meta",
+      "sha256": "c597a3d8467d10d49a377955ccdfac078096ebecf81ecd2f6d613eda705c1fc3"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_03.png.meta",
+      "sha256": "1fa99bcc56c4bf3c6b1344ada0ae8bad6a3af7848e0c919044bf01570557f738"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_04.png.meta",
+      "sha256": "51d242155ddead498e8fd1692b0f6b1aa4619f610bd94401514ecb925f734b99"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_05.png.meta",
+      "sha256": "00a09756954f70ec0a47e7e4cc7761b2c686f22318258ee8d50a358f819802c9"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_06.png.meta",
+      "sha256": "9eba3e6b57fe832b6268f7d28a43258f2cef16af5c1abd6e0d1e6c4029153d57"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW/walk_sw_07.png.meta",
+      "sha256": "7d3aea5a08a1943b85604ee72c7d744e3686208d8aa7fa7f98f7fe0a79f334dd"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/SW.meta",
+      "sha256": "81dc49777728e1f34f50418f90b3bec0f17e9cdcb36f092038dedc0c561feaa2"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_00.png.meta",
+      "sha256": "95528802b032f0d05001dc01d0d90d611c99bb2e05b4f461cfbbed08a124cb3f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_01.png.meta",
+      "sha256": "5f0d7f2723c4c95f541ce5268911d8b9de361db4288c62ce3ade686bad3b523f"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_02.png.meta",
+      "sha256": "095c1edaf8a1f223a865db6388dca95f1897c72d37b4054b34529f3528a6da2c"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_03.png.meta",
+      "sha256": "d27719418b881fda31ba2c6b2d02c29e12752c68573cb38dbd4119a8cd2b9d7b"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_04.png.meta",
+      "sha256": "dff7b6a6090794461064dcdba0c2968e748b7d1f2f2b49950591d7abb7ac6491"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_05.png.meta",
+      "sha256": "701bb1ba61928dec688a4545d762e0ff12461aaaa994e44e4f449ac48a43c912"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_06.png.meta",
+      "sha256": "5cfafed207f0da6d6099c025fc507eaf08eea2ef8db4beb0eaae644e24eeb355"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W/walk_w_07.png.meta",
+      "sha256": "567a1767de1145bf7eb072bb7c66f8ece79abb6cc0004074ae04e0ae0efb5fe1"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking/W.meta",
+      "sha256": "42b252ea3c325c5a362123b83943f47a691ae67ded40a3300ac4fe2e14be5011"
+    },
+    {
+      "path": "Assets/Images/Characters/Protagonist/Walking.meta",
+      "sha256": "c98a2867e52b87485878cf7bb3174f269f30387314c56dc078628d2a63d7bfad"
+    }
+  ]
+}

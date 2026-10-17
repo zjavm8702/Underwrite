@@ -1,0 +1,9601 @@
+{
+  "status": "시안 — PNG 기술 검사 통과, 정상 보행 검수 실패/미완료",
+  "frames": [
+    {
+      "file": "leader/Walking/S/S_00.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        199,
+        49
+      ],
+      "source_bbox": [
+        149,
+        9,
+        330,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        199,
+        49,
+        461,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        102470
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5185,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          204,
+          160,
+          319,
+          276
+        ],
+        "components": 1,
+        "areas": [
+          5739
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/S/S_01.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        198,
+        48
+      ],
+      "source_bbox": [
+        545,
+        8,
+        726,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        198,
+        48,
+        460,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        102631
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5230,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          201,
+          159,
+          318,
+          327
+        ],
+        "components": 1,
+        "areas": [
+          6760
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/S/S_02.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        198,
+        52
+      ],
+      "source_bbox": [
+        958,
+        11,
+        1141,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        198,
+        52,
+        463,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101911
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5128,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          202,
+          161,
+          321,
+          327
+        ],
+        "components": 1,
+        "areas": [
+          6795
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/S/S_03.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        202,
+        48
+      ],
+      "source_bbox": [
+        1358,
+        8,
+        1538,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        202,
+        48,
+        463,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101460
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5057,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          204,
+          158,
+          317,
+          281
+        ],
+        "components": 1,
+        "areas": [
+          5732
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/S/S_04.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        196,
+        61
+      ],
+      "source_bbox": [
+        145,
+        482,
+        331,
+        931
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        196,
+        61,
+        465,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100457
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5075,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          202,
+          170,
+          317,
+          285
+        ],
+        "components": 1,
+        "areas": [
+          5775
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/S/S_05.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        174,
+        74
+      ],
+      "source_bbox": [
+        538,
+        483,
+        725,
+        923
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        74,
+        445,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101530
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4465,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          182,
+          184,
+          302,
+          306
+        ],
+        "components": 1,
+        "areas": [
+          6222
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/S/S_06.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        197,
+        61
+      ],
+      "source_bbox": [
+        955,
+        482,
+        1139,
+        931
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        197,
+        61,
+        463,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101277
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5056,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          200,
+          170,
+          317,
+          299
+        ],
+        "components": 1,
+        "areas": [
+          5799
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/S/S_07.png",
+      "scale": 1.4451754385964912,
+      "placement": [
+        197,
+        61
+      ],
+      "source_bbox": [
+        1352,
+        482,
+        1539,
+        931
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        197,
+        61,
+        468,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101818
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5113,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          201,
+          171,
+          322,
+          290
+        ],
+        "components": 1,
+        "areas": [
+          6109
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_00.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        135,
+        50
+      ],
+      "source_bbox": [
+        90,
+        9,
+        341,
+        465
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        135,
+        50,
+        498,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        109866
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7192,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          193,
+          160,
+          329,
+          258
+        ],
+        "components": 1,
+        "areas": [
+          7372
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_01.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        145,
+        49
+      ],
+      "source_bbox": [
+        529,
+        8,
+        772,
+        465
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        145,
+        50,
+        497,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        107178
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6912,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          197,
+          161,
+          332,
+          256
+        ],
+        "components": 1,
+        "areas": [
+          7188
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_02.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        141,
+        54
+      ],
+      "source_bbox": [
+        954,
+        9,
+        1200,
+        462
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        141,
+        54,
+        496,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        109467
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6945,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          193,
+          164,
+          326,
+          261
+        ],
+        "components": 1,
+        "areas": [
+          7049
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_03.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        143,
+        52
+      ],
+      "source_bbox": [
+        1384,
+        9,
+        1631,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        143,
+        52,
+        501,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        109447
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7218,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          196,
+          162,
+          329,
+          258
+        ],
+        "components": 1,
+        "areas": [
+          7046
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_04.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        117,
+        53
+      ],
+      "source_bbox": [
+        88,
+        476,
+        369,
+        930
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        117,
+        53,
+        524,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106038
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6747,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          208,
+          162,
+          326,
+          249
+        ],
+        "components": 1,
+        "areas": [
+          5661
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_05.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        188,
+        56
+      ],
+      "source_bbox": [
+        559,
+        478,
+        753,
+        930
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        188,
+        56,
+        469,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        98163
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5519,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          211,
+          166,
+          332,
+          255
+        ],
+        "components": 1,
+        "areas": [
+          5953
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_06.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        143,
+        66
+      ],
+      "source_bbox": [
+        962,
+        479,
+        1209,
+        924
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        143,
+        66,
+        501,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        112217
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7096,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          195,
+          177,
+          325,
+          267
+        ],
+        "components": 1,
+        "areas": [
+          6434
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/SE/SE_07.png",
+      "scale": 1.4461538461538461,
+      "placement": [
+        130,
+        56
+      ],
+      "source_bbox": [
+        1379,
+        478,
+        1637,
+        930
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        130,
+        56,
+        504,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        114114
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7500,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          188,
+          166,
+          323,
+          259
+        ],
+        "components": 1,
+        "areas": [
+          6805
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_00.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        133,
+        94
+      ],
+      "source_bbox": [
+        81,
+        11,
+        356,
+        449
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        133,
+        94,
+        520,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        87275
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6182,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          251,
+          204,
+          355,
+          285
+        ],
+        "components": 1,
+        "areas": [
+          4249
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_01.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        201,
+        90
+      ],
+      "source_bbox": [
+        547,
+        12,
+        751,
+        453
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        201,
+        90,
+        488,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        77465
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5093,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          260,
+          202,
+          364,
+          282
+        ],
+        "components": 1,
+        "areas": [
+          4254
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_02.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        206,
+        90
+      ],
+      "source_bbox": [
+        974,
+        12,
+        1156,
+        453
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        206,
+        90,
+        462,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        84119
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6061,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          244,
+          201,
+          350,
+          288
+        ],
+        "components": 1,
+        "areas": [
+          4346
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_03.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        135,
+        91
+      ],
+      "source_bbox": [
+        1342,
+        12,
+        1642,
+        452
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        135,
+        91,
+        557,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        88785
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6627,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          242,
+          202,
+          349,
+          282
+        ],
+        "components": 1,
+        "areas": [
+          4336
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_04.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        121,
+        80
+      ],
+      "source_bbox": [
+        77,
+        473,
+        379,
+        921
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        121,
+        80,
+        546,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94151
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6808,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          223,
+          192,
+          356,
+          282
+        ],
+        "components": 1,
+        "areas": [
+          6913
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_05.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        197,
+        83
+      ],
+      "source_bbox": [
+        544,
+        474,
+        733,
+        920
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        197,
+        83,
+        463,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        77092
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5066,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          235,
+          195,
+          356,
+          285
+        ],
+        "components": 1,
+        "areas": [
+          6090
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_06.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        187,
+        82
+      ],
+      "source_bbox": [
+        959,
+        475,
+        1157,
+        922
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        187,
+        82,
+        466,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        85010
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5552,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          238,
+          195,
+          347,
+          277
+        ],
+        "components": 1,
+        "areas": [
+          4558
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/E/E_07.png",
+      "scale": 1.4049217002237135,
+      "placement": [
+        129,
+        82
+      ],
+      "source_bbox": [
+        1336,
+        474,
+        1645,
+        921
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        129,
+        82,
+        564,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92787
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6842,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          237,
+          195,
+          346,
+          281
+        ],
+        "components": 1,
+        "areas": [
+          4624
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_00.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        167,
+        42
+      ],
+      "source_bbox": [
+        125,
+        11,
+        339,
+        469
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        168,
+        42,
+        479,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        99786
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7178,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          206,
+          160,
+          336,
+          253
+        ],
+        "components": 1,
+        "areas": [
+          7859
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_01.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        176,
+        48
+      ],
+      "source_bbox": [
+        536,
+        11,
+        746,
+        465
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        176,
+        48,
+        482,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        96639
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6735,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          211,
+          167,
+          342,
+          258
+        ],
+        "components": 1,
+        "areas": [
+          7778
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_02.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        174,
+        51
+      ],
+      "source_bbox": [
+        965,
+        13,
+        1180,
+        465
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        51,
+        488,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        98984
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6793,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          212,
+          168,
+          344,
+          260
+        ],
+        "components": 1,
+        "areas": [
+          7895
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_03.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        171,
+        42
+      ],
+      "source_bbox": [
+        1379,
+        10,
+        1596,
+        468
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        171,
+        42,
+        487,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100574
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7174,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          209,
+          160,
+          342,
+          254
+        ],
+        "components": 1,
+        "areas": [
+          8097
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_04.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        201,
+        57
+      ],
+      "source_bbox": [
+        138,
+        478,
+        309,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        201,
+        57,
+        451,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92365
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5799,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          212,
+          172,
+          339,
+          263
+        ],
+        "components": 1,
+        "areas": [
+          7437
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_05.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        201,
+        61
+      ],
+      "source_bbox": [
+        566,
+        478,
+        714,
+        923
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        201,
+        61,
+        417,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        85246
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4409,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          207,
+          177,
+          322,
+          268
+        ],
+        "components": 1,
+        "areas": [
+          7067
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_06.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        174,
+        71
+      ],
+      "source_bbox": [
+        963,
+        479,
+        1172,
+        917
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        71,
+        479,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97013
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6543,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          217,
+          188,
+          339,
+          277
+        ],
+        "components": 1,
+        "areas": [
+          7235
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/NE/NE_07.png",
+      "scale": 1.4569536423841059,
+      "placement": [
+        174,
+        51
+      ],
+      "source_bbox": [
+        1387,
+        476,
+        1600,
+        928
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        52,
+        485,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97502
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6883,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          212,
+          168,
+          342,
+          259
+        ],
+        "components": 1,
+        "areas": [
+          7695
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_00.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        182,
+        51
+      ],
+      "source_bbox": [
+        112,
+        16,
+        295,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        183,
+        51,
+        450,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97717
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5798,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          304,
+          168,
+          428,
+          256
+        ],
+        "components": 1,
+        "areas": [
+          8039
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_01.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        192,
+        54
+      ],
+      "source_bbox": [
+        536,
+        16,
+        709,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        192,
+        54,
+        446,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        102175
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5925,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          306,
+          172,
+          428,
+          259
+        ],
+        "components": 1,
+        "areas": [
+          7948
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_02.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        187,
+        68
+      ],
+      "source_bbox": [
+        949,
+        27,
+        1132,
+        465
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        187,
+        68,
+        455,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        99489
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5369,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          309,
+          189,
+          437,
+          280
+        ],
+        "components": 1,
+        "areas": [
+          8623
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_03.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        182,
+        49
+      ],
+      "source_bbox": [
+        1362,
+        15,
+        1545,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        182,
+        49,
+        450,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100936
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5657,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          303,
+          168,
+          432,
+          256
+        ],
+        "components": 1,
+        "areas": [
+          8364
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_04.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        202,
+        58
+      ],
+      "source_bbox": [
+        119,
+        482,
+        302,
+        927
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        202,
+        58,
+        470,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        95983
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5372,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          323,
+          177,
+          451,
+          265
+        ],
+        "components": 1,
+        "areas": [
+          8300
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_05.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        189,
+        58
+      ],
+      "source_bbox": [
+        533,
+        482,
+        717,
+        927
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        189,
+        58,
+        459,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100205
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5517,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          311,
+          175,
+          438,
+          265
+        ],
+        "components": 1,
+        "areas": [
+          8384
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_06.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        198,
+        80
+      ],
+      "source_bbox": [
+        950,
+        490,
+        1135,
+        920
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        198,
+        80,
+        469,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        98115
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5448,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          321,
+          199,
+          448,
+          288
+        ],
+        "components": 1,
+        "areas": [
+          8266
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "leader/Walking/N/N_07.png",
+      "scale": 1.4641255605381165,
+      "placement": [
+        194,
+        61
+      ],
+      "source_bbox": [
+        1365,
+        482,
+        1549,
+        925
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        194,
+        61,
+        464,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        95874
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5592,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          316,
+          180,
+          443,
+          270
+        ],
+        "components": 1,
+        "areas": [
+          8349
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_00.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        192,
+        39
+      ],
+      "source_bbox": [
+        128,
+        5,
+        292,
+        462
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        192,
+        39,
+        433,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        95125
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5268,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          244,
+          174,
+          386,
+          235
+        ],
+        "components": 1,
+        "areas": [
+          4187
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_01.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        204,
+        36
+      ],
+      "source_bbox": [
+        537,
+        4,
+        706,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        204,
+        36,
+        452,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        96090
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5722,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          258,
+          171,
+          400,
+          232
+        ],
+        "components": 1,
+        "areas": [
+          4308
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_02.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        204,
+        42
+      ],
+      "source_bbox": [
+        968,
+        5,
+        1141,
+        460
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        204,
+        42,
+        458,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97690
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5806,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          257,
+          176,
+          399,
+          237
+        ],
+        "components": 1,
+        "areas": [
+          4195
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_03.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        204,
+        38
+      ],
+      "source_bbox": [
+        1383,
+        4,
+        1550,
+        462
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        204,
+        38,
+        449,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94891
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5141,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          256,
+          173,
+          396,
+          232
+        ],
+        "components": 1,
+        "areas": [
+          4123
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_04.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        203,
+        61
+      ],
+      "source_bbox": [
+        128,
+        480,
+        298,
+        922
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        203,
+        61,
+        453,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92168
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4975,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          258,
+          191,
+          400,
+          250
+        ],
+        "components": 1,
+        "areas": [
+          4100
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_05.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        207,
+        64
+      ],
+      "source_bbox": [
+        538,
+        480,
+        702,
+        920
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        207,
+        64,
+        448,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        93361
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4706,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          258,
+          194,
+          399,
+          254
+        ],
+        "components": 1,
+        "areas": [
+          4232
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_06.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        204,
+        57
+      ],
+      "source_bbox": [
+        964,
+        479,
+        1135,
+        924
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        204,
+        57,
+        455,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94755
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5588,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          261,
+          188,
+          402,
+          246
+        ],
+        "components": 1,
+        "areas": [
+          4070
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/S/S_07.png",
+      "scale": 1.4671052631578947,
+      "placement": [
+        202,
+        49
+      ],
+      "source_bbox": [
+        1382,
+        479,
+        1553,
+        929
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        202,
+        49,
+        453,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        95151
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4972,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          257,
+          182,
+          399,
+          239
+        ],
+        "components": 1,
+        "areas": [
+          4082
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_00.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        151,
+        18
+      ],
+      "source_bbox": [
+        96,
+        3,
+        326,
+        476
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        151,
+        18,
+        488,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106322
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6850,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          249,
+          176,
+          395,
+          258
+        ],
+        "components": 1,
+        "areas": [
+          5401
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_01.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        164,
+        28
+      ],
+      "source_bbox": [
+        542,
+        7,
+        763,
+        473
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        164,
+        28,
+        488,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        102875
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6427,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          239,
+          188,
+          389,
+          267
+        ],
+        "components": 1,
+        "areas": [
+          5293
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_02.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        159,
+        28
+      ],
+      "source_bbox": [
+        945,
+        6,
+        1171,
+        472
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        159,
+        28,
+        490,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        107967
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6787,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          244,
+          184,
+          391,
+          266
+        ],
+        "components": 1,
+        "areas": [
+          5292
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_03.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        159,
+        22
+      ],
+      "source_bbox": [
+        1366,
+        6,
+        1587,
+        476
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        159,
+        22,
+        483,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        105694
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6922,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          246,
+          180,
+          389,
+          260
+        ],
+        "components": 1,
+        "areas": [
+          5073
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_04.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        155,
+        46
+      ],
+      "source_bbox": [
+        113,
+        480,
+        374,
+        934
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        155,
+        46,
+        537,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97868
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6149,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          250,
+          192,
+          379,
+          267
+        ],
+        "components": 1,
+        "areas": [
+          4650
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_05.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        200,
+        50
+      ],
+      "source_bbox": [
+        577,
+        480,
+        745,
+        931
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        200,
+        50,
+        446,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        89329
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5028,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          239,
+          198,
+          374,
+          272
+        ],
+        "components": 1,
+        "areas": [
+          4472
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_06.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        161,
+        47
+      ],
+      "source_bbox": [
+        948,
+        475,
+        1171,
+        928
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        161,
+        47,
+        488,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        105108
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6580,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          242,
+          199,
+          387,
+          276
+        ],
+        "components": 1,
+        "areas": [
+          4995
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/SE/SE_07.png",
+      "scale": 1.462526766595289,
+      "placement": [
+        159,
+        43
+      ],
+      "source_bbox": [
+        1367,
+        481,
+        1606,
+        937
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        159,
+        43,
+        509,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        108710
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6991,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          241,
+          192,
+          385,
+          266
+        ],
+        "components": 1,
+        "areas": [
+          4897
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_00.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        134,
+        37
+      ],
+      "source_bbox": [
+        61,
+        3,
+        349,
+        465
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        134,
+        37,
+        554,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100390
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7155,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          285,
+          172,
+          399,
+          239
+        ],
+        "components": 1,
+        "areas": [
+          3154
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_01.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        193,
+        40
+      ],
+      "source_bbox": [
+        533,
+        3,
+        731,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        194,
+        40,
+        482,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        86515
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6040,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          273,
+          175,
+          382,
+          241
+        ],
+        "components": 1,
+        "areas": [
+          3030
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_02.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        196,
+        39
+      ],
+      "source_bbox": [
+        956,
+        3,
+        1148,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        196,
+        39,
+        476,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        96352
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6799,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          265,
+          174,
+          375,
+          240
+        ],
+        "components": 1,
+        "areas": [
+          3034
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_03.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        135,
+        50
+      ],
+      "source_bbox": [
+        1332,
+        9,
+        1640,
+        462
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        135,
+        50,
+        584,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101049
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7426,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          266,
+          183,
+          378,
+          242
+        ],
+        "components": 1,
+        "areas": [
+          2960
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_04.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        122,
+        43
+      ],
+      "source_bbox": [
+        57,
+        468,
+        387,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        122,
+        43,
+        603,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        105045
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7299,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          287,
+          177,
+          393,
+          243
+        ],
+        "components": 1,
+        "areas": [
+          2650
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_05.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        200,
+        39
+      ],
+      "source_bbox": [
+        541,
+        465,
+        705,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        200,
+        39,
+        439,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        85653
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5415,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          272,
+          175,
+          376,
+          242
+        ],
+        "components": 1,
+        "areas": [
+          2620
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_06.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        191,
+        41
+      ],
+      "source_bbox": [
+        955,
+        467,
+        1153,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        191,
+        41,
+        480,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        96810
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5892,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          263,
+          175,
+          373,
+          238
+        ],
+        "components": 1,
+        "areas": [
+          2798
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/E/E_07.png",
+      "scale": 1.4555314533622559,
+      "placement": [
+        136,
+        52
+      ],
+      "source_bbox": [
+        1327,
+        474,
+        1657,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        136,
+        52,
+        617,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        105587
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7319,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          281,
+          184,
+          388,
+          239
+        ],
+        "components": 1,
+        "areas": [
+          2465
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_00.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        177,
+        27
+      ],
+      "source_bbox": [
+        125,
+        7,
+        316,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        177,
+        27,
+        463,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        93563
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7655,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          270,
+          170,
+          382,
+          248
+        ],
+        "components": 1,
+        "areas": [
+          4110
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_01.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        191,
+        25
+      ],
+      "source_bbox": [
+        550,
+        6,
+        733,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        191,
+        25,
+        465,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        91615
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7283,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          270,
+          171,
+          382,
+          249
+        ],
+        "components": 1,
+        "areas": [
+          4156
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_02.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        185,
+        34
+      ],
+      "source_bbox": [
+        966,
+        11,
+        1151,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        185,
+        34,
+        462,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        91983
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7256,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          270,
+          178,
+          385,
+          253
+        ],
+        "components": 1,
+        "areas": [
+          4098
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_03.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        181,
+        34
+      ],
+      "source_bbox": [
+        1378,
+        12,
+        1567,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        181,
+        34,
+        464,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        93644
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7623,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          272,
+          179,
+          383,
+          252
+        ],
+        "components": 1,
+        "areas": [
+          3944
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_04.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        194,
+        28
+      ],
+      "source_bbox": [
+        140,
+        469,
+        312,
+        925
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        194,
+        28,
+        452,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92227
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6741,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          272,
+          169,
+          384,
+          241
+        ],
+        "components": 1,
+        "areas": [
+          4002
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_05.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        196,
+        40
+      ],
+      "source_bbox": [
+        566,
+        470,
+        711,
+        918
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        196,
+        40,
+        413,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        84599
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5193,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          263,
+          185,
+          373,
+          254
+        ],
+        "components": 1,
+        "areas": [
+          3755
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_06.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        175,
+        47
+      ],
+      "source_bbox": [
+        971,
+        470,
+        1165,
+        913
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        175,
+        47,
+        465,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94022
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7173,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          277,
+          189,
+          386,
+          259
+        ],
+        "components": 1,
+        "areas": [
+          3791
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/NE/NE_07.png",
+      "scale": 1.4944812362030906,
+      "placement": [
+        174,
+        38
+      ],
+      "source_bbox": [
+        1375,
+        475,
+        1572,
+        924
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        38,
+        469,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92723
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7518,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          275,
+          180,
+          385,
+          251
+        ],
+        "components": 1,
+        "areas": [
+          3806
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_00.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        183,
+        42
+      ],
+      "source_bbox": [
+        123,
+        7,
+        296,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        183,
+        42,
+        435,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        89597
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5780,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          287,
+          186,
+          388,
+          254
+        ],
+        "components": 1,
+        "areas": [
+          4672
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_01.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        184,
+        57
+      ],
+      "source_bbox": [
+        545,
+        7,
+        715,
+        456
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        184,
+        57,
+        432,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        93599
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5201,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          284,
+          194,
+          387,
+          261
+        ],
+        "components": 1,
+        "areas": [
+          4325
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_02.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        181,
+        64
+      ],
+      "source_bbox": [
+        958,
+        21,
+        1133,
+        465
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        181,
+        64,
+        436,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        90841
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5380,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          284,
+          201,
+          380,
+          268
+        ],
+        "components": 1,
+        "areas": [
+          4487
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_03.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        180,
+        42
+      ],
+      "source_bbox": [
+        1367,
+        7,
+        1541,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        180,
+        42,
+        433,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        90935
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5478,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          283,
+          184,
+          384,
+          249
+        ],
+        "components": 1,
+        "areas": [
+          4336
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_04.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        208,
+        48
+      ],
+      "source_bbox": [
+        129,
+        474,
+        305,
+        929
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        208,
+        48,
+        464,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        89287
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5616,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          298,
+          188,
+          406,
+          255
+        ],
+        "components": 1,
+        "areas": [
+          4538
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_05.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        177,
+        48
+      ],
+      "source_bbox": [
+        545,
+        472,
+        718,
+        927
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        177,
+        48,
+        429,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92231
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5382,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          279,
+          191,
+          377,
+          256
+        ],
+        "components": 1,
+        "areas": [
+          4345
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_06.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        203,
+        60
+      ],
+      "source_bbox": [
+        967,
+        480,
+        1136,
+        927
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        203,
+        60,
+        449,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92208
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5195,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          295,
+          200,
+          407,
+          267
+        ],
+        "components": 1,
+        "areas": [
+          4547
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "archer/Walking/N/N_07.png",
+      "scale": 1.4539473684210527,
+      "placement": [
+        199,
+        41
+      ],
+      "source_bbox": [
+        1376,
+        471,
+        1552,
+        931
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        199,
+        41,
+        455,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        91618
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5333,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          294,
+          179,
+          393,
+          246
+        ],
+        "components": 1,
+        "areas": [
+          4393
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_00.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        183,
+        19
+      ],
+      "source_bbox": [
+        118,
+        8,
+        313,
+        467
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        183,
+        19,
+        477,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        120997
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4449,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          263,
+          296,
+          403,
+          451
+        ],
+        "components": 3,
+        "areas": [
+          11821,
+          751,
+          342
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_01.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        186,
+        20
+      ],
+      "source_bbox": [
+        532,
+        9,
+        730,
+        467
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        186,
+        20,
+        484,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        121966
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4641,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          267,
+          297,
+          407,
+          450
+        ],
+        "components": 3,
+        "areas": [
+          11727,
+          692,
+          351
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_02.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        190,
+        22
+      ],
+      "source_bbox": [
+        954,
+        10,
+        1148,
+        467
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        190,
+        22,
+        482,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        120807
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4860,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          267,
+          298,
+          410,
+          450
+        ],
+        "components": 1,
+        "areas": [
+          12065
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_03.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        190,
+        20
+      ],
+      "source_bbox": [
+        1372,
+        9,
+        1568,
+        467
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        190,
+        20,
+        485,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        120521
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4539,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          268,
+          297,
+          412,
+          452
+        ],
+        "components": 2,
+        "areas": [
+          12432,
+          276
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_04.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        182,
+        42
+      ],
+      "source_bbox": [
+        116,
+        479,
+        319,
+        923
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        182,
+        42,
+        488,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        117539
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4505,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          266,
+          310,
+          409,
+          458
+        ],
+        "components": 3,
+        "areas": [
+          10373,
+          703,
+          287
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_05.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        153,
+        49
+      ],
+      "source_bbox": [
+        522,
+        481,
+        725,
+        920
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        153,
+        49,
+        459,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        115783
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4269,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          232,
+          314,
+          379,
+          461
+        ],
+        "components": 4,
+        "areas": [
+          10434,
+          411,
+          245,
+          118
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_06.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        182,
+        43
+      ],
+      "source_bbox": [
+        945,
+        480,
+        1147,
+        923
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        182,
+        43,
+        486,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        115345
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4473,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          265,
+          311,
+          412,
+          454
+        ],
+        "components": 4,
+        "areas": [
+          10579,
+          437,
+          320,
+          91
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/S/S_07.png",
+      "scale": 1.5043668122270741,
+      "placement": [
+        183,
+        43
+      ],
+      "source_bbox": [
+        1366,
+        480,
+        1571,
+        923
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        183,
+        43,
+        492,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        119395
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4549,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          266,
+          311,
+          411,
+          458
+        ],
+        "components": 3,
+        "areas": [
+          10949,
+          380,
+          343
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_00.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        123,
+        46
+      ],
+      "source_bbox": [
+        79,
+        9,
+        357,
+        471
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        123,
+        46,
+        523,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        132151
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6165,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          244,
+          312,
+          395,
+          464
+        ],
+        "components": 2,
+        "areas": [
+          9242,
+          1720
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_01.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        123,
+        49
+      ],
+      "source_bbox": [
+        502,
+        9,
+        774,
+        469
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        123,
+        49,
+        514,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        126296
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5797,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          248,
+          314,
+          393,
+          465
+        ],
+        "components": 3,
+        "areas": [
+          9898,
+          200,
+          137
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_02.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        130,
+        50
+      ],
+      "source_bbox": [
+        935,
+        9,
+        1210,
+        468
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        130,
+        50,
+        526,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        132946
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6064,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          246,
+          315,
+          394,
+          465
+        ],
+        "components": 1,
+        "areas": [
+          10161
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_03.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        128,
+        46
+      ],
+      "source_bbox": [
+        1373,
+        9,
+        1646,
+        471
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        128,
+        46,
+        521,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        131691
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6195,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          247,
+          312,
+          394,
+          462
+        ],
+        "components": 4,
+        "areas": [
+          7980,
+          1892,
+          255,
+          158
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_04.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        129,
+        56
+      ],
+      "source_bbox": [
+        103,
+        478,
+        403,
+        933
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        129,
+        56,
+        561,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        120536
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6040,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          242,
+          318,
+          400,
+          458
+        ],
+        "components": 2,
+        "areas": [
+          5988,
+          323
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_05.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        169,
+        60
+      ],
+      "source_bbox": [
+        552,
+        478,
+        764,
+        930
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        169,
+        60,
+        474,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        113255
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4898,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          289,
+          321,
+          393,
+          471
+        ],
+        "components": 2,
+        "areas": [
+          7523,
+          104
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_06.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        129,
+        70
+      ],
+      "source_bbox": [
+        944,
+        482,
+        1216,
+        927
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        129,
+        70,
+        520,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        131079
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6073,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          247,
+          327,
+          390,
+          488
+        ],
+        "components": 4,
+        "areas": [
+          9204,
+          1414,
+          144,
+          124
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/SE/SE_07.png",
+      "scale": 1.4369565217391305,
+      "placement": [
+        127,
+        56
+      ],
+      "source_bbox": [
+        1378,
+        478,
+        1645,
+        933
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        127,
+        56,
+        511,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        134778
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6282,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          244,
+          318,
+          394,
+          465
+        ],
+        "components": 3,
+        "areas": [
+          7956,
+          1942,
+          300
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_00.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        116,
+        32
+      ],
+      "source_bbox": [
+        70,
+        7,
+        361,
+        466
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        116,
+        32,
+        545,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        124948
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6798,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          284,
+          307,
+          407,
+          451
+        ],
+        "components": 3,
+        "areas": [
+          6577,
+          1157,
+          186
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_01.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        172,
+        29
+      ],
+      "source_bbox": [
+        525,
+        8,
+        757,
+        469
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        172,
+        29,
+        515,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        116255
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5815,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          282,
+          302,
+          417,
+          446
+        ],
+        "components": 3,
+        "areas": [
+          7054,
+          317,
+          147
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_02.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        168,
+        29
+      ],
+      "source_bbox": [
+        959,
+        9,
+        1182,
+        470
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        168,
+        29,
+        498,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        119526
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6558,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          271,
+          302,
+          410,
+          405
+        ],
+        "components": 2,
+        "areas": [
+          4874,
+          665
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_03.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        126,
+        33
+      ],
+      "source_bbox": [
+        1346,
+        9,
+        1652,
+        467
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        126,
+        33,
+        578,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        125775
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6913,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          279,
+          306,
+          428,
+          447
+        ],
+        "components": 2,
+        "areas": [
+          6435,
+          239
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_04.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        98,
+        58
+      ],
+      "source_bbox": [
+        48,
+        478,
+        386,
+        919
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        98,
+        58,
+        597,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        122211
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6789,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          275,
+          320,
+          414,
+          455
+        ],
+        "components": 2,
+        "areas": [
+          5988,
+          295
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_05.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        161,
+        46
+      ],
+      "source_bbox": [
+        543,
+        478,
+        732,
+        927
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        161,
+        46,
+        441,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101154
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5045,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          253,
+          312,
+          376,
+          445
+        ],
+        "components": 3,
+        "areas": [
+          2702,
+          1575,
+          1307
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_06.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        175,
+        52
+      ],
+      "source_bbox": [
+        957,
+        479,
+        1179,
+        924
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        175,
+        52,
+        503,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        110339
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5339,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          277,
+          316,
+          413,
+          414
+        ],
+        "components": 3,
+        "areas": [
+          4782,
+          594,
+          518
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/E/E_07.png",
+      "scale": 1.477124183006536,
+      "placement": [
+        147,
+        58
+      ],
+      "source_bbox": [
+        1351,
+        479,
+        1666,
+        920
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        147,
+        58,
+        613,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        122779
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6795,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          290,
+          320,
+          448,
+          452
+        ],
+        "components": 3,
+        "areas": [
+          3109,
+          1955,
+          86
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_00.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        164,
+        56
+      ],
+      "source_bbox": [
+        108,
+        9,
+        340,
+        472
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        164,
+        56,
+        492,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        108607
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5488,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          277,
+          318,
+          387,
+          445
+        ],
+        "components": 3,
+        "areas": [
+          2317,
+          1639,
+          1133
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_01.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        168,
+        56
+      ],
+      "source_bbox": [
+        522,
+        8,
+        749,
+        471
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        168,
+        56,
+        489,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        107157
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5323,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          278,
+          318,
+          386,
+          444
+        ],
+        "components": 3,
+        "areas": [
+          2161,
+          1858,
+          1181
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_02.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        151,
+        57
+      ],
+      "source_bbox": [
+        933,
+        10,
+        1175,
+        472
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        151,
+        57,
+        493,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        107359
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5291,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          271,
+          319,
+          388,
+          444
+        ],
+        "components": 4,
+        "areas": [
+          2701,
+          1113,
+          646,
+          559
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_03.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        144,
+        54
+      ],
+      "source_bbox": [
+        1350,
+        8,
+        1597,
+        472
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        144,
+        54,
+        493,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        110412
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5568,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          268,
+          317,
+          388,
+          442
+        ],
+        "components": 4,
+        "areas": [
+          3003,
+          1166,
+          618,
+          419
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_04.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        199,
+        63
+      ],
+      "source_bbox": [
+        118,
+        480,
+        307,
+        938
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        199,
+        63,
+        466,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        101576
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4867,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          282,
+          323,
+          395,
+          442
+        ],
+        "components": 3,
+        "areas": [
+          2583,
+          1524,
+          857
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_05.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        198,
+        65
+      ],
+      "source_bbox": [
+        531,
+        482,
+        718,
+        938
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        198,
+        65,
+        463,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97145
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4403,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          281,
+          324,
+          399,
+          444
+        ],
+        "components": 3,
+        "areas": [
+          2896,
+          1154,
+          906
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_06.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        160,
+        65
+      ],
+      "source_bbox": [
+        939,
+        482,
+        1174,
+        938
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        160,
+        65,
+        492,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106241
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5213,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          276,
+          324,
+          389,
+          450
+        ],
+        "components": 4,
+        "areas": [
+          2307,
+          1098,
+          840,
+          696
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/NE/NE_07.png",
+      "scale": 1.4125269978401729,
+      "placement": [
+        158,
+        64
+      ],
+      "source_bbox": [
+        1360,
+        481,
+        1596,
+        938
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        158,
+        64,
+        492,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        108130
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5414,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          275,
+          323,
+          387,
+          444
+        ],
+        "components": 3,
+        "areas": [
+          2245,
+          1806,
+          1032
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_00.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        171,
+        48
+      ],
+      "source_bbox": [
+        105,
+        20,
+        309,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        171,
+        48,
+        476,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        112690
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4979,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          250,
+          314,
+          399,
+          429
+        ],
+        "components": 3,
+        "areas": [
+          7183,
+          1321,
+          495
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_01.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        164,
+        59
+      ],
+      "source_bbox": [
+        529,
+        22,
+        731,
+        457
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        164,
+        59,
+        466,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        116148
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4998,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          247,
+          321,
+          388,
+          438
+        ],
+        "components": 3,
+        "areas": [
+          7052,
+          1055,
+          443
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_02.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        160,
+        64
+      ],
+      "source_bbox": [
+        945,
+        31,
+        1152,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        160,
+        64,
+        470,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        111509
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4832,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          248,
+          328,
+          390,
+          444
+        ],
+        "components": 3,
+        "areas": [
+          7071,
+          1058,
+          333
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_03.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        159,
+        53
+      ],
+      "source_bbox": [
+        1360,
+        23,
+        1566,
+        462
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        159,
+        53,
+        467,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        111995
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4927,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          245,
+          317,
+          391,
+          431
+        ],
+        "components": 3,
+        "areas": [
+          6878,
+          1470,
+          508
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_04.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        175,
+        51
+      ],
+      "source_bbox": [
+        105,
+        484,
+        316,
+        925
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        175,
+        51,
+        491,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        111828
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5124,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          258,
+          315,
+          403,
+          425
+        ],
+        "components": 3,
+        "areas": [
+          6894,
+          1206,
+          573
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_05.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        164,
+        51
+      ],
+      "source_bbox": [
+        526,
+        482,
+        731,
+        923
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        164,
+        51,
+        471,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        116614
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5072,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          240,
+          315,
+          389,
+          426
+        ],
+        "components": 3,
+        "areas": [
+          7112,
+          1201,
+          631
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_06.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        159,
+        77
+      ],
+      "source_bbox": [
+        939,
+        494,
+        1151,
+        917
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        159,
+        77,
+        476,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        112443
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4897,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          251,
+          334,
+          388,
+          448
+        ],
+        "components": 3,
+        "areas": [
+          6814,
+          879,
+          279
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "shield/Walking/N/N_07.png",
+      "scale": 1.4943310657596371,
+      "placement": [
+        161,
+        52
+      ],
+      "source_bbox": [
+        1361,
+        486,
+        1576,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        161,
+        52,
+        483,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        113490
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5085,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          242,
+          316,
+          398,
+          425
+        ],
+        "components": 3,
+        "areas": [
+          7070,
+          1195,
+          711
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_00.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        177,
+        32
+      ],
+      "source_bbox": [
+        127,
+        12,
+        345,
+        468
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        177,
+        32,
+        502,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        130939
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4690,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          266,
+          138,
+          409,
+          248
+        ],
+        "components": 1,
+        "areas": [
+          9882
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_01.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        174,
+        26
+      ],
+      "source_bbox": [
+        516,
+        9,
+        734,
+        469
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        26,
+        499,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        132715
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4689,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          266,
+          133,
+          410,
+          246
+        ],
+        "components": 1,
+        "areas": [
+          10106
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_02.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        177,
+        39
+      ],
+      "source_bbox": [
+        940,
+        12,
+        1155,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        177,
+        39,
+        497,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        128152
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4567,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          266,
+          144,
+          409,
+          258
+        ],
+        "components": 1,
+        "areas": [
+          10076
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_03.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        178,
+        29
+      ],
+      "source_bbox": [
+        1328,
+        12,
+        1546,
+        470
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        178,
+        29,
+        503,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        130708
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4781,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          269,
+          135,
+          413,
+          246
+        ],
+        "components": 1,
+        "areas": [
+          10161
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_04.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        177,
+        42
+      ],
+      "source_bbox": [
+        120,
+        477,
+        341,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        177,
+        42,
+        506,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        128943
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4747,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          270,
+          147,
+          414,
+          258
+        ],
+        "components": 1,
+        "areas": [
+          10038
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_05.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        144,
+        67
+      ],
+      "source_bbox": [
+        526,
+        480,
+        744,
+        912
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        144,
+        67,
+        469,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        125540
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4341,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          232,
+          171,
+          376,
+          283
+        ],
+        "components": 1,
+        "areas": [
+          10233
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_06.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        179,
+        46
+      ],
+      "source_bbox": [
+        937,
+        480,
+        1157,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        179,
+        46,
+        507,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        129418
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4661,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          271,
+          150,
+          437,
+          261
+        ],
+        "components": 2,
+        "areas": [
+          10003,
+          362
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/S/S_07.png",
+      "scale": 1.4867256637168142,
+      "placement": [
+        173,
+        45
+      ],
+      "source_bbox": [
+        1333,
+        479,
+        1554,
+        926
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        173,
+        45,
+        502,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        129866
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4641,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          262,
+          149,
+          409,
+          259
+        ],
+        "components": 1,
+        "areas": [
+          9809
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_00.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        163,
+        83
+      ],
+      "source_bbox": [
+        106,
+        5,
+        328,
+        458
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        163,
+        83,
+        471,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        112172
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5614,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          270,
+          181,
+          381,
+          294
+        ],
+        "components": 1,
+        "areas": [
+          6046
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_01.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        163,
+        84
+      ],
+      "source_bbox": [
+        521,
+        5,
+        743,
+        457
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        163,
+        84,
+        471,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        109137
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5253,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          269,
+          182,
+          381,
+          295
+        ],
+        "components": 1,
+        "areas": [
+          6059
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_02.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        162,
+        92
+      ],
+      "source_bbox": [
+        936,
+        5,
+        1159,
+        451
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        162,
+        92,
+        471,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        111707
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5391,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          269,
+          189,
+          381,
+          303
+        ],
+        "components": 1,
+        "areas": [
+          6068
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_03.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        163,
+        91
+      ],
+      "source_bbox": [
+        1354,
+        5,
+        1589,
+        452
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        163,
+        91,
+        489,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        112257
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5573,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          270,
+          188,
+          385,
+          302
+        ],
+        "components": 1,
+        "areas": [
+          6146
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_04.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        165,
+        90
+      ],
+      "source_bbox": [
+        105,
+        466,
+        366,
+        914
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        165,
+        90,
+        527,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        111829
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5400,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          264,
+          187,
+          392,
+          299
+        ],
+        "components": 1,
+        "areas": [
+          5935
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_05.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        160,
+        94
+      ],
+      "source_bbox": [
+        522,
+        467,
+        731,
+        912
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        160,
+        94,
+        450,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        105169
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4769,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          266,
+          190,
+          379,
+          304
+        ],
+        "components": 1,
+        "areas": [
+          5903
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_06.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        160,
+        97
+      ],
+      "source_bbox": [
+        935,
+        467,
+        1171,
+        910
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        160,
+        97,
+        487,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        115141
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5517,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          265,
+          193,
+          383,
+          306
+        ],
+        "components": 1,
+        "areas": [
+          6135
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/SE/SE_07.png",
+      "scale": 1.3839285714285714,
+      "placement": [
+        162,
+        92
+      ],
+      "source_bbox": [
+        1356,
+        467,
+        1600,
+        913
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        162,
+        93,
+        500,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        115325
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5752,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          268,
+          189,
+          380,
+          303
+        ],
+        "components": 1,
+        "areas": [
+          5914
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_00.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        111,
+        40
+      ],
+      "source_bbox": [
+        60,
+        10,
+        353,
+        475
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        111,
+        40,
+        534,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        127629
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6877,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          294,
+          145,
+          386,
+          265
+        ],
+        "components": 1,
+        "areas": [
+          4258
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_01.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        168,
+        38
+      ],
+      "source_bbox": [
+        522,
+        10,
+        759,
+        476
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        168,
+        38,
+        510,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        117209
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5758,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          312,
+          144,
+          407,
+          263
+        ],
+        "components": 1,
+        "areas": [
+          4330
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_02.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        184,
+        41
+      ],
+      "source_bbox": [
+        950,
+        10,
+        1171,
+        474
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        184,
+        41,
+        503,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        122627
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6367,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          310,
+          146,
+          402,
+          267
+        ],
+        "components": 1,
+        "areas": [
+          4205
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_03.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        123,
+        40
+      ],
+      "source_bbox": [
+        1323,
+        10,
+        1645,
+        475
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        123,
+        40,
+        587,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        130581
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7081,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          288,
+          145,
+          385,
+          265
+        ],
+        "components": 1,
+        "areas": [
+          4404
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_04.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        112,
+        63
+      ],
+      "source_bbox": [
+        61,
+        485,
+        390,
+        934
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        112,
+        63,
+        586,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        125329
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6916,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          291,
+          166,
+          386,
+          284
+        ],
+        "components": 1,
+        "areas": [
+          3415
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_05.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        150,
+        68
+      ],
+      "source_bbox": [
+        524,
+        487,
+        726,
+        932
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        150,
+        68,
+        441,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        109512
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5502,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          278,
+          170,
+          372,
+          292
+        ],
+        "components": 1,
+        "areas": [
+          3776
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_06.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        169,
+        65
+      ],
+      "source_bbox": [
+        948,
+        485,
+        1165,
+        932
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        169,
+        65,
+        482,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        115135
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5477,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          297,
+          167,
+          390,
+          289
+        ],
+        "components": 1,
+        "areas": [
+          4142
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/E/E_07.png",
+      "scale": 1.4408602150537635,
+      "placement": [
+        113,
+        61
+      ],
+      "source_bbox": [
+        1324,
+        484,
+        1653,
+        934
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        113,
+        61,
+        587,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        129556
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6894,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          297,
+          165,
+          395,
+          287
+        ],
+        "components": 1,
+        "areas": [
+          4405
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_00.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        161,
+        59
+      ],
+      "source_bbox": [
+        101,
+        11,
+        327,
+        472
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        161,
+        59,
+        481,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        105085
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5857,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          287,
+          161,
+          385,
+          179
+        ],
+        "components": 1,
+        "areas": [
+          1146
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_01.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        166,
+        60
+      ],
+      "source_bbox": [
+        530,
+        10,
+        752,
+        470
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        166,
+        60,
+        480,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        102197
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5617,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          286,
+          161,
+          384,
+          181
+        ],
+        "components": 1,
+        "areas": [
+          1110
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_02.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        160,
+        60
+      ],
+      "source_bbox": [
+        950,
+        12,
+        1176,
+        472
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        160,
+        60,
+        480,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        102820
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5541,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          285,
+          161,
+          384,
+          180
+        ],
+        "components": 1,
+        "areas": [
+          1025
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_03.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        161,
+        59
+      ],
+      "source_bbox": [
+        1373,
+        11,
+        1597,
+        472
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        161,
+        59,
+        478,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        103758
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5728,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          284,
+          161,
+          382,
+          179
+        ],
+        "components": 1,
+        "areas": [
+          1005
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_04.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        193,
+        77
+      ],
+      "source_bbox": [
+        111,
+        481,
+        301,
+        929
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        193,
+        77,
+        462,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        98614
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5304,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          299,
+          176,
+          398,
+          198
+        ],
+        "components": 1,
+        "areas": [
+          1416
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_05.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        190,
+        74
+      ],
+      "source_bbox": [
+        554,
+        480,
+        717,
+        930
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        190,
+        74,
+        421,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        88138
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4057,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          273,
+          173,
+          369,
+          196
+        ],
+        "components": 1,
+        "areas": [
+          1469
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_06.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        164,
+        74
+      ],
+      "source_bbox": [
+        954,
+        480,
+        1175,
+        930
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        164,
+        74,
+        476,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100024
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5483,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          287,
+          173,
+          383,
+          195
+        ],
+        "components": 1,
+        "areas": [
+          1335
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/NE/NE_07.png",
+      "scale": 1.4121475054229935,
+      "placement": [
+        164,
+        74
+      ],
+      "source_bbox": [
+        1373,
+        480,
+        1594,
+        930
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        164,
+        74,
+        476,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        99501
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5556,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          284,
+          173,
+          382,
+          194
+        ],
+        "components": 1,
+        "areas": [
+          1333
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_00.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        188,
+        34
+      ],
+      "source_bbox": [
+        117,
+        12,
+        307,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        188,
+        34,
+        473,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        112494
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4919,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          274,
+          153,
+          388,
+          247
+        ],
+        "components": 1,
+        "areas": [
+          5663
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_01.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        189,
+        38
+      ],
+      "source_bbox": [
+        535,
+        15,
+        728,
+        463
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        189,
+        38,
+        479,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        118098
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5110,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          279,
+          156,
+          395,
+          248
+        ],
+        "components": 1,
+        "areas": [
+          5646
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_02.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        180,
+        48
+      ],
+      "source_bbox": [
+        948,
+        23,
+        1143,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        180,
+        48,
+        473,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        115021
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4884,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          274,
+          151,
+          386,
+          261
+        ],
+        "components": 1,
+        "areas": [
+          5774
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_03.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        182,
+        37
+      ],
+      "source_bbox": [
+        1365,
+        15,
+        1554,
+        464
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        182,
+        37,
+        466,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        114690
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5028,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          274,
+          146,
+          385,
+          248
+        ],
+        "components": 1,
+        "areas": [
+          5599
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_04.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        199,
+        44
+      ],
+      "source_bbox": [
+        115,
+        479,
+        308,
+        923
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        199,
+        44,
+        489,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        111780
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4828,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          288,
+          152,
+          402,
+          245
+        ],
+        "components": 1,
+        "areas": [
+          5536
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_05.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        182,
+        37
+      ],
+      "source_bbox": [
+        530,
+        478,
+        721,
+        927
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        182,
+        37,
+        469,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        114103
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5004,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          277,
+          142,
+          388,
+          245
+        ],
+        "components": 1,
+        "areas": [
+          5539
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_06.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        201,
+        53
+      ],
+      "source_bbox": [
+        950,
+        484,
+        1143,
+        922
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        201,
+        53,
+        491,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        112913
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4764,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          291,
+          168,
+          403,
+          259
+        ],
+        "components": 1,
+        "areas": [
+          5293
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    },
+    {
+      "file": "porter/Walking/N/N_07.png",
+      "scale": 1.4988864142538976,
+      "placement": [
+        194,
+        42
+      ],
+      "source_bbox": [
+        1360,
+        479,
+        1558,
+        924
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        194,
+        42,
+        491,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        113217
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4894,
+      "mask": {
+        "size": [
+          640,
+          724
+        ],
+        "bbox": [
+          288,
+          151,
+          402,
+          246
+        ],
+        "components": 1,
+        "areas": [
+          5513
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 0,
+        "outside_alpha": 0,
+        "non_gray": 0
+      }
+    }
+  ],
+  "animations": [
+    {
+      "file": "../NpcField_v2_walkfix/leader/Walking_S_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/leader/Walking_SE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/leader/Walking_E_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/leader/Walking_NE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/leader/Walking_N_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/archer/Walking_S_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/archer/Walking_SE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/archer/Walking_E_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/archer/Walking_NE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/archer/Walking_N_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/shield/Walking_S_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/shield/Walking_SE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/shield/Walking_E_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/shield/Walking_NE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/shield/Walking_N_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/porter/Walking_S_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/porter/Walking_SE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/porter/Walking_E_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/porter/Walking_NE_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    },
+    {
+      "file": "../NpcField_v2_walkfix/porter/Walking_N_animation.apng",
+      "frames": 8,
+      "loop": true,
+      "total_ms": 800,
+      "delay_ms": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "comparison_method": "same IHDR and identical compressed IDAT streams guarantee identical decoded RGBA"
+    }
+  ],
+  "ground": [
+    {
+      "type": "leader",
+      "direction": "S",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "leader",
+      "direction": "SE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "leader",
+      "direction": "E",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "leader",
+      "direction": "NE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "leader",
+      "direction": "N",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "archer",
+      "direction": "S",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "archer",
+      "direction": "SE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "archer",
+      "direction": "E",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "archer",
+      "direction": "NE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "archer",
+      "direction": "N",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "shield",
+      "direction": "S",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "shield",
+      "direction": "SE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "shield",
+      "direction": "E",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "shield",
+      "direction": "NE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "shield",
+      "direction": "N",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "porter",
+      "direction": "S",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "porter",
+      "direction": "SE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "porter",
+      "direction": "E",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "porter",
+      "direction": "NE",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    },
+    {
+      "type": "porter",
+      "direction": "N",
+      "ground_y": [
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710,
+        710
+      ],
+      "deviation": 0
+    }
+  ],
+  "preservation": {
+    "meta": {
+      "checked": 203,
+      "unchanged": 203,
+      "changed": []
+    },
+    "original": {
+      "checked": 773,
+      "unchanged": 773,
+      "changed": []
+    }
+  },
+  "summary": {
+    "body": 160,
+    "masks": 160,
+    "separate_components": [],
+    "hidden_rgb": 0,
+    "canvas_contact": 0,
+    "mask_outside": 0,
+    "alpha_1_31": 0,
+    "empty_masks": [],
+    "ground_deviation": 0,
+    "apng_identical": true
+  },
+  "gait": {
+    "table": "foot_alternation.json",
+    "rows": 160,
+    "confirmed_category_matches": 32,
+    "unresolved": 128,
+    "normal_walk_pass": false
+  },
+  "screen_playback": {
+    "verified": false,
+    "reason": "Browser inventory empty; iab unavailable"
+  }
+}

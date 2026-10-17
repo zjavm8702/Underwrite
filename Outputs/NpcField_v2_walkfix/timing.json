@@ -1,0 +1,1208 @@
+{
+  "version": 2,
+  "unit": "ms",
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N"
+  ],
+  "mirrored_directions": {
+    "SW": "SE",
+    "W": "E",
+    "NW": "NE"
+  },
+  "notes": [
+    "Walking only; Idle remains in Outputs/NpcField_v2 unchanged.",
+    "100ms x 8 = 800ms looping.",
+    "5 authored directions; SW/W/NW reflect SE/E/NE as original delivery."
+  ],
+  "characters": {
+    "leader": {
+      "Walking": {
+        "directions": {
+          "S": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "leader/Walking/S/S_00.png",
+                "mask": "leader/Walking/S/S_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/S/S_01.png",
+                "mask": "leader/Walking/S/S_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/S/S_02.png",
+                "mask": "leader/Walking/S/S_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/S/S_03.png",
+                "mask": "leader/Walking/S/S_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/S/S_04.png",
+                "mask": "leader/Walking/S/S_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/S/S_05.png",
+                "mask": "leader/Walking/S/S_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/S/S_06.png",
+                "mask": "leader/Walking/S/S_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/S/S_07.png",
+                "mask": "leader/Walking/S/S_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "SE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "leader/Walking/SE/SE_00.png",
+                "mask": "leader/Walking/SE/SE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/SE/SE_01.png",
+                "mask": "leader/Walking/SE/SE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/SE/SE_02.png",
+                "mask": "leader/Walking/SE/SE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/SE/SE_03.png",
+                "mask": "leader/Walking/SE/SE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/SE/SE_04.png",
+                "mask": "leader/Walking/SE/SE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/SE/SE_05.png",
+                "mask": "leader/Walking/SE/SE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/SE/SE_06.png",
+                "mask": "leader/Walking/SE/SE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/SE/SE_07.png",
+                "mask": "leader/Walking/SE/SE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "E": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "leader/Walking/E/E_00.png",
+                "mask": "leader/Walking/E/E_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/E/E_01.png",
+                "mask": "leader/Walking/E/E_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/E/E_02.png",
+                "mask": "leader/Walking/E/E_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/E/E_03.png",
+                "mask": "leader/Walking/E/E_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/E/E_04.png",
+                "mask": "leader/Walking/E/E_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/E/E_05.png",
+                "mask": "leader/Walking/E/E_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/E/E_06.png",
+                "mask": "leader/Walking/E/E_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/E/E_07.png",
+                "mask": "leader/Walking/E/E_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "NE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "leader/Walking/NE/NE_00.png",
+                "mask": "leader/Walking/NE/NE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/NE/NE_01.png",
+                "mask": "leader/Walking/NE/NE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/NE/NE_02.png",
+                "mask": "leader/Walking/NE/NE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/NE/NE_03.png",
+                "mask": "leader/Walking/NE/NE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/NE/NE_04.png",
+                "mask": "leader/Walking/NE/NE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/NE/NE_05.png",
+                "mask": "leader/Walking/NE/NE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/NE/NE_06.png",
+                "mask": "leader/Walking/NE/NE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/NE/NE_07.png",
+                "mask": "leader/Walking/NE/NE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "N": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "leader/Walking/N/N_00.png",
+                "mask": "leader/Walking/N/N_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/N/N_01.png",
+                "mask": "leader/Walking/N/N_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/N/N_02.png",
+                "mask": "leader/Walking/N/N_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/N/N_03.png",
+                "mask": "leader/Walking/N/N_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/N/N_04.png",
+                "mask": "leader/Walking/N/N_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/N/N_05.png",
+                "mask": "leader/Walking/N/N_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/N/N_06.png",
+                "mask": "leader/Walking/N/N_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "leader/Walking/N/N_07.png",
+                "mask": "leader/Walking/N/N_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          }
+        }
+      }
+    },
+    "archer": {
+      "Walking": {
+        "directions": {
+          "S": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "archer/Walking/S/S_00.png",
+                "mask": "archer/Walking/S/S_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/S/S_01.png",
+                "mask": "archer/Walking/S/S_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/S/S_02.png",
+                "mask": "archer/Walking/S/S_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/S/S_03.png",
+                "mask": "archer/Walking/S/S_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/S/S_04.png",
+                "mask": "archer/Walking/S/S_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/S/S_05.png",
+                "mask": "archer/Walking/S/S_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/S/S_06.png",
+                "mask": "archer/Walking/S/S_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/S/S_07.png",
+                "mask": "archer/Walking/S/S_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "SE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "archer/Walking/SE/SE_00.png",
+                "mask": "archer/Walking/SE/SE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/SE/SE_01.png",
+                "mask": "archer/Walking/SE/SE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/SE/SE_02.png",
+                "mask": "archer/Walking/SE/SE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/SE/SE_03.png",
+                "mask": "archer/Walking/SE/SE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/SE/SE_04.png",
+                "mask": "archer/Walking/SE/SE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/SE/SE_05.png",
+                "mask": "archer/Walking/SE/SE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/SE/SE_06.png",
+                "mask": "archer/Walking/SE/SE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/SE/SE_07.png",
+                "mask": "archer/Walking/SE/SE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "E": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "archer/Walking/E/E_00.png",
+                "mask": "archer/Walking/E/E_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/E/E_01.png",
+                "mask": "archer/Walking/E/E_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/E/E_02.png",
+                "mask": "archer/Walking/E/E_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/E/E_03.png",
+                "mask": "archer/Walking/E/E_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/E/E_04.png",
+                "mask": "archer/Walking/E/E_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/E/E_05.png",
+                "mask": "archer/Walking/E/E_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/E/E_06.png",
+                "mask": "archer/Walking/E/E_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/E/E_07.png",
+                "mask": "archer/Walking/E/E_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "NE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "archer/Walking/NE/NE_00.png",
+                "mask": "archer/Walking/NE/NE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/NE/NE_01.png",
+                "mask": "archer/Walking/NE/NE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/NE/NE_02.png",
+                "mask": "archer/Walking/NE/NE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/NE/NE_03.png",
+                "mask": "archer/Walking/NE/NE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/NE/NE_04.png",
+                "mask": "archer/Walking/NE/NE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/NE/NE_05.png",
+                "mask": "archer/Walking/NE/NE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/NE/NE_06.png",
+                "mask": "archer/Walking/NE/NE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/NE/NE_07.png",
+                "mask": "archer/Walking/NE/NE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "N": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "archer/Walking/N/N_00.png",
+                "mask": "archer/Walking/N/N_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/N/N_01.png",
+                "mask": "archer/Walking/N/N_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/N/N_02.png",
+                "mask": "archer/Walking/N/N_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/N/N_03.png",
+                "mask": "archer/Walking/N/N_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/N/N_04.png",
+                "mask": "archer/Walking/N/N_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/N/N_05.png",
+                "mask": "archer/Walking/N/N_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/N/N_06.png",
+                "mask": "archer/Walking/N/N_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "archer/Walking/N/N_07.png",
+                "mask": "archer/Walking/N/N_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          }
+        }
+      }
+    },
+    "shield": {
+      "Walking": {
+        "directions": {
+          "S": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "shield/Walking/S/S_00.png",
+                "mask": "shield/Walking/S/S_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/S/S_01.png",
+                "mask": "shield/Walking/S/S_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/S/S_02.png",
+                "mask": "shield/Walking/S/S_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/S/S_03.png",
+                "mask": "shield/Walking/S/S_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/S/S_04.png",
+                "mask": "shield/Walking/S/S_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/S/S_05.png",
+                "mask": "shield/Walking/S/S_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/S/S_06.png",
+                "mask": "shield/Walking/S/S_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/S/S_07.png",
+                "mask": "shield/Walking/S/S_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "SE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "shield/Walking/SE/SE_00.png",
+                "mask": "shield/Walking/SE/SE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/SE/SE_01.png",
+                "mask": "shield/Walking/SE/SE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/SE/SE_02.png",
+                "mask": "shield/Walking/SE/SE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/SE/SE_03.png",
+                "mask": "shield/Walking/SE/SE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/SE/SE_04.png",
+                "mask": "shield/Walking/SE/SE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/SE/SE_05.png",
+                "mask": "shield/Walking/SE/SE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/SE/SE_06.png",
+                "mask": "shield/Walking/SE/SE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/SE/SE_07.png",
+                "mask": "shield/Walking/SE/SE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "E": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "shield/Walking/E/E_00.png",
+                "mask": "shield/Walking/E/E_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/E/E_01.png",
+                "mask": "shield/Walking/E/E_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/E/E_02.png",
+                "mask": "shield/Walking/E/E_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/E/E_03.png",
+                "mask": "shield/Walking/E/E_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/E/E_04.png",
+                "mask": "shield/Walking/E/E_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/E/E_05.png",
+                "mask": "shield/Walking/E/E_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/E/E_06.png",
+                "mask": "shield/Walking/E/E_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/E/E_07.png",
+                "mask": "shield/Walking/E/E_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "NE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "shield/Walking/NE/NE_00.png",
+                "mask": "shield/Walking/NE/NE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/NE/NE_01.png",
+                "mask": "shield/Walking/NE/NE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/NE/NE_02.png",
+                "mask": "shield/Walking/NE/NE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/NE/NE_03.png",
+                "mask": "shield/Walking/NE/NE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/NE/NE_04.png",
+                "mask": "shield/Walking/NE/NE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/NE/NE_05.png",
+                "mask": "shield/Walking/NE/NE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/NE/NE_06.png",
+                "mask": "shield/Walking/NE/NE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/NE/NE_07.png",
+                "mask": "shield/Walking/NE/NE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "N": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "shield/Walking/N/N_00.png",
+                "mask": "shield/Walking/N/N_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/N/N_01.png",
+                "mask": "shield/Walking/N/N_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/N/N_02.png",
+                "mask": "shield/Walking/N/N_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/N/N_03.png",
+                "mask": "shield/Walking/N/N_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/N/N_04.png",
+                "mask": "shield/Walking/N/N_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/N/N_05.png",
+                "mask": "shield/Walking/N/N_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/N/N_06.png",
+                "mask": "shield/Walking/N/N_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "shield/Walking/N/N_07.png",
+                "mask": "shield/Walking/N/N_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          }
+        }
+      }
+    },
+    "porter": {
+      "Walking": {
+        "directions": {
+          "S": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "porter/Walking/S/S_00.png",
+                "mask": "porter/Walking/S/S_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/S/S_01.png",
+                "mask": "porter/Walking/S/S_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/S/S_02.png",
+                "mask": "porter/Walking/S/S_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/S/S_03.png",
+                "mask": "porter/Walking/S/S_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/S/S_04.png",
+                "mask": "porter/Walking/S/S_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/S/S_05.png",
+                "mask": "porter/Walking/S/S_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/S/S_06.png",
+                "mask": "porter/Walking/S/S_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/S/S_07.png",
+                "mask": "porter/Walking/S/S_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "SE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "porter/Walking/SE/SE_00.png",
+                "mask": "porter/Walking/SE/SE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/SE/SE_01.png",
+                "mask": "porter/Walking/SE/SE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/SE/SE_02.png",
+                "mask": "porter/Walking/SE/SE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/SE/SE_03.png",
+                "mask": "porter/Walking/SE/SE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/SE/SE_04.png",
+                "mask": "porter/Walking/SE/SE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/SE/SE_05.png",
+                "mask": "porter/Walking/SE/SE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/SE/SE_06.png",
+                "mask": "porter/Walking/SE/SE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/SE/SE_07.png",
+                "mask": "porter/Walking/SE/SE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "E": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "porter/Walking/E/E_00.png",
+                "mask": "porter/Walking/E/E_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/E/E_01.png",
+                "mask": "porter/Walking/E/E_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/E/E_02.png",
+                "mask": "porter/Walking/E/E_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/E/E_03.png",
+                "mask": "porter/Walking/E/E_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/E/E_04.png",
+                "mask": "porter/Walking/E/E_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/E/E_05.png",
+                "mask": "porter/Walking/E/E_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/E/E_06.png",
+                "mask": "porter/Walking/E/E_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/E/E_07.png",
+                "mask": "porter/Walking/E/E_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "NE": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "porter/Walking/NE/NE_00.png",
+                "mask": "porter/Walking/NE/NE_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/NE/NE_01.png",
+                "mask": "porter/Walking/NE/NE_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/NE/NE_02.png",
+                "mask": "porter/Walking/NE/NE_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/NE/NE_03.png",
+                "mask": "porter/Walking/NE/NE_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/NE/NE_04.png",
+                "mask": "porter/Walking/NE/NE_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/NE/NE_05.png",
+                "mask": "porter/Walking/NE/NE_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/NE/NE_06.png",
+                "mask": "porter/Walking/NE/NE_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/NE/NE_07.png",
+                "mask": "porter/Walking/NE/NE_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          },
+          "N": {
+            "loop": true,
+            "frames": [
+              {
+                "file": "porter/Walking/N/N_00.png",
+                "mask": "porter/Walking/N/N_00_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/N/N_01.png",
+                "mask": "porter/Walking/N/N_01_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/N/N_02.png",
+                "mask": "porter/Walking/N/N_02_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/N/N_03.png",
+                "mask": "porter/Walking/N/N_03_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/N/N_04.png",
+                "mask": "porter/Walking/N/N_04_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/N/N_05.png",
+                "mask": "porter/Walking/N/N_05_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/N/N_06.png",
+                "mask": "porter/Walking/N/N_06_mask.png",
+                "ms": 100
+              },
+              {
+                "file": "porter/Walking/N/N_07.png",
+                "mask": "porter/Walking/N/N_07_mask.png",
+                "ms": 100
+              }
+            ],
+            "total_ms": 800,
+            "canvas": [
+              640,
+              724
+            ],
+            "pivot_unity_bottom": [
+              320,
+              13
+            ],
+            "pivot_png_top": [
+              320,
+              711
+            ]
+          }
+        }
+      }
+    }
+  },
+  "revision": "walkfix-draft"
+}

@@ -1,0 +1,1607 @@
+{
+  "destination": "Outputs/NpcField_v2_walkfix/",
+  "assets_written": false,
+  "original_overwritten": false,
+  "files": [
+    {
+      "file": "leader/Walking/S/S_00.png",
+      "bytes": 256874,
+      "sha256": "97442d5632e5b86282d228620a46d8d6daa963f0a22e16a92e72b98e93bd2106"
+    },
+    {
+      "file": "leader/Walking/S/S_00_mask.png",
+      "bytes": 2589,
+      "sha256": "00047dbf5e4348b990ac0b6beecb269374f85f91583ae364bcd296c4663f51d7"
+    },
+    {
+      "file": "leader/Walking/S/S_01.png",
+      "bytes": 254754,
+      "sha256": "4e3c5485b3b967cbfdf13a6ec6562be723e6f706603ee28a7a469e80dcd3caf6"
+    },
+    {
+      "file": "leader/Walking/S/S_01_mask.png",
+      "bytes": 2925,
+      "sha256": "b36ac5b108dc24a37750e773aab6bfdc9a1d7db97bd4cbff2e735e3d7dc21b5b"
+    },
+    {
+      "file": "leader/Walking/S/S_02.png",
+      "bytes": 252882,
+      "sha256": "ef2c12e11e2d6589e9de3d7064a2d0d84b304084184a4856de070ac851e849b6"
+    },
+    {
+      "file": "leader/Walking/S/S_02_mask.png",
+      "bytes": 2895,
+      "sha256": "4ded7fe9ecf65c0a5b93546c5d18c9b04b0bf8a0593b478681a706099e02d9ca"
+    },
+    {
+      "file": "leader/Walking/S/S_03.png",
+      "bytes": 255131,
+      "sha256": "0ea9456eba874976e116b92d5134e9d14d1b123f6eb4f53cbbbcfe49faed77b5"
+    },
+    {
+      "file": "leader/Walking/S/S_03_mask.png",
+      "bytes": 2640,
+      "sha256": "fefa479e04f92595314f3ef61b485b7efa8d8ae209c0f3c814992bd1f6f9e971"
+    },
+    {
+      "file": "leader/Walking/S/S_04.png",
+      "bytes": 252046,
+      "sha256": "28f5d499869f2e6e282a61d997bd3ef8ed5e554189a50cfd23a589266972aa28"
+    },
+    {
+      "file": "leader/Walking/S/S_04_mask.png",
+      "bytes": 2580,
+      "sha256": "337d85e55957ec9d9f6f5243104f9d1edb42a71ebdbc90428799fa3de08cb8ad"
+    },
+    {
+      "file": "leader/Walking/S/S_05.png",
+      "bytes": 250094,
+      "sha256": "3452ed791d4b573f0842b180cf6ab885f65bb38c91cc740dfb663d91127e4b72"
+    },
+    {
+      "file": "leader/Walking/S/S_05_mask.png",
+      "bytes": 2625,
+      "sha256": "d33605865d9ca2eb52de1eeea7f4c087ac6bdb5808f08a8eddf454db8f05fe80"
+    },
+    {
+      "file": "leader/Walking/S/S_06.png",
+      "bytes": 254121,
+      "sha256": "88350c619fb192b6f5bcd9ff7d3ec214fb7b4f2d8f3b78a2897e9c4d5f9830d3"
+    },
+    {
+      "file": "leader/Walking/S/S_06_mask.png",
+      "bytes": 2631,
+      "sha256": "fb9ec3798fc2a89d2b170e684cfada5bad03f3bb1c8e9aad7862c044aadc0c57"
+    },
+    {
+      "file": "leader/Walking/S/S_07.png",
+      "bytes": 254982,
+      "sha256": "6585fa521769cd0c1a8e70780b7fde5cc41d65bb86eb8ee703e4b3686fb23a32"
+    },
+    {
+      "file": "leader/Walking/S/S_07_mask.png",
+      "bytes": 2620,
+      "sha256": "79ee72f20c836f19ebb0cd660e9ba16de2dc9ff1fc76c68d9f5e937ce2525d0b"
+    },
+    {
+      "file": "leader/Walking/SE/SE_00.png",
+      "bytes": 269318,
+      "sha256": "a6ab582402fea9b17ec44ea85b34998aca55fc350393678fcf714d9dd6e97396"
+    },
+    {
+      "file": "leader/Walking/SE/SE_00_mask.png",
+      "bytes": 2544,
+      "sha256": "a9af8ec5c47bf6575776b9ccb203dd062a02bf6c32a4d8805a430d1f1afb572e"
+    },
+    {
+      "file": "leader/Walking/SE/SE_01.png",
+      "bytes": 263450,
+      "sha256": "bb31a35ddaaf440f6d40c0b5dc068b13dc5f832e5745e24b8457c9bd91b1d936"
+    },
+    {
+      "file": "leader/Walking/SE/SE_01_mask.png",
+      "bytes": 2509,
+      "sha256": "8f6b15385e95b0ad3140bfab5a2557555141383feb77d9350a28172cf2ac121c"
+    },
+    {
+      "file": "leader/Walking/SE/SE_02.png",
+      "bytes": 265540,
+      "sha256": "24e10dfc1efef10ab493f7a7c2020706e6f5ee9d553b36d708b280d26509acb2"
+    },
+    {
+      "file": "leader/Walking/SE/SE_02_mask.png",
+      "bytes": 2551,
+      "sha256": "a0ef13ff02db8841365e4e296514956696aeff638e071806df990aa2db426d6b"
+    },
+    {
+      "file": "leader/Walking/SE/SE_03.png",
+      "bytes": 268215,
+      "sha256": "f09363bd0125d235a2b30f721d1d82518edaef533a6855499937169f2bcb3918"
+    },
+    {
+      "file": "leader/Walking/SE/SE_03_mask.png",
+      "bytes": 2531,
+      "sha256": "6197e5471578c7a2c426bdfb73c12a737ef116d7b04034ffa35b23737ef2c5c6"
+    },
+    {
+      "file": "leader/Walking/SE/SE_04.png",
+      "bytes": 256351,
+      "sha256": "934a2ef7ce9fd1e0afdd57d3b40b3435c9842145605fbc2e32460b8adfe2d42c"
+    },
+    {
+      "file": "leader/Walking/SE/SE_04_mask.png",
+      "bytes": 2467,
+      "sha256": "2dccc4ef5d0419716cd28f5e1f77ecd94062470f743eaffcca6a23cdf7ce69c9"
+    },
+    {
+      "file": "leader/Walking/SE/SE_05.png",
+      "bytes": 241877,
+      "sha256": "02ac8eac942dfc8424212bf2e639540849bf21882574d796fee78ad525c2e3ef"
+    },
+    {
+      "file": "leader/Walking/SE/SE_05_mask.png",
+      "bytes": 2465,
+      "sha256": "92a77a2a929cd7b115f63eabd4fcac2e0be3bc5a8cbd33425ff82d154bdbd76a"
+    },
+    {
+      "file": "leader/Walking/SE/SE_06.png",
+      "bytes": 271651,
+      "sha256": "e9aac466edfc45f05f57a2767bae2a00be5ca8fd8e00be79a40290609e607356"
+    },
+    {
+      "file": "leader/Walking/SE/SE_06_mask.png",
+      "bytes": 2500,
+      "sha256": "4f03ecbc69ca31d7b169cfb651c5b5e81786b88091853c36d532fd5d4d41607a"
+    },
+    {
+      "file": "leader/Walking/SE/SE_07.png",
+      "bytes": 274975,
+      "sha256": "f9e7b6f9d536574323df1278c770ab8221dfbe280d7df9f206a52c1eaccd9617"
+    },
+    {
+      "file": "leader/Walking/SE/SE_07_mask.png",
+      "bytes": 2509,
+      "sha256": "ea3f6d1c272804d1b410eb2ea5a543ee9a5dcedae487ad60734b609bbe90b3d8"
+    },
+    {
+      "file": "leader/Walking/E/E_00.png",
+      "bytes": 202156,
+      "sha256": "0692ea90a4f01da79e97633e40a415ee3a3d47b4e1c417a155eccff7f246397d"
+    },
+    {
+      "file": "leader/Walking/E/E_00_mask.png",
+      "bytes": 2385,
+      "sha256": "b2c48cc078d1e05620778697863567dbdc2754e12850c330a49008c56813a67a"
+    },
+    {
+      "file": "leader/Walking/E/E_01.png",
+      "bytes": 181491,
+      "sha256": "4eb79fba51b625ce676a4dcfa339594b8dac19762f579cdd8b8ae929ef616f38"
+    },
+    {
+      "file": "leader/Walking/E/E_01_mask.png",
+      "bytes": 2385,
+      "sha256": "e201f1bc630b5000c2319568d7d4cd052bfdd7a9fbf6c6adb46ad9b1b58659b3"
+    },
+    {
+      "file": "leader/Walking/E/E_02.png",
+      "bytes": 192423,
+      "sha256": "105d9b17765e57c28c6423af8289d59fd92bd7ec28840b40c3a5f21265de809d"
+    },
+    {
+      "file": "leader/Walking/E/E_02_mask.png",
+      "bytes": 2415,
+      "sha256": "1df20b402af8a8b2ba39e56c4ed58cdeee437484f5ff8288f285188c1ad47d06"
+    },
+    {
+      "file": "leader/Walking/E/E_03.png",
+      "bytes": 202625,
+      "sha256": "0735cd97cb75d0ea1d43946c7e9060237ddc811f6c0b6bee7c135f5f1cedbb4a"
+    },
+    {
+      "file": "leader/Walking/E/E_03_mask.png",
+      "bytes": 2399,
+      "sha256": "bde064a60e4d1dd2053894c58e341e5fc8a34fe9163fdf04caaedf6e528bbf46"
+    },
+    {
+      "file": "leader/Walking/E/E_04.png",
+      "bytes": 206019,
+      "sha256": "9267ab74d5c9d781b147a422e221708925af3544c6977c1db5e7cec1372ca4be"
+    },
+    {
+      "file": "leader/Walking/E/E_04_mask.png",
+      "bytes": 2493,
+      "sha256": "f0bf508297af776acc4f8aa3aa848caae3ad0fb45d115930e94ecca872e34f5e"
+    },
+    {
+      "file": "leader/Walking/E/E_05.png",
+      "bytes": 173349,
+      "sha256": "93620d5760492bc02d6789cfd48f41e404bf139e29808a816ae7aa73b42dead2"
+    },
+    {
+      "file": "leader/Walking/E/E_05_mask.png",
+      "bytes": 2505,
+      "sha256": "a0989f629f5b21846d4dda9ade0178bbd725bb6f4a09005d8cd7cefc1754f2d9"
+    },
+    {
+      "file": "leader/Walking/E/E_06.png",
+      "bytes": 192536,
+      "sha256": "bdcf650530d531d11e7af0b41d42fcdfc8116e45e46d0464c6ee271303ad56d8"
+    },
+    {
+      "file": "leader/Walking/E/E_06_mask.png",
+      "bytes": 2392,
+      "sha256": "6bc9154bfb03f64fbedd1082814b8128987f1297aab8179e49f3aa8d5b7f20c3"
+    },
+    {
+      "file": "leader/Walking/E/E_07.png",
+      "bytes": 209133,
+      "sha256": "e08d21dd62f9a408230e01ba7f897f3139929ce24a7ab34aec2dd542dd78d6fe"
+    },
+    {
+      "file": "leader/Walking/E/E_07_mask.png",
+      "bytes": 2417,
+      "sha256": "c39ba74b7ad65f337bd91c7173b369ae2e9eba2aade4f14bad68e10e9c7c29f2"
+    },
+    {
+      "file": "leader/Walking/NE/NE_00.png",
+      "bytes": 234296,
+      "sha256": "652f6597c6b1cbcb8799adba10441915d4e8a6701dfd568c77f973b002b1bd0c"
+    },
+    {
+      "file": "leader/Walking/NE/NE_00_mask.png",
+      "bytes": 2555,
+      "sha256": "86a03aaff393cad827bf37dded7782a578c771aa16376d5d42df4a19feef189b"
+    },
+    {
+      "file": "leader/Walking/NE/NE_01.png",
+      "bytes": 225974,
+      "sha256": "39e743244e7ead40ba629f66b0f62a9404cb98cf809f106a4cf4d340a082d3fd"
+    },
+    {
+      "file": "leader/Walking/NE/NE_01_mask.png",
+      "bytes": 2519,
+      "sha256": "7c0271f63f30688a08a21e71b4e5978e6dadaa39894ce3f46ee4f5b735fa5c02"
+    },
+    {
+      "file": "leader/Walking/NE/NE_02.png",
+      "bytes": 229080,
+      "sha256": "8a549db901085ae0bbfbf1f98900544cf7b3e10bb02f9b4b6137cba57e46f8a5"
+    },
+    {
+      "file": "leader/Walking/NE/NE_02_mask.png",
+      "bytes": 2556,
+      "sha256": "a08834ca3d558631d2080592ea60a3c96e771def00ca2c219fb33f232929a47b"
+    },
+    {
+      "file": "leader/Walking/NE/NE_03.png",
+      "bytes": 235393,
+      "sha256": "aa29b447be775f0573cdfcd0403c56e0dd05caf9f93174ca668e10fbd55c5ead"
+    },
+    {
+      "file": "leader/Walking/NE/NE_03_mask.png",
+      "bytes": 2532,
+      "sha256": "319bd7a0983e47cd31c14301f0165488eda2e0e4ddefe9414f015187dc838c81"
+    },
+    {
+      "file": "leader/Walking/NE/NE_04.png",
+      "bytes": 212753,
+      "sha256": "9d68e1973d67b9ed0b58e2e20c16ac38057dd3a4b92fc01aa5429ee2fad9ebdc"
+    },
+    {
+      "file": "leader/Walking/NE/NE_04_mask.png",
+      "bytes": 2546,
+      "sha256": "13dc11b075d3d20ef781f6dc14c78babaf389e95b44db1aa191a5a6921ddfb48"
+    },
+    {
+      "file": "leader/Walking/NE/NE_05.png",
+      "bytes": 194671,
+      "sha256": "c8adf1016708162c141c40a9e4b12d73ade6044aa53047c1f07fbe4dfd6b8459"
+    },
+    {
+      "file": "leader/Walking/NE/NE_05_mask.png",
+      "bytes": 2515,
+      "sha256": "e6d70cf5937b6262f63c0a580f089ad42f06ed7fa342ca71fe66ad7d2bf3dc62"
+    },
+    {
+      "file": "leader/Walking/NE/NE_06.png",
+      "bytes": 223915,
+      "sha256": "238149847a9cc76166c3b951a3307cfa4a173322968f37841e564eae9e99b155"
+    },
+    {
+      "file": "leader/Walking/NE/NE_06_mask.png",
+      "bytes": 2515,
+      "sha256": "d09b8f993979c107b769b047517f8d4225288767ba4b6d2c48073be68e57c502"
+    },
+    {
+      "file": "leader/Walking/NE/NE_07.png",
+      "bytes": 228815,
+      "sha256": "29141fb520f6a1e33816498bbd383bd54a05e3555241920ae93c8fa51cef3c53"
+    },
+    {
+      "file": "leader/Walking/NE/NE_07_mask.png",
+      "bytes": 2538,
+      "sha256": "3c2f7642eb5a290960236b1455893dbde96c154755fe475baad0ca5a03527fe5"
+    },
+    {
+      "file": "leader/Walking/N/N_00.png",
+      "bytes": 225725,
+      "sha256": "953f4ef44a9f619a13d034ab5f615a0ac671595786088dcecd2072533c3d8e00"
+    },
+    {
+      "file": "leader/Walking/N/N_00_mask.png",
+      "bytes": 2541,
+      "sha256": "956faa29aad47b0dc3c52c7030c41f5747886bef7702bd05bb1548d8e873fe7d"
+    },
+    {
+      "file": "leader/Walking/N/N_01.png",
+      "bytes": 231732,
+      "sha256": "042618c0c81a319732aab9d2eca335830f0c893ff000103c380edfe7b548f67b"
+    },
+    {
+      "file": "leader/Walking/N/N_01_mask.png",
+      "bytes": 2538,
+      "sha256": "1ec937ace22808619a182dabe5fc99c240340eeec0246e6f4bcb89b0d82b483a"
+    },
+    {
+      "file": "leader/Walking/N/N_02.png",
+      "bytes": 224779,
+      "sha256": "646661f1d03bf7cb5d026b519eab1161627026e3daf37eff8752289e370129be"
+    },
+    {
+      "file": "leader/Walking/N/N_02_mask.png",
+      "bytes": 2583,
+      "sha256": "a42e1025ca76446073612eaa1f5bae70c58c2bd8196b24efda118be27bc64984"
+    },
+    {
+      "file": "leader/Walking/N/N_03.png",
+      "bytes": 228338,
+      "sha256": "9a2756b36e6b12a7778f32cbd36921d67c716e86b267b1a021373032fdf9b92b"
+    },
+    {
+      "file": "leader/Walking/N/N_03_mask.png",
+      "bytes": 2580,
+      "sha256": "1095dbca56e8a79a5b570ed66dabe192bd45b9756aa36042d06bfa98cb939a93"
+    },
+    {
+      "file": "leader/Walking/N/N_04.png",
+      "bytes": 219926,
+      "sha256": "769ed09d29fbfc346358dd003b7631031286e2cc83a0f5d820dcc9b4640790bb"
+    },
+    {
+      "file": "leader/Walking/N/N_04_mask.png",
+      "bytes": 2547,
+      "sha256": "e290cafe4fe725cdbe33759da17ede7bd65826ec667cb5c3a370a5f3d4643d6c"
+    },
+    {
+      "file": "leader/Walking/N/N_05.png",
+      "bytes": 227283,
+      "sha256": "1037e8d40d2a4b78c0f647feb20f3736007882ff59a0dfbffcefe38eefe1be9d"
+    },
+    {
+      "file": "leader/Walking/N/N_05_mask.png",
+      "bytes": 2557,
+      "sha256": "93b12d269756ed8941fbef75174b1270b3cb13da658e2995ef8c25c1efd169f6"
+    },
+    {
+      "file": "leader/Walking/N/N_06.png",
+      "bytes": 221184,
+      "sha256": "b3fa7190c76e82e4d1103777540d38c23f6b73dc18f3633d1ef23ffd1caf2400"
+    },
+    {
+      "file": "leader/Walking/N/N_06_mask.png",
+      "bytes": 2549,
+      "sha256": "fa88a937c4296a0ca5e6d1005ef34b0bb2532add63e825119adecfff58fd3fb8"
+    },
+    {
+      "file": "leader/Walking/N/N_07.png",
+      "bytes": 218780,
+      "sha256": "01d5b6f28a9b0d7e821fd86e2003969ecb72b877ed45a3689363f9d3abc3cce8"
+    },
+    {
+      "file": "leader/Walking/N/N_07_mask.png",
+      "bytes": 2561,
+      "sha256": "d7cf2c0cf9668ea444444a2a30db1b502f4ccbf9fd10d789d9c863a92d8bcffa"
+    },
+    {
+      "file": "archer/Walking/S/S_00.png",
+      "bytes": 242038,
+      "sha256": "3ef88d2b49ee0d63a73b2a627a284e81d08246108d843b9a8fe98aa392821687"
+    },
+    {
+      "file": "archer/Walking/S/S_00_mask.png",
+      "bytes": 2513,
+      "sha256": "2329e03f6fe5a2ae8aa2fb17e0e008c7e88bff7d81085088c84fcadb7335b001"
+    },
+    {
+      "file": "archer/Walking/S/S_01.png",
+      "bytes": 243715,
+      "sha256": "9a7051ed3c86e8f029687c93c67ab8927871aabcb03980c0e08f8fcbb0393f70"
+    },
+    {
+      "file": "archer/Walking/S/S_01_mask.png",
+      "bytes": 2519,
+      "sha256": "0a34d4e00ddd8f0e3134cf2c03f833e27aae610e63e788533f18e071ec82f23e"
+    },
+    {
+      "file": "archer/Walking/S/S_02.png",
+      "bytes": 247026,
+      "sha256": "36b40177ef192e405b3102662c595c193ad971b91593c5a0f4fe0c155ce5623c"
+    },
+    {
+      "file": "archer/Walking/S/S_02_mask.png",
+      "bytes": 2512,
+      "sha256": "f3b8a16031cd8cb5174e0565b12284918334f999c8c6bfac66dc23568e6331da"
+    },
+    {
+      "file": "archer/Walking/S/S_03.png",
+      "bytes": 241227,
+      "sha256": "80d70ea01f05c86a63459c8dd29184f532d9b4878c0e2f62b9ec6dbe32608afd"
+    },
+    {
+      "file": "archer/Walking/S/S_03_mask.png",
+      "bytes": 2474,
+      "sha256": "461a3f20a12e62b3a62dc56fbadb83b879d0753096201bcf15d5a572de51f102"
+    },
+    {
+      "file": "archer/Walking/S/S_04.png",
+      "bytes": 235099,
+      "sha256": "4d13016b567a193681f91783e21651f83b926408387d3a8e9832c0322a6647e6"
+    },
+    {
+      "file": "archer/Walking/S/S_04_mask.png",
+      "bytes": 2479,
+      "sha256": "1ee4cac8954fef0ba021f4a2f43969a6e9413e2c4a1e0a88856e4c34559bba60"
+    },
+    {
+      "file": "archer/Walking/S/S_05.png",
+      "bytes": 237592,
+      "sha256": "f2bb35086b70eb30451b942acc22eaeeebfb35e679fec53a9c95508b9bedb29e"
+    },
+    {
+      "file": "archer/Walking/S/S_05_mask.png",
+      "bytes": 2501,
+      "sha256": "58ad329a947f93e322da07378f91cf0aa35a6d3dc3cc60ccc916738cab589fa2"
+    },
+    {
+      "file": "archer/Walking/S/S_06.png",
+      "bytes": 241356,
+      "sha256": "97da9309330341d2c21f1f5503d247f44126c8bb8f0ab2cd55fe8072da3f736c"
+    },
+    {
+      "file": "archer/Walking/S/S_06_mask.png",
+      "bytes": 2457,
+      "sha256": "138e3f52a7a90e276fb609211e443369ea8028064419b9cf3d346b0c0d54ab0d"
+    },
+    {
+      "file": "archer/Walking/S/S_07.png",
+      "bytes": 242219,
+      "sha256": "3dcf5143d09057b47f46e84d4f583fa057fcebd74ea42a642950e69ff962f4c5"
+    },
+    {
+      "file": "archer/Walking/S/S_07_mask.png",
+      "bytes": 2470,
+      "sha256": "2e4df63803e42ab24c522009440c44878cc7338ab00422ab4f73cfb140733c66"
+    },
+    {
+      "file": "archer/Walking/SE/SE_00.png",
+      "bytes": 270137,
+      "sha256": "5bd91667b0567f94fa766d9f570dcf02fe531ccc1637f4e072912474152e56fb"
+    },
+    {
+      "file": "archer/Walking/SE/SE_00_mask.png",
+      "bytes": 2682,
+      "sha256": "21ffeac6d2c42a7ea0dae01b8d3e6e59b08e3732c11861b5be781fcd6ffc7d8d"
+    },
+    {
+      "file": "archer/Walking/SE/SE_01.png",
+      "bytes": 261291,
+      "sha256": "c2444de9ad58ffccdf729009ec1afa6f26ace10b905f1bd656f0c20788f7505f"
+    },
+    {
+      "file": "archer/Walking/SE/SE_01_mask.png",
+      "bytes": 2643,
+      "sha256": "c71e0a8cba7b3abea4475a8969968eeb03e03ac7544adc44dbf05cf4a1f19c8e"
+    },
+    {
+      "file": "archer/Walking/SE/SE_02.png",
+      "bytes": 272183,
+      "sha256": "0f10c07e0bd56789dd1a00f29c43c67b4737358da40f7a5321361002a5ac2b0f"
+    },
+    {
+      "file": "archer/Walking/SE/SE_02_mask.png",
+      "bytes": 2665,
+      "sha256": "2c99abd4a482895304f633ccb1d54bad697b75111ac88deff8256adbce337765"
+    },
+    {
+      "file": "archer/Walking/SE/SE_03.png",
+      "bytes": 268626,
+      "sha256": "a58d9f2f32f2b5a40263870ee2741f28f80be21017822c35d832f301d444ad3b"
+    },
+    {
+      "file": "archer/Walking/SE/SE_03_mask.png",
+      "bytes": 2605,
+      "sha256": "af65883ab3bdc6fd25b6c82872a4a283477485362fad635dee1016c288246487"
+    },
+    {
+      "file": "archer/Walking/SE/SE_04.png",
+      "bytes": 242929,
+      "sha256": "82ff3e0353ceb7ef7918c50a6de941e477c71cd82fbb12e5afab7d9229f9c8fb"
+    },
+    {
+      "file": "archer/Walking/SE/SE_04_mask.png",
+      "bytes": 2543,
+      "sha256": "24c788b2c0043009853a0b81e28bd6472f21c068e6d60ab285776b400a093689"
+    },
+    {
+      "file": "archer/Walking/SE/SE_05.png",
+      "bytes": 229544,
+      "sha256": "fc582cd53430c0c119f0450eae142188c836e718075ce2a33a4c67f832c20f03"
+    },
+    {
+      "file": "archer/Walking/SE/SE_05_mask.png",
+      "bytes": 2532,
+      "sha256": "42d17cdd10febb68b5497f17b6076bd3f68520d8c6d4e617eca3f801ef66fb68"
+    },
+    {
+      "file": "archer/Walking/SE/SE_06.png",
+      "bytes": 263563,
+      "sha256": "09a73d408547d1f5ec0b2952238d04c01e51d3cefd0ac585574fe149ec575526"
+    },
+    {
+      "file": "archer/Walking/SE/SE_06_mask.png",
+      "bytes": 2585,
+      "sha256": "6a9449dda31ebe9ff0e6d8dcf6012d49b6ddd0e45ca8689e79fc33387732f572"
+    },
+    {
+      "file": "archer/Walking/SE/SE_07.png",
+      "bytes": 271473,
+      "sha256": "b0ad00c19f3bd1ed7e92fbd7a3c6af4376003ef88f1df958c6aec4aa267161e5"
+    },
+    {
+      "file": "archer/Walking/SE/SE_07_mask.png",
+      "bytes": 2577,
+      "sha256": "f5dbdc6021b5d61f94849c03ddb15f23a071adf267e0a8ca9100e6aa9dddf800"
+    },
+    {
+      "file": "archer/Walking/E/E_00.png",
+      "bytes": 245735,
+      "sha256": "351cf4c708ddfb17553c7cc2ca2e8d4e4f73f6d98c97451d649e1007eaabd2f2"
+    },
+    {
+      "file": "archer/Walking/E/E_00_mask.png",
+      "bytes": 2473,
+      "sha256": "08262a39f186e622169b82092ed842b72a51cfed0d394e6aced0894fc676072a"
+    },
+    {
+      "file": "archer/Walking/E/E_01.png",
+      "bytes": 219186,
+      "sha256": "6ea3b16f90e0477c8b5d57a17cd437a5ad07e5efe6b62c1ac24f4ced825aa5fa"
+    },
+    {
+      "file": "archer/Walking/E/E_01_mask.png",
+      "bytes": 2465,
+      "sha256": "d28356c74d41e846809a4963cd1566aa2267a267f533ea6b795b91d9a56d534e"
+    },
+    {
+      "file": "archer/Walking/E/E_02.png",
+      "bytes": 237263,
+      "sha256": "89ca6d6f7754f052f64cf69d4d244641f57309c80434f277d7aee9fd25f6d383"
+    },
+    {
+      "file": "archer/Walking/E/E_02_mask.png",
+      "bytes": 2466,
+      "sha256": "c2fc83e5afa08f415f7ee972aded76a87fd6a4106cbf4b39322db5cb6a01a7fb"
+    },
+    {
+      "file": "archer/Walking/E/E_03.png",
+      "bytes": 247989,
+      "sha256": "87e053fd4fe20110fe48021f64f6085420a880a84b912ab787342e87089de8ec"
+    },
+    {
+      "file": "archer/Walking/E/E_03_mask.png",
+      "bytes": 2415,
+      "sha256": "90589d664cc499a11c6b72d1b003150b44172e3f1b4a35d4df443060914394d3"
+    },
+    {
+      "file": "archer/Walking/E/E_04.png",
+      "bytes": 252438,
+      "sha256": "d076bc3a6928f57d7d971f1df08cced9387f75890566f46cbd83e6dc9bd3d3d5"
+    },
+    {
+      "file": "archer/Walking/E/E_04_mask.png",
+      "bytes": 2401,
+      "sha256": "3b55c713cf1a67b53750a778059235d4e6d180592d3a7546ff6b183989f09c8c"
+    },
+    {
+      "file": "archer/Walking/E/E_05.png",
+      "bytes": 212007,
+      "sha256": "2eed5843f0c325f11d3ba19f925e253b3ebe750e8cabc4476bb1e59b2f1e881d"
+    },
+    {
+      "file": "archer/Walking/E/E_05_mask.png",
+      "bytes": 2426,
+      "sha256": "6929bb09f0f682bc3d7a004a5f7f2c5c2016fa44e9c2d51439fc590e26ad6837"
+    },
+    {
+      "file": "archer/Walking/E/E_06.png",
+      "bytes": 237241,
+      "sha256": "1500a97cfba86c45d5bccef66f1cd2c9c57cc204302d8e855b0ddf64968ff54c"
+    },
+    {
+      "file": "archer/Walking/E/E_06_mask.png",
+      "bytes": 2424,
+      "sha256": "09fb385f34f51455c4c0f4fefda55f9f920c7f2e010619e774f9bb47140a9418"
+    },
+    {
+      "file": "archer/Walking/E/E_07.png",
+      "bytes": 257588,
+      "sha256": "fe4843aed1afe0ec091b53c560156b2addd1d76c2e5f4a97f0d0ffee65c166e1"
+    },
+    {
+      "file": "archer/Walking/E/E_07_mask.png",
+      "bytes": 2361,
+      "sha256": "728b81da263dadd28bfe85736bfc9f493eec45a027a7f204c604fa6468d4ec5c"
+    },
+    {
+      "file": "archer/Walking/NE/NE_00.png",
+      "bytes": 251535,
+      "sha256": "e613b7eae210779081fdee2b12816598cb2cdbf6262b977fa48c48e7b50978e2"
+    },
+    {
+      "file": "archer/Walking/NE/NE_00_mask.png",
+      "bytes": 2424,
+      "sha256": "f54a4df853e23e8003c4899b829a7ded942f3cb9f2d781e789e8b17965f35b32"
+    },
+    {
+      "file": "archer/Walking/NE/NE_01.png",
+      "bytes": 247123,
+      "sha256": "178ba3a6d40e51d4b4db4094b79b231396b9d74ba638bb7dbf31d39f1d8bfbde"
+    },
+    {
+      "file": "archer/Walking/NE/NE_01_mask.png",
+      "bytes": 2418,
+      "sha256": "df5e36a8924b07a9ce42bfc766e79cd647f779487df666dabe37c11d308d7189"
+    },
+    {
+      "file": "archer/Walking/NE/NE_02.png",
+      "bytes": 245236,
+      "sha256": "0c0b22bd02ceb4d10d879fcecbc6c07b43e41235759cb9dbad01eac95bddca95"
+    },
+    {
+      "file": "archer/Walking/NE/NE_02_mask.png",
+      "bytes": 2420,
+      "sha256": "1fa127c8a8be7d746e1e209d858e45c556064ab987ba25e8852684280997e826"
+    },
+    {
+      "file": "archer/Walking/NE/NE_03.png",
+      "bytes": 252114,
+      "sha256": "5a5e02578c08aff3ac33e9c99533111fbed0a425a3bcb8dca2bcec3ffad57fed"
+    },
+    {
+      "file": "archer/Walking/NE/NE_03_mask.png",
+      "bytes": 2394,
+      "sha256": "907e1525afebfc002ee69ce4c6e81d07698324cf850b6253bf2ace357d9e86f3"
+    },
+    {
+      "file": "archer/Walking/NE/NE_04.png",
+      "bytes": 245684,
+      "sha256": "d39ecaedb2aec66b4e5f63872fd468d50fca83ebc83cb1ff67671bdd88338b0b"
+    },
+    {
+      "file": "archer/Walking/NE/NE_04_mask.png",
+      "bytes": 2397,
+      "sha256": "2d364c94d75a2eacadd66bf47f897a49c40971c58266345f0e75ad666f56d664"
+    },
+    {
+      "file": "archer/Walking/NE/NE_05.png",
+      "bytes": 220304,
+      "sha256": "bac1cd9671bcc1af954b752a0e29aca707b9bba0e1a538372fe854d1d7e52138"
+    },
+    {
+      "file": "archer/Walking/NE/NE_05_mask.png",
+      "bytes": 2360,
+      "sha256": "aa5c0421fd9c4c06a847d89f21b3eaab1a4f1a01847ee3510731bcb1a2ae60ef"
+    },
+    {
+      "file": "archer/Walking/NE/NE_06.png",
+      "bytes": 246147,
+      "sha256": "6a84a264d14a950c00d16d1d96b18a86ffb2bb3ef4d508f63c8618db55f4d9ce"
+    },
+    {
+      "file": "archer/Walking/NE/NE_06_mask.png",
+      "bytes": 2375,
+      "sha256": "472b2138f1b8151560f08ceccabf2062c6f976e7a33b26ed3ed846a653b4943c"
+    },
+    {
+      "file": "archer/Walking/NE/NE_07.png",
+      "bytes": 249915,
+      "sha256": "f4a962ccf931c96534feb0e4b0c732bd2fc9bf7a9540a91d863cec432787c974"
+    },
+    {
+      "file": "archer/Walking/NE/NE_07_mask.png",
+      "bytes": 2385,
+      "sha256": "9c9c8d0fa80dd88bfa9a056211140708a0446111a5435ebd7ed7d5a24569b245"
+    },
+    {
+      "file": "archer/Walking/N/N_00.png",
+      "bytes": 222995,
+      "sha256": "36ba5aa259d1bc1d88a36aba75dc656abcd4642a4c7e29afbf23f9aa3b70d781"
+    },
+    {
+      "file": "archer/Walking/N/N_00_mask.png",
+      "bytes": 2350,
+      "sha256": "b0b2d48fcffe2867d0a9d99083dcd4193fa8df9bc86a777b2ce32cf4ae8bc36e"
+    },
+    {
+      "file": "archer/Walking/N/N_01.png",
+      "bytes": 227337,
+      "sha256": "bbb129f81769bbf1697a9d67611e804ab60c36d455477e89ce512fd1f00fdb71"
+    },
+    {
+      "file": "archer/Walking/N/N_01_mask.png",
+      "bytes": 2355,
+      "sha256": "ee5cdcc8a3791ed24b972f0ccca9f592da063a13f869e12fd02082493dce4b80"
+    },
+    {
+      "file": "archer/Walking/N/N_02.png",
+      "bytes": 221210,
+      "sha256": "cebc32b1d441a0219c0e2ed9900224e6643458bc6927b4355043feb74abee138"
+    },
+    {
+      "file": "archer/Walking/N/N_02_mask.png",
+      "bytes": 2340,
+      "sha256": "108db93a6b0d3a295774fa452fbde960e9dc2e7dc3345c34e363dce2f51bcc05"
+    },
+    {
+      "file": "archer/Walking/N/N_03.png",
+      "bytes": 222960,
+      "sha256": "a75390ea37e057c0e7e94aba71d7e62ce325536d5d64d4b105c415a9d44616ec"
+    },
+    {
+      "file": "archer/Walking/N/N_03_mask.png",
+      "bytes": 2317,
+      "sha256": "e28764ada9c6dc8949a614faf6317d4899a8a4477043f2a34ec7713b2399f375"
+    },
+    {
+      "file": "archer/Walking/N/N_04.png",
+      "bytes": 223086,
+      "sha256": "80be3a557bee9baf96716edf3606ccf8940c7369531f8452ece41682fb471dac"
+    },
+    {
+      "file": "archer/Walking/N/N_04_mask.png",
+      "bytes": 2361,
+      "sha256": "83703c4d654a838ae26481506f57d70a1d87b08a0fff8c4f922a0cc75702e77c"
+    },
+    {
+      "file": "archer/Walking/N/N_05.png",
+      "bytes": 226434,
+      "sha256": "ef9ddd6cda1e9a3d430d0073c6221855d714e97073341f3c9e36460d813df3e8"
+    },
+    {
+      "file": "archer/Walking/N/N_05_mask.png",
+      "bytes": 2288,
+      "sha256": "b249eec133610b0427a5e983aa028ed43e412f3fd0c5e213299d536d62cebfdb"
+    },
+    {
+      "file": "archer/Walking/N/N_06.png",
+      "bytes": 224735,
+      "sha256": "d565b8e138ab7be10e6d814660ca14952f56f34b17424ab31f9b72be36495e3b"
+    },
+    {
+      "file": "archer/Walking/N/N_06_mask.png",
+      "bytes": 2380,
+      "sha256": "a324d78e9861f52527991c3fde150eae4dd2ce920f37293402c2d97280b1c296"
+    },
+    {
+      "file": "archer/Walking/N/N_07.png",
+      "bytes": 224354,
+      "sha256": "3f2d2a7dc4b126939fca1f19e02bd0a94234119eed2e4439eae411b19501ef74"
+    },
+    {
+      "file": "archer/Walking/N/N_07_mask.png",
+      "bytes": 2316,
+      "sha256": "aaae6a766cbebdf3e91262727258a4e92225ddb47599430913e9f5ede7253955"
+    },
+    {
+      "file": "shield/Walking/S/S_00.png",
+      "bytes": 285424,
+      "sha256": "9e40842c277c7b5adfa3383f5a574b77c40475935f206bd8c79fce33548137c3"
+    },
+    {
+      "file": "shield/Walking/S/S_00_mask.png",
+      "bytes": 3313,
+      "sha256": "b5310cec9e74dad4f09f7ddf9a53513863012ec67b30ff56af050fa1bfae29f3"
+    },
+    {
+      "file": "shield/Walking/S/S_01.png",
+      "bytes": 287596,
+      "sha256": "1d4c44e28c9fcc50d813aac84d22c0c60ee3b00f30f5b441e5b8e7a134d0e9a0"
+    },
+    {
+      "file": "shield/Walking/S/S_01_mask.png",
+      "bytes": 3280,
+      "sha256": "937e89262178931a162cc516f73f26342734739132be4b4618c73022c536e8e2"
+    },
+    {
+      "file": "shield/Walking/S/S_02.png",
+      "bytes": 283982,
+      "sha256": "4c935312dfa6bc69eefcbac734a297e1bd217f3d5634e693b0f804399137a822"
+    },
+    {
+      "file": "shield/Walking/S/S_02_mask.png",
+      "bytes": 3242,
+      "sha256": "37fb6c8b9cd0dadad46ee41797447d5bbbbffd6df4293959a5ad3bb8001317bb"
+    },
+    {
+      "file": "shield/Walking/S/S_03.png",
+      "bytes": 285310,
+      "sha256": "bc0873419484c89e65684bbc249771138bbe843ab1e7b6bf3aa7644dd623d645"
+    },
+    {
+      "file": "shield/Walking/S/S_03_mask.png",
+      "bytes": 3298,
+      "sha256": "cda05b2ffb25762e7ac04a228509350c6e9b0ed7f281e9c07efd047f493607b1"
+    },
+    {
+      "file": "shield/Walking/S/S_04.png",
+      "bytes": 278351,
+      "sha256": "cced28e92bd08adccdcd056170b29dbe533c3120150e6fd6c7b69fe0c0bb3f64"
+    },
+    {
+      "file": "shield/Walking/S/S_04_mask.png",
+      "bytes": 3172,
+      "sha256": "7f255ac04a8f928c49b9d6dc959fbacd6fe278be4f965d0dd332af5da9d38ff8"
+    },
+    {
+      "file": "shield/Walking/S/S_05.png",
+      "bytes": 272729,
+      "sha256": "c1dbf716b035462db9964edc0b224a4e92d9d6ba5691d4441323c8bd65ebe938"
+    },
+    {
+      "file": "shield/Walking/S/S_05_mask.png",
+      "bytes": 3097,
+      "sha256": "462e9f0d241cda503abb6be71e436ccac12a809c6d2ba4041323df6a0950c22d"
+    },
+    {
+      "file": "shield/Walking/S/S_06.png",
+      "bytes": 275101,
+      "sha256": "554efac2d83383e58b18e53ae9d240431160a857cd4cd70799fb702afa32ca19"
+    },
+    {
+      "file": "shield/Walking/S/S_06_mask.png",
+      "bytes": 3098,
+      "sha256": "28e02c1d4b6cc22232b22e7b1c0e67d8f01d75a3840eaa519518e8b7bcf10e08"
+    },
+    {
+      "file": "shield/Walking/S/S_07.png",
+      "bytes": 284151,
+      "sha256": "bf7c0118d761e9649d941b07d6370fe1167d5dc56aa494918ff9ab3b9351c58c"
+    },
+    {
+      "file": "shield/Walking/S/S_07_mask.png",
+      "bytes": 3153,
+      "sha256": "13a9f4d921672087978d4678c10f8063d470a160928631ae7c68211c6006ec90"
+    },
+    {
+      "file": "shield/Walking/SE/SE_00.png",
+      "bytes": 319198,
+      "sha256": "6be488599a2b95663076f6e625d32b3191192d04db8c3df36a2d8afe6fe5d917"
+    },
+    {
+      "file": "shield/Walking/SE/SE_00_mask.png",
+      "bytes": 3131,
+      "sha256": "a8bc8b46a103d0c52e962176d683bd461d8e79589f11f3278e7b14b685a36bf3"
+    },
+    {
+      "file": "shield/Walking/SE/SE_01.png",
+      "bytes": 308969,
+      "sha256": "0b874002eb5419661237401f50de223de1b1546041653881b586fcc37a701068"
+    },
+    {
+      "file": "shield/Walking/SE/SE_01_mask.png",
+      "bytes": 3038,
+      "sha256": "d71a1f48390e459ae5153e511911ab09d58c20831d455888da7868fcc6dbcda1"
+    },
+    {
+      "file": "shield/Walking/SE/SE_02.png",
+      "bytes": 321616,
+      "sha256": "5757549ed0f01c3ba0c9b4271247d2c179feeede2e2efc1254cb1990e3336b59"
+    },
+    {
+      "file": "shield/Walking/SE/SE_02_mask.png",
+      "bytes": 3101,
+      "sha256": "76186082ff70db67f2b8be15cbdafb90f0479a68a8eb5260e18ed154472002d7"
+    },
+    {
+      "file": "shield/Walking/SE/SE_03.png",
+      "bytes": 320146,
+      "sha256": "777f21e2ce3a5f56baa6247a1578ede8fbf29331d42de0227946f3c225347dac"
+    },
+    {
+      "file": "shield/Walking/SE/SE_03_mask.png",
+      "bytes": 3080,
+      "sha256": "65ed6d0a377e8e9736519d2eb6e5ede9dd4915213aad5404cac7cf38e0b34ad7"
+    },
+    {
+      "file": "shield/Walking/SE/SE_04.png",
+      "bytes": 295833,
+      "sha256": "f81a4a79bcd2ebd1644671ed5e89703905fc5405e0d412f5d96643ee4def4b0c"
+    },
+    {
+      "file": "shield/Walking/SE/SE_04_mask.png",
+      "bytes": 2884,
+      "sha256": "eb65328bef9caa64dfe8b9c80372aa103628f4fb6868479eef0b464258e1b8ab"
+    },
+    {
+      "file": "shield/Walking/SE/SE_05.png",
+      "bytes": 277131,
+      "sha256": "aeed4dd25c86e4aed91efcadcd831b229ff0c1e7e13d7476e0d247f8531ad908"
+    },
+    {
+      "file": "shield/Walking/SE/SE_05_mask.png",
+      "bytes": 2921,
+      "sha256": "c54a124f9a7555e4c29a1d2d0036eb5e120cbb0d195ad037e617032a203dc17e"
+    },
+    {
+      "file": "shield/Walking/SE/SE_06.png",
+      "bytes": 316803,
+      "sha256": "4dbed8a9b111771b48d29c3b3bb0758975154786a8f1f93569944816f8a06ca3"
+    },
+    {
+      "file": "shield/Walking/SE/SE_06_mask.png",
+      "bytes": 3328,
+      "sha256": "82b372c5b4da85a9df681b7b07bb2a044105c3df1cf9b8d797606c88c8fd5ccf"
+    },
+    {
+      "file": "shield/Walking/SE/SE_07.png",
+      "bytes": 323570,
+      "sha256": "38df1e0e9aacc3f8cecdbee004ae3c3e12ac116167c941928c3c1f2b78694e5c"
+    },
+    {
+      "file": "shield/Walking/SE/SE_07_mask.png",
+      "bytes": 3029,
+      "sha256": "50c54343c161e23717fc122ffcbd4f8381dec0b0cbe77a55b32208b4e74d33e8"
+    },
+    {
+      "file": "shield/Walking/E/E_00.png",
+      "bytes": 299620,
+      "sha256": "0ee1ba1ef88be0936345db8c3972c0f39df352e2536f589b70e437403805398c"
+    },
+    {
+      "file": "shield/Walking/E/E_00_mask.png",
+      "bytes": 2944,
+      "sha256": "7ef624159e634d24fa7e5d66d168c5202497f34973d9839925e4dbd7cf1b2761"
+    },
+    {
+      "file": "shield/Walking/E/E_01.png",
+      "bytes": 282702,
+      "sha256": "b6ada428e9791ae77b39a5891455e8f9c9e1e12f12fc3cc84a43ed045962a733"
+    },
+    {
+      "file": "shield/Walking/E/E_01_mask.png",
+      "bytes": 2909,
+      "sha256": "4a65c14b8091fd4868c2ecb636191c3d8d89e0a6de63239be93e7f79144fc45e"
+    },
+    {
+      "file": "shield/Walking/E/E_02.png",
+      "bytes": 288692,
+      "sha256": "93b463fc24535740533ee675ca0e2e083c444a86e500caf3e1d6e239160e65e8"
+    },
+    {
+      "file": "shield/Walking/E/E_02_mask.png",
+      "bytes": 2566,
+      "sha256": "b59d00939bde190962c0caea8a239cd3e8a5f43d77f6e7455a16dfb16dedef80"
+    },
+    {
+      "file": "shield/Walking/E/E_03.png",
+      "bytes": 301536,
+      "sha256": "7cc68d8c30a0ac15108afd4427c8c9b14ff8ccf2666b9c1aec7a098de5f8b469"
+    },
+    {
+      "file": "shield/Walking/E/E_03_mask.png",
+      "bytes": 2759,
+      "sha256": "f55718e8bc40d8e8af2ca9863765cda8c7b94c370e7c550d85e29897873a9a58"
+    },
+    {
+      "file": "shield/Walking/E/E_04.png",
+      "bytes": 293139,
+      "sha256": "2098017038e45288c7fbbdf162c6e591327a99a9d02f36a889f67ee83d4f6cb2"
+    },
+    {
+      "file": "shield/Walking/E/E_04_mask.png",
+      "bytes": 2628,
+      "sha256": "6f03bcdd5d82dc2fbc10618f4752ca4db72deca826d1deeae9dd1527f5de7a3a"
+    },
+    {
+      "file": "shield/Walking/E/E_05.png",
+      "bytes": 245814,
+      "sha256": "d814c689d03a204ec74c5e1b05448de542f21e2c14f99c93c902fbfa719cc056"
+    },
+    {
+      "file": "shield/Walking/E/E_05_mask.png",
+      "bytes": 2821,
+      "sha256": "5f356f8c15d6f1801d7c918df024764c607068c91b99fdf740f5f4026ca75ef4"
+    },
+    {
+      "file": "shield/Walking/E/E_06.png",
+      "bytes": 265339,
+      "sha256": "cbd7c96363e5f1d642217e031cbb39c1eeddb099ab535fa0a28d6e23f12c9fda"
+    },
+    {
+      "file": "shield/Walking/E/E_06_mask.png",
+      "bytes": 2633,
+      "sha256": "6e36da36b48d48bf81b0e1a11a46afda27fc373130f27841a553075b1b57e556"
+    },
+    {
+      "file": "shield/Walking/E/E_07.png",
+      "bytes": 296492,
+      "sha256": "343c07817a175d329c7dac2068f1a9b7a0008cbf6f5f6d6c80683737441ef39c"
+    },
+    {
+      "file": "shield/Walking/E/E_07_mask.png",
+      "bytes": 2595,
+      "sha256": "76cd84ee276851432ebc474e2af239e9b3813ef2ba387e2599c0d5d2268c4cf2"
+    },
+    {
+      "file": "shield/Walking/NE/NE_00.png",
+      "bytes": 280149,
+      "sha256": "c9f69c7846de2e668275cd378be5cdf0b9f01adaf91139ec7149f372d1c86db9"
+    },
+    {
+      "file": "shield/Walking/NE/NE_00_mask.png",
+      "bytes": 2814,
+      "sha256": "01a290034d3001ae24e65a7fa5a05493b29cc2c3c54f696577f064a879bcb920"
+    },
+    {
+      "file": "shield/Walking/NE/NE_01.png",
+      "bytes": 274680,
+      "sha256": "6a1fe6f01be29964d00450e217ff36bda4350493b60a136fc60fc71f08e5e3d8"
+    },
+    {
+      "file": "shield/Walking/NE/NE_01_mask.png",
+      "bytes": 2847,
+      "sha256": "1eb5092d295d2980b09f406afcbe3b281a03fa62169da59ab2608f2fbb53ec6b"
+    },
+    {
+      "file": "shield/Walking/NE/NE_02.png",
+      "bytes": 276080,
+      "sha256": "8eb6fb5383d5302e61449aaf9cf9be2653f4f425bf6d8c3e77f1f0a2b8012d62"
+    },
+    {
+      "file": "shield/Walking/NE/NE_02_mask.png",
+      "bytes": 2813,
+      "sha256": "4b09d0dc9ce0e87c0b55cfe4c9752d31a7401be7b12911b3e45132a77c87ede7"
+    },
+    {
+      "file": "shield/Walking/NE/NE_03.png",
+      "bytes": 284269,
+      "sha256": "06da86fa78df960d85efa515d77d78d863b564aee47887481e26d77971c3a8e3"
+    },
+    {
+      "file": "shield/Walking/NE/NE_03_mask.png",
+      "bytes": 2913,
+      "sha256": "7cd0697746c08a781d216d6917594e19a33d08491891bd5ab12700bbf87dd8c9"
+    },
+    {
+      "file": "shield/Walking/NE/NE_04.png",
+      "bytes": 262982,
+      "sha256": "5284cb3a4d6e23240848ca5aad140c5b1f9c0628645d449e63d765e935312403"
+    },
+    {
+      "file": "shield/Walking/NE/NE_04_mask.png",
+      "bytes": 2835,
+      "sha256": "1a600701ce88e6d0a502c74e4ac6a04bd187d8a08999fae1b04cb4734753ae9b"
+    },
+    {
+      "file": "shield/Walking/NE/NE_05.png",
+      "bytes": 249626,
+      "sha256": "e95607a60b5d8f9311c3ba8056dceb7ed001f8c604ebf9911adfb0c14ee719c5"
+    },
+    {
+      "file": "shield/Walking/NE/NE_05_mask.png",
+      "bytes": 2862,
+      "sha256": "0887ec3d79c1a48c246c08a816d59e50eedcea18e1b2fd35b698939fa1251f98"
+    },
+    {
+      "file": "shield/Walking/NE/NE_06.png",
+      "bytes": 272866,
+      "sha256": "4ccad62c1ed89870ac37403c2d23b417880281dfaa5fff2454c8a8d4cdeddda4"
+    },
+    {
+      "file": "shield/Walking/NE/NE_06_mask.png",
+      "bytes": 2779,
+      "sha256": "3f51766d90e68bb81d3d093d99114aafaf5f5282531bed5b0b60c6a74a7454c3"
+    },
+    {
+      "file": "shield/Walking/NE/NE_07.png",
+      "bytes": 277520,
+      "sha256": "11f4ccfafd9af293b6abf0ad188683cdd1abbac321e2e6e091989b89e07f8bb1"
+    },
+    {
+      "file": "shield/Walking/NE/NE_07_mask.png",
+      "bytes": 2808,
+      "sha256": "3a59f884bffeff409827c3a8f293055a1bac508f45d2aecaa48a654c26789c42"
+    },
+    {
+      "file": "shield/Walking/N/N_00.png",
+      "bytes": 285536,
+      "sha256": "9c9fa8b87f679a55cd82944ab695294531aaf94d33d79269458c38aca4dd3b37"
+    },
+    {
+      "file": "shield/Walking/N/N_00_mask.png",
+      "bytes": 3008,
+      "sha256": "e77b54641b7cd678e8bca7d3afc185382e50407e3e65337c37b1891e3264e9f8"
+    },
+    {
+      "file": "shield/Walking/N/N_01.png",
+      "bytes": 291422,
+      "sha256": "339745e3b82235c3077273fc2ca93abd71bee1c83726c5057b2524af26873aff"
+    },
+    {
+      "file": "shield/Walking/N/N_01_mask.png",
+      "bytes": 3015,
+      "sha256": "f447af95e3b7a587ea5a268831a05fed7702aab771f379fa4fbf5211640ccaae"
+    },
+    {
+      "file": "shield/Walking/N/N_02.png",
+      "bytes": 279306,
+      "sha256": "bfdc13e1b7f65945014ee1b373f6142ca2fae52cfc13baa3a133a39e25e667bf"
+    },
+    {
+      "file": "shield/Walking/N/N_02_mask.png",
+      "bytes": 2986,
+      "sha256": "abcb324d4652bf5870820d4c5601c204cd9fd61ece62109a925e0cd114e6edd3"
+    },
+    {
+      "file": "shield/Walking/N/N_03.png",
+      "bytes": 279402,
+      "sha256": "e1ed9c066c9b4721a376d4089ca9a64e368aa9b10b5f0f7a903e02831e98cacb"
+    },
+    {
+      "file": "shield/Walking/N/N_03_mask.png",
+      "bytes": 3029,
+      "sha256": "58b59fc3565e5da82d9060e639d519717f139453f989a88d17e6f57206180be7"
+    },
+    {
+      "file": "shield/Walking/N/N_04.png",
+      "bytes": 283121,
+      "sha256": "0b366ea2386370c1d699f133f08973d1a6f335cec5fdb2d70e218091c7b0c848"
+    },
+    {
+      "file": "shield/Walking/N/N_04_mask.png",
+      "bytes": 2981,
+      "sha256": "7b0ef0cac377ddaf5b7040e7a762b6795e9a9950893612692d5acd274b7fc591"
+    },
+    {
+      "file": "shield/Walking/N/N_05.png",
+      "bytes": 292935,
+      "sha256": "5c03c9185f2e645e422613bc1f08d96f27bb287cbada38af16713d07031d2363"
+    },
+    {
+      "file": "shield/Walking/N/N_05_mask.png",
+      "bytes": 2993,
+      "sha256": "f94d919200056e0cfe6296f69e5bc07570f285745e3644395ef275736e38993f"
+    },
+    {
+      "file": "shield/Walking/N/N_06.png",
+      "bytes": 278463,
+      "sha256": "4b0b8b379e5253a5736b3e9314455dab0ed7c25b4064cd112b8560cd6abe6467"
+    },
+    {
+      "file": "shield/Walking/N/N_06_mask.png",
+      "bytes": 2963,
+      "sha256": "d2f8c2ea01ed6aecbfa0a9750dacd80a5d7c79a31318443a526dea72d8b884aa"
+    },
+    {
+      "file": "shield/Walking/N/N_07.png",
+      "bytes": 282450,
+      "sha256": "cd999d3851c7008313a89eb4f00cffdf71fca5639cfe6621db790088c09f9993"
+    },
+    {
+      "file": "shield/Walking/N/N_07_mask.png",
+      "bytes": 2965,
+      "sha256": "466abe2abe00a330981ba14ccddd18d70022d5f039963324985b3df77aaf18f1"
+    },
+    {
+      "file": "porter/Walking/S/S_00.png",
+      "bytes": 299742,
+      "sha256": "2d011028dfbee77e814b5b5741957aa3a137a6c7226077811b8085058be01a35"
+    },
+    {
+      "file": "porter/Walking/S/S_00_mask.png",
+      "bytes": 3327,
+      "sha256": "6b4cfca6fb721193a6e6ff37ce6b7efac35d08896e938d9cd9493b6ff2f8b959"
+    },
+    {
+      "file": "porter/Walking/S/S_01.png",
+      "bytes": 302039,
+      "sha256": "3accddd08f64de6eb8b03307135b134ad72c580be173f641d4113842059ffdfe"
+    },
+    {
+      "file": "porter/Walking/S/S_01_mask.png",
+      "bytes": 3384,
+      "sha256": "7ae4b8140fdd942ce89f5fcb0d54da2046ed16109adb429ef83ebb61284e4d3b"
+    },
+    {
+      "file": "porter/Walking/S/S_02.png",
+      "bytes": 293251,
+      "sha256": "fec75e03121be90ec235bd638829753cf767378b32df2cdbe96d7aaf85179ef3"
+    },
+    {
+      "file": "porter/Walking/S/S_02_mask.png",
+      "bytes": 3256,
+      "sha256": "16ee5ccbd36da27289bc4bf51bd1f9f70ebf031a6ca284c3eef50a3ce0a36e74"
+    },
+    {
+      "file": "porter/Walking/S/S_03.png",
+      "bytes": 299610,
+      "sha256": "0706922174c4f9087aa0358580c5af1cc1066db942db9055e51193f0d66211a6"
+    },
+    {
+      "file": "porter/Walking/S/S_03_mask.png",
+      "bytes": 3348,
+      "sha256": "b396daa70527e576cdaccba67ac3ec70d160382b8572c35b7a196c470921ce3a"
+    },
+    {
+      "file": "porter/Walking/S/S_04.png",
+      "bytes": 295403,
+      "sha256": "f85d5fceb20561a352fb01e348e32794ff4759f54920a87a054bd399076871ae"
+    },
+    {
+      "file": "porter/Walking/S/S_04_mask.png",
+      "bytes": 3320,
+      "sha256": "10b380354d01a2fb83db0c67c83e634dfea5c6874dc2b181cf6e06c8f2979584"
+    },
+    {
+      "file": "porter/Walking/S/S_05.png",
+      "bytes": 286102,
+      "sha256": "085bea707d45454480807f5dc756869cce8577f9ff32b76f7824e224a3b0c8c0"
+    },
+    {
+      "file": "porter/Walking/S/S_05_mask.png",
+      "bytes": 3437,
+      "sha256": "988b65cb4b6c2800157a143de826207ed3361ae1f8698abb012da6d943a2c550"
+    },
+    {
+      "file": "porter/Walking/S/S_06.png",
+      "bytes": 294084,
+      "sha256": "7feb8ef5e101ed1ec7d78e8b2cc710969c5de4bc83ef4f3a20baa9ec49cae335"
+    },
+    {
+      "file": "porter/Walking/S/S_06_mask.png",
+      "bytes": 3501,
+      "sha256": "9e9bb97644e8c42161b36bf9981d2f692428a50647c77c3b2eb5579c17a51a38"
+    },
+    {
+      "file": "porter/Walking/S/S_07.png",
+      "bytes": 297575,
+      "sha256": "18cb4d24254ab6e36acca50548c71176b371861ce3597b794c9bc9dea94f78e9"
+    },
+    {
+      "file": "porter/Walking/S/S_07_mask.png",
+      "bytes": 3258,
+      "sha256": "5727466df7d695d914233ed69b8de7c47c06929778c6ec5a7304bc793fb5ba3c"
+    },
+    {
+      "file": "porter/Walking/SE/SE_00.png",
+      "bytes": 278428,
+      "sha256": "56d1df67d687562512b6e38973d89458a4ea990b7881f37efe62fd5427cbc201"
+    },
+    {
+      "file": "porter/Walking/SE/SE_00_mask.png",
+      "bytes": 2779,
+      "sha256": "81a474658c0cc6f049c4b29d61776c8430d757008b08d0dc1eb47c0e268f2cce"
+    },
+    {
+      "file": "porter/Walking/SE/SE_01.png",
+      "bytes": 271028,
+      "sha256": "1e64d3925e545702238183a2d1a57deb1bac50985730d13829651350737375da"
+    },
+    {
+      "file": "porter/Walking/SE/SE_01_mask.png",
+      "bytes": 2793,
+      "sha256": "a3cd90a014da9533579f0b0f9a1bd61572dc61b0413d0eba38037a2fc1540eb1"
+    },
+    {
+      "file": "porter/Walking/SE/SE_02.png",
+      "bytes": 278131,
+      "sha256": "617eac45cb17f33fdab8aedc90e3e5e847973cb42225d1793532267c93f01172"
+    },
+    {
+      "file": "porter/Walking/SE/SE_02_mask.png",
+      "bytes": 2811,
+      "sha256": "d8b6b39b6f04a667a25f12e826e2c4a3f354f5b6caf3733210a1e13a47e9cc5e"
+    },
+    {
+      "file": "porter/Walking/SE/SE_03.png",
+      "bytes": 278850,
+      "sha256": "1cb18e7f8d955237c45276b7ebcf9429f2e542e41d408b895d4a3952c2384289"
+    },
+    {
+      "file": "porter/Walking/SE/SE_03_mask.png",
+      "bytes": 2914,
+      "sha256": "85bf29980da11132b0eef9615a5a333cb6b16e91caf5ea5bb27e0fa639f5168f"
+    },
+    {
+      "file": "porter/Walking/SE/SE_04.png",
+      "bytes": 274605,
+      "sha256": "1961925391e59aad8893c1dcc55919da0a068637debdd4f127790dc33c56ffc6"
+    },
+    {
+      "file": "porter/Walking/SE/SE_04_mask.png",
+      "bytes": 2858,
+      "sha256": "0f03b961e3e6f91ca17f70082591d47104bf0b4fcea304bfb78076bbff5e4173"
+    },
+    {
+      "file": "porter/Walking/SE/SE_05.png",
+      "bytes": 266599,
+      "sha256": "a580938dab2c2ce60f5433bb027ff947e96c6f6e4e957b224de4600fc1f69706"
+    },
+    {
+      "file": "porter/Walking/SE/SE_05_mask.png",
+      "bytes": 2815,
+      "sha256": "1d55b7ef0ba688b8ba58a1cbdd7e872f18877cf9975f46150b4712b1b8bb8f8e"
+    },
+    {
+      "file": "porter/Walking/SE/SE_06.png",
+      "bytes": 282846,
+      "sha256": "09e0615ad511d1c36a0345efa29b7da0d4a894874c2b711badac77ed5cd3daae"
+    },
+    {
+      "file": "porter/Walking/SE/SE_06_mask.png",
+      "bytes": 2902,
+      "sha256": "0a17d51675a5bcd3959f57c064877cc365f52babdd25149bccebf0cbc278c16b"
+    },
+    {
+      "file": "porter/Walking/SE/SE_07.png",
+      "bytes": 283824,
+      "sha256": "ea118260bbfb7e874775a88b9ee14aa77f3b2152d6f0e9e1fb1684d60def6beb"
+    },
+    {
+      "file": "porter/Walking/SE/SE_07_mask.png",
+      "bytes": 2800,
+      "sha256": "7432967cd0beea5717aa9e676f3b5991ac4ab607b9a4e6ce1b6552498b72557e"
+    },
+    {
+      "file": "porter/Walking/E/E_00.png",
+      "bytes": 293185,
+      "sha256": "d06f99f4175ae1cf8c651fc332ac46c3577390534b4ccc753df7e49cedfb65ec"
+    },
+    {
+      "file": "porter/Walking/E/E_00_mask.png",
+      "bytes": 2490,
+      "sha256": "12bdd946fee108f718caf8559be2f98cf8a4098d5a9b4429f5e638862187c051"
+    },
+    {
+      "file": "porter/Walking/E/E_01.png",
+      "bytes": 272045,
+      "sha256": "cca2b19d7529c718f11031c14c49b9d4555e7d188c26ce0f09442a8c1b308647"
+    },
+    {
+      "file": "porter/Walking/E/E_01_mask.png",
+      "bytes": 2530,
+      "sha256": "784e019cd1f7066615b980193a824e35ca979f437990f03494ff7b9cfde2d579"
+    },
+    {
+      "file": "porter/Walking/E/E_02.png",
+      "bytes": 283436,
+      "sha256": "85488eaef32594b406c9437982fdfaabce6b1af6303032cf73f9af9f9afad296"
+    },
+    {
+      "file": "porter/Walking/E/E_02_mask.png",
+      "bytes": 2478,
+      "sha256": "1a679ca6af47ebe0785dcdc77b0b43150f5070b9aef285ce0d80e90c1e7a60b0"
+    },
+    {
+      "file": "porter/Walking/E/E_03.png",
+      "bytes": 299700,
+      "sha256": "dcf317fabd13233470e3b893ad80785cb45b25c3c57a058b013d4403721c6ccf"
+    },
+    {
+      "file": "porter/Walking/E/E_03_mask.png",
+      "bytes": 2571,
+      "sha256": "cf6c67018074522df62cf2294c4636b3ac2b6f1501b9269e26bc92d54cb42366"
+    },
+    {
+      "file": "porter/Walking/E/E_04.png",
+      "bytes": 289203,
+      "sha256": "84eff3b75b2082bfc7653ae5323d89a4165fa89271a402b16830de419a1ae799"
+    },
+    {
+      "file": "porter/Walking/E/E_04_mask.png",
+      "bytes": 2441,
+      "sha256": "1dd3392f47d9070cfb03889990292cb62778c550c53d826d6bc197b7cf849bd6"
+    },
+    {
+      "file": "porter/Walking/E/E_05.png",
+      "bytes": 262083,
+      "sha256": "cb741f66795ce050c498bfab92e6820c7da5d1064e42166518cbe25485746270"
+    },
+    {
+      "file": "porter/Walking/E/E_05_mask.png",
+      "bytes": 2437,
+      "sha256": "864aa63da20ee64f532938a08c439d54c60be7f32327c21cee8be5d7e5c5f94d"
+    },
+    {
+      "file": "porter/Walking/E/E_06.png",
+      "bytes": 268432,
+      "sha256": "3bf9eb7b27ff5503a578af41d8d166e18b463b5709ea719b97646eed06ce8953"
+    },
+    {
+      "file": "porter/Walking/E/E_06_mask.png",
+      "bytes": 2530,
+      "sha256": "e3f4ffc7cbfa89c7cd1366ae989a66b5ea87be26ac231584138eb1855eded64c"
+    },
+    {
+      "file": "porter/Walking/E/E_07.png",
+      "bytes": 295659,
+      "sha256": "511b1e6d3f4101d2b84c9b5bb4448c9eeaa684982e67b40524d318db238057ae"
+    },
+    {
+      "file": "porter/Walking/E/E_07_mask.png",
+      "bytes": 2569,
+      "sha256": "da19cbd53c7cac670d69cf3589318684c3beccb77f8ac9f5891f586bf62a7511"
+    },
+    {
+      "file": "porter/Walking/NE/NE_00.png",
+      "bytes": 270180,
+      "sha256": "3ba7a4aedc3e0bb1d67f1aafb28b1f3c99bcbe486ff0e862191af915b710ac1e"
+    },
+    {
+      "file": "porter/Walking/NE/NE_00_mask.png",
+      "bytes": 2008,
+      "sha256": "fcfed91419a5abeb982363aede34afa0731e8121183ff1d0dbc1636e249eabcb"
+    },
+    {
+      "file": "porter/Walking/NE/NE_01.png",
+      "bytes": 263366,
+      "sha256": "ad940cde1d4f61697e8b119702c9391dcc52184eb0d999b23582635030f946a9"
+    },
+    {
+      "file": "porter/Walking/NE/NE_01_mask.png",
+      "bytes": 2009,
+      "sha256": "325219142f5e0f8b307d82267a7bba7c8b12e64f7e200d0dce649835f7cbb22d"
+    },
+    {
+      "file": "porter/Walking/NE/NE_02.png",
+      "bytes": 264649,
+      "sha256": "5879581d585eead07274cda7ef56d34439be6f2c7ba9b04604158a14b47faa3f"
+    },
+    {
+      "file": "porter/Walking/NE/NE_02_mask.png",
+      "bytes": 2003,
+      "sha256": "b742962c08dd03051b33d9a046ff299bbafec8a0a293a6db5af7ff9cce3a411a"
+    },
+    {
+      "file": "porter/Walking/NE/NE_03.png",
+      "bytes": 267293,
+      "sha256": "b82abbf1cf799dfc811d3a0a2bb681ceac64aeaead3c0934e94838b5bc7da665"
+    },
+    {
+      "file": "porter/Walking/NE/NE_03_mask.png",
+      "bytes": 1997,
+      "sha256": "804cb2f3dd78f01532ec29b619f3460c3f28072dde05d6a77f1268722653ce64"
+    },
+    {
+      "file": "porter/Walking/NE/NE_04.png",
+      "bytes": 250560,
+      "sha256": "d93a6d7ab3f0fa32e03f1ea25a490d7030ee14f8f98cd0a59833e19e3cd99021"
+    },
+    {
+      "file": "porter/Walking/NE/NE_04_mask.png",
+      "bytes": 2044,
+      "sha256": "d9a2f97e418d6d2046a096673582ebddc4ea5472bca79aea3c07aa3fc29f1de8"
+    },
+    {
+      "file": "porter/Walking/NE/NE_05.png",
+      "bytes": 223611,
+      "sha256": "877fab55cd41734c3933271273378fcb38a12df6cf5333fc892659746d4d8c02"
+    },
+    {
+      "file": "porter/Walking/NE/NE_05_mask.png",
+      "bytes": 2067,
+      "sha256": "58a4f22cadf1ee54af4b133c0b8b1349f633c35ecdf77aeddb262c703b13ef7a"
+    },
+    {
+      "file": "porter/Walking/NE/NE_06.png",
+      "bytes": 257070,
+      "sha256": "866518eb314de75bf1a70a62d19f715f006f8c3a64d4c3e11c85a5b2546123fe"
+    },
+    {
+      "file": "porter/Walking/NE/NE_06_mask.png",
+      "bytes": 2048,
+      "sha256": "7b027e130036ae527ec37712d040e8daae28393ea6a13a9d20b928294e582c40"
+    },
+    {
+      "file": "porter/Walking/NE/NE_07.png",
+      "bytes": 255281,
+      "sha256": "ccdff8ce4c25bdbc9dc022e571990d8432d1b92d0060af666cb8bcb7a878f136"
+    },
+    {
+      "file": "porter/Walking/NE/NE_07_mask.png",
+      "bytes": 2045,
+      "sha256": "436fa9e2a5f47fdf83702561e8b8ec24800699d4664969cbfca4494dcb28a3f4"
+    },
+    {
+      "file": "porter/Walking/N/N_00.png",
+      "bytes": 263862,
+      "sha256": "3b811e166ac960b2167b1ac3e52e8e3d1bbc252bfd501ef02b9eb0f287743ac6"
+    },
+    {
+      "file": "porter/Walking/N/N_00_mask.png",
+      "bytes": 2558,
+      "sha256": "d35a6abe96965a4023036001b6f1528c46277dfae6d69352e1482e231f2ec834"
+    },
+    {
+      "file": "porter/Walking/N/N_01.png",
+      "bytes": 274055,
+      "sha256": "6bb8699ef86dd0d26b320ad793b171a9af8d08941a66e18e4431b74ea5e4915b"
+    },
+    {
+      "file": "porter/Walking/N/N_01_mask.png",
+      "bytes": 2562,
+      "sha256": "707dccf7187dc136dc27e8c3d8ce74b2cbe176f940d6fafc853f73e41e87d388"
+    },
+    {
+      "file": "porter/Walking/N/N_02.png",
+      "bytes": 264782,
+      "sha256": "62a57cfa35cbba8771cec91bcde01b88051bebaa26bb79b2ccb8bf0cae46d26b"
+    },
+    {
+      "file": "porter/Walking/N/N_02_mask.png",
+      "bytes": 2682,
+      "sha256": "944dee6c9c3689c06b0ab3eae62fd5763a793e786e001ce1c36c57eea5504080"
+    },
+    {
+      "file": "porter/Walking/N/N_03.png",
+      "bytes": 266437,
+      "sha256": "ad9ae516d8d85f58b8878a16bf2fff828beef045a6e52fe53a534ee9650b34da"
+    },
+    {
+      "file": "porter/Walking/N/N_03_mask.png",
+      "bytes": 2571,
+      "sha256": "d4ba81cd0d9ca19f2c426c7619cbc78732a5b5d70b8d07c697e29ba10e5811e5"
+    },
+    {
+      "file": "porter/Walking/N/N_04.png",
+      "bytes": 262968,
+      "sha256": "c7c3012e68a8f56526fadf8a259dd8334e8051a69a96e2e4fa3baf86951c73f8"
+    },
+    {
+      "file": "porter/Walking/N/N_04_mask.png",
+      "bytes": 2549,
+      "sha256": "5b8923caab067ca5a5a1851075deedadb1a6838eabdf9fdf7169ed307252a700"
+    },
+    {
+      "file": "porter/Walking/N/N_05.png",
+      "bytes": 263678,
+      "sha256": "36b4b514f00eef8a85fd4e1e067630488ac65252fe394f2df4d281e7956b7cb7"
+    },
+    {
+      "file": "porter/Walking/N/N_05_mask.png",
+      "bytes": 2667,
+      "sha256": "e2248a4e44f0faa3cb3466897e00346eea0e4c01972a326bf6667393898fe5c5"
+    },
+    {
+      "file": "porter/Walking/N/N_06.png",
+      "bytes": 262772,
+      "sha256": "82e400e34574578f673bc5ebfcffd8df3a561f70bd2046c4200a95f99101ca74"
+    },
+    {
+      "file": "porter/Walking/N/N_06_mask.png",
+      "bytes": 2546,
+      "sha256": "4b606ba1077d7aebd3a5591574c24cb85757dde7be688a0b9044e749bdf2b948"
+    },
+    {
+      "file": "porter/Walking/N/N_07.png",
+      "bytes": 264067,
+      "sha256": "6a848c7aec446cf150aff3b072e58b69331012dcfb0a16b45b5c1461542e3ff8"
+    },
+    {
+      "file": "porter/Walking/N/N_07_mask.png",
+      "bytes": 2592,
+      "sha256": "ca05d684b4c33946aed7c04b520fee98fda05c9d671df9c760fc562967a50010"
+    }
+  ]
+}

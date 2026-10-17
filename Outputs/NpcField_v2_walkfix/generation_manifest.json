@@ -1,0 +1,138 @@
+{
+  "tool": "built-in image_gen",
+  "timestamps": "mtime is local copy time, not generation start time; logs record save time",
+  "files": [
+    {
+      "file": "sources/archer_E.png",
+      "bytes": 1140337,
+      "sha256": "0140712f86a0b1aea69f3993cf8630dab194219f1ca4d45bd9ce6fc785574ec4",
+      "mtime": "2026-10-17T15:55:12.092Z"
+    },
+    {
+      "file": "sources/archer_N.png",
+      "bytes": 992998,
+      "sha256": "4889822f87d13e3b92bc05259c9bf27b3724355798340880840f207eeee1c9c8",
+      "mtime": "2026-10-17T15:57:31.541Z"
+    },
+    {
+      "file": "sources/archer_NE.png",
+      "bytes": 1016372,
+      "sha256": "1f78487c1fc1bd92f99740d3408ab99057cabebec2c664493f5c57c350980c42",
+      "mtime": "2026-10-17T15:56:11.936Z"
+    },
+    {
+      "file": "sources/archer_S.png",
+      "bytes": 1007174,
+      "sha256": "d59b2e4024b40bc08d4e50e8870ef15ad03a5ae11acc8a25bcda89cd38c459b3",
+      "mtime": "2026-10-17T15:52:05.330Z"
+    },
+    {
+      "file": "sources/archer_SE.png",
+      "bytes": 1254862,
+      "sha256": "b606290786fc3b91e4b2033fc7ea7c9fd02126201abb54472705841178ce9b10",
+      "mtime": "2026-10-17T15:53:01.221Z"
+    },
+    {
+      "file": "sources/leader_E.png",
+      "bytes": 971069,
+      "sha256": "9df8a86049ad6520b12c0421a0824e4742a535c7fc9bd3eda1ac50b48abfdf22",
+      "mtime": "2026-10-17T15:48:57.188Z"
+    },
+    {
+      "file": "sources/leader_glove.png",
+      "bytes": 544346,
+      "sha256": "747728170ae8e2a5fa0a0e733cd87a9c3dd3a267bbe38d49abb6dec51aa43e3b",
+      "mtime": "2026-10-17T15:53:59.925Z"
+    },
+    {
+      "file": "sources/leader_N.png",
+      "bytes": 976031,
+      "sha256": "8761b85f870495da406d2944986b164fe0b4a54c53d3328462dfc9baff03b5b6",
+      "mtime": "2026-10-17T15:51:03.783Z"
+    },
+    {
+      "file": "sources/leader_NE.png",
+      "bytes": 988734,
+      "sha256": "14e765e1e6521978bd1f7708fe6324e3716e84c5cd6153d41fc028650cc93707",
+      "mtime": "2026-10-17T15:49:48.553Z"
+    },
+    {
+      "file": "sources/leader_S.png",
+      "bytes": 1015040,
+      "sha256": "4b4dbba80ca7f2e1b81806f3cdd8c6c3d2f29a65143eda5e280067b0bb56b3e7",
+      "mtime": "2026-10-17T15:47:10.016Z"
+    },
+    {
+      "file": "sources/leader_SE.png",
+      "bytes": 1160027,
+      "sha256": "3d7c63d68ab9c918080b0d0b6e89391a08b140d1509ef27116e9eeca5bc7899d",
+      "mtime": "2026-10-17T15:48:14.903Z"
+    },
+    {
+      "file": "sources/porter_E.png",
+      "bytes": 1221560,
+      "sha256": "e4459dd95028983fa7183360009aa1131de5609be129cab8fea0e7d40005ec46",
+      "mtime": "2026-10-17T16:07:10.712Z"
+    },
+    {
+      "file": "sources/porter_N.png",
+      "bytes": 995104,
+      "sha256": "5a953c7d072d28ec1bb7264932774eb993c039c582f4a61527106d70ecc97ef0",
+      "mtime": "2026-10-17T16:09:18.994Z"
+    },
+    {
+      "file": "sources/porter_NE.png",
+      "bytes": 1129551,
+      "sha256": "3c4a9b200ff5a4061765fa0d5898011c5af5fb55cc9096ea4d98a5ab7342513e",
+      "mtime": "2026-10-17T16:08:08.921Z"
+    },
+    {
+      "file": "sources/porter_S.png",
+      "bytes": 1104263,
+      "sha256": "e755bf64d9a8063022b56a4dc873fffa3ac266802eb08d2a23f982c1252e21ab",
+      "mtime": "2026-10-17T16:05:00.340Z"
+    },
+    {
+      "file": "sources/porter_SE.png",
+      "bytes": 1254901,
+      "sha256": "dbea926483384758392b75739bb1c3b417c190053b702637187e7d51db78bf8d",
+      "mtime": "2026-10-17T16:06:17.334Z"
+    },
+    {
+      "file": "sources/shield_E.png",
+      "bytes": 1209561,
+      "sha256": "875c14a65fa02beacb6aead762bfa6c330513ecc7539893f9814fcdf48043735",
+      "mtime": "2026-10-17T16:00:47.784Z"
+    },
+    {
+      "file": "sources/shield_N.png",
+      "bytes": 1014633,
+      "sha256": "e589ef27ef2f3c11c3426110e2e20355fa188dae1d70825c4db79a1f505c1787",
+      "mtime": "2026-10-17T16:02:29.196Z"
+    },
+    {
+      "file": "sources/shield_NE.png",
+      "bytes": 1133253,
+      "sha256": "c8ec527866c4027878bb7ab296ee11ec64553a327fa4de4d957fe4d71c9dbf38",
+      "mtime": "2026-10-17T16:01:50.338Z"
+    },
+    {
+      "file": "sources/shield_S.png",
+      "bytes": 1117893,
+      "sha256": "acc8ae9270dc02c0256cb37d938b1ffa1adbd57fc87ea1e4bdce46086ec25c2a",
+      "mtime": "2026-10-17T15:58:53.874Z"
+    },
+    {
+      "file": "sources/shield_SE.png",
+      "bytes": 1328965,
+      "sha256": "7712dfc8dd1300e274ad727f8824c575bd4cf076ff4c1e54cd89de051e5d5d67",
+      "mtime": "2026-10-17T16:03:54.354Z"
+    },
+    {
+      "file": "sources/shield_SE_rejected.png",
+      "bytes": 1277564,
+      "sha256": "cf8289543e19292e22372cd3bfb1572bb097ef5236b29c8e725e95af2d598e12",
+      "mtime": "2026-10-17T15:59:41.720Z"
+    }
+  ]
+}
