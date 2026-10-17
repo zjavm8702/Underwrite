@@ -19,6 +19,10 @@ namespace Underwrite.UI
         private const float FIGURE_SLIDE_FROM = 48f;
         private const float TYPE_PER_LETTER = 0.018f;
 
+        // 대사가 다 흐른 뒤 선택지가 뜨기까지 쉬는 시간과, 선택지가 나타나는 시간(실제 초).
+        private const float CHOICE_DELAY_SECONDS = 0.3f;
+        private const float CHOICE_FADE_SECONDS = 0.18f;
+
         private readonly VisualElement Root;
         private readonly VisualElement Veil;
         private readonly VisualElement Figure;
@@ -36,8 +40,12 @@ namespace Underwrite.UI
         private readonly List<DialogueLine> Lines = new List<DialogueLine>();
         private readonly List<DialogueChoice> ShownChoices = new List<DialogueChoice>();
 
+        // 자리는 잡았지만 아직 보이지 않는 선택지. 대사가 다 흐르면 ShownChoices로 옮긴다.
+        private readonly List<DialogueChoice> PendingChoices = new List<DialogueChoice>();
+
         private Action OnDone;
         private Tween Running;
+        private Tween Revealing;
         private Sprite FigureShown;
         private int Index = -1;
 
@@ -357,9 +365,71 @@ namespace Underwrite.UI
             }
         }
 
+        /// <summary>선택지 자리는 차지하되 보이지도 눌리지도 않게 한다. 번호 키도 받지 않는다.</summary>
+        private void HideChoices()
+        {
+            if (ChoiceBox == null)
+            {
+                return;
+            }
+
+            PendingChoices.Clear();
+            PendingChoices.AddRange(ShownChoices);
+            ShownChoices.Clear();
+            ChoiceBox.style.visibility = Visibility.Hidden;
+            ChoiceBox.style.opacity = 0f;
+        }
+
+        /// <summary>대사를 다 들은 뒤 잠깐 쉬었다가 선택지를 띄운다.</summary>
+        private void RevealChoices()
+        {
+            if (ChoiceBox == null || PendingChoices.Count == 0)
+            {
+                return;
+            }
+
+            KillRevealing();
+            var box = ChoiceBox;
+            Revealing = DOTween.To(() => 0f, value =>
+            {
+                if (box.panel != null)
+                {
+                    box.style.opacity = value;
+                }
+            }, 1f, CHOICE_FADE_SECONDS)
+                .SetDelay(CHOICE_DELAY_SECONDS)
+                .SetUpdate(true)
+                .OnStart(() =>
+                {
+                    ShownChoices.Clear();
+                    ShownChoices.AddRange(PendingChoices);
+                    PendingChoices.Clear();
+                    box.style.visibility = Visibility.Visible;
+                });
+        }
+
+        private void KillRevealing()
+        {
+            if (Revealing == null)
+            {
+                return;
+            }
+
+            Revealing.Kill();
+            Revealing = null;
+        }
+
         private void ClearChoices()
         {
+            KillRevealing();
             ShownChoices.Clear();
+            PendingChoices.Clear();
+
+            if (ChoiceBox != null)
+            {
+                ChoiceBox.style.visibility = StyleKeyword.Null;
+                ChoiceBox.style.opacity = StyleKeyword.Null;
+            }
 
             if (ChoiceBox == null)
             {
@@ -484,8 +554,13 @@ namespace Underwrite.UI
 
             if (choices != null)
             {
+                // 선택지 자리는 처음부터 잡아 둔다. 다 흐른 뒤에 끼워 넣으면 상자가 갑자기 위로 커지며
+                // 읽던 대사가 밀려 올라가 잘린 것처럼 보인다(2026-10-17 사용자 보고).
+                ShowChoices(choices);
+                HideChoices();
+
                 // 넘기기로 글자를 끝까지 보여 줘도 Complete가 이것을 부른다.
-                Running.OnComplete(() => ShowChoices(choices));
+                Running.OnComplete(RevealChoices);
             }
         }
 
