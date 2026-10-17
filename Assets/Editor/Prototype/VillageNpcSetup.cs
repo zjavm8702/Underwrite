@@ -151,7 +151,9 @@ namespace Underwrite.Editor
         /// 씬의 장소(VillageSpot)를 읽어 그 둘레에 사람을 세운다. 장소를 먼저 세운 뒤에 부른다.
         /// </summary>
         /// <param name="vendorFeet">노점 앞 자리(월드). 없으면 게시판 문 앞에서의 옛 상대 위치를 쓴다.</param>
-        public static void Build(GameObject prefab, Vector2 groundSize, List<Vector2> vendorFeet = null)
+        /// <param name="skipTownsfolk">일하는 사람 그림(StationNpcSetup)이 들어왔으면 임시 주민·장수를 세우지 않는다.</param>
+        public static void Build(GameObject prefab, Vector2 groundSize, List<Vector2> vendorFeet = null,
+            bool skipTownsfolk = false)
         {
             var root = new GameObject("NPCs");
 
@@ -170,7 +172,7 @@ namespace Underwrite.Editor
 
             var count = 0;
 
-            foreach (var cast in RESIDENTS)
+            foreach (var cast in skipTownsfolk == true ? new PlaceCast[0] : RESIDENTS)
             {
                 if (doors.TryGetValue(cast.Place, out var door) == false)
                 {
@@ -189,7 +191,7 @@ namespace Underwrite.Editor
                 }
             }
 
-            if (doors.TryGetValue("시장 게시판", out var board) == true || vendorFeet != null)
+            if (skipTownsfolk == false && (doors.TryGetValue("시장 게시판", out var board) == true || vendorFeet != null))
             {
                 for (var i = 0; i < VENDOR_NAMES.Length; i++)
                 {

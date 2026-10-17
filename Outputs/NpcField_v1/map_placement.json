@@ -1,0 +1,65 @@
+{
+  "source": "Outputs/VillagePartsFull_v1/assembled.png",
+  "map_scale": 0.19313304721030042,
+  "placements": [
+    {
+      "id": "smith",
+      "action": "Work",
+      "frame": 3,
+      "foot": [
+        564,
+        1549
+      ]
+    },
+    {
+      "id": "apprentice",
+      "action": "Work",
+      "frame": 2,
+      "foot": [
+        730,
+        1551
+      ]
+    },
+    {
+      "id": "protagonist",
+      "foot": [
+        660,
+        1668
+      ]
+    },
+    {
+      "id": "vendor_fruit",
+      "action": "Work",
+      "frame": 2,
+      "foot": [
+        2520,
+        1545
+      ]
+    },
+    {
+      "id": "vendor_cloth",
+      "action": "Work",
+      "frame": 3,
+      "foot": [
+        3270,
+        1493
+      ]
+    },
+    {
+      "id": "vendor_goods",
+      "action": "Work",
+      "frame": 2,
+      "foot": [
+        3490,
+        1585
+      ]
+    },
+    {
+      "id": "protagonist",
+      "foot": [
+        3160,
+        1632
+      ]
+    }
+  ]
+}

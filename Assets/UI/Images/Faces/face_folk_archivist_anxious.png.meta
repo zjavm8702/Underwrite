@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cb877c54d007ef142ad6ce43a9d4c976
+guid: 5957b8afd8402c748bd6b64b4a455898
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7163543369823414469
-    second: face_band_brann_anxious_0
+      213: 804380862635813371
+    second: face_folk_archivist_anxious_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_brann_anxious_0
+      name: face_folk_archivist_anxious_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 176
-        width: 724
-        height: 734
+        x: 37
+        y: 160
+        width: 772
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b37129c524bf59c90800000000000000
-      internalID: -7163543369823414469
+      spriteID: bf9a78df12cb92b00800000000000000
+      internalID: 804380862635813371
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_brann_anxious_0: -7163543369823414469
+      face_folk_archivist_anxious_0: 804380862635813371
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

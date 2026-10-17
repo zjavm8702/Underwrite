@@ -1,0 +1,10 @@
+{
+  "required_frames": 180,
+  "required_portraits": 20,
+  "frame_sizes_ok": true,
+  "portrait_sizes_ok": true,
+  "timing_entries": 30,
+  "preview_strips": 30,
+  "animated_previews": 30,
+  "source_files": 23
+}

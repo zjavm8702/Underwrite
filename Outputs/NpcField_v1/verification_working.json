@@ -1,0 +1,6414 @@
+{
+  "smith": {
+    "name": "smith",
+    "source": "sources/smith_sheet_narrow.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "common_scale": 1.625,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 5,
+        "source_bbox": [
+          38,
+          18,
+          214,
+          417
+        ],
+        "source_area": 45188,
+        "scale": 1.625,
+        "offset": [
+          28,
+          62
+        ],
+        "cropping_risk": false,
+        "file": "smith/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          28,
+          62,
+          315,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          120006
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7499
+      },
+      {
+        "source_component": 1,
+        "source_bbox": [
+          250,
+          17,
+          424,
+          416
+        ],
+        "source_area": 45020,
+        "scale": 1.625,
+        "offset": [
+          30,
+          62
+        ],
+        "cropping_risk": false,
+        "file": "smith/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          30,
+          62,
+          313,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          119061
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7642
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          456,
+          17,
+          631,
+          416
+        ],
+        "source_area": 45097,
+        "scale": 1.625,
+        "offset": [
+          28,
+          62
+        ],
+        "cropping_risk": false,
+        "file": "smith/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          28,
+          62,
+          313,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          119224
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7547
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          651,
+          17,
+          829,
+          416
+        ],
+        "source_area": 45600,
+        "scale": 1.625,
+        "offset": [
+          28,
+          62
+        ],
+        "cropping_risk": false,
+        "file": "smith/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          28,
+          62,
+          318,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          120437
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7662
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          860,
+          17,
+          1038,
+          417
+        ],
+        "source_area": 45460,
+        "scale": 1.625,
+        "offset": [
+          27,
+          60
+        ],
+        "cropping_risk": false,
+        "file": "smith/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          27,
+          60,
+          317,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          120476
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7655
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          1064,
+          18,
+          1241,
+          416
+        ],
+        "source_area": 45074,
+        "scale": 1.625,
+        "offset": [
+          24,
+          64
+        ],
+        "cropping_risk": false,
+        "file": "smith/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          25,
+          64,
+          312,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          119133
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7684
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          28,
+          438,
+          216,
+          816
+        ],
+        "source_area": 48265,
+        "scale": 1.625,
+        "offset": [
+          15,
+          96
+        ],
+        "cropping_risk": false,
+        "file": "smith/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          15,
+          96,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          127811
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6356
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          240,
+          435,
+          433,
+          816
+        ],
+        "source_area": 49698,
+        "scale": 1.625,
+        "offset": [
+          11,
+          91
+        ],
+        "cropping_risk": false,
+        "file": "smith/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          11,
+          91,
+          325,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          131373
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6759
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          452,
+          459,
+          639,
+          816
+        ],
+        "source_area": 47766,
+        "scale": 1.625,
+        "offset": [
+          25,
+          130
+        ],
+        "cropping_risk": false,
+        "file": "smith/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          24,
+          130,
+          330,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          126521
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5736
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          648,
+          458,
+          832,
+          816
+        ],
+        "source_area": 47946,
+        "scale": 1.625,
+        "offset": [
+          21,
+          129
+        ],
+        "cropping_risk": false,
+        "file": "smith/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          24,
+          129,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          125732
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5911
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          850,
+          437,
+          1039,
+          816
+        ],
+        "source_area": 49373,
+        "scale": 1.625,
+        "offset": [
+          9,
+          94
+        ],
+        "cropping_risk": false,
+        "file": "smith/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          9,
+          94,
+          317,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          130330
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6802
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          1060,
+          458,
+          1241,
+          816
+        ],
+        "source_area": 47205,
+        "scale": 1.625,
+        "offset": [
+          25,
+          129
+        ],
+        "cropping_risk": false,
+        "file": "smith/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          24,
+          129,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          124641
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5768
+      },
+      {
+        "source_component": 13,
+        "source_bbox": [
+          37,
+          831,
+          207,
+          1227
+        ],
+        "source_area": 41268,
+        "scale": 1.625,
+        "offset": [
+          30,
+          67
+        ],
+        "cropping_risk": false,
+        "file": "smith/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          30,
+          67,
+          307,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          109453
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6515
+      },
+      {
+        "source_component": 15,
+        "source_bbox": [
+          242,
+          833,
+          424,
+          1227
+        ],
+        "source_area": 42789,
+        "scale": 1.625,
+        "offset": [
+          27,
+          70
+        ],
+        "cropping_risk": false,
+        "file": "smith/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          27,
+          70,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          113229
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6837
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          448,
+          833,
+          644,
+          1227
+        ],
+        "source_area": 43104,
+        "scale": 1.625,
+        "offset": [
+          28,
+          70
+        ],
+        "cropping_risk": false,
+        "file": "smith/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          28,
+          70,
+          347,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          113953
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7629
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          649,
+          835,
+          850,
+          1227
+        ],
+        "source_area": 43752,
+        "scale": 1.625,
+        "offset": [
+          29,
+          73
+        ],
+        "cropping_risk": false,
+        "file": "smith/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          29,
+          73,
+          356,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          115840
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7602
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          860,
+          836,
+          1031,
+          1227
+        ],
+        "source_area": 41775,
+        "scale": 1.625,
+        "offset": [
+          32,
+          75
+        ],
+        "cropping_risk": false,
+        "file": "smith/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          32,
+          75,
+          311,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          110683
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6446
+      },
+      {
+        "source_component": 14,
+        "source_bbox": [
+          1065,
+          831,
+          1235,
+          1227
+        ],
+        "source_area": 41333,
+        "scale": 1.625,
+        "offset": [
+          31,
+          67
+        ],
+        "cropping_risk": false,
+        "file": "smith/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          31,
+          67,
+          308,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          109575
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6503
+      }
+    ]
+  },
+  "innkeeper": {
+    "name": "innkeeper",
+    "source": "sources/innkeeper_sheet.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "common_scale": 1.6085918854415275,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          51,
+          10,
+          226,
+          428
+        ],
+        "source_area": 50354,
+        "scale": 1.6085918854415275,
+        "offset": [
+          39,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          38,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          130590
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6679
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          251,
+          10,
+          423,
+          428
+        ],
+        "source_area": 49818,
+        "scale": 1.6085918854415275,
+        "offset": [
+          43,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          38,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          129646
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6712
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          446,
+          10,
+          619,
+          428
+        ],
+        "source_area": 49893,
+        "scale": 1.6085918854415275,
+        "offset": [
+          43,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          38,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          129816
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6715
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          643,
+          11,
+          815,
+          428
+        ],
+        "source_area": 49573,
+        "scale": 1.6085918854415275,
+        "offset": [
+          43,
+          40
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          40,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          128913
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6697
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          837,
+          10,
+          1011,
+          428
+        ],
+        "source_area": 49894,
+        "scale": 1.6085918854415275,
+        "offset": [
+          41,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          38,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          129910
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6529
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          1035,
+          10,
+          1206,
+          428
+        ],
+        "source_area": 49446,
+        "scale": 1.6085918854415275,
+        "offset": [
+          44,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          38,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          129097
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6640
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          52,
+          429,
+          227,
+          840
+        ],
+        "source_area": 49696,
+        "scale": 1.6085918854415275,
+        "offset": [
+          41,
+          49
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          41,
+          49,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          128901
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6576
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          253,
+          433,
+          427,
+          840
+        ],
+        "source_area": 49006,
+        "scale": 1.6085918854415275,
+        "offset": [
+          42,
+          56
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          41,
+          56,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          127513
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6392
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          450,
+          434,
+          622,
+          840
+        ],
+        "source_area": 48779,
+        "scale": 1.6085918854415275,
+        "offset": [
+          45,
+          57
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          41,
+          57,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          126890
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6302
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          647,
+          434,
+          819,
+          840
+        ],
+        "source_area": 48891,
+        "scale": 1.6085918854415275,
+        "offset": [
+          43,
+          57
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          41,
+          57,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          127306
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6193
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          840,
+          434,
+          1016,
+          840
+        ],
+        "source_area": 49348,
+        "scale": 1.6085918854415275,
+        "offset": [
+          39,
+          57
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          40,
+          57,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          128642
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6372
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          1036,
+          430,
+          1208,
+          840
+        ],
+        "source_area": 48745,
+        "scale": 1.6085918854415275,
+        "offset": [
+          42,
+          51
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          41,
+          51,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          127269
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6489
+      },
+      {
+        "source_component": 13,
+        "source_bbox": [
+          53,
+          841,
+          225,
+          1241
+        ],
+        "source_area": 48030,
+        "scale": 1.6085918854415275,
+        "offset": [
+          43,
+          67
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          67,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          124476
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6244
+      },
+      {
+        "source_component": 14,
+        "source_bbox": [
+          252,
+          842,
+          423,
+          1241
+        ],
+        "source_area": 46716,
+        "scale": 1.6085918854415275,
+        "offset": [
+          43,
+          69
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          69,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          120956
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5913
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          437,
+          848,
+          622,
+          1241
+        ],
+        "source_area": 48387,
+        "scale": 1.6085918854415275,
+        "offset": [
+          27,
+          78
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          78,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          124354
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5721
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          644,
+          845,
+          819,
+          1241
+        ],
+        "source_area": 47414,
+        "scale": 1.6085918854415275,
+        "offset": [
+          39,
+          73
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          73,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          122766
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5887
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          844,
+          844,
+          1015,
+          1241
+        ],
+        "source_area": 47376,
+        "scale": 1.6085918854415275,
+        "offset": [
+          47,
+          72
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          72,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          123472
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6071
+      },
+      {
+        "source_component": 15,
+        "source_bbox": [
+          1038,
+          842,
+          1209,
+          1241
+        ],
+        "source_area": 47508,
+        "scale": 1.6085918854415275,
+        "offset": [
+          43,
+          69
+        ],
+        "cropping_risk": false,
+        "file": "innkeeper/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          69,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          123713
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6220
+      }
+    ]
+  },
+  "archivist": {
+    "name": "archivist",
+    "source": "sources/archivist_sheet_narrow.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "common_scale": 1.5632183908045978,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          52,
+          17,
+          209,
+          451
+        ],
+        "source_area": 47764,
+        "scale": 1.5632183908045978,
+        "offset": [
+          57,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          57,
+          32,
+          303,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117093
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5802
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          255,
+          17,
+          410,
+          451
+        ],
+        "source_area": 47557,
+        "scale": 1.5632183908045978,
+        "offset": [
+          57,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          57,
+          32,
+          300,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          116502
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5836
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          450,
+          17,
+          605,
+          451
+        ],
+        "source_area": 47650,
+        "scale": 1.5632183908045978,
+        "offset": [
+          58,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          58,
+          32,
+          301,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          116846
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5833
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          645,
+          18,
+          801,
+          451
+        ],
+        "source_area": 47759,
+        "scale": 1.5632183908045978,
+        "offset": [
+          58,
+          34
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          58,
+          34,
+          302,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          116772
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5821
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          843,
+          17,
+          1000,
+          451
+        ],
+        "source_area": 48023,
+        "scale": 1.5632183908045978,
+        "offset": [
+          55,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          55,
+          32,
+          301,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117510
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5843
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          1045,
+          17,
+          1201,
+          451
+        ],
+        "source_area": 47914,
+        "scale": 1.5632183908045978,
+        "offset": [
+          58,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          58,
+          32,
+          302,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117243
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5831
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          55,
+          462,
+          212,
+          868
+        ],
+        "source_area": 43141,
+        "scale": 1.5632183908045978,
+        "offset": [
+          61,
+          76
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          61,
+          76,
+          307,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          105760
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5447
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          255,
+          462,
+          413,
+          868
+        ],
+        "source_area": 43594,
+        "scale": 1.5632183908045978,
+        "offset": [
+          56,
+          76
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          56,
+          76,
+          304,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          106781
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5406
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          448,
+          461,
+          607,
+          868
+        ],
+        "source_area": 43458,
+        "scale": 1.5632183908045978,
+        "offset": [
+          57,
+          74
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          57,
+          75,
+          306,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          106563
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5393
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          644,
+          461,
+          804,
+          868
+        ],
+        "source_area": 43614,
+        "scale": 1.5632183908045978,
+        "offset": [
+          54,
+          74
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          54,
+          74,
+          305,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          107118
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5494
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          843,
+          461,
+          1003,
+          868
+        ],
+        "source_area": 44084,
+        "scale": 1.5632183908045978,
+        "offset": [
+          55,
+          74
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          55,
+          74,
+          306,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          107683
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5507
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          1042,
+          461,
+          1200,
+          868
+        ],
+        "source_area": 43524,
+        "scale": 1.5632183908045978,
+        "offset": [
+          53,
+          74
+        ],
+        "cropping_risk": false,
+        "file": "archivist/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          53,
+          74,
+          301,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          106752
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5481
+      },
+      {
+        "file": "archivist/Give/S_00.png",
+        "source": "sources/archivist_give_right.png",
+        "source_bbox": [
+          84,
+          17,
+          344,
+          681
+        ],
+        "scale": 1.0225563909774436,
+        "offset": [
+          46,
+          32
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          32,
+          312,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          116863
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4120
+      },
+      {
+        "file": "archivist/Give/S_01.png",
+        "source": "sources/archivist_give_right.png",
+        "source_bbox": [
+          407,
+          16,
+          662,
+          681
+        ],
+        "scale": 1.0225563909774436,
+        "offset": [
+          51,
+          31
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          52,
+          31,
+          312,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          116176
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4042
+      },
+      {
+        "file": "archivist/Give/S_02.png",
+        "source": "sources/archivist_give_right.png",
+        "source_bbox": [
+          754,
+          17,
+          990,
+          681
+        ],
+        "scale": 1.0225563909774436,
+        "offset": [
+          66,
+          32
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          62,
+          32,
+          307,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          114202
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4095
+      },
+      {
+        "file": "archivist/Give/S_03.png",
+        "source": "sources/archivist_give_right.png",
+        "source_bbox": [
+          97,
+          710,
+          335,
+          1376
+        ],
+        "scale": 1.0225563909774436,
+        "offset": [
+          62,
+          30
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          62,
+          30,
+          305,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          114717
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4130
+      },
+      {
+        "file": "archivist/Give/S_04.png",
+        "source": "sources/archivist_give_right.png",
+        "source_bbox": [
+          404,
+          710,
+          661,
+          1376
+        ],
+        "scale": 1.0225563909774436,
+        "offset": [
+          49,
+          30
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          49,
+          30,
+          312,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117191
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4101
+      },
+      {
+        "file": "archivist/Give/S_05.png",
+        "source": "sources/archivist_give_right.png",
+        "source_bbox": [
+          742,
+          708,
+          1002,
+          1376
+        ],
+        "scale": 1.0225563909774436,
+        "offset": [
+          49,
+          28
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          49,
+          28,
+          315,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          118425
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4155
+      }
+    ],
+    "give_source": "sources/archivist_give_right.png",
+    "give_scale": 1.0225563909774436
+  },
+  "steward": {
+    "name": "steward",
+    "source": "sources/steward_sheet.png",
+    "source_size": [
+      1024,
+      1536
+    ],
+    "common_scale": 1.3849206349206349,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          32,
+          9,
+          183,
+          512
+        ],
+        "source_area": 53145,
+        "scale": 1.3849206349206349,
+        "offset": [
+          74,
+          14
+        ],
+        "cropping_risk": false,
+        "file": "steward/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          74,
+          14,
+          284,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          102525
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5193
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          194,
+          9,
+          345,
+          512
+        ],
+        "source_area": 52821,
+        "scale": 1.3849206349206349,
+        "offset": [
+          75,
+          14
+        ],
+        "cropping_risk": false,
+        "file": "steward/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          75,
+          14,
+          285,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          102075
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5252
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          356,
+          9,
+          506,
+          512
+        ],
+        "source_area": 52661,
+        "scale": 1.3849206349206349,
+        "offset": [
+          75,
+          14
+        ],
+        "cropping_risk": false,
+        "file": "steward/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          75,
+          14,
+          283,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          101536
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5250
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          517,
+          9,
+          667,
+          512
+        ],
+        "source_area": 52742,
+        "scale": 1.3849206349206349,
+        "offset": [
+          76,
+          14
+        ],
+        "cropping_risk": false,
+        "file": "steward/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          76,
+          14,
+          284,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          101643
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5207
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          677,
+          9,
+          828,
+          512
+        ],
+        "source_area": 52681,
+        "scale": 1.3849206349206349,
+        "offset": [
+          75,
+          14
+        ],
+        "cropping_risk": false,
+        "file": "steward/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          75,
+          14,
+          285,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          101822
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5238
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          838,
+          9,
+          989,
+          512
+        ],
+        "source_area": 52875,
+        "scale": 1.3849206349206349,
+        "offset": [
+          76,
+          14
+        ],
+        "cropping_risk": false,
+        "file": "steward/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          76,
+          14,
+          286,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          102202
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5262
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          26,
+          513,
+          182,
+          1012
+        ],
+        "source_area": 50059,
+        "scale": 1.3849206349206349,
+        "offset": [
+          70,
+          20
+        ],
+        "cropping_risk": false,
+        "file": "steward/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          70,
+          20,
+          286,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96178
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5255
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          188,
+          513,
+          346,
+          1012
+        ],
+        "source_area": 50884,
+        "scale": 1.3849206349206349,
+        "offset": [
+          69,
+          20
+        ],
+        "cropping_risk": false,
+        "file": "steward/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          69,
+          20,
+          288,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          97810
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5343
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          356,
+          518,
+          510,
+          1012
+        ],
+        "source_area": 50004,
+        "scale": 1.3849206349206349,
+        "offset": [
+          76,
+          26
+        ],
+        "cropping_risk": false,
+        "file": "steward/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          76,
+          26,
+          290,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96577
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5332
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          514,
+          518,
+          670,
+          1012
+        ],
+        "source_area": 50008,
+        "scale": 1.3849206349206349,
+        "offset": [
+          72,
+          26
+        ],
+        "cropping_risk": false,
+        "file": "steward/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          72,
+          26,
+          287,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96300
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5212
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          675,
+          518,
+          831,
+          1012
+        ],
+        "source_area": 50154,
+        "scale": 1.3849206349206349,
+        "offset": [
+          72,
+          26
+        ],
+        "cropping_risk": false,
+        "file": "steward/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          72,
+          26,
+          288,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96638
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5325
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          838,
+          512,
+          992,
+          1012
+        ],
+        "source_area": 49933,
+        "scale": 1.3849206349206349,
+        "offset": [
+          76,
+          18
+        ],
+        "cropping_risk": false,
+        "file": "steward/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          76,
+          18,
+          290,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96488
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5309
+      },
+      {
+        "file": "steward/Give/S_00.png",
+        "source": "sources/steward_give_right.png",
+        "source_bbox": [
+          95,
+          14,
+          307,
+          672
+        ],
+        "scale": 1.0591805766312594,
+        "offset": [
+          68,
+          14
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          68,
+          14,
+          293,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          100433
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4138
+      },
+      {
+        "file": "steward/Give/S_01.png",
+        "source": "sources/steward_give_right.png",
+        "source_bbox": [
+          439,
+          15,
+          651,
+          672
+        ],
+        "scale": 1.0591805766312594,
+        "offset": [
+          68,
+          15
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          68,
+          15,
+          293,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          100380
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4225
+      },
+      {
+        "file": "steward/Give/S_02.png",
+        "source": "sources/steward_give_right.png",
+        "source_bbox": [
+          803,
+          15,
+          1005,
+          672
+        ],
+        "scale": 1.0591805766312594,
+        "offset": [
+          78,
+          15
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          78,
+          15,
+          292,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          97971
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4086
+      },
+      {
+        "file": "steward/Give/S_03.png",
+        "source": "sources/steward_give_right.png",
+        "source_bbox": [
+          107,
+          735,
+          319,
+          1393
+        ],
+        "scale": 1.0591805766312594,
+        "offset": [
+          78,
+          14
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          78,
+          14,
+          302,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          98695
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4111
+      },
+      {
+        "file": "steward/Give/S_04.png",
+        "source": "sources/steward_give_right.png",
+        "source_bbox": [
+          438,
+          735,
+          651,
+          1393
+        ],
+        "scale": 1.0591805766312594,
+        "offset": [
+          67,
+          14
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          67,
+          14,
+          293,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          101112
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4207
+      },
+      {
+        "file": "steward/Give/S_05.png",
+        "source": "sources/steward_give_right.png",
+        "source_bbox": [
+          785,
+          735,
+          999,
+          1392
+        ],
+        "scale": 1.0591805766312594,
+        "offset": [
+          67,
+          15
+        ],
+        "cropping_risk": false,
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          67,
+          15,
+          294,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          101165
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 4143
+      }
+    ],
+    "give_source": "sources/steward_give_right.png",
+    "give_scale": 1.0591805766312594
+  },
+  "broker": {
+    "name": "broker",
+    "source": "sources/broker_sheet.png",
+    "source_size": [
+      1024,
+      1536
+    ],
+    "common_scale": 1.4261603375527425,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          3,
+          31,
+          164,
+          504
+        ],
+        "source_area": 46039,
+        "scale": 1.4261603375527425,
+        "offset": [
+          66,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "broker/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          67,
+          36,
+          296,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          93972
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5996
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          178,
+          31,
+          338,
+          504
+        ],
+        "source_area": 45969,
+        "scale": 1.4261603375527425,
+        "offset": [
+          66,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "broker/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          66,
+          36,
+          295,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          93948
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6080
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          350,
+          31,
+          510,
+          504
+        ],
+        "source_area": 45855,
+        "scale": 1.4261603375527425,
+        "offset": [
+          68,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "broker/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          68,
+          36,
+          297,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          93700
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6024
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          523,
+          31,
+          680,
+          504
+        ],
+        "source_area": 45588,
+        "scale": 1.4261603375527425,
+        "offset": [
+          70,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "broker/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          70,
+          36,
+          294,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          93016
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6011
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          692,
+          31,
+          850,
+          504
+        ],
+        "source_area": 45662,
+        "scale": 1.4261603375527425,
+        "offset": [
+          69,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "broker/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          69,
+          36,
+          295,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          93339
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6066
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          861,
+          31,
+          1019,
+          504
+        ],
+        "source_area": 45424,
+        "scale": 1.4261603375527425,
+        "offset": [
+          68,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "broker/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          68,
+          36,
+          294,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          92912
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6040
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          0,
+          526,
+          164,
+          1003
+        ],
+        "source_area": 47251,
+        "scale": 1.4261603375527425,
+        "offset": [
+          63,
+          30
+        ],
+        "cropping_risk": false,
+        "file": "broker/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          63,
+          30,
+          297,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96335
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6161
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          172,
+          527,
+          341,
+          1003
+        ],
+        "source_area": 47389,
+        "scale": 1.4261603375527425,
+        "offset": [
+          59,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "broker/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          59,
+          32,
+          300,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96470
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6310
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          344,
+          528,
+          515,
+          1003
+        ],
+        "source_area": 47702,
+        "scale": 1.4261603375527425,
+        "offset": [
+          59,
+          33
+        ],
+        "cropping_risk": false,
+        "file": "broker/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          59,
+          33,
+          303,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          97216
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6351
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          531,
+          527,
+          680,
+          1003
+        ],
+        "source_area": 46147,
+        "scale": 1.4261603375527425,
+        "offset": [
+          81,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "broker/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          78,
+          32,
+          294,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          94162
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6035
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          692,
+          527,
+          854,
+          1003
+        ],
+        "source_area": 47173,
+        "scale": 1.4261603375527425,
+        "offset": [
+          69,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "broker/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          69,
+          32,
+          300,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          96116
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6111
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          861,
+          526,
+          1023,
+          1003
+        ],
+        "source_area": 46725,
+        "scale": 1.4261603375527425,
+        "offset": [
+          68,
+          30
+        ],
+        "cropping_risk": false,
+        "file": "broker/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          68,
+          30,
+          299,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          95444
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6054
+      },
+      {
+        "source_component": 13,
+        "source_bbox": [
+          2,
+          1031,
+          165,
+          1507
+        ],
+        "source_area": 46875,
+        "scale": 1.4261603375527425,
+        "offset": [
+          65,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "broker/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          66,
+          32,
+          298,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          95652
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6085
+      },
+      {
+        "source_component": 15,
+        "source_bbox": [
+          185,
+          1032,
+          342,
+          1507
+        ],
+        "source_area": 47696,
+        "scale": 1.4261603375527425,
+        "offset": [
+          78,
+          33
+        ],
+        "cropping_risk": false,
+        "file": "broker/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          78,
+          33,
+          302,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          97019
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5958
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          359,
+          1033,
+          525,
+          1507
+        ],
+        "source_area": 44396,
+        "scale": 1.4261603375527425,
+        "offset": [
+          80,
+          35
+        ],
+        "cropping_risk": false,
+        "file": "broker/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          80,
+          36,
+          317,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          90361
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6023
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          531,
+          1033,
+          691,
+          1507
+        ],
+        "source_area": 44107,
+        "scale": 1.4261603375527425,
+        "offset": [
+          81,
+          35
+        ],
+        "cropping_risk": false,
+        "file": "broker/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          80,
+          35,
+          310,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          90023
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5962
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          702,
+          1032,
+          852,
+          1507
+        ],
+        "source_area": 46368,
+        "scale": 1.4261603375527425,
+        "offset": [
+          82,
+          33
+        ],
+        "cropping_risk": false,
+        "file": "broker/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          80,
+          33,
+          296,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          94409
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5906
+      },
+      {
+        "source_component": 14,
+        "source_bbox": [
+          861,
+          1031,
+          1022,
+          1507
+        ],
+        "source_area": 46514,
+        "scale": 1.4261603375527425,
+        "offset": [
+          68,
+          32
+        ],
+        "cropping_risk": false,
+        "file": "broker/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          68,
+          32,
+          298,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          94868
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6151
+      }
+    ]
+  },
+  "guard": {
+    "name": "guard",
+    "source": "sources/guard_sheet.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "common_scale": 1.9884726224783862,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          93,
+          5,
+          240,
+          351
+        ],
+        "source_area": 32590,
+        "scale": 1.9884726224783862,
+        "offset": [
+          38,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          22,
+          331,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          129663
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 12223
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          354,
+          5,
+          501,
+          351
+        ],
+        "source_area": 32703,
+        "scale": 1.9884726224783862,
+        "offset": [
+          37,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          37,
+          22,
+          330,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          130103
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 12407
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          603,
+          5,
+          748,
+          351
+        ],
+        "source_area": 31969,
+        "scale": 1.9884726224783862,
+        "offset": [
+          39,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          22,
+          328,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          127821
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11980
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          841,
+          5,
+          988,
+          351
+        ],
+        "source_area": 32588,
+        "scale": 1.9884726224783862,
+        "offset": [
+          35,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          35,
+          22,
+          328,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          129700
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 12114
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          1092,
+          5,
+          1240,
+          351
+        ],
+        "source_area": 32751,
+        "scale": 1.9884726224783862,
+        "offset": [
+          35,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          35,
+          22,
+          330,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          130289
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 12448
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          1340,
+          5,
+          1486,
+          351
+        ],
+        "source_area": 32265,
+        "scale": 1.9884726224783862,
+        "offset": [
+          38,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          22,
+          329,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          128709
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 12131
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          93,
+          352,
+          241,
+          698
+        ],
+        "source_area": 32755,
+        "scale": 1.9884726224783862,
+        "offset": [
+          36,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          36,
+          22,
+          331,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          130381
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11986
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          354,
+          351,
+          503,
+          698
+        ],
+        "source_area": 31905,
+        "scale": 1.9884726224783862,
+        "offset": [
+          34,
+          20
+        ],
+        "cropping_risk": false,
+        "file": "guard/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          34,
+          20,
+          331,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          126907
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11849
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          602,
+          352,
+          750,
+          698
+        ],
+        "source_area": 31547,
+        "scale": 1.9884726224783862,
+        "offset": [
+          35,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          35,
+          22,
+          330,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          125510
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11551
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          841,
+          351,
+          987,
+          698
+        ],
+        "source_area": 31425,
+        "scale": 1.9884726224783862,
+        "offset": [
+          36,
+          20
+        ],
+        "cropping_risk": false,
+        "file": "guard/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          36,
+          21,
+          327,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          125032
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11658
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          1093,
+          351,
+          1240,
+          698
+        ],
+        "source_area": 31559,
+        "scale": 1.9884726224783862,
+        "offset": [
+          38,
+          20
+        ],
+        "cropping_risk": false,
+        "file": "guard/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          20,
+          331,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          125651
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11709
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          1340,
+          352,
+          1487,
+          698
+        ],
+        "source_area": 32549,
+        "scale": 1.9884726224783862,
+        "offset": [
+          36,
+          22
+        ],
+        "cropping_risk": false,
+        "file": "guard/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          36,
+          22,
+          329,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          129662
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 12168
+      },
+      {
+        "source_component": 13,
+        "source_bbox": [
+          93,
+          695,
+          240,
+          1014
+        ],
+        "source_area": 29966,
+        "scale": 1.9884726224783862,
+        "offset": [
+          37,
+          76
+        ],
+        "cropping_risk": false,
+        "file": "guard/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          37,
+          76,
+          330,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          119151
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11391
+      },
+      {
+        "source_component": 14,
+        "source_bbox": [
+          354,
+          695,
+          502,
+          1014
+        ],
+        "source_area": 29909,
+        "scale": 1.9884726224783862,
+        "offset": [
+          37,
+          76
+        ],
+        "cropping_risk": false,
+        "file": "guard/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          37,
+          76,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          119075
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11474
+      },
+      {
+        "source_component": 15,
+        "source_bbox": [
+          602,
+          695,
+          750,
+          1014
+        ],
+        "source_area": 29719,
+        "scale": 1.9884726224783862,
+        "offset": [
+          36,
+          76
+        ],
+        "cropping_risk": false,
+        "file": "guard/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          36,
+          76,
+          331,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          118336
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11353
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          842,
+          696,
+          989,
+          1014
+        ],
+        "source_area": 29646,
+        "scale": 1.9884726224783862,
+        "offset": [
+          36,
+          78
+        ],
+        "cropping_risk": false,
+        "file": "guard/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          36,
+          79,
+          329,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          118142
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11464
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          1093,
+          696,
+          1241,
+          1014
+        ],
+        "source_area": 30105,
+        "scale": 1.9884726224783862,
+        "offset": [
+          36,
+          78
+        ],
+        "cropping_risk": false,
+        "file": "guard/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          36,
+          78,
+          331,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          119515
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11634
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          1341,
+          697,
+          1487,
+          1014
+        ],
+        "source_area": 29571,
+        "scale": 1.9884726224783862,
+        "offset": [
+          38,
+          80
+        ],
+        "cropping_risk": false,
+        "file": "guard/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          80,
+          329,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117805
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 11533
+      }
+    ]
+  },
+  "vendor_fruit": {
+    "name": "vendor_fruit",
+    "source": "sources/vendor_fruit_sheet.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "common_scale": 2.0362537764350455,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          111,
+          6,
+          248,
+          336
+        ],
+        "source_area": 31648,
+        "scale": 2.0362537764350455,
+        "offset": [
+          43,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          131679
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6799
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          348,
+          6,
+          483,
+          336
+        ],
+        "source_area": 31418,
+        "scale": 2.0362537764350455,
+        "offset": [
+          46,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          322,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          131044
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6638
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          583,
+          6,
+          718,
+          337
+        ],
+        "source_area": 31617,
+        "scale": 2.0362537764350455,
+        "offset": [
+          46,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          36,
+          322,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          132075
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6777
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          817,
+          6,
+          952,
+          336
+        ],
+        "source_area": 31309,
+        "scale": 2.0362537764350455,
+        "offset": [
+          45,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          130636
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6559
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          1053,
+          6,
+          1188,
+          337
+        ],
+        "source_area": 31410,
+        "scale": 2.0362537764350455,
+        "offset": [
+          45,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          36,
+          321,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          131436
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6558
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          1288,
+          6,
+          1423,
+          336
+        ],
+        "source_area": 31461,
+        "scale": 2.0362537764350455,
+        "offset": [
+          46,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          322,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          131030
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6610
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          111,
+          346,
+          256,
+          675
+        ],
+        "source_area": 32324,
+        "scale": 2.0362537764350455,
+        "offset": [
+          43,
+          40
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          40,
+          339,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134348
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6878
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          347,
+          345,
+          496,
+          675
+        ],
+        "source_area": 33044,
+        "scale": 2.0362537764350455,
+        "offset": [
+          44,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          347,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          137651
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7744
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          571,
+          346,
+          732,
+          676
+        ],
+        "source_area": 32913,
+        "scale": 2.0362537764350455,
+        "offset": [
+          21,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          21,
+          38,
+          350,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          137563
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7684
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          819,
+          346,
+          966,
+          676
+        ],
+        "source_area": 32206,
+        "scale": 2.0362537764350455,
+        "offset": [
+          47,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          347,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134459
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7004
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          1053,
+          345,
+          1198,
+          676
+        ],
+        "source_area": 32284,
+        "scale": 2.0362537764350455,
+        "offset": [
+          45,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          36,
+          341,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134762
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6728
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          1288,
+          346,
+          1426,
+          676
+        ],
+        "source_area": 31789,
+        "scale": 2.0362537764350455,
+        "offset": [
+          44,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          326,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          132636
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6704
+      },
+      {
+        "source_component": 13,
+        "source_bbox": [
+          111,
+          683,
+          251,
+          1010
+        ],
+        "source_area": 31832,
+        "scale": 2.0362537764350455,
+        "offset": [
+          42,
+          44
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          42,
+          44,
+          328,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          132393
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6675
+      },
+      {
+        "source_component": 14,
+        "source_bbox": [
+          348,
+          683,
+          494,
+          1010
+        ],
+        "source_area": 32114,
+        "scale": 2.0362537764350455,
+        "offset": [
+          44,
+          44
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          42,
+          44,
+          342,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134641
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6944
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          579,
+          687,
+          734,
+          1010
+        ],
+        "source_area": 32199,
+        "scale": 2.0362537764350455,
+        "offset": [
+          33,
+          52
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          52,
+          350,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134692
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6599
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          817,
+          686,
+          969,
+          1010
+        ],
+        "source_area": 31693,
+        "scale": 2.0362537764350455,
+        "offset": [
+          39,
+          50
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          42,
+          50,
+          350,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134180
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6841
+      },
+      {
+        "source_component": 15,
+        "source_bbox": [
+          1055,
+          684,
+          1199,
+          1010
+        ],
+        "source_area": 31764,
+        "scale": 2.0362537764350455,
+        "offset": [
+          48,
+          46
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          42,
+          46,
+          342,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          133265
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6637
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          1287,
+          684,
+          1432,
+          1010
+        ],
+        "source_area": 32243,
+        "scale": 2.0362537764350455,
+        "offset": [
+          42,
+          46
+        ],
+        "cropping_risk": false,
+        "file": "vendor_fruit/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          42,
+          46,
+          338,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          133975
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6929
+      }
+    ]
+  },
+  "vendor_cloth": {
+    "name": "vendor_cloth",
+    "source": "sources/vendor_cloth_sheet_narrow.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "common_scale": 1.5344418052256532,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          49,
+          24,
+          209,
+          444
+        ],
+        "source_area": 44599,
+        "scale": 1.5344418052256532,
+        "offset": [
+          53,
+          66
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          53,
+          66,
+          299,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          105316
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6848
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          250,
+          24,
+          410,
+          444
+        ],
+        "source_area": 44697,
+        "scale": 1.5344418052256532,
+        "offset": [
+          50,
+          66
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          50,
+          66,
+          296,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          105486
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6797
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          449,
+          24,
+          608,
+          444
+        ],
+        "source_area": 44440,
+        "scale": 1.5344418052256532,
+        "offset": [
+          51,
+          66
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          51,
+          66,
+          296,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          105220
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6776
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          647,
+          24,
+          806,
+          444
+        ],
+        "source_area": 44628,
+        "scale": 1.5344418052256532,
+        "offset": [
+          53,
+          66
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          53,
+          66,
+          298,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          105491
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6679
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          846,
+          24,
+          1007,
+          444
+        ],
+        "source_area": 44851,
+        "scale": 1.5344418052256532,
+        "offset": [
+          50,
+          66
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          50,
+          66,
+          298,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          105984
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6787
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          1049,
+          25,
+          1207,
+          444
+        ],
+        "source_area": 44273,
+        "scale": 1.5344418052256532,
+        "offset": [
+          52,
+          68
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          52,
+          68,
+          295,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          104530
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6495
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          45,
+          451,
+          208,
+          859
+        ],
+        "source_area": 41598,
+        "scale": 1.5344418052256532,
+        "offset": [
+          48,
+          84
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          48,
+          84,
+          299,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          98483
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5977
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          244,
+          451,
+          414,
+          859
+        ],
+        "source_area": 42699,
+        "scale": 1.5344418052256532,
+        "offset": [
+          43,
+          84
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          84,
+          304,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          100541
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5983
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          442,
+          450,
+          610,
+          860
+        ],
+        "source_area": 42695,
+        "scale": 1.5344418052256532,
+        "offset": [
+          42,
+          81
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          42,
+          82,
+          300,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          101177
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5949
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          638,
+          451,
+          812,
+          860
+        ],
+        "source_area": 44270,
+        "scale": 1.5344418052256532,
+        "offset": [
+          39,
+          83
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          39,
+          83,
+          307,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          104769
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6008
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          846,
+          451,
+          1011,
+          859
+        ],
+        "source_area": 41673,
+        "scale": 1.5344418052256532,
+        "offset": [
+          49,
+          84
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          49,
+          84,
+          303,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          98481
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6046
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          1046,
+          451,
+          1208,
+          860
+        ],
+        "source_area": 41817,
+        "scale": 1.5344418052256532,
+        "offset": [
+          46,
+          83
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          83,
+          295,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          98668
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5985
+      },
+      {
+        "source_component": 13,
+        "source_bbox": [
+          44,
+          863,
+          205,
+          1240
+        ],
+        "source_area": 37576,
+        "scale": 1.5344418052256532,
+        "offset": [
+          48,
+          132
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          48,
+          132,
+          296,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          88922
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5598
+      },
+      {
+        "source_component": 15,
+        "source_bbox": [
+          258,
+          864,
+          424,
+          1240
+        ],
+        "source_area": 37847,
+        "scale": 1.5344418052256532,
+        "offset": [
+          63,
+          134
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          64,
+          134,
+          318,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          89118
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5548
+      },
+      {
+        "source_component": 14,
+        "source_bbox": [
+          449,
+          863,
+          640,
+          1240
+        ],
+        "source_area": 37854,
+        "scale": 1.5344418052256532,
+        "offset": [
+          65,
+          132
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          64,
+          132,
+          359,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          89475
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5867
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          649,
+          864,
+          833,
+          1240
+        ],
+        "source_area": 37478,
+        "scale": 1.5344418052256532,
+        "offset": [
+          63,
+          134
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          64,
+          134,
+          346,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          88277
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5649
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          852,
+          864,
+          1013,
+          1240
+        ],
+        "source_area": 37557,
+        "scale": 1.5344418052256532,
+        "offset": [
+          52,
+          134
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          52,
+          134,
+          300,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          88704
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5571
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          1050,
+          865,
+          1208,
+          1240
+        ],
+        "source_area": 37101,
+        "scale": 1.5344418052256532,
+        "offset": [
+          52,
+          135
+        ],
+        "cropping_risk": false,
+        "file": "vendor_cloth/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          52,
+          135,
+          295,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          87804
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5506
+      }
+    ]
+  },
+  "vendor_goods": {
+    "name": "vendor_goods",
+    "source": "sources/vendor_goods_sheet.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "common_scale": 1.9939577039274925,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 1,
+        "source_bbox": [
+          97,
+          3,
+          240,
+          333
+        ],
+        "source_area": 33972,
+        "scale": 1.9939577039274925,
+        "offset": [
+          46,
+          52
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          52,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          135547
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6564
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          348,
+          3,
+          488,
+          334
+        ],
+        "source_area": 33323,
+        "scale": 1.9939577039274925,
+        "offset": [
+          50,
+          50
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          50,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134052
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6517
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          586,
+          5,
+          726,
+          334
+        ],
+        "source_area": 33272,
+        "scale": 1.9939577039274925,
+        "offset": [
+          51,
+          54
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          54,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          133735
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6507
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          822,
+          6,
+          963,
+          334
+        ],
+        "source_area": 33319,
+        "scale": 1.9939577039274925,
+        "offset": [
+          49,
+          56
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          56,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          133663
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6487
+      },
+      {
+        "source_component": 3,
+        "source_bbox": [
+          1059,
+          3,
+          1199,
+          333
+        ],
+        "source_area": 33437,
+        "scale": 1.9939577039274925,
+        "offset": [
+          51,
+          52
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          52,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          133812
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6559
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          1303,
+          3,
+          1444,
+          333
+        ],
+        "source_area": 33557,
+        "scale": 1.9939577039274925,
+        "offset": [
+          49,
+          52
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          52,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134092
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6519
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          96,
+          343,
+          240,
+          674
+        ],
+        "source_area": 34802,
+        "scale": 1.9939577039274925,
+        "offset": [
+          46,
+          50
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          50,
+          334,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          138790
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6594
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          340,
+          343,
+          489,
+          674
+        ],
+        "source_area": 34713,
+        "scale": 1.9939577039274925,
+        "offset": [
+          34,
+          50
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          34,
+          50,
+          334,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          138695
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7227
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          561,
+          340,
+          727,
+          674
+        ],
+        "source_area": 35254,
+        "scale": 1.9939577039274925,
+        "offset": [
+          3,
+          44
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          3,
+          44,
+          334,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          140759
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7294
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          825,
+          344,
+          969,
+          674
+        ],
+        "source_area": 34242,
+        "scale": 1.9939577039274925,
+        "offset": [
+          45,
+          52
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          52,
+          334,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          136699
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6624
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          1056,
+          344,
+          1200,
+          674
+        ],
+        "source_area": 34414,
+        "scale": 1.9939577039274925,
+        "offset": [
+          45,
+          52
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          52,
+          334,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          137381
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6471
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          1302,
+          344,
+          1445,
+          674
+        ],
+        "source_area": 34375,
+        "scale": 1.9939577039274925,
+        "offset": [
+          47,
+          52
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          52,
+          334,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          137293
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6522
+      },
+      {
+        "source_component": 13,
+        "source_bbox": [
+          97,
+          680,
+          240,
+          1007
+        ],
+        "source_area": 33237,
+        "scale": 1.9939577039274925,
+        "offset": [
+          46,
+          58
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          58,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          132637
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6426
+      },
+      {
+        "source_component": 14,
+        "source_bbox": [
+          345,
+          683,
+          489,
+          1007
+        ],
+        "source_area": 32738,
+        "scale": 1.9939577039274925,
+        "offset": [
+          44,
+          64
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          64,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          130752
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6479
+      },
+      {
+        "source_component": 15,
+        "source_bbox": [
+          580,
+          683,
+          726,
+          1007
+        ],
+        "source_area": 33389,
+        "scale": 1.9939577039274925,
+        "offset": [
+          38,
+          64
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          64,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          132889
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6587
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          820,
+          685,
+          969,
+          1007
+        ],
+        "source_area": 34199,
+        "scale": 1.9939577039274925,
+        "offset": [
+          40,
+          68
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          68,
+          338,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          135759
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6768
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          1064,
+          683,
+          1209,
+          1007
+        ],
+        "source_area": 33930,
+        "scale": 1.9939577039274925,
+        "offset": [
+          45,
+          64
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          64,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          134514
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6570
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          1303,
+          683,
+          1445,
+          1007
+        ],
+        "source_area": 32747,
+        "scale": 1.9939577039274925,
+        "offset": [
+          47,
+          64
+        ],
+        "cropping_risk": false,
+        "file": "vendor_goods/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          64,
+          332,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          131054
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6443
+      }
+    ]
+  },
+  "apprentice": {
+    "name": "apprentice",
+    "source": "sources/apprentice_sheet_narrow.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "common_scale": 1.6163069544364508,
+    "stationary_lower_region_y": 540,
+    "frames": [
+      {
+        "source_component": 3,
+        "source_bbox": [
+          43,
+          14,
+          209,
+          430
+        ],
+        "source_area": 44882,
+        "scale": 1.6163069544364508,
+        "offset": [
+          46,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          38,
+          315,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117855
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7355
+      },
+      {
+        "source_component": 2,
+        "source_bbox": [
+          262,
+          13,
+          429,
+          430
+        ],
+        "source_area": 44990,
+        "scale": 1.6163069544364508,
+        "offset": [
+          48,
+          36
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          48,
+          36,
+          319,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          118120
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7322
+      },
+      {
+        "source_component": 4,
+        "source_bbox": [
+          462,
+          14,
+          628,
+          430
+        ],
+        "source_area": 44776,
+        "scale": 1.6163069544364508,
+        "offset": [
+          46,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          46,
+          38,
+          315,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117510
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7291
+      },
+      {
+        "source_component": 6,
+        "source_bbox": [
+          656,
+          17,
+          821,
+          430
+        ],
+        "source_area": 44508,
+        "scale": 1.6163069544364508,
+        "offset": [
+          48,
+          43
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          48,
+          43,
+          315,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          116371
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7227
+      },
+      {
+        "source_component": 5,
+        "source_bbox": [
+          853,
+          14,
+          1020,
+          430
+        ],
+        "source_area": 44995,
+        "scale": 1.6163069544364508,
+        "offset": [
+          43,
+          38
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          43,
+          38,
+          314,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          117962
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7398
+      },
+      {
+        "source_component": 1,
+        "source_bbox": [
+          1052,
+          12,
+          1220,
+          430
+        ],
+        "source_area": 45322,
+        "scale": 1.6163069544364508,
+        "offset": [
+          45,
+          35
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          45,
+          35,
+          317,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          118522
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7470
+      },
+      {
+        "source_component": 8,
+        "source_bbox": [
+          38,
+          441,
+          215,
+          820
+        ],
+        "source_area": 46735,
+        "scale": 1.6163069544364508,
+        "offset": [
+          38,
+          98
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          98,
+          325,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          122601
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6193
+      },
+      {
+        "source_component": 9,
+        "source_bbox": [
+          258,
+          442,
+          435,
+          820
+        ],
+        "source_area": 46975,
+        "scale": 1.6163069544364508,
+        "offset": [
+          38,
+          99
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          99,
+          325,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          123494
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5916
+      },
+      {
+        "source_component": 12,
+        "source_bbox": [
+          457,
+          447,
+          635,
+          820
+        ],
+        "source_area": 47159,
+        "scale": 1.6163069544364508,
+        "offset": [
+          37,
+          108
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          108,
+          325,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          123190
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5597
+      },
+      {
+        "source_component": 11,
+        "source_bbox": [
+          652,
+          446,
+          829,
+          820
+        ],
+        "source_area": 47107,
+        "scale": 1.6163069544364508,
+        "offset": [
+          38,
+          106
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          106,
+          325,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          123765
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5721
+      },
+      {
+        "source_component": 10,
+        "source_bbox": [
+          854,
+          442,
+          1031,
+          820
+        ],
+        "source_area": 46373,
+        "scale": 1.6163069544364508,
+        "offset": [
+          38,
+          99
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          99,
+          325,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          121792
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 5949
+      },
+      {
+        "source_component": 7,
+        "source_bbox": [
+          1055,
+          437,
+          1231,
+          820
+        ],
+        "source_area": 45329,
+        "scale": 1.6163069544364508,
+        "offset": [
+          39,
+          91
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          38,
+          91,
+          325,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          119361
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6068
+      },
+      {
+        "source_component": 16,
+        "source_bbox": [
+          40,
+          822,
+          208,
+          1227
+        ],
+        "source_area": 44351,
+        "scale": 1.6163069544364508,
+        "offset": [
+          44,
+          56
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          44,
+          56,
+          316,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          116237
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7372
+      },
+      {
+        "source_component": 18,
+        "source_bbox": [
+          259,
+          823,
+          431,
+          1226
+        ],
+        "source_area": 41449,
+        "scale": 1.6163069544364508,
+        "offset": [
+          44,
+          59
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          44,
+          59,
+          323,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          108669
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6409
+      },
+      {
+        "source_component": 17,
+        "source_bbox": [
+          459,
+          822,
+          626,
+          1227
+        ],
+        "source_area": 41257,
+        "scale": 1.6163069544364508,
+        "offset": [
+          47,
+          56
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          47,
+          56,
+          317,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          108196
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6181
+      },
+      {
+        "source_component": 19,
+        "source_bbox": [
+          655,
+          823,
+          819,
+          1227
+        ],
+        "source_area": 40864,
+        "scale": 1.6163069544364508,
+        "offset": [
+          60,
+          57
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          60,
+          57,
+          326,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          106793
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6200
+      },
+      {
+        "source_component": 21,
+        "source_bbox": [
+          861,
+          826,
+          1028,
+          1227
+        ],
+        "source_area": 40998,
+        "scale": 1.6163069544364508,
+        "offset": [
+          49,
+          62
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          49,
+          62,
+          320,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          107340
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 6177
+      },
+      {
+        "source_component": 20,
+        "source_bbox": [
+          1060,
+          824,
+          1227,
+          1227
+        ],
+        "source_area": 44136,
+        "scale": 1.6163069544364508,
+        "offset": [
+          48,
+          59
+        ],
+        "cropping_risk": false,
+        "file": "apprentice/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "bbox": [
+          48,
+          59,
+          319,
+          711
+        ],
+        "components": 1,
+        "areas": [
+          115540
+        ],
+        "hidden_rgb": 0,
+        "canvas_touch": 0,
+        "alpha_1_31": 0,
+        "edge_semialpha": 7217
+      }
+    ]
+  }
+}

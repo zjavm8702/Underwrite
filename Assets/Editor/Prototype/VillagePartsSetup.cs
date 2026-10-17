@@ -209,7 +209,16 @@ namespace Underwrite.Editor
                 UnderwriteLog.Warning("배치표에 door 자리가 없어 장소 칸을 세우지 않았습니다.");
             }
 
-            VillageNpcSetup.Build(prefab, groundSize / PIXELS_PER_UNIT, stalls.Count > 0 ? stalls : null);
+            // 일하는 사람 그림이 있으면 장소마다 세우고, 없으면 옛 임시 주민을 쓴다.
+            var doorsByName = new Dictionary<string, Vector2>();
+
+            foreach (var spot in UnityEngine.Object.FindObjectsByType<Characters.VillageSpot>(FindObjectsInactive.Exclude))
+            {
+                doorsByName[spot.Name] = spot.transform.position;
+            }
+
+            var stationCount = StationNpcSetup.Build(doorsByName, stalls, pixel => ToWorld(pixel, groundSize));
+            VillageNpcSetup.Build(prefab, groundSize / PIXELS_PER_UNIT, stalls.Count > 0 ? stalls : null, stationCount > 0);
 
             var player = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             player.name = "Character";

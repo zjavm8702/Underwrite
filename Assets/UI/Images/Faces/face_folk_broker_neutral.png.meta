@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b583ec08579f6645a2740e6dd0a4ea8
+guid: d54a22b7a4fee9649938b6e47c66a2c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2759947799471884257
-    second: face_band_sella_neutral_0
+      213: -6695601513153606973
+    second: face_folk_broker_neutral_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_sella_neutral_0
+      name: face_folk_broker_neutral_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 176
-        width: 722
-        height: 785
+        x: 28
+        y: 169
+        width: 771
+        height: 792
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e7842a96ed4d4620800000000000000
-      internalID: 2759947799471884257
+      spriteID: 3ca49ea06e17413a0800000000000000
+      internalID: -6695601513153606973
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_sella_neutral_0: 2759947799471884257
+      face_folk_broker_neutral_0: -6695601513153606973
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b2c31eb4068d96f47b63b2d2898f3406
+guid: aef1568766df1654199775955fb92077
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5750730161902495004
-    second: face_band_brann_neutral_0
+      213: -5172879458582871886
+    second: face_folk_archivist_neutral_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_brann_neutral_0
+      name: face_folk_archivist_neutral_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 176
-        width: 724
-        height: 734
+        x: 37
+        y: 160
+        width: 772
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ea5dace26d4130b0800000000000000
-      internalID: -5750730161902495004
+      spriteID: 2b0c04d1a8d3638b0800000000000000
+      internalID: -5172879458582871886
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_brann_neutral_0: -5750730161902495004
+      face_folk_archivist_neutral_0: -5172879458582871886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

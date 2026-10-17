@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1467dab391cc1234dbb2e562101493bb
+guid: 8a4cb446b62de7d47bc01b6713b95c1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2281870905576008200
-    second: face_band_sella_shocked_0
+      213: -4187866661898938478
+    second: face_folk_broker_shocked_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_sella_shocked_0
+      name: face_folk_broker_shocked_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 176
-        width: 722
-        height: 785
+        x: 28
+        y: 169
+        width: 771
+        height: 792
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80a282eaf75daaf10800000000000000
-      internalID: 2281870905576008200
+      spriteID: 29710d29575b1e5c0800000000000000
+      internalID: -4187866661898938478
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_sella_shocked_0: 2281870905576008200
+      face_folk_broker_shocked_0: -4187866661898938478
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

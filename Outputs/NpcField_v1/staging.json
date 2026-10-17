@@ -1,0 +1,1674 @@
+{
+  "status": "draft PNG delivery; user visual approval pending",
+  "root": "Outputs/NpcField_v1",
+  "assets_written": false,
+  "unity_connected": false,
+  "field": {
+    "count": 180,
+    "direction": "S",
+    "actions": [
+      "Idle",
+      "Work",
+      "Give"
+    ],
+    "frames_each": 6,
+    "size": [
+      362,
+      724
+    ],
+    "canvas_pivot_unity": [
+      181,
+      13
+    ],
+    "canvas_pivot_png": [
+      181,
+      711
+    ],
+    "unity_pivot_and_ppu": "not set; PNG stage only",
+    "files": [
+      {
+        "file": "innkeeper/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "bbb76131058b0a9cd447a81e940b1c32b965c5cb74d72574b1083bca05a368ea"
+      },
+      {
+        "file": "innkeeper/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "4f970dda5bec3b1fb5babc47f691eb48aabbad8e8b6847f1add7954fa82da6d6"
+      },
+      {
+        "file": "innkeeper/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "16916546cba48b4748b1008d18ecb7ee90f8ef3759529dde2bc9aa0c8e257a3d"
+      },
+      {
+        "file": "innkeeper/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "362a68f41b3a4845b9d1b5f2c419fb90ef926fb0733b972d8ab9429b6a12b450"
+      },
+      {
+        "file": "innkeeper/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "fa22a339f540159aee1a43c9190bffa6d4b898ce0733c56bea14efde576695e4"
+      },
+      {
+        "file": "innkeeper/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "4a3de5bece4ee66e842b56629c8cc9a2e26d9448c773bd3ac676ad980cf123af"
+      },
+      {
+        "file": "innkeeper/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d61ffdf3ded1ed450a59c0284aea49f6dc730bb012f9c7035c34a4748c6a5786"
+      },
+      {
+        "file": "innkeeper/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d58f8e7b37d8dee8436c5e14d91f2ac9084a2db4048ee3ba142a1c5415ea69a8"
+      },
+      {
+        "file": "innkeeper/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "bc4276c83724686cf78db4df640ffd682d73de596309c887b30d22bdc09b08c8"
+      },
+      {
+        "file": "innkeeper/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "e2c886027dff0bccdccea6d09354a36cd4ab9005942126724c60901c0a6a3d9c"
+      },
+      {
+        "file": "innkeeper/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "adaa23443a23050baa8ed5f7bf496ee7e89654ba8c9de458ff438aae6b30d9f5"
+      },
+      {
+        "file": "innkeeper/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "329b8cc1ce4aad4847fff4d1d6025bb123c0b394e88bbce6d835ffbdc28e9314"
+      },
+      {
+        "file": "innkeeper/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f00e8751e2505ae985db715c128d49563028328be134b792b71382a0b9fa0c00"
+      },
+      {
+        "file": "innkeeper/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "da81b6e4ce8a29f49ed4593125a4d0aed0065d4c5272b831919dce7b19b8fd8a"
+      },
+      {
+        "file": "innkeeper/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "6412c5d9467ecfe0f58218bbc719fc14c1dc35ab2585d1d1ef96ed587f04ed51"
+      },
+      {
+        "file": "innkeeper/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c4bc3cc7e3bd3fb093c7f0c1e09ac2ca96f71d77796a4b57aaef3a8abcf1800d"
+      },
+      {
+        "file": "innkeeper/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "2091a19b7e3256c6ebd926085a4eccf31175e9b6852c89a1cc47ee3206afc499"
+      },
+      {
+        "file": "innkeeper/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "08d3cfbee77c875d88e849448ce15f9a7c77aba5098fefe8237f02e4c04a8925"
+      },
+      {
+        "file": "archivist/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "a17f0f7836070373aebf2e6c0c997f24bb296b866fa30f3d2bb20b81a99ade9a"
+      },
+      {
+        "file": "archivist/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "4977c77bb7af4a0ad464f3a97e799c650d5e7bfa998314d23169c9ff1676477f"
+      },
+      {
+        "file": "archivist/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "0626ca768a4a36f977d5cf7bcd588f03fa5a92ed7c1507936cf7907914b7d0ab"
+      },
+      {
+        "file": "archivist/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f693f1f327eac4bc11dbe2f876439f5f345ebd179a30ef9fa9d9129f7af47204"
+      },
+      {
+        "file": "archivist/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "dfd8410e6e3b63d693fd248e7d891dfb309a8dfb8b5fc539add5dc3d0784b983"
+      },
+      {
+        "file": "archivist/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "ac627531a3f17dd58b156f5381fe9ca7ba0fbc82cf73a7cc2712bfd9d3dea19b"
+      },
+      {
+        "file": "archivist/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "00b7fb7071fff712cae9619fc18a945546ddd4fee4bbc75e07d3882c00d3391f"
+      },
+      {
+        "file": "archivist/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "cceafc727dcf0f4fa10e247e019ee7bf152c07f39618df14f94c843fd4bb65db"
+      },
+      {
+        "file": "archivist/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "5ac918f0213d2992f7032fae8704cf99c6e4e6c44ae2ae78f3b9e5d5c9f3f79c"
+      },
+      {
+        "file": "archivist/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "afd0337f579d2f8312b68adefc82d7e4ef71cf244a0a91a7e8710befc6f84f4c"
+      },
+      {
+        "file": "archivist/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "0d697cc25f4a1246b9b6964922498c126a57d700be4387088c80d04807f74f1d"
+      },
+      {
+        "file": "archivist/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "168d3030c91ca6b1f68b5fe617937fbfd0cc24461e42f61407169f41cdec4088"
+      },
+      {
+        "file": "archivist/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "47a0619c634db04a5350e6e15cfc27e0f1bdca93a2c3e1e57fbe410cdc642f96"
+      },
+      {
+        "file": "archivist/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "055fada9dbc4e7d062f5aceebc7af94f6a5f858fe56feb44a08894013d27e3db"
+      },
+      {
+        "file": "archivist/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d1463965bd65343c8e5790a645d4f016b6deb340e3d09719dceca633d58e20ab"
+      },
+      {
+        "file": "archivist/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "700ddfacbe7d4d564395327015ade33ac1f3fbfa09cafd4238d718d2833108d8"
+      },
+      {
+        "file": "archivist/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "1527826a5f3946151d75a16b0b54a97d8388e461c99ee6c9e0a08bc1687c7ca0"
+      },
+      {
+        "file": "archivist/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "23e2879f65795bd983a9b9206f6547aee58cfd777d759b37b0fcdf1201932f6f"
+      },
+      {
+        "file": "smith/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f6db760d659ebc30c03467d9f0b3f80765a3f6ffb66c9816e90f12e3f0339497"
+      },
+      {
+        "file": "smith/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "81d75c513c71fb1a3b90c48b5538d78b962dceb5449945c7f7fb23cbb643e235"
+      },
+      {
+        "file": "smith/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "976e7939e5877e7c2f7dc66661e703808c0069775dfcd670c3f3e24a60b9e37a"
+      },
+      {
+        "file": "smith/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "16bec8c55e951742a0d627f51d568409728f3ef17a05756b178c7c409983325b"
+      },
+      {
+        "file": "smith/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "bf39bb314ad41f34be2d67b3a95733ff5f870029239db81f6479d236ab51d70c"
+      },
+      {
+        "file": "smith/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "83983934f5ba836950e3d130b232d02bc68ad5277d7d7328b233be2ae333a432"
+      },
+      {
+        "file": "smith/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "7cae5f286a1c171b5d89dedbfaafb6d3f2fe962cdbc0d7113dd71be2250f543a"
+      },
+      {
+        "file": "smith/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "dd3ec9e094c3390b9e1799177f7a0d172f2ace4706f1213040ea9eb63b8a0a0f"
+      },
+      {
+        "file": "smith/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f2592a60399cab76a86b8220597cedfca45ec0505490339c2491d62be1659cd3"
+      },
+      {
+        "file": "smith/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "27a056b5ddc51d7042bf21ad3099cf37d28f47d64556af7a32ee492567f0107c"
+      },
+      {
+        "file": "smith/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "b9d5b6f53a4ebfb6ed25ac79a54bc11e8c8ba30011a0878a71854a3e6942f44c"
+      },
+      {
+        "file": "smith/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c1e93b9c27698c4f115623937be2cf829445c6d499222fec981e1f121778abee"
+      },
+      {
+        "file": "smith/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "9d45647be637e567d29641dd25d03118b5f520c833940b4de57d391787a36d0b"
+      },
+      {
+        "file": "smith/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "aab6562ef4d9c04ddd0fbc5295ca9440e392717799da644b98ce9722b1af3c77"
+      },
+      {
+        "file": "smith/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "a5e3f9fa6a58d2622fec18b3421403ac7a46ad67e4d01f2a0d126a10d3e2c12e"
+      },
+      {
+        "file": "smith/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "0755739517592c5dda5303ccb7c7c36716d9451bc58acc966c1bc258610c03b0"
+      },
+      {
+        "file": "smith/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "cb9c9e8886b1be7f2203e9bfcffdfe3f2810772f8bd3f0201cbe1889c0c78c8b"
+      },
+      {
+        "file": "smith/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "1240a4d0c8d57bff0d460ae549004c3bf3dd1689f72fcb0ae9bacd250aa1e811"
+      },
+      {
+        "file": "steward/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "9c9b001f67187b64595249c0e725646b64e31780b12ecf0eae0d3b3ef664f6ee"
+      },
+      {
+        "file": "steward/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "68ba2e3bfedae157ae54768c17874098d51d890f42168597bcdcbd362497a7df"
+      },
+      {
+        "file": "steward/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "89a21e2d477855ab3dacb2e28874226444a050eea011f4cb424934c46c869a4e"
+      },
+      {
+        "file": "steward/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "7040884d18764296a4edbbef61aa85a8e28395ee43043b0415c37b1b1c04a04c"
+      },
+      {
+        "file": "steward/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "823a607962c1644d6667c55c3f43c50bab6ed1c2bd0c58707b23e55c423cd00f"
+      },
+      {
+        "file": "steward/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f917ede09ba6ca2bb67d520fa0bbd83ed24c91a38c4891da710304e17e4c0c86"
+      },
+      {
+        "file": "steward/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "154701ef71eb063f2d9102c00feeafb8dfec1b5f4dadacdaa0a0b8ab18ff9258"
+      },
+      {
+        "file": "steward/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "b216b20cc6e23a100a7d81d1c8aa9f908a1d5573e4331afb29feafc4b1a9e701"
+      },
+      {
+        "file": "steward/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "5698b2efec2e2e3d89ccbb1e4f1144b74a5916fd929ac0d92230084dfe25e7d1"
+      },
+      {
+        "file": "steward/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "97aefd398ee3187dc085314a7373deebc3ca66d19f109c43dd243a5ef45e64d5"
+      },
+      {
+        "file": "steward/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "dfd3a26c028ece82a7d061e513dbc16b0fb23564174dbeda11d537b0ac878931"
+      },
+      {
+        "file": "steward/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "56447504acfe0a32e78414a9a1c1ad2db429b82bf6c3454dca8e5725cd6817a6"
+      },
+      {
+        "file": "steward/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "37431d0527dad760f77e256be3a1ed22950e8ab309961daa5530cef87063028c"
+      },
+      {
+        "file": "steward/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "3e2a8fb0075f5685aeeabe8880ee9de0785fd54ea3e2ba7f8a34fa3a0aa01cd8"
+      },
+      {
+        "file": "steward/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f1929b2f8df70e16ff9b8276913b7a20c168f716a903fc7e367824d7ed3305cc"
+      },
+      {
+        "file": "steward/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "7e5072f2c96b56a7e001b96db0bfa348bc434ab8c3f42f003713d85dbe7244bd"
+      },
+      {
+        "file": "steward/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c9ee590cbd4abfd1933cfa63b2327b16c755d5e24917eb82e070414e407e4eed"
+      },
+      {
+        "file": "steward/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "3fb6cd8116468ec4772ef897b43bd76e1415f2a73ba7ccdd8315a7f9ef169ff1"
+      },
+      {
+        "file": "broker/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c8ed4eac7c8722a1a5078e351b2bdb54bbbb45d02623759272482fc9650a07a5"
+      },
+      {
+        "file": "broker/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "238dc9859d1f1480adc252a5ab0279f3e86f6a2989376ab3662918e3e9922909"
+      },
+      {
+        "file": "broker/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "ce50bda04bf0621d0b3245f173f2c49bc91e3208513abbb21ce27e0650ba087a"
+      },
+      {
+        "file": "broker/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d4a12e71a56758744961dd63264beafcadeeb2be0b2c46a24fdb802d2f0fd95f"
+      },
+      {
+        "file": "broker/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "6e11a51904474f05587b1e98f346a30168adce2ca4c433095a0a4a9a04cf5625"
+      },
+      {
+        "file": "broker/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "345aa71c4d604bc652dc0a413bc81e0877bf07e59b1eb2abcedea52509e95e99"
+      },
+      {
+        "file": "broker/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "31f0b02decf5d13574565152e47e6add1c829e9459b0dcd5184a25277dded045"
+      },
+      {
+        "file": "broker/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "2eaf5ff1ad3a72aa4400a87199d2e9c6ab5811aff671c5d7d02e7948154bfb56"
+      },
+      {
+        "file": "broker/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "212b772ff3e8e6a80b274f993d6f111b6e201b9f939224ea864e1e5925969058"
+      },
+      {
+        "file": "broker/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "2e1bbda87b20bf57d0a0acbb7e9b7f118749af1ae35195964c6218b6dc11915a"
+      },
+      {
+        "file": "broker/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "b475246c90f196e75ebf9f9d583e1470f6ef4fd3339a4ebcceda5517402fefe3"
+      },
+      {
+        "file": "broker/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "16a5ff5b73f409eb9706481e6acb328b9dbca062e5c05f0fe6eb9f1bd6e25978"
+      },
+      {
+        "file": "broker/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "92684686257499c523d0f7a11c89f56e82f2b2ff2a23ec4616e42a0d3b234480"
+      },
+      {
+        "file": "broker/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "ee7694b4b130a6462d08fdea5b24feda66239a8ec8bf93372412e4a979797700"
+      },
+      {
+        "file": "broker/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "734532108fd04ddd9443cc1d8666fd80b49970b22d4213864e4acce973a5542e"
+      },
+      {
+        "file": "broker/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "49cefac4a47ae9636da766f5e6356d45c1c8de237147ec92c9f8af466050d088"
+      },
+      {
+        "file": "broker/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c0b62d4b33abacce28df85014e55585a61da5c7e46a0ba949e7d34c0c5099bda"
+      },
+      {
+        "file": "broker/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "443c8b996f346831ab9e43da977283e6c43ffcb9ed44d1de3b790f8ebf901493"
+      },
+      {
+        "file": "apprentice/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "5e68652798018cec735f55923e4dd60e9851d48ff23f488dfccce15ab4d1c55c"
+      },
+      {
+        "file": "apprentice/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "786e203e0d56e5d0b5eacbf1527c59e4c0ddd87fe315b7ec84dcbf2631ee5332"
+      },
+      {
+        "file": "apprentice/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "09f691e3bdfc37f9212b80fd154c9b438f208c7bab79b59f9b63a1d47c7690ec"
+      },
+      {
+        "file": "apprentice/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "6f6482717ad2b1b944b2c13c48a5e23620b3c163f4a4631506583c6ffaa5eefc"
+      },
+      {
+        "file": "apprentice/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "a6a38b7f8e38a4c1d7c7ef30634cd34d3fc0b9b902f89b409475d6def0f41596"
+      },
+      {
+        "file": "apprentice/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "384ca0d80b59966e722a0bf78bcd107e47b30ae53de8ba1a009f88295ba6bc6c"
+      },
+      {
+        "file": "apprentice/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "b1ab1961d85c8b0e4f5a446506ab890d97fac3e2f9696e49e541cba330fdb264"
+      },
+      {
+        "file": "apprentice/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "45649f926891eedd2389b5cf1ac2d9c26442a40ba03c742fff90927ee61c5dd6"
+      },
+      {
+        "file": "apprentice/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f29179cfea3cd27c3608171df4f4817a276936e570ae687171ee9847a80d7e5e"
+      },
+      {
+        "file": "apprentice/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "25e51ac16bc12ccd19135b10927794fb4f3ba486ba8dd185bfb6cbbff66210b5"
+      },
+      {
+        "file": "apprentice/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "71dbe545007ae04f98d55ee0b8a9f573ea9ab39c1512dc7e60346533e154490b"
+      },
+      {
+        "file": "apprentice/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f4b5dac8617e8ecf03f9bc58f9ba23606a2b4f7a757124deb867c9885af987e1"
+      },
+      {
+        "file": "apprentice/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "09e87df9f0fa108d445f5fef7695ee54dbfde5aa5e3a383d0797a36edd14aee5"
+      },
+      {
+        "file": "apprentice/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "6a02aee46862dea187e19db5b9200dc5f1714549eb58972756dfff2b8d1d6a11"
+      },
+      {
+        "file": "apprentice/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "53b9b2196e57432feba576de54e4ecb3204625638e159d24ef521a317b807b4d"
+      },
+      {
+        "file": "apprentice/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "a12789460bfdc74e52997b9bffdd24bdfe00a70883037e60d522d02573ff5c1f"
+      },
+      {
+        "file": "apprentice/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "5c138801e0fc6a69cdb7c1f98a4921dd25d73414ba88995a1e99d400438def07"
+      },
+      {
+        "file": "apprentice/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "248c5b79be887916b55068af29493513a661c3e661f115b1ef9036601aa18204"
+      },
+      {
+        "file": "guard/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f1c3f79e63475db0f7d25010bc906cdfa3724f8a1d35526b0fc54e175cfef1b2"
+      },
+      {
+        "file": "guard/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "ceec1d2b88f1e73ff4a8e067e93856b2203d1bb27b0b008b800942d9351acff8"
+      },
+      {
+        "file": "guard/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "8dfebd2840c63c8af7f645dc9c338ab84e611ae0566796bf218d7119e43da668"
+      },
+      {
+        "file": "guard/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "dfe0a6ca04dd0ff1c549b1cd90801970630007734cdf49098710c053f30144d7"
+      },
+      {
+        "file": "guard/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "8c5ebf7adc8de56771e723977106acaf0dccae2815e511d3e2f9dfb0ad477578"
+      },
+      {
+        "file": "guard/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "b650bbed93772cd73fb594df99dea17b32e6cb784a36e1e47f218f2b2f624dbf"
+      },
+      {
+        "file": "guard/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "9ec33193f541c0cdd28cb7c198316a0d277e9fc61c60644cd776deedea718e90"
+      },
+      {
+        "file": "guard/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d86eb8bc58daba4bbbba4bb25680d8add408388607ada5cf258359bb7887110b"
+      },
+      {
+        "file": "guard/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "1bfef22b346e808d8ba4950e44a148b2b33bf6c85cf180c43e5cf0153a302163"
+      },
+      {
+        "file": "guard/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "88da6b6c658f3fa9a1937e92bc255a54e856a0e76fd4031e46d380c96a846fa3"
+      },
+      {
+        "file": "guard/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "1254d01c79307f4f97e8f1c49ce7fd9540909514cc1219587ba073621dc7c9a7"
+      },
+      {
+        "file": "guard/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "058fc37342caf73f723fdbb1cdb99a52cf05c7ff15ef7dc92ec48129f62c127c"
+      },
+      {
+        "file": "guard/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c0ae1399f7eefa5005cdf6fe1a8fa70b87511ece247d46e84e94a5dd5a1d64f5"
+      },
+      {
+        "file": "guard/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d6bd6804ef5dac2d7fcb0a563f4870a68cfae4854488df9e101712248825d954"
+      },
+      {
+        "file": "guard/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "aabbd9c491f925feadfb053c3b27dc17d67d12daf777cf8bb7b53858d2b7e36f"
+      },
+      {
+        "file": "guard/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "df4a183094fb40e1b824a2721a1cda5e4e9565a065febcec098cf85d1c2b5eef"
+      },
+      {
+        "file": "guard/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "a980c9f5da0ea113b24478b532f1e0ebead0664e3d83da10056efb259b545005"
+      },
+      {
+        "file": "guard/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "e336e38bfac5a2963f7e276e0b2e7bfeb0889adb9d883b6c001fa9d50235c966"
+      },
+      {
+        "file": "vendor_fruit/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "96f11581346a5048e3fabd97590cbe60f3c78d4c4d730c95df322b245c137203"
+      },
+      {
+        "file": "vendor_fruit/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "2ab7bba4397bbc486f45b480ab8bed490f948e494697f94685835121c2b6a7a3"
+      },
+      {
+        "file": "vendor_fruit/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "dd29a8ce684e9946324c0ee5de570ac7f777eeea8ee70d412022396af9961f04"
+      },
+      {
+        "file": "vendor_fruit/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "af5592495cf3cc7c834e4863395ae9843722ed3221ed0ca0ab5717b62b07cc7c"
+      },
+      {
+        "file": "vendor_fruit/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "84f7596825b00dec7f6eb283a7bc20057c44240e24d22ebee322b9687b0c6046"
+      },
+      {
+        "file": "vendor_fruit/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "2842918c968a3d9951acb4334cdf835987188f2048d5188748f87c3475eca489"
+      },
+      {
+        "file": "vendor_fruit/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "4512a435c0556cd87df8175db9f9cce629dcc4a5cfba39ee0f12cd9e8f7d9cb5"
+      },
+      {
+        "file": "vendor_fruit/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "ffd11e3bc722a9f7a7a528fba68dbd671ca612990269a7d9743723dd2b0eec19"
+      },
+      {
+        "file": "vendor_fruit/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "679a95bd10f629612a6186d6d60e7dd8e9f27830d6da710bf31828c4618ab783"
+      },
+      {
+        "file": "vendor_fruit/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "4ec520bbec1dc036769277c67304ce969e09afd8e44abae88e233c16a1d0ef25"
+      },
+      {
+        "file": "vendor_fruit/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "cc69289450c00812d274564a4d423b77841ed1e0c1e8af051159f0a78c61054d"
+      },
+      {
+        "file": "vendor_fruit/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c1be9b3a40da081628983c8be704db028fddfbc409e2d50d3c7ff94959f05356"
+      },
+      {
+        "file": "vendor_fruit/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "246f4a6b9129ccca36340376011b2a0b20e00861918bba95ae38ac183fcb6b4e"
+      },
+      {
+        "file": "vendor_fruit/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "cd3297ed581fbb0b0e639fe0e48c12a31536898173a9234774b3dd9f41d51863"
+      },
+      {
+        "file": "vendor_fruit/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "913c7468213f55f01b8395af12401c4168352c130f87f31e170a4af13bd04e5a"
+      },
+      {
+        "file": "vendor_fruit/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "caf9dab63f2680c9d96f7759f776f66a68d08a36777532e7062f320bd2604d79"
+      },
+      {
+        "file": "vendor_fruit/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "9e59f65a20022698fbe5dfe8e6e91d8f9c032c71dd0fb42b78671ee197fb6510"
+      },
+      {
+        "file": "vendor_fruit/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "0c159ba3d087cca1954b048b54c2b2a1a08237bccf9795d9a16bb2632c08699f"
+      },
+      {
+        "file": "vendor_cloth/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "70a89826d964900b8f3c6b5d10733e3e93d03ab60fdfc47bd777a567160b3a34"
+      },
+      {
+        "file": "vendor_cloth/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "16ffe70bb2c4acaa6fd3a7ec05579f63d8a1bc6404399587fbfbbd50c413234c"
+      },
+      {
+        "file": "vendor_cloth/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d55acfbf2e5c5eaee6dbe693c4eeb5270a9db46e4dfeb0930143998a734c5124"
+      },
+      {
+        "file": "vendor_cloth/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "3244b928dba93af361c0772c592d75b8fac2e3ab00f4b5a635d5e5c2a113933e"
+      },
+      {
+        "file": "vendor_cloth/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "a6b0f4a5571bd9deb095e3ab8e580454e7a101e004ac0feacba889b7a7c1ff67"
+      },
+      {
+        "file": "vendor_cloth/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f42c66f1f8428b763bad3e2f580d405328da632b1af2265b839e6125b6a98cab"
+      },
+      {
+        "file": "vendor_cloth/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "353761e6b2bdb3cb42af23eab3f9a020d5d4a8b831532bfb3c754a0c4a5e2b77"
+      },
+      {
+        "file": "vendor_cloth/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "879d1a6f2965bd645e1616a74453976ae81b3012ae1aa54879106f6b8cf31f66"
+      },
+      {
+        "file": "vendor_cloth/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "138bc7c12b6b202defa9f67c57cb459991e6f47ce80e4a260ecb24cb66d72746"
+      },
+      {
+        "file": "vendor_cloth/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "b5769f33d9b70915d68cfb78222234a9b58683a5f8ae06c2963e7bff407a508a"
+      },
+      {
+        "file": "vendor_cloth/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "fe4a08b0fecb461994945c4ba0e24325f3f3991d5bba2176f889ab49be72d6b1"
+      },
+      {
+        "file": "vendor_cloth/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "23bfc745ad55e22d1f41890325aefdf644bfc396574671685d5085c6b59af747"
+      },
+      {
+        "file": "vendor_cloth/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "8d305f32c4ecb710bfd175bbdc659d365548fdbe4764cf21529466fae994dbc0"
+      },
+      {
+        "file": "vendor_cloth/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "f8407f94173702312d893f4ff13f34a3d35c3fe71d0cad79f13246e690037f91"
+      },
+      {
+        "file": "vendor_cloth/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "08a6c3a0ffddc5695d53126e29f42df516771c32d2f84786b2ac56d50f96b9d4"
+      },
+      {
+        "file": "vendor_cloth/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "d1ae7a66f139fb3248d7bb737b9f7822662dedafb2430f2c6921dd36e73cb8e6"
+      },
+      {
+        "file": "vendor_cloth/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "cf05c501b848f9f3b39d8cdd2043f7e887257cf3e73467596823c0c0382df67e"
+      },
+      {
+        "file": "vendor_cloth/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "82e1cba30dd97ead76fcd3737f20b9732293ee9ae9dd7b84739054045cf40f1d"
+      },
+      {
+        "file": "vendor_goods/Idle/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "341e9afe0ef7e3f0a04c1885a68c31d2cf5d7ccf834ee1fd358047c752a11981"
+      },
+      {
+        "file": "vendor_goods/Idle/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "391b31c4bdbe9f30390ea414810952e2d5a7e2eac71ab63c07ef0a06b20d0aaf"
+      },
+      {
+        "file": "vendor_goods/Idle/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "5ab4b482d0a047280ec759926a5eda16e610209827b5924cbf0e2fa32683eb79"
+      },
+      {
+        "file": "vendor_goods/Idle/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c06e51b08910d24df0d4d825189ec8e7dd0dae9c46b2d03f250148816fa3a110"
+      },
+      {
+        "file": "vendor_goods/Idle/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "c3f71171bbda75a42b83a4f94e0a87296c306b501723d927eff662570b0df5bf"
+      },
+      {
+        "file": "vendor_goods/Idle/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "cd072fb765f5e05b2a7ec84bd55a371d23632c06b24b2c84f11118d0ff0c7aff"
+      },
+      {
+        "file": "vendor_goods/Work/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "880ef54dfa1261025b66b85e4c9924f933c4cc211ba68a9b486f2dc06941d9e2"
+      },
+      {
+        "file": "vendor_goods/Work/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "e7f94e0345704bbf50aa4a692f2e7154d3570e8ff53649ae08338d7a3c199ae9"
+      },
+      {
+        "file": "vendor_goods/Work/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "848d0074befb7584f6c86f00c2c91439e69dfc1e4738abc46d76d216c0ae66b4"
+      },
+      {
+        "file": "vendor_goods/Work/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "69df4bb3a55c8c01cba41aae63eef436e66c6bc14a9e6d78ba0cae3f15804466"
+      },
+      {
+        "file": "vendor_goods/Work/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "81dd496bf1a3fb6f4495c90e34a15601c90d654d96086a09619b65ed081b6608"
+      },
+      {
+        "file": "vendor_goods/Work/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "8e2ea4cb3aadc808d129904c028444befd2ec01a1f8ce04003950bd5637208e2"
+      },
+      {
+        "file": "vendor_goods/Give/S_00.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "86684db843711e63f7ae0bbdff0e6b855af94baf1386d10034a22cacef0e2c99"
+      },
+      {
+        "file": "vendor_goods/Give/S_01.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "91cb2457b12b11fe0783ff712feb945ca3ba83c02b0a2a3aca51cc9bd27c3c59"
+      },
+      {
+        "file": "vendor_goods/Give/S_02.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "e84c94dac13bde81b3d285deadadb1f6dc3a986283b011f6475fa3d87815f4e0"
+      },
+      {
+        "file": "vendor_goods/Give/S_03.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "a0b2369805bbb3d925253983f2e44fcb588f6901d215abad29500e469fa8d3c5"
+      },
+      {
+        "file": "vendor_goods/Give/S_04.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "3f7094ad37762ec1d6305c601a35c10dfe535a7d7707cb5f6fc6d2a64799c1ce"
+      },
+      {
+        "file": "vendor_goods/Give/S_05.png",
+        "size": [
+          362,
+          724
+        ],
+        "sha256": "9cd05a7f7ca5507cce00762cf9aa94b88d84322d713eb32b801e8b311f9a09df"
+      }
+    ]
+  },
+  "portraits": {
+    "count": 20,
+    "size": [
+      820,
+      1080
+    ],
+    "pivot": "UI common canvas; Unity unset",
+    "files": [
+      {
+        "file": "portraits/face_folk_smith_neutral.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "29268c3df4bcfca8cdb994ccdafe1757bae7e69d196422170060254694171bca"
+      },
+      {
+        "file": "portraits/face_folk_smith_anxious.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "a634e462bee5b5f736ae13acef7c6ec08b10b6141818412dd8e38566fe1e760a"
+      },
+      {
+        "file": "portraits/face_folk_smith_shocked.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "3d88d7ed73d3b76eada827609da2bc6bb13b1ee09ad707d72952f4844b7d3672"
+      },
+      {
+        "file": "portraits/face_folk_smith_happy.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "cc97aa683f14e4d2e4cf4259f05b11484b3c7792f0c586f5d93ab210e78760ba"
+      },
+      {
+        "file": "portraits/face_folk_innkeeper_neutral.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "39624f85e83b24b6c543cade8dbfbe524363b8a76d6a1f7f9d4e362fdeb7256c"
+      },
+      {
+        "file": "portraits/face_folk_innkeeper_anxious.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "b9dc172be2b84f128c33bde36021591848167be57e0f9025fd99223299c58f7c"
+      },
+      {
+        "file": "portraits/face_folk_innkeeper_shocked.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "7ac6e270150f9bdb2e1f2acc263e28eaeabe1ff53b0c0719a64f31ec70e4a36f"
+      },
+      {
+        "file": "portraits/face_folk_innkeeper_happy.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "4bf6f139a491296aee659371e13af329ffdd56085b9f0b4a4786296f216ec0c8"
+      },
+      {
+        "file": "portraits/face_folk_archivist_neutral.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "45e12c017dd1cce2218ba6e87f0627c41f1d5098233b9f7e807d882a31e033ef"
+      },
+      {
+        "file": "portraits/face_folk_archivist_anxious.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "00b28ab033cb12b5b49161aecd956487c01434870f8c19ecba4008505293fb5e"
+      },
+      {
+        "file": "portraits/face_folk_archivist_shocked.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "e7b553a05538b6ebb42de315b2def94707ccbcf2a548c04719b4d5ef15d8dc9c"
+      },
+      {
+        "file": "portraits/face_folk_archivist_happy.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "815cea0847f2f8e268772353c4d6ef69d1dd508b44b35d39b27de643024c1e9f"
+      },
+      {
+        "file": "portraits/face_folk_steward_neutral.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "3d5a3c8a4bc8023e8cb915d2ec2d2f6318199bb5073c0be1520a85f9f078264e"
+      },
+      {
+        "file": "portraits/face_folk_steward_anxious.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "409d4a3e5e32d684d9c3e0ef8d91a047e0ad8a8a7158ab93bb69bc05f82c524a"
+      },
+      {
+        "file": "portraits/face_folk_steward_shocked.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "da50056ced5193244339244e5e87d35e4e9cdbde68b73ac9a76c0dae6adbe686"
+      },
+      {
+        "file": "portraits/face_folk_steward_happy.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "5ea2e0bad3a7958956a06426805c25e1dd397113b1fe639fc9ec4d90792f3f55"
+      },
+      {
+        "file": "portraits/face_folk_broker_neutral.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "0cba7696074ef1a06db6a7f00f77f27705a2aea49695e1a99bda943d08e95916"
+      },
+      {
+        "file": "portraits/face_folk_broker_anxious.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "b98ab2c238ea8863353dd80cd7050c2f20f6e346b62936aa863fbd49d2214886"
+      },
+      {
+        "file": "portraits/face_folk_broker_shocked.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "1c6357e6fb79fd2247fe680d41594fb77fbcaf4963046b7bdd2313745915978a"
+      },
+      {
+        "file": "portraits/face_folk_broker_happy.png",
+        "size": [
+          820,
+          1080
+        ],
+        "sha256": "909c5f0b41683d30f3e2d6a173f0298de5bf4bdf01a722a3803d4fb0474ffd6e"
+      }
+    ]
+  },
+  "selected_sources": {
+    "smith": "sources/smith_sheet_narrow.png",
+    "innkeeper": "sources/innkeeper_sheet.png",
+    "archivist": [
+      "sources/archivist_sheet_narrow.png",
+      "sources/archivist_give_right.png"
+    ],
+    "steward": [
+      "sources/steward_sheet.png",
+      "sources/steward_give_right.png"
+    ],
+    "broker": "sources/broker_sheet.png",
+    "apprentice": "sources/apprentice_sheet_narrow.png",
+    "guard": "sources/guard_sheet.png",
+    "vendor_fruit": "sources/vendor_fruit_sheet.png",
+    "vendor_cloth": "sources/vendor_cloth_sheet_narrow.png",
+    "vendor_goods": "sources/vendor_goods_sheet.png"
+  },
+  "common_canvas_translation_x": {
+    "smith": -12,
+    "vendor_cloth": -9,
+    "vendor_goods": 8,
+    "others": 0
+  },
+  "preservation": {
+    "meta_checked": 686,
+    "meta_unchanged": 686,
+    "meta_changed": [],
+    "meta_missing": [],
+    "original_png_checked": 20,
+    "original_png_unchanged": 20,
+    "original_png_changed": []
+  }
+}

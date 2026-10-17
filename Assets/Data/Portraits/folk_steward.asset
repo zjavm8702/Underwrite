@@ -15,10 +15,10 @@ MonoBehaviour:
   Fallback: {fileID: 0}
   Faces:
   - Emotion: 0
-    Sprite: {fileID: 21300000, guid: 7a28b3b8e9c727143afd6ab1f9b7208f, type: 3}
-  - Emotion: 1
-    Sprite: {fileID: 21300000, guid: b504693d2f6e3754fb28898f42d5a1dd, type: 3}
+    Sprite: {fileID: 21300000, guid: f51f1bfa958893d41a03257224ee69c7, type: 3}
   - Emotion: 2
-    Sprite: {fileID: 21300000, guid: b337516db72c7704c9707ca2c2f3e7ee, type: 3}
+    Sprite: {fileID: 21300000, guid: d20b426d588956c46b1b68139f5ca98c, type: 3}
   - Emotion: 4
-    Sprite: {fileID: 21300000, guid: 7af559cd88fad304bab2c5a8a279c8f2, type: 3}
+    Sprite: {fileID: 21300000, guid: b930d6e96f5a7934db31151a1663f4e1, type: 3}
+  - Emotion: 1
+    Sprite: {fileID: 21300000, guid: e5b3ffcbc1bb87f44abe727e99d610d4, type: 3}

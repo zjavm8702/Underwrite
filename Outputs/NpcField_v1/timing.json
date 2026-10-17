@@ -1,0 +1,943 @@
+{
+  "version": 1,
+  "unit": "ms",
+  "direction": "S",
+  "canvas": [
+    362,
+    724
+  ],
+  "pivot_unity_bottom": [
+    181,
+    13
+  ],
+  "pivot_png_top": [
+    181,
+    711
+  ],
+  "notes": [
+    "Give is one-shot; guard Give is nod, no item handoff",
+    "PNG-only, no Unity settings written"
+  ],
+  "characters": {
+    "innkeeper": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "innkeeper/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "innkeeper/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "innkeeper/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "innkeeper/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "innkeeper/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "innkeeper/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "innkeeper/Work/S_00.png",
+            "ms": 420
+          },
+          {
+            "file": "innkeeper/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "innkeeper/Work/S_02.png",
+            "ms": 240
+          },
+          {
+            "file": "innkeeper/Work/S_03.png",
+            "ms": 400
+          },
+          {
+            "file": "innkeeper/Work/S_04.png",
+            "ms": 220
+          },
+          {
+            "file": "innkeeper/Work/S_05.png",
+            "ms": 420
+          }
+        ],
+        "total_ms": 1880
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "innkeeper/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "innkeeper/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "innkeeper/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "innkeeper/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "innkeeper/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "innkeeper/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "archivist": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "archivist/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "archivist/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "archivist/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "archivist/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "archivist/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "archivist/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "archivist/Work/S_00.png",
+            "ms": 480
+          },
+          {
+            "file": "archivist/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "archivist/Work/S_02.png",
+            "ms": 240
+          },
+          {
+            "file": "archivist/Work/S_03.png",
+            "ms": 240
+          },
+          {
+            "file": "archivist/Work/S_04.png",
+            "ms": 520
+          },
+          {
+            "file": "archivist/Work/S_05.png",
+            "ms": 300
+          }
+        ],
+        "total_ms": 1960
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "archivist/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "archivist/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "archivist/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "archivist/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "archivist/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "archivist/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "smith": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "smith/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "smith/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "smith/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "smith/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "smith/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "smith/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "smith/Work/S_00.png",
+            "ms": 220
+          },
+          {
+            "file": "smith/Work/S_01.png",
+            "ms": 160
+          },
+          {
+            "file": "smith/Work/S_02.png",
+            "ms": 90
+          },
+          {
+            "file": "smith/Work/S_03.png",
+            "ms": 70
+          },
+          {
+            "file": "smith/Work/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "smith/Work/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 900
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "smith/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "smith/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "smith/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "smith/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "smith/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "smith/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "steward": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "steward/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "steward/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "steward/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "steward/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "steward/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "steward/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "steward/Work/S_00.png",
+            "ms": 420
+          },
+          {
+            "file": "steward/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "steward/Work/S_02.png",
+            "ms": 240
+          },
+          {
+            "file": "steward/Work/S_03.png",
+            "ms": 400
+          },
+          {
+            "file": "steward/Work/S_04.png",
+            "ms": 220
+          },
+          {
+            "file": "steward/Work/S_05.png",
+            "ms": 420
+          }
+        ],
+        "total_ms": 1880
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "steward/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "steward/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "steward/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "steward/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "steward/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "steward/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "broker": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "broker/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "broker/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "broker/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "broker/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "broker/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "broker/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "broker/Work/S_00.png",
+            "ms": 420
+          },
+          {
+            "file": "broker/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "broker/Work/S_02.png",
+            "ms": 240
+          },
+          {
+            "file": "broker/Work/S_03.png",
+            "ms": 400
+          },
+          {
+            "file": "broker/Work/S_04.png",
+            "ms": 220
+          },
+          {
+            "file": "broker/Work/S_05.png",
+            "ms": 420
+          }
+        ],
+        "total_ms": 1880
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "broker/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "broker/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "broker/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "broker/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "broker/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "broker/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "apprentice": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "apprentice/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "apprentice/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "apprentice/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "apprentice/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "apprentice/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "apprentice/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "apprentice/Work/S_00.png",
+            "ms": 220
+          },
+          {
+            "file": "apprentice/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "apprentice/Work/S_02.png",
+            "ms": 220
+          },
+          {
+            "file": "apprentice/Work/S_03.png",
+            "ms": 220
+          },
+          {
+            "file": "apprentice/Work/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "apprentice/Work/S_05.png",
+            "ms": 220
+          }
+        ],
+        "total_ms": 1240
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "apprentice/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "apprentice/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "apprentice/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "apprentice/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "apprentice/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "apprentice/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "guard": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "guard/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "guard/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "guard/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "guard/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "guard/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "guard/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "guard/Work/S_00.png",
+            "ms": 1400
+          },
+          {
+            "file": "guard/Work/S_01.png",
+            "ms": 220
+          },
+          {
+            "file": "guard/Work/S_02.png",
+            "ms": 320
+          },
+          {
+            "file": "guard/Work/S_03.png",
+            "ms": 480
+          },
+          {
+            "file": "guard/Work/S_04.png",
+            "ms": 220
+          },
+          {
+            "file": "guard/Work/S_05.png",
+            "ms": 800
+          }
+        ],
+        "total_ms": 3440
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "guard/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "guard/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "guard/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "guard/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "guard/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "guard/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "vendor_fruit": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "vendor_fruit/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "vendor_fruit/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "vendor_fruit/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "vendor_fruit/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "vendor_fruit/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "vendor_fruit/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "vendor_fruit/Work/S_00.png",
+            "ms": 420
+          },
+          {
+            "file": "vendor_fruit/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_fruit/Work/S_02.png",
+            "ms": 240
+          },
+          {
+            "file": "vendor_fruit/Work/S_03.png",
+            "ms": 400
+          },
+          {
+            "file": "vendor_fruit/Work/S_04.png",
+            "ms": 220
+          },
+          {
+            "file": "vendor_fruit/Work/S_05.png",
+            "ms": 420
+          }
+        ],
+        "total_ms": 1880
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "vendor_fruit/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "vendor_fruit/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "vendor_fruit/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_fruit/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "vendor_fruit/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_fruit/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "vendor_cloth": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "vendor_cloth/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "vendor_cloth/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "vendor_cloth/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "vendor_cloth/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "vendor_cloth/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "vendor_cloth/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "vendor_cloth/Work/S_00.png",
+            "ms": 420
+          },
+          {
+            "file": "vendor_cloth/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_cloth/Work/S_02.png",
+            "ms": 240
+          },
+          {
+            "file": "vendor_cloth/Work/S_03.png",
+            "ms": 400
+          },
+          {
+            "file": "vendor_cloth/Work/S_04.png",
+            "ms": 220
+          },
+          {
+            "file": "vendor_cloth/Work/S_05.png",
+            "ms": 420
+          }
+        ],
+        "total_ms": 1880
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "vendor_cloth/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "vendor_cloth/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "vendor_cloth/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_cloth/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "vendor_cloth/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_cloth/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    },
+    "vendor_goods": {
+      "Idle": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "vendor_goods/Idle/S_00.png",
+            "ms": 900
+          },
+          {
+            "file": "vendor_goods/Idle/S_01.png",
+            "ms": 350
+          },
+          {
+            "file": "vendor_goods/Idle/S_02.png",
+            "ms": 80
+          },
+          {
+            "file": "vendor_goods/Idle/S_03.png",
+            "ms": 110
+          },
+          {
+            "file": "vendor_goods/Idle/S_04.png",
+            "ms": 120
+          },
+          {
+            "file": "vendor_goods/Idle/S_05.png",
+            "ms": 700
+          }
+        ],
+        "total_ms": 2260
+      },
+      "Work": {
+        "loop": true,
+        "frames": [
+          {
+            "file": "vendor_goods/Work/S_00.png",
+            "ms": 420
+          },
+          {
+            "file": "vendor_goods/Work/S_01.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_goods/Work/S_02.png",
+            "ms": 240
+          },
+          {
+            "file": "vendor_goods/Work/S_03.png",
+            "ms": 400
+          },
+          {
+            "file": "vendor_goods/Work/S_04.png",
+            "ms": 220
+          },
+          {
+            "file": "vendor_goods/Work/S_05.png",
+            "ms": 420
+          }
+        ],
+        "total_ms": 1880
+      },
+      "Give": {
+        "loop": false,
+        "frames": [
+          {
+            "file": "vendor_goods/Give/S_00.png",
+            "ms": 200
+          },
+          {
+            "file": "vendor_goods/Give/S_01.png",
+            "ms": 140
+          },
+          {
+            "file": "vendor_goods/Give/S_02.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_goods/Give/S_03.png",
+            "ms": 360
+          },
+          {
+            "file": "vendor_goods/Give/S_04.png",
+            "ms": 180
+          },
+          {
+            "file": "vendor_goods/Give/S_05.png",
+            "ms": 240
+          }
+        ],
+        "total_ms": 1300
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 779938b0265661440bd5ab2bf9f0e55f
+guid: d316a79e72019f241ae8d3ba9eb54a7e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7643570486961800059
-    second: face_band_blackmoor_neutral_0
+      213: -8169410053473934402
+    second: face_folk_smith_neutral_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_blackmoor_neutral_0
+      name: face_folk_smith_neutral_0
       rect:
         serializedVersion: 2
-        x: 28
+        x: 27
         y: 178
-        width: 765
+        width: 766
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58c7bf4b3259ce590800000000000000
-      internalID: -7643570486961800059
+      spriteID: eb36e2af6dc60ae80800000000000000
+      internalID: -8169410053473934402
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_blackmoor_neutral_0: -7643570486961800059
+      face_folk_smith_neutral_0: -8169410053473934402
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

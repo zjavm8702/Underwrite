@@ -115,3 +115,4 @@ prepare_walls.mjs는 원본에서 PNG를 재생성하는 보관 코드다. rebui
 - 자리가 없어 뺀 집: fairy_4, stone_1
 - walkable.png는 다시 그리지 않았다(Unity 도구는 배치표의 footprint·block으로 충돌을 만든다).
 - 성문 오른쪽 탑에 가리던 elf_2를 한 번 더 옮김: (0, -220). 뺀 소품: lamp_9, planter_11, hedge_14
+- 과일 노점과 장수를 가리던 tree_13을 왼쪽 아래로 옮김: (-260, +60)

@@ -1,0 +1,124 @@
+{
+  "protagonist": {
+    "bbox": [
+      42,
+      12,
+      311,
+      710
+    ]
+  },
+  "order": [
+    "protagonist",
+    "innkeeper",
+    "archivist",
+    "smith",
+    "steward",
+    "broker",
+    "apprentice",
+    "guard",
+    "vendor_fruit",
+    "vendor_cloth",
+    "vendor_goods"
+  ],
+  "map_scale": 0.19313304721030042,
+  "innkeeper": {
+    "bbox": [
+      39,
+      38,
+      321,
+      711
+    ],
+    "height": 674,
+    "height_ratio": 0.9642346208869814
+  },
+  "archivist": {
+    "bbox": [
+      57,
+      32,
+      303,
+      711
+    ],
+    "height": 680,
+    "height_ratio": 0.9728183118741058
+  },
+  "smith": {
+    "bbox": [
+      28,
+      62,
+      315,
+      711
+    ],
+    "height": 650,
+    "height_ratio": 0.9298998569384835
+  },
+  "steward": {
+    "bbox": [
+      74,
+      14,
+      284,
+      711
+    ],
+    "height": 698,
+    "height_ratio": 0.9985693848354793
+  },
+  "broker": {
+    "bbox": [
+      67,
+      36,
+      296,
+      711
+    ],
+    "height": 676,
+    "height_ratio": 0.9670958512160229
+  },
+  "apprentice": {
+    "bbox": [
+      46,
+      38,
+      315,
+      711
+    ],
+    "height": 674,
+    "height_ratio": 0.9642346208869814
+  },
+  "guard": {
+    "bbox": [
+      38,
+      22,
+      331,
+      711
+    ],
+    "height": 690,
+    "height_ratio": 0.9871244635193133
+  },
+  "vendor_fruit": {
+    "bbox": [
+      43,
+      38,
+      323,
+      711
+    ],
+    "height": 674,
+    "height_ratio": 0.9642346208869814
+  },
+  "vendor_cloth": {
+    "bbox": [
+      53,
+      66,
+      299,
+      711
+    ],
+    "height": 646,
+    "height_ratio": 0.9241773962804005
+  },
+  "vendor_goods": {
+    "bbox": [
+      46,
+      52,
+      332,
+      711
+    ],
+    "height": 660,
+    "height_ratio": 0.944206008583691
+  }
+}

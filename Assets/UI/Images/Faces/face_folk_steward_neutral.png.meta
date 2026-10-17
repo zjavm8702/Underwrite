@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7a28b3b8e9c727143afd6ab1f9b7208f
+guid: f51f1bfa958893d41a03257224ee69c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2110831143633631341
-    second: face_band_lantern_neutral_0
+      213: 4698757598202796555
+    second: face_folk_steward_neutral_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_lantern_neutral_0
+      name: face_folk_steward_neutral_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 161
-        width: 719
-        height: 797
+        x: 47
+        y: 159
+        width: 739
+        height: 799
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 397c2ee2242d4b2e0800000000000000
-      internalID: -2110831143633631341
+      spriteID: b0a9b86f327553140800000000000000
+      internalID: 4698757598202796555
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_lantern_neutral_0: -2110831143633631341
+      face_folk_steward_neutral_0: 4698757598202796555
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

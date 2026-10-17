@@ -1,0 +1,143 @@
+{
+  "tool": "built-in image_gen",
+  "source_files": [
+    {
+      "file": "sources/apprentice_sheet.png",
+      "received_at": "2026-10-17T12:59:22.039Z",
+      "bytes": 2148396,
+      "sha256": "0796945539ca100c1ad1fa43df101160f9440b4b6d16a646108608dcb48c0cff"
+    },
+    {
+      "file": "sources/apprentice_sheet_narrow.png",
+      "received_at": "2026-10-17T13:09:17.386Z",
+      "bytes": 2040310,
+      "sha256": "051a7b7edf51e969908795d9f149de8b1833cba0a6b6b14aa36c4e8ad0e94b98"
+    },
+    {
+      "file": "sources/apprentice_sheet_v2.png",
+      "received_at": "2026-10-17T13:05:02.038Z",
+      "bytes": 2176174,
+      "sha256": "5c20f1c929c4dd87129c1213388ef9d59bf4d64709e48a66a1a757176ec7436f"
+    },
+    {
+      "file": "sources/archivist_give_right.png",
+      "received_at": "2026-10-17T13:13:46.426Z",
+      "bytes": 1360789,
+      "sha256": "1338eb7a6d68f811f007b49e9db5dc71368053ea8fe114c71fbda19a77e0806f"
+    },
+    {
+      "file": "sources/archivist_portrait_body.png",
+      "received_at": "2026-10-17T13:02:45.832Z",
+      "bytes": 1036946,
+      "sha256": "eee67f7c2924482c03570be1ef0a14d473e9d7c74d2b59173a8e1c21899674ab"
+    },
+    {
+      "file": "sources/archivist_sheet.png",
+      "received_at": "2026-10-17T12:58:27.794Z",
+      "bytes": 2405271,
+      "sha256": "c39b315e12b17cd57ebb2cf97a6fb5bc5dfc59b211580058ab983476f4ac1a52"
+    },
+    {
+      "file": "sources/archivist_sheet_narrow.png",
+      "received_at": "2026-10-17T13:08:35.222Z",
+      "bytes": 1892931,
+      "sha256": "127c41b963e8a514b6acae4d11b25a952ecffcefc93244d1ff1077e38f2b2b5c"
+    },
+    {
+      "file": "sources/broker_portrait_body.png",
+      "received_at": "2026-10-17T13:04:18.667Z",
+      "bytes": 1232645,
+      "sha256": "ceb50d6e2ebfc50048c0fcf98f075ffdf635af305a0ef63a911b7ae2dcdb48d4"
+    },
+    {
+      "file": "sources/broker_sheet.png",
+      "received_at": "2026-10-17T13:00:01.360Z",
+      "bytes": 2425332,
+      "sha256": "1fc7c7b721d23d9dddcec47b782e252bf96c3e5078c611dfe0955866bf3fef4d"
+    },
+    {
+      "file": "sources/guard_sheet.png",
+      "received_at": "2026-10-17T13:00:15.876Z",
+      "bytes": 2192349,
+      "sha256": "68ae89bfc317defc7fcaa0bdbd0c70f4e6213bb2132655978bc260379231af80"
+    },
+    {
+      "file": "sources/innkeeper_portrait_body.png",
+      "received_at": "2026-10-17T13:02:08.062Z",
+      "bytes": 1229457,
+      "sha256": "27c62cf44e0f90be5bfeee64982f89aaf5c6c8dedb8f8fb8ebd0f8871e6643e0"
+    },
+    {
+      "file": "sources/innkeeper_sheet.png",
+      "received_at": "2026-10-17T12:57:50.650Z",
+      "bytes": 2221216,
+      "sha256": "64f4d7a52b35a1c0d64a0e817e9a9b0ac57d2494f90460d6fdeaf7851ee0ec20"
+    },
+    {
+      "file": "sources/smith_portrait_body.png",
+      "received_at": "2026-10-17T13:01:19.592Z",
+      "bytes": 1069649,
+      "sha256": "562d7a67692c3b02685e2ab99b8fb1c9e040461bcff6662da847f1ba47d3bfca"
+    },
+    {
+      "file": "sources/smith_sheet.png",
+      "received_at": "2026-10-17T12:56:09.145Z",
+      "bytes": 2117335,
+      "sha256": "b6e6bde2d4858a8bbee3ac0d444a8d7559da34ba0f93d2ac9dc006527894ba5e"
+    },
+    {
+      "file": "sources/smith_sheet_narrow.png",
+      "received_at": "2026-10-17T13:06:22.689Z",
+      "bytes": 2050112,
+      "sha256": "1b31a1bc37811b0f26fc86718909745ac82ffd4b611d8a15633e6f4096907200"
+    },
+    {
+      "file": "sources/smith_sheet_v2.png",
+      "received_at": "2026-10-17T13:00:44.993Z",
+      "bytes": 2208505,
+      "sha256": "1aea05443e8b1d4f2f949b0c3689007bd1cad53477414a9b478e5dd891b0e2d1"
+    },
+    {
+      "file": "sources/steward_give_right.png",
+      "received_at": "2026-10-17T13:14:31.011Z",
+      "bytes": 1274907,
+      "sha256": "c1e29ca5f465b3a0d3456c52f9c5970aed36381162583f6538ffff4f81df464b"
+    },
+    {
+      "file": "sources/steward_portrait_body.png",
+      "received_at": "2026-10-17T13:03:37.895Z",
+      "bytes": 1186713,
+      "sha256": "0a50e4d5cacfa34532a0dddd0c3423573380343c98a750d95b02fc23b73f9848"
+    },
+    {
+      "file": "sources/steward_sheet.png",
+      "received_at": "2026-10-17T12:59:09.656Z",
+      "bytes": 2373585,
+      "sha256": "7b6c3c421ef17808b698e61f362fdf98b05e39820048919b4ca6a4d7e3b701e2"
+    },
+    {
+      "file": "sources/vendor_cloth_sheet.png",
+      "received_at": "2026-10-17T13:01:48.721Z",
+      "bytes": 2152741,
+      "sha256": "de59fe039d72e586dbd76d2c5f3110310d66a4753b67a61f28e2545d6e4e1895"
+    },
+    {
+      "file": "sources/vendor_cloth_sheet_narrow.png",
+      "received_at": "2026-10-17T13:07:27.787Z",
+      "bytes": 1871041,
+      "sha256": "23c369b187ec63420ec6f6dd069a77d9719cf74fc11c7228244e52b9eb5c4fbd"
+    },
+    {
+      "file": "sources/vendor_fruit_sheet.png",
+      "received_at": "2026-10-17T13:01:06.720Z",
+      "bytes": 2147923,
+      "sha256": "5242816fd78192ecf1c78d84debf5c8e56bf1a5285e91b7a12cf35279a01e632"
+    },
+    {
+      "file": "sources/vendor_goods_sheet.png",
+      "received_at": "2026-10-17T13:02:40.399Z",
+      "bytes": 2256017,
+      "sha256": "3dd8938cb09bd999ce18f7ae81cc4782f8ab62391144a3a3e55a9a64ab3a849e"
+    }
+  ]
+}

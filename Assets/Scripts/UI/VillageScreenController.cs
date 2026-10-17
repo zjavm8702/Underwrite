@@ -1974,6 +1974,9 @@ namespace Underwrite.UI
 
             var lines = new List<DialogueLine> { line };
 
+            // 정보를 산 자리의 주인이 무언가를 건넨다(필드 연기). 대화창 뒤에서 시작해 닫히면 보인다.
+            StationNpc.GiveAt(spot.Name);
+
             if (scouted != null)
             {
                 lines.Add(OwnerLine(spot, scouted));

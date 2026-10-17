@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5e809375a4af3f04a8d9aa9c62da3e0d
+guid: ae9bc351195822746add9c44919ffda4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2609792577512074598
-    second: face_band_brann_happy_0
+      213: 1658544318990248499
+    second: face_folk_archivist_happy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_brann_happy_0
+      name: face_folk_archivist_happy_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 176
-        width: 724
-        height: 734
+        x: 37
+        y: 160
+        width: 772
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66dee00a588d73420800000000000000
-      internalID: 2609792577512074598
+      spriteID: 33ae7a15545540710800000000000000
+      internalID: 1658544318990248499
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_brann_happy_0: 2609792577512074598
+      face_folk_archivist_happy_0: 1658544318990248499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d85247430884168439078984ec33acb8
+guid: eee412aefb3336c4dbd8bb7384830f4d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6823338826413828439
-    second: face_band_warden_happy_0
+      213: -7721136110956626565
+    second: face_folk_innkeeper_happy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_warden_happy_0
+      name: face_folk_innkeeper_happy_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 167
-        width: 733
-        height: 764
+        x: 39
+        y: 143
+        width: 749
+        height: 788
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 759e682d28e51be50800000000000000
-      internalID: 6823338826413828439
+      spriteID: b7d3dfb8d9309d490800000000000000
+      internalID: -7721136110956626565
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_warden_happy_0: 6823338826413828439
+      face_folk_innkeeper_happy_0: -7721136110956626565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

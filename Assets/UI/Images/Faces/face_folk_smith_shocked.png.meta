@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 35b67988529a47f47bf845deb8e75354
+guid: 0bcba88ee0ea3614b83561538442e45a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7741135103831131371
-    second: face_band_blackmoor_shocked_0
+      213: 5320061880793460629
+    second: face_folk_smith_shocked_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: face_band_blackmoor_shocked_0
+      name: face_folk_smith_shocked_0
       rect:
         serializedVersion: 2
-        x: 28
+        x: 27
         y: 178
-        width: 765
+        width: 766
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51bb6d923a6f19490800000000000000
-      internalID: -7741135103831131371
+      spriteID: 59f6acbf718a4d940800000000000000
+      internalID: 5320061880793460629
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      face_band_blackmoor_shocked_0: -7741135103831131371
+      face_folk_smith_shocked_0: 5320061880793460629
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

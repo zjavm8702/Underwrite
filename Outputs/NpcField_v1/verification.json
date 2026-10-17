@@ -1,0 +1,7770 @@
+{
+  "status": "draft pending visual approval",
+  "time": "2026-10-17T13:20:55.201Z",
+  "canvas": [
+    362,
+    724
+  ],
+  "pivot_unity": [
+    181,
+    13
+  ],
+  "pivot_png": [
+    181,
+    711
+  ],
+  "field": [
+    {
+      "file": "innkeeper/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        38,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        130590
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6679
+    },
+    {
+      "file": "innkeeper/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        38,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        129646
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6712
+    },
+    {
+      "file": "innkeeper/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        38,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        129816
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6715
+    },
+    {
+      "file": "innkeeper/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        40,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        128913
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6697
+    },
+    {
+      "file": "innkeeper/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        38,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        129910
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6529
+    },
+    {
+      "file": "innkeeper/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        38,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        129097
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6640
+    },
+    {
+      "file": "innkeeper/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        41,
+        49,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        128901
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6576
+    },
+    {
+      "file": "innkeeper/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        41,
+        56,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        127513
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6392
+    },
+    {
+      "file": "innkeeper/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        41,
+        57,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        126890
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6302
+    },
+    {
+      "file": "innkeeper/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        41,
+        57,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        127306
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6193
+    },
+    {
+      "file": "innkeeper/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        40,
+        57,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        128642
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6372
+    },
+    {
+      "file": "innkeeper/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        41,
+        51,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        127269
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6489
+    },
+    {
+      "file": "innkeeper/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        67,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        124476
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6244
+    },
+    {
+      "file": "innkeeper/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        69,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        120956
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5913
+    },
+    {
+      "file": "innkeeper/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        78,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        124354
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5721
+    },
+    {
+      "file": "innkeeper/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        73,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        122766
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5887
+    },
+    {
+      "file": "innkeeper/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        72,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        123472
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6071
+    },
+    {
+      "file": "innkeeper/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        69,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        123713
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6220
+    },
+    {
+      "file": "archivist/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        57,
+        32,
+        303,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117093
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5802
+    },
+    {
+      "file": "archivist/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        57,
+        32,
+        300,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        116502
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5836
+    },
+    {
+      "file": "archivist/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        58,
+        32,
+        301,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        116846
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5833
+    },
+    {
+      "file": "archivist/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        58,
+        34,
+        302,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        116772
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5821
+    },
+    {
+      "file": "archivist/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        55,
+        32,
+        301,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117510
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5843
+    },
+    {
+      "file": "archivist/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        58,
+        32,
+        302,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117243
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5831
+    },
+    {
+      "file": "archivist/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        61,
+        76,
+        307,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        105760
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5447
+    },
+    {
+      "file": "archivist/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        56,
+        76,
+        304,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        106781
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5406
+    },
+    {
+      "file": "archivist/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        57,
+        75,
+        306,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        106563
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5393
+    },
+    {
+      "file": "archivist/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        54,
+        74,
+        305,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        107118
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5494
+    },
+    {
+      "file": "archivist/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        55,
+        74,
+        306,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        107683
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5507
+    },
+    {
+      "file": "archivist/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        53,
+        74,
+        301,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        106752
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5481
+    },
+    {
+      "file": "archivist/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        32,
+        312,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        116863
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4120
+    },
+    {
+      "file": "archivist/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        52,
+        31,
+        312,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        116176
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4042
+    },
+    {
+      "file": "archivist/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        62,
+        32,
+        307,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        114202
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4095
+    },
+    {
+      "file": "archivist/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        62,
+        30,
+        305,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        114717
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4130
+    },
+    {
+      "file": "archivist/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        49,
+        30,
+        312,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117191
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4101
+    },
+    {
+      "file": "archivist/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        49,
+        28,
+        315,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        118425
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4155
+    },
+    {
+      "file": "smith/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        28,
+        62,
+        315,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        120006
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7499
+    },
+    {
+      "file": "smith/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        30,
+        62,
+        313,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        119061
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7642
+    },
+    {
+      "file": "smith/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        28,
+        62,
+        313,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        119224
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7547
+    },
+    {
+      "file": "smith/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        28,
+        62,
+        318,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        120437
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7662
+    },
+    {
+      "file": "smith/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        27,
+        60,
+        317,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        120476
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7655
+    },
+    {
+      "file": "smith/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        25,
+        64,
+        312,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        119133
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7684
+    },
+    {
+      "file": "smith/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        15,
+        96,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        127811
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6356
+    },
+    {
+      "file": "smith/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        11,
+        91,
+        325,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        131373
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6759
+    },
+    {
+      "file": "smith/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        24,
+        130,
+        330,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        126521
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5736
+    },
+    {
+      "file": "smith/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        24,
+        129,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        125732
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5911
+    },
+    {
+      "file": "smith/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        9,
+        94,
+        317,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        130330
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6802
+    },
+    {
+      "file": "smith/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        24,
+        129,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        124641
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5768
+    },
+    {
+      "file": "smith/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        30,
+        67,
+        307,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        109453
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6515
+    },
+    {
+      "file": "smith/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        27,
+        70,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        113229
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6837
+    },
+    {
+      "file": "smith/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        28,
+        70,
+        347,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        113953
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7629
+    },
+    {
+      "file": "smith/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        29,
+        73,
+        356,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        115840
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7602
+    },
+    {
+      "file": "smith/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        32,
+        75,
+        311,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        110683
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6446
+    },
+    {
+      "file": "smith/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        31,
+        67,
+        308,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        109575
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6503
+    },
+    {
+      "file": "steward/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        74,
+        14,
+        284,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        102525
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5193
+    },
+    {
+      "file": "steward/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        75,
+        14,
+        285,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        102075
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5252
+    },
+    {
+      "file": "steward/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        75,
+        14,
+        283,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        101536
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5250
+    },
+    {
+      "file": "steward/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        76,
+        14,
+        284,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        101643
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5207
+    },
+    {
+      "file": "steward/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        75,
+        14,
+        285,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        101822
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5238
+    },
+    {
+      "file": "steward/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        76,
+        14,
+        286,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        102202
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5262
+    },
+    {
+      "file": "steward/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        70,
+        20,
+        286,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96178
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5255
+    },
+    {
+      "file": "steward/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        69,
+        20,
+        288,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        97810
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5343
+    },
+    {
+      "file": "steward/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        76,
+        26,
+        290,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96577
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5332
+    },
+    {
+      "file": "steward/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        72,
+        26,
+        287,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96300
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5212
+    },
+    {
+      "file": "steward/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        72,
+        26,
+        288,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96638
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5325
+    },
+    {
+      "file": "steward/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        76,
+        18,
+        290,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96488
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5309
+    },
+    {
+      "file": "steward/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        14,
+        293,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        100433
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4138
+    },
+    {
+      "file": "steward/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        15,
+        293,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        100380
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4225
+    },
+    {
+      "file": "steward/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        78,
+        15,
+        292,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        97971
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4086
+    },
+    {
+      "file": "steward/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        78,
+        14,
+        302,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        98695
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4111
+    },
+    {
+      "file": "steward/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        67,
+        14,
+        293,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        101112
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4207
+    },
+    {
+      "file": "steward/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        67,
+        15,
+        294,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        101165
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4143
+    },
+    {
+      "file": "broker/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        67,
+        36,
+        296,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        93972
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5996
+    },
+    {
+      "file": "broker/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        66,
+        36,
+        295,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        93948
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6080
+    },
+    {
+      "file": "broker/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        36,
+        297,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        93700
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6024
+    },
+    {
+      "file": "broker/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        70,
+        36,
+        294,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        93016
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6011
+    },
+    {
+      "file": "broker/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        69,
+        36,
+        295,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        93339
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6066
+    },
+    {
+      "file": "broker/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        36,
+        294,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        92912
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6040
+    },
+    {
+      "file": "broker/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        63,
+        30,
+        297,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96335
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6161
+    },
+    {
+      "file": "broker/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        59,
+        32,
+        300,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96470
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6310
+    },
+    {
+      "file": "broker/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        59,
+        33,
+        303,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        97216
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6351
+    },
+    {
+      "file": "broker/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        78,
+        32,
+        294,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        94162
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6035
+    },
+    {
+      "file": "broker/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        69,
+        32,
+        300,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        96116
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6111
+    },
+    {
+      "file": "broker/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        30,
+        299,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        95444
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6054
+    },
+    {
+      "file": "broker/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        66,
+        32,
+        298,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        95652
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6085
+    },
+    {
+      "file": "broker/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        78,
+        33,
+        302,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        97019
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5958
+    },
+    {
+      "file": "broker/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        80,
+        36,
+        317,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        90361
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6023
+    },
+    {
+      "file": "broker/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        80,
+        35,
+        310,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        90023
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5962
+    },
+    {
+      "file": "broker/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        80,
+        33,
+        296,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        94409
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5906
+    },
+    {
+      "file": "broker/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        68,
+        32,
+        298,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        94868
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6151
+    },
+    {
+      "file": "apprentice/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        38,
+        315,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117855
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7355
+    },
+    {
+      "file": "apprentice/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        48,
+        36,
+        319,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        118120
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7322
+    },
+    {
+      "file": "apprentice/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        38,
+        315,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117510
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7291
+    },
+    {
+      "file": "apprentice/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        48,
+        43,
+        315,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        116371
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7227
+    },
+    {
+      "file": "apprentice/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        314,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117962
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7398
+    },
+    {
+      "file": "apprentice/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        45,
+        35,
+        317,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        118522
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7470
+    },
+    {
+      "file": "apprentice/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        99,
+        325,
+        712
+      ],
+      "components": 1,
+      "areas": [
+        122601
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6193
+    },
+    {
+      "file": "apprentice/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        100,
+        325,
+        712
+      ],
+      "components": 1,
+      "areas": [
+        123494
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5916
+    },
+    {
+      "file": "apprentice/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        109,
+        325,
+        712
+      ],
+      "components": 1,
+      "areas": [
+        123190
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5597
+    },
+    {
+      "file": "apprentice/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        107,
+        325,
+        712
+      ],
+      "components": 1,
+      "areas": [
+        123765
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5721
+    },
+    {
+      "file": "apprentice/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        100,
+        325,
+        712
+      ],
+      "components": 1,
+      "areas": [
+        121792
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5949
+    },
+    {
+      "file": "apprentice/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        92,
+        325,
+        712
+      ],
+      "components": 1,
+      "areas": [
+        119361
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6068
+    },
+    {
+      "file": "apprentice/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        56,
+        316,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        116237
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7372
+    },
+    {
+      "file": "apprentice/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        44,
+        59,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        108669
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6409
+    },
+    {
+      "file": "apprentice/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        47,
+        56,
+        317,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        108196
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6181
+    },
+    {
+      "file": "apprentice/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        60,
+        57,
+        326,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        106793
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6200
+    },
+    {
+      "file": "apprentice/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        49,
+        62,
+        320,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        107340
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6177
+    },
+    {
+      "file": "apprentice/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        48,
+        59,
+        319,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        115540
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7217
+    },
+    {
+      "file": "guard/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        22,
+        331,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        129663
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 12223
+    },
+    {
+      "file": "guard/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        37,
+        22,
+        330,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        130103
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 12407
+    },
+    {
+      "file": "guard/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        22,
+        328,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        127821
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11980
+    },
+    {
+      "file": "guard/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        35,
+        22,
+        328,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        129700
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 12114
+    },
+    {
+      "file": "guard/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        35,
+        22,
+        330,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        130289
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 12448
+    },
+    {
+      "file": "guard/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        22,
+        329,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        128709
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 12131
+    },
+    {
+      "file": "guard/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        36,
+        22,
+        331,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        130381
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11986
+    },
+    {
+      "file": "guard/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        34,
+        20,
+        331,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        126907
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11849
+    },
+    {
+      "file": "guard/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        35,
+        22,
+        330,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        125510
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11551
+    },
+    {
+      "file": "guard/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        36,
+        21,
+        327,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        125032
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11658
+    },
+    {
+      "file": "guard/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        20,
+        331,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        125651
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11709
+    },
+    {
+      "file": "guard/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        36,
+        22,
+        329,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        129662
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 12168
+    },
+    {
+      "file": "guard/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        37,
+        76,
+        330,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        119151
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11391
+    },
+    {
+      "file": "guard/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        37,
+        76,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        119075
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11474
+    },
+    {
+      "file": "guard/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        36,
+        76,
+        331,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        118336
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11353
+    },
+    {
+      "file": "guard/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        36,
+        79,
+        329,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        118142
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11464
+    },
+    {
+      "file": "guard/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        36,
+        78,
+        331,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        119515
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11634
+    },
+    {
+      "file": "guard/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        80,
+        329,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        117805
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 11533
+    },
+    {
+      "file": "vendor_fruit/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        323,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        131679
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6799
+    },
+    {
+      "file": "vendor_fruit/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        322,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        131044
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6638
+    },
+    {
+      "file": "vendor_fruit/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        36,
+        322,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        132075
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6777
+    },
+    {
+      "file": "vendor_fruit/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        130636
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6559
+    },
+    {
+      "file": "vendor_fruit/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        36,
+        321,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        131436
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6558
+    },
+    {
+      "file": "vendor_fruit/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        322,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        131030
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6610
+    },
+    {
+      "file": "vendor_fruit/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        40,
+        339,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134348
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6878
+    },
+    {
+      "file": "vendor_fruit/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        347,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        137651
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7744
+    },
+    {
+      "file": "vendor_fruit/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        21,
+        38,
+        350,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        137563
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7684
+    },
+    {
+      "file": "vendor_fruit/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        347,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134459
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7004
+    },
+    {
+      "file": "vendor_fruit/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        36,
+        341,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134762
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6728
+    },
+    {
+      "file": "vendor_fruit/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        38,
+        326,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        132636
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6704
+    },
+    {
+      "file": "vendor_fruit/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        44,
+        328,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        132393
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6675
+    },
+    {
+      "file": "vendor_fruit/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        44,
+        342,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134641
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6944
+    },
+    {
+      "file": "vendor_fruit/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        52,
+        350,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134692
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6599
+    },
+    {
+      "file": "vendor_fruit/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        50,
+        350,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134180
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6841
+    },
+    {
+      "file": "vendor_fruit/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        46,
+        342,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        133265
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6637
+    },
+    {
+      "file": "vendor_fruit/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        46,
+        338,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        133975
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6929
+    },
+    {
+      "file": "vendor_cloth/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        53,
+        66,
+        299,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        105316
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6848
+    },
+    {
+      "file": "vendor_cloth/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        50,
+        66,
+        296,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        105486
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6797
+    },
+    {
+      "file": "vendor_cloth/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        51,
+        66,
+        296,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        105220
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6776
+    },
+    {
+      "file": "vendor_cloth/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        53,
+        66,
+        298,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        105491
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6679
+    },
+    {
+      "file": "vendor_cloth/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        50,
+        66,
+        298,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        105984
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6787
+    },
+    {
+      "file": "vendor_cloth/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        52,
+        68,
+        295,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        104530
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6495
+    },
+    {
+      "file": "vendor_cloth/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        48,
+        84,
+        299,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        98483
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5977
+    },
+    {
+      "file": "vendor_cloth/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        43,
+        84,
+        304,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        100541
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5983
+    },
+    {
+      "file": "vendor_cloth/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        42,
+        82,
+        300,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        101177
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5949
+    },
+    {
+      "file": "vendor_cloth/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        39,
+        83,
+        307,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        104769
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6008
+    },
+    {
+      "file": "vendor_cloth/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        49,
+        84,
+        303,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        98481
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6046
+    },
+    {
+      "file": "vendor_cloth/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        83,
+        295,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        98668
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5985
+    },
+    {
+      "file": "vendor_cloth/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        48,
+        132,
+        296,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        88922
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5598
+    },
+    {
+      "file": "vendor_cloth/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        64,
+        134,
+        318,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        89118
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5548
+    },
+    {
+      "file": "vendor_cloth/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        64,
+        132,
+        359,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        89475
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5867
+    },
+    {
+      "file": "vendor_cloth/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        64,
+        134,
+        346,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        88277
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5649
+    },
+    {
+      "file": "vendor_cloth/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        52,
+        134,
+        300,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        88704
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5571
+    },
+    {
+      "file": "vendor_cloth/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        52,
+        135,
+        295,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        87804
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5506
+    },
+    {
+      "file": "vendor_goods/Idle/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        52,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        135547
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6564
+    },
+    {
+      "file": "vendor_goods/Idle/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        50,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134052
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6517
+    },
+    {
+      "file": "vendor_goods/Idle/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        54,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        133735
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6507
+    },
+    {
+      "file": "vendor_goods/Idle/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        56,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        133663
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6487
+    },
+    {
+      "file": "vendor_goods/Idle/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        52,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        133812
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6559
+    },
+    {
+      "file": "vendor_goods/Idle/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        52,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134092
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6519
+    },
+    {
+      "file": "vendor_goods/Work/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        50,
+        334,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        138790
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6594
+    },
+    {
+      "file": "vendor_goods/Work/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        34,
+        50,
+        334,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        138695
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7227
+    },
+    {
+      "file": "vendor_goods/Work/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        3,
+        44,
+        334,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        140759
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 7294
+    },
+    {
+      "file": "vendor_goods/Work/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        52,
+        334,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        136699
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6624
+    },
+    {
+      "file": "vendor_goods/Work/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        52,
+        334,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        137381
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6471
+    },
+    {
+      "file": "vendor_goods/Work/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        52,
+        334,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        137293
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6522
+    },
+    {
+      "file": "vendor_goods/Give/S_00.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        58,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        132637
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6426
+    },
+    {
+      "file": "vendor_goods/Give/S_01.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        64,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        130752
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6479
+    },
+    {
+      "file": "vendor_goods/Give/S_02.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        64,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        132889
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6587
+    },
+    {
+      "file": "vendor_goods/Give/S_03.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        68,
+        338,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        135759
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6768
+    },
+    {
+      "file": "vendor_goods/Give/S_04.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        64,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        134514
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6570
+    },
+    {
+      "file": "vendor_goods/Give/S_05.png",
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        46,
+        64,
+        332,
+        711
+      ],
+      "components": 1,
+      "areas": [
+        131054
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 6443
+    }
+  ],
+  "foot": [
+    {
+      "character": "innkeeper",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          39,
+          620,
+          321,
+          711
+        ],
+        [
+          39,
+          620,
+          321,
+          711
+        ],
+        [
+          39,
+          620,
+          321,
+          711
+        ],
+        [
+          39,
+          620,
+          321,
+          711
+        ],
+        [
+          39,
+          620,
+          321,
+          711
+        ],
+        [
+          39,
+          620,
+          321,
+          711
+        ]
+      ],
+      "points": [
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "innkeeper",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          41,
+          620,
+          323,
+          711
+        ],
+        [
+          41,
+          620,
+          323,
+          711
+        ],
+        [
+          41,
+          620,
+          323,
+          711
+        ],
+        [
+          41,
+          620,
+          323,
+          711
+        ],
+        [
+          41,
+          620,
+          323,
+          711
+        ],
+        [
+          41,
+          620,
+          323,
+          711
+        ]
+      ],
+      "points": [
+        [
+          182,
+          711
+        ],
+        [
+          182,
+          711
+        ],
+        [
+          182,
+          711
+        ],
+        [
+          182,
+          711
+        ],
+        [
+          182,
+          711
+        ],
+        [
+          182,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "innkeeper",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          43,
+          620,
+          320,
+          711
+        ],
+        [
+          43,
+          620,
+          320,
+          711
+        ],
+        [
+          43,
+          620,
+          320,
+          711
+        ],
+        [
+          43,
+          620,
+          320,
+          711
+        ],
+        [
+          43,
+          620,
+          320,
+          711
+        ],
+        [
+          43,
+          620,
+          320,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "archivist",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          86,
+          620,
+          277,
+          711
+        ],
+        [
+          86,
+          620,
+          277,
+          711
+        ],
+        [
+          86,
+          620,
+          277,
+          711
+        ],
+        [
+          86,
+          620,
+          277,
+          711
+        ],
+        [
+          86,
+          620,
+          277,
+          711
+        ],
+        [
+          86,
+          620,
+          277,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "archivist",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          86,
+          620,
+          276,
+          711
+        ],
+        [
+          86,
+          620,
+          276,
+          711
+        ],
+        [
+          86,
+          620,
+          276,
+          711
+        ],
+        [
+          86,
+          620,
+          276,
+          711
+        ],
+        [
+          86,
+          620,
+          276,
+          711
+        ],
+        [
+          86,
+          620,
+          276,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "archivist",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "smith",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          47,
+          620,
+          293,
+          711
+        ],
+        [
+          47,
+          620,
+          293,
+          711
+        ],
+        [
+          47,
+          620,
+          293,
+          711
+        ],
+        [
+          47,
+          620,
+          293,
+          711
+        ],
+        [
+          47,
+          620,
+          293,
+          711
+        ],
+        [
+          47,
+          620,
+          293,
+          711
+        ]
+      ],
+      "points": [
+        [
+          170,
+          711
+        ],
+        [
+          170,
+          711
+        ],
+        [
+          170,
+          711
+        ],
+        [
+          170,
+          711
+        ],
+        [
+          170,
+          711
+        ],
+        [
+          170,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "smith",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          24,
+          620,
+          313,
+          711
+        ],
+        [
+          24,
+          620,
+          313,
+          711
+        ],
+        [
+          24,
+          620,
+          313,
+          711
+        ],
+        [
+          24,
+          620,
+          313,
+          711
+        ],
+        [
+          24,
+          620,
+          313,
+          711
+        ],
+        [
+          24,
+          620,
+          313,
+          711
+        ]
+      ],
+      "points": [
+        [
+          168.5,
+          711
+        ],
+        [
+          168.5,
+          711
+        ],
+        [
+          168.5,
+          711
+        ],
+        [
+          168.5,
+          711
+        ],
+        [
+          168.5,
+          711
+        ],
+        [
+          168.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "smith",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          46,
+          620,
+          293,
+          711
+        ],
+        [
+          46,
+          620,
+          293,
+          711
+        ],
+        [
+          46,
+          620,
+          293,
+          711
+        ],
+        [
+          46,
+          620,
+          293,
+          711
+        ],
+        [
+          46,
+          620,
+          293,
+          711
+        ],
+        [
+          46,
+          620,
+          293,
+          711
+        ]
+      ],
+      "points": [
+        [
+          169.5,
+          711
+        ],
+        [
+          169.5,
+          711
+        ],
+        [
+          169.5,
+          711
+        ],
+        [
+          169.5,
+          711
+        ],
+        [
+          169.5,
+          711
+        ],
+        [
+          169.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "steward",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          92,
+          620,
+          271,
+          711
+        ],
+        [
+          92,
+          620,
+          271,
+          711
+        ],
+        [
+          92,
+          620,
+          271,
+          711
+        ],
+        [
+          92,
+          620,
+          271,
+          711
+        ],
+        [
+          92,
+          620,
+          271,
+          711
+        ],
+        [
+          92,
+          620,
+          271,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "steward",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          92,
+          620,
+          270,
+          711
+        ],
+        [
+          92,
+          620,
+          270,
+          711
+        ],
+        [
+          92,
+          620,
+          270,
+          711
+        ],
+        [
+          92,
+          620,
+          270,
+          711
+        ],
+        [
+          92,
+          620,
+          270,
+          711
+        ],
+        [
+          92,
+          620,
+          270,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "steward",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          87,
+          620,
+          275,
+          711
+        ],
+        [
+          87,
+          620,
+          275,
+          711
+        ],
+        [
+          87,
+          620,
+          275,
+          711
+        ],
+        [
+          87,
+          620,
+          275,
+          711
+        ],
+        [
+          87,
+          620,
+          275,
+          711
+        ],
+        [
+          87,
+          620,
+          275,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "broker",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ],
+        [
+          81,
+          620,
+          281,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "broker",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          78,
+          620,
+          283,
+          711
+        ],
+        [
+          78,
+          620,
+          283,
+          711
+        ],
+        [
+          78,
+          620,
+          283,
+          711
+        ],
+        [
+          78,
+          620,
+          283,
+          711
+        ],
+        [
+          78,
+          620,
+          283,
+          711
+        ],
+        [
+          78,
+          620,
+          283,
+          711
+        ]
+      ],
+      "points": [
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "broker",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          80,
+          620,
+          282,
+          711
+        ],
+        [
+          80,
+          620,
+          282,
+          711
+        ],
+        [
+          80,
+          620,
+          282,
+          711
+        ],
+        [
+          80,
+          620,
+          282,
+          711
+        ],
+        [
+          80,
+          620,
+          282,
+          711
+        ],
+        [
+          80,
+          620,
+          282,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "apprentice",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          63,
+          620,
+          299,
+          711
+        ],
+        [
+          63,
+          620,
+          299,
+          711
+        ],
+        [
+          63,
+          620,
+          299,
+          711
+        ],
+        [
+          63,
+          620,
+          299,
+          711
+        ],
+        [
+          63,
+          620,
+          299,
+          711
+        ],
+        [
+          63,
+          620,
+          299,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ],
+        [
+          181,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "apprentice",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          38,
+          620,
+          325,
+          711
+        ],
+        [
+          38,
+          620,
+          325,
+          711
+        ],
+        [
+          38,
+          620,
+          325,
+          711
+        ],
+        [
+          38,
+          620,
+          325,
+          711
+        ],
+        [
+          38,
+          620,
+          325,
+          711
+        ],
+        [
+          38,
+          620,
+          325,
+          711
+        ]
+      ],
+      "points": [
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ],
+        [
+          181.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "apprentice",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          60,
+          620,
+          301,
+          711
+        ],
+        [
+          60,
+          620,
+          301,
+          711
+        ],
+        [
+          60,
+          620,
+          301,
+          711
+        ],
+        [
+          60,
+          620,
+          301,
+          711
+        ],
+        [
+          60,
+          620,
+          301,
+          711
+        ],
+        [
+          60,
+          620,
+          301,
+          711
+        ]
+      ],
+      "points": [
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ],
+        [
+          180.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "guard",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          56,
+          620,
+          304,
+          711
+        ],
+        [
+          56,
+          620,
+          304,
+          711
+        ],
+        [
+          56,
+          620,
+          304,
+          711
+        ],
+        [
+          56,
+          620,
+          304,
+          711
+        ],
+        [
+          56,
+          620,
+          304,
+          711
+        ],
+        [
+          56,
+          620,
+          304,
+          711
+        ]
+      ],
+      "points": [
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "guard",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          55,
+          620,
+          304,
+          711
+        ],
+        [
+          55,
+          620,
+          304,
+          711
+        ],
+        [
+          55,
+          620,
+          304,
+          711
+        ],
+        [
+          55,
+          620,
+          304,
+          711
+        ],
+        [
+          55,
+          620,
+          304,
+          711
+        ],
+        [
+          55,
+          620,
+          304,
+          711
+        ]
+      ],
+      "points": [
+        [
+          179.5,
+          711
+        ],
+        [
+          179.5,
+          711
+        ],
+        [
+          179.5,
+          711
+        ],
+        [
+          179.5,
+          711
+        ],
+        [
+          179.5,
+          711
+        ],
+        [
+          179.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "guard",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          55,
+          620,
+          305,
+          711
+        ],
+        [
+          55,
+          620,
+          305,
+          711
+        ],
+        [
+          55,
+          620,
+          305,
+          711
+        ],
+        [
+          55,
+          620,
+          305,
+          711
+        ],
+        [
+          55,
+          620,
+          305,
+          711
+        ],
+        [
+          55,
+          620,
+          305,
+          711
+        ]
+      ],
+      "points": [
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ],
+        [
+          180,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_fruit",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          68,
+          620,
+          301,
+          711
+        ],
+        [
+          68,
+          620,
+          301,
+          711
+        ],
+        [
+          68,
+          620,
+          301,
+          711
+        ],
+        [
+          68,
+          620,
+          301,
+          711
+        ],
+        [
+          68,
+          620,
+          301,
+          711
+        ],
+        [
+          68,
+          620,
+          301,
+          711
+        ]
+      ],
+      "points": [
+        [
+          184.5,
+          711
+        ],
+        [
+          184.5,
+          711
+        ],
+        [
+          184.5,
+          711
+        ],
+        [
+          184.5,
+          711
+        ],
+        [
+          184.5,
+          711
+        ],
+        [
+          184.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_fruit",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          63,
+          620,
+          302,
+          711
+        ],
+        [
+          63,
+          620,
+          302,
+          711
+        ],
+        [
+          63,
+          620,
+          302,
+          711
+        ],
+        [
+          63,
+          620,
+          302,
+          711
+        ],
+        [
+          63,
+          620,
+          302,
+          711
+        ],
+        [
+          63,
+          620,
+          302,
+          711
+        ]
+      ],
+      "points": [
+        [
+          182.5,
+          711
+        ],
+        [
+          182.5,
+          711
+        ],
+        [
+          182.5,
+          711
+        ],
+        [
+          182.5,
+          711
+        ],
+        [
+          182.5,
+          711
+        ],
+        [
+          182.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_fruit",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          64,
+          620,
+          304,
+          711
+        ],
+        [
+          64,
+          620,
+          304,
+          711
+        ],
+        [
+          64,
+          620,
+          304,
+          711
+        ],
+        [
+          64,
+          620,
+          304,
+          711
+        ],
+        [
+          64,
+          620,
+          304,
+          711
+        ],
+        [
+          64,
+          620,
+          304,
+          711
+        ]
+      ],
+      "points": [
+        [
+          184,
+          711
+        ],
+        [
+          184,
+          711
+        ],
+        [
+          184,
+          711
+        ],
+        [
+          184,
+          711
+        ],
+        [
+          184,
+          711
+        ],
+        [
+          184,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_cloth",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          66,
+          620,
+          279,
+          711
+        ],
+        [
+          66,
+          620,
+          279,
+          711
+        ],
+        [
+          66,
+          620,
+          279,
+          711
+        ],
+        [
+          66,
+          620,
+          279,
+          711
+        ],
+        [
+          66,
+          620,
+          279,
+          711
+        ],
+        [
+          66,
+          620,
+          279,
+          711
+        ]
+      ],
+      "points": [
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_cloth",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          63,
+          620,
+          282,
+          711
+        ],
+        [
+          63,
+          620,
+          282,
+          711
+        ],
+        [
+          63,
+          620,
+          282,
+          711
+        ],
+        [
+          63,
+          620,
+          282,
+          711
+        ],
+        [
+          63,
+          620,
+          282,
+          711
+        ],
+        [
+          63,
+          620,
+          282,
+          711
+        ]
+      ],
+      "points": [
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_cloth",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          64,
+          620,
+          281,
+          711
+        ],
+        [
+          64,
+          620,
+          281,
+          711
+        ],
+        [
+          64,
+          620,
+          281,
+          711
+        ],
+        [
+          64,
+          620,
+          281,
+          711
+        ],
+        [
+          64,
+          620,
+          281,
+          711
+        ],
+        [
+          64,
+          620,
+          281,
+          711
+        ]
+      ],
+      "points": [
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ],
+        [
+          172.5,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_goods",
+      "action": "Idle",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          50,
+          620,
+          328,
+          711
+        ],
+        [
+          50,
+          620,
+          328,
+          711
+        ],
+        [
+          50,
+          620,
+          328,
+          711
+        ],
+        [
+          50,
+          620,
+          328,
+          711
+        ],
+        [
+          50,
+          620,
+          328,
+          711
+        ],
+        [
+          50,
+          620,
+          328,
+          711
+        ]
+      ],
+      "points": [
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_goods",
+      "action": "Work",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          50,
+          620,
+          330,
+          711
+        ],
+        [
+          50,
+          620,
+          330,
+          711
+        ],
+        [
+          50,
+          620,
+          330,
+          711
+        ],
+        [
+          50,
+          620,
+          330,
+          711
+        ],
+        [
+          50,
+          620,
+          330,
+          711
+        ],
+        [
+          50,
+          620,
+          330,
+          711
+        ]
+      ],
+      "points": [
+        [
+          190,
+          711
+        ],
+        [
+          190,
+          711
+        ],
+        [
+          190,
+          711
+        ],
+        [
+          190,
+          711
+        ],
+        [
+          190,
+          711
+        ],
+        [
+          190,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "character": "vendor_goods",
+      "action": "Give",
+      "method": "stationary lower RGBA region y>=552; heel bounds below y620, prop center x100..261 excluded for smith/apprentice",
+      "heel_bboxes": [
+        [
+          59,
+          620,
+          319,
+          711
+        ],
+        [
+          59,
+          620,
+          319,
+          711
+        ],
+        [
+          59,
+          620,
+          319,
+          711
+        ],
+        [
+          59,
+          620,
+          319,
+          711
+        ],
+        [
+          59,
+          620,
+          319,
+          711
+        ],
+        [
+          59,
+          620,
+          319,
+          711
+        ]
+      ],
+      "points": [
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ],
+        [
+          189,
+          711
+        ]
+      ],
+      "max_x_deviation": 0,
+      "max_y_deviation": 0,
+      "stationary_changed_pixels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "animation": [
+    {
+      "file": "innkeeper/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "innkeeper/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1880,
+      "delay_ms": [
+        420,
+        180,
+        240,
+        400,
+        220,
+        420
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "innkeeper/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "archivist/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "archivist/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1960,
+      "delay_ms": [
+        480,
+        180,
+        240,
+        240,
+        520,
+        300
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "archivist/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "smith/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "smith/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 900,
+      "delay_ms": [
+        220,
+        160,
+        90,
+        70,
+        120,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "smith/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "steward/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "steward/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1880,
+      "delay_ms": [
+        420,
+        180,
+        240,
+        400,
+        220,
+        420
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "steward/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "broker/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "broker/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1880,
+      "delay_ms": [
+        420,
+        180,
+        240,
+        400,
+        220,
+        420
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "broker/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "apprentice/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "apprentice/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1240,
+      "delay_ms": [
+        220,
+        180,
+        220,
+        220,
+        180,
+        220
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "apprentice/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "guard/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "guard/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 3440,
+      "delay_ms": [
+        1400,
+        220,
+        320,
+        480,
+        220,
+        800
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "guard/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_fruit/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_fruit/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1880,
+      "delay_ms": [
+        420,
+        180,
+        240,
+        400,
+        220,
+        420
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_fruit/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_cloth/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_cloth/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1880,
+      "delay_ms": [
+        420,
+        180,
+        240,
+        400,
+        220,
+        420
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_cloth/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_goods/Idle_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 2260,
+      "delay_ms": [
+        900,
+        350,
+        80,
+        110,
+        120,
+        700
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_goods/Work_animation.apng",
+      "frames": 6,
+      "loop": true,
+      "total_ms": 1880,
+      "delay_ms": [
+        420,
+        180,
+        240,
+        400,
+        220,
+        420
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "file": "vendor_goods/Give_animation.apng",
+      "frames": 6,
+      "loop": false,
+      "total_ms": 1300,
+      "delay_ms": [
+        200,
+        140,
+        180,
+        360,
+        180,
+        240
+      ],
+      "decoded_rgba_matches_png": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "assets_preservation": {
+    "meta_checked": 686,
+    "meta_unchanged": 686,
+    "meta_changed": [],
+    "meta_missing": [],
+    "original_png_checked": 20,
+    "original_png_unchanged": 20,
+    "original_png_changed": []
+  },
+  "portrait": {
+    "smith": {
+      "head_polygon": [
+        [
+          335,
+          130
+        ],
+        [
+          690,
+          130
+        ],
+        [
+          690,
+          400
+        ],
+        [
+          635,
+          420
+        ],
+        [
+          623,
+          472
+        ],
+        [
+          598,
+          516
+        ],
+        [
+          576,
+          560
+        ],
+        [
+          542,
+          583
+        ],
+        [
+          500,
+          568
+        ],
+        [
+          473,
+          539
+        ],
+        [
+          444,
+          518
+        ],
+        [
+          420,
+          482
+        ],
+        [
+          399,
+          452
+        ],
+        [
+          370,
+          415
+        ],
+        [
+          346,
+          361
+        ]
+      ],
+      "body_source": "sources/smith_portrait_body.png",
+      "rows": [
+        {
+          "file": "portraits/face_folk_smith_neutral.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126207,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            28,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "areas": [
+            338577
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6739
+        },
+        {
+          "file": "portraits/face_folk_smith_anxious.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126207,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            28,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "areas": [
+            338577
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6739
+        },
+        {
+          "file": "portraits/face_folk_smith_shocked.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126207,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            28,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "areas": [
+            338577
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6739
+        },
+        {
+          "file": "portraits/face_folk_smith_happy.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126207,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            28,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "areas": [
+            338577
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6739
+        }
+      ]
+    },
+    "innkeeper": {
+      "head_polygon": [
+        [
+          215,
+          115
+        ],
+        [
+          700,
+          115
+        ],
+        [
+          700,
+          510
+        ],
+        [
+          550,
+          510
+        ],
+        [
+          530,
+          510
+        ],
+        [
+          512,
+          506
+        ],
+        [
+          482,
+          491
+        ],
+        [
+          445,
+          469
+        ],
+        [
+          408,
+          450
+        ],
+        [
+          370,
+          448
+        ],
+        [
+          350,
+          470
+        ],
+        [
+          328,
+          482
+        ],
+        [
+          309,
+          478
+        ],
+        [
+          300,
+          468
+        ],
+        [
+          282,
+          467
+        ],
+        [
+          268,
+          450
+        ],
+        [
+          219,
+          380
+        ]
+      ],
+      "body_source": "sources/innkeeper_portrait_body.png",
+      "rows": [
+        {
+          "file": "portraits/face_folk_innkeeper_neutral.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 176037,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            40,
+            150,
+            786,
+            935
+          ],
+          "components": 1,
+          "areas": [
+            336883
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 10410
+        },
+        {
+          "file": "portraits/face_folk_innkeeper_anxious.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 176037,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            40,
+            150,
+            786,
+            935
+          ],
+          "components": 1,
+          "areas": [
+            336883
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 10410
+        },
+        {
+          "file": "portraits/face_folk_innkeeper_shocked.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 176037,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            40,
+            150,
+            786,
+            935
+          ],
+          "components": 1,
+          "areas": [
+            336883
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 10410
+        },
+        {
+          "file": "portraits/face_folk_innkeeper_happy.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 176037,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            40,
+            150,
+            786,
+            935
+          ],
+          "components": 1,
+          "areas": [
+            336883
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 10410
+        }
+      ]
+    },
+    "archivist": {
+      "head_polygon": [
+        [
+          280,
+          140
+        ],
+        [
+          665,
+          140
+        ],
+        [
+          665,
+          450
+        ],
+        [
+          603,
+          454
+        ],
+        [
+          585,
+          492
+        ],
+        [
+          556,
+          518
+        ],
+        [
+          526,
+          522
+        ],
+        [
+          491,
+          507
+        ],
+        [
+          456,
+          490
+        ],
+        [
+          419,
+          467
+        ],
+        [
+          387,
+          443
+        ],
+        [
+          361,
+          416
+        ],
+        [
+          324,
+          444
+        ],
+        [
+          280,
+          404
+        ]
+      ],
+      "body_source": "sources/archivist_portrait_body.png",
+      "rows": [
+        {
+          "file": "portraits/face_folk_archivist_neutral.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126338,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            38,
+            171,
+            807,
+            918
+          ],
+          "components": 1,
+          "areas": [
+            315393
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6165
+        },
+        {
+          "file": "portraits/face_folk_archivist_anxious.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126338,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            38,
+            171,
+            807,
+            918
+          ],
+          "components": 1,
+          "areas": [
+            315393
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6165
+        },
+        {
+          "file": "portraits/face_folk_archivist_shocked.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126338,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            38,
+            171,
+            807,
+            918
+          ],
+          "components": 1,
+          "areas": [
+            315393
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6165
+        },
+        {
+          "file": "portraits/face_folk_archivist_happy.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 126338,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            38,
+            171,
+            807,
+            918
+          ],
+          "components": 1,
+          "areas": [
+            315393
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 6165
+        }
+      ]
+    },
+    "steward": {
+      "head_polygon": [
+        [
+          220,
+          95
+        ],
+        [
+          665,
+          95
+        ],
+        [
+          665,
+          422
+        ],
+        [
+          608,
+          450
+        ],
+        [
+          579,
+          483
+        ],
+        [
+          547,
+          508
+        ],
+        [
+          519,
+          515
+        ],
+        [
+          489,
+          504
+        ],
+        [
+          454,
+          483
+        ],
+        [
+          419,
+          464
+        ],
+        [
+          386,
+          447
+        ],
+        [
+          353,
+          446
+        ],
+        [
+          324,
+          468
+        ],
+        [
+          299,
+          464
+        ],
+        [
+          250,
+          437
+        ],
+        [
+          220,
+          370
+        ]
+      ],
+      "body_source": "sources/steward_portrait_body.png",
+      "rows": [
+        {
+          "file": "portraits/face_folk_steward_neutral.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 164267,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            48,
+            123,
+            784,
+            919
+          ],
+          "components": 1,
+          "areas": [
+            359536
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 9060
+        },
+        {
+          "file": "portraits/face_folk_steward_anxious.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 164267,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            48,
+            123,
+            784,
+            919
+          ],
+          "components": 1,
+          "areas": [
+            359536
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 9060
+        },
+        {
+          "file": "portraits/face_folk_steward_shocked.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 164267,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            48,
+            123,
+            784,
+            919
+          ],
+          "components": 1,
+          "areas": [
+            359536
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 9060
+        },
+        {
+          "file": "portraits/face_folk_steward_happy.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 164267,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            48,
+            123,
+            784,
+            919
+          ],
+          "components": 1,
+          "areas": [
+            359536
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 9060
+        }
+      ]
+    },
+    "broker": {
+      "head_polygon": [
+        [
+          195,
+          100
+        ],
+        [
+          710,
+          100
+        ],
+        [
+          710,
+          475
+        ],
+        [
+          631,
+          482
+        ],
+        [
+          598,
+          480
+        ],
+        [
+          581,
+          503
+        ],
+        [
+          552,
+          522
+        ],
+        [
+          518,
+          518
+        ],
+        [
+          486,
+          501
+        ],
+        [
+          454,
+          481
+        ],
+        [
+          426,
+          463
+        ],
+        [
+          398,
+          454
+        ],
+        [
+          375,
+          475
+        ],
+        [
+          348,
+          488
+        ],
+        [
+          280,
+          490
+        ],
+        [
+          225,
+          440
+        ],
+        [
+          195,
+          340
+        ]
+      ],
+      "body_source": "sources/broker_portrait_body.png",
+      "rows": [
+        {
+          "file": "portraits/face_folk_broker_neutral.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 195351,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            29,
+            120,
+            797,
+            909
+          ],
+          "components": 1,
+          "areas": [
+            336291
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 11070
+        },
+        {
+          "file": "portraits/face_folk_broker_anxious.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 195351,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            29,
+            120,
+            797,
+            909
+          ],
+          "components": 1,
+          "areas": [
+            336291
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 11070
+        },
+        {
+          "file": "portraits/face_folk_broker_shocked.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 195351,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            29,
+            120,
+            797,
+            909
+          ],
+          "components": 1,
+          "areas": [
+            336291
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 11070
+        },
+        {
+          "file": "portraits/face_folk_broker_happy.png",
+          "head_mask_changed_pixels": 0,
+          "head_mask_pixels": 195351,
+          "head_changed_ratio": 0,
+          "body_changed_vs_neutral": 0,
+          "alpha_changed_vs_neutral": 0,
+          "size": [
+            820,
+            1080
+          ],
+          "bbox": [
+            29,
+            120,
+            797,
+            909
+          ],
+          "components": 1,
+          "areas": [
+            336291
+          ],
+          "hidden_rgb": 0,
+          "canvas_touch": 0,
+          "alpha_1_31": 0,
+          "edge_semialpha": 11070
+        }
+      ]
+    }
+  },
+  "prop_work_placement": {
+    "smith": {
+      "old_foot_bbox": [
+        24,
+        620,
+        313,
+        711
+      ],
+      "dy": 0
+    },
+    "apprentice": {
+      "old_foot_bbox": [
+        38,
+        620,
+        325,
+        710
+      ],
+      "dy": 1
+    }
+  },
+  "summary": {
+    "field_count": 180,
+    "field_components_fail": [],
+    "hidden_rgb": 0,
+    "canvas_touch": 0,
+    "low_alpha": 0,
+    "foot_drift_max": 0,
+    "preview_frame_matches": true,
+    "portrait_components_fail": [],
+    "head_changed": 0
+  },
+  "visual_review": {
+    "status": "draft pending visual approval",
+    "inspected": [
+      "vs_protagonist.png",
+      "map_smith_apprentice.png",
+      "map_three_vendors.png",
+      "per-character frame strips",
+      "light/dark edge composites",
+      "portrait before/after and expressions"
+    ],
+    "runtime_playback": {
+      "status": "not_verified",
+      "attempt": "cua.createBrowserTab iab, local review.html",
+      "error": "Browser is not available: iab"
+    },
+    "unity_gameplay": {
+      "status": "out_of_scope",
+      "reason": "User requested PNG only; Assets writes prohibited"
+    },
+    "limitations": [
+      "Frame strips and APNG decoded-frame/timing tests do not prove live screen playback or final game visual approval.",
+      "Stationary lower-body equality is verified per action; upper-body acting and loop impression require screen playback visual approval."
+    ]
+  },
+  "scope_override": "Explicit current request S only, PNG only, no Assets writes overrides default 8-direction/Unity completion scope."
+}
