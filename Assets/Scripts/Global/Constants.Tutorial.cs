@@ -1,0 +1,28 @@
+namespace Underwrite.Global
+{
+    /// <summary>튜토리얼 문구. 단계는 화면 요소 이름과 짝을 이룬다(UI_Tutorial).</summary>
+    public static partial class StringConstants
+    {
+        public static string TEXT_TUTORIAL_NEXT = "다음";
+        public static string TEXT_TUTORIAL_DONE = "알겠다";
+        public static string TEXT_TUTORIAL_SKIP = "건너뛰기";
+
+        // 지하거래소 첫 안내. 순서는 눈이 가는 순서다 — 무엇을 / 얼마에 / 어떻게 / 무엇을 보고.
+        public static string TEXT_TUT_MARKET_1_TITLE = "지하거래소";
+        public static string TEXT_TUT_MARKET_1_BODY = "여기서는 물건이 아니라 모험단의 성공과 실패를 사고판다. 장은 하루 두 번, 오전 9시와 밤 9시에 열린다. 장이 열린 동안 시간은 빠르게 흐른다.";
+        public static string TEXT_TUT_MARKET_2_TITLE = "거래 종목";
+        public static string TEXT_TUT_MARKET_2_BODY = "용병단은 소문에 크게 흔들린다. 용사단(지수)은 아주 조금씩 꾸준히 오른다 — 대신 그들이 무너지면 같이 무너진다. 누르면 그 종목을 본다.";
+        public static string TEXT_TUT_MARKET_3_TITLE = "가격";
+        public static string TEXT_TUT_MARKET_3_BODY = "이번 장의 흐름이다. 소식이 들어오면 가격이 따라 움직인다.";
+        public static string TEXT_TUT_MARKET_4_TITLE = "호가";
+        public static string TEXT_TUT_MARKET_4_BODY = "위는 팔려는 사람, 아래는 사려는 사람이다. 많이 사면 위 칸을 차례로 먹어 올라가 가격이 오른다. 칸을 누르면 그 값으로 지정가 주문이 된다.";
+        public static string TEXT_TUT_MARKET_5_TITLE = "주문";
+        public static string TEXT_TUT_MARKET_5_BODY = "매수·매도, 수량을 고르고 실행한다. 시장가는 지금 바로, 지정가는 정한 값에 닿으면 체결된다.";
+        public static string TEXT_TUT_MARKET_6_TITLE = "자산";
+        public static string TEXT_TUT_MARKET_6_BODY = "현금과 주식의 값. 영지에서 번 돈과 쓴 돈도 여기에 더해진다. 용사단을 후원할 돈도 여기서 나온다.";
+        public static string TEXT_TUT_MARKET_7_TITLE = "정보 기록";
+        public static string TEXT_TUT_MARKET_7_BODY = "장마다 두 번, 정보 타임에 모험 소식이 들어온다 — 지하세계가 동시에 듣는다. 남보다 앞서려면 장 사이 영지에서 미리 캐야 한다. 「내 종목」 탭은 가진 종목 소식만 모은다.";
+        public static string TEXT_TUT_MARKET_8_TITLE = "시간";
+        public static string TEXT_TUT_MARKET_8_BODY = "배속을 바꾸거나, 장을 끝내거나, 지하시장을 나가 영지로 갈 수 있다. 장 사이 영지의 시간은 실제 시간처럼 흐른다.";
+    }
+}

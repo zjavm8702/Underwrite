@@ -107,6 +107,8 @@ namespace Underwrite.UI
         private int SceneIndex = -1;
         private UI_Popup Popup;
         private UI_Dialogue Dialogue;
+        private UI_Tutorial Tutorial;
+        private bool PausedForTutorial;
         private int HoldingsSeqShown = -1;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
@@ -346,8 +348,10 @@ namespace Underwrite.UI
             // 그 순간 자산이 준비되지 않았을 때 영영 붙지 않는다.
             BuildPopup();
 
+            StartTutorialOnce();
+
             // 보고는 틱과 무관하게 연다. 틱이 멈춘 뒤에 걸려 있으면 영영 안 열린다.
-            if (Sim.HasBriefing == true && SceneIndex < 0)
+            if (Sim.HasBriefing == true && SceneIndex < 0 && (Tutorial == null || Tutorial.IsOpen == false))
             {
                 // 정보 타임이 오면 1배로 돌린다. 빠르게 흘리다 소식이 지나가면 반응할 틈이 없다.
                 Sim.Clock.SetSpeedScale(1f);
@@ -355,6 +359,54 @@ namespace Underwrite.UI
             }
 
             Refresh();
+        }
+
+        /// <summary>
+        /// 처음 들어온 거래소를 한 곳씩 비추며 설명한다. 그동안 시간을 멈춘다.
+        /// 건너뛰어도 다시 나오지 않는다. 새 게임(인트로)에서 다시 나온다.
+        /// </summary>
+        private void StartTutorialOnce()
+        {
+            if (Tutorial == null)
+            {
+                Tutorial = new UI_Tutorial(Root, StringConstants.TEXT_TUTORIAL_NEXT, StringConstants.TEXT_TUTORIAL_DONE,
+                    StringConstants.TEXT_TUTORIAL_SKIP);
+            }
+
+            Tutorial.Tick();
+
+            if (Story.StoryProgress.MarketTutorialDone == true || Tutorial.IsOpen == true || SceneIndex >= 0)
+            {
+                return;
+            }
+
+            Story.StoryProgress.MarketTutorialDone = true;
+            PausedForTutorial = Sim.Clock.IsPaused == false;
+            Sim.Clock.SetPaused(true);
+
+            Tutorial.Play(new List<TutorialStep>
+            {
+                new TutorialStep(null, StringConstants.TEXT_TUT_MARKET_1_TITLE, StringConstants.TEXT_TUT_MARKET_1_BODY),
+                new TutorialStep("stock-list", StringConstants.TEXT_TUT_MARKET_2_TITLE,
+                    StringConstants.TEXT_TUT_MARKET_2_BODY),
+                new TutorialStep("chart", StringConstants.TEXT_TUT_MARKET_3_TITLE, StringConstants.TEXT_TUT_MARKET_3_BODY),
+                new TutorialStep("book-list", StringConstants.TEXT_TUT_MARKET_4_TITLE,
+                    StringConstants.TEXT_TUT_MARKET_4_BODY),
+                new TutorialStep("submit-button", StringConstants.TEXT_TUT_MARKET_5_TITLE,
+                    StringConstants.TEXT_TUT_MARKET_5_BODY),
+                new TutorialStep("asset-row", StringConstants.TEXT_TUT_MARKET_6_TITLE,
+                    StringConstants.TEXT_TUT_MARKET_6_BODY),
+                new TutorialStep("info-popup", StringConstants.TEXT_TUT_MARKET_7_TITLE,
+                    StringConstants.TEXT_TUT_MARKET_7_BODY),
+                new TutorialStep("header-status", StringConstants.TEXT_TUT_MARKET_8_TITLE,
+                    StringConstants.TEXT_TUT_MARKET_8_BODY)
+            }, () =>
+            {
+                if (PausedForTutorial == true)
+                {
+                    Sim.Clock.SetPaused(false);
+                }
+            });
         }
 
         /// <summary>

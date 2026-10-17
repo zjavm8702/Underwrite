@@ -12,9 +12,13 @@ namespace Underwrite.Story
         /// </summary>
         public static bool CellarFound { get; set; }
 
+        /// <summary>지하거래소 첫 안내를 마쳤는가(건너뛴 것도 마친 것으로 본다).</summary>
+        public static bool MarketTutorialDone { get; set; }
+
         public static void Reset()
         {
             CellarFound = false;
+            MarketTutorialDone = false;
         }
     }
 }

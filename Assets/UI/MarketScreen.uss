@@ -1660,3 +1660,52 @@
     color: rgb(158, 52, 40);
 }
 
+/* ── 튜토리얼 (UI_Tutorial) ───────────────── */
+.tutorial-shade {
+    background-color: rgba(12, 9, 6, 0.68);
+}
+
+.tutorial-frame {
+    border-width: 3px;
+    border-color: rgb(242, 196, 107);
+    border-radius: 14px;
+}
+
+.tutorial-card {
+    background-color: #F2E7D2;
+    border-width: 2px;
+    border-color: rgb(91, 77, 62);
+    border-radius: 14px;
+    padding: 18px 22px 16px 22px;
+}
+
+.tutorial-count {
+    font-size: 14px;
+    color: #5B4D3E;
+}
+
+.tutorial-title {
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: #2A2118;
+    margin-top: 2px;
+}
+
+.tutorial-body {
+    font-size: 18px;
+    color: #2A2118;
+    white-space: normal;
+    margin-top: 8px;
+}
+
+.tutorial-buttons {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 14px;
+}
+
+.tutorial-buttons > Button {
+    width: 120px;
+    margin-left: 8px;
+}
+
