@@ -23,6 +23,18 @@ namespace Underwrite.Village
         [Tooltip("돌아다닐 곳. 장소의 문 앞 자리를 넣는다. 비어 있으면 아무 데나 간다.")]
         [SerializeField] private List<Vector2> Destinations = new List<Vector2>();
 
+        [Tooltip("지하시장에서 이 단을 가리키는 종목. 상장 전에는 도착해야 보이고, 떠나면 사라진다.")]
+        [SerializeField] private string StockId = string.Empty;
+
+        /// <summary>이 단의 종목 아이디. 비어 있으면 시장과 묶이지 않은 단이다.</summary>
+        public string Stock
+        {
+            get
+            {
+                return StockId;
+            }
+        }
+
         // 앞사람이 지나간 자리. 일정 간격마다 하나씩 남긴다.
         private readonly List<Vector2> Trail = new List<Vector2>();
         private float RestLeft;
@@ -30,14 +42,45 @@ namespace Underwrite.Village
         private int LastDestination = -1;
 
         /// <summary>에디터 도구가 만들 때 무리와 목적지를 넣는다.</summary>
-        public void Configure(List<NpcWalker> members, List<Vector2> destinations)
+        public void Configure(List<NpcWalker> members, List<Vector2> destinations, string stockId)
         {
             Members = members;
             Destinations = destinations;
+            StockId = stockId;
+        }
+
+        /// <summary>
+        /// 시장의 생애에 맞춰 영지에 보이거나 사라진다(상장흐름 설계안 §3).
+        /// 다음 주기에 상장될 단은 지금 영지에 와 있고, 전멸·은퇴한 단은 더 보이지 않는다.
+        /// 거래소를 거치지 않고 영지만 띄웠으면(시장이 없으면) 모두 보인다.
+        /// </summary>
+        private void ApplyStage()
+        {
+            var sim = Market.BreakClock.Simulation;
+
+            if (sim == null || string.IsNullOrEmpty(StockId) == true)
+            {
+                return;
+            }
+
+            var stage = sim.StageOf(StockId);
+            var visible = stage == Enumeration.BandStage.Band_Arrived || stage == Enumeration.BandStage.Band_Listed;
+
+            for (var i = 0; i < Members.Count; i++)
+            {
+                if (Members[i] != null)
+                {
+                    Members[i].gameObject.SetActive(visible);
+                }
+            }
+
+            enabled = visible;
         }
 
         private void Start()
         {
+            ApplyStage();
+
             // 처음에는 저마다 다른 때에 출발한다. 모든 단이 동시에 움직이면 꾸민 티가 난다.
             RestLeft = UnityEngine.Random.Range(0f, Constants.NPC_PARTY_REST_MAX);
             ResetTrail();

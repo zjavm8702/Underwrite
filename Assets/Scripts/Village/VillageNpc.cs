@@ -16,6 +16,9 @@ namespace Underwrite.Village
 
         private NpcWalker Walker;
 
+        /// <summary>속한 모험단. 주민·노점상이면 null.</summary>
+        public NpcParty Party { get; private set; }
+
         [SerializeField] private NpcRole Role = NpcRole.Role_Resident;
 
         [Tooltip("말할 때 이름줄에 뜬다.")]
@@ -92,6 +95,7 @@ namespace Underwrite.Village
         private void Awake()
         {
             Walker = GetComponent<NpcWalker>();
+            Party = GetComponentInParent<NpcParty>();
         }
 
         private void OnEnable()

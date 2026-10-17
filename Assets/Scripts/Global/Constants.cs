@@ -86,6 +86,12 @@ namespace Underwrite.Global
         public static string TEXT_TAG_PUBLIC = "시장에 공개됨";
         public static string TEXT_TAG_PRIVATE = "나만 아는 정보";
         public static string TEXT_INFO_NOT_PUBLIC = "아직 시장에 공개되지 않음.";
+
+        // 상장 흐름 (상장흐름 설계안 §3)
+        public static string TEXT_LISTING_ARRIVED = "{0}이(가) 영지에 도착했다. 다음 주기 상장 예정 · 예상 공모가 {1:N1}";
+        public static string TEXT_BAND_ARRIVED = "갓 도착 · 다음 주기 상장 예정";
+        public static string TEXT_BAND_LISTED = "상장 중";
+        public static string TEXT_BAND_HELD = "보유 {0}주";
         public static string TEXT_INFO_HELD = "보유 {0}주";
         public static string TEXT_INFO_WHEN = "{0} · {1}일 {2}";
         public static string TEXT_INFO_PRIVATE_SHORT = "나만 앎";

@@ -346,7 +346,28 @@ namespace Underwrite.UI
                 }
             }
 
-            return string.IsNullOrEmpty(npc.Group) == true ? role : $"{role} · {npc.Group}";
+            var tag = string.IsNullOrEmpty(npc.Group) == true ? role : $"{role} · {npc.Group}";
+
+            // 모험단이면 시장에서 어디에 있는지, 내가 가졌는지를 붙인다. 숫자로만 보던 종목을 영지에서 만난다.
+            var party = npc.Party;
+            var sim = BreakClock.Simulation;
+
+            if (party == null || sim == null || string.IsNullOrEmpty(party.Stock) == true)
+            {
+                return tag;
+            }
+
+            var stage = sim.StageOf(party.Stock);
+
+            if (stage == BandStage.Band_Arrived)
+            {
+                return tag + " · " + StringConstants.TEXT_BAND_ARRIVED;
+            }
+
+            var held = sim.Wallet.QuantityOf(party.Stock);
+            return held > 0
+                ? tag + " · " + string.Format(StringConstants.TEXT_BAND_HELD, held)
+                : tag + " · " + StringConstants.TEXT_BAND_LISTED;
         }
 
         /// <summary>선택지 앞에 붙은 번호를 키보드 숫자로 고른다.</summary>

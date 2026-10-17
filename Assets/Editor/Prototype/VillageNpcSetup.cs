@@ -39,6 +39,7 @@ namespace Underwrite.Editor
         private sealed class PartyCast
         {
             public string Band;
+            public string StockId;
             public Color Tint;
             public string[] Names;
             public string[] Lines;
@@ -123,23 +124,26 @@ namespace Underwrite.Editor
             new PartyCast
             {
                 Band = "블랙무어 단",
+                StockId = "STOCK_HIGH_RISK",
                 Tint = new Color(0.72f, 0.8f, 1f),
                 Names = new[] { "블랙무어 단장", "블랙무어 궁수", "블랙무어 방패병", "블랙무어 짐꾼" },
                 Lines = new[] { "길 막지 마쇼.", "이번 의뢰만 끝나면 한몫 잡는다.", "…뭘 그렇게 봐?" }
             },
             new PartyCast
             {
-                Band = "회색늑대 용병단",
+                Band = "회색 파수대",
+                StockId = "STOCK_WARDEN",
                 Tint = new Color(1f, 0.78f, 0.7f),
-                Names = new[] { "회색늑대 단장", "회색늑대 척후", "회색늑대 주술사" },
-                Lines = new[] { "이 영지 몬스터는 소문보다 질기더군.", "우린 바빠." }
+                Names = new[] { "회색 파수대 대장", "회색 파수대 척후", "회색 파수대 주술사" },
+                Lines = new[] { "이 영지는 처음이야. 여관이 어디지?", "의뢰만 잡히면 바로 나간다.", "이 영지 몬스터는 소문보다 질기더군." }
             },
             new PartyCast
             {
-                Band = "새벽창 용병단",
+                Band = "등불 기사단",
+                StockId = "STOCK_LANTERN",
                 Tint = new Color(0.78f, 1f, 0.78f),
-                Names = new[] { "새벽창 단장", "새벽창 창병", "새벽창 치유사" },
-                Lines = new[] { "새벽에 출발한다. 늘 그랬지.", "여관 침대가 그리울 거야." }
+                Names = new[] { "등불 기사단장", "등불 기사단 창병", "등불 기사단 치유사" },
+                Lines = new[] { "우리는 북쪽 영지에서 왔소.", "새벽에 출발한다. 늘 그랬지.", "여관 침대가 그리울 거야." }
             }
         };
 
@@ -218,7 +222,7 @@ namespace Underwrite.Editor
                     count++;
                 }
 
-                party.AddComponent<NpcParty>().Configure(members, new List<Vector2>(destinations));
+                party.AddComponent<NpcParty>().Configure(members, new List<Vector2>(destinations), cast.StockId);
             }
 
             UnderwriteLog.Info($"영지에 사람 {count}명을 세웠습니다. 모험단 {PARTIES.Length}개.");

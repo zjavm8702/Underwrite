@@ -467,6 +467,46 @@ namespace Underwrite.Market
             return string.Format(StringConstants.TEXT_HERO_STOCK_COLLAPSE, held, stock.TrueValue);
         }
 
+        /// <summary>
+        /// 그 용병단이 생애의 어디에 있는가. 상장 한 주기 전에 영지에 도착한다(상장흐름 설계안 §3).
+        /// 도착부터 상장까지가 남보다 먼저 볼 수 있는 시간이다.
+        /// </summary>
+        public BandStage StageOf(string stockId)
+        {
+            AdventurerStock stock;
+
+            if (StockTable.TryGetValue(stockId, out stock) == true)
+            {
+                return stock.IsTradable == true ? BandStage.Band_Listed : BandStage.Band_Left;
+            }
+
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                if (Waiting[i].Stock.Id == stockId)
+                {
+                    return Waiting[i].Cycle <= Clock.Cycle + 1 ? BandStage.Band_Arrived : BandStage.Band_NotArrived;
+                }
+            }
+
+            return BandStage.Band_NotArrived;
+        }
+
+        /// <summary>도착했지만 아직 상장되지 않은 단의 이름. 없으면 빈 목록.</summary>
+        public List<string> ArrivedNames()
+        {
+            var names = new List<string>();
+
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                if (Waiting[i].Cycle <= Clock.Cycle + 1)
+                {
+                    names.Add(Waiting[i].Stock.DisplayName);
+                }
+            }
+
+            return names;
+        }
+
         /// <summary>이번 주기에 떠나기로 되어 있는 종목을 내보낸다. 보유분은 청산한다.</summary>
         private void ApplyDepartures()
         {
@@ -533,6 +573,16 @@ namespace Underwrite.Market
         /// <summary>다음 주기에 떠날 종목을 미리 알린다. 기습 상장폐지는 설계안 §5가 금한다.</summary>
         private void ApplyNotices()
         {
+            // 다음 주기에 상장될 단이 영지에 도착했다. 상장 전 조사의 시간이 시작된다(설계안 §3).
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                if (Waiting[i].Cycle == Clock.Cycle + 1)
+                {
+                    Notices.Add(string.Format(StringConstants.TEXT_LISTING_ARRIVED, Waiting[i].Stock.DisplayName,
+                        Waiting[i].Stock.Price));
+                }
+            }
+
             for (var i = 0; i < StockOrder.Count; i++)
             {
                 var stock = StockOrder[i];

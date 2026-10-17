@@ -16,6 +16,24 @@ namespace Underwrite.Enumeration
         Personality_Index
     }
 
+    /// <summary>
+    /// 용병단 하나가 생애(상장흐름 설계안 §3)의 어디에 있는가. 영지에 그 단이 보이는지를 정한다.
+    /// </summary>
+    public enum BandStage
+    {
+        /// <summary>아직 영지에 오지 않았다.</summary>
+        Band_NotArrived,
+
+        /// <summary>영지에 도착했다. 다음 주기에 상장된다. 지금 조사하면 남보다 먼저 안다.</summary>
+        Band_Arrived,
+
+        /// <summary>상장되어 거래된다.</summary>
+        Band_Listed,
+
+        /// <summary>영지를 떠났다(전멸·은퇴·이동).</summary>
+        Band_Left
+    }
+
     /// <summary>여러 종목에 공통으로 걸리는 시장 분위기. 기획서 §7.</summary>
     public enum MarketSentiment
     {
