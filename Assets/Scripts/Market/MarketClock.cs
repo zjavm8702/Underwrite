@@ -258,6 +258,33 @@ namespace Underwrite.Market
             }
         }
 
+        /// <summary>
+        /// 그날이 영주 시찰일인가. 정기 시찰이라 달력으로 미리 알 수 있다(기획서 §11).
+        /// 시찰일에는 지하시장을 숨기고 주문을 받지 않는다. 오전장·오후장이 모두 닫힌다.
+        /// </summary>
+        public static bool IsInspectionDay(int day)
+        {
+            if (day < Constants.INSPECTION_FIRST_DAY || Constants.INSPECTION_INTERVAL_DAYS <= 0)
+            {
+                return false;
+            }
+
+            return (day - Constants.INSPECTION_FIRST_DAY) % Constants.INSPECTION_INTERVAL_DAYS == 0;
+        }
+
+        /// <summary>그날 또는 그 뒤로 가장 가까운 시찰일.</summary>
+        public static int NextInspectionDay(int fromDay)
+        {
+            if (fromDay <= Constants.INSPECTION_FIRST_DAY || Constants.INSPECTION_INTERVAL_DAYS <= 0)
+            {
+                return Constants.INSPECTION_FIRST_DAY;
+            }
+
+            var passed = fromDay - Constants.INSPECTION_FIRST_DAY;
+            var steps = (passed + Constants.INSPECTION_INTERVAL_DAYS - 1) / Constants.INSPECTION_INTERVAL_DAYS;
+            return Constants.INSPECTION_FIRST_DAY + steps * Constants.INSPECTION_INTERVAL_DAYS;
+        }
+
         public void AdvanceDay()
         {
             Day++;

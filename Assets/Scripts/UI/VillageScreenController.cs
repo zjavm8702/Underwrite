@@ -308,6 +308,23 @@ namespace Underwrite.UI
             Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
+        /// <summary>
+        /// 시찰 달력. 기획서 §11 — 정기 조사는 달력에 미리 공개한다. 미리 알아야 대비할 수 있다.
+        /// 문자열을 매 프레임 만들지만 영지 화면 한 줄뿐이라 그대로 둔다.
+        /// </summary>
+        private string InspectionTag()
+        {
+            var today = Today();
+
+            if (MarketClock.IsInspectionDay(today) == true)
+            {
+                return " · " + StringConstants.TEXT_VILLAGE_INSPECTION_TODAY;
+            }
+
+            var days = MarketClock.NextInspectionDay(today) - today;
+            return " · " + string.Format(StringConstants.TEXT_VILLAGE_INSPECTION_SOON, days);
+        }
+
         private int Today()
         {
             return Clock == null ? 1 : Clock.Day;
@@ -424,6 +441,11 @@ namespace Underwrite.UI
             if (failed == 0 && PatronageLedger.HasUnheardUrgent(Clock.Day + 1) == true)
             {
                 body = body + " " + StringConstants.TEXT_DAY_END_WARNING;
+            }
+
+            if (MarketClock.IsInspectionDay(Clock.Day + 1) == true)
+            {
+                body = body + " " + StringConstants.TEXT_DAY_END_INSPECTION;
             }
 
             var line = new DialogueLine(string.Format(StringConstants.TEXT_DAY_END_TITLE, Clock.Day),
@@ -592,9 +614,9 @@ namespace Underwrite.UI
             var minute = Clock == null ? 0 : Clock.BreakMinute;
             var resting = Clock != null && Clock.SkippedSessions > 0;
 
-            SetText("village-visits", resting == true
+            SetText("village-visits", (resting == true
                 ? $"{hour:00}:{minute:00} · 오늘 장을 쉽니다 · 다음 장까지 {left / 60}시간 {left % 60}분"
-                : $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분");
+                : $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분") + InspectionTag());
 
             var skip = Root.Q<Button>("village-skip");
 

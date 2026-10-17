@@ -128,6 +128,9 @@ namespace Underwrite.Global
         public static string TEXT_HERO_REACTION_MISSED = "(술을 나르다 들었다) \"이상한 의뢰가 하나 들어왔더라. 고마운 일이긴 한데, 지금 우리한테 필요한 건 그게 아니야.\"";
 
         public static string TEXT_DAY_END_DEADLINE = "들은 용사단 사정의 기한까지 {0}일.";
+        public static string TEXT_DAY_END_INSPECTION = "내일은 영주 시찰일이다. 지하시장은 하루 문을 닫는다.";
+        public static string TEXT_VILLAGE_INSPECTION_TODAY = "오늘은 영주 시찰일 · 지하시장이 닫혔다";
+        public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
         public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";
         public static string TEXT_DAY_END_COLLAPSE = "용사단이 의뢰를 접고 흩어졌다는 소식이 돌았다. 10년 뒤 그 자리에 설 사람이 없다.";
 
@@ -340,6 +343,12 @@ namespace Underwrite.Global
         public static float NPC_PARTY_SPREAD = 1.5f;
         /// <summary>말을 걸 수 있는 거리(월드 유닛). 사람 키(1.9)보다 조금 작다.</summary>
         public static float NPC_TALK_RANGE = 1.4f;
+
+        // ── 영주 시찰일 (기획서 §11) ──────────────
+        /// <summary>첫 시찰일. 시제품에서는 4일째다. 그 전 사흘 동안 장과 영지에 익숙해진다.</summary>
+        public static int INSPECTION_FIRST_DAY = 4;
+        /// <summary>시찰 간격(일). 매번 달력에 미리 보인다. 시제품 검증에서 조정한다.</summary>
+        public static int INSPECTION_INTERVAL_DAYS = 6;
 
         // ── 후원 (익명의 의뢰주) ──────────────────
         /// <summary>용사단 사정 하나의 기한(일). 사용자 결정 2026-10-17.</summary>

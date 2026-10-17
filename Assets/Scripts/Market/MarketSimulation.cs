@@ -766,7 +766,9 @@ namespace Underwrite.Market
                 Clock.AdvanceDay();
             }
 
-            OpenSession(isInspectionDay, next);
+            // 달력의 시찰일이면 닫는다. 인자는 시험용으로 강제로 닫을 때 쓴다.
+            var halted = isInspectionDay == true || MarketClock.IsInspectionDay(Clock.Day);
+            OpenSession(halted, next);
         }
 
         /// <summary>폐장 시 남은 지정가 주문을 정리한다. 다음 장으로 넘기지 않는다.</summary>
