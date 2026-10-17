@@ -40,6 +40,9 @@ namespace Underwrite.UI
         private VillageNpc NearNpc;
         private TimeDial Dial;
 
+        // 지금 선택지를 띄운 자리. 용사 테이블처럼 자리를 넘겨받지 않는 곳에서 돌아갈 곳이다.
+        private VillageSpot CurrentSpot;
+
         // 시계를 연 뒤 토글로 다음 장을 건너뛰었는가. 「그만둔다」로 닫으면 되돌린다.
         private bool SkipFromClock;
         private Transform Player;
@@ -247,14 +250,39 @@ namespace Underwrite.UI
         /// 돈이 모자라면 선택지를 잠그고 가진 돈을 보여 준다. 예전에는 영지가 지갑을 보지 않아
         /// 가진 것보다 많이 쓸 수 있었고, 거래 화면으로 돌아가면 현금이 음수가 됐다.
         /// </summary>
+        /// <summary>
+        /// 그 자리에서 고를 것이 있는가.
+        /// 들어가는 문, 값도 일도 창고도 창구도 없는 곳, 시간이 없는데 창고도 없는 곳은 고를 것이 없다.
+        /// 창고가 있는 여관은 시간이 없어도 내려갈 수 있어야 한다. 다음 장이 거기서 열린다.
+        /// </summary>
+        private bool OffersChoices(VillageSpot spot)
+        {
+            return spot.Kind != VillageActivity.Activity_Enter
+                && (spot.Price > 0f || spot.HasWork == true || spot.HasCellar == true || spot.HasRequestDesk == true)
+                && (HasTime() == true || spot.HasCellar == true);
+        }
+
+        /// <summary>
+        /// 한 가지 일을 마친 뒤 그 자리의 선택지로 돌아간다(2026-10-17 사용자 요청).
+        /// 대화가 끝날 때마다 마을로 튕겨 나가면 같은 자리에서 여러 일을 할 때 E를 다시 눌러야 한다.
+        /// 고를 것이 없어진 자리(시간이 다 됨 등)면 그냥 닫는다.
+        /// </summary>
+        private System.Action Back(VillageSpot spot)
+        {
+            return () =>
+            {
+                if (spot != null && OffersChoices(spot) == true)
+                {
+                    Ask(spot);
+                }
+            };
+        }
+
         private void Ask(VillageSpot spot)
         {
-            // 들어가는 문, 값도 일도 창고도 창구도 없는 곳, 시간이 없는데 창고도 없는 곳은 고를 것이 없다.
-            // 창고가 있는 여관은 시간이 없어도 내려갈 수 있어야 한다. 다음 장이 거기서 열린다.
-            if (spot.Kind == VillageActivity.Activity_Enter
-                || (spot.Price <= 0f && spot.HasWork == false && spot.HasCellar == false
-                    && spot.HasRequestDesk == false)
-                || (HasTime() == false && spot.HasCellar == false))
+            CurrentSpot = spot;
+
+            if (OffersChoices(spot) == false)
             {
                 Gather(spot);
                 return;
@@ -423,7 +451,7 @@ namespace Underwrite.UI
                 choices.Add(choice);
             }
 
-            choices.Add(new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, null));
+            choices.Add(new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot)));
 
             var line = new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_HERO_TABLE_ASK);
             line.Choices = choices;
@@ -487,7 +515,14 @@ namespace Underwrite.UI
                 }
             }
 
-            Dialogue.Play(lines, null);
+            // 이야기를 마치면 테이블로 돌아간다. 다른 사람에게도 말을 걸 수 있다.
+            Dialogue.Play(lines, () =>
+            {
+                if (CurrentSpot != null)
+                {
+                    OpenHeroTable(CurrentSpot);
+                }
+            });
         }
 
         /// <summary>
@@ -516,7 +551,7 @@ namespace Underwrite.UI
                 Clock.SkipBreak();
             }
 
-            Dialogue.Play(lines, null);
+            Dialogue.Play(lines, Back(CurrentSpot));
         }
 
         /// <summary>
@@ -609,7 +644,7 @@ namespace Underwrite.UI
                     Constants.REQUEST_COST_SUPPLIES, money),
                 RequestChoice(RequestPurpose.Purpose_Training, StringConstants.TEXT_REQUEST_PURPOSE_TRAINING,
                     Constants.REQUEST_COST_TRAINING, money),
-                new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, null)
+                new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot))
             };
 
             var line = new DialogueLine(StringConstants.TEXT_REQUEST_CLERK, spot.Name, StringConstants.TEXT_REQUEST_ASK);
@@ -644,7 +679,7 @@ namespace Underwrite.UI
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_REQUEST_CLERK,
                 string.Format(StringConstants.TEXT_REQUEST_DONE, StringConstants.TEXT_HERO_PARTY));
             line.Note = string.Format(StringConstants.TEXT_REQUEST_DONE_NOTE, cost);
-            Dialogue.Play(new List<DialogueLine> { line }, null);
+            Dialogue.Play(new List<DialogueLine> { line }, Back(CurrentSpot));
         }
 
         /// <summary>
@@ -762,7 +797,7 @@ namespace Underwrite.UI
                 line.Note = held + " · " + line.Note;
             }
 
-            Dialogue.Play(new List<DialogueLine> { line }, null);
+            Dialogue.Play(new List<DialogueLine> { line }, Back(spot));
         }
 
         /// <summary>메뉴 단추와 원형 시계. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
@@ -1195,7 +1230,7 @@ namespace Underwrite.UI
             line.IsSecret = secret;
             line.Note = heldNote == null ? BuildNote(spot, secret) : heldNote + " · " + BuildNote(spot, secret);
 
-            Dialogue.Play(new List<DialogueLine> { line }, null);
+            Dialogue.Play(new List<DialogueLine> { line }, Back(spot));
         }
 
         /// <summary>다음 장까지 한 가지 일을 할 시간이 남아 있는가.</summary>
