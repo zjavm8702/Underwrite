@@ -231,6 +231,40 @@ namespace Underwrite.Global
         /// </summary>
         public static int SESSIONS_PER_CYCLE = 4;
 
+        // 모험단 도감의 주기 문장이 시장에 남기는 것. 순서는 StringConstants.CODEX_SMITH·CODEX_TAVERN과 같다.
+        // 대장간 사정이 주기 끝에 가치에 더하는 변화율 [종목][주기 순번]. 대장간 장부는 틀리지 않는다.
+        public static readonly float[][] CODEX_SMITH_EFFECT =
+        {
+            new[] { -0.08f, 0.06f, -0.04f },
+            new[] { 0.02f, 0.04f, -0.10f },
+            new[] { -0.08f, 0.15f, -0.10f },
+            new[] { 0.03f, 0.08f, 0f },
+            new[] { 0.05f, 0.08f, 0.01f }
+        };
+
+        // 여관의 말이 맞았을 때 가치에 더하는 변화율 [종목][주기 순번]
+        public static readonly float[][] CODEX_TAVERN_EFFECT =
+        {
+            new[] { 0.12f, -0.05f, 0.18f },
+            new[] { -0.12f, 0.05f, -0.08f },
+            new[] { -0.15f, 0.15f, -0.10f },
+            new[] { -0.06f, -0.06f, 0.10f },
+            new[] { 0.03f, -0.12f, -0.14f }
+        };
+
+        // 여관의 말이 맞을 확률 [종목][주기 순번]. 주기 끝에 정해진다 — 판마다 다르다
+        public static readonly float[][] CODEX_TAVERN_TRUTH =
+        {
+            new[] { 0.4f, 0.7f, 0.35f },
+            new[] { 0.5f, 0.6f, 0.5f },
+            new[] { 0.6f, 0.5f, 0.5f },
+            new[] { 0.4f, 0.5f, 0.5f },
+            new[] { 0.5f, 0.4f, 0.45f }
+        };
+
+        // 여관 소문은 장 사람들도 듣는다. 주기 초에 말하는 변화의 이만큼이 기대로 먼저 붙는다.
+        public static float CODEX_TAVERN_CROWD_SHARE = 0.5f;
+
         /// <summary>
         /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.
         /// 장중과 달리 압축하지 않는다. 그 시간이 플레이어의 것이기 때문이다.

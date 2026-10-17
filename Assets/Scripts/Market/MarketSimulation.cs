@@ -414,9 +414,113 @@ namespace Underwrite.Market
                 return;
             }
 
+            ResolveCodexCycle(Clock.Cycle - 1);
             ApplyDepartures();
             ApplyArrivals();
             ApplyNotices();
+            SpreadTavernTalk(Clock.Cycle);
+        }
+
+        /// <summary>
+        /// 끝난 주기의 대장간 사정과 여관 소문이 결과로 드러난다. 모험단 도감에서 캔 정보가 값으로 이어지는 곳이다.
+        /// 대장간 장부는 늘 맞고, 여관 소문은 확률로 맞거나 헛말이 된다. 드러난 결과는 장 전체에 공개된다.
+        /// </summary>
+        private void ResolveCodexCycle(int cycle)
+        {
+            var turn = BandCodex.TurnOf(cycle);
+
+            for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
+            {
+                var stock = CodexSubjectOf(StringConstants.CODEX_STOCK_IDS[i]);
+
+                if (stock == null)
+                {
+                    continue;
+                }
+
+                var smithEffect = Constants.CODEX_SMITH_EFFECT[i][turn];
+
+                if (smithEffect != 0f)
+                {
+                    stock.ResolveOutcome(smithEffect);
+                    AddCodexOutcome(stock.Id, StringConstants.CODEX_SMITH_OUTCOME[i][turn], InfoSource.Source_SmithOrder,
+                        BandCodex.LearnedIn(stock.Id, CodexSource.Codex_Smith, cycle));
+                }
+
+                var rumor = StringConstants.CODEX_TAVERN[i][turn];
+                var heard = BandCodex.LearnedIn(stock.Id, CodexSource.Codex_Tavern, cycle);
+
+                if (Rng.NextDouble() < Constants.CODEX_TAVERN_TRUTH[i][turn])
+                {
+                    stock.ResolveOutcome(Constants.CODEX_TAVERN_EFFECT[i][turn]);
+                    AddCodexOutcome(stock.Id, StringConstants.CODEX_TAVERN_OUTCOME[i][turn], InfoSource.Source_TavernTalk,
+                        heard);
+                }
+                else
+                {
+                    // 헛말로 드러나면 소문이 붙여 놓은 기대가 빠진다. 가치는 그대로다.
+                    stock.ResolveOutcome(0f);
+                    AddCodexOutcome(stock.Id, string.Format(StringConstants.TEXT_CODEX_RUMOR_FALSE, stock.DisplayName,
+                        rumor.TrimEnd('.')),
+                        InfoSource.Source_TavernTalk, heard);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 주기 결과를 받을 종목. 상장된 단, 그리고 이번 주기에 상장될 도착한 단이다.
+        /// 도착한 단은 공모가는 그대로 두고 가치만 바뀐다 — 상장 전에 캔 사람이 상장 직후에 득을 본다.
+        /// </summary>
+        private AdventurerStock CodexSubjectOf(string stockId)
+        {
+            AdventurerStock stock;
+
+            if (StockTable.TryGetValue(stockId, out stock) == true)
+            {
+                return stock.IsTradable == true ? stock : null;
+            }
+
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                if (Waiting[i].Stock.Id == stockId && Waiting[i].Cycle <= Clock.Cycle)
+                {
+                    return Waiting[i].Stock;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>새 주기의 여관 소문을 장 사람들도 듣는다. 말하는 변화의 일부가 기대로 먼저 붙는다.</summary>
+        private void SpreadTavernTalk(int cycle)
+        {
+            var turn = BandCodex.TurnOf(cycle);
+
+            for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
+            {
+                AdventurerStock stock;
+
+                if (StockTable.TryGetValue(StringConstants.CODEX_STOCK_IDS[i], out stock) == false
+                    || stock.IsTradable == false)
+                {
+                    continue;
+                }
+
+                stock.AddExpectation(Constants.CODEX_TAVERN_EFFECT[i][turn] * Constants.CODEX_TAVERN_CROWD_SHARE);
+            }
+        }
+
+        // 플레이어가 그 주기에 수첩에 적어 둔 줄이면 표시한다. 캐낸 것이 맞았는지를 바로 알 수 있게.
+        private void AddCodexOutcome(string stockId, string headline, InfoSource source, bool noted)
+        {
+            if (noted == true)
+            {
+                headline = StringConstants.TEXT_CODEX_NOTED + headline;
+            }
+
+            InfoEntries.Add(new InfoEntry(Clock.Tick, stockId, headline, source, EventStage.Stage_Outcome, true,
+                Clock.Day, Clock.Session));
+            HasPendingAlert = true;
         }
 
         /// <summary>

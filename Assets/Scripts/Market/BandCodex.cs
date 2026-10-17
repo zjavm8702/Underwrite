@@ -64,6 +64,12 @@ namespace Underwrite.Market
             return IsPerCycle(source) == false || learned == CurrentCycle;
         }
 
+        /// <summary>그 주기에 그 출처의 줄을 알아냈는가. 주기가 지난 뒤 결과를 낼 때 쓴다.</summary>
+        public static bool LearnedIn(string stockId, CodexSource source, int cycle)
+        {
+            return IndexOf(stockId) >= 0 && CyclesOf(stockId)[(int)source] == cycle;
+        }
+
         public static int KnownCount(string stockId)
         {
             var count = 0;
@@ -129,10 +135,11 @@ namespace Underwrite.Market
         }
 
         // 이번 주기의 문장. 주기마다 다른 줄을 돌려 쓴다. 여관의 말에는 소문 표시를 붙인다 — 틀릴 수 있다.
+        // 주기가 끝나면 시장이 같은 줄의 결과를 낸다(MarketSimulation.ResolveCodexCycle).
         private static string FactOf(string stockId, CodexSource source)
         {
             var index = IndexOf(stockId);
-            var turn = (CurrentCycle - 1) % 3;
+            var turn = TurnOf(CurrentCycle);
 
             switch (source)
             {
@@ -157,7 +164,14 @@ namespace Underwrite.Market
             }
         }
 
-        private static int IndexOf(string stockId)
+        /// <summary>그 주기에 쓰이는 주기 문장 순번. 시장이 주기 끝에 같은 줄의 결과를 낸다.</summary>
+        public static int TurnOf(int cycle)
+        {
+            return (cycle - 1) % 3;
+        }
+
+        /// <summary>도감에 실린 종목의 순번. 없으면 -1.</summary>
+        public static int IndexOf(string stockId)
         {
             for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
             {
