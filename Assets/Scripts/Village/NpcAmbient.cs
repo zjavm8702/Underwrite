@@ -24,6 +24,33 @@ namespace Underwrite.Village
         private float NextCall;
         private bool WasNear;
 
+        private Vector2 Home;
+        private bool HomeKnown;
+
+        /// <summary>
+        /// 시간이 흘렀다. 서 있는 사람은 집 근처 다른 자리로, 모험단은 단째로 다른 곳으로(NpcParty.Scatter).
+        /// 노점상은 좌판을 지킨다.
+        /// </summary>
+        public void Shuffle()
+        {
+            if (Npc.Kind != NpcRole.Role_Resident || Walker == null)
+            {
+                return;
+            }
+
+            if (HomeKnown == false)
+            {
+                Home = Walker.Foot;
+                HomeKnown = true;
+            }
+
+            var grid = VillageNavGrid.Current;
+            var foot = Home + UnityEngine.Random.insideUnitCircle * Constants.ACTOR_SHUFFLE_RADIUS;
+            Walker.PlaceFoot(grid != null ? grid.NearestWalkable(foot) : foot);
+            Actor.Face(UnityEngine.Random.insideUnitCircle);
+            WasNear = false;
+        }
+
         private void Awake()
         {
             Actor = GetComponent<CharacterActor>();

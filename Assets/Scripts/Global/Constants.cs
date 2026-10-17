@@ -132,6 +132,8 @@ namespace Underwrite.Global
         public static string TEXT_CLOCK_LIMIT = "다음 장은 {0:00}:{1:00}에 열린다. 그 직전까지 고를 수 있다.";
         public static string TEXT_CLOCK_CONFIRM = "그때까지 보낸다";
         public static string TEXT_CLOCK_CANCEL = "그만둔다";
+        public static string TEXT_TIME_PASS = "{0:00}:{1:00}  →  {2:00}:{3:00}";
+        public static string TEXT_TIME_PASS_NOTE = "{0}시간 {1}분이 흘렀다";
         public static string TEXT_CLOCK_SKIP_SESSION = "{0} 건너뛰기 — 그다음 장 직전까지 돌릴 수 있다";
 
         // 하루 끝 (기획서 §11의 넷째 단계 — 정보 정리 및 취침)
@@ -464,6 +466,11 @@ namespace Underwrite.Global
         public static float VENDOR_CALL_RANGE = 7f;
         public static float VENDOR_CALL_MIN = 7f;
         public static float VENDOR_CALL_MAX = 13f;
+        /// <summary>시간을 넘긴 뒤 주민이 집 근처에서 옮겨 서는 반지름.</summary>
+        public static float ACTOR_SHUFFLE_RADIUS = 2f;
+        /// <summary>시간 넘기기 연출: 어두워지기·머물기·밝아지기(초).</summary>
+        public static float TIME_PASS_FADE = 0.35f;
+        public static float TIME_PASS_HOLD = 1.1f;
 
         // ── 대화 ──────────────────────────────────
         /// <summary>선택지를 고르는 숫자 키. 화면에 붙는 번호 「1.」「2.」와 같은 순서다.</summary>

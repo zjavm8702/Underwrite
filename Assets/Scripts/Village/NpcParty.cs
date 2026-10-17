@@ -123,6 +123,38 @@ namespace Underwrite.Village
             GatherAround(leader.Foot);
         }
 
+        /// <summary>
+        /// 시간이 훌쩍 지났다. 단이 영지 어딘가 다른 곳에 가 있다(2026-10-17 사용자 요청).
+        /// 걷는 모습 없이 옮겨 놓고, 잠시 쉬었다가 다시 움직인다.
+        /// </summary>
+        public void Scatter()
+        {
+            if (enabled == false || Members.Count == 0 || Members[0] == null)
+            {
+                return;
+            }
+
+            var center = PickDestination();
+
+            for (var i = 0; i < Members.Count; i++)
+            {
+                if (Members[i] == null)
+                {
+                    continue;
+                }
+
+                Members[i].Stop();
+                var offset = UnityEngine.Random.insideUnitCircle * Constants.NPC_PARTY_SPACING;
+                var grid = VillageNavGrid.Current;
+                var foot = center + offset;
+                Members[i].PlaceFoot(grid != null ? grid.NearestWalkable(foot) : foot);
+            }
+
+            Resting = true;
+            RestLeft = UnityEngine.Random.Range(Constants.NPC_PARTY_REST_MIN, Constants.NPC_PARTY_REST_MAX);
+            ResetTrail();
+        }
+
         private Vector2 PickDestination()
         {
             // 갈 곳이 하나뿐이면 닿은 뒤 다시 갈 데가 없다. 그때는 아무 데나 걷는다.

@@ -1251,12 +1251,96 @@ namespace Underwrite.UI
 
         private void ConfirmClock()
         {
-            if (Clock != null && Dial != null)
+            var minutes = Clock != null && Dial != null ? Dial.SelectedMinute - Clock.BreakMinuteOfDay : 0;
+            CloseClock();
+
+            if (minutes > 0)
             {
-                Clock.SpendBreakMinutes(Dial.SelectedMinute - Clock.BreakMinuteOfDay);
+                StartCoroutine(PassTime(minutes));
+            }
+        }
+
+        /// <summary>
+        /// 시간이 흐르는 연출(2026-10-17 사용자 요청). 화면이 어두워지고 시각이 넘어간 뒤 다시 밝아진다.
+        /// 어두운 동안 사람들이 자리를 옮긴다 — 다시 밝아지면 영지가 다른 시간의 모습이다.
+        /// </summary>
+        private System.Collections.IEnumerator PassTime(int minutes)
+        {
+            Approaching = true;
+            var fade = EnsureFade();
+            var fromHour = Clock.BreakHour;
+            var fromMinute = Clock.BreakMinute;
+
+            yield return FadeTo(fade, 1f);
+
+            Clock.SpendBreakMinutes(minutes);
+            SetText("village-fade-time", string.Format(StringConstants.TEXT_TIME_PASS, fromHour, fromMinute,
+                Clock.BreakHour, Clock.BreakMinute));
+            SetText("village-fade-note", string.Format(StringConstants.TEXT_TIME_PASS_NOTE, minutes / 60, minutes % 60));
+
+            foreach (var party in FindObjectsByType<NpcParty>(FindObjectsInactive.Exclude))
+            {
+                party.Scatter();
             }
 
-            CloseClock();
+            foreach (var ambient in FindObjectsByType<NpcAmbient>(FindObjectsInactive.Exclude))
+            {
+                ambient.Shuffle();
+            }
+
+            yield return new WaitForSeconds(Constants.TIME_PASS_HOLD);
+            yield return FadeTo(fade, 0f);
+
+            SetText("village-fade-time", string.Empty);
+            SetText("village-fade-note", string.Empty);
+            Approaching = false;
+        }
+
+        private VisualElement EnsureFade()
+        {
+            var fade = Root.Q<VisualElement>("village-fade");
+
+            if (fade != null)
+            {
+                return fade;
+            }
+
+            fade = new VisualElement();
+            fade.name = "village-fade";
+            fade.AddToClassList("village-fade");
+            fade.pickingMode = PickingMode.Position;
+            fade.style.opacity = 0f;
+            fade.style.display = DisplayStyle.None;
+
+            var time = new Label();
+            time.name = "village-fade-time";
+            time.AddToClassList("village-fade-time");
+            var note = new Label();
+            note.name = "village-fade-note";
+            note.AddToClassList("village-fade-note");
+            fade.Add(time);
+            fade.Add(note);
+            Root.Add(fade);
+            return fade;
+        }
+
+        private static System.Collections.IEnumerator FadeTo(VisualElement fade, float target)
+        {
+            fade.style.display = DisplayStyle.Flex;
+            var from = fade.resolvedStyle.opacity;
+
+            for (var t = 0f; t < Constants.TIME_PASS_FADE; t += Time.deltaTime)
+            {
+                fade.style.opacity = Mathf.Lerp(from, target, t / Constants.TIME_PASS_FADE);
+                yield return null;
+            }
+
+            fade.style.opacity = target;
+
+            if (target <= 0f)
+            {
+                fade.style.display = DisplayStyle.None;
+            }
         }
 
         private void CancelClock()

@@ -1709,3 +1709,27 @@
     margin-left: 8px;
 }
 
+/* ── 시간 넘기기 연출 ─────────────────────── */
+.village-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(10, 8, 6);
+    align-items: center;
+    justify-content: center;
+}
+
+.village-fade-time {
+    font-size: 44px;
+    -unity-font-style: bold;
+    color: #F2E7D2;
+}
+
+.village-fade-note {
+    font-size: 20px;
+    color: #C9BBA2;
+    margin-top: 8px;
+}
+
