@@ -215,7 +215,12 @@ namespace Underwrite.UI
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || MenuOpen == true || NotebookOpen == true;
+                || MenuOpen == true || NotebookOpen == true || Approaching == true;
+
+            // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
+            // (2026-10-17 사용자 보고).
+            LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
+                || NotebookOpen == true);
 
             var keyboard = Keyboard.current;
 
@@ -406,6 +411,21 @@ namespace Underwrite.UI
             actor.Face(Vector2.down);
             actor.Emote(PendingEmote);
             actor.Play(PendingMotion);
+        }
+
+        private PlayerCharacterInput PlayerInput;
+
+        private void LockPlayer(bool locked)
+        {
+            if (PlayerInput == null)
+            {
+                PlayerInput = FindAnyObjectByType<PlayerCharacterInput>();
+            }
+
+            if (PlayerInput != null && PlayerInput.enabled == locked)
+            {
+                PlayerInput.enabled = locked == false;
+            }
         }
 
         /// <summary>말을 걸 수 있을 만큼 가까운 사람 가운데 가장 가까운 사람. 없으면 null.</summary>
@@ -1250,7 +1270,7 @@ namespace Underwrite.UI
 
         private void ToggleMenu()
         {
-            if (Dialogue != null && Dialogue.IsOpen == true)
+            if ((Dialogue != null && Dialogue.IsOpen == true) || Approaching == true)
             {
                 return;
             }
