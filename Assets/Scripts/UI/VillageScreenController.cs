@@ -2103,10 +2103,20 @@ namespace Underwrite.UI
         // 오후장이 끝난 밤에만 잔다. 그날을 정리하고 주인공이 혼잣말을 한 뒤 아침 장 직전으로 넘어간다.
         // 날이 바뀌는 처리(기한·붕괴)는 시간 넘기기와 같은 CheckDayTurn이 맡는다 — 두 번 세지 않는다.
 
+        /// <summary>
+        /// 잘 수 있는 밤인가. 다음 장이 아침 장이고 밤 9시가 지났으면 된다.
+        /// 오후장을 거래소에서 마쳤든 영지에서 건너뛰었든 같다(2026-10-17 — 건너뛰면 잠자리가 안 떴다는 사용자 보고).
+        /// </summary>
         private bool CanSleep()
         {
-            return Clock != null && Clock.IsBreak == true && Clock.Session == MarketSession.Session_Evening
-                && Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
+            if (Clock == null || Clock.IsBreak == false || Clock.NextSessionIsMorning == false
+                || Clock.LatestBreakMinute <= Clock.BreakMinuteOfDay)
+            {
+                return false;
+            }
+
+            var minute = Clock.BreakMinuteOfDay;
+            return minute >= Constants.SLEEP_FROM_HOUR * 60;
         }
 
         private DialogueChoice SleepChoice()

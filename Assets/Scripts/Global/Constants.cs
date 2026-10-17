@@ -573,6 +573,9 @@ namespace Underwrite.Global
         // 정보를 산 뒤 대화창을 닫고 건네는 장면을 보이는 시간(초). 건네기(Give) 1.3초 + 주인공 반응.
         public static float HAND_OVER_SECONDS = 1.8f;
 
+        // 이 시각(시)부터 다락방에서 잘 수 있다. 자정을 넘긴 시각(24시 이상)도 포함한다.
+        public static int SLEEP_FROM_HOUR = 21;
+
         // 캐릭터 외곽선(SpriteOutline). 두께는 월드 유닛 — 화면 1배에서 약 1.5px, 확대하면 함께 굵어진다.
         // 2px·진하기 90%는 사람이 스티커처럼 떠 보였다(2026-10-17). 얇고 옅게, 색은 영지 건물 테두리의
         // 붉은 갈색을 어둡게 — 가까이서는 선이 있는지 모를 만큼, 멀리서는 윤곽이 또렷하게.

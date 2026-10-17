@@ -8,8 +8,8 @@ namespace Underwrite.Global
     public static partial class StringConstants
     {
         public static string TEXT_SLEEP_CHOICE = "다락방에서 잔다";
-        public static string TEXT_SLEEP_CHOICE_NOTE = "오후장이 끝난 밤 · 아침 {0}까지";
-        public static string TEXT_SLEEP_LOCKED = "오후장이 끝난 밤에만 잘 수 있다";
+        public static string TEXT_SLEEP_CHOICE_NOTE = "밤 · 아침 {0}까지";
+        public static string TEXT_SLEEP_LOCKED = "밤 9시가 지나야 잘 수 있다";
         public static string TEXT_SLEEP_SPEAKER = "다락방";
         public static string TEXT_SLEEP_TAG = "{0}일째 밤";
         public static string TEXT_SLEEP_RECAP = "가진 돈 {0:N0} · 가진 종목의 값 {1:N0}. 오늘 밤 영지에서 들은 소식 {2}개.";

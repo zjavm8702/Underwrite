@@ -172,22 +172,21 @@ namespace Underwrite.UI
             Sim = MarketFactory.Create(Data, Seed, StartingSentiment);
             BreakClock.Simulation = Sim;
 
-            // 영지도 같은 시계를 본다. 각자 들면 시각이 어긋난다.
-            BreakClock.Current = Sim.Clock;
-
-            // 마을에서 시작한 판이면(인트로 → 여관 → 창고) 오전장은 이미 지났다. 그날 오후장부터 연다.
-            // 마을에서 번 돈도 지갑에 넣는다.
+            // 마을에서 시작한 판이면(인트로 → 여관 → 창고) 영지 시계를 그대로 이어받는다. 날짜·시각·건너뛴 장까지.
+            // 예전에는 늘 1일째 오후장을 새로 열어, 영지에서 오후장을 건너뛰고 다음 날 아침에 내려오면
+            // 지난 오후장이 다시 열렸다(2026-10-17 사용자 보고). 장은 다음 Update의 OpenIfDue가 연다 —
+            // 건너뛴 장을 돌리고, 영지에서 번 돈·캔 소식을 넣는 것도 거기서 한 번에 한다.
             if (villageClock != null && villageClock.IsBreak == true)
             {
-                Sim.OpenSession(IsInspectionDay, MarketSession.Session_Evening);
-                Sim.ApplyGatherSession();
-                // 한 번 넣었으면 비운다. 다음 장을 열 때 또 더해지면 안 된다.
-                GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
+                Sim.AdoptClock(MarketClock.Restore(villageClock.Capture()));
             }
             else
             {
                 Sim.OpenSession(IsInspectionDay);
             }
+
+            // 영지도 같은 시계를 본다. 각자 들면 시각이 어긋난다.
+            BreakClock.Current = Sim.Clock;
             Sim.PlayerAtMarket = true;
 
             SelectedId = Sim.Stocks[0].Id;

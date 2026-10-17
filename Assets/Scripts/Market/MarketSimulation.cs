@@ -997,6 +997,12 @@ namespace Underwrite.Market
             return null;
         }
 
+        /// <summary>영지에서 먼저 흐르던 시계를 이어받는다. 시장을 처음 만들 때 한 번만 부른다.</summary>
+        internal void AdoptClock(MarketClock clock)
+        {
+            Clock = clock;
+        }
+
         public void AddWaiting(AdventurerStock stock, int cycle)
         {
             Waiting.Add(new WaitingEntry { Stock = stock, Cycle = cycle });
