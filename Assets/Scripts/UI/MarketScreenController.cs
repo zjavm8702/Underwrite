@@ -2644,10 +2644,11 @@ namespace Underwrite.UI
 
             if (Filter == InfoFilter.Filter_Bands)
             {
-                for (var b = 0; b < StringConstants.CODEX_STOCK_IDS.Length; b++)
+                var bands = Sim.CodexSubjects();
+
+                for (var b = 0; b < bands.Count; b++)
                 {
-                    var id = StringConstants.CODEX_STOCK_IDS[b];
-                    list.Add(CodexCards.Build(Sim, id, Sim.NameOf(id)));
+                    list.Add(CodexCards.Build(Sim, bands[b], Sim.NameOf(bands[b])));
                 }
 
                 SelectFilterButtons();

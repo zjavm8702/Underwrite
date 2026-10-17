@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Underwrite.Data;
 using Underwrite.Enumeration;
@@ -50,6 +51,7 @@ namespace Underwrite.Market
                 var row = rows[i];
                 var stock = new AdventurerStock(row.Id, row.DisplayName, row.Personality,
                     row.TrueValue, row.Liquidity);
+                stock.SetCodexProfile(Array.IndexOf(StringConstants.CODEX_STOCK_IDS, row.Id));
 
                 // 나중에 올라올 종목은 대기열로 간다. 첫 주기에 전부 상장하면 자리가 넘친다.
                 if (row.ListCycle > 1)

@@ -168,15 +168,7 @@ namespace Underwrite.Story
 
         private static bool ScoutedBand()
         {
-            for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
-            {
-                if (BandCodex.KnownCount(StringConstants.CODEX_STOCK_IDS[i]) >= 2)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return BandCodex.AnyKnownTwice();
         }
     }
 }

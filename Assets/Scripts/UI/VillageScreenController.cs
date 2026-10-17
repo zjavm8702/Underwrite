@@ -1005,6 +1005,7 @@ namespace Underwrite.UI
             if (LastDayChecked <= 0)
             {
                 LastDayChecked = today;
+                PartyCasting.Cast(today, false);
                 return string.Empty;
             }
 
@@ -1021,6 +1022,9 @@ namespace Underwrite.UI
             }
 
             LastDayChecked = today;
+
+            // 날이 바뀌면 영지를 걷는 단도 바뀐다.
+            PartyCasting.Cast(today, false);
 
             if (failed > 0)
             {
@@ -1459,9 +1463,11 @@ namespace Underwrite.UI
 
             if (bands == true)
             {
-                for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
+                var subjects = BandCodex.Subjects();
+
+                for (var i = 0; i < subjects.Count; i++)
                 {
-                    var id = StringConstants.CODEX_STOCK_IDS[i];
+                    var id = subjects[i];
                     scroll.Add(CodexCards.Build(sim, id, sim == null ? id : sim.NameOf(id)));
                 }
 

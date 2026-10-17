@@ -137,31 +137,38 @@ namespace Underwrite.Market
                 return null;
             }
 
-            string listed = null;
+            var subjects = sim.CodexSubjects();
 
-            for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
+            for (var i = 0; i < subjects.Count; i++)
             {
-                var id = StringConstants.CODEX_STOCK_IDS[i];
-
-                if (IsKnown(id, source) == true)
+                if (IsKnown(subjects[i], source) == false)
                 {
-                    continue;
-                }
-
-                var stage = sim.StageOf(id);
-
-                if (stage == BandStage.Band_Arrived)
-                {
-                    return id;
-                }
-
-                if (stage == BandStage.Band_Listed && listed == null)
-                {
-                    listed = id;
+                    return subjects[i];
                 }
             }
 
-            return listed;
+            return null;
+        }
+
+        /// <summary>도감에 오르는 단. 시장이 아직 없으면 처음 다섯 단.</summary>
+        public static List<string> Subjects()
+        {
+            var sim = BreakClock.Simulation;
+            return sim == null ? new List<string>(StringConstants.CODEX_STOCK_IDS) : sim.CodexSubjects();
+        }
+
+        /// <summary>두 가지 이상 알아낸 단이 하나라도 있는가(할 일 「새로 온 사람들」).</summary>
+        public static bool AnyKnownTwice()
+        {
+            foreach (var pair in LearnedCycle)
+            {
+                if (KnownCount(pair.Key) >= 2)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         // 이번 주기의 문장. 주기마다 다른 줄을 돌려 쓴다. 여관의 말에는 소문 표시를 붙인다 — 틀릴 수 있다.
@@ -200,18 +207,17 @@ namespace Underwrite.Market
             return (cycle - 1) % 3;
         }
 
-        /// <summary>도감에 실린 종목의 순번. 없으면 -1.</summary>
+        /// <summary>그 종목이 쓰는 도감 문장 묶음. 시장이 있으면 시장에 묻고, 없으면 처음 다섯 단의 순번. 없으면 -1.</summary>
         public static int IndexOf(string stockId)
         {
-            for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
+            var sim = BreakClock.Simulation;
+
+            if (sim != null)
             {
-                if (StringConstants.CODEX_STOCK_IDS[i] == stockId)
-                {
-                    return i;
-                }
+                return sim.CodexProfileOf(stockId);
             }
 
-            return -1;
+            return System.Array.IndexOf(StringConstants.CODEX_STOCK_IDS, stockId);
         }
 
         private static int[] CyclesOf(string stockId)

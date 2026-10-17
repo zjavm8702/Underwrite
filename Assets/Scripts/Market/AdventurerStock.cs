@@ -325,6 +325,17 @@ namespace Underwrite.Market
             IsTradable = false;
         }
 
+        /// <summary>
+        /// 도감 문장 묶음 번호(<see cref="Global.StringConstants.CODEX_FIXED"/> 등의 첫 번째 칸). 없으면 -1.
+        /// 처음 다섯 단은 제 묶음을 쓰고, 주기마다 새로 오는 단은 유형이 같은 묶음을 돌려 쓴다.
+        /// </summary>
+        public int CodexProfile { get; private set; } = -1;
+
+        internal void SetCodexProfile(int profile)
+        {
+            CodexProfile = profile;
+        }
+
         internal StockState Capture()
         {
             var state = new StockState

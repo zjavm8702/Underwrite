@@ -60,6 +60,25 @@ namespace Underwrite.Save
         public List<StockState> Stocks = new List<StockState>();
         public WalletState Wallet = new WalletState();
         public List<InfoState> Info = new List<InfoState>();
+
+        /// <summary>주기마다 지은 새 단. 불러올 때 같은 단을 다시 세운다.</summary>
+        public List<GeneratedBandState> Generated = new List<GeneratedBandState>();
+        public int BandSerial;
+    }
+
+    /// <summary>새로 지은 용병단 하나의 명세. 표에 없는 단이라 이것만으로 다시 세울 수 있어야 한다.</summary>
+    [Serializable]
+    public sealed class GeneratedBandState
+    {
+        public string Id;
+        public string Name;
+        public int Profile;
+        public StockPersonality Personality;
+        public float TrueValue;
+        public float Liquidity;
+        public int ListCycle;
+        public int DelistCycle;
+        public DelistReason DelistReason;
     }
 
     [Serializable]

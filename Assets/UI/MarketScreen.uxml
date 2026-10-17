@@ -66,7 +66,8 @@
             <!-- 왼쪽: 거래 종목 -->
             <ui:VisualElement class="col-stocks panel">
                 <ui:Label text="거래 종목" class="t-panel" />
-                <ui:VisualElement name="stock-list" style="margin-top: 16px;" />
+                <!-- 용병단이 주기마다 늘고 준다(8개 안팎). 넘치면 굴린다. -->
+                <ui:ScrollView name="stock-list" style="margin-top: 16px; flex-grow: 1; flex-shrink: 1;" />
 
                 <ui:VisualElement name="pending-box" class="pending-box">
                     <ui:VisualElement name="pending-head" class="pending-head hidden">

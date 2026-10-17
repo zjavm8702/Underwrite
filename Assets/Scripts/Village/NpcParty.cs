@@ -50,6 +50,91 @@ namespace Underwrite.Village
         }
 
         /// <summary>
+        /// 이 무리가 오늘 어느 단인지 정한다(2026-10-17 — 영지를 걷는 단은 그날그날 무작위, <see cref="PartyCasting"/>).
+        /// 단원 이름·꼬리표·말과 옷 색이 그 단으로 바뀐다. <paramref name="stockId"/>가 비면 무리를 감춘다.
+        /// </summary>
+        public void Assign(string stockId, string bandName, Color tint)
+        {
+            StockId = stockId == null ? string.Empty : stockId;
+
+            if (string.IsNullOrEmpty(StockId) == true)
+            {
+                SetVisible(false);
+                return;
+            }
+
+            var lines = new List<string>
+            {
+                StringConstants.TEXT_PARTY_LINE_1, StringConstants.TEXT_PARTY_LINE_2,
+                StringConstants.TEXT_PARTY_LINE_3, StringConstants.TEXT_PARTY_LINE_4
+            };
+
+            for (var i = 0; i < Members.Count; i++)
+            {
+                if (Members[i] == null)
+                {
+                    continue;
+                }
+
+                var npc = Members[i].GetComponent<VillageNpc>();
+
+                if (npc != null)
+                {
+                    npc.Configure(NpcRole.Role_Adventurer, string.Format(MemberTitle(i), bandName), bandName, lines);
+                }
+
+                foreach (var renderer in Members[i].GetComponentsInChildren<SpriteRenderer>(true))
+                {
+                    if (renderer.gameObject.name == BODY_RENDERER)
+                    {
+                        renderer.color = tint;
+                    }
+                }
+            }
+
+            ApplyStage();
+        }
+
+        private const string BODY_RENDERER = "Body";
+
+        // 앞사람부터 단장·궁수·방패병·짐꾼. 문구는 부를 때 상수에서 읽는다(문구 표가 덮어쓴 값).
+        private static string MemberTitle(int index)
+        {
+            switch (index % 4)
+            {
+                case 0:
+                {
+                    return StringConstants.TEXT_PARTY_MEMBER_1;
+                }
+                case 1:
+                {
+                    return StringConstants.TEXT_PARTY_MEMBER_2;
+                }
+                case 2:
+                {
+                    return StringConstants.TEXT_PARTY_MEMBER_3;
+                }
+                default:
+                {
+                    return StringConstants.TEXT_PARTY_MEMBER_4;
+                }
+            }
+        }
+
+        private void SetVisible(bool visible)
+        {
+            for (var i = 0; i < Members.Count; i++)
+            {
+                if (Members[i] != null)
+                {
+                    Members[i].gameObject.SetActive(visible);
+                }
+            }
+
+            enabled = visible;
+        }
+
+        /// <summary>
         /// 시장의 생애에 맞춰 영지에 보이거나 사라진다(상장흐름 설계안 §3).
         /// 다음 주기에 상장될 단은 지금 영지에 와 있고, 전멸·은퇴한 단은 더 보이지 않는다.
         /// 거래소를 거치지 않고 영지만 띄웠으면(시장이 없으면) 모두 보인다.

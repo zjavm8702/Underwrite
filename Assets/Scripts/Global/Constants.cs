@@ -1,3 +1,4 @@
+using Underwrite.Enumeration;
 using UnityEngine.InputSystem;
 
 namespace Underwrite.Global
@@ -95,7 +96,7 @@ namespace Underwrite.Global
         public static string TEXT_INFO_NOT_PUBLIC = "아직 시장에 공개되지 않음.";
 
         // 상장 흐름 (상장흐름 설계안 §3)
-        public static string TEXT_LISTING_ARRIVED = "{0}이(가) 영지에 도착했다. 다음 주기 상장 예정 · 예상 공모가 {1:N1}";
+        public static string TEXT_LISTING_ARRIVED = "{0}{이} 영지에 도착했다. 다음 주기 상장 예정 · 예상 공모가 {1:N1}";
         public static string TEXT_BAND_ARRIVED = "갓 도착 · 다음 주기 상장 예정";
         public static string TEXT_BAND_LISTED = "상장 중";
         public static string TEXT_BAND_HELD = "보유 {0}주";
@@ -298,6 +299,46 @@ namespace Underwrite.Global
             new[] { 0.4f, 0.5f, 0.5f },
             new[] { 0.5f, 0.4f, 0.45f }
         };
+
+        // 새 용병단(2026-10-17 사용자 결정). 상장 조건 없이 자동 상장 — 도착하고 한 주기 뒤에 오른다.
+        // 매 주기 이만큼 도착하고, 상장됐거나 도착한 단이 이만큼을 넘지 않게 한다(용사단 제외).
+        public static int BAND_ARRIVALS_PER_CYCLE = 2;
+        public static int BAND_PRESENT_MAX = 10;
+
+        // 한 단이 상장돼 머무는 주기 수(이상, 이하)
+        public static int BAND_STAY_MIN = 3;
+        public static int BAND_STAY_MAX = 6;
+
+        // 도감 묶음별 성격. 순서는 CODEX_FIXED와 같다: 신생(붉은 칼날) · 노련(참나무) · 고위험(검은 늪) · 외지 신입(파수대) · 외지 노련(등불)
+        public static readonly StockPersonality[] BAND_PROFILE_PERSONALITY =
+        {
+            StockPersonality.Personality_Rookie, StockPersonality.Personality_Veteran,
+            StockPersonality.Personality_HighRisk, StockPersonality.Personality_Rookie,
+            StockPersonality.Personality_Veteran
+        };
+
+        // 묶음별 내재가치·유동성 범위 [묶음][0=최소, 1=최대]. 처음 다섯 단의 값 언저리다.
+        public static readonly float[][] BAND_PROFILE_VALUE =
+        {
+            new[] { 35f, 55f }, new[] { 100f, 170f }, new[] { 60f, 95f }, new[] { 45f, 70f }, new[] { 130f, 190f }
+        };
+
+        public static readonly float[][] BAND_PROFILE_LIQUIDITY =
+        {
+            new[] { 50f, 90f }, new[] { 300f, 420f }, new[] { 120f, 180f }, new[] { 70f, 110f }, new[] { 260f, 360f }
+        };
+
+        // 묶음별 떠나는 사유. 고위험은 이 확률로 전멸(예고 없음), 아니면 다른 영지로 옮긴다.
+        public static readonly DelistReason[] BAND_PROFILE_DEPARTURE =
+        {
+            DelistReason.Delist_Moved, DelistReason.Delist_Retired, DelistReason.Delist_Wiped,
+            DelistReason.Delist_Moved, DelistReason.Delist_Moved
+        };
+
+        public static float BAND_WIPE_CHANCE = 0.5f;
+
+        // 영지를 걷는 파티. 한 주(이 날 수)에 한 번은 모든 단이 나오게 한다.
+        public static int PARTY_WEEK_DAYS = 7;
 
         // 여관 소문은 장 사람들도 듣는다. 주기 초에 말하는 변화의 이만큼이 기대로 먼저 붙는다.
         public static float CODEX_TAVERN_CROWD_SHARE = 0.5f;
@@ -510,7 +551,7 @@ namespace Underwrite.Global
         public static int PATRONAGE_WARNING_DAYS = 2;
 
         // 저장. 판이 바뀌어 옛 저장을 읽을 수 없게 되면 판 번호를 올린다 — 이어하기 단추가 사라진다.
-        public const int SAVE_VERSION = 1;
+        public const int SAVE_VERSION = 2;
 
         // 영지에 있는 동안 이 간격(실제 초)마다 저장한다. 대화가 끝날 때·시간을 넘길 때·나갈 때도 저장한다.
         public static float SAVE_INTERVAL_SECONDS = 30f;
