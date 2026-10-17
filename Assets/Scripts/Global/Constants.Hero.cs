@@ -105,6 +105,12 @@ namespace Underwrite.Global
 
         // ── 거래소의 용사단 종목 ──────────────────
         public static string TEXT_HERO_STOCK_NAME = "용사단 (지수)";
+
+        // ── 시나리오 붕괴 (상장흐름 설계안 §1-5 — 게임이 더 진행되지 않는다) ──
+        public static string TEXT_COLLAPSE_TAG = "시나리오 붕괴";
+        public static string TEXT_COLLAPSE_1 = "그 뒤로 용사단은 여관에 오지 않았다.";
+        public static string TEXT_COLLAPSE_2 = "10년 뒤 그 자리에 설 사람이 없다. 화면 속에서 본 멸망이, 이번에는 끝까지 갈 것이다.";
+        public static string TEXT_COLLAPSE_3 = "…다시, 처음부터.";
         public static string TEXT_HERO_STOCK_COLLAPSE = "용사단 종목이 무너졌다. {0}주를 주당 {1:N1}에 청산했습니다.";
         public static string TEXT_HERO_STOCK_COLLAPSE_NONE = "용사단 종목이 무너졌다. 지하세계가 술렁인다.";
 

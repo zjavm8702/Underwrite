@@ -859,6 +859,21 @@ namespace Underwrite.UI
                 StringConstants.TEXT_DAY_END_TAG, body);
             line.Note = string.Format(StringConstants.TEXT_DAY_END_NEXT, Constants.MARKET_MORNING_START_HOUR);
 
+            // 시나리오가 깨졌으면 더 진행하지 않는다(설계안 §1-5). 처음(인트로)으로 돌아간다.
+            if (failed > 0)
+            {
+                var ending = new List<DialogueLine>
+                {
+                    line,
+                    new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_1),
+                    new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_2),
+                    new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_3)
+                };
+
+                Dialogue.Play(ending, () => SceneManager.LoadScene(SceneRoutes.INTRO));
+                return;
+            }
+
             Dialogue.Play(new List<DialogueLine> { line }, () => SceneManager.LoadScene(SceneRoutes.MARKET));
         }
 
