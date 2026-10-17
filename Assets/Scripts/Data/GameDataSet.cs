@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Underwrite.Enumeration;
 using UnityEngine;
 
 namespace Underwrite.Data
@@ -15,6 +17,16 @@ namespace Underwrite.Data
         [SerializeField] private StockTable Stocks;
         [SerializeField] private EventTable Events;
         [SerializeField] private UITextTable Texts;
+
+        [Tooltip("소식을 전하는 주민의 표정 묶음. 순서는 InfoSource와 같다(여관·길드·서신·게시판·중개·대장간).")]
+        [SerializeField] private List<PortraitSet> FolkFaces = new List<PortraitSet>();
+
+        /// <summary>그 출처의 소식을 전하는 주민의 얼굴. 없으면 null.</summary>
+        public PortraitSet FolkFaceOf(InfoSource source)
+        {
+            var index = (int)source;
+            return index >= 0 && index < FolkFaces.Count ? FolkFaces[index] : null;
+        }
 
         public StockTable StockRows
         {

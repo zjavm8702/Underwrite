@@ -18,3 +18,10 @@ MonoBehaviour:
   Stocks: {fileID: 11400000, guid: c36365763f91a9540938ed72cddd69f7, type: 2}
   Events: {fileID: 11400000, guid: 8ba6342276754464092edd86fe1abda8, type: 2}
   Texts: {fileID: 11400000, guid: a40e1bc3d38402840b38bd2d33b909a0, type: 2}
+  FolkFaces:
+  - {fileID: 11400000, guid: 8fccf8465d995d54d821f6b99e0907e4, type: 2}
+  - {fileID: 11400000, guid: f032458e3e9892e478fd916127c14213, type: 2}
+  - {fileID: 11400000, guid: f83c89ff70a759749aa26e9c45363f3a, type: 2}
+  - {fileID: 11400000, guid: bb94b7dd33a94b04289daa78ea46dac6, type: 2}
+  - {fileID: 11400000, guid: bb94b7dd33a94b04289daa78ea46dac6, type: 2}
+  - {fileID: 11400000, guid: 2de0fba047e2cf948b875049bac7e2f7, type: 2}

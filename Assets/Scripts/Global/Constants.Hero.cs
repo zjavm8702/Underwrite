@@ -1,7 +1,7 @@
 namespace Underwrite.Global
 {
     /// <summary>
-    /// 용사단 대사. 이름이 정해지지 않아 역할 이름을 임시로 쓴다(2026-10-17).
+    /// 용사단 대사. 이름은 임시다(2026-10-17 사용자 요청으로 임시 이름을 붙였다. 확정되면 여기만 바꾼다).
     /// 연기 방향은 기획서 §17을 따른다. 양이 많아 영역별 partial로 나눴다(코드 규칙 §7-2).
     ///
     /// 순서는 학자 · 검사 · 마도사 · 전사 · 요정이다. <c>HERO_*</c> 배열은 모두 이 순서를 지킨다.
@@ -9,9 +9,10 @@ namespace Underwrite.Global
     public static partial class StringConstants
     {
         // ── 사람 ─────────────────────────────────
+        // 임시 이름. 학자 · 검사 · 마도사(엘프) · 전사 · 요정 순
         public static readonly string[] HERO_NAMES =
         {
-            "안경 쓴 학자", "흑발의 검사", "보라 머리 마도사", "은갑 전사", "나방 날개 요정"
+            "에드윈", "카이라", "엘라리아", "고드릭", "피오"
         };
 
         public static readonly string[] HERO_ROLES =
@@ -19,8 +20,11 @@ namespace Underwrite.Global
             "용사단 · 기록과 작전", "용사단 · 선봉", "용사단 · 마도사", "용사단 · 방패", "용사단 · 치유사"
         };
 
-        /// <summary>표정 묶음 자산 이름. Assets/Data/Portraits/{이름}.asset.</summary>
-        public static readonly string[] HERO_FACE_ASSETS = { "scholar", "sella", "elf", "brann", "fairy" };
+        /// <summary>
+        /// 표정 묶음 자산 이름. Assets/Data/Portraits/{이름}.asset.
+        /// 용병단 종목 이름(셀라·브란)과 겹치지 않게 역할로 짓는다.
+        /// </summary>
+        public static readonly string[] HERO_FACE_ASSETS = { "scholar", "sword", "elf", "warrior", "fairy" };
 
         // ── 여관 테이블에서 말을 걸 때 ───────────
         public static readonly string[] HERO_GREET =

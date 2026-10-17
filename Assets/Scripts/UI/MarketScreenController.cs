@@ -2406,8 +2406,9 @@ namespace Underwrite.UI
                     ? stock.DisplayName
                     : entry.StockId;
 
-                var line = new DialogueLine(name,
-                    $"{SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일째 {session}"
+                // 말하는 이는 거래소를 운영하는 조직의 정보원이다. 어느 단의 소식인지는 꼬리표에 적는다(2026-10-17 사용자 결정).
+                var line = new DialogueLine(InfoPeople.Informant(entry.Source),
+                    $"{name} · {SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일째 {session}"
                     + $" {ClockText.FromSeconds(Sim.Clock.ClockTotalSeconds, false)}",
                     entry.Headline);
 
@@ -2418,7 +2419,7 @@ namespace Underwrite.UI
                     line.Badge = string.Format(StringConstants.TEXT_HELD_NOTE, held);
                 }
 
-                line.Portrait = PortraitOf(entry.StockId, EmotionOf(entry));
+                line.Portrait = InfoPeople.Face(Data, entry.Source, EmotionOf(entry));
                 line.Emotion = EmotionOf(entry);
                 line.IsSecret = entry.IsPublic == false;
                 line.Note = entry.IsPublic == true
@@ -2457,39 +2458,6 @@ namespace Underwrite.UI
                 || Sim.Sentiment == MarketSentiment.Sentiment_Drained;
 
             return grim == true ? "dialogue-root--underworld-dim" : "dialogue-root--underworld";
-        }
-
-        /// <summary>표정 묶음이 있으면 그쪽이 먼저다. 없으면 한 장짜리 그림으로 내려간다.</summary>
-        private Sprite PortraitOf(string stockId, PortraitEmotion emotion)
-        {
-            if (Data == null || Data.StockRows == null)
-            {
-                return null;
-            }
-
-            var rows = Data.StockRows.Rows;
-
-            for (var i = 0; i < rows.Count; i++)
-            {
-                if (rows[i].Id != stockId)
-                {
-                    continue;
-                }
-
-                if (rows[i].Portraits != null)
-                {
-                    var face = rows[i].Portraits.Get(emotion);
-
-                    if (face != null)
-                    {
-                        return face;
-                    }
-                }
-
-                return rows[i].Portrait;
-            }
-
-            return null;
         }
 
         private void RefreshInfo()

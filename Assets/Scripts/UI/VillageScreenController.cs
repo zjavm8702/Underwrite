@@ -628,7 +628,7 @@ namespace Underwrite.UI
 
             choices.Add(new DialogueChoice(StringConstants.TEXT_GATHER_LEAVE, null));
 
-            var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name,
+            var line = OwnerLine(spot,
                 again == true ? StringConstants.TEXT_GATHER_ASK_AGAIN : StringConstants.TEXT_GATHER_ASK);
             line.Choices = choices;
 
@@ -660,7 +660,7 @@ namespace Underwrite.UI
         {
             StoryProgress.CellarFound = true;
 
-            var owner = SpeakerOf(spot.InfoSource);
+            var owner = InfoPeople.Speaker(spot.InfoSource);
             var lines = new List<DialogueLine>
             {
                 new DialogueLine(owner, StringConstants.TEXT_DISCOVER_TAG, StringConstants.TEXT_DISCOVER_OWNER),
@@ -1145,7 +1145,7 @@ namespace Underwrite.UI
             GatherSession.Record(0f, quest.Reward, note);
 
             var minutes = Clock == null ? 0 : Clock.BreakMinutesLeft;
-            var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
+            var line = OwnerLine(spot, text);
             line.IsSecret = note != null;
             line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, quest.Reward, minutes / 60, minutes % 60);
             var held = rumorStock == null ? null : HeldNote(rumorStock);
@@ -1806,7 +1806,7 @@ namespace Underwrite.UI
 
             if (HasTime() == false)
             {
-                Say(spot, "다음 장이 코앞입니다. 지금 가면 개장을 놓칩니다.", null, false);
+                Say(spot, "다음 장이 코앞입니다. 지금 가면 개장을 놓칩니다.", false);
                 return;
             }
 
@@ -1816,7 +1816,7 @@ namespace Underwrite.UI
             {
                 SpendTime(spot);
                 GatherSession.Record(spot.Price, 0f, null);
-                Say(spot, "아직 돌고 있는 이야기가 없습니다.", null, false, null, ScoutBand(spot));
+                Say(spot, "아직 돌고 있는 이야기가 없습니다.", false, null, ScoutBand(spot));
                 return;
             }
 
@@ -1871,7 +1871,7 @@ namespace Underwrite.UI
 
             SpendTime(spot);
             GatherSession.Record(spot.Price, 0f, note);
-            Say(spot, body, PortraitOf(pick.StockId), note != null, HeldNote(pick.StockId), ScoutBand(spot));
+            Say(spot, body, note != null, HeldNote(pick.StockId), ScoutBand(spot));
         }
 
         /// <summary>
@@ -1938,11 +1938,9 @@ namespace Underwrite.UI
         /// <summary>
         /// 자리의 주인이 말한다. 묻는 쪽은 플레이어이므로 말하는 이는 늘 그 자리의 사람이다.
         /// </summary>
-        private void Say(VillageSpot spot, string text, Sprite portrait, bool secret, string heldNote = null,
-            string scouted = null)
+        private void Say(VillageSpot spot, string text, bool secret, string heldNote = null, string scouted = null)
         {
-            var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
-            line.Portrait = portrait;
+            var line = OwnerLine(spot, text);
             line.IsSecret = secret;
             // 가진 종목의 소문이면 이름 옆에 붉은 배지를 붙인다. 작은 글씨 안내로는 놓친다(2026-10-17 사용자 요청).
             line.Badge = heldNote;
@@ -1952,7 +1950,7 @@ namespace Underwrite.UI
 
             if (scouted != null)
             {
-                lines.Add(new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, scouted));
+                lines.Add(OwnerLine(spot, scouted));
             }
 
             Dialogue.Play(lines, secret == true
@@ -1991,31 +1989,14 @@ namespace Underwrite.UI
             return spent + "시장은 아직 모르는 이야기입니다. " + left;
         }
 
-        private static string SpeakerOf(InfoSource source)
+        /// <summary>
+        /// 자리의 주인이 하는 말. 이름과 얼굴은 그 자리의 소식을 전하는 주민이다 — 지하 정보 타임에도 같은 사람이 나온다.
+        /// </summary>
+        private DialogueLine OwnerLine(VillageSpot spot, string text)
         {
-            switch (source)
-            {
-                case InfoSource.Source_GuildRecord:
-                {
-                    return "기록 담당";
-                }
-                case InfoSource.Source_MarketBoard:
-                {
-                    return "게시판";
-                }
-                case InfoSource.Source_SmithOrder:
-                {
-                    return "대장장이";
-                }
-                case InfoSource.Source_PrivateLetter:
-                {
-                    return "영주관 집사";
-                }
-                default:
-                {
-                    return "여관 주인";
-                }
-            }
+            var line = new DialogueLine(InfoPeople.Speaker(spot.InfoSource), spot.Name, text);
+            line.Portrait = InfoPeople.Face(Data, spot.InfoSource, PortraitEmotion.Emotion_Neutral);
+            return line;
         }
 
         private static string BackgroundOf(InfoSource source)
@@ -2043,26 +2024,6 @@ namespace Underwrite.UI
                     return "dialogue-root--tavern";
                 }
             }
-        }
-
-        private Sprite PortraitOf(string stockId)
-        {
-            if (Data == null || Data.StockRows == null)
-            {
-                return null;
-            }
-
-            var rows = Data.StockRows.Rows;
-
-            for (var i = 0; i < rows.Count; i++)
-            {
-                if (rows[i].Id == stockId)
-                {
-                    return rows[i].Portrait;
-                }
-            }
-
-            return null;
         }
 
         /// <summary>다음 정보 타임에 들어올 소식. 그것을 미리 캐는 것이 조사다.</summary>

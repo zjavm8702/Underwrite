@@ -178,6 +178,17 @@ namespace Underwrite.Global
         public static string TEXT_VILLAGE_INSPECTION_TODAY = "오늘은 영주 시찰일 · 지하시장이 닫혔다";
         public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
         public static string TEXT_DAY_COUNT = "{0}일째";
+
+        // 소식을 전하는 사람. 지하거래소는 「검은 장부」라는 조직이 운영하고, 영지에서 정보를 파는 이들이 그 정보원이다
+        // (2026-10-17 사용자 결정, 이름은 임시). 영지에서는 직함으로, 지하 정보 타임에서는 정보원으로 나온다.
+        // 순서는 InfoSource와 같다: 여관 소문 · 길드 기록 · 서신 · 게시판 · 중개 귀띔 · 대장간
+        public static string TEXT_FOLK_INNKEEPER = "여관 주인";
+        public static string TEXT_FOLK_ARCHIVIST = "기록 담당";
+        public static string TEXT_FOLK_STEWARD = "영주관 집사";
+        public static string TEXT_FOLK_BROKER = "게시판 앞 중개인";
+        public static string TEXT_FOLK_SMITH = "대장장이";
+        public static string TEXT_LEDGER_NAME = "검은 장부";
+        public static string TEXT_LEDGER_INFORMANT = "{0} 정보원 · {1}";
         public static string TEXT_VILLAGE_NEXT_SESSION = "다음 장까지 {0}시간 {1}분";
         public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";
         public static string TEXT_DAY_END_COLLAPSE = "용사단이 의뢰를 접고 흩어졌다는 소식이 돌았다. 10년 뒤 그 자리에 설 사람이 없다.";

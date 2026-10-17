@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a6aa7aba1a6a354ea3da3a1fe62f5a0, type: 3}
-  m_Name: band_lantern
+  m_Name: folk_archivist
   m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.PortraitSet
   Fallback: {fileID: 0}
   Faces:
   - Emotion: 0
-    Sprite: {fileID: 21300000, guid: 7a28b3b8e9c727143afd6ab1f9b7208f, type: 3}
+    Sprite: {fileID: 21300000, guid: b2c31eb4068d96f47b63b2d2898f3406, type: 3}
   - Emotion: 1
-    Sprite: {fileID: 21300000, guid: b504693d2f6e3754fb28898f42d5a1dd, type: 3}
+    Sprite: {fileID: 21300000, guid: 5e809375a4af3f04a8d9aa9c62da3e0d, type: 3}
   - Emotion: 2
-    Sprite: {fileID: 21300000, guid: b337516db72c7704c9707ca2c2f3e7ee, type: 3}
+    Sprite: {fileID: 21300000, guid: cb877c54d007ef142ad6ce43a9d4c976, type: 3}
   - Emotion: 4
-    Sprite: {fileID: 21300000, guid: 7af559cd88fad304bab2c5a8a279c8f2, type: 3}
+    Sprite: {fileID: 21300000, guid: 6c146a344e5565a43a642240b4f7b33f, type: 3}

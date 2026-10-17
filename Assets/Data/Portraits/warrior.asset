@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a6aa7aba1a6a354ea3da3a1fe62f5a0, type: 3}
-  m_Name: brann
+  m_Name: warrior
   m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.PortraitSet
   Fallback: {fileID: 21300000, guid: 0b98e1f5ebc280740aa0e9e4f3b3e9d4, type: 3}
   Faces:
