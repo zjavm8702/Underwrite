@@ -344,6 +344,8 @@ namespace Underwrite.UI
             // 보고는 틱과 무관하게 연다. 틱이 멈춘 뒤에 걸려 있으면 영영 안 열린다.
             if (Sim.HasBriefing == true && SceneIndex < 0)
             {
+                // 정보 타임이 오면 1배로 돌린다. 빠르게 흘리다 소식이 지나가면 반응할 틈이 없다.
+                Sim.Clock.SetSpeedScale(1f);
                 OpenScene();
             }
 
@@ -541,6 +543,7 @@ namespace Underwrite.UI
             Click("pause-button", () => Sim.Clock.SetPaused(Sim.Clock.IsPaused == false));
             Click("speed-1", () => Sim.Clock.SetSpeedScale(1f));
             Click("speed-4", () => Sim.Clock.SetSpeedScale(4f));
+            Click("speed-cycle", CycleSpeed);
             Click("skip-button", SkipOrOpen);
             Click("place-button", () => Sim.PlayerAtMarket = Sim.PlayerAtMarket == false);
             Click("village-button", GoToVillage);
@@ -852,6 +855,16 @@ namespace Underwrite.UI
             skip.text = string.Format(StringConstants.TEXT_SESSION_END, SessionName(Sim.Clock.Session));
         }
 
+        /// <summary>
+        /// 배속을 돌린다. 1배 → 2배 → 4배 → 1배. 한 장이 약 18분 → 9분 → 4분 30초가 된다.
+        /// 장중에 영지를 돌아다니는 대신 고른 방법이다(2026-10-17). 두 시간 축(장 압축 / 영지 1:1)을 섞지 않는다.
+        /// </summary>
+        private void CycleSpeed()
+        {
+            var next = Sim.Clock.SpeedScale >= 4f ? 1f : Sim.Clock.SpeedScale * 2f;
+            Sim.Clock.SetSpeedScale(next);
+        }
+
         private static string SessionName(MarketSession session)
         {
             return session == MarketSession.Session_Evening
@@ -1160,6 +1173,8 @@ namespace Underwrite.UI
                 place.text = Sim.PlayerAtMarket == true ? "지하시장에 있음" : "영지 이동 중";
             }
 
+            SetButtonText("speed-cycle", string.Format(StringConstants.TEXT_SPEED, Mathf.RoundToInt(Sim.Clock.SpeedScale)));
+            Select("speed-cycle", Sim.Clock.SpeedScale > 1f);
             Select("speed-1", Mathf.Approximately(Sim.Clock.SpeedScale, 1f));
             Select("speed-4", Mathf.Approximately(Sim.Clock.SpeedScale, 4f));
             RefreshSkipButton();

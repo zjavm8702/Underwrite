@@ -1,0 +1,37 @@
+[
+  {
+    "name": "face_elf_angry.png",
+    "png": "32b79b1f0b267a7a64c2b7b69b0cea0a19fdc5379f09a39c4b836d4bf0d5e533",
+    "meta": "7e638c9ff88a4bad7b1192eb857dcaf01293e2a6fe84df2660ea4b447b3de8c4"
+  },
+  {
+    "name": "face_elf_anxious.png",
+    "png": "4aeae5637544e7d452e17b938a5774a029d3a89d8c1a463e7fd9f29820f5a038",
+    "meta": "ddfe9d631a144000bfbe8f668597e5ceb3343c358b4594d00dea17ad88b43a86"
+  },
+  {
+    "name": "face_elf_happy.png",
+    "png": "73c8b57ab32c3afc1d0bd0d4fbaac1b7663b9deaff948d4d40d24a4aafa02f2c",
+    "meta": "15d532a6502d6ab5d1671c6aa5203c05ba748e262b2e06f2bef5f09b04acf3a5"
+  },
+  {
+    "name": "face_elf_neutral.png",
+    "png": "1e7343d9adaa4aebf974ff9866ddc51a252b872052abee6e45774c39773663cf",
+    "meta": "d9ca0757bdfca8e81dc90f6b1809157eb235e5324b6f55b6e7dbd48416723532"
+  },
+  {
+    "name": "face_elf_relieved.png",
+    "png": "802c4d11681ea396b346e13b85424aaf95e90d649863fbeea25f8d7c54983fa0",
+    "meta": "db631356224f88423cc6c8d595a62fa0e452c48a81ef8cbf03cf84d0dcff93ee"
+  },
+  {
+    "name": "face_elf_sad.png",
+    "png": "be37a45d8a80b744f658b133ffac982cea279614ac2490723d40e531b8f903cd",
+    "meta": "c4a58e767894cf8e89475582f7f7b85144abbdfb4b266efba78fb96e88d73768"
+  },
+  {
+    "name": "face_elf_shocked.png",
+    "png": "606b60eac43e6bea454f3f8e200cc8ffd0ba11cc886e5afcd6743f048833c9b1",
+    "meta": "bb9f3afd4ebaf440ed35dc1df6d3dabd93ab83d317a8d951ece58a5f845ca8d0"
+  }
+]

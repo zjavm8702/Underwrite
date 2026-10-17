@@ -56,6 +56,7 @@ namespace Underwrite.Global
         public static string TEXT_SESSION_END = "{0} 끝내기";
         public static string TEXT_SESSION_OPEN_NEXT = "{0} 열기";
         public static string TEXT_LEAVE_MARKET = "지하시장 나가기";
+        public static string TEXT_SPEED = "{0}배";
         public static string TEXT_SESSION_SKIPPED = "장을 넘겼습니다. 소식 {0}건.";
         public static string TEXT_SESSION_SKIPPED_FILLED = "장을 넘겼습니다. 소식 {0}건, 지정가 체결 {1}건.";
         public static string TEXT_AUTO_PAUSED = "결과가 확정되어 자동 정지했습니다.";

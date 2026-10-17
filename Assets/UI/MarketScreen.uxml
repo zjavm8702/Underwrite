@@ -26,6 +26,8 @@
                 <ui:Button name="pause-button" text="일시정지" class="btn hidden" />
                 <ui:Button name="speed-1" text="1배" class="btn btn--small hidden" />
                 <ui:Button name="speed-4" text="4배" class="btn btn--small hidden" />
+                <!-- 배속은 단추 하나. 누를 때마다 1배 → 2배 → 4배 → 1배. 2026-10-17 사용자 결정. -->
+                <ui:Button name="speed-cycle" text="1배" class="btn speed-cycle" />
                 <ui:Button name="skip-button" text="오전장 끝내기" class="btn" />
                 <ui:Button name="place-button" text="지하시장에 있음" class="btn hidden" />
                 <ui:Button name="village-button" text="지하시장 나가기" class="btn" />

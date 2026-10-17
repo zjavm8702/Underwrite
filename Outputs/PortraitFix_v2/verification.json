@@ -1,0 +1,350 @@
+{
+  "time": "2026-10-17T07:47:00.287Z",
+  "files": [
+    {
+      "name": "face_elf_angry.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "rgba": true,
+      "alphaComponents": 1,
+      "componentSizes": [
+        441775
+      ],
+      "hiddenRGB": 0,
+      "alpha1to31": 0,
+      "canvasContactPixels": 0,
+      "alphaBBox": [
+        33,
+        66,
+        790,
+        856
+      ],
+      "headTop": 66,
+      "changedPixels": 2289,
+      "outsideNoseChangedPixels": 0,
+      "alphaChangedPixels": 0,
+      "nosePatchMismatchPixels": 0,
+      "protectedGoldChangedPixels": 0,
+      "eyeChangedPixels": 0,
+      "spriteMode": 1,
+      "effectiveSpriteRect": [
+        0,
+        0,
+        820,
+        1080
+      ],
+      "outsideSpriteRectAlpha32": 0,
+      "boundaryExcess": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        410,
+        540
+      ],
+      "ppu": 100,
+      "pngSHA256": "be85ec82f2364e891c6178f5800c5283408346e46a7fd808614a50a1ec81e8cb"
+    },
+    {
+      "name": "face_elf_anxious.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "rgba": true,
+      "alphaComponents": 1,
+      "componentSizes": [
+        441775
+      ],
+      "hiddenRGB": 0,
+      "alpha1to31": 0,
+      "canvasContactPixels": 0,
+      "alphaBBox": [
+        33,
+        66,
+        790,
+        856
+      ],
+      "headTop": 66,
+      "changedPixels": 2289,
+      "outsideNoseChangedPixels": 0,
+      "alphaChangedPixels": 0,
+      "nosePatchMismatchPixels": 0,
+      "protectedGoldChangedPixels": 0,
+      "eyeChangedPixels": 0,
+      "spriteMode": 1,
+      "effectiveSpriteRect": [
+        0,
+        0,
+        820,
+        1080
+      ],
+      "outsideSpriteRectAlpha32": 0,
+      "boundaryExcess": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        410,
+        540
+      ],
+      "ppu": 100,
+      "pngSHA256": "25a928ac0b90d19956331f6dd459805b7a1885ede7544ef9e37c766f90377cd8"
+    },
+    {
+      "name": "face_elf_happy.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "rgba": true,
+      "alphaComponents": 1,
+      "componentSizes": [
+        441775
+      ],
+      "hiddenRGB": 0,
+      "alpha1to31": 0,
+      "canvasContactPixels": 0,
+      "alphaBBox": [
+        33,
+        66,
+        790,
+        856
+      ],
+      "headTop": 66,
+      "changedPixels": 2287,
+      "outsideNoseChangedPixels": 0,
+      "alphaChangedPixels": 0,
+      "nosePatchMismatchPixels": 0,
+      "protectedGoldChangedPixels": 0,
+      "eyeChangedPixels": 0,
+      "spriteMode": 1,
+      "effectiveSpriteRect": [
+        0,
+        0,
+        820,
+        1080
+      ],
+      "outsideSpriteRectAlpha32": 0,
+      "boundaryExcess": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        410,
+        540
+      ],
+      "ppu": 100,
+      "pngSHA256": "8ad7511030e78f06105e814fc5341d5a3398fcc63e6972a9ec2021e8ed74d3d4"
+    },
+    {
+      "name": "face_elf_neutral.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "rgba": true,
+      "alphaComponents": 1,
+      "componentSizes": [
+        441775
+      ],
+      "hiddenRGB": 0,
+      "alpha1to31": 0,
+      "canvasContactPixels": 0,
+      "alphaBBox": [
+        33,
+        66,
+        790,
+        856
+      ],
+      "headTop": 66,
+      "changedPixels": 2221,
+      "outsideNoseChangedPixels": 0,
+      "alphaChangedPixels": 0,
+      "nosePatchMismatchPixels": 0,
+      "protectedGoldChangedPixels": 0,
+      "eyeChangedPixels": 0,
+      "spriteMode": 1,
+      "effectiveSpriteRect": [
+        0,
+        0,
+        820,
+        1080
+      ],
+      "outsideSpriteRectAlpha32": 0,
+      "boundaryExcess": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        410,
+        540
+      ],
+      "ppu": 100,
+      "pngSHA256": "344840cd76fe73f2cacccd922fb4ccc05bbcfea260350eca8fefa2b7001d98e1"
+    },
+    {
+      "name": "face_elf_relieved.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "rgba": true,
+      "alphaComponents": 1,
+      "componentSizes": [
+        441775
+      ],
+      "hiddenRGB": 0,
+      "alpha1to31": 0,
+      "canvasContactPixels": 0,
+      "alphaBBox": [
+        33,
+        66,
+        790,
+        856
+      ],
+      "headTop": 66,
+      "changedPixels": 2292,
+      "outsideNoseChangedPixels": 0,
+      "alphaChangedPixels": 0,
+      "nosePatchMismatchPixels": 0,
+      "protectedGoldChangedPixels": 0,
+      "eyeChangedPixels": 0,
+      "spriteMode": 1,
+      "effectiveSpriteRect": [
+        0,
+        0,
+        820,
+        1080
+      ],
+      "outsideSpriteRectAlpha32": 0,
+      "boundaryExcess": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        410,
+        540
+      ],
+      "ppu": 100,
+      "pngSHA256": "dd440907df06cec6bf758e96cfed27db6ed81f3e47a00099cb850e123d692b09"
+    },
+    {
+      "name": "face_elf_sad.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "rgba": true,
+      "alphaComponents": 1,
+      "componentSizes": [
+        441775
+      ],
+      "hiddenRGB": 0,
+      "alpha1to31": 0,
+      "canvasContactPixels": 0,
+      "alphaBBox": [
+        33,
+        66,
+        790,
+        856
+      ],
+      "headTop": 66,
+      "changedPixels": 2294,
+      "outsideNoseChangedPixels": 0,
+      "alphaChangedPixels": 0,
+      "nosePatchMismatchPixels": 0,
+      "protectedGoldChangedPixels": 0,
+      "eyeChangedPixels": 0,
+      "spriteMode": 1,
+      "effectiveSpriteRect": [
+        0,
+        0,
+        820,
+        1080
+      ],
+      "outsideSpriteRectAlpha32": 0,
+      "boundaryExcess": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        410,
+        540
+      ],
+      "ppu": 100,
+      "pngSHA256": "ad613f18a0fa16e157602b7f43c9f18a6e268995f1cafb80b6e736f498f48dc1"
+    },
+    {
+      "name": "face_elf_shocked.png",
+      "dimensions": [
+        820,
+        1080
+      ],
+      "rgba": true,
+      "alphaComponents": 1,
+      "componentSizes": [
+        441775
+      ],
+      "hiddenRGB": 0,
+      "alpha1to31": 0,
+      "canvasContactPixels": 0,
+      "alphaBBox": [
+        33,
+        66,
+        790,
+        856
+      ],
+      "headTop": 66,
+      "changedPixels": 2294,
+      "outsideNoseChangedPixels": 0,
+      "alphaChangedPixels": 0,
+      "nosePatchMismatchPixels": 0,
+      "protectedGoldChangedPixels": 0,
+      "eyeChangedPixels": 0,
+      "spriteMode": 1,
+      "effectiveSpriteRect": [
+        0,
+        0,
+        820,
+        1080
+      ],
+      "outsideSpriteRectAlpha32": 0,
+      "boundaryExcess": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        410,
+        540
+      ],
+      "ppu": 100,
+      "pngSHA256": "6b2fa244c0fa226de8a9b9b830074c78f22c27e30fc0faeeefde6a11c37d8624"
+    }
+  ],
+  "metaChecked": 35,
+  "metaChanged": [],
+  "unrelatedPNGChanged": [],
+  "bboxDeviation": 0,
+  "headTopDeviation": 0,
+  "eyePositions": "existing pixels unchanged, 0 changed pixels",
+  "portraitCount": 7,
+  "animation": "not applicable: seven static expressions; Unity playback not performed; no duration assigned",
+  "approval": "draft awaiting visual acceptance"
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "path": "Assets/UI/Images/Faces/face_elf_angry.png",
+    "backup": "before/face_elf_angry.png",
+    "output": "final/face_elf_angry.png"
+  },
+  {
+    "path": "Assets/UI/Images/Faces/face_elf_anxious.png",
+    "backup": "before/face_elf_anxious.png",
+    "output": "final/face_elf_anxious.png"
+  },
+  {
+    "path": "Assets/UI/Images/Faces/face_elf_happy.png",
+    "backup": "before/face_elf_happy.png",
+    "output": "final/face_elf_happy.png"
+  },
+  {
+    "path": "Assets/UI/Images/Faces/face_elf_neutral.png",
+    "backup": "before/face_elf_neutral.png",
+    "output": "final/face_elf_neutral.png"
+  },
+  {
+    "path": "Assets/UI/Images/Faces/face_elf_relieved.png",
+    "backup": "before/face_elf_relieved.png",
+    "output": "final/face_elf_relieved.png"
+  },
+  {
+    "path": "Assets/UI/Images/Faces/face_elf_sad.png",
+    "backup": "before/face_elf_sad.png",
+    "output": "final/face_elf_sad.png"
+  },
+  {
+    "path": "Assets/UI/Images/Faces/face_elf_shocked.png",
+    "backup": "before/face_elf_shocked.png",
+    "output": "final/face_elf_shocked.png"
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "polygon": [
+    [
+      504,
+      339
+    ],
+    [
+      521,
+      338
+    ],
+    [
+      535,
+      345
+    ],
+    [
+      548,
+      359
+    ],
+    [
+      545,
+      380
+    ],
+    [
+      534,
+      394
+    ],
+    [
+      512,
+      394
+    ],
+    [
+      495,
+      384
+    ],
+    [
+      495,
+      362
+    ]
+  ],
+  "featherPixels": 3,
+  "protectedGold": "v1 gold color test R>1.1G G>1.25B B<155, restricted to y<349 or x>540+(y-355)*.95, dilated1px",
+  "sourceCrop": [
+    350,
+    240,
+    280,
+    220
+  ],
+  "sourceNoseMapping": "sourceY=337+(targetY-337)/0.82; bilinear resampling of generated art only",
+  "purpose": "raise generated tip to increase unchanged-mouth philtrum; preserve original gold and original alpha",
+  "protectedEyeRectangles": [
+    [
+      407,
+      292,
+      448,
+      322
+    ],
+    [
+      541,
+      328,
+      579,
+      355
+    ]
+  ]
+}
