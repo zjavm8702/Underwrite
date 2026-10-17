@@ -16,4 +16,20 @@ namespace Underwrite.Enumeration
         Emotion_Sad,
         Emotion_Relieved
     }
+
+    /// <summary>용사 이야기 주제가 열리는 조건. 호감과 별개로, 그 일이 있은 뒤에만 나오는 주제가 있다.</summary>
+    public enum TopicGate
+    {
+        /// <summary>호감만 보면 된다.</summary>
+        Gate_None,
+
+        /// <summary>시찰일을 함께 보낸 뒤.</summary>
+        Gate_DayOff,
+
+        /// <summary>귀환했고 치료비 의뢰가 닿았을 때.</summary>
+        Gate_Healed,
+
+        /// <summary>귀환했고 학자가 의뢰주를 의심하기 시작했을 때.</summary>
+        Gate_Suspect
+    }
 }

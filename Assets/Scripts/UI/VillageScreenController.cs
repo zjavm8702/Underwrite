@@ -698,6 +698,14 @@ namespace Underwrite.UI
 
             hero.LastTalkDay = Today();
 
+            var topic = HeroTopics.Next(hero);
+
+            if (topic != null)
+            {
+                TalkAbout(hero, topic);
+                return;
+            }
+
             var greet = HeroLine(hero, StringConstants.HERO_GREET[hero.FaceIndex], PortraitEmotion.Emotion_Neutral);
             greet.Choices = new List<DialogueChoice>
             {
@@ -710,6 +718,26 @@ namespace Underwrite.UI
             };
 
             Dialogue.Play(new List<DialogueLine> { greet }, null);
+        }
+
+        /// <summary>
+        /// 용사가 이야기를 꺼낸다. 주인공은 대답을 고른다. 반응부터는 평소 대화와 같다(호감·몸짓·현장 이야기).
+        /// </summary>
+        private void TalkAbout(HeroProfile hero, HeroTopic topic)
+        {
+            hero.TopicsSeen.Add(topic.Id);
+
+            var opening = HeroLine(hero, topic.Opening, topic.OpeningEmotion);
+            opening.Choices = new List<DialogueChoice>();
+
+            for (var i = 0; i < topic.Replies.Length; i++)
+            {
+                var reply = topic.Replies[i];
+                opening.Choices.Add(new DialogueChoice(reply.Text,
+                    () => ReactToHero(hero, reply.Affinity, reply.Answer, reply.AnswerEmotion)));
+            }
+
+            Dialogue.Play(new List<DialogueLine> { opening }, null);
         }
 
         /// <summary>
@@ -806,7 +834,7 @@ namespace Underwrite.UI
             {
                 lines[0].Text = StringConstants.TEXT_RETURN_COLLAPSE;
             }
-            else if (PatronageLedger.IsMet("need_healer") == true)
+            else if (PatronageLedger.IsMet(StringConstants.NEED_HEALER_ID) == true)
             {
                 lines.Add(HeroLine(heroes[3], StringConstants.TEXT_RETURN_GOOD, PortraitEmotion.Emotion_Happy));
             }
@@ -815,7 +843,7 @@ namespace Underwrite.UI
                 lines.Add(HeroLine(heroes[4], StringConstants.TEXT_RETURN_HURT, PortraitEmotion.Emotion_Sad));
             }
 
-            if (PatronageLedger.Collapsed == false && PatronageLedger.Clues >= 2)
+            if (PatronageLedger.Collapsed == false && PatronageLedger.Clues >= Constants.HERO_SUSPECT_CLUES)
             {
                 lines.Add(HeroLine(heroes[0], StringConstants.TEXT_RETURN_SUSPECT, PortraitEmotion.Emotion_Shocked));
             }

@@ -18,6 +18,9 @@ namespace Underwrite.Global
     {
         // Animator 계약. 아트 문서와 Controller에 묶여 있다.
         public const string ANIM_PARAM_DIRECTION_X = "DirectionX";
+
+        // 용사단 사정의 열쇠. 귀환 장면과 이야기 주제가 이 사정이 풀렸는지를 본다.
+        public const string NEED_HEALER_ID = "need_healer";
         public const string ANIM_PARAM_DIRECTION_Y = "DirectionY";
         public const string ANIM_PARAM_SPEED = "Speed";
 
@@ -455,6 +458,14 @@ namespace Underwrite.Global
         public static int HERO_TALK_MINUTES = 60;
         /// <summary>이만큼 친해지면 현장 이야기를 덤으로 흘린다(관계와 투자의 다리).</summary>
         public static int HERO_FIELD_TALK_AFFINITY = 3;
+
+        // 용사 이야기 주제가 열리는 호감. 따뜻하게 대답하면 하루에 2씩 오른다(HeroTopics).
+        public static int HERO_TOPIC_AFFINITY_FIRST = 0;
+        public static int HERO_TOPIC_AFFINITY_SECOND = 3;
+        public static int HERO_TOPIC_AFFINITY_THIRD = 6;
+
+        // 같은 사람이 낸 의뢰를 이만큼 받으면 학자가 의뢰주를 의심한다(후원흐름 설계안 §2-6).
+        public static int HERO_SUSPECT_CLUES = 2;
         /// <summary>그 정도로 친할 때 현장 이야기가 나올 확률.</summary>
         public static float HERO_FIELD_TALK_CHANCE = 0.5f;
 

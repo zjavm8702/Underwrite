@@ -221,7 +221,7 @@ namespace Underwrite.Patronage
 
             Needs.Add(new HeroNeed
             {
-                Id = "need_healer",
+                Id = StringConstants.NEED_HEALER_ID,
                 Purpose = RequestPurpose.Purpose_Healing,
                 RevealDay = 1,
                 DeadlineDays = Constants.PATRONAGE_DEADLINE_DAYS,
