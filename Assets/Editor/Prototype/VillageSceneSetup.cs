@@ -555,6 +555,9 @@ namespace Underwrite.Editor
 
             var confiner = rig.AddComponent<CinemachineConfiner2D>();
             confiner.BoundingShape2D = shape;
+
+            // 마우스 휠로 당겨 본다. 지금 크기가 가장 먼 거리다.
+            rig.AddComponent<VillageCameraZoom>();
         }
     }
 }

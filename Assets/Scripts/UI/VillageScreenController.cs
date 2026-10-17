@@ -118,6 +118,10 @@ namespace Underwrite.UI
             NearNpc = FindNearNpc();
             RefreshPrompt();
 
+            // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
+            VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
+                || MenuOpen == true;
+
             var keyboard = Keyboard.current;
 
             if (Dialogue != null && Dialogue.IsChoosing == true)

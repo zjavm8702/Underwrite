@@ -401,6 +401,16 @@ namespace Underwrite.Global
         public static float REQUEST_COST_SUPPLIES = 80f;
         public static float REQUEST_COST_TRAINING = 100f;
 
+        // ── 영지 카메라 확대 (2026-10-17) ─────────
+        /// <summary>가장 가까이 당겼을 때의 Orthographic Size. 기본 7.5에서 약 1.7배 크게 보인다.</summary>
+        public static float VILLAGE_ZOOM_NEAREST = 4.5f;
+        /// <summary>휠 한 칸에 바뀌는 크기.</summary>
+        public static float VILLAGE_ZOOM_STEP = 0.5f;
+        /// <summary>화면이 목표 크기를 따라가는 빠르기. 클수록 빨리 붙는다.</summary>
+        public static float VILLAGE_ZOOM_SMOOTH = 10f;
+        /// <summary>이보다 작은 휠 값은 무시한다. 터치패드의 잔 움직임이다.</summary>
+        public const float VILLAGE_ZOOM_SCROLL_THRESHOLD = 0.01f;
+
         // ── 대화 ──────────────────────────────────
         /// <summary>선택지를 고르는 숫자 키. 화면에 붙는 번호 「1.」「2.」와 같은 순서다.</summary>
         public static readonly Key[] DIALOGUE_CHOICE_KEYS =
