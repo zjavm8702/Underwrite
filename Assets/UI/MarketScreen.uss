@@ -1543,6 +1543,17 @@
     color: #2A2118;
 }
 
+.village-clock-skip {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #2A2118;
+}
+
+.village-clock-skip .unity-toggle__text {
+    color: #2A2118;
+    margin-left: 6px;
+}
+
 .village-clock-buttons {
     margin-top: 18px;
 }

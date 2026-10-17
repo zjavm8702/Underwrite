@@ -39,6 +39,9 @@ namespace Underwrite.UI
         private VillageSpot Here;
         private VillageNpc NearNpc;
         private TimeDial Dial;
+
+        // 시계를 연 뒤 토글로 다음 장을 건너뛰었는가. 「그만둔다」로 닫으면 되돌린다.
+        private bool SkipFromClock;
         private Transform Player;
         private bool LeaveBound;
 
@@ -783,7 +786,7 @@ namespace Underwrite.UI
             if (cancel != null)
             {
                 cancel.text = StringConstants.TEXT_CLOCK_CANCEL;
-                cancel.clicked += CloseClock;
+                cancel.clicked += CancelClock;
             }
 
             var confirm = Root.Q<Button>("village-clock-confirm");
@@ -795,6 +798,13 @@ namespace Underwrite.UI
             }
 
             SetText("village-clock-title", StringConstants.TEXT_CLOCK_TITLE);
+
+            var skipToggle = Root.Q<Toggle>("village-clock-skip");
+
+            if (skipToggle != null)
+            {
+                skipToggle.RegisterValueChangedCallback(evt => ToggleSkipSession(evt.newValue));
+            }
         }
 
         // ── 메뉴 (드롭업) ─────────────────────────
@@ -904,11 +914,64 @@ namespace Underwrite.UI
                 return;
             }
 
+            SkipFromClock = false;
+            RefreshClockRange();
+            Root.Q<VisualElement>("village-clock").RemoveFromClassList("hidden");
+        }
+
+        /// <summary>
+        /// 고를 수 있는 구간과 토글을 시계의 지금 상태에 맞춘다.
+        /// 다음 장을 건너뛰었으면 구간이 그다음 장 직전까지 늘어난다(2026-10-17 사용자 요청).
+        /// </summary>
+        private void RefreshClockRange()
+        {
             Dial.SetRange(Clock.BreakMinuteOfDay, Clock.LatestBreakMinute);
 
             var next = Clock.NextSessionMinute;
             SetText("village-clock-limit", string.Format(StringConstants.TEXT_CLOCK_LIMIT, next / 60 % 24, next % 60));
-            Root.Q<VisualElement>("village-clock").RemoveFromClassList("hidden");
+
+            var toggle = Root.Q<Toggle>("village-clock-skip");
+
+            if (toggle == null)
+            {
+                return;
+            }
+
+            // 건너뛸 장의 이름. 이미 하나 건너뛰었으면 그 장을 가리킨다.
+            var skipped = Clock.SkippedSessions > 0;
+            var morning = skipped == true ? Clock.NextSessionIsMorning == false : Clock.NextSessionIsMorning;
+            var session = morning == true ? StringConstants.TEXT_SESSION_MORNING : StringConstants.TEXT_SESSION_EVENING;
+            toggle.text = string.Format(StringConstants.TEXT_CLOCK_SKIP_SESSION, session);
+            toggle.SetValueWithoutNotify(skipped);
+        }
+
+        /// <summary>
+        /// 다음 장을 건너뛴다. 기획서 §11 — 장에 나가는 것은 선택이다.
+        /// 「오늘 장 쉬기」 단추를 없애고 시계 안의 토글로 옮겼다(2026-10-17 사용자 결정).
+        /// 쉬어도 시장은 돈다. 거래소로 돌아가면 쉰 장을 치르고 그동안 자산이 얼마나 움직였는지 알린다.
+        /// </summary>
+        private void ToggleSkipSession(bool skip)
+        {
+            if (Clock == null)
+            {
+                return;
+            }
+
+            if (skip == true && Clock.SkippedSessions == 0)
+            {
+                Clock.SkipNextSession();
+                SkipFromClock = true;
+            }
+            else if (skip == false && Clock.SkippedSessions > 0)
+            {
+                // 이미 그 장의 시간을 써 버렸으면 무를 수 없다. 시간을 빚질 수는 없다.
+                if (Clock.UndoSkippedSession() == true)
+                {
+                    SkipFromClock = false;
+                }
+            }
+
+            RefreshClockRange();
         }
 
         private void ShowClockPick(int minute)
@@ -933,8 +996,20 @@ namespace Underwrite.UI
             CloseClock();
         }
 
+        private void CancelClock()
+        {
+            // 시계 안에서 켠 건너뛰기는 「그만둔다」와 함께 되돌린다.
+            if (SkipFromClock == true && Clock != null)
+            {
+                Clock.UndoSkippedSession();
+            }
+
+            CloseClock();
+        }
+
         private void CloseClock()
         {
+            SkipFromClock = false;
             var clock = Root.Q<VisualElement>("village-clock");
 
             if (clock != null)

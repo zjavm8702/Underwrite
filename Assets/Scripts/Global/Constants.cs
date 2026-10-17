@@ -109,6 +109,7 @@ namespace Underwrite.Global
         public static string TEXT_CLOCK_LIMIT = "다음 장은 {0:00}:{1:00}에 열린다. 그 직전까지 고를 수 있다.";
         public static string TEXT_CLOCK_CONFIRM = "그때까지 보낸다";
         public static string TEXT_CLOCK_CANCEL = "그만둔다";
+        public static string TEXT_CLOCK_SKIP_SESSION = "{0} 건너뛰기 — 그다음 장 직전까지 돌릴 수 있다";
 
         // 하루 끝 (기획서 §11의 넷째 단계 — 정보 정리 및 취침)
         public static string TEXT_SKIP_BREAK = "시간 넘기기";

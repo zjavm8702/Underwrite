@@ -10,13 +10,16 @@ namespace Underwrite.UI
     /// 「시간 넘기기」가 다음 장 직전으로 한 번에 뛰어 버리면, 영지에서 쓸 수 있는 시간이라는 자원이
     /// 손에 잡히지 않는다. 시계 위에 지금부터 다음 장까지의 구간을 칠해 두고, 그 안에서 원하는 시각을 고르게 한다.
     ///
-    /// 장 사이는 길어야 12시간이므로 12시간 문자판을 쓴다. 분은 하루 기준(0~1439를 넘을 수 있다)으로 받는다.
+    /// 장 사이는 12시간이므로 보통은 12시간 문자판을 쓴다. 장을 건너뛰어 고를 수 있는 구간이 12시간을 넘으면
+    /// 24시간 문자판으로 바꾼다. 한 바퀴를 넘는 구간은 바늘 하나로 고를 수 없기 때문이다.
+    /// 분은 하루 기준(1439를 넘을 수 있다)으로 받는다.
     /// </summary>
     public sealed class TimeDial : VisualElement
     {
         // 바늘이 멈추는 간격(분).
         private const int SNAP_MINUTES = 10;
         private const int HALF_DAY = 12 * 60;
+        private const int FULL_DAY = 24 * 60;
 
         private static readonly Color FACE = new Color(0.95f, 0.91f, 0.82f);
         private static readonly Color RIM = new Color(0.36f, 0.26f, 0.17f);
@@ -28,6 +31,9 @@ namespace Underwrite.UI
         private int Limit;
         private int Selected;
         private bool Dragging;
+
+        // 문자판 한 바퀴가 몇 분인가. 보통은 12시간이고, 장을 건너뛰어 12시간을 넘으면 24시간 문자판이 된다.
+        private int Period = HALF_DAY;
 
         /// <summary>고른 시각이 바뀌었다. 하루 기준 분을 넘긴다.</summary>
         public event Action<int> Changed;
@@ -70,6 +76,8 @@ namespace Underwrite.UI
             Now = now;
             Limit = Math.Max(now, limit);
             Selected = Limit;
+            Period = Limit - Now > HALF_DAY ? FULL_DAY : HALF_DAY;
+            RelabelHours();
             MarkDirtyRepaint();
             NotifyChanged();
         }
@@ -116,15 +124,15 @@ namespace Underwrite.UI
                 angle += 360f;
             }
 
-            var dialMinute = Mathf.RoundToInt(angle / 360f * HALF_DAY);
-            var delta = ((dialMinute - Now % HALF_DAY) % HALF_DAY + HALF_DAY) % HALF_DAY;
+            var dialMinute = Mathf.RoundToInt(angle / 360f * Period);
+            var delta = ((dialMinute - Now % Period) % Period + Period) % Period;
             var minute = Now + Mathf.RoundToInt((float)delta / SNAP_MINUTES) * SNAP_MINUTES;
 
             // 구간 밖을 누르면 가까운 끝에 붙인다. 끝을 넘어선 자리는 대개 "끝까지"라는 뜻이다.
             if (minute > Limit)
             {
                 var pastLimit = delta - (Limit - Now);
-                var beforeNow = HALF_DAY - delta;
+                var beforeNow = Period - delta;
                 minute = pastLimit < beforeNow ? Limit : Now;
             }
 
@@ -136,6 +144,22 @@ namespace Underwrite.UI
             Selected = minute;
             MarkDirtyRepaint();
             NotifyChanged();
+        }
+
+        // 12시간이면 1~12, 24시간이면 2·4·…·24.
+        private void RelabelHours()
+        {
+            var step = Period / HALF_DAY;
+
+            foreach (var child in Children())
+            {
+                if (child.userData is int == false)
+                {
+                    continue;
+                }
+
+                ((Label)child).text = ((int)child.userData * step).ToString();
+            }
         }
 
         private void NotifyChanged()
@@ -192,10 +216,10 @@ namespace Underwrite.UI
             painter.Fill();
 
             // 지금부터 다음 장 직전까지 — 쓸 수 있는 시간
-            DrawArc(painter, center, radius * 0.62f, Now, Limit, RANGE, radius * 0.2f);
+            DrawArc(painter, center, radius * 0.62f, Now, Limit, Period, RANGE, radius * 0.2f);
 
             // 지금부터 고른 시각까지 — 쓸 시간
-            DrawArc(painter, center, radius * 0.62f, Now, Selected, CHOSEN, radius * 0.2f);
+            DrawArc(painter, center, radius * 0.62f, Now, Selected, Period, CHOSEN, radius * 0.2f);
 
             // 테두리와 눈금
             painter.strokeColor = RIM;
@@ -217,7 +241,7 @@ namespace Underwrite.UI
             }
 
             // 바늘
-            var hand = MinuteToDirection(Selected);
+            var hand = MinuteToDirection(Selected, Period);
             painter.strokeColor = INK;
             painter.lineWidth = 5f;
             painter.lineCap = LineCap.Round;
@@ -232,8 +256,8 @@ namespace Underwrite.UI
             painter.Fill();
         }
 
-        private static void DrawArc(Painter2D painter, Vector2 center, float radius, int from, int to, Color color,
-            float width)
+        private static void DrawArc(Painter2D painter, Vector2 center, float radius, int from, int to, int period,
+            Color color, float width)
         {
             if (to <= from)
             {
@@ -241,8 +265,8 @@ namespace Underwrite.UI
             }
 
             // Painter2D의 각도는 3시가 0도이고 시계 방향으로 커진다. 12시를 0으로 맞추려면 90도를 뺀다.
-            var start = (from % HALF_DAY) / (float)HALF_DAY * 360f - 90f;
-            var sweep = Mathf.Min(359.9f, (to - from) / (float)HALF_DAY * 360f);
+            var start = (from % period) / (float)period * 360f - 90f;
+            var sweep = Mathf.Min(359.9f, (to - from) / (float)period * 360f);
 
             painter.strokeColor = color;
             painter.lineWidth = width;
@@ -252,9 +276,9 @@ namespace Underwrite.UI
             painter.Stroke();
         }
 
-        private static Vector2 MinuteToDirection(int minute)
+        private static Vector2 MinuteToDirection(int minute, int period)
         {
-            var radians = (minute % HALF_DAY) / (float)HALF_DAY * Mathf.PI * 2f;
+            var radians = (minute % period) / (float)period * Mathf.PI * 2f;
             return new Vector2(Mathf.Sin(radians), -Mathf.Cos(radians));
         }
     }

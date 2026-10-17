@@ -16,6 +16,8 @@
                 <ui:Label name="village-clock-title" text="" class="popup-title" />
                 <ui:VisualElement name="village-clock-dial" class="village-clock-dial" />
                 <ui:Label name="village-clock-pick" text="" class="village-clock-pick" />
+                <!-- 켜면 다음 장을 건너뛰고, 그다음 장 직전까지 시간을 돌릴 수 있다. -->
+                <ui:Toggle name="village-clock-skip" text="" class="village-clock-skip" />
                 <ui:Label name="village-clock-limit" text="" class="popup-body" />
                 <ui:VisualElement class="row village-clock-buttons">
                     <ui:Button name="village-clock-cancel" text="" class="popup-button" />

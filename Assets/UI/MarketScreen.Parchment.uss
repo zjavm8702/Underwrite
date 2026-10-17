@@ -270,7 +270,8 @@
     -unity-slice-top: 32;
     -unity-slice-bottom: 32;
     -unity-slice-scale: 0.5px;
-    color: #F2E7D2;
+    /* dialogue_next는 밝은 종이다(가운데 밝기 223). 글자는 잉크색. */
+    color: #2A2118;
     border-width: 0;
 }
 
@@ -348,7 +349,9 @@
     -unity-slice-top: 32;
     -unity-slice-bottom: 32;
     -unity-slice-scale: 0.5px;
-    color: #F2E7D2;
+    /* 밝은 종이 단추(가운데 밝기 223). 글자는 잉크색. */
+    color: #2A2118;
+    -unity-font-style: bold;
     border-width: 0;
 }
 
@@ -411,4 +414,17 @@
     padding-bottom: 22px;
     padding-left: 40px;
     padding-right: 40px;
+}
+
+/* 간판은 짙은 나무다(가운데 밝기 67). 글자를 밝게 뒤집는다. */
+.village-prompt .village-place {
+    color: #F7F0E2;
+}
+
+.village-prompt .village-cost {
+    color: #E0D2B8;
+}
+
+.village-prompt .village-key {
+    color: #F2C46B;
 }
