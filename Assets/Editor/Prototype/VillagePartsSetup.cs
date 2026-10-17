@@ -65,9 +65,9 @@ namespace Underwrite.Editor
         private const float PIXELS_PER_UNIT = 72f;
         private const float CHARACTER_SCALE = 0.27f;
 
-        // 낮이라 등불은 은은하게 둔다. 전역광 1.0 위에 더해지므로 세면 그림이 하얗게 뜬다.
-        private const float LAMP_INTENSITY = 0.35f;
-        private const float LAMP_RADIUS = 1.6f;
+        // 밤에 완전히 켜졌을 때의 가로등. 낮에는 하루의 흐름(DayNightCycle)이 꺼 둔다.
+        private const float LAMP_INTENSITY = 1.35f;
+        private const float LAMP_RADIUS = 2.4f;
         private static readonly Color LAMP_COLOR = new Color(1f, 0.82f, 0.55f);
 
         private const string SMOKE_SPRITE = "Assets/Images/Village/Fx/smoke_puff.png";
@@ -237,6 +237,9 @@ namespace Underwrite.Editor
             VillageSceneSetup.BuildLight(lightPrefab);
             VillageSceneSetup.BuildCamera(player);
             VillageSceneSetup.BuildScreen();
+
+            // 영지 시계에 맞춰 빛이 바뀌고 가로등이 켜진다.
+            new GameObject("Day Night").AddComponent<DayNightCycle>();
 
             EditorSceneManager.MarkSceneDirty(scene);
             Directory.CreateDirectory(Path.GetDirectoryName(scenePath));

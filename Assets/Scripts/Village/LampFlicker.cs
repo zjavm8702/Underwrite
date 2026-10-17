@@ -19,6 +19,12 @@ namespace Underwrite.Village
         [Tooltip("흔들림 빠르기. 클수록 촛불처럼 빠르게 떤다.")]
         [SerializeField] private float Speed = 2.2f;
 
+        /// <summary>
+        /// 켜진 정도. 0이면 꺼지고 1이면 기본 밝기다. 하루의 흐름(DayNightCycle)이 가로등에 넣는다.
+        /// 늘 타는 불(대장간 화로)은 1 그대로다.
+        /// </summary>
+        public float Level { get; set; } = 1f;
+
         private Light2D Lamp;
         private float BaseIntensity;
         private float Seed;
@@ -40,7 +46,8 @@ namespace Underwrite.Village
         private void Update()
         {
             var noise = Mathf.PerlinNoise(Seed, Time.time * Speed) * 2f - 1f;
-            Lamp.intensity = BaseIntensity * (1f + noise * Depth);
+            Lamp.intensity = BaseIntensity * Level * (1f + noise * Depth);
+            Lamp.enabled = Level > 0.01f;
         }
     }
 }
