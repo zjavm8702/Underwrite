@@ -59,6 +59,20 @@ namespace Underwrite.Village
             Body = GetComponentInChildren<Animator>();
             BodyTransform = Body != null ? Body.transform : transform;
             BodySprite = BodyTransform.GetComponent<SpriteRenderer>();
+
+            // Animator 없이 프레임만 넘기는 사람(StationNpc)은 몸 그림이 자식 「Body」에 있다.
+            // 못 찾으면 머리 위가 아니라 허리쯤에 말풍선이 떴다(2026-10-17 사용자 보고).
+            if (BodySprite == null)
+            {
+                foreach (var renderer in GetComponentsInChildren<SpriteRenderer>(true))
+                {
+                    if (renderer.gameObject.name == "Body")
+                    {
+                        BodySprite = renderer;
+                        break;
+                    }
+                }
+            }
             BodyRest = BodyTransform.localPosition;
 
             // 사람은 모두 외곽선을 두른다(2026-10-17 사용자 결정). 사물과 그림이 섞인 화면에서 사람이 떠 보이게.

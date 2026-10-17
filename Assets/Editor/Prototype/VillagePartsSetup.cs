@@ -45,6 +45,7 @@ namespace Underwrite.Editor
         private const float FOOTPRINT_SHRINK_X = 0.75f;
         private const float FOOTPRINT_SHRINK_Y = 0.8f;
         private const float BLOCK_SHRINK_X = 0.85f;
+        private const float TREE_SHRINK = 0.4f;
 
         // 대장간 화로 입구(대장간 PNG 안의 픽셀, 2배 그림 기준). 배치표에 불 자리가 없어 그림을 보고 쟀다.
         private const string SMITH_FILE = "smith.png";
@@ -702,7 +703,10 @@ namespace Underwrite.Editor
 
             if (part.Footprint.Count >= 3)
             {
-                var shrunk = Shrink(part.Footprint, FOOTPRINT_SHRINK_X, FOOTPRINT_SHRINK_Y);
+                // 나무는 줄기만 막는다. 잎 밑은 걸어 들어간다(노점과 건물 사이가 좁다는 사용자 보고).
+                var tree = part.Sways == true;
+                var shrunk = Shrink(part.Footprint, tree == true ? TREE_SHRINK : FOOTPRINT_SHRINK_X,
+                    tree == true ? TREE_SHRINK : FOOTPRINT_SHRINK_Y);
                 var points = new Vector2[shrunk.Count];
 
                 for (var i = 0; i < points.Length; i++)

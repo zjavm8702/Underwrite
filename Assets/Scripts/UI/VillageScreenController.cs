@@ -24,6 +24,7 @@ namespace Underwrite.UI
     /// 그 차이가 플레이어의 유일한 우위다.
     /// </summary>
     [RequireComponent(typeof(UIDocument))]
+    [DefaultExecutionOrder(10000)]
     public sealed class VillageScreenController : MonoBehaviour
     {
         [Tooltip("대화상자 한 벌. 캐낸 소식을 인물이 말해 준다.")]
@@ -109,6 +110,15 @@ namespace Underwrite.UI
             VillageSpotEvents.Exited -= OnExit;
         }
 
+        // 이름표·말풍선은 카메라가 따라간 뒤에 자리를 잡는다. Update에서 잡으면 카메라보다 한발 앞서
+        // 움직일 때마다 튀었다(2026-10-17 사용자 보고). 이 컴포넌트는 늦게 돌도록 실행 순서를 뒤로 뺐다.
+        private void LateUpdate()
+        {
+            var talking = Dialogue != null && Dialogue.IsOpen == true;
+            WorldBubbles.Tick(talking);
+            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true, Constants.SIGN_HEIGHT_UNITS);
+        }
+
         // 폰은 꺼지기 전에 알려 주지 않는다. 앱이 뒤로 가는 순간이 마지막 기회다.
         private void OnApplicationPause(bool paused)
         {
@@ -188,9 +198,7 @@ namespace Underwrite.UI
             RefreshObjective();
 
             NpcAmbient.Player = Player;
-            WorldBubbles.Tick(Dialogue != null && Dialogue.IsOpen == true);
-            WorldSigns.Tick((Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true || NotebookOpen == true,
-                Constants.SIGN_HEIGHT_UNITS);
+
             PlayPendingReaction();
             PlayCollapseIfNeeded();
 
@@ -1482,7 +1490,7 @@ namespace Underwrite.UI
                 for (var i = 0; i < subjects.Count; i++)
                 {
                     var id = subjects[i];
-                    scroll.Add(CodexCards.Build(sim, id, sim == null ? id : sim.NameOf(id)));
+                    scroll.Add(CodexCards.Build(sim, id, NameFor(sim, id)));
                 }
 
                 return;
@@ -1522,7 +1530,7 @@ namespace Underwrite.UI
             }
         }
 
-        private static VisualElement NewsCard(MarketSimulation sim, string stockId, string headline)
+        private VisualElement NewsCard(MarketSimulation sim, string stockId, string headline)
         {
             var card = new VisualElement();
             card.AddToClassList("info-card");
@@ -1533,7 +1541,7 @@ namespace Underwrite.UI
 
             var line = new VisualElement();
             line.AddToClassList("info-line");
-            var name = new Label(sim == null ? stockId : sim.NameOf(stockId));
+            var name = new Label(NameFor(sim, stockId));
             name.AddToClassList("info-stock");
             line.Add(name);
 
@@ -1974,8 +1982,11 @@ namespace Underwrite.UI
 
             var lines = new List<DialogueLine> { line };
 
-            // 정보를 산 자리의 주인이 무언가를 건넨다(필드 연기). 대화창 뒤에서 시작해 닫히면 보인다.
-            StationNpc.GiveAt(spot.Name);
+            // 정보를 산 자리의 주인이 무언가를 건넨다(필드 연기). 정보가 없는 대답에는 건네지 않는다.
+            if (secret == true)
+            {
+                StationNpc.GiveAt(spot.Name);
+            }
 
             if (scouted != null)
             {
@@ -2250,6 +2261,16 @@ namespace Underwrite.UI
             }
 
             return found;
+        }
+
+        /// <summary>
+        /// 단 이름. 시장이 아직 없거나(지하를 찾기 전) 시장이 모르는 아이디면 종목 표에서 찾는다.
+        /// 수첩에 STOCK_ROOKIE 같은 열쇠가 그대로 떴다(2026-10-17 사용자 보고).
+        /// </summary>
+        private string NameFor(MarketSimulation sim, string stockId)
+        {
+            var name = sim == null ? stockId : sim.NameOf(stockId);
+            return name == stockId ? StockName(stockId) : name;
         }
 
         private string StockName(string stockId)
