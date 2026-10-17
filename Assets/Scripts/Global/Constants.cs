@@ -177,6 +177,8 @@ namespace Underwrite.Global
         public static string TEXT_DAY_END_DEADLINE = "들은 용사단 사정의 기한까지 {0}일.";
         public static string TEXT_VILLAGE_INSPECTION_TODAY = "오늘은 영주 시찰일 · 지하시장이 닫혔다";
         public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
+        public static string TEXT_DAY_COUNT = "{0}일째";
+        public static string TEXT_VILLAGE_NEXT_SESSION = "다음 장까지 {0}시간 {1}분";
         public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";
         public static string TEXT_DAY_END_COLLAPSE = "용사단이 의뢰를 접고 흩어졌다는 소식이 돌았다. 10년 뒤 그 자리에 설 사람이 없다.";
 

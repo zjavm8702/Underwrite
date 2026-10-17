@@ -1761,9 +1761,11 @@ namespace Underwrite.UI
             var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
             var hour = Clock == null ? 0 : Clock.BreakHour;
             var minute = Clock == null ? 0 : Clock.BreakMinute;
+            // 며칠째인지 맨 앞에 둔다. 기한·시찰·원정이 모두 날짜로 움직인다(2026-10-17 사용자 요청).
             SetText("village-visits",
-                ClockText.FromSeconds((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond), true)
-                + $" · 다음 장까지 {left / 60}시간 {left % 60}분"
+                string.Format(StringConstants.TEXT_DAY_COUNT, Today()) + " · "
+                + ClockText.FromSeconds((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond), true)
+                + " · " + string.Format(StringConstants.TEXT_VILLAGE_NEXT_SESSION, left / 60, left % 60)
                 + InspectionTag());
 
             if (Here == null)

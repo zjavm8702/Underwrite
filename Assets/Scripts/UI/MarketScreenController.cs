@@ -282,22 +282,11 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 거래소의 「할 일」 표시와 완료 알림. 거래소에서 끝나는 할 일(첫 거래 등)이 있다.
-        /// 보상은 지갑에 바로 들어간다.
+        /// 거래소에서 끝나는 할 일(첫 거래 등)의 완료 알림. 보상은 지갑에 바로 들어간다.
+        /// 할 일 목록은 거래소에 띄우지 않는다 — 영지에서만 본다(2026-10-17 사용자 요청).
         /// </summary>
         private void RefreshQuest()
         {
-            var label = Root.Q<Label>("market-quest");
-
-            if (label == null)
-            {
-                label = new Label();
-                label.name = "market-quest";
-                label.AddToClassList("market-quest");
-                label.pickingMode = PickingMode.Ignore;
-                Root.Add(label);
-            }
-
             var done = Story.QuestLog.Tick();
 
             if (done != null)
@@ -311,12 +300,6 @@ namespace Underwrite.UI
                     ? string.Format(StringConstants.TEXT_QUEST_DONE_REWARD, done.Title, done.Reward)
                     : string.Format(StringConstants.TEXT_QUEST_DONE, done.Title), Side, true);
             }
-
-            var active = Story.QuestLog.Active;
-            label.text = active == null
-                ? string.Empty
-                : string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title) + "  ·  " + active.Hint;
-            label.EnableInClassList("hidden", active == null);
         }
 
         /// <summary>
@@ -1223,7 +1206,9 @@ namespace Underwrite.UI
                 ? Sim.Clock.BreakMinuteOfDay * 60 + Sim.Clock.BreakSecond
                 : Sim.Clock.ClockTotalSeconds;
             SetText("clock-text",
-                $"{Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {label} {ClockText.FromSeconds(seconds, true)}"
+                // 며칠째인지 맨 앞에 — 영지 시계와 같은 순서·같은 말(2026-10-17 사용자 요청).
+                string.Format(StringConstants.TEXT_DAY_COUNT, Sim.Clock.CalendarDay)
+                + $" · {Sim.Clock.Cycle}주기 {label} {ClockText.FromSeconds(seconds, true)}"
                 + $" · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
             SetText("sentiment-text", $"분위기 {SentimentText(Sim.Sentiment)}");
 
@@ -2422,7 +2407,7 @@ namespace Underwrite.UI
                     : entry.StockId;
 
                 var line = new DialogueLine(name,
-                    $"{SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {session}"
+                    $"{SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일째 {session}"
                     + $" {ClockText.FromSeconds(Sim.Clock.ClockTotalSeconds, false)}",
                     entry.Headline);
 
