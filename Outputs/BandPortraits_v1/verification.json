@@ -1,0 +1,839 @@
+{
+  "time": "2026-10-17T10:00:28.142Z",
+  "status": "시안 / PNG 제작 및 배치 검증",
+  "scope": "PNG only",
+  "imageFormat": "820x1080 8-bit RGBA",
+  "expressions": [
+    "neutral",
+    "anxious",
+    "shocked",
+    "happy"
+  ],
+  "directions": "one fixed slight screen-right three-quarter bust; not 8-direction animation",
+  "alphaThreshold": 32,
+  "componentConnectivity": 8,
+  "eyeMethod": "고정 검출창 R<150 G<110 B<110 픽셀 bbox 중앙 y; 끝 제외 창; 실제 눈/코 정렬 육안 병행",
+  "eyeWindows": {
+    "sella": [
+      [
+        439,
+        326,
+        491,
+        357
+      ],
+      [
+        548,
+        349,
+        585,
+        380
+      ]
+    ],
+    "brann": [
+      [
+        470,
+        329,
+        522,
+        359
+      ],
+      [
+        562,
+        345,
+        599,
+        375
+      ]
+    ],
+    "blackmoor": [
+      [
+        504,
+        313,
+        550,
+        340
+      ],
+      [
+        587,
+        344,
+        615,
+        369
+      ]
+    ],
+    "warden": [
+      [
+        465,
+        324,
+        513,
+        352
+      ],
+      [
+        551,
+        345,
+        586,
+        374
+      ]
+    ],
+    "lantern": [
+      [
+        439,
+        301,
+        490,
+        330
+      ],
+      [
+        535,
+        317,
+        567,
+        346
+      ]
+    ]
+  },
+  "faceMasks": {
+    "sella": [
+      [
+        417,
+        295,
+        513,
+        377
+      ],
+      [
+        535,
+        328,
+        599,
+        396
+      ],
+      [
+        485,
+        418,
+        564,
+        484
+      ]
+    ],
+    "brann": [
+      [
+        451,
+        298,
+        541,
+        377
+      ],
+      [
+        553,
+        320,
+        609,
+        389
+      ],
+      [
+        488,
+        417,
+        575,
+        488
+      ]
+    ],
+    "blackmoor": [
+      [
+        489,
+        283,
+        584,
+        358
+      ],
+      [
+        579,
+        315,
+        625,
+        385
+      ],
+      [
+        493,
+        398,
+        575,
+        464
+      ]
+    ],
+    "warden": [
+      [
+        443,
+        293,
+        540,
+        375
+      ],
+      [
+        542,
+        319,
+        601,
+        394
+      ],
+      [
+        482,
+        414,
+        567,
+        474
+      ]
+    ],
+    "lantern": [
+      [
+        426,
+        272,
+        530,
+        345
+      ],
+      [
+        527,
+        290,
+        577,
+        363
+      ],
+      [
+        461,
+        393,
+        546,
+        451
+      ]
+    ]
+  },
+  "characters": {
+    "sella": {
+      "images": [
+        {
+          "expression": "neutral",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            51,
+            120,
+            770,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            331716
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            339,
+            364
+          ],
+          "headTopY": 120,
+          "sha256": "1f543c52dae61925ddc0c876fd8c3267eb494fb4ca0a7ad728bf51516702bed7"
+        },
+        {
+          "expression": "anxious",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            51,
+            120,
+            770,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            331716
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            339.5,
+            364
+          ],
+          "headTopY": 120,
+          "sha256": "39355ae9bc07987dda9017d37825caa3f11d593f0b53d7d8ff85834b59859adb"
+        },
+        {
+          "expression": "shocked",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            51,
+            120,
+            770,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            331716
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            337.5,
+            364
+          ],
+          "headTopY": 120,
+          "sha256": "6c9a6a3175c02753d28f269fee0c07742d3efcbc84175d52dffd904d474cc36f"
+        },
+        {
+          "expression": "happy",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            51,
+            120,
+            770,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            331716
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            339.5,
+            364
+          ],
+          "headTopY": 120,
+          "sha256": "9b0993fb8b15dd300a6b9d061340ff337e103605b4254175f80cdfed2eb55b27"
+        }
+      ],
+      "eyeRange": [
+        2,
+        0
+      ],
+      "headTopRange": 0,
+      "bboxRange": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "brann": {
+      "images": [
+        {
+          "expression": "neutral",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            57,
+            171,
+            778,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            312128
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            338,
+            359.5
+          ],
+          "headTopY": 171,
+          "sha256": "c0745e2ceee9981272425df9de2d5f835816b7da30f1d00731297572063a0802"
+        },
+        {
+          "expression": "anxious",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            57,
+            171,
+            778,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            312128
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            338,
+            359.5
+          ],
+          "headTopY": 171,
+          "sha256": "be0d2dd5130ad6668fb67ac5e6e677909be3375b94fb30909759f4f811adfb19"
+        },
+        {
+          "expression": "shocked",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            57,
+            171,
+            778,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            312128
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            338.5,
+            359.5
+          ],
+          "headTopY": 171,
+          "sha256": "ca9fb7ba60393f50d78736d7bc0ac3948c5c16e8f7098fecb8726e6b3b35e94b"
+        },
+        {
+          "expression": "happy",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            57,
+            171,
+            778,
+            902
+          ],
+          "components": 1,
+          "componentSizes": [
+            312128
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            338,
+            359.5
+          ],
+          "headTopY": 171,
+          "sha256": "f1840886451496d06ae863451ab1f16e50c4cf12ba969f3fc4d29d64f4962c15"
+        }
+      ],
+      "eyeRange": [
+        0.5,
+        0
+      ],
+      "headTopRange": 0,
+      "bboxRange": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "blackmoor": {
+      "images": [
+        {
+          "expression": "neutral",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            29,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "componentSizes": [
+            351947
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            325.5,
+            356
+          ],
+          "headTopY": 153,
+          "sha256": "a06e891fa030932baacc4355dcde08c6cded0e466af064f2b3ff7382787d0562"
+        },
+        {
+          "expression": "anxious",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            29,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "componentSizes": [
+            351947
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            325.5,
+            356
+          ],
+          "headTopY": 153,
+          "sha256": "18fa49719fa356ad37c825878deb70751ec292d31b92f913434d85332d0d9889"
+        },
+        {
+          "expression": "shocked",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            29,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "componentSizes": [
+            351947
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            326,
+            356
+          ],
+          "headTopY": 153,
+          "sha256": "45a756bbe2a0da77328aa19e289919b69ad8ccd135fa2441cf931e9bc02661e6"
+        },
+        {
+          "expression": "happy",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            29,
+            153,
+            791,
+            900
+          ],
+          "components": 1,
+          "componentSizes": [
+            351947
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            326,
+            356
+          ],
+          "headTopY": 153,
+          "sha256": "0df81aa5e7d32a1506249a6db061c42048ba15dc07cc0ca884716cbbacc7b132"
+        }
+      ],
+      "eyeRange": [
+        0.5,
+        0
+      ],
+      "headTopRange": 0,
+      "bboxRange": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "warden": {
+      "images": [
+        {
+          "expression": "neutral",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            45,
+            150,
+            775,
+            911
+          ],
+          "components": 1,
+          "componentSizes": [
+            348281
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            334.5,
+            359
+          ],
+          "headTopY": 150,
+          "sha256": "8c20f0f279215f58a48873bef80986ac6a961553432ac6e9f58c5796125a541a"
+        },
+        {
+          "expression": "anxious",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            45,
+            150,
+            775,
+            911
+          ],
+          "components": 1,
+          "componentSizes": [
+            348281
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            334.5,
+            359
+          ],
+          "headTopY": 150,
+          "sha256": "f3ee73f538ddca06b4a4e5a5d45456345e004bf55571a34dc40a19e673b50332"
+        },
+        {
+          "expression": "shocked",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            45,
+            150,
+            775,
+            911
+          ],
+          "components": 1,
+          "componentSizes": [
+            348281
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            334,
+            359
+          ],
+          "headTopY": 150,
+          "sha256": "9e5ac91fc831f471119a1375a0ccd4dcf5256827fabda9d3c0b5711ae028f66b"
+        },
+        {
+          "expression": "happy",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            45,
+            150,
+            775,
+            911
+          ],
+          "components": 1,
+          "componentSizes": [
+            348281
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            334,
+            359
+          ],
+          "headTopY": 150,
+          "sha256": "1de095b7fa6aa78591d5af90568fbbe42985d74f0746d524c02baf019a18bc4c"
+        }
+      ],
+      "eyeRange": [
+        0.5,
+        0
+      ],
+      "headTopRange": 0,
+      "bboxRange": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "lantern": {
+      "images": [
+        {
+          "expression": "neutral",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            52,
+            123,
+            768,
+            917
+          ],
+          "components": 1,
+          "componentSizes": [
+            360747
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0.0008428955146720013,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            310.5,
+            331
+          ],
+          "headTopY": 123,
+          "sha256": "12a331e4af509b551a93c4ec47f83435a09da410375db272d8f603082aee0372"
+        },
+        {
+          "expression": "anxious",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            52,
+            123,
+            768,
+            917
+          ],
+          "components": 1,
+          "componentSizes": [
+            360747
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0.0008428955146720013,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            310.5,
+            331
+          ],
+          "headTopY": 123,
+          "sha256": "f5d31f790d1ab5e19b47bed61fab6b09fc97ef1d332c2729bff8cf228cb28c7c"
+        },
+        {
+          "expression": "shocked",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            52,
+            123,
+            768,
+            917
+          ],
+          "components": 1,
+          "componentSizes": [
+            360747
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0.0008428955146720013,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            310.5,
+            331
+          ],
+          "headTopY": 123,
+          "sha256": "d49b9679c3d52dee59b38a5b2775121b5a04efcafdd3247fc07fd5789edc3cc8"
+        },
+        {
+          "expression": "happy",
+          "w": 820,
+          "h": 1080,
+          "bbox": [
+            52,
+            123,
+            768,
+            917
+          ],
+          "components": 1,
+          "componentSizes": [
+            360747
+          ],
+          "hiddenRGB": 0,
+          "canvasContact": 0,
+          "whiteCandidatePercent": 0.0008428955146720013,
+          "removed": 0,
+          "alphaDifferencePixels": 0,
+          "outsideFaceDifferencePixels": 0,
+          "eyeLines": [
+            310.5,
+            331
+          ],
+          "headTopY": 123,
+          "sha256": "ac2faf91e9f5415025fcda8d657d99035c522fb10aca62435c62ec6884b8f49e"
+        }
+      ],
+      "eyeRange": [
+        0,
+        0
+      ],
+      "headTopRange": 0,
+      "bboxRange": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "deployment": {
+    "time": "2026-10-17T10:02:44.639Z",
+    "oldFilesMaintained": 70,
+    "changedExisting": [],
+    "oldMetaMaintained": 35,
+    "changedMeta": [],
+    "newPngCount": 20,
+    "newPngHashMatch": true
+  },
+  "visualReview": {
+    "status": "passed",
+    "checked": [
+      "five identities vs existing five heroes",
+      "all 20 facial expressions",
+      "white edges",
+      "dark edges",
+      "tavern composite"
+    ],
+    "blackmoorRevision": "초기 워리어와 유사한 얼굴 폐기 후 언더컷·긴 얼굴·매부리코·뾰족한 수염으로 재제작",
+    "approval": "사용자 시각 승인 전 시안"
+  },
+  "rebuild": {
+    "count": 20,
+    "hashMatches": 20
+  },
+  "finalAudit": {
+    "time": "2026-10-17T10:06:30.763Z",
+    "oldPngPreserved": 35,
+    "oldMetaPreserved": 35,
+    "changedExisting": 0,
+    "deployedHashMatches": 20
+  }
+}

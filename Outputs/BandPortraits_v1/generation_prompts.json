@@ -1,0 +1,265 @@
+[
+  {
+    "person": "sella",
+    "expression": "neutral",
+    "prompt": "Use case: stylized-concept. Create ONE new original NPC dialogue bust portrait for Underwrite, transparent RGBA background. Reference images are STYLE AND CROP ONLY, never copy those characters. Warm delicate fine linework, clear soft cel colors, restrained matte fabric, no texture noise, no glossy highlights. Adult realistic anime proportions, field-worn supporting mercenary rather than cute protagonist. Upper chest bust only, both shoulders complete, no hands/weapons, slight three-quarter view facing screen RIGHT, level eyes. Broad transparent margin on all four sides including beneath the chest. Output portrait composition suitable for 820x1080. Neutral expression. No text, frame, background, shadow, glow, specks. Sella, human female early 20s. Short cropped chestnut hair ending ABOVE nape, practical side swept fringe, angular narrow face, ambitious hazel eyes, lightly sun-weathered skin. Worn brown leather armor over muted linen high collar. No ponytail, ribbon, navy coat, earrings or glasses.",
+    "reference": [
+      "C:/Underwrite/Assets/UI/Images/Faces/face_scholar_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_sella_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_brann_neutral.png"
+    ],
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/sella_neutral.png"
+  },
+  {
+    "person": "brann",
+    "expression": "neutral",
+    "prompt": "Use case: stylized-concept. Create ONE new original NPC dialogue bust portrait for Underwrite, transparent RGBA background. Reference images are STYLE AND CROP ONLY, never copy those characters. Warm delicate fine linework, clear soft cel colors, restrained matte fabric, no texture noise, no glossy highlights. Adult realistic anime proportions, field-worn supporting mercenary rather than cute protagonist. Upper chest bust only, both shoulders complete, no hands/weapons, slight three-quarter view facing screen RIGHT, level eyes. Broad transparent margin on all four sides including beneath the chest. Output portrait composition suitable for 820x1080. Neutral expression. No text, frame, background, shadow, glow, specks. Brann, human male 60s about to retire. CLEAN SHAVEN face, absolutely no beard/stubble/moustache. Short white cropped hair, long lean aged face, deep natural wrinkles, thin lips, old diagonal cheek scar. Dark charcoal steel armor with plain NAVY BLUE outer surcoat. No silver armor, pink scarf or glasses.",
+    "reference": [
+      "C:/Underwrite/Assets/UI/Images/Faces/face_scholar_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_sella_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_brann_neutral.png"
+    ],
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/brann_neutral.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "neutral",
+    "prompt": "Use case: stylized-concept. Create ONE new original NPC dialogue bust portrait for Underwrite, transparent RGBA background. Reference images are STYLE AND CROP ONLY, never copy those characters. Warm delicate fine linework, clear soft cel colors, restrained matte fabric, no texture noise, no glossy highlights. Adult realistic anime proportions, field-worn supporting mercenary rather than cute protagonist. Upper chest bust only, both shoulders complete, no hands/weapons, slight three-quarter view facing screen RIGHT, level eyes. Broad transparent margin on all four sides including beneath the chest. Output portrait composition suitable for 820x1080. Neutral expression. No text, frame, background, shadow, glow, specks. Blackmoor commander, human man in his 30s. Rough short BLACK beard and black close cropped hair, broad rugged face, scar at outer eye. Black-painted practical armor with worn matte edges. Daring dangerous restrained crooked smile. No grey hair, pink scarf or silver armor.",
+    "reference": [
+      "C:/Underwrite/Assets/UI/Images/Faces/face_scholar_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_sella_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_brann_neutral.png"
+    ],
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": false,
+    "archive": "raw/blackmoor_rejected_neutral.png"
+  },
+  {
+    "person": "warden",
+    "expression": "neutral",
+    "prompt": "Use case: stylized-concept. Create ONE new original NPC dialogue bust portrait for Underwrite, transparent RGBA background. Reference images are STYLE AND CROP ONLY, never copy those characters. Warm delicate fine linework, clear soft cel colors, restrained matte fabric, no texture noise, no glossy highlights. Adult realistic anime proportions, field-worn supporting mercenary rather than cute protagonist. Upper chest bust only, both shoulders complete, no hands/weapons, slight three-quarter view facing screen RIGHT, level eyes. Broad transparent margin on all four sides including beneath the chest. Output portrait composition suitable for 820x1080. Neutral expression. No text, frame, background, shadow, glow, specks. Grey Warden captain, human woman in her 40s. Short ash-grey hair tied into a tiny practical low knot, steel grey keen eyes, angular weather-beaten face with wind-chapped cheeks, mature firm jaw. Grey HOODED cloak, hood lowered around neck so short tied hair remains visible, plain practical leather collar. No glasses, ribbon, long ponytail or purple hair.",
+    "reference": [
+      "C:/Underwrite/Assets/UI/Images/Faces/face_scholar_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_sella_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_brann_neutral.png"
+    ],
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/warden_neutral.png"
+  },
+  {
+    "person": "lantern",
+    "expression": "neutral",
+    "prompt": "Use case: stylized-concept. Create ONE new original NPC dialogue bust portrait for Underwrite, transparent RGBA background. Reference images are STYLE AND CROP ONLY, never copy those characters. Warm delicate fine linework, clear soft cel colors, restrained matte fabric, no texture noise, no glossy highlights. Adult realistic anime proportions, field-worn supporting mercenary rather than cute protagonist. Upper chest bust only, both shoulders complete, no hands/weapons, slight three-quarter view facing screen RIGHT, level eyes. Broad transparent margin on all four sides including beneath the chest. Output portrait composition suitable for 820x1080. Neutral expression. No text, frame, background, shadow, glow, specks. Lantern order commander, human man in his 30s. Neatly parted BLOND hair, clean shaven, aristocratic long face with straight nose, blue eyes, reserved confidence. White outer surcoat over restrained silver plate armor. Clear simple LANTERN emblem centered on upper chest, stylized metal lantern symbol, not sun/cross. No beard, glasses, pink scarf or dark hair.",
+    "reference": [
+      "C:/Underwrite/Assets/UI/Images/Faces/face_scholar_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_sella_neutral.png",
+      "C:/Underwrite/Assets/UI/Images/Faces/face_brann_neutral.png"
+    ],
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/lantern_neutral.png"
+  },
+  {
+    "person": "sella",
+    "expression": "anxious",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Worried and apprehensive: inner brows drawn upward, tense slightly parted lips, uneasy focused gaze; restrained believable adult emotion.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/sella_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/sella_anxious.png"
+  },
+  {
+    "person": "sella",
+    "expression": "shocked",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Visibly shocked at bad news: eyebrows lifted, wider eyes around SAME eye centers, mouth open in a compact gasp. Do not open jaw silhouette or move head.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/sella_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/sella_shocked.png"
+  },
+  {
+    "person": "sella",
+    "expression": "happy",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Pleased after a successful difficult job: clear warm confident smile, raised mouth corners and gently softened eyes; keep eyes open, no childish grin.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/sella_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/sella_happy.png"
+  },
+  {
+    "person": "brann",
+    "expression": "anxious",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly hair, head size/position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and alpha. Same framing. No text, tears or sweat. Keep eye center lines within 3px. Expression: Worried and apprehensive: inner brows drawn upward, tense slightly parted lips, uneasy gaze; believable adult emotion.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/brann_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/brann_anxious.png"
+  },
+  {
+    "person": "brann",
+    "expression": "shocked",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly hair, head size/position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and alpha. Same framing. No text, tears or sweat. Keep eye center lines within 3px. Expression: Visibly shocked at bad news: lifted brows, wider eyes around SAME eye centers, mouth open in compact gasp. Do not move jaw silhouette or head.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/brann_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/brann_shocked.png"
+  },
+  {
+    "person": "brann",
+    "expression": "happy",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly hair, head size/position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and alpha. Same framing. No text, tears or sweat. Keep eye center lines within 3px. Expression: Pleased after a successful difficult job: clear confident smile, raised mouth corners, softened eyes; keep eyes open, no childish grin.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/brann_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/brann_happy.png"
+  },
+  {
+    "person": "warden",
+    "expression": "anxious",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Worried and apprehensive: inner brows drawn upward, tense slightly parted lips, uneasy focused gaze; restrained believable adult emotion.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/warden_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/warden_anxious.png"
+  },
+  {
+    "person": "warden",
+    "expression": "shocked",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Visibly shocked at bad news: eyebrows lifted, wider eyes around SAME eye centers, mouth open in a compact gasp. Do not open jaw silhouette or move head.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/warden_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/warden_shocked.png"
+  },
+  {
+    "person": "warden",
+    "expression": "happy",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Pleased after a successful difficult job: clear warm confident smile, raised mouth corners and gently softened eyes; keep eyes open, no childish grin.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/warden_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/warden_happy.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "neutral_revision",
+    "prompt": "Use case: identity-preserve. Revise this Blackmoor mercenary NPC bust to give him a distinctly different facial identity from the broad grey-bearded hero. Keep same black-painted armor, body crop and transparent canvas. Redesign HEAD: a lean elongated angular face, long visibly broken hooked nose, close-set dark small eyes, one eyebrow with scar notch, shaved sides with short swept-back black top hair (undercut, no fluffy spikes). Rough BLACK beard longer and pointed on chin with uneven edges, thinner cheeks. Age 30s, dangerous cocky asymmetric tooth-showing grin. Preserve the large old eye scar. Field-worn human supporting NPC, same warm fine-line soft matte cel illustration, no glossy highlights or textures. Face angled slightly screen right. Transparent margins all sides, no text or props. Must look like a new distinct man rather than a recolored square-jawed warrior.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/blackmoor_rejected_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/blackmoor_neutral.png"
+  },
+  {
+    "person": "lantern",
+    "expression": "anxious",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Worried and apprehensive: inner brows drawn upward, tense slightly parted lips, uneasy focused gaze; restrained believable adult emotion.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/lantern_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/lantern_anxious.png"
+  },
+  {
+    "person": "lantern",
+    "expression": "shocked",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Visibly shocked at bad news: eyebrows lifted, wider eyes around SAME eye centers, mouth open in a compact gasp. Do not open jaw silhouette or move head.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/lantern_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/lantern_shocked.png"
+  },
+  {
+    "person": "lantern",
+    "expression": "happy",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Pleased after a successful difficult job: clear warm confident smile, raised mouth corners and gently softened eyes; keep eyes open, no childish grin.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/lantern_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/lantern_happy.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "anxious",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly hair, head size/position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and alpha. Same framing. No text, tears or sweat. Keep eye center lines within 3px. Expression: Worried and apprehensive: inner brows drawn upward, tense slightly parted lips, uneasy gaze; believable adult emotion.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/blackmoor_rejected_base.png",
+    "tool": "image_gen",
+    "selected": false,
+    "reason": "용사 워리어와 얼굴 윤곽 유사",
+    "transparent_background": true,
+    "archive": "raw/blackmoor_rejected_anxious.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "shocked",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly hair, head size/position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and alpha. Same framing. No text, tears or sweat. Keep eye center lines within 3px. Expression: Visibly shocked at bad news: lifted brows, wider eyes around SAME eye centers, mouth open in compact gasp. Do not move jaw silhouette or head.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/blackmoor_rejected_base.png",
+    "tool": "image_gen",
+    "selected": false,
+    "reason": "용사 워리어와 얼굴 윤곽 유사",
+    "transparent_background": true,
+    "archive": "raw/blackmoor_rejected_shocked.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "happy",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly hair, head size/position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and alpha. Same framing. No text, tears or sweat. Keep eye center lines within 3px. Expression: Pleased after a successful difficult job: clear confident smile, raised mouth corners, softened eyes; keep eyes open, no childish grin.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/blackmoor_rejected_base.png",
+    "tool": "image_gen",
+    "selected": false,
+    "reason": "용사 워리어와 얼굴 윤곽 유사",
+    "transparent_background": true,
+    "archive": "raw/blackmoor_rejected_happy.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "anxious",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Worried and apprehensive: inner brows drawn upward, tense slightly parted lips, uneasy focused gaze; restrained believable adult emotion.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/blackmoor_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/blackmoor_anxious.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "shocked",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Visibly shocked at bad news: eyebrows lifted, wider eyes around SAME eye centers, mouth open in a compact gasp. Do not open jaw silhouette or move head.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/blackmoor_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/blackmoor_shocked.png"
+  },
+  {
+    "person": "blackmoor",
+    "expression": "happy",
+    "prompt": "Use case: identity-preserve. Edit this exact dialogue bust portrait. Change ONLY facial expression inside existing face skin: eyebrows, eyes and mouth. Preserve exactly the hair, head size, head position, eye centers, nose, cheek/jaw silhouette, ears, neck, body, clothing, armor, palette, lighting and all transparent alpha. Same canvas and framing, no camera movement. No text, symbols, tears or sweat droplets. Keep both eyes' center lines within 3 pixels of original. Expression: Pleased after a successful difficult job: clear warm confident smile, raised mouth corners and gently softened eyes; keep eyes open, no childish grin. Retain his dangerous daring crooked grin personality.",
+    "reference": "C:/Underwrite/Outputs/BandPortraits_v1/aligned/blackmoor_neutral_base.png",
+    "tool": "image_gen",
+    "transparent_background": true,
+    "selected": true,
+    "archive": "raw/blackmoor_happy.png"
+  }
+]

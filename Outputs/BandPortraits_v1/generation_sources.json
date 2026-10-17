@@ -1,0 +1,218 @@
+[
+  {
+    "archive": "raw/blackmoor_anxious.png",
+    "sha256": "60a30ac9d39704e5deb3eda299e033d497f87b73d70bdee1a869910c3200884c",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-96ec075f-df65-4619-b7b5-2e341be0d357.png",
+    "generatedAt": "2026-10-17T09:58:09.941Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/blackmoor_happy.png",
+    "sha256": "8780a84fa1650c887fa2dace402633ff0deb76f9036441e9dd178045fdacc043",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-016ad367-05f5-4d29-a4f3-a97cad4faa39.png",
+    "generatedAt": "2026-10-17T09:59:39.660Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/blackmoor_neutral.png",
+    "sha256": "aa22d9c8aa8706bfd89cc15687ae87ca80e33583a1200f474c6b8aa1bc3e8b79",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-55933e43-0bf4-489b-9f4f-6a1b387aee0b.png",
+    "generatedAt": "2026-10-17T09:57:11.419Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/blackmoor_rejected_anxious.png",
+    "sha256": "12faa64580cb23bcf8a287d63716ba5e53ce91bcc6e1e1154b072eff8bf2cb28",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-2f1aacf1-407d-4970-a9a8-142c8b9cc661.png",
+    "generatedAt": "2026-10-17T09:53:51.368Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": false
+  },
+  {
+    "archive": "raw/blackmoor_rejected_happy.png",
+    "sha256": "b6c7b47bb5cd3971d3354e5a5328141002df7676a2256ab31c052814dcf3946e",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-7b5fb46c-4d99-4747-9f0f-39150c619116.png",
+    "generatedAt": "2026-10-17T09:55:17.825Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": false
+  },
+  {
+    "archive": "raw/blackmoor_rejected_neutral.png",
+    "sha256": "3039cf3be0751567ec1c009e5dc40f62662c66f0a7f9a5b0adf0d0c8f8a4fe4a",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-77cd33b2-b5a6-4d2b-8408-9439acc18c37.png",
+    "generatedAt": "2026-10-17T09:52:45.686Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": false
+  },
+  {
+    "archive": "raw/blackmoor_rejected_shocked.png",
+    "sha256": "d3ce94f77fa06814a5176cab3a00e41d500d2ae9e2778ae1a7324f0388e11a8d",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-2c300445-6559-4b48-aa21-45d382063f42.png",
+    "generatedAt": "2026-10-17T09:54:33.915Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": false
+  },
+  {
+    "archive": "raw/blackmoor_shocked.png",
+    "sha256": "a5bf254dba82a914d4061a0c0084752ba9de116a78b543c9eb12e3a9a0bbc155",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-f12b3a8e-326a-463e-8404-b5301adaf1aa.png",
+    "generatedAt": "2026-10-17T09:58:52.591Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/brann_anxious.png",
+    "sha256": "fdccbbafb33dbd01fb32615485cd0f193a43a07c095d245c34aeba2f46662d1b",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-554b2ea1-4db6-49e9-bd1d-7bdffc8c7884.png",
+    "generatedAt": "2026-10-17T09:53:19.551Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/brann_happy.png",
+    "sha256": "8d8e401c1a9d964557a8ed9a1dcfb08567275acc5efb192f8b8de9f443046284",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-6fae9751-b34c-4ff1-a29a-0366a2d2599c.png",
+    "generatedAt": "2026-10-17T09:54:46.666Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/brann_neutral.png",
+    "sha256": "64aa1ba93297dae2e145cabd69e3d05f0d785ff20381fa8c666e672cbf72ba32",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-5397ae78-c3fd-444f-a40f-9d0a0f87dfc0.png",
+    "generatedAt": "2026-10-17T09:51:58.548Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/brann_shocked.png",
+    "sha256": "377665c85b280de53013aeeb0e758448823ffeb18df5a2dd201741aafe86c72b",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-1f248458-9360-4c5b-b472-0188cabc15a6.png",
+    "generatedAt": "2026-10-17T09:54:02.206Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/lantern_anxious.png",
+    "sha256": "a2fd4f1c105bd5c76fdf5a4fc8a9966ec5819443233003961fc5bb265f814dc5",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-b37ef250-00ca-483f-a55a-05a8214a9c7b.png",
+    "generatedAt": "2026-10-17T09:56:02.692Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/lantern_happy.png",
+    "sha256": "ce8ff0dc260961085834afbf2ddac7e363e3235ec37056e04ba10c0b9843dbb7",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-da8f9849-a7e6-4f24-8bbe-25f8bb994809.png",
+    "generatedAt": "2026-10-17T09:57:33.081Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/lantern_neutral.png",
+    "sha256": "d65688cd6f0cf8ac8f053d77e539044465483d951716884226c9cdf66e74c51e",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-5513cd71-c3a5-4eec-b3de-4acdd040dd5e.png",
+    "generatedAt": "2026-10-17T09:54:24.567Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/lantern_shocked.png",
+    "sha256": "1fd4ea38cac13ed834e1d385ea7133f860f1cba4d98df8034ad51ee4773e6857",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-ed88bd0a-d93e-45aa-a5e4-8bb73dd8f776.png",
+    "generatedAt": "2026-10-17T09:56:48.260Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/sella_anxious.png",
+    "sha256": "77b0e969d83e8fe0d4f9df67a93dfba42f89570f08dfb99b49fcd8b743c85517",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-a2a3dca6-62b3-4728-a175-051e85dc922d.png",
+    "generatedAt": "2026-10-17T09:52:43.766Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/sella_happy.png",
+    "sha256": "497d7e1dcf7f85098ea211ffaa78a2a4f0743e323086cccf6831e10ae2e7f9af",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-37792b6d-519d-4b6b-ad7b-026f45ca07f6.png",
+    "generatedAt": "2026-10-17T09:54:12.040Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/sella_neutral.png",
+    "sha256": "365b8d57d65fa4eebae856e27708f09526b870e31e2e666653d95c122c084541",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-5e323341-1e44-430f-8acf-a47c6880f8a0.png",
+    "generatedAt": "2026-10-17T09:51:21.106Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/sella_shocked.png",
+    "sha256": "0b98cca0fd18c5ba9fe68dbfd308a5f36344c6e9ff48c6c20a6616ddcbaa35d8",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-4ccf308e-1809-4229-8d28-790482bedf37.png",
+    "generatedAt": "2026-10-17T09:53:27.825Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/warden_anxious.png",
+    "sha256": "f01986e3299bd618b8c2ed89d8835632080a058245bf61c91104e98c22412285",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-f68a1208-2078-4af8-8a6d-6e2c772f4043.png",
+    "generatedAt": "2026-10-17T09:55:01.129Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/warden_happy.png",
+    "sha256": "4e3df79d52a66aae664e7837364b6dc9240142c63ed8f2ee4d6b47e1d2165552",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-dc7837f3-5d5d-4fee-ac92-e38447488078.png",
+    "generatedAt": "2026-10-17T09:56:22.739Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/warden_neutral.png",
+    "sha256": "97f7dfa54435e89615089120ede835a04db16f0767ddf8d1ea83ce4bd4d5a2f0",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-451cc7ad-f5ea-4f13-b431-1c0cdefcede7.png",
+    "generatedAt": "2026-10-17T09:53:34.975Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  },
+  {
+    "archive": "raw/warden_shocked.png",
+    "sha256": "38d8c723af060a5ee9ad9f14444181c32ca7edd6e1929c3f4b2cedf80ff431cf",
+    "source": "C:/Users/SKY/.codex/generated_images/01a14944-0f56-74c3-93e6-f091e3479b63/exec-feb2a6a4-c0af-4b9b-a06e-fa4913e7093f.png",
+    "generatedAt": "2026-10-17T09:55:46.241Z",
+    "width": 1093,
+    "height": 1439,
+    "selected": true
+  }
+]

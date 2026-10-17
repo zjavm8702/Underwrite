@@ -1,0 +1,77 @@
+{
+  "sella_anxious": {
+    "score": 18.49486301369863,
+    "dx": 2,
+    "dy": 0
+  },
+  "sella_shocked": {
+    "score": 21.015490533562822,
+    "dx": 4,
+    "dy": 0
+  },
+  "brann_anxious": {
+    "score": 26.049783549783548,
+    "dx": 4,
+    "dy": 1
+  },
+  "brann_shocked": {
+    "score": 18.75744680851064,
+    "dx": 0,
+    "dy": 0
+  },
+  "blackmoor_anxious": {
+    "score": 16.69277108433735,
+    "dx": 1,
+    "dy": 0
+  },
+  "sella_happy": {
+    "score": 17.927710843373493,
+    "dx": 2,
+    "dy": 0
+  },
+  "brann_happy": {
+    "score": 22.978632478632477,
+    "dx": 2,
+    "dy": 0
+  },
+  "warden_anxious": {
+    "score": 18.77701778385773,
+    "dx": 0,
+    "dy": 0
+  },
+  "warden_shocked": {
+    "score": 22.438858695652176,
+    "dx": 3,
+    "dy": 0
+  },
+  "warden_happy": {
+    "score": 18.987821380243574,
+    "dx": 1,
+    "dy": 0
+  },
+  "lantern_anxious": {
+    "score": 25.807417974322398,
+    "dx": 2,
+    "dy": 0
+  },
+  "lantern_shocked": {
+    "score": 21.884779516358464,
+    "dx": -1,
+    "dy": 0
+  },
+  "lantern_happy": {
+    "score": 23.504273504273506,
+    "dx": -1,
+    "dy": 0
+  },
+  "blackmoor_shocked": {
+    "score": 16.786290322580644,
+    "dx": 1,
+    "dy": 0
+  },
+  "blackmoor_happy": {
+    "score": 16.567404426559357,
+    "dx": 2,
+    "dy": 0
+  }
+}

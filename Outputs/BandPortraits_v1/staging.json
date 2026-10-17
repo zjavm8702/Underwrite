@@ -1,0 +1,170 @@
+{
+  "scope": "PNG only",
+  "status": "applied",
+  "destination": "Assets/UI/Images/Faces/",
+  "overwriteExisting": false,
+  "pivot": "미설정(PNG); 후속 동일 캔버스/UI 기준점, 자동개별크롭 금지",
+  "files": [
+    {
+      "person": "sella",
+      "expression": "neutral",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_sella_neutral.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_sella_neutral.png",
+      "sha256": "1f543c52dae61925ddc0c876fd8c3267eb494fb4ca0a7ad728bf51516702bed7",
+      "appliedSha256": "1f543c52dae61925ddc0c876fd8c3267eb494fb4ca0a7ad728bf51516702bed7"
+    },
+    {
+      "person": "sella",
+      "expression": "anxious",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_sella_anxious.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_sella_anxious.png",
+      "sha256": "39355ae9bc07987dda9017d37825caa3f11d593f0b53d7d8ff85834b59859adb",
+      "appliedSha256": "39355ae9bc07987dda9017d37825caa3f11d593f0b53d7d8ff85834b59859adb"
+    },
+    {
+      "person": "sella",
+      "expression": "shocked",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_sella_shocked.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_sella_shocked.png",
+      "sha256": "6c9a6a3175c02753d28f269fee0c07742d3efcbc84175d52dffd904d474cc36f",
+      "appliedSha256": "6c9a6a3175c02753d28f269fee0c07742d3efcbc84175d52dffd904d474cc36f"
+    },
+    {
+      "person": "sella",
+      "expression": "happy",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_sella_happy.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_sella_happy.png",
+      "sha256": "9b0993fb8b15dd300a6b9d061340ff337e103605b4254175f80cdfed2eb55b27",
+      "appliedSha256": "9b0993fb8b15dd300a6b9d061340ff337e103605b4254175f80cdfed2eb55b27"
+    },
+    {
+      "person": "brann",
+      "expression": "neutral",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_brann_neutral.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_brann_neutral.png",
+      "sha256": "c0745e2ceee9981272425df9de2d5f835816b7da30f1d00731297572063a0802",
+      "appliedSha256": "c0745e2ceee9981272425df9de2d5f835816b7da30f1d00731297572063a0802"
+    },
+    {
+      "person": "brann",
+      "expression": "anxious",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_brann_anxious.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_brann_anxious.png",
+      "sha256": "be0d2dd5130ad6668fb67ac5e6e677909be3375b94fb30909759f4f811adfb19",
+      "appliedSha256": "be0d2dd5130ad6668fb67ac5e6e677909be3375b94fb30909759f4f811adfb19"
+    },
+    {
+      "person": "brann",
+      "expression": "shocked",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_brann_shocked.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_brann_shocked.png",
+      "sha256": "ca9fb7ba60393f50d78736d7bc0ac3948c5c16e8f7098fecb8726e6b3b35e94b",
+      "appliedSha256": "ca9fb7ba60393f50d78736d7bc0ac3948c5c16e8f7098fecb8726e6b3b35e94b"
+    },
+    {
+      "person": "brann",
+      "expression": "happy",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_brann_happy.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_brann_happy.png",
+      "sha256": "f1840886451496d06ae863451ab1f16e50c4cf12ba969f3fc4d29d64f4962c15",
+      "appliedSha256": "f1840886451496d06ae863451ab1f16e50c4cf12ba969f3fc4d29d64f4962c15"
+    },
+    {
+      "person": "blackmoor",
+      "expression": "neutral",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_blackmoor_neutral.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_blackmoor_neutral.png",
+      "sha256": "a06e891fa030932baacc4355dcde08c6cded0e466af064f2b3ff7382787d0562",
+      "appliedSha256": "a06e891fa030932baacc4355dcde08c6cded0e466af064f2b3ff7382787d0562"
+    },
+    {
+      "person": "blackmoor",
+      "expression": "anxious",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_blackmoor_anxious.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_blackmoor_anxious.png",
+      "sha256": "18fa49719fa356ad37c825878deb70751ec292d31b92f913434d85332d0d9889",
+      "appliedSha256": "18fa49719fa356ad37c825878deb70751ec292d31b92f913434d85332d0d9889"
+    },
+    {
+      "person": "blackmoor",
+      "expression": "shocked",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_blackmoor_shocked.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_blackmoor_shocked.png",
+      "sha256": "45a756bbe2a0da77328aa19e289919b69ad8ccd135fa2441cf931e9bc02661e6",
+      "appliedSha256": "45a756bbe2a0da77328aa19e289919b69ad8ccd135fa2441cf931e9bc02661e6"
+    },
+    {
+      "person": "blackmoor",
+      "expression": "happy",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_blackmoor_happy.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_blackmoor_happy.png",
+      "sha256": "0df81aa5e7d32a1506249a6db061c42048ba15dc07cc0ca884716cbbacc7b132",
+      "appliedSha256": "0df81aa5e7d32a1506249a6db061c42048ba15dc07cc0ca884716cbbacc7b132"
+    },
+    {
+      "person": "warden",
+      "expression": "neutral",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_warden_neutral.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_warden_neutral.png",
+      "sha256": "8c20f0f279215f58a48873bef80986ac6a961553432ac6e9f58c5796125a541a",
+      "appliedSha256": "8c20f0f279215f58a48873bef80986ac6a961553432ac6e9f58c5796125a541a"
+    },
+    {
+      "person": "warden",
+      "expression": "anxious",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_warden_anxious.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_warden_anxious.png",
+      "sha256": "f3ee73f538ddca06b4a4e5a5d45456345e004bf55571a34dc40a19e673b50332",
+      "appliedSha256": "f3ee73f538ddca06b4a4e5a5d45456345e004bf55571a34dc40a19e673b50332"
+    },
+    {
+      "person": "warden",
+      "expression": "shocked",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_warden_shocked.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_warden_shocked.png",
+      "sha256": "9e5ac91fc831f471119a1375a0ccd4dcf5256827fabda9d3c0b5711ae028f66b",
+      "appliedSha256": "9e5ac91fc831f471119a1375a0ccd4dcf5256827fabda9d3c0b5711ae028f66b"
+    },
+    {
+      "person": "warden",
+      "expression": "happy",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_warden_happy.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_warden_happy.png",
+      "sha256": "1de095b7fa6aa78591d5af90568fbbe42985d74f0746d524c02baf019a18bc4c",
+      "appliedSha256": "1de095b7fa6aa78591d5af90568fbbe42985d74f0746d524c02baf019a18bc4c"
+    },
+    {
+      "person": "lantern",
+      "expression": "neutral",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_lantern_neutral.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_lantern_neutral.png",
+      "sha256": "12a331e4af509b551a93c4ec47f83435a09da410375db272d8f603082aee0372",
+      "appliedSha256": "12a331e4af509b551a93c4ec47f83435a09da410375db272d8f603082aee0372"
+    },
+    {
+      "person": "lantern",
+      "expression": "anxious",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_lantern_anxious.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_lantern_anxious.png",
+      "sha256": "f5d31f790d1ab5e19b47bed61fab6b09fc97ef1d332c2729bff8cf228cb28c7c",
+      "appliedSha256": "f5d31f790d1ab5e19b47bed61fab6b09fc97ef1d332c2729bff8cf228cb28c7c"
+    },
+    {
+      "person": "lantern",
+      "expression": "shocked",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_lantern_shocked.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_lantern_shocked.png",
+      "sha256": "d49b9679c3d52dee59b38a5b2775121b5a04efcafdd3247fc07fd5789edc3cc8",
+      "appliedSha256": "d49b9679c3d52dee59b38a5b2775121b5a04efcafdd3247fc07fd5789edc3cc8"
+    },
+    {
+      "person": "lantern",
+      "expression": "happy",
+      "source": "C:/Underwrite/Outputs/BandPortraits_v1/delivery/portrait_lantern_happy.png",
+      "destination": "C:/Underwrite/Assets/UI/Images/Faces/face_band_lantern_happy.png",
+      "sha256": "ac2faf91e9f5415025fcda8d657d99035c522fb10aca62435c62ec6884b8f49e",
+      "appliedSha256": "ac2faf91e9f5415025fcda8d657d99035c522fb10aca62435c62ec6884b8f49e"
+    }
+  ],
+  "appliedAt": "2026-10-17T10:02:44.583Z"
+}

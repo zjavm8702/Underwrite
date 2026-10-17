@@ -1,0 +1,86 @@
+{
+  "count": 20,
+  "matched": 20,
+  "files": [
+    {
+      "name": "portrait_blackmoor_anxious.png",
+      "match": true
+    },
+    {
+      "name": "portrait_blackmoor_happy.png",
+      "match": true
+    },
+    {
+      "name": "portrait_blackmoor_neutral.png",
+      "match": true
+    },
+    {
+      "name": "portrait_blackmoor_shocked.png",
+      "match": true
+    },
+    {
+      "name": "portrait_brann_anxious.png",
+      "match": true
+    },
+    {
+      "name": "portrait_brann_happy.png",
+      "match": true
+    },
+    {
+      "name": "portrait_brann_neutral.png",
+      "match": true
+    },
+    {
+      "name": "portrait_brann_shocked.png",
+      "match": true
+    },
+    {
+      "name": "portrait_lantern_anxious.png",
+      "match": true
+    },
+    {
+      "name": "portrait_lantern_happy.png",
+      "match": true
+    },
+    {
+      "name": "portrait_lantern_neutral.png",
+      "match": true
+    },
+    {
+      "name": "portrait_lantern_shocked.png",
+      "match": true
+    },
+    {
+      "name": "portrait_sella_anxious.png",
+      "match": true
+    },
+    {
+      "name": "portrait_sella_happy.png",
+      "match": true
+    },
+    {
+      "name": "portrait_sella_neutral.png",
+      "match": true
+    },
+    {
+      "name": "portrait_sella_shocked.png",
+      "match": true
+    },
+    {
+      "name": "portrait_warden_anxious.png",
+      "match": true
+    },
+    {
+      "name": "portrait_warden_happy.png",
+      "match": true
+    },
+    {
+      "name": "portrait_warden_neutral.png",
+      "match": true
+    },
+    {
+      "name": "portrait_warden_shocked.png",
+      "match": true
+    }
+  ]
+}
