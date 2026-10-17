@@ -69,10 +69,15 @@ namespace Underwrite.Village
                     if (renderer.gameObject.name == "Body")
                     {
                         BodySprite = renderer;
+
+                        // 몸짓(끄덕임·흔들기)은 몸 그림만 움직인다. 사람 전체(루트)를 움직이면, 처음 선 자리를
+                        // 기준으로 되돌아가 걷던 용병단 단원이 말을 걸자마자 출발점으로 튀었다(2026-10-18 사용자 보고).
+                        BodyTransform = renderer.transform;
                         break;
                     }
                 }
             }
+
             BodyRest = BodyTransform.localPosition;
 
             // 사람은 모두 외곽선을 두른다(2026-10-17 사용자 결정). 사물과 그림이 섞인 화면에서 사람이 떠 보이게.
