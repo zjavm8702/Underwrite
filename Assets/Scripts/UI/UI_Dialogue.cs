@@ -24,6 +24,7 @@ namespace Underwrite.UI
         private readonly VisualElement Figure;
         private readonly VisualElement Box;
         private readonly Label Speaker;
+        private readonly Label Badge;
         private readonly Label Tag;
         private readonly Label Text;
         private readonly Label Note;
@@ -89,6 +90,16 @@ namespace Underwrite.UI
             Figure = built.Q<VisualElement>("dialogue-figure");
             Box = built.Q<VisualElement>("dialogue-box");
             Speaker = built.Q<Label>("dialogue-speaker");
+
+            // 이름 옆 배지. 이름 줄에 끼워 넣는다.
+            Badge = new Label();
+            Badge.AddToClassList("dialogue-badge");
+            Badge.AddToClassList("hidden");
+
+            if (Speaker != null && Speaker.parent != null)
+            {
+                Speaker.parent.Insert(Speaker.parent.IndexOf(Speaker) + 1, Badge);
+            }
             Tag = built.Q<Label>("dialogue-tag");
             Text = built.Q<Label>("dialogue-text");
             Note = built.Q<Label>("dialogue-note");
@@ -264,6 +275,7 @@ namespace Underwrite.UI
             var line = Lines[Index];
 
             SetLabel(Speaker, line.Speaker);
+            SetLabel(Badge, line.Badge);
             SetLabel(Tag, line.Tag);
             SetLabel(Note, line.Note);
 

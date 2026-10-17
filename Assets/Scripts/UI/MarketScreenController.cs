@@ -352,6 +352,7 @@ namespace Underwrite.UI
             BuildPopup();
 
             StartTutorialOnce();
+            OpenIfDue();
 
             // 보고는 틱과 무관하게 연다. 틱이 멈춘 뒤에 걸려 있으면 영영 안 열린다.
             if (Sim.HasBriefing == true && SceneIndex < 0 && (Tutorial == null || Tutorial.IsOpen == false))
@@ -362,6 +363,25 @@ namespace Underwrite.UI
             }
 
             Refresh();
+        }
+
+        /// <summary>
+        /// 영지에서 다음 장 직전까지 시간을 보내고 들어왔으면 그 장을 바로 연다.
+        /// 「오후장 열기」를 따로 누르게 하면 영지의 시계와 거래소가 어긋나 보인다(2026-10-17 사용자 보고).
+        /// 오후장이 끝난 밤이면 열지 않는다 — 다음 날은 영지에서 잠자리에 들어야 온다.
+        /// </summary>
+        private void OpenIfDue()
+        {
+            var clock = Sim.Clock;
+
+            if (clock.Phase != MarketPhase.Phase_Closed || clock.IsBreak == false
+                || clock.BreakMinutesLeft > Constants.BREAK_SKIP_MARGIN_MINUTES || clock.CanSleep == true
+                || (Tutorial != null && Tutorial.IsOpen == true))
+            {
+                return;
+            }
+
+            SkipOrOpen();
         }
 
         /// <summary>
@@ -848,8 +868,14 @@ namespace Underwrite.UI
                 SkipOrOpen();
             }
 
-            GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
-            Sim.Clock.BeginBreak();
+            // 이미 영지의 시간이 흐르던 중이면(영지 → 거래소 → 영지) 그대로 잇는다.
+            // 새로 시작하면 시각이 장 끝으로 되돌아가고, 영지에서 번 돈이 장부에서 사라진다.
+            if (Sim.Clock.IsBreak == false)
+            {
+                GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
+                Sim.Clock.BeginBreak();
+            }
+
             SceneManager.LoadScene(SceneRoutes.VILLAGE);
         }
 
@@ -1238,10 +1264,13 @@ namespace Underwrite.UI
             }
 
             var label = Sim.Clock.Session == MarketSession.Session_Evening ? "오후장" : "오전장";
-            var seconds = Sim.Clock.ClockTotalSeconds;
+            // 장이 닫혀 영지의 시간이 흐르는 동안에는 영지 시각을 보인다. 장 끝 시각에 멈춰 있으면
+            // 영지에서 시간을 넘기고 와도 갱신이 안 된 것처럼 보인다(2026-10-17 사용자 보고).
+            var seconds = Sim.Clock.Phase == MarketPhase.Phase_Closed && Sim.Clock.IsBreak == true
+                ? Sim.Clock.BreakMinuteOfDay * 60 + Sim.Clock.BreakSecond
+                : Sim.Clock.ClockTotalSeconds;
             SetText("clock-text",
-                $"{Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {label}"
-                + $" {seconds / 3600:00}:{seconds / 60 % 60:00}:{seconds % 60:00}"
+                $"{Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {label} {ClockText.FromSeconds(seconds, true)}"
                 + $" · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
             SetText("sentiment-text", $"분위기 {SentimentText(Sim.Sentiment)}");
 
@@ -2441,8 +2470,15 @@ namespace Underwrite.UI
 
                 var line = new DialogueLine(name,
                     $"{SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {session}"
-                    + $" {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}",
+                    + $" {ClockText.FromSeconds(Sim.Clock.ClockTotalSeconds, false)}",
                     entry.Headline);
+
+                var held = Sim.Wallet.QuantityOf(entry.StockId);
+
+                if (held > 0)
+                {
+                    line.Badge = string.Format(StringConstants.TEXT_HELD_NOTE, held);
+                }
 
                 line.Portrait = PortraitOf(entry.StockId, EmotionOf(entry));
                 line.Emotion = EmotionOf(entry);

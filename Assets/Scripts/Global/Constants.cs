@@ -96,7 +96,7 @@ namespace Underwrite.Global
         public static string TEXT_INFO_WHEN = "{0} · {1}일 {2}";
         public static string TEXT_INFO_PRIVATE_SHORT = "나만 앎";
         public static string TEXT_INFO_EMPTY_MINE = "가진 종목에 대한 소식이 아직 없습니다.";
-        public static string TEXT_HELD_NOTE = "★ 내 종목 {0}주";
+        public static string TEXT_HELD_NOTE = "★ 내 보유 종목 · {0}주";
 
         public static string TEXT_SOURCE_TAVERN_TALK = "여관 소문";
         public static string TEXT_SOURCE_GUILD_RECORD = "길드 기록";
@@ -106,6 +106,7 @@ namespace Underwrite.Global
 
         // 영지에서 묻기 전에 고르는 자리
         public static string TEXT_GATHER_ASK = "들은 게 있긴 한데, 공짜로 줄 수는 없지요.";
+        public static string TEXT_GATHER_ASK_AGAIN = "또 볼일이 있으신가요?";
         public static string TEXT_GATHER_PAY = "{0:N0}을 내고 묻는다";
         public static string TEXT_GATHER_PAY_NOTE = "{0}분이 걸린다 · 가진 돈 {1:N0}";
         public static string TEXT_GATHER_NO_MONEY = "돈이 모자란다 · 가진 돈 {0:N0}";
@@ -128,11 +129,13 @@ namespace Underwrite.Global
         public static string TEXT_MENU_MARKET_LOCKED = "아직 모른다";
         public static string TEXT_MENU_NO_TIME = "다음 장이 코앞이다";
         public static string TEXT_CLOCK_TITLE = "몇 시까지 보낼까";
-        public static string TEXT_CLOCK_PICK = "{0:00}:{1:00}까지 · {2}시간 {3}분";
-        public static string TEXT_CLOCK_LIMIT = "다음 장은 {0:00}:{1:00}에 열린다. 그 직전까지 고를 수 있다.";
+        public static string TEXT_CLOCK_PICK = "{0}까지 · {1}시간 {2}분";
+        public static string TEXT_CLOCK_LIMIT = "다음 장은 {0}에 열린다. 그 직전까지 고를 수 있다.";
         public static string TEXT_CLOCK_CONFIRM = "그때까지 보낸다";
         public static string TEXT_CLOCK_CANCEL = "그만둔다";
-        public static string TEXT_TIME_PASS = "{0:00}:{1:00}  →  {2:00}:{3:00}";
+        public static string TEXT_CLOCK_AM = "AM";
+        public static string TEXT_CLOCK_PM = "PM";
+        public static string TEXT_TIME_PASS = "{0}  →  {1}";
         public static string TEXT_TIME_PASS_NOTE = "{0}시간 {1}분이 흘렀다";
         public static string TEXT_CLOCK_SKIP_SESSION = "{0} 건너뛰기 — 그다음 장 직전까지 돌릴 수 있다";
 
@@ -144,7 +147,7 @@ namespace Underwrite.Global
         public static string TEXT_DAY_END_MONEY = "오늘 영지에서 {0:N0}을 벌고 {1:N0}을 썼다.";
         public static string TEXT_DAY_END_NOTES = "캐낸 소식 {0}건은 정보 기록에 옮겨 적었다.";
         public static string TEXT_DAY_END_NO_NOTES = "오늘은 캐낸 소식이 없다.";
-        public static string TEXT_DAY_END_NEXT = "내일 오전장은 {0:00}시에 열린다.";
+        public static string TEXT_DAY_END_NEXT = "내일 오전장은 {0}에 열린다.";
 
         // 후원 — 익명의 의뢰주 (후원흐름 설계안). 용사단 이름은 아직 정하지 않아 임시로 "용사단"이라 부른다.
         public static string TEXT_HERO_PARTY = "용사단";

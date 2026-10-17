@@ -473,12 +473,21 @@ namespace Underwrite.UI
             {
                 if (spot != null && OffersChoices(spot) == true)
                 {
-                    Ask(spot);
+                    Ask(spot, true);
                 }
             };
         }
 
         private void Ask(VillageSpot spot)
+        {
+            Ask(spot, false);
+        }
+
+        /// <summary>
+        /// 자리의 선택지. <paramref name="again"/>이면 볼일을 하나 마치고 돌아온 것이다 — 처음 인사를 되풀이하지 않는다
+        /// (2026-10-17 사용자 보고: "들은 게 있긴 한데…"가 자꾸 나온다).
+        /// </summary>
+        private void Ask(VillageSpot spot, bool again)
         {
             CurrentSpot = spot;
 
@@ -556,7 +565,8 @@ namespace Underwrite.UI
 
             choices.Add(new DialogueChoice(StringConstants.TEXT_GATHER_LEAVE, null));
 
-            var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, StringConstants.TEXT_GATHER_ASK);
+            var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name,
+                again == true ? StringConstants.TEXT_GATHER_ASK_AGAIN : StringConstants.TEXT_GATHER_ASK);
             line.Choices = choices;
 
             Dialogue.Play(new List<DialogueLine> { line }, null);
@@ -651,7 +661,7 @@ namespace Underwrite.UI
                 choices.Add(choice);
             }
 
-            choices.Add(new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot)));
+            choices.Add(new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot, true)));
 
             var line = new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_HERO_TABLE_ASK);
             line.Choices = choices;
@@ -710,10 +720,7 @@ namespace Underwrite.UI
                     field.IsSecret = true;
                     var heldTag = HeldNote(pick.StockId);
 
-                    if (heldTag != null)
-                    {
-                        field.Tag = field.Tag + " · " + heldTag;
-                    }
+                    field.Badge = heldTag;
                     lines.Add(field);
                     GatherSession.Record(0f, 0f, new GatheredNote(pick.StockId, pick.Headline,
                         InfoSource.Source_TavernTalk));
@@ -854,7 +861,7 @@ namespace Underwrite.UI
                     Constants.REQUEST_COST_SUPPLIES, money),
                 RequestChoice(RequestPurpose.Purpose_Training, StringConstants.TEXT_REQUEST_PURPOSE_TRAINING,
                     Constants.REQUEST_COST_TRAINING, money),
-                new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot))
+                new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot, true))
             };
 
             var line = new DialogueLine(StringConstants.TEXT_REQUEST_CLERK, spot.Name, StringConstants.TEXT_REQUEST_ASK);
@@ -939,7 +946,8 @@ namespace Underwrite.UI
 
             var line = new DialogueLine(string.Format(StringConstants.TEXT_DAY_END_TITLE, today),
                 StringConstants.TEXT_DAY_END_TAG, body);
-            line.Note = string.Format(StringConstants.TEXT_DAY_END_NEXT, Constants.MARKET_MORNING_START_HOUR);
+            line.Note = string.Format(StringConstants.TEXT_DAY_END_NEXT,
+                ClockText.FromMinutes(Constants.MARKET_MORNING_START_HOUR * 60));
 
             // 시나리오가 깨졌으면 더 진행하지 않는다(설계안 §1-5). 처음(인트로)으로 돌아간다.
             if (failed > 0)
@@ -1018,10 +1026,7 @@ namespace Underwrite.UI
             line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, quest.Reward, minutes / 60, minutes % 60);
             var held = rumorStock == null ? null : HeldNote(rumorStock);
 
-            if (held != null)
-            {
-                line.Tag = spot.Name + " · " + held;
-            }
+            line.Badge = held;
 
             Dialogue.Play(new List<DialogueLine> { line },
                 React(ActorMotion.Motion_Cheer, ActorEmote.Emote_Coin, Back(spot)));
@@ -1416,7 +1421,7 @@ namespace Underwrite.UI
             Dial.SetRange(Clock.BreakMinuteOfDay, Clock.LatestBreakMinute);
 
             var next = Clock.NextSessionMinute;
-            SetText("village-clock-limit", string.Format(StringConstants.TEXT_CLOCK_LIMIT, next / 60 % 24, next % 60));
+            SetText("village-clock-limit", string.Format(StringConstants.TEXT_CLOCK_LIMIT, ClockText.FromMinutes(next)));
 
             var toggle = Root.Q<Toggle>("village-clock-skip");
 
@@ -1471,7 +1476,7 @@ namespace Underwrite.UI
 
             var spend = minute - Clock.BreakMinuteOfDay;
             SetText("village-clock-pick", string.Format(StringConstants.TEXT_CLOCK_PICK,
-                minute / 60 % 24, minute % 60, spend / 60, spend % 60));
+                ClockText.FromMinutes(minute), spend / 60, spend % 60));
         }
 
         private void ConfirmClock()
@@ -1499,8 +1504,8 @@ namespace Underwrite.UI
             yield return FadeTo(fade, 1f);
 
             Clock.SpendBreakMinutes(minutes);
-            SetText("village-fade-time", string.Format(StringConstants.TEXT_TIME_PASS, fromHour, fromMinute,
-                Clock.BreakHour, Clock.BreakMinute));
+            SetText("village-fade-time", string.Format(StringConstants.TEXT_TIME_PASS,
+                ClockText.FromMinutes(fromHour * 60 + fromMinute), ClockText.FromMinutes(Clock.BreakMinuteOfDay)));
             SetText("village-fade-note", string.Format(StringConstants.TEXT_TIME_PASS_NOTE, minutes / 60, minutes % 60));
 
             foreach (var party in FindObjectsByType<NpcParty>(FindObjectsInactive.Exclude))
@@ -1619,7 +1624,8 @@ namespace Underwrite.UI
             var hour = Clock == null ? 0 : Clock.BreakHour;
             var minute = Clock == null ? 0 : Clock.BreakMinute;
             SetText("village-visits",
-                $"{hour:00}:{minute:00}:{(Clock == null ? 0 : Clock.BreakSecond):00} · 다음 장까지 {left / 60}시간 {left % 60}분"
+                ClockText.FromSeconds((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond), true)
+                + $" · 다음 장까지 {left / 60}시간 {left % 60}분"
                 + InspectionTag());
 
             if (Here == null)
@@ -1798,8 +1804,8 @@ namespace Underwrite.UI
             var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
             line.Portrait = portrait;
             line.IsSecret = secret;
-            // 가진 종목의 소문이면 꼬리표 자리에 크게 붙인다. 작은 글씨 안내로는 놓친다(2026-10-17 사용자 요청).
-            line.Tag = heldNote == null ? spot.Name : spot.Name + " · " + heldNote;
+            // 가진 종목의 소문이면 이름 옆에 붉은 배지를 붙인다. 작은 글씨 안내로는 놓친다(2026-10-17 사용자 요청).
+            line.Badge = heldNote;
             line.Note = BuildNote(spot, secret);
 
             var lines = new List<DialogueLine> { line };

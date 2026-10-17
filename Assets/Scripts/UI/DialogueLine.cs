@@ -37,6 +37,12 @@ namespace Underwrite.UI
         public bool IsSecret;
 
         /// <summary>
+        /// 이름 옆 붉은 배지. 내가 가진 종목의 소식이면 「★ 내 보유 종목 · 5주」를 단다(2026-10-17 사용자 요청).
+        /// 비어 있으면 숨긴다.
+        /// </summary>
+        public string Badge;
+
+        /// <summary>
         /// 이 줄 끝에서 고를 것. 비어 있으면 「다음」으로 넘긴다.
         /// 선택지가 있는 줄은 그 묶음의 마지막 줄이어야 한다. 고르는 순간 대화가 갈리기 때문이다.
         /// </summary>
