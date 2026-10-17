@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Underwrite.Enumeration;
 using Underwrite.Global;
 using UnityEngine;
 
@@ -166,6 +167,24 @@ namespace Underwrite.Village
                 if (i > 0)
                 {
                     Members[i].Face(center - Members[i].Foot);
+                }
+            }
+
+            // 도착하면 가끔 한 사람이 들뜬다. 무리가 사람으로 보이게 한다.
+            if (UnityEngine.Random.value < Constants.NPC_PARTY_CHEER_CHANCE)
+            {
+                var pick = Members[UnityEngine.Random.Range(0, Members.Count)];
+                var actor = pick != null ? pick.GetComponent<CharacterActor>() : null;
+                var npc = pick != null ? pick.GetComponent<VillageNpc>() : null;
+
+                if (actor != null)
+                {
+                    actor.Play(UnityEngine.Random.value < 0.5f ? ActorMotion.Motion_Cheer : ActorMotion.Motion_Hop);
+
+                    if (npc != null)
+                    {
+                        actor.Say(npc.PickLine());
+                    }
                 }
             }
 

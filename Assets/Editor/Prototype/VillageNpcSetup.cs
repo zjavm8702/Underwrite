@@ -179,6 +179,7 @@ namespace Underwrite.Editor
                     var npc = CreateNpc(prefab, root.transform, door + new Vector2(side, 0.3f), RESIDENT_TINT, 1f);
                     npc.AddComponent<VillageNpc>().Configure(NpcRole.Role_Resident, cast.Names[i], cast.Place,
                         new List<string>(cast.Lines[i]));
+                    npc.AddComponent<NpcAmbient>();
                     count++;
                 }
             }
@@ -190,6 +191,7 @@ namespace Underwrite.Editor
                     var npc = CreateNpc(prefab, root.transform, board + VENDOR_OFFSETS[i], VENDOR_TINT, 1f);
                     npc.AddComponent<VillageNpc>().Configure(NpcRole.Role_Vendor, VENDOR_NAMES[i], string.Empty,
                         new List<string>(VENDOR_LINES[i]));
+                    npc.AddComponent<NpcAmbient>();
                     count++;
                 }
             }
@@ -211,6 +213,7 @@ namespace Underwrite.Editor
                     var npc = CreateNpc(prefab, party.transform, foot, cast.Tint, 0.95f + 0.05f * m);
                     npc.AddComponent<VillageNpc>().Configure(NpcRole.Role_Adventurer, cast.Names[m], cast.Band,
                         new List<string>(cast.Lines));
+                    npc.AddComponent<NpcAmbient>();
                     members.Add(npc.GetComponent<NpcWalker>());
                     count++;
                 }
@@ -231,6 +234,8 @@ namespace Underwrite.Editor
             var walker = npc.AddComponent<NpcWalker>();
             walker.Configure(Constants.PROTAGONIST_FOOT_OFFSET, speedScale);
             walker.PlaceFoot(foot);
+
+            npc.AddComponent<CharacterActor>();
 
             // 그림자와 몸을 한 덩어리로 정렬한다.
             npc.AddComponent<SortingGroup>();

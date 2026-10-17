@@ -24,6 +24,18 @@ namespace Underwrite.Global
         public const string ANIM_STATE_IDLE = "Idle";
         public const string ANIM_STATE_WALKING = "Walking";
         public const string ANIM_STATE_CHEER = "Cheer";
+        // 아직 그림이 없는 몸짓. Animator에 이 이름의 상태가 생기면 그것을 재생한다(CharacterActor).
+        public const string ANIM_STATE_NOD = "Nod";
+        public const string ANIM_STATE_SHAKE = "Shake";
+        public const string ANIM_STATE_HOP = "Hop";
+
+        // 머리 위 감정 표시
+        public static string TEXT_EMOTE_EXCLAIM = "!";
+        public static string TEXT_EMOTE_QUESTION = "?";
+        public static string TEXT_EMOTE_DOTS = "…";
+        public static string TEXT_EMOTE_MUSIC = "♪";
+        public static string TEXT_EMOTE_HEART = "♥";
+        public static string TEXT_EMOTE_COIN = "＄";
 
         // 시장 화면 표시용
         public static string TEXT_MARKET_PHASE_CLOSED = "폐장";
@@ -368,6 +380,8 @@ namespace Underwrite.Global
         public static float NPC_PARTY_DOOR_GAP = 2.2f;
         /// <summary>그 둘레에서 흩어지는 반지름. 단마다 같은 점에 겹쳐 서지 않게 한다.</summary>
         public static float NPC_PARTY_SPREAD = 1.5f;
+        /// <summary>모험단이 닿았을 때 한 사람이 들떠 몸짓하는 확률.</summary>
+        public static float NPC_PARTY_CHEER_CHANCE = 0.45f;
         /// <summary>말을 걸 수 있는 거리(월드 유닛). 사람 키(1.9)보다 조금 작다.</summary>
         public static float NPC_TALK_RANGE = 1.4f;
 
@@ -411,6 +425,24 @@ namespace Underwrite.Global
         public static float VILLAGE_ZOOM_SMOOTH = 10f;
         /// <summary>이보다 작은 휠 값은 무시한다. 터치패드의 잔 움직임이다.</summary>
         public const float VILLAGE_ZOOM_SCROLL_THRESHOLD = 0.01f;
+
+        // ── 필드 연기 (2026-10-17) ────────────────
+        /// <summary>감정 표시가 떠 있는 시간(초).</summary>
+        public static float ACTOR_EMOTE_SECONDS = 1.6f;
+        /// <summary>말풍선이 떠 있는 시간(초).</summary>
+        public static float ACTOR_SAY_SECONDS = 3.2f;
+        /// <summary>그림이 없는 몸짓을 코드로 대신할 때의 길이(초).</summary>
+        public static float ACTOR_FALLBACK_SECONDS = 0.6f;
+        /// <summary>다가가 E를 누른 뒤 대화창이 열리기까지. 서로 돌아보는 모습이 보일 만큼.</summary>
+        public static float ACTOR_APPROACH_SECONDS = 0.45f;
+        /// <summary>이 거리 안에 들어오면 서 있는 사람이 주인공을 돌아본다.</summary>
+        public static float ACTOR_NOTICE_RANGE = 2.6f;
+        /// <summary>같은 사람이 다시 알아보는 표시를 띄우기까지(초).</summary>
+        public static float ACTOR_NOTICE_COOLDOWN = 25f;
+        /// <summary>노점상이 손님을 부르는 거리와 간격(초).</summary>
+        public static float VENDOR_CALL_RANGE = 7f;
+        public static float VENDOR_CALL_MIN = 7f;
+        public static float VENDOR_CALL_MAX = 13f;
 
         // ── 대화 ──────────────────────────────────
         /// <summary>선택지를 고르는 숫자 키. 화면에 붙는 번호 「1.」「2.」와 같은 순서다.</summary>

@@ -100,6 +100,8 @@ namespace Underwrite.Editor
             // 영지 사람들과 같은 규칙으로 앞뒤를 가린다. 그림자와 몸을 한 덩어리로 묶는다.
             player.AddComponent<SortingGroup>();
             player.AddComponent<YSortRenderer>().Configure(Constants.PROTAGONIST_FOOT_OFFSET, false);
+            // 일을 마치면 기뻐하고, 무언가 알게 되면 놀란다. 필드의 상호작용이 여기서 보인다.
+            player.AddComponent<CharacterActor>();
 
             BuildLight(lightPrefab);
             BuildCamera(player);

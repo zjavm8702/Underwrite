@@ -43,6 +43,9 @@ namespace Underwrite.UI
         // 지금 선택지를 띄운 자리. 용사 테이블처럼 자리를 넘겨받지 않는 곳에서 돌아갈 곳이다.
         private VillageSpot CurrentSpot;
 
+        // 서로 돌아보거나 몸짓하는 중이다. 그동안 E를 다시 받지 않는다.
+        private bool Approaching;
+
         // 시계를 연 뒤 토글로 다음 장을 건너뛰었는가. 「그만둔다」로 닫으면 되돌린다.
         private bool SkipFromClock;
         private Transform Player;
@@ -106,6 +109,7 @@ namespace Underwrite.UI
 
             if (Dialogue == null && DialogueTree != null)
             {
+                WorldBubbles.Attach(Root);
                 Dialogue = new UI_Dialogue(Root, DialogueTree);
             }
 
@@ -121,6 +125,9 @@ namespace Underwrite.UI
             NearNpc = FindNearNpc();
             RefreshPrompt();
 
+            NpcAmbient.Player = Player;
+            WorldBubbles.Tick(Dialogue != null && Dialogue.IsOpen == true);
+
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
                 || MenuOpen == true;
@@ -134,7 +141,7 @@ namespace Underwrite.UI
             }
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
-                || ClockOpen == true)
+                || ClockOpen == true || Approaching == true)
             {
                 return;
             }
@@ -148,11 +155,127 @@ namespace Underwrite.UI
             // 장소의 문 앞이 사람보다 먼저다. 문 앞에 주민이 서 있어도 볼일은 그 장소에 있다.
             if (Here != null)
             {
-                Ask(Here);
+                StartCoroutine(ApproachSpot(Here));
                 return;
             }
 
-            TalkTo(NearNpc);
+            StartCoroutine(ApproachNpc(NearNpc));
+        }
+
+        // ── 필드 연기 (2026-10-17) ────────────────
+        // 대화창은 화면을 덮는다. 그래서 상호작용은 대화 앞뒤로 필드에서 보인다.
+
+        private CharacterActor PlayerActor
+        {
+            get
+            {
+                return Player == null ? null : Player.GetComponent<CharacterActor>();
+            }
+        }
+
+        /// <summary>문 앞에서 E. 주인공이 문 쪽을 돌아본 뒤 선택지가 열린다.</summary>
+        private System.Collections.IEnumerator ApproachSpot(VillageSpot spot)
+        {
+            Approaching = true;
+            var actor = PlayerActor;
+
+            if (actor != null)
+            {
+                // 문은 문 앞 자리의 위(화면 안쪽)에 있다.
+                actor.Face(Vector2.up);
+            }
+
+            yield return new WaitForSeconds(Constants.ACTOR_APPROACH_SECONDS);
+            Approaching = false;
+            Ask(spot);
+        }
+
+        /// <summary>
+        /// 영지 사람에게 말을 건다. 대화창을 열지 않고 필드에서 끝낸다 — 서로 돌아보고,
+        /// 상대가 머리 위 말풍선으로 대꾸하며 몸짓한다. 한마디 인사에 화면을 덮을 이유가 없다.
+        /// 모험단과는 관계를 맺지 않는다(설계안 §1-2). 이름과 얼굴만 아는 사이다.
+        /// </summary>
+        private System.Collections.IEnumerator ApproachNpc(VillageNpc npc)
+        {
+            Approaching = true;
+            var me = PlayerActor;
+            var them = npc.GetComponent<CharacterActor>();
+
+            if (me != null)
+            {
+                me.FaceTowards(npc.transform.position);
+            }
+
+            if (them != null && Player != null)
+            {
+                them.FaceTowards(Player.position);
+                them.Emote(ActorEmote.Emote_Question);
+            }
+
+            yield return new WaitForSeconds(Constants.ACTOR_APPROACH_SECONDS);
+
+            if (them != null)
+            {
+                them.Say(npc.PickLine());
+                them.Play(MotionOf(npc.Kind));
+            }
+
+            yield return new WaitForSeconds(Constants.ACTOR_APPROACH_SECONDS);
+            Approaching = false;
+        }
+
+        private static ActorMotion MotionOf(NpcRole role)
+        {
+            switch (role)
+            {
+                case NpcRole.Role_Vendor:
+                {
+                    return ActorMotion.Motion_Hop;
+                }
+                case NpcRole.Role_Adventurer:
+                {
+                    return ActorMotion.Motion_Shake;
+                }
+                default:
+                {
+                    return ActorMotion.Motion_Nod;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 대화가 끝난 뒤 필드에서 주인공이 반응하고, 끝나면 다음 일을 한다.
+        /// 돈을 받으면 기뻐하고, 무언가 알게 되면 놀란다. 대화가 닫힌 동안에만 보인다.
+        /// </summary>
+        private System.Action React(ActorMotion motion, ActorEmote emote, System.Action then)
+        {
+            return () =>
+            {
+                var actor = PlayerActor;
+
+                if (actor == null)
+                {
+                    if (then != null)
+                    {
+                        then();
+                    }
+
+                    return;
+                }
+
+                Approaching = true;
+                actor.Face(Vector2.down);
+                actor.Emote(emote);
+                actor.Play(motion, () =>
+                {
+                    Approaching = false;
+
+                    if (then != null)
+                    {
+                        then();
+                    }
+                });
+            };
         }
 
         /// <summary>말을 걸 수 있을 만큼 가까운 사람 가운데 가장 가까운 사람. 없으면 null.</summary>
@@ -400,7 +523,7 @@ namespace Underwrite.UI
             lines[lines.Count - 1].Note = StringConstants.TEXT_DISCOVER_NOTE;
 
             // 다 보면 바로 고르게 한다. 창고로 내려갈지, 일단 둘러볼지.
-            Dialogue.Play(lines, () => Ask(spot));
+            Dialogue.Play(lines, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, () => Ask(spot)));
         }
 
         // ── 용사단 (루틴 설계안) ──────────────────
@@ -516,13 +639,18 @@ namespace Underwrite.UI
             }
 
             // 이야기를 마치면 테이블로 돌아간다. 다른 사람에게도 말을 걸 수 있다.
-            Dialogue.Play(lines, () =>
+            // 따뜻하게 대답했으면 주인공도 살짝 들뜬다. 숫자 대신 몸짓으로 관계가 오른 것을 보인다.
+            System.Action back = () =>
             {
                 if (CurrentSpot != null)
                 {
                     OpenHeroTable(CurrentSpot);
                 }
-            });
+            };
+
+            Dialogue.Play(lines, affinity >= 2
+                ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Heart, back)
+                : React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, back));
         }
 
         /// <summary>
@@ -679,7 +807,8 @@ namespace Underwrite.UI
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_REQUEST_CLERK,
                 string.Format(StringConstants.TEXT_REQUEST_DONE, StringConstants.TEXT_HERO_PARTY));
             line.Note = string.Format(StringConstants.TEXT_REQUEST_DONE_NOTE, cost);
-            Dialogue.Play(new List<DialogueLine> { line }, Back(CurrentSpot));
+            Dialogue.Play(new List<DialogueLine> { line },
+                React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, Back(CurrentSpot)));
         }
 
         /// <summary>
@@ -797,7 +926,8 @@ namespace Underwrite.UI
                 line.Note = held + " · " + line.Note;
             }
 
-            Dialogue.Play(new List<DialogueLine> { line }, Back(spot));
+            Dialogue.Play(new List<DialogueLine> { line },
+                React(ActorMotion.Motion_Cheer, ActorEmote.Emote_Coin, Back(spot)));
         }
 
         /// <summary>메뉴 단추와 원형 시계. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
@@ -1230,7 +1360,9 @@ namespace Underwrite.UI
             line.IsSecret = secret;
             line.Note = heldNote == null ? BuildNote(spot, secret) : heldNote + " · " + BuildNote(spot, secret);
 
-            Dialogue.Play(new List<DialogueLine> { line }, Back(spot));
+            Dialogue.Play(new List<DialogueLine> { line }, secret == true
+                ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Exclaim, Back(spot))
+                : React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, Back(spot)));
         }
 
         /// <summary>다음 장까지 한 가지 일을 할 시간이 남아 있는가.</summary>

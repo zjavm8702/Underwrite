@@ -1635,3 +1635,28 @@
 .dialogue-choice--locked:active {
     scale: 1 1;
 }
+
+/* ── 필드 말풍선 (WorldBubbles) ───────────── */
+.world-bubble {
+    position: absolute;
+    max-width: 320px;
+    padding: 6px 12px 6px 12px;
+    border-radius: 12px;
+    background-color: rgba(247, 240, 226, 0.95);
+    border-width: 1px;
+    border-color: rgb(91, 77, 62);
+    color: #2A2118;
+    font-size: 17px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+
+/* 감정 표시는 크고 둥글게. 글자 하나다. */
+.world-bubble--emote {
+    font-size: 26px;
+    -unity-font-style: bold;
+    padding: 0 10px 2px 10px;
+    border-radius: 18px;
+    color: rgb(158, 52, 40);
+}
+

@@ -158,6 +158,7 @@ namespace Underwrite.Editor
             // 그림자와 몸을 한 덩어리로 정렬해야 가로등 뒤에서 그림자만 앞에 남는 일이 없다.
             player.AddComponent<SortingGroup>();
             player.AddComponent<YSortRenderer>().Configure(Constants.PROTAGONIST_FOOT_OFFSET, false);
+            player.AddComponent<CharacterActor>();
 
             VillageSceneSetup.BuildLight(lightPrefab);
             VillageSceneSetup.BuildCamera(player);
