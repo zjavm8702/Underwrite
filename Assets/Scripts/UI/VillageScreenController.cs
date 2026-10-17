@@ -46,6 +46,11 @@ namespace Underwrite.UI
         // 서로 돌아보거나 몸짓하는 중이다. 그동안 E를 다시 받지 않는다.
         private bool Approaching;
 
+        // 대화가 닫힌 뒤 보일 주인공의 반응.
+        private bool HasPending;
+        private ActorMotion PendingMotion;
+        private ActorEmote PendingEmote;
+
         // 시계를 연 뒤 토글로 다음 장을 건너뛰었는가. 「그만둔다」로 닫으면 되돌린다.
         private bool SkipFromClock;
         private Transform Player;
@@ -127,6 +132,7 @@ namespace Underwrite.UI
 
             NpcAmbient.Player = Player;
             WorldBubbles.Tick(Dialogue != null && Dialogue.IsOpen == true);
+            PlayPendingReaction();
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
@@ -244,38 +250,72 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 대화가 끝난 뒤 필드에서 주인공이 반응하고, 끝나면 다음 일을 한다.
-        /// 돈을 받으면 기뻐하고, 무언가 알게 되면 놀란다. 대화가 닫힌 동안에만 보인다.
+        /// 주인공의 반응을 적어 두고 다음 일로 바로 넘어간다. 반응은 대화가 완전히 닫힌 뒤 필드에서 한다.
+        ///
+        /// 처음에는 대화를 닫고 반응한 뒤 선택지를 다시 열었는데, 필드가 잠깐 비쳤다 다시 덮여 어색했다
+        /// (2026-10-17 사용자 보고). 그래서 같은 자리의 볼일은 끊김 없이 잇고, 자리를 뜰 때 마지막 반응을 보인다.
+        /// 더 센 반응(환호 > 깡충 > 놀람 > 끄덕)이 약한 것을 덮는다.
         /// </summary>
         private System.Action React(ActorMotion motion, ActorEmote emote, System.Action then)
         {
             return () =>
             {
-                var actor = PlayerActor;
-
-                if (actor == null)
+                if (HasPending == false || Strength(motion) >= Strength(PendingMotion))
                 {
-                    if (then != null)
-                    {
-                        then();
-                    }
-
-                    return;
+                    HasPending = true;
+                    PendingMotion = motion;
+                    PendingEmote = emote;
                 }
 
-                Approaching = true;
-                actor.Face(Vector2.down);
-                actor.Emote(emote);
-                actor.Play(motion, () =>
+                if (then != null)
                 {
-                    Approaching = false;
-
-                    if (then != null)
-                    {
-                        then();
-                    }
-                });
+                    then();
+                }
             };
+        }
+
+        private static int Strength(ActorMotion motion)
+        {
+            switch (motion)
+            {
+                case ActorMotion.Motion_Cheer:
+                {
+                    return 3;
+                }
+                case ActorMotion.Motion_Hop:
+                {
+                    return 2;
+                }
+                case ActorMotion.Motion_Shake:
+                {
+                    return 1;
+                }
+                default:
+                {
+                    return 0;
+                }
+            }
+        }
+
+        /// <summary>대화가 닫혔으면 적어 둔 반응을 필드에서 한다. 매 프레임 부른다.</summary>
+        private void PlayPendingReaction()
+        {
+            if (HasPending == false || Dialogue == null || Dialogue.IsOpen == true)
+            {
+                return;
+            }
+
+            HasPending = false;
+            var actor = PlayerActor;
+
+            if (actor == null)
+            {
+                return;
+            }
+
+            actor.Face(Vector2.down);
+            actor.Emote(PendingEmote);
+            actor.Play(PendingMotion);
         }
 
         /// <summary>말을 걸 수 있을 만큼 가까운 사람 가운데 가장 가까운 사람. 없으면 null.</summary>
@@ -652,7 +692,12 @@ namespace Underwrite.UI
                     var field = HeroLine(hero, string.Format(StringConstants.TEXT_HERO_FIELD_TALK, name, pick.Headline),
                         PortraitEmotion.Emotion_Neutral);
                     field.IsSecret = true;
-                    field.Note = HeldNote(pick.StockId);
+                    var heldTag = HeldNote(pick.StockId);
+
+                    if (heldTag != null)
+                    {
+                        field.Tag = field.Tag + " · " + heldTag;
+                    }
                     lines.Add(field);
                     GatherSession.Record(0f, 0f, new GatheredNote(pick.StockId, pick.Headline,
                         InfoSource.Source_TavernTalk));
@@ -959,7 +1004,7 @@ namespace Underwrite.UI
 
             if (held != null)
             {
-                line.Note = held + " · " + line.Note;
+                line.Tag = spot.Name + " · " + held;
             }
 
             Dialogue.Play(new List<DialogueLine> { line },
@@ -1074,7 +1119,11 @@ namespace Underwrite.UI
 
             var canSkip = Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
             MenuItem(list, StringConstants.TEXT_SKIP_BREAK, canSkip, StringConstants.TEXT_MENU_NO_TIME, OpenClock);
-            MenuItem(list, StringConstants.TEXT_SLEEP, Clock.CanSleep, StringConstants.TEXT_MENU_SLEEP_LOCKED, Sleep);
+            // 잠자리는 오후장이 끝난 밤에만 메뉴에 나온다. 잠긴 채 보이면 언제 자야 하는지 헷갈린다(2026-10-17).
+            if (Clock.CanSleep == true)
+            {
+                MenuItem(list, StringConstants.TEXT_SLEEP, true, string.Empty, Sleep);
+            }
             MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound,
                 StringConstants.TEXT_MENU_MARKET_LOCKED, () => SceneManager.LoadScene(SceneRoutes.MARKET));
 
@@ -1261,7 +1310,8 @@ namespace Underwrite.UI
             var hour = Clock == null ? 0 : Clock.BreakHour;
             var minute = Clock == null ? 0 : Clock.BreakMinute;
             SetText("village-visits",
-                $"{hour:00}:{minute:00} · 다음 장까지 {left / 60}시간 {left % 60}분" + InspectionTag());
+                $"{hour:00}:{minute:00}:{(Clock == null ? 0 : Clock.BreakSecond):00} · 다음 장까지 {left / 60}시간 {left % 60}분"
+                + InspectionTag());
 
             if (Here == null)
             {
@@ -1394,7 +1444,9 @@ namespace Underwrite.UI
             var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
             line.Portrait = portrait;
             line.IsSecret = secret;
-            line.Note = heldNote == null ? BuildNote(spot, secret) : heldNote + " · " + BuildNote(spot, secret);
+            // 가진 종목의 소문이면 꼬리표 자리에 크게 붙인다. 작은 글씨 안내로는 놓친다(2026-10-17 사용자 요청).
+            line.Tag = heldNote == null ? spot.Name : spot.Name + " · " + heldNote;
+            line.Note = BuildNote(spot, secret);
 
             Dialogue.Play(new List<DialogueLine> { line }, secret == true
                 ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Exclaim, Back(spot))

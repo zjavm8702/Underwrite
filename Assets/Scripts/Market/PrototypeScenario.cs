@@ -24,15 +24,15 @@ namespace Underwrite.Market
             return new List<AdventurerStock>
             {
                 // 신입: 정보와 거래가 적어 소문에 크게 흔들린다. 유동성이 낮다.
-                new AdventurerStock(STOCK_ROOKIE, "셀라 (신입)",
+                new AdventurerStock(STOCK_ROOKIE, "셀라",
                     StockPersonality.Personality_Rookie, 42f, 60f),
 
                 // 베테랑: 실적이 알려져 있어 변동이 작다. 유동성이 높다.
-                new AdventurerStock(STOCK_VETERAN, "브란 (베테랑)",
+                new AdventurerStock(STOCK_VETERAN, "브란",
                     StockPersonality.Personality_Veteran, 120f, 400f),
 
                 // 고위험 모험단: 성공 보상과 실패 위험이 모두 크다.
-                new AdventurerStock(STOCK_HIGH_RISK, "블랙무어 단 (고위험)",
+                new AdventurerStock(STOCK_HIGH_RISK, "블랙무어 단",
                     StockPersonality.Personality_HighRisk, 75f, 150f)
             };
         }

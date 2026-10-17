@@ -96,7 +96,7 @@ namespace Underwrite.Global
         public static string TEXT_INFO_WHEN = "{0} · {1}일 {2}";
         public static string TEXT_INFO_PRIVATE_SHORT = "나만 앎";
         public static string TEXT_INFO_EMPTY_MINE = "가진 종목에 대한 소식이 아직 없습니다.";
-        public static string TEXT_HELD_NOTE = "내가 가진 종목 · {0}주";
+        public static string TEXT_HELD_NOTE = "★ 내 종목 {0}주";
 
         public static string TEXT_SOURCE_TAVERN_TALK = "여관 소문";
         public static string TEXT_SOURCE_GUILD_RECORD = "길드 기록";
@@ -124,7 +124,6 @@ namespace Underwrite.Global
 
         // 영지 메뉴와 원형 시계 (2026-10-17)
         public static string TEXT_MENU = "메뉴";
-        public static string TEXT_MENU_SLEEP_LOCKED = "오후장이 끝난 뒤에만";
         public static string TEXT_MENU_MARKET = "지하거래소로";
         public static string TEXT_MENU_MARKET_LOCKED = "아직 모른다";
         public static string TEXT_MENU_NO_TIME = "다음 장이 코앞이다";

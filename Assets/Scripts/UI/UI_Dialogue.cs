@@ -213,12 +213,20 @@ namespace Underwrite.UI
                 return;
             }
 
+            // 마무리가 대화를 이어 가면(Play를 다시 부르면) 상자를 닫지 않는다.
+            // 닫았다 다시 열면 필드가 한 번 비쳐 깜빡인다(2026-10-17 사용자 보고).
             var done = OnDone;
-            Close();
+            var before = PlayCount;
+            OnDone = null;
 
             if (done != null)
             {
                 done();
+            }
+
+            if (PlayCount == before)
+            {
+                Close();
             }
         }
 

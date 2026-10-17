@@ -104,7 +104,7 @@ namespace Underwrite.Global
         public static string TEXT_DISCOVER_NOTE = "여관 창고 안쪽 — 이제 「창고로 내려간다」로 지하거래소에 갈 수 있다.";
 
         // ── 거래소의 용사단 종목 ──────────────────
-        public static string TEXT_HERO_STOCK_NAME = "용사단 (지수)";
+        public static string TEXT_HERO_STOCK_NAME = "용사단";
 
         // ── 시나리오 붕괴 (상장흐름 설계안 §1-5 — 게임이 더 진행되지 않는다) ──
         public static string TEXT_COLLAPSE_TAG = "시나리오 붕괴";

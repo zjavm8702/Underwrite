@@ -40,6 +40,15 @@ namespace Underwrite.Market
             }
         }
 
+        /// <summary>영지 시각의 초. 영지는 실시간 1:1이라 초가 흘러야 시간이 가는 것이 보인다.</summary>
+        public int BreakSecond
+        {
+            get
+            {
+                return Math.Min(59, (int)(BreakAccumulated * 60f));
+            }
+        }
+
         public int BreakMinute
         {
             get
@@ -359,6 +368,19 @@ namespace Underwrite.Market
             {
                 var total = StartHour * 60 + ElapsedMinutes;
                 return total / 60 % 24;
+            }
+        }
+
+        /// <summary>
+        /// 장중 게임 시각의 초까지(하루 기준 초). 틱 사이도 흐르게 보여 배속이 눈에 보인다(2026-10-17 사용자 요청).
+        /// 1배에서 게임 1분이 실시간 3초다.
+        /// </summary>
+        public int ClockTotalSeconds
+        {
+            get
+            {
+                var minutes = StartHour * 60 + ElapsedMinutes + Math.Min(Accumulated, Constants.MARKET_MINUTES_PER_TICK);
+                return (int)(minutes * 60f) % (24 * 60 * 60);
             }
         }
 

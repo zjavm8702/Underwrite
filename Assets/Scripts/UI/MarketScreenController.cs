@@ -921,12 +921,15 @@ namespace Underwrite.UI
                 return;
             }
 
+            // 오후장이 끝나면 다음 날로는 거래소에서 넘어가지 않는다. 영지에서 잠자리에 들어야 하루가 닫힌다
+            // (2026-10-17 사용자 요청). 그래서 「다음 날 오전장 열기」는 감춘다.
+            var closedForNight = Sim.Clock.Phase == MarketPhase.Phase_Closed
+                && Sim.Clock.Session == MarketSession.Session_Evening;
+            skip.EnableInClassList("hidden", closedForNight);
+
             if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
             {
-                var next = Sim.Clock.Session == MarketSession.Session_Morning
-                    ? StringConstants.TEXT_SESSION_EVENING
-                    : StringConstants.TEXT_SESSION_NEXT_MORNING;
-                skip.text = string.Format(StringConstants.TEXT_SESSION_OPEN_NEXT, next);
+                skip.text = string.Format(StringConstants.TEXT_SESSION_OPEN_NEXT, StringConstants.TEXT_SESSION_EVENING);
                 return;
             }
 
@@ -1231,9 +1234,10 @@ namespace Underwrite.UI
             }
 
             var label = Sim.Clock.Session == MarketSession.Session_Evening ? "오후장" : "오전장";
+            var seconds = Sim.Clock.ClockTotalSeconds;
             SetText("clock-text",
                 $"{Sim.Clock.Cycle}주기 {Sim.Clock.Day}일차 {label}"
-                + $" {Sim.Clock.ClockHour:00}:{Sim.Clock.ClockMinute:00}"
+                + $" {seconds / 3600:00}:{seconds / 60 % 60:00}:{seconds % 60:00}"
                 + $" · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
             SetText("sentiment-text", $"분위기 {SentimentText(Sim.Sentiment)}");
 

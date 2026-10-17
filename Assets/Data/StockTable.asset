@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.StockTable
   Entries:
   - Id: STOCK_ROOKIE
-    DisplayName: "\uC140\uB77C (\uC2E0\uC785)"
+    DisplayName: "\uC140\uB77C"
     Personality: 1
     TrueValue: 42
     Liquidity: 60
@@ -24,7 +24,7 @@ MonoBehaviour:
     Portrait: {fileID: 0}
     Portraits: {fileID: 0}
   - Id: STOCK_VETERAN
-    DisplayName: "\uBE0C\uB780 (\uBCA0\uD14C\uB791)"
+    DisplayName: "\uBE0C\uB780"
     Personality: 0
     TrueValue: 120
     Liquidity: 400
@@ -34,7 +34,7 @@ MonoBehaviour:
     Portrait: {fileID: 0}
     Portraits: {fileID: 0}
   - Id: STOCK_HIGH_RISK
-    DisplayName: "\uBE14\uB799\uBB34\uC5B4 \uB2E8 (\uACE0\uC704\uD5D8)"
+    DisplayName: "\uBE14\uB799\uBB34\uC5B4 \uB2E8"
     Personality: 2
     TrueValue: 75
     Liquidity: 150
@@ -44,7 +44,7 @@ MonoBehaviour:
     Portrait: {fileID: 0}
     Portraits: {fileID: 0}
   - Id: STOCK_WARDEN
-    DisplayName: "\uD68C\uC0C9 \uD30C\uC218\uB300 (\uC2E0\uC785)"
+    DisplayName: "\uD68C\uC0C9 \uD30C\uC218\uB300"
     Personality: 1
     TrueValue: 58
     Liquidity: 90
@@ -54,7 +54,7 @@ MonoBehaviour:
     Portrait: {fileID: 0}
     Portraits: {fileID: 0}
   - Id: STOCK_LANTERN
-    DisplayName: "\uB4F1\uBD88 \uAE30\uC0AC\uB2E8 (\uBCA0\uD14C\uB791)"
+    DisplayName: "\uB4F1\uBD88 \uAE30\uC0AC\uB2E8"
     Personality: 0
     TrueValue: 165
     Liquidity: 320
