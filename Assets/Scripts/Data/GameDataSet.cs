@@ -21,6 +21,15 @@ namespace Underwrite.Data
         [Tooltip("소식을 전하는 주민의 표정 묶음. 순서는 InfoSource와 같다(여관·길드·서신·게시판·중개·대장간).")]
         [SerializeField] private List<PortraitSet> FolkFaces = new List<PortraitSet>();
 
+        [Tooltip("지하 정보 타임의 정보상. 비워 두면 인물 자리를 비운다.")]
+        [SerializeField] private PortraitSet Informant;
+
+        /// <summary>지하 정보상의 얼굴. 아직 그림이 없으면 null.</summary>
+        public Sprite InformantFace(PortraitEmotion emotion)
+        {
+            return Informant == null ? null : Informant.Get(emotion);
+        }
+
         /// <summary>그 출처의 소식을 전하는 주민의 얼굴. 없으면 null.</summary>
         public PortraitSet FolkFaceOf(InfoSource source)
         {

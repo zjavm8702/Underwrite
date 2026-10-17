@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.StockTable
   Entries:
   - Id: STOCK_ROOKIE
-    DisplayName: "\uC140\uB77C"
+    DisplayName: "\uBD89\uC740 \uCE7C\uB0A0"
     Personality: 1
     TrueValue: 42
     Liquidity: 60
@@ -24,7 +24,7 @@ MonoBehaviour:
     Portrait: {fileID: 0}
     Portraits: {fileID: 0}
   - Id: STOCK_VETERAN
-    DisplayName: "\uBE0C\uB780"
+    DisplayName: "\uC624\uB798\uB41C \uCC38\uB098\uBB34\uB2E8"
     Personality: 0
     TrueValue: 120
     Liquidity: 400
@@ -34,7 +34,7 @@ MonoBehaviour:
     Portrait: {fileID: 0}
     Portraits: {fileID: 0}
   - Id: STOCK_HIGH_RISK
-    DisplayName: "\uBE14\uB799\uBB34\uC5B4 \uB2E8"
+    DisplayName: "\uAC80\uC740 \uB2AA \uC6A9\uBCD1\uB2E8"
     Personality: 2
     TrueValue: 75
     Liquidity: 150

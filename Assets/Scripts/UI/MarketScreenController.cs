@@ -2406,8 +2406,9 @@ namespace Underwrite.UI
                     ? stock.DisplayName
                     : entry.StockId;
 
-                // 말하는 이는 거래소를 운영하는 조직의 정보원이다. 어느 단의 소식인지는 꼬리표에 적는다(2026-10-17 사용자 결정).
-                var line = new DialogueLine(InfoPeople.Informant(entry.Source),
+                // 말하는 이는 거래소를 운영하는 정보상이다. 어느 단의 소식인지는 꼬리표에 적는다(2026-10-17 사용자 결정).
+                // 정보상 초상은 아직 없다(Codex에 그릴 예정) — 그때까지 인물 자리를 비운다.
+                var line = new DialogueLine(StringConstants.TEXT_INFORMANT,
                     $"{name} · {SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일째 {session}"
                     + $" {ClockText.FromSeconds(Sim.Clock.ClockTotalSeconds, false)}",
                     entry.Headline);
@@ -2419,7 +2420,7 @@ namespace Underwrite.UI
                     line.Badge = string.Format(StringConstants.TEXT_HELD_NOTE, held);
                 }
 
-                line.Portrait = InfoPeople.Face(Data, entry.Source, EmotionOf(entry));
+                line.Portrait = Data == null ? null : Data.InformantFace(EmotionOf(entry));
                 line.Emotion = EmotionOf(entry);
                 line.IsSecret = entry.IsPublic == false;
                 line.Note = entry.IsPublic == true

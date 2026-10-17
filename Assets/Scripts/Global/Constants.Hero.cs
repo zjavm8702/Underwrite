@@ -22,7 +22,7 @@ namespace Underwrite.Global
 
         /// <summary>
         /// 표정 묶음 자산 이름. Assets/Data/Portraits/{이름}.asset.
-        /// 용병단 종목 이름(셀라·브란)과 겹치지 않게 역할로 짓는다.
+        /// 종목 이름과 겹치지 않게 역할로 짓는다.
         /// </summary>
         public static readonly string[] HERO_FACE_ASSETS = { "scholar", "sword", "elf", "warrior", "fairy" };
 
@@ -109,7 +109,7 @@ namespace Underwrite.Global
         public static string TEXT_DISCOVER_NOTE = "여관 창고 안쪽 — 이제 「창고로 내려간다」로 지하거래소에 갈 수 있다.";
 
         // ── 거래소의 용사단 종목 ──────────────────
-        public static string TEXT_HERO_STOCK_NAME = "용사단";
+        public static string TEXT_HERO_STOCK_NAME = "새벽별 용사단";
 
         // ── 시나리오 붕괴 (상장흐름 설계안 §1-5 — 게임이 더 진행되지 않는다) ──
         public static string TEXT_COLLAPSE_TAG = "시나리오 붕괴";

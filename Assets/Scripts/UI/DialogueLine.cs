@@ -16,7 +16,7 @@ namespace Underwrite.UI
         /// <summary>말하는 이의 이름. 비어 있으면 이름줄을 숨긴다.</summary>
         public string Speaker;
 
-        /// <summary>출처나 자격. "여관 소문 · 셀라" 같은 꼬리표다.</summary>
+        /// <summary>출처나 자격. "여관 소문 · 붉은 칼날" 같은 꼬리표다.</summary>
         public string Tag;
 
         public string Text;

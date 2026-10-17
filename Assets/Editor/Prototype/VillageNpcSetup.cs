@@ -118,15 +118,15 @@ namespace Underwrite.Editor
             new Vector2(9.1f, -0.5f)
         };
 
-        // 모험단. 지하시장이 거래하는 단이다. 블랙무어 단은 시제품 종목과 같은 단이다.
+        // 모험단. 지하시장이 거래하는 단이다. 검은 늪 용병단은 시제품 종목과 같은 단이다.
         private static readonly PartyCast[] PARTIES =
         {
             new PartyCast
             {
-                Band = "블랙무어 단",
+                Band = "검은 늪 용병단",
                 StockId = "STOCK_HIGH_RISK",
                 Tint = new Color(0.72f, 0.8f, 1f),
-                Names = new[] { "블랙무어 단장", "블랙무어 궁수", "블랙무어 방패병", "블랙무어 짐꾼" },
+                Names = new[] { "검은 늪 단장", "검은 늪 궁수", "검은 늪 방패병", "검은 늪 짐꾼" },
                 Lines = new[] { "길 막지 마쇼.", "이번 의뢰만 끝나면 한몫 잡는다.", "…뭘 그렇게 봐?" }
             },
             new PartyCast
