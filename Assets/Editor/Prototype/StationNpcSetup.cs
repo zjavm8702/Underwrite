@@ -128,6 +128,7 @@ namespace Underwrite.Editor
 
             renderer.sprite = clips[1].Frames.Count > 0 ? clips[1].Frames[0] : null;
 
+            FootShadow.Add(go.transform);
             go.AddComponent<SortingGroup>();
             go.AddComponent<YSortRenderer>().Configure(0f, true);
             go.AddComponent<StationNpc>().Configure(cast.Place, renderer, clips[0], clips[1], clips[2]);

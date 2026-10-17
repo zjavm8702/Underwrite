@@ -582,7 +582,8 @@ namespace Underwrite.Global
         // 캐릭터 외곽선(SpriteOutline). 두께는 월드 유닛 — 화면 1배에서 약 1.5px, 확대하면 함께 굵어진다.
         // 2px·진하기 90%는 사람이 스티커처럼 떠 보였다(2026-10-17). 얇고 옅게, 색은 영지 건물 테두리의
         // 붉은 갈색을 어둡게 — 가까이서는 선이 있는지 모를 만큼, 멀리서는 윤곽이 또렷하게.
-        public static bool OUTLINE_ENABLED = true;
+        // 2026-10-18 끔: 기본 화면 크기에서 사람이 탁해지고 작은 부분이 뭉개졌다(사장님 보고). 대신 발밑 그림자를 깐다.
+        public static bool OUTLINE_ENABLED = false;
         public static float OUTLINE_WIDTH_UNITS = 0.021f;
         public static UnityEngine.Color OUTLINE_COLOR = new UnityEngine.Color(0.26f, 0.16f, 0.11f, 0.6f);
         public static float ROOM_CALL_INTERVAL_SECONDS = 3f;

@@ -121,6 +121,7 @@ namespace Underwrite.Editor
             walker.Configure(0f, speedScale);
             walker.PlaceFoot(foot);
 
+            FootShadow.Add(go.transform);
             go.AddComponent<CharacterActor>();
             go.AddComponent<SortingGroup>();
             go.AddComponent<YSortRenderer>().Configure(0f, false);
