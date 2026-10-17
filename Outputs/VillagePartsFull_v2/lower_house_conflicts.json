@@ -1,0 +1,93 @@
+[
+  {
+    "id": "human_5",
+    "foot": [
+      1540,
+      2040
+    ],
+    "body_covered_by_walls": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "foot_white": true
+  },
+  {
+    "id": "human_6",
+    "foot": [
+      2640,
+      2050
+    ],
+    "body_covered_by_walls": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "foot_white": true
+  },
+  {
+    "id": "stone_1",
+    "foot": [
+      555,
+      2140
+    ],
+    "body_covered_by_walls": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 2323,
+      "occlusion_percent": 56.08401738290681
+    },
+    "foot_white": false
+  },
+  {
+    "id": "stone_2",
+    "foot": [
+      960,
+      2020
+    ],
+    "body_covered_by_walls": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "foot_white": true
+  },
+  {
+    "id": "elf_2",
+    "foot": [
+      2150,
+      2140
+    ],
+    "body_covered_by_walls": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 3807,
+      "occlusion_percent": 91.91211974891357
+    },
+    "foot_white": false
+  },
+  {
+    "id": "fairy_3",
+    "foot": [
+      3230,
+      2145
+    ],
+    "body_covered_by_walls": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 2521,
+      "occlusion_percent": 60.86431675519073
+    },
+    "foot_white": false
+  },
+  {
+    "id": "fairy_4",
+    "foot": [
+      3495,
+      2145
+    ],
+    "body_covered_by_walls": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 2371,
+      "occlusion_percent": 57.24287783679382
+    },
+    "foot_white": false
+  }
+]

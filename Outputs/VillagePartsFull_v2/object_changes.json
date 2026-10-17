@@ -1,0 +1,370 @@
+[
+  {
+    "id": "tree_0",
+    "file": "tree_a.png",
+    "action": "removed",
+    "before": [
+      60,
+      650
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_1",
+    "file": "tree_b.png",
+    "action": "removed",
+    "before": [
+      525,
+      220
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_2",
+    "file": "tree_a.png",
+    "action": "removed",
+    "before": [
+      1430,
+      215
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_3",
+    "file": "tree_b.png",
+    "action": "removed",
+    "before": [
+      2370,
+      190
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_4",
+    "file": "tree_a.png",
+    "action": "removed",
+    "before": [
+      2730,
+      220
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_5",
+    "file": "tree_b.png",
+    "action": "removed",
+    "before": [
+      3300,
+      240
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_6",
+    "file": "tree_a.png",
+    "action": "removed",
+    "before": [
+      3790,
+      640
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_15",
+    "file": "tree_b.png",
+    "action": "removed",
+    "before": [
+      30,
+      2140
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_16",
+    "file": "tree_a.png",
+    "action": "removed",
+    "before": [
+      3830,
+      2140
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "lamp_15",
+    "file": "lamp.png",
+    "action": "removed",
+    "before": [
+      3670,
+      2100
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_0",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      100,
+      100
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_1",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      800,
+      80
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_2",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      1150,
+      90
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_3",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      1510,
+      90
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_4",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      2480,
+      80
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_5",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      2860,
+      100
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_6",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      3200,
+      90
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_7",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      3750,
+      100
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_8",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      2470,
+      225
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_9",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      70,
+      810
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_10",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      70,
+      1080
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_17",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      3760,
+      1150
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_18",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      3760,
+      1450
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_19",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      1350,
+      2140
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_20",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      2250,
+      2140
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_21",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      2750,
+      2140
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "hedge_22",
+    "file": "hedge.png",
+    "action": "removed",
+    "before": [
+      3050,
+      2140
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "fence_0",
+    "file": "fence.png",
+    "action": "removed",
+    "before": [
+      710,
+      100
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "fence_1",
+    "file": "fence.png",
+    "action": "removed",
+    "before": [
+      1060,
+      180
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "fence_2",
+    "file": "fence.png",
+    "action": "removed",
+    "before": [
+      2610,
+      100
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "fence_3",
+    "file": "fence.png",
+    "action": "removed",
+    "before": [
+      3050,
+      180
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "fence_4",
+    "file": "fence.png",
+    "action": "removed",
+    "before": [
+      50,
+      1190
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "fence_8",
+    "file": "fence.png",
+    "action": "removed",
+    "before": [
+      2900,
+      2150
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "fence_9",
+    "file": "fence.png",
+    "action": "removed",
+    "before": [
+      640,
+      2140
+    ],
+    "reason": "wall corridor / corner tower overlap"
+  },
+  {
+    "id": "tree_10",
+    "file": "tree_a.png",
+    "action": "moved",
+    "before": [
+      85,
+      1350
+    ],
+    "after": [
+      300,
+      1370
+    ],
+    "reason": "side wall clearance; reuse v1 greenery"
+  },
+  {
+    "id": "tree_14",
+    "file": "tree_a.png",
+    "action": "moved",
+    "before": [
+      3770,
+      1820
+    ],
+    "after": [
+      3470,
+      1770
+    ],
+    "reason": "side wall clearance; reuse v1 greenery"
+  }
+]

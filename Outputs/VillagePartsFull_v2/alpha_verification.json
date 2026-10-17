@@ -1,0 +1,182 @@
+{
+  "wall_north_a.png": {
+    "size": [
+      976,
+      676
+    ],
+    "components": [
+      592464
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      967,
+      667
+    ],
+    "canvas_contact": false
+  },
+  "wall_north_b.png": {
+    "size": [
+      976,
+      676
+    ],
+    "components": [
+      592925
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      967,
+      667
+    ],
+    "canvas_contact": false
+  },
+  "wall_west_a.png": {
+    "size": [
+      186,
+      976
+    ],
+    "components": [
+      145632
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      177,
+      967
+    ],
+    "canvas_contact": false
+  },
+  "wall_west_b.png": {
+    "size": [
+      186,
+      976
+    ],
+    "components": [
+      142580
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      177,
+      967
+    ],
+    "canvas_contact": false
+  },
+  "wall_east_a.png": {
+    "size": [
+      186,
+      976
+    ],
+    "components": [
+      145444
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      177,
+      967
+    ],
+    "canvas_contact": false
+  },
+  "wall_east_b.png": {
+    "size": [
+      186,
+      976
+    ],
+    "components": [
+      144713
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      177,
+      967
+    ],
+    "canvas_contact": false
+  },
+  "wall_south_a.png": {
+    "size": [
+      976,
+      216
+    ],
+    "components": [
+      175599
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      967,
+      207
+    ],
+    "canvas_contact": false
+  },
+  "wall_south_b.png": {
+    "size": [
+      976,
+      216
+    ],
+    "components": [
+      174952
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      967,
+      207
+    ],
+    "canvas_contact": false
+  },
+  "wall_corner_tower.png": {
+    "size": [
+      436,
+      896
+    ],
+    "components": [
+      320078
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      427,
+      887
+    ],
+    "canvas_contact": false
+  },
+  "wall_gate.png": {
+    "size": [
+      1016,
+      676
+    ],
+    "components": [
+      487253
+    ],
+    "hidden_rgb_pixels": 0,
+    "alpha1_31": 0,
+    "bbox": [
+      8,
+      8,
+      1007,
+      667
+    ],
+    "canvas_contact": false
+  }
+}

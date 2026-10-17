@@ -1,0 +1,179 @@
+{
+  "walkable_pixels": 3494278,
+  "walkable_percent": 42.12815875771605,
+  "connectivity": {
+    "reachable_pixels": 3320953,
+    "sites": [
+      {
+        "id": "inn",
+        "door": [
+          775,
+          704
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "manor",
+        "door": [
+          1949,
+          637
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "guild",
+        "door": [
+          3149,
+          823
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "smith",
+        "door": [
+          583,
+          1548
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "board",
+        "door": [
+          3013,
+          1532
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "well",
+        "door": [
+          1920,
+          1224
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "stall_0",
+        "door": [
+          2690,
+          1510
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "stall_1",
+        "door": [
+          3270,
+          1480
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "stall_2",
+        "door": [
+          3620,
+          1555
+        ],
+        "walkable": true,
+        "connected": true
+      }
+    ]
+  },
+  "npc_foot_54x12_connectivity": {
+    "reachable_pixels": 2727101,
+    "sites": [
+      {
+        "id": "inn",
+        "door": [
+          775,
+          704
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "manor",
+        "door": [
+          1949,
+          637
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "guild",
+        "door": [
+          3149,
+          823
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "smith",
+        "door": [
+          583,
+          1548
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "board",
+        "door": [
+          3013,
+          1532
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "well",
+        "door": [
+          1920,
+          1224
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "stall_0",
+        "door": [
+          2690,
+          1510
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "stall_1",
+        "door": [
+          3270,
+          1480
+        ],
+        "walkable": true,
+        "connected": true
+      },
+      {
+        "id": "stall_2",
+        "door": [
+          3620,
+          1555
+        ],
+        "walkable": true,
+        "connected": true
+      }
+    ]
+  },
+  "gate_blocked": true,
+  "polygon_union_mismatch": 0,
+  "binary_fail": 0
+}

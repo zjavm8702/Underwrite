@@ -1,0 +1,284 @@
+{
+  "policy": "intentional reusable modular wall; not a unique-background repetition test",
+  "north_sequence": [
+    "a",
+    "b",
+    "a",
+    "a",
+    "b",
+    "b",
+    "a",
+    "b"
+  ],
+  "west_sequence": [
+    "a",
+    "b",
+    "a",
+    "a"
+  ],
+  "east_sequence": [
+    "a",
+    "b",
+    "a",
+    "a"
+  ],
+  "south_sequence_each_half": [
+    "a",
+    "b",
+    "a",
+    "a"
+  ],
+  "max_identical_consecutive": 2,
+  "tower_reuse": 4,
+  "seams": [
+    {
+      "side": "north",
+      "a": [
+        478,
+        20
+      ],
+      "b": [
+        478,
+        350
+      ],
+      "body_strip_pixels": 270,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "north",
+      "a": [
+        954,
+        20
+      ],
+      "b": [
+        954,
+        350
+      ],
+      "body_strip_pixels": 270,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "north",
+      "a": [
+        1430,
+        20
+      ],
+      "b": [
+        1430,
+        350
+      ],
+      "body_strip_pixels": 270,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "north",
+      "a": [
+        1906,
+        20
+      ],
+      "b": [
+        1906,
+        350
+      ],
+      "body_strip_pixels": 270,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "north",
+      "a": [
+        2382,
+        20
+      ],
+      "b": [
+        2382,
+        350
+      ],
+      "body_strip_pixels": 270,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "north",
+      "a": [
+        2858,
+        20
+      ],
+      "b": [
+        2858,
+        350
+      ],
+      "body_strip_pixels": 270,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "north",
+      "a": [
+        3334,
+        20
+      ],
+      "b": [
+        3334,
+        350
+      ],
+      "body_strip_pixels": 270,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "west",
+      "a": [
+        0,
+        728
+      ],
+      "b": [
+        85,
+        728
+      ],
+      "body_strip_pixels": 63,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "west",
+      "a": [
+        0,
+        1203
+      ],
+      "b": [
+        85,
+        1203
+      ],
+      "body_strip_pixels": 63,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "west",
+      "a": [
+        0,
+        1678
+      ],
+      "b": [
+        85,
+        1678
+      ],
+      "body_strip_pixels": 63,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "east",
+      "a": [
+        3755,
+        728
+      ],
+      "b": [
+        3840,
+        728
+      ],
+      "body_strip_pixels": 63,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "east",
+      "a": [
+        3755,
+        1203
+      ],
+      "b": [
+        3840,
+        1203
+      ],
+      "body_strip_pixels": 63,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "east",
+      "a": [
+        3755,
+        1678
+      ],
+      "b": [
+        3840,
+        1678
+      ],
+      "body_strip_pixels": 63,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "south_left",
+      "a": [
+        423,
+        2056
+      ],
+      "b": [
+        423,
+        2156
+      ],
+      "body_strip_pixels": 60,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "south_left",
+      "a": [
+        845,
+        2056
+      ],
+      "b": [
+        845,
+        2156
+      ],
+      "body_strip_pixels": 60,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "south_left",
+      "a": [
+        1268,
+        2056
+      ],
+      "b": [
+        1268,
+        2156
+      ],
+      "body_strip_pixels": 60,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "south_right",
+      "a": [
+        2573,
+        2056
+      ],
+      "b": [
+        2573,
+        2156
+      ],
+      "body_strip_pixels": 60,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "south_right",
+      "a": [
+        2995,
+        2056
+      ],
+      "b": [
+        2995,
+        2156
+      ],
+      "body_strip_pixels": 60,
+      "transparent_pixels": 0
+    },
+    {
+      "side": "south_right",
+      "a": [
+        3418,
+        2056
+      ],
+      "b": [
+        3418,
+        2156
+      ],
+      "body_strip_pixels": 60,
+      "transparent_pixels": 0
+    }
+  ],
+  "visual_note": "stone-joint and merlon rhythm differs at variant joins; seam markers are diagnostic only",
+  "north_overlap_map_px": 4
+}

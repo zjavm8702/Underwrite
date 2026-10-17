@@ -1,0 +1,86 @@
+[
+  {
+    "id": "wall_north_a",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. A straight HORIZONTAL northern curtain wall segment, front face visible. Width 480 map pixels and height 330 map pixels, drawable at 2x (960x660). Broad masonry face, crenellations on top, flat perfectly horizontal base and level top course, ends continue square flush for seamless horizontal adjoining. No towers. Sparse moss left bottom.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-e681fb1a-40fe-4f88-9264-fa77245c8b33.png",
+    "at": "2026-10-17T12:27:09.849Z"
+  },
+  {
+    "id": "wall_north_b",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. A straight HORIZONTAL northern curtain wall segment, front face visible. Same exact geometry as prior north segment: width 480 map px height330,2x960x660. Broad masonry face and crenellations, flat horizontal base, level top course, square flush ends continuing adjoining wall. No towers. Slightly different stone joints, small chipped merlon and sparse ivy right side.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-63069d31-0476-4754-8b39-6fe11a710789.png",
+    "at": "2026-10-17T12:27:09.863Z"
+  },
+  {
+    "id": "wall_west_a",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. WEST side wall segment running exactly VERTICALLY on screen, narrow long strip. Camera sees TOP walking path and thin OUTER face on LEFT. Total projected width85 map px length480 map px,2x170x960. Parallel vertical edges, flush straight horizontal ends. NO front-facing tall wall, no diagonal receding perspective, no towers. Light moss.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-0a6324bf-05d9-4e74-9628-e1124af0baac.png",
+    "at": "2026-10-17T12:30:19.090Z"
+  },
+  {
+    "id": "wall_east_a",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. EAST side wall segment running exactly VERTICALLY on screen narrow strip. TOP walking path and thin OUTER face on RIGHT. Width85 map px length480 map px,2x170x960. Parallel vertical edges flush horizontal ends, no tall front wall no diagonal perspective no tower. Sparse moss.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-1f5a5094-5192-4c92-999d-21ea5c751687.png",
+    "at": "2026-10-17T12:30:19.102Z"
+  },
+  {
+    "id": "wall_south_a",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. SOUTH wall low REAR view from village interior, straight horizontal segment. Width480 map px height100 map px,2x960x200. Low parapet and shallow top walkway visible, broad pale coping. Flat horizontal base flush vertical ends for adjoining. No tower, no tall face, restrained low crenellations. Tiny moss.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-1dbc2063-2772-449c-8efb-6ebd2cc6645a.png",
+    "at": "2026-10-17T12:30:19.116Z"
+  },
+  {
+    "id": "wall_corner_tower",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. One ROUND modest corner tower, complete silhouette, no adjoining walls. Map height440px width210px, draw2x420x880. Flat crenellated round top with visible ellipse ratio0.5, pale gray taupe old masonry cylinder, a narrow arrow slit and sparse ivy. Modest estate not military fortress. No roof.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-94709ebc-f371-483a-b456-4cfa8164e8ce.png",
+    "at": "2026-10-17T12:30:19.130Z"
+  },
+  {
+    "id": "wall_west_b",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. WEST side wall segment running exactly VERTICALLY on screen, narrow strip. Top walking path and thin outer face LEFT. Exact width85 map px length480,2x170x960; perfectly parallel vertical edges and flush horizontal ends; no tall front wall or vanishing point, no tower. Alternate chipped stones sparse ivy.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-6e6250b0-fb8c-46f9-9417-40d7a0811520.png",
+    "at": "2026-10-17T12:31:31.850Z"
+  },
+  {
+    "id": "wall_south_b",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. SOUTH wall low REAR view from village interior straight horizontal segment. Width480 map px height100 map px,2x960x200. Same geometry as previous south segment, low parapet shallow top walkway broad pale coping flat horizontal base flush ends. Alternate stone joints and small ivy. No tower no tall face.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-9ae06635-9b6b-4c8b-91f1-027b8aaa3ec7.png",
+    "at": "2026-10-17T12:31:31.862Z"
+  },
+  {
+    "id": "wall_gate",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. One small estate SOUTH GATE seen from INSIDE village toward outside, complete isolated prop. Open arch clear passage height245 map pixels, total with flanking small gatehouses width500px height330px, draw2x1000x660. Two modest round gatehouse turrets, central stone arch with OPEN wooden leaves swung away along passage sides. Transparent arch hole and transparent ground; no gate blocking panel, no portcullis. Upper horizontal surfaces ellipse ratio0.5, thin masonry, sparse ivy. NO ground floor drawn.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-bdcbf7f2-6f43-4478-b108-475db97ce262.png",
+    "at": "2026-10-17T12:31:31.875Z"
+  },
+  {
+    "id": "wall_east_b",
+    "prompt": "Underwrite non-pixel 2D fantasy village game prop. Match reference stone cottage: delicate warm brown outlines, pale warm gray/taupe stone, clear soft cel-painted colors, neutral midday upper-left light, matte material, restrained chips and moss, a little ivy. Orthographic game view approximately 15 degrees, circular horizontal surfaces ellipse height/width 0.50. Transparent RGBA background, NO ground, NO contact/drop/cast shadow, NO glow, NO text. Isolated complete prop, clean narrow antialiasing, no detached particles. EAST side wall segment running exactly VERTICALLY on screen narrow strip. TOP walking path and thin OUTER face RIGHT. Width85 map px length480 map px,2x170x960, parallel vertical edges flush horizontal ends. Alternate chipped stones and sparse ivy. No tall front wall no diagonal perspective no tower.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-94247f97-b558-4fd8-9f29-7951fe305a35.png",
+    "at": "2026-10-17T12:32:40.143Z"
+  },
+  {
+    "id": "wall_gate_clean",
+    "prompt": "Precise background extraction of this gate. Preserve gate stones, open wooden door leaves, shape and colors EXACTLY. REMOVE ALL brown backdrop and glow outside the silhouette AND inside the large central arch opening through to the bottom. These areas must be truly alpha=0 transparent, not brown or black. No ground, no shadows, no gradient. Gate alone clean RGBA cutout. The arrow slit windows may stay dark as part of masonry. Do not redraw gate.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-d2f645fc-2abb-45dc-897a-ddf88528c0c1.png",
+    "at": "2026-10-17T12:33:19.105Z"
+  },
+  {
+    "id": "wall_gate_tallarch",
+    "prompt": "Edit this same isolated estate gate for a 2D game. Preserve overall exterior silhouette, stone style, open wooden leaves, two side turrets, colors and lighting. Change ONLY central arch: raise the arch's inner apex so clear central passage floor-to-apex is 74% of entire gate silhouette height (currently only about62%). Make arch taller, with thinner upper bridge wall above arch, preserving roughly same arch width. Overall exterior width/height stays same. True transparent alpha=0 outside AND in arch opening, no ground, no shadow, no glow. Need clean RGBA cutout. Reference is style and edit target.",
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\SKY\\.codex\\generated_images\\01a149d0-e886-7b11-a627-c12c5b878164\\exec-18b94d2c-886e-4902-becd-1704f7bcc45e.png",
+    "at": "2026-10-17T12:41:24.973Z"
+  }
+]

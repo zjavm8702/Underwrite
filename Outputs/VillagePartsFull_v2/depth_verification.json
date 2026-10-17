@@ -1,0 +1,117 @@
+[
+  {
+    "id": "north",
+    "foot": [
+      1580,
+      490
+    ],
+    "crop": [
+      960,
+      0,
+      1920,
+      1080
+    ],
+    "wall_only": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "all_objects": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    }
+  },
+  {
+    "id": "south",
+    "foot": [
+      1210,
+      2050
+    ],
+    "crop": [
+      0,
+      1080,
+      1920,
+      1080
+    ],
+    "wall_only": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "all_objects": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    }
+  },
+  {
+    "id": "east",
+    "foot": [
+      3690,
+      1200
+    ],
+    "crop": [
+      1920,
+      540,
+      1920,
+      1080
+    ],
+    "wall_only": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "all_objects": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    }
+  },
+  {
+    "id": "west",
+    "foot": [
+      150,
+      1455
+    ],
+    "crop": [
+      0,
+      540,
+      1920,
+      1080
+    ],
+    "wall_only": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "all_objects": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    }
+  },
+  {
+    "id": "gate",
+    "foot": [
+      1920,
+      2100
+    ],
+    "crop": [
+      960,
+      1080,
+      1920,
+      1080
+    ],
+    "wall_only": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    },
+    "all_objects": {
+      "total_character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occlusion_percent": 0
+    }
+  }
+]

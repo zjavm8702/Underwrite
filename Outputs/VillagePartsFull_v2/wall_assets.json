@@ -1,0 +1,102 @@
+{
+  "wall_north_a": {
+    "size": [
+      976,
+      676
+    ],
+    "pivot_in_png": [
+      488,
+      668
+    ]
+  },
+  "wall_north_b": {
+    "size": [
+      976,
+      676
+    ],
+    "pivot_in_png": [
+      488,
+      668
+    ]
+  },
+  "wall_west_a": {
+    "size": [
+      186,
+      976
+    ],
+    "pivot_in_png": [
+      93,
+      968
+    ]
+  },
+  "wall_west_b": {
+    "size": [
+      186,
+      976
+    ],
+    "pivot_in_png": [
+      93,
+      968
+    ]
+  },
+  "wall_east_a": {
+    "size": [
+      186,
+      976
+    ],
+    "pivot_in_png": [
+      93,
+      968
+    ]
+  },
+  "wall_east_b": {
+    "size": [
+      186,
+      976
+    ],
+    "pivot_in_png": [
+      93,
+      968
+    ]
+  },
+  "wall_south_a": {
+    "size": [
+      976,
+      216
+    ],
+    "pivot_in_png": [
+      488,
+      208
+    ]
+  },
+  "wall_south_b": {
+    "size": [
+      976,
+      216
+    ],
+    "pivot_in_png": [
+      488,
+      208
+    ]
+  },
+  "wall_corner_tower": {
+    "size": [
+      436,
+      896
+    ],
+    "pivot_in_png": [
+      218,
+      888
+    ]
+  },
+  "wall_gate": {
+    "size": [
+      1016,
+      676
+    ],
+    "pivot_in_png": [
+      508,
+      668
+    ]
+  }
+}

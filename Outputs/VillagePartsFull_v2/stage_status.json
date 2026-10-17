@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-17T12:47:13.304Z",
+  "stage1": "complete:10 wall PNG",
+  "stage2": "placed; 4 lower houses conflict pending user decision",
+  "stage3": "numeric checks complete; game visual approval pending",
+  "parts": 146,
+  "walls": 29,
+  "static": true
+}
