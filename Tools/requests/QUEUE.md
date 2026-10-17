@@ -17,7 +17,12 @@
 | 9 | `village_ground_v1.md` | `VillageGround_v1` | **완료** — 들임. 충돌 마스크까지 적용 |
 | 10 | `portrait_faces_v2.md` | `PortraitFaces_v2` | 진행 중 — 나머지 세 인물 표정 21장 |
 | 11 | `village_ground_v2.md` | `VillageGround_v2` | **부분 통과** — 시점 0.66→0.44, 연결성·면적 통과. 밀도와 종족 미달 |
-| 12 | `village_ground_v3.md` | `VillageGround_v3` | 진행 중 — 가운데 채우기 + 종족 건축 |
+| 12 | `village_ground_v3.md` | `VillageGround_v3` | **취소** — 파츠 방식으로 바꿈 |
+| 13 | `village_parts_pilot_v1~v3.md` | `VillagePartsPilot_v1~v3` | **완료** — v3 바닥(판석 45px) 통과, 영지 전체의 기준 |
+| 14 | `ui_frames_v1.md` | `UIFrames_v1` | **완료** — 적용함 |
+| 15 | `portrait_fix_v1·v2.md` | `PortraitFix_v1·v2` | **완료** — 엘프 코는 추후 재검토 |
+
+**다음 목록은 `ART_BACKLOG.md`** (2026-10-17 정리, 우선순위 순). Codex 사용량이 적어 한 건씩 확인받고 건다.
 
 영지는 **타일셋을 쓰지 않는다.** 도트 타일셋은 비도트 캐릭터와 해상도가 섞인다. 대신 그려진 배경 한 장 위를 걸어 다닌다. 화풍이 맞는 것은 시험으로 확인했다.
 
