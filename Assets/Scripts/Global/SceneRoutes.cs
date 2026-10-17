@@ -13,6 +13,10 @@ namespace Underwrite.Global
 
         /// <summary>걸어 다니는 지하 방. 영지에서 창고로 내려가면 여기로 온다(2026-10-17).</summary>
         public const string UNDERWORLD = "Underworld";
-        public const string VILLAGE = "VillageTest";
+        /// <summary>
+        /// 영지. 2026-10-17부터 전체 파츠 지도(메뉴 「Underwrite/영지 전체 씬 만들기」)다.
+        /// 옛 통짜 배경 영지(VillageTest)는 비교용으로 남겨 둔다.
+        /// </summary>
+        public const string VILLAGE = "Village";
     }
 }

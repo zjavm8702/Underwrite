@@ -150,7 +150,8 @@ namespace Underwrite.Editor
         /// <summary>
         /// 씬의 장소(VillageSpot)를 읽어 그 둘레에 사람을 세운다. 장소를 먼저 세운 뒤에 부른다.
         /// </summary>
-        public static void Build(GameObject prefab, Vector2 groundSize)
+        /// <param name="vendorFeet">노점 앞 자리(월드). 없으면 게시판 문 앞에서의 옛 상대 위치를 쓴다.</param>
+        public static void Build(GameObject prefab, Vector2 groundSize, List<Vector2> vendorFeet = null)
         {
             var root = new GameObject("NPCs");
 
@@ -188,11 +189,12 @@ namespace Underwrite.Editor
                 }
             }
 
-            if (doors.TryGetValue("시장 게시판", out var board) == true)
+            if (doors.TryGetValue("시장 게시판", out var board) == true || vendorFeet != null)
             {
                 for (var i = 0; i < VENDOR_NAMES.Length; i++)
                 {
-                    var npc = CreateNpc(prefab, root.transform, board + VENDOR_OFFSETS[i], VENDOR_TINT, 1f);
+                    var foot = vendorFeet != null && i < vendorFeet.Count ? vendorFeet[i] : board + VENDOR_OFFSETS[i];
+                    var npc = CreateNpc(prefab, root.transform, foot, VENDOR_TINT, 1f);
                     npc.AddComponent<VillageNpc>().Configure(NpcRole.Role_Vendor, VENDOR_NAMES[i], string.Empty,
                         new List<string>(VENDOR_LINES[i]));
                     npc.AddComponent<NpcAmbient>();

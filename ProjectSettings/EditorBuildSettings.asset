@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Underworld.unity
     guid: ffe806b7e09ebcd4e9b8be29a67c082a
+  - enabled: 1
+    path: Assets/Scenes/Village.unity
+    guid: d0ef33883c7e4f946adfcb8ef10bf57b
   m_configObjects: {}

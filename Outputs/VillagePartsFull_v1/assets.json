@@ -1,0 +1,946 @@
+{
+  "inn": {
+    "source": "sources/inn_corrected.png",
+    "native": [
+      1466,
+      1073
+    ],
+    "crop_bbox": [
+      15,
+      22,
+      1445,
+      1027
+    ],
+    "uniform_scale": 1.04,
+    "size": [
+      1504,
+      1062
+    ],
+    "pivot_in_png": [
+      538,
+      1053
+    ],
+    "door_box_in_png": [
+      461,
+      682,
+      617,
+      1013
+    ],
+    "door_height_map": 165.5,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "manor": {
+    "source": "sources/manor_corrected.png",
+    "native": [
+      1270,
+      1239
+    ],
+    "crop_bbox": [
+      116,
+      2,
+      1185,
+      1204
+    ],
+    "uniform_scale": 0.89,
+    "size": [
+      968,
+      1087
+    ],
+    "pivot_in_png": [
+      437,
+      1074
+    ],
+    "door_box_in_png": [
+      373,
+      700,
+      510,
+      1030
+    ],
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "guild": {
+    "source": "sources/guild.png",
+    "native": [
+      1315,
+      1196
+    ],
+    "crop_bbox": [
+      40,
+      1,
+      1305,
+      1160
+    ],
+    "uniform_scale": 1.04,
+    "size": [
+      1333,
+      1222
+    ],
+    "pivot_in_png": [
+      696,
+      1204
+    ],
+    "door_box_in_png": [
+      613,
+      866,
+      781,
+      1192
+    ],
+    "door_height_map": 163,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "smith": {
+    "source": "sources/smith.png",
+    "native": [
+      1452,
+      1083
+    ],
+    "crop_bbox": [
+      42,
+      7,
+      1431,
+      1039
+    ],
+    "uniform_scale": 0.88,
+    "size": [
+      1239,
+      925
+    ],
+    "pivot_in_png": [
+      525,
+      895
+    ],
+    "door_box_in_png": [
+      349,
+      549,
+      875,
+      882
+    ],
+    "door_height_map": 166.5,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "well": {
+    "source": "sources/well_corrected.png",
+    "native": [
+      1163,
+      1353
+    ],
+    "crop_bbox": [
+      59,
+      16,
+      1146,
+      1322
+    ],
+    "uniform_scale": 0.38255547054322875,
+    "size": [
+      432,
+      516
+    ],
+    "pivot_in_png": [
+      216,
+      507
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "board": {
+    "source": "sources/board.png",
+    "native": [
+      1299,
+      1211
+    ],
+    "crop_bbox": [
+      53,
+      11,
+      1247,
+      1193
+    ],
+    "uniform_scale": 0.33812341504649196,
+    "size": [
+      420,
+      416
+    ],
+    "pivot_in_png": [
+      210,
+      407
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "human_a": {
+    "source": "sources/human_a.png",
+    "native": [
+      1291,
+      1218
+    ],
+    "crop_bbox": [
+      19,
+      33,
+      1281,
+      1163
+    ],
+    "uniform_scale": 0.6470588235294118,
+    "size": [
+      833,
+      748
+    ],
+    "pivot_in_png": [
+      417,
+      739
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "human_b": {
+    "source": "sources/human_b.png",
+    "native": [
+      1443,
+      1090
+    ],
+    "crop_bbox": [
+      16,
+      102,
+      1427,
+      958
+    ],
+    "uniform_scale": 0.88,
+    "size": [
+      1259,
+      770
+    ],
+    "pivot_in_png": [
+      630,
+      761
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "human_c": {
+    "source": "sources/human_c.png",
+    "native": [
+      1182,
+      1330
+    ],
+    "crop_bbox": [
+      8,
+      12,
+      1177,
+      1295
+    ],
+    "uniform_scale": 0.5789473684210527,
+    "size": [
+      693,
+      759
+    ],
+    "pivot_in_png": [
+      347,
+      750
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "stone_0": {
+    "source": "sources/stone_0.png",
+    "native": [
+      1347,
+      1168
+    ],
+    "crop_bbox": [
+      52,
+      69,
+      1323,
+      1082
+    ],
+    "uniform_scale": 0.6666666666666666,
+    "size": [
+      864,
+      692
+    ],
+    "pivot_in_png": [
+      432,
+      683
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 6,
+    "removed_disconnected_source_pixels": 6,
+    "components_after": 1
+  },
+  "stone_1": {
+    "source": "sources/stone_1.png",
+    "native": [
+      1345,
+      1170
+    ],
+    "crop_bbox": [
+      27,
+      47,
+      1325,
+      1111
+    ],
+    "uniform_scale": 0.5945945945945946,
+    "size": [
+      788,
+      649
+    ],
+    "pivot_in_png": [
+      394,
+      640
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 3,
+    "removed_disconnected_source_pixels": 5,
+    "components_after": 1
+  },
+  "stone_2": {
+    "source": "sources/stone_2.png",
+    "native": [
+      1343,
+      1171
+    ],
+    "crop_bbox": [
+      12,
+      127,
+      1336,
+      1027
+    ],
+    "uniform_scale": 0.825,
+    "size": [
+      1109,
+      759
+    ],
+    "pivot_in_png": [
+      555,
+      750
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "elf_0": {
+    "source": "sources/elf_0.png",
+    "native": [
+      1051,
+      1496
+    ],
+    "crop_bbox": [
+      29,
+      11,
+      1036,
+      1427
+    ],
+    "uniform_scale": 0.7674418604651163,
+    "size": [
+      790,
+      1103
+    ],
+    "pivot_in_png": [
+      395,
+      1094
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 2,
+    "removed_disconnected_source_pixels": 1,
+    "components_after": 1
+  },
+  "elf_1": {
+    "source": "sources/elf_1.png",
+    "native": [
+      1051,
+      1497
+    ],
+    "crop_bbox": [
+      18,
+      24,
+      1028,
+      1477
+    ],
+    "uniform_scale": 0.7764705882352941,
+    "size": [
+      801,
+      1145
+    ],
+    "pivot_in_png": [
+      401,
+      1136
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 5,
+    "removed_disconnected_source_pixels": 4,
+    "components_after": 1
+  },
+  "elf_2": {
+    "source": "sources/elf_2_corrected.png",
+    "native": [
+      1103,
+      1426
+    ],
+    "crop_bbox": [
+      14,
+      17,
+      1092,
+      1380
+    ],
+    "uniform_scale": 0.825,
+    "size": [
+      906,
+      1141
+    ],
+    "pivot_in_png": [
+      453,
+      1132
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 165,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "fairy_0": {
+    "source": "sources/fairy_0.png",
+    "native": [
+      1230,
+      1278
+    ],
+    "crop_bbox": [
+      118,
+      65,
+      1092,
+      1181
+    ],
+    "uniform_scale": 0.275,
+    "size": [
+      284,
+      323
+    ],
+    "pivot_in_png": [
+      142,
+      314
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 55,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "fairy_1": {
+    "source": "sources/fairy_1.png",
+    "native": [
+      1240,
+      1269
+    ],
+    "crop_bbox": [
+      45,
+      83,
+      1203,
+      1174
+    ],
+    "uniform_scale": 0.275,
+    "size": [
+      335,
+      316
+    ],
+    "pivot_in_png": [
+      168,
+      307
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 55,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "fairy_2": {
+    "source": "sources/fairy_2_corrected.png",
+    "native": [
+      1312,
+      1199
+    ],
+    "crop_bbox": [
+      24,
+      51,
+      1308,
+      1120
+    ],
+    "uniform_scale": 0.275,
+    "size": [
+      369,
+      310
+    ],
+    "pivot_in_png": [
+      185,
+      301
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 55,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "fairy_3": {
+    "source": "sources/fairy_3.png",
+    "native": [
+      1305,
+      1206
+    ],
+    "crop_bbox": [
+      46,
+      53,
+      1281,
+      1149
+    ],
+    "uniform_scale": 0.275,
+    "size": [
+      356,
+      318
+    ],
+    "pivot_in_png": [
+      178,
+      309
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 55,
+    "building": true,
+    "source_components": 2,
+    "removed_disconnected_source_pixels": 1,
+    "components_after": 1
+  },
+  "fairy_4": {
+    "source": "sources/fairy_4.png",
+    "native": [
+      1240,
+      1268
+    ],
+    "crop_bbox": [
+      117,
+      52,
+      1147,
+      1208
+    ],
+    "uniform_scale": 0.275,
+    "size": [
+      300,
+      334
+    ],
+    "pivot_in_png": [
+      150,
+      325
+    ],
+    "door_box_in_png": null,
+    "door_height_map": 55,
+    "building": true,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "stall_0": {
+    "source": "sources/stall_0.png",
+    "native": [
+      1292,
+      1218
+    ],
+    "crop_bbox": [
+      24,
+      2,
+      1281,
+      1192
+    ],
+    "uniform_scale": 0.41141897565071367,
+    "size": [
+      534,
+      506
+    ],
+    "pivot_in_png": [
+      267,
+      497
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "stall_1": {
+    "source": "sources/stall_1.png",
+    "native": [
+      1293,
+      1217
+    ],
+    "crop_bbox": [
+      26,
+      14,
+      1274,
+      1182
+    ],
+    "uniform_scale": 0.41916167664670656,
+    "size": [
+      540,
+      506
+    ],
+    "pivot_in_png": [
+      270,
+      497
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "stall_2": {
+    "source": "sources/stall_2.png",
+    "native": [
+      1292,
+      1218
+    ],
+    "crop_bbox": [
+      12,
+      4,
+      1284,
+      1162
+    ],
+    "uniform_scale": 0.4227782571182053,
+    "size": [
+      554,
+      506
+    ],
+    "pivot_in_png": [
+      277,
+      497
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "tree_a": {
+    "source": "sources/tree_a.png",
+    "native": [
+      965,
+      1630
+    ],
+    "crop_bbox": [
+      35,
+      58,
+      941,
+      1579
+    ],
+    "uniform_scale": 0.683311432325887,
+    "size": [
+      636,
+      1056
+    ],
+    "pivot_in_png": [
+      339,
+      1047
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 2,
+    "removed_disconnected_source_pixels": 1,
+    "components_after": 1
+  },
+  "tree_b": {
+    "source": "sources/tree_b.png",
+    "native": [
+      1049,
+      1499
+    ],
+    "crop_bbox": [
+      24,
+      83,
+      1035,
+      1420
+    ],
+    "uniform_scale": 0.7174887892376681,
+    "size": [
+      742,
+      976
+    ],
+    "pivot_in_png": [
+      436,
+      967
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "lamp": {
+    "source": "sources/lamp.png",
+    "native": [
+      1083,
+      1452
+    ],
+    "crop_bbox": [
+      245,
+      28,
+      792,
+      1406
+    ],
+    "uniform_scale": 0.3770848440899202,
+    "size": [
+      223,
+      536
+    ],
+    "pivot_in_png": [
+      166,
+      527
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "planter": {
+    "source": "sources/planter.png",
+    "native": [
+      1330,
+      1182
+    ],
+    "crop_bbox": [
+      83,
+      85,
+      1254,
+      1096
+    ],
+    "uniform_scale": 0.1482213438735178,
+    "size": [
+      190,
+      166
+    ],
+    "pivot_in_png": [
+      95,
+      157
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "barrel": {
+    "source": "sources/barrel_accepted_native.png",
+    "native": [
+      1134,
+      1387
+    ],
+    "crop_bbox": [
+      151,
+      124,
+      984,
+      1270
+    ],
+    "uniform_scale": 0.14821272885789014,
+    "size": [
+      140,
+      186
+    ],
+    "pivot_in_png": [
+      70,
+      177
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "crate": {
+    "source": "sources/crate.png",
+    "native": [
+      1418,
+      1109
+    ],
+    "crop_bbox": [
+      356,
+      152,
+      1082,
+      1009
+    ],
+    "uniform_scale": 0.19813519813519814,
+    "size": [
+      160,
+      186
+    ],
+    "pivot_in_png": [
+      80,
+      177
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "cart": {
+    "source": "sources/cart.png",
+    "native": [
+      1651,
+      953
+    ],
+    "crop_bbox": [
+      72,
+      23,
+      1532,
+      900
+    ],
+    "uniform_scale": 0.31890660592255127,
+    "size": [
+      482,
+      296
+    ],
+    "pivot_in_png": [
+      241,
+      287
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "bench": {
+    "source": "sources/bench.png",
+    "native": [
+      1870,
+      841
+    ],
+    "crop_bbox": [
+      339,
+      99,
+      1542,
+      765
+    ],
+    "uniform_scale": 0.2623688155922039,
+    "size": [
+      332,
+      191
+    ],
+    "pivot_in_png": [
+      166,
+      182
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "hedge": {
+    "source": "sources/hedge.png",
+    "native": [
+      1933,
+      813
+    ],
+    "crop_bbox": [
+      61,
+      70,
+      1864,
+      771
+    ],
+    "uniform_scale": 0.21367521367521367,
+    "size": [
+      401,
+      166
+    ],
+    "pivot_in_png": [
+      201,
+      157
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  },
+  "fence": {
+    "source": "sources/fence.png",
+    "native": [
+      2017,
+      780
+    ],
+    "crop_bbox": [
+      82,
+      91,
+      1950,
+      707
+    ],
+    "uniform_scale": 0.2755267423014587,
+    "size": [
+      531,
+      186
+    ],
+    "pivot_in_png": [
+      266,
+      177
+    ],
+    "door_box_in_png": null,
+    "door_height_map": null,
+    "building": false,
+    "source_components": 1,
+    "removed_disconnected_source_pixels": 0,
+    "components_after": 1
+  }
+}

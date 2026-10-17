@@ -1,0 +1,206 @@
+{
+  "inn": {
+    "src": "inn_corrected",
+    "scale": 1.04,
+    "pivot": [
+      525,
+      1027
+    ],
+    "door_box": [
+      451,
+      670,
+      601,
+      988
+    ],
+    "building": true
+  },
+  "manor": {
+    "src": "manor_corrected",
+    "scale": 0.89,
+    "pivot": [
+      598,
+      1200
+    ],
+    "door_box": [
+      526,
+      779,
+      680,
+      1150
+    ],
+    "building": true
+  },
+  "guild": {
+    "src": "guild",
+    "scale": 1.04,
+    "pivot": [
+      702,
+      1151
+    ],
+    "door_box": [
+      622,
+      826,
+      783,
+      1139
+    ],
+    "building": true
+  },
+  "smith": {
+    "src": "smith",
+    "scale": 0.88,
+    "pivot": [
+      630,
+      1015
+    ],
+    "door_box": [
+      430,
+      622,
+      1027,
+      1000
+    ],
+    "building": true
+  },
+  "well": {
+    "src": "well_corrected",
+    "height": 500
+  },
+  "board": {
+    "src": "board",
+    "height": 400
+  },
+  "human_a": {
+    "src": "human_a",
+    "door_height": 510,
+    "target_door": 330,
+    "building": true
+  },
+  "human_b": {
+    "src": "human_b",
+    "door_height": 375,
+    "target_door": 330,
+    "building": true
+  },
+  "human_c": {
+    "src": "human_c",
+    "door_height": 570,
+    "target_door": 330,
+    "building": true
+  },
+  "stone_0": {
+    "src": "stone_0",
+    "door_height": 495,
+    "target_door": 330,
+    "building": true
+  },
+  "stone_1": {
+    "src": "stone_1",
+    "door_height": 555,
+    "target_door": 330,
+    "building": true
+  },
+  "stone_2": {
+    "src": "stone_2",
+    "door_height": 400,
+    "target_door": 330,
+    "building": true
+  },
+  "elf_0": {
+    "src": "elf_0",
+    "door_height": 430,
+    "target_door": 330,
+    "building": true
+  },
+  "elf_1": {
+    "src": "elf_1",
+    "door_height": 425,
+    "target_door": 330,
+    "building": true
+  },
+  "elf_2": {
+    "src": "elf_2_corrected",
+    "door_height": 400,
+    "target_door": 330,
+    "building": true
+  },
+  "fairy_0": {
+    "src": "fairy_0",
+    "door_height": 400,
+    "target_door": 110,
+    "building": true
+  },
+  "fairy_1": {
+    "src": "fairy_1",
+    "door_height": 400,
+    "target_door": 110,
+    "building": true
+  },
+  "fairy_2": {
+    "src": "fairy_2_corrected",
+    "door_height": 400,
+    "target_door": 110,
+    "building": true
+  },
+  "fairy_3": {
+    "src": "fairy_3",
+    "door_height": 400,
+    "target_door": 110,
+    "building": true
+  },
+  "fairy_4": {
+    "src": "fairy_4",
+    "door_height": 400,
+    "target_door": 110,
+    "building": true
+  },
+  "stall_0": {
+    "src": "stall_0",
+    "height": 490
+  },
+  "stall_1": {
+    "src": "stall_1",
+    "height": 490
+  },
+  "stall_2": {
+    "src": "stall_2",
+    "height": 490
+  },
+  "tree_a": {
+    "src": "tree_a",
+    "height": 1040
+  },
+  "tree_b": {
+    "src": "tree_b",
+    "height": 960
+  },
+  "lamp": {
+    "src": "lamp",
+    "height": 520
+  },
+  "planter": {
+    "src": "planter",
+    "height": 150
+  },
+  "barrel": {
+    "src": "barrel_accepted_native",
+    "height": 170
+  },
+  "crate": {
+    "src": "crate",
+    "height": 170
+  },
+  "cart": {
+    "src": "cart",
+    "height": 280
+  },
+  "bench": {
+    "src": "bench",
+    "height": 175
+  },
+  "hedge": {
+    "src": "hedge",
+    "height": 150
+  },
+  "fence": {
+    "src": "fence",
+    "height": 170
+  }
+}

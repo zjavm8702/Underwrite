@@ -29,8 +29,19 @@ namespace Underwrite.Editor
         // 납품은 VillagePartsPilot_v1, _v2 … 로 쌓인다. 배치표가 있는 가장 높은 판을 쓴다.
         private const string SOURCE_ROOT = "Outputs";
         private const string SOURCE_PREFIX = "VillagePartsPilot_v";
-        private const string ASSET_FOLDER = "Assets/Images/Village/PartsPilot";
-        private const string SCENE_PATH = "Assets/Scenes/VillagePartsPilot.unity";
+        private const string PILOT_ASSETS = "Assets/Images/Village/PartsPilot";
+        private const string PILOT_SCENE = "Assets/Scenes/VillagePartsPilot.unity";
+
+        // 영지 전체 지도(2026-10-17 납품). 장소 여섯·종족 집·소품 151개. 이 씬이 실제 영지가 된다.
+        private const string FULL_PREFIX = "VillagePartsFull_v";
+        private const string FULL_ASSETS = "Assets/Images/Village/Full";
+        private const string FULL_SCENE = "Assets/Scenes/Village.unity";
+
+        // 광장 우물 앞, 조금 아래에서 시작한다. 여섯 곳 어디로도 걸어갈 수 있는 자리다.
+        private static readonly Vector2 START_BELOW_WELL = new Vector2(0f, -1.6f);
+
+        // 이번에 세우는 판의 그림 폴더. 메뉴마다 바뀐다.
+        private static string AssetFolder = PILOT_ASSETS;
         private const string LAYOUT_FILE = "layout.json";
         private const string GROUND_FILE = "ground.png";
 
@@ -50,22 +61,35 @@ namespace Underwrite.Editor
         [MenuItem("Underwrite/영지 파츠 시범 씬 만들기")]
         public static void Build()
         {
-            BuildScene(false);
+            BuildScene(SOURCE_PREFIX, PILOT_ASSETS, PILOT_SCENE, false);
         }
 
         [MenuItem("Underwrite/영지 파츠 시범 씬 만들기 (그림 덮어쓰기)")]
         public static void BuildWithOverwrite()
         {
-            BuildScene(true);
+            BuildScene(SOURCE_PREFIX, PILOT_ASSETS, PILOT_SCENE, true);
         }
 
-        private static void BuildScene(bool allowOverwrite)
+        [MenuItem("Underwrite/영지 전체 씬 만들기")]
+        public static void BuildFull()
         {
-            var source = FindLatestSource();
+            BuildScene(FULL_PREFIX, FULL_ASSETS, FULL_SCENE, false);
+        }
+
+        [MenuItem("Underwrite/영지 전체 씬 만들기 (그림 덮어쓰기)")]
+        public static void BuildFullWithOverwrite()
+        {
+            BuildScene(FULL_PREFIX, FULL_ASSETS, FULL_SCENE, true);
+        }
+
+        private static void BuildScene(string prefix, string assetFolder, string scenePath, bool allowOverwrite)
+        {
+            AssetFolder = assetFolder;
+            var source = FindLatestSource(prefix);
 
             if (source == null)
             {
-                UnderwriteLog.Error($"{SOURCE_ROOT}/{SOURCE_PREFIX}N 아래에 layout.json이 있는 납품이 없습니다. "
+                UnderwriteLog.Error($"{SOURCE_ROOT}/{prefix}N 아래에 layout.json이 있는 납품이 없습니다. "
                     + "Codex 납품이 끝났는지 확인하세요.");
                 return;
             }
@@ -74,10 +98,11 @@ namespace Underwrite.Editor
             var layoutPath = Path.Combine(source, LAYOUT_FILE);
 
             List<PartEntry> parts;
+            float partScale;
 
             try
             {
-                parts = ReadLayout(File.ReadAllText(layoutPath));
+                parts = ReadLayout(File.ReadAllText(layoutPath), out partScale);
             }
             catch (Exception e)
             {
@@ -85,7 +110,7 @@ namespace Underwrite.Editor
                 return;
             }
 
-            if (CopyArt(source, parts, allowOverwrite) == false)
+            if (CopyArt(source, parts, partScale, allowOverwrite) == false)
             {
                 return;
             }
@@ -114,6 +139,9 @@ namespace Underwrite.Editor
             var partsRoot = new GameObject("Parts");
             var effectsRoot = new GameObject("Effects");
             Vector2? door = null;
+            Vector2? well = null;
+            var stalls = new List<Vector2>();
+            var placed = 0;
 
             foreach (var part in parts)
             {
@@ -129,28 +157,58 @@ namespace Underwrite.Editor
                     BuildSmoke(ToWorld(smoke, groundSize), ToWorld(part.Foot, groundSize).y, effectsRoot.transform);
                 }
 
-                if (part.Door.HasValue == true && door.HasValue == false)
+                if (part.Door.HasValue == false)
                 {
-                    door = ToWorld(part.Door.Value, groundSize);
+                    continue;
+                }
+
+                var at = ToWorld(part.Door.Value, groundSize);
+
+                if (part.Place == PLACE_WELL)
+                {
+                    well = at;
+                }
+                else if (part.Place == PLACE_STALL)
+                {
+                    stalls.Add(at);
+                }
+                else if (BuildPlace(part.Place, at) == true)
+                {
+                    placed++;
+                }
+                else if (string.IsNullOrEmpty(part.Place) == true && door.HasValue == false)
+                {
+                    // 시범판은 장소 이름 없이 문 하나만 있다. 그것이 여관이다.
+                    door = at;
                 }
             }
 
-            if (door.HasValue == true)
+            if (placed == 0 && door.HasValue == true)
             {
                 VillageSceneSetup.BuildSpot("여관", door.Value, InfoSource.Source_TavernTalk, 20f,
                     VillageSceneSetup.QuestFor(InfoSource.Source_TavernTalk));
             }
-            else
+            else if (placed == 0)
             {
-                UnderwriteLog.Warning("배치표에 door 자리가 없어 여관 칸을 세우지 않았습니다.");
+                UnderwriteLog.Warning("배치표에 door 자리가 없어 장소 칸을 세우지 않았습니다.");
             }
 
-            VillageNpcSetup.Build(prefab, groundSize / PIXELS_PER_UNIT);
+            VillageNpcSetup.Build(prefab, groundSize / PIXELS_PER_UNIT, stalls.Count > 0 ? stalls : null);
 
             var player = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             player.name = "Character";
-            // 문 앞에서 조금 아래에 세운다. 바로 문 칸 안이면 시작하자마자 안내가 뜬다.
-            var start = door.HasValue == true ? door.Value + new Vector2(0f, -2.5f) : Vector2.zero;
+            // 우물 광장이 있으면 그 앞에서, 없으면 문 앞에서 조금 아래에 세운다.
+            // 바로 문 칸 안이면 시작하자마자 안내가 뜬다.
+            Vector2 start;
+
+            if (well.HasValue == true)
+            {
+                start = well.Value + START_BELOW_WELL;
+            }
+            else
+            {
+                start = door.HasValue == true ? door.Value + new Vector2(0f, -2.5f) : Vector2.zero;
+            }
             player.transform.position = new Vector3(start.x, start.y, 0f);
             player.transform.localScale = Vector3.one * CHARACTER_SCALE;
             VillageSceneSetup.ShrinkToFootprint(player);
@@ -165,11 +223,76 @@ namespace Underwrite.Editor
             VillageSceneSetup.BuildScreen();
 
             EditorSceneManager.MarkSceneDirty(scene);
-            Directory.CreateDirectory(Path.GetDirectoryName(SCENE_PATH));
-            EditorSceneManager.SaveScene(scene, SCENE_PATH);
+            Directory.CreateDirectory(Path.GetDirectoryName(scenePath));
+            EditorSceneManager.SaveScene(scene, scenePath);
+            AddToBuild(scenePath);
             AssetDatabase.Refresh();
 
-            UnderwriteLog.Info($"파츠 시범 씬을 만들었습니다: {SCENE_PATH} (사물 {parts.Count}개)");
+            UnderwriteLog.Info($"영지 씬을 만들었습니다: {scenePath} (사물 {parts.Count}개, 장소 {placed}곳)");
+        }
+
+        // ── 장소 ────────────────────────────────
+
+        private const string PLACE_WELL = "well";
+        private const string PLACE_STALL = "stall";
+
+        /// <summary>
+        /// 배치표의 장소 이름으로 문 앞 칸을 세운다. 값·출처·일감은 기획서 §5의 여섯 곳 그대로다
+        /// (지금 영지 VillageSceneSetup과 같다). 모르는 이름이면 거짓.
+        /// </summary>
+        private static bool BuildPlace(string place, Vector2 at)
+        {
+            switch (place)
+            {
+                case "inn":
+                {
+                    VillageSceneSetup.BuildSpot("여관", at, InfoSource.Source_TavernTalk, 20f,
+                        VillageSceneSetup.QuestFor(InfoSource.Source_TavernTalk));
+                    return true;
+                }
+                case "smith":
+                {
+                    VillageSceneSetup.BuildSpot("대장간", at, InfoSource.Source_SmithOrder, 40f,
+                        VillageSceneSetup.QuestFor(InfoSource.Source_SmithOrder));
+                    return true;
+                }
+                case "guild":
+                {
+                    VillageSceneSetup.BuildSpot("길드 기록실", at, InfoSource.Source_GuildRecord, 80f,
+                        VillageSceneSetup.QuestFor(InfoSource.Source_GuildRecord));
+                    return true;
+                }
+                case "manor":
+                {
+                    VillageSceneSetup.BuildSpot("영주관", at, InfoSource.Source_PrivateLetter, 120f);
+                    return true;
+                }
+                case "board":
+                {
+                    VillageSceneSetup.BuildSpot("시장 게시판", at, InfoSource.Source_MarketBoard, 0f);
+                    return true;
+                }
+                default:
+                {
+                    return false;
+                }
+            }
+        }
+
+        private static void AddToBuild(string scenePath)
+        {
+            var scenes = new List<EditorBuildSettingsScene>(EditorBuildSettings.scenes);
+
+            for (var i = 0; i < scenes.Count; i++)
+            {
+                if (scenes[i].path == scenePath)
+                {
+                    return;
+                }
+            }
+
+            scenes.Add(new EditorBuildSettingsScene(scenePath, true));
+            EditorBuildSettings.scenes = scenes.ToArray();
         }
 
         // ── 배치표 ──────────────────────────────
@@ -185,9 +308,19 @@ namespace Underwrite.Editor
             public List<Vector2> Smokes = new List<Vector2>();
             public Vector2? Door;
             public bool Sways;
+
+            /// <summary>장소 이름(inn·manor·guild·smith·board·well·stall). 집과 소품은 비어 있다.</summary>
+            public string Place;
+
+            /// <summary>걸을 수 없게 막는 다각형들 — 건물 뒤편. 지붕 위로 사람 머리가 튀어나오지 않게.</summary>
+            public List<List<Vector2>> Blocks = new List<List<Vector2>>();
         }
 
-        private static List<PartEntry> ReadLayout(string json)
+        /// <summary>
+        /// 배치표를 읽는다. <paramref name="partScale"/>은 사물 PNG가 지도보다 몇 배로 그려졌는가
+        /// (전체 지도는 1.7배 확대에 대비해 2배). 좌표는 늘 지도 1배 기준이다.
+        /// </summary>
+        private static List<PartEntry> ReadLayout(string json, out float partScale)
         {
             var root = MiniJson.Parse(json) as Dictionary<string, object>;
 
@@ -195,6 +328,10 @@ namespace Underwrite.Editor
             {
                 throw new FormatException("layout.json에 parts 배열이 없습니다.");
             }
+
+            partScale = root.TryGetValue("part_scale", out var scaleValue) == true && scaleValue != null
+                ? Convert.ToSingle(scaleValue)
+                : 1f;
 
             var list = partsValue as List<object>;
 
@@ -225,6 +362,19 @@ namespace Underwrite.Editor
                 if (entry.TryGetValue("footprint", out var footprint) == true && footprint != null)
                 {
                     part.Footprint = ToVectors(footprint);
+                }
+
+                if (entry.TryGetValue("place", out var place) == true && place != null)
+                {
+                    part.Place = (string)place;
+                }
+
+                if (entry.TryGetValue("block", out var blocks) == true && blocks is List<object> blockList)
+                {
+                    foreach (var polygon in blockList)
+                    {
+                        part.Blocks.Add(ToVectors(polygon));
+                    }
                 }
 
                 if (entry.TryGetValue("anchors", out var anchorsValue) == true)
@@ -326,7 +476,7 @@ namespace Underwrite.Editor
         /// 다른 그림으로 바뀐 것을 모르고 덮으면 이미 맞춰 둔 피벗·씬 배치가 조용히 어긋난다.
         /// </summary>
         /// <summary>판 번호가 가장 높고 layout.json이 있는 납품 폴더. 없으면 null.</summary>
-        private static string FindLatestSource()
+        private static string FindLatestSource(string prefix)
         {
             if (Directory.Exists(SOURCE_ROOT) == false)
             {
@@ -336,9 +486,9 @@ namespace Underwrite.Editor
             string best = null;
             var bestVersion = -1;
 
-            foreach (var folder in Directory.GetDirectories(SOURCE_ROOT, SOURCE_PREFIX + "*"))
+            foreach (var folder in Directory.GetDirectories(SOURCE_ROOT, prefix + "*"))
             {
-                var suffix = Path.GetFileName(folder).Substring(SOURCE_PREFIX.Length);
+                var suffix = Path.GetFileName(folder).Substring(prefix.Length);
 
                 if (int.TryParse(suffix, out var version) == false)
                 {
@@ -355,13 +505,17 @@ namespace Underwrite.Editor
             return best;
         }
 
-        private static bool CopyArt(string source, List<PartEntry> parts, bool allowOverwrite)
+        private static bool CopyArt(string source, List<PartEntry> parts, float partScale, bool allowOverwrite)
         {
+            // 같은 그림(나무·화분 …)을 여러 자리에 쓴다. 파일은 한 번만 옮긴다.
             var files = new List<string> { GROUND_FILE };
 
             foreach (var part in parts)
             {
-                files.Add(part.File);
+                if (files.Contains(part.File) == false)
+                {
+                    files.Add(part.File);
+                }
             }
 
             var blocked = new List<string>();
@@ -376,7 +530,7 @@ namespace Underwrite.Editor
                     return false;
                 }
 
-                var to = Path.Combine(ASSET_FOLDER, file);
+                var to = Path.Combine(AssetFolder, file);
 
                 if (File.Exists(to) == true && allowOverwrite == false && SameBytes(from, to) == false)
                 {
@@ -391,22 +545,30 @@ namespace Underwrite.Editor
                 return false;
             }
 
-            Directory.CreateDirectory(ASSET_FOLDER);
+            Directory.CreateDirectory(AssetFolder);
 
             foreach (var file in files)
             {
-                File.Copy(Path.Combine(source, file), Path.Combine(ASSET_FOLDER, file), true);
+                File.Copy(Path.Combine(source, file), Path.Combine(AssetFolder, file), true);
             }
 
             AssetDatabase.Refresh();
 
-            ConfigureSprite(AssetPath(GROUND_FILE), new Vector2(0.5f, 0.5f));
+            ConfigureSprite(AssetPath(GROUND_FILE), new Vector2(0.5f, 0.5f), PIXELS_PER_UNIT);
+
+            var configured = new HashSet<string>();
 
             foreach (var part in parts)
             {
+                if (configured.Add(part.File) == false)
+                {
+                    continue;
+                }
+
                 // PNG 안의 발밑 점을 피벗으로. PNG는 위가 0이고 Unity 피벗은 아래가 0이다.
+                // 2배로 그린 사물은 PPU도 2배 — 화면에서는 같은 크기, 확대하면 더 선명하다.
                 var pivot = new Vector2(part.Pivot.x / part.Size.x, 1f - part.Pivot.y / part.Size.y);
-                ConfigureSprite(AssetPath(part.File), pivot);
+                ConfigureSprite(AssetPath(part.File), pivot, PIXELS_PER_UNIT * partScale);
             }
 
             return true;
@@ -435,10 +597,10 @@ namespace Underwrite.Editor
 
         private static string AssetPath(string file)
         {
-            return ASSET_FOLDER + "/" + file;
+            return AssetFolder + "/" + file;
         }
 
-        private static void ConfigureSprite(string path, Vector2 pivot)
+        private static void ConfigureSprite(string path, Vector2 pivot, float pixelsPerUnit)
         {
             var importer = AssetImporter.GetAtPath(path) as TextureImporter;
 
@@ -451,7 +613,7 @@ namespace Underwrite.Editor
             importer.textureType = TextureImporterType.Sprite;
             // Multiple이면 Unity가 알파 덩어리마다 멋대로 잘라 낸다. 사물 하나는 스프라이트 하나다.
             importer.spriteImportMode = SpriteImportMode.Single;
-            importer.spritePixelsPerUnit = PIXELS_PER_UNIT;
+            importer.spritePixelsPerUnit = pixelsPerUnit;
             importer.mipmapEnabled = false;
             importer.alphaIsTransparency = true;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
@@ -517,6 +679,24 @@ namespace Underwrite.Editor
                 for (var i = 0; i < points.Length; i++)
                 {
                     points[i] = ToWorld(part.Footprint[i], groundSize) - foot;
+                }
+
+                go.AddComponent<PolygonCollider2D>().points = points;
+            }
+
+            // 건물 뒤편은 따로 막는다. 발 닿는 면만 막으면 뒤로 돌아가 지붕 위에 선 것처럼 보인다.
+            foreach (var block in part.Blocks)
+            {
+                if (block.Count < 3)
+                {
+                    continue;
+                }
+
+                var points = new Vector2[block.Count];
+
+                for (var i = 0; i < points.Length; i++)
+                {
+                    points[i] = ToWorld(block[i], groundSize) - foot;
                 }
 
                 go.AddComponent<PolygonCollider2D>().points = points;
@@ -641,7 +821,7 @@ namespace Underwrite.Editor
             UnityEngine.Object.DestroyImmediate(texture);
             AssetDatabase.ImportAsset(SMOKE_SPRITE);
 
-            ConfigureSprite(SMOKE_SPRITE, new Vector2(0.5f, 0.5f));
+            ConfigureSprite(SMOKE_SPRITE, new Vector2(0.5f, 0.5f), PIXELS_PER_UNIT);
             return AssetDatabase.LoadAssetAtPath<Sprite>(SMOKE_SPRITE);
         }
     }
