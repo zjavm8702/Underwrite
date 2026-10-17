@@ -10,6 +10,9 @@ namespace Underwrite.Global
     {
         public const string INTRO = "Intro";
         public const string MARKET = "MarketPrototype";
+
+        /// <summary>걸어 다니는 지하 방. 영지에서 창고로 내려가면 여기로 온다(2026-10-17).</summary>
+        public const string UNDERWORLD = "Underworld";
         public const string VILLAGE = "VillageTest";
     }
 }

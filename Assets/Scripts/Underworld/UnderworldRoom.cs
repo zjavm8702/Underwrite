@@ -1,0 +1,348 @@
+using System.Collections.Generic;
+using Underwrite.Enumeration;
+using Underwrite.Global;
+using Underwrite.Market;
+using Underwrite.UI;
+using Underwrite.Utility;
+using Underwrite.Village;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+
+namespace Underwrite.Underworld
+{
+    /// <summary>
+    /// 걸어 다니는 지하 방(2026-10-17 사용자 결정).
+    ///
+    /// - 주식판 앞에서 E(또는 어디서든 Tab): 거래판(거래 화면)을 연다
+    /// - 정보 타임: 시간이 멈추고 카운터 뒤 정보상이 부른다. 가서 E를 누르면 소식이 열린다
+    /// - 테이블의 투자꾼: 종목이 크게 움직이면 「망했네」, 「좋아!」 같은 혼잣말을 한다. 말풍선뿐이다
+    ///
+    /// 거래와 시간은 <see cref="MarketScreenController"/>가 그대로 맡는다. 이 클래스는 방을 걷는 일만 한다.
+    /// 정보상이 누구인지는 플레이어가 알 필요 없다 — 연출이다.
+    /// </summary>
+    [RequireComponent(typeof(UIDocument))]
+    public sealed class UnderworldRoom : MonoBehaviour
+    {
+        [SerializeField] private MarketScreenController Market;
+
+        [Tooltip("거래판을 여는 주식판 앞 자리.")]
+        [SerializeField] private Transform Board;
+
+        [Tooltip("카운터 뒤의 정보상.")]
+        [SerializeField] private CharacterActor Informant;
+
+        [Tooltip("테이블에 앉은 투자꾼들. 종목이 크게 움직이면 한 사람이 혼잣말을 한다.")]
+        [SerializeField] private List<CharacterActor> Investors = new List<CharacterActor>();
+
+        private VisualElement Root;
+        private Transform Player;
+        private PlayerCharacterInput PlayerInput;
+
+        // 투자꾼이 본 마지막 가격. 다음 확인 때 이만큼 움직였으면 반응한다.
+        private readonly Dictionary<string, float> LastSeen = new Dictionary<string, float>();
+        private float InvestorCooldown;
+        private float CallTimer;
+
+        private void Update()
+        {
+            if (EnsureScreen() == false || Market == null || Market.Simulation == null)
+            {
+                return;
+            }
+
+            FindPlayer();
+
+            var keyboard = Keyboard.current;
+            var covering = Market.IsCoveringRoom;
+
+            // 판이 열려 있으면 Tab으로 닫는다. 판을 연 채로는 걷지 않는다.
+            if (keyboard != null && keyboard.tabKey.wasPressedThisFrame == true)
+            {
+                if (Market.IsPanelOpen == true)
+                {
+                    Market.ClosePanel();
+                }
+                else if (covering == false)
+                {
+                    Market.OpenPanel();
+                }
+
+                covering = Market.IsCoveringRoom;
+            }
+
+            if (PlayerInput != null && PlayerInput.enabled == covering)
+            {
+                PlayerInput.enabled = covering == false;
+            }
+
+            Root.style.display = covering == true ? DisplayStyle.None : DisplayStyle.Flex;
+            WorldBubbles.Tick(covering);
+            CallInformant();
+            ReactInvestors();
+
+            if (covering == true)
+            {
+                return;
+            }
+
+            RefreshClock();
+
+            var near = Nearest();
+            RefreshPrompt(near);
+
+            if (near == null || keyboard == null || keyboard.eKey.wasPressedThisFrame == false)
+            {
+                return;
+            }
+
+            if (near == Board)
+            {
+                Market.OpenPanel();
+                return;
+            }
+
+            TalkToInformant();
+        }
+
+        private bool EnsureScreen()
+        {
+            if (Root != null)
+            {
+                return true;
+            }
+
+            var document = GetComponent<UIDocument>();
+            var root = document == null ? null : document.rootVisualElement;
+
+            if (root == null)
+            {
+                return false;
+            }
+
+            Root = root.Q<VisualElement>("room-root");
+
+            if (Root == null)
+            {
+                return false;
+            }
+
+            WorldBubbles.Attach(Root);
+            return true;
+        }
+
+        private void FindPlayer()
+        {
+            if (Player != null)
+            {
+                return;
+            }
+
+            PlayerInput = FindAnyObjectByType<PlayerCharacterInput>();
+            Player = PlayerInput == null ? null : PlayerInput.transform;
+        }
+
+        /// <summary>말을 걸 수 있는 거리 안에서 가장 가까운 것 — 주식판이나 정보상. 없으면 null.</summary>
+        private Transform Nearest()
+        {
+            if (Player == null)
+            {
+                return null;
+            }
+
+            Transform best = null;
+            var bestDistance = Constants.ROOM_REACH_DISTANCE;
+            var informant = Informant == null ? null : Informant.transform;
+            var targets = new[] { Board, informant };
+
+            for (var i = 0; i < targets.Length; i++)
+            {
+                if (targets[i] == null)
+                {
+                    continue;
+                }
+
+                var distance = Vector2.Distance(Player.position, targets[i].position);
+
+                if (distance <= bestDistance)
+                {
+                    best = targets[i];
+                    bestDistance = distance;
+                }
+            }
+
+            return best;
+        }
+
+        private void RefreshPrompt(Transform near)
+        {
+            var prompt = Root.Q<VisualElement>("room-prompt");
+
+            if (prompt == null)
+            {
+                return;
+            }
+
+            prompt.EnableInClassList("hidden", near == null);
+
+            if (near == null)
+            {
+                return;
+            }
+
+            var place = near == Board ? StringConstants.TEXT_SOURCE_MARKET_BOARD : StringConstants.TEXT_INFORMANT;
+            string key;
+
+            if (near == Board)
+            {
+                key = StringConstants.TEXT_ROOM_BOARD;
+            }
+            else
+            {
+                key = Market.IsBriefingWaiting == true
+                    ? StringConstants.TEXT_ROOM_INFORMANT_WAITING
+                    : StringConstants.TEXT_ROOM_INFORMANT;
+            }
+
+            SetText("room-place", place);
+            SetText("room-key", key);
+        }
+
+        /// <summary>영지 시계와 같은 순서로 적는다. 정보상이 부르면 그것을 먼저 알린다.</summary>
+        private void RefreshClock()
+        {
+            var clock = Market.Simulation.Clock;
+            var session = clock.Session == MarketSession.Session_Evening
+                ? StringConstants.TEXT_SESSION_EVENING
+                : StringConstants.TEXT_SESSION_MORNING;
+            var text = string.Format(StringConstants.TEXT_DAY_COUNT, clock.CalendarDay) + " · " + session + " "
+                + ClockText.FromSeconds(clock.ClockTotalSeconds, true) + " · "
+                + (Market.IsBriefingWaiting == true ? StringConstants.TEXT_ROOM_WAITING_NOTE : StringConstants.TEXT_ROOM_HINT);
+            SetText("room-clock", text);
+        }
+
+        private void TalkToInformant()
+        {
+            if (Informant == null)
+            {
+                return;
+            }
+
+            if (Player != null)
+            {
+                Informant.FaceTowards(Player.position);
+            }
+
+            if (Market.IsBriefingWaiting == true)
+            {
+                Market.OpenBriefing();
+                return;
+            }
+
+            Informant.Say(Random.value < 0.5f ? StringConstants.TEXT_ROOM_IDLE_1 : StringConstants.TEXT_ROOM_IDLE_2);
+        }
+
+        // 정보 타임이 오면 정보상이 손짓한다. 시간은 거래소가 멈춰 두었다.
+        private void CallInformant()
+        {
+            if (Informant == null || Market.IsBriefingWaiting == false)
+            {
+                CallTimer = 0f;
+                return;
+            }
+
+            CallTimer -= Time.unscaledDeltaTime;
+
+            if (CallTimer > 0f)
+            {
+                return;
+            }
+
+            CallTimer = Constants.ROOM_CALL_INTERVAL_SECONDS;
+            Informant.Emote(ActorEmote.Emote_Exclaim);
+            Informant.Say(StringConstants.TEXT_ROOM_CALL);
+        }
+
+        /// <summary>
+        /// 종목이 크게 움직였으면 투자꾼 하나가 혼잣말을 한다. 숫자를 보지 않아도 시장이 움직인 것을 느끼게.
+        /// 판이 열려 있어도 값은 따라가 둔다 — 닫고 나왔을 때 지난 움직임에 뒤늦게 반응하지 않게.
+        /// </summary>
+        private void ReactInvestors()
+        {
+            InvestorCooldown -= Time.unscaledDeltaTime;
+            var stocks = Market.Simulation.Stocks;
+            var moved = 0f;
+
+            for (var i = 0; i < stocks.Count; i++)
+            {
+                var stock = stocks[i];
+
+                if (stock.IsTradable == false)
+                {
+                    continue;
+                }
+
+                float last;
+
+                if (LastSeen.TryGetValue(stock.Id, out last) == true && last > 0f)
+                {
+                    var change = (stock.Price - last) / last;
+
+                    if (Mathf.Abs(change) > Mathf.Abs(moved))
+                    {
+                        moved = change;
+                    }
+                }
+
+                LastSeen[stock.Id] = stock.Price;
+            }
+
+            if (Market.IsCoveringRoom == true || InvestorCooldown > 0f || Investors.Count == 0
+                || Mathf.Abs(moved) < Constants.ROOM_INVESTOR_MOVE_RATIO)
+            {
+                return;
+            }
+
+            InvestorCooldown = Constants.ROOM_INVESTOR_COOLDOWN_SECONDS;
+            var investor = Investors[Random.Range(0, Investors.Count)];
+
+            if (investor != null)
+            {
+                investor.Say(InvestorLine(moved > 0f));
+            }
+        }
+
+        // 문구는 부를 때마다 상수에서 읽는다. 문구 표가 덮어쓴 값을 써야 한다.
+        private static string InvestorLine(bool up)
+        {
+            var pick = Random.Range(0, 3);
+
+            if (up == true)
+            {
+                if (pick == 0)
+                {
+                    return StringConstants.TEXT_INVESTOR_UP_1;
+                }
+
+                return pick == 1 ? StringConstants.TEXT_INVESTOR_UP_2 : StringConstants.TEXT_INVESTOR_UP_3;
+            }
+
+            if (pick == 0)
+            {
+                return StringConstants.TEXT_INVESTOR_DOWN_1;
+            }
+
+            return pick == 1 ? StringConstants.TEXT_INVESTOR_DOWN_2 : StringConstants.TEXT_INVESTOR_DOWN_3;
+        }
+
+        private void SetText(string name, string value)
+        {
+            var label = Root.Q<Label>(name);
+
+            if (label != null && label.text != value)
+            {
+                label.text = value;
+            }
+        }
+    }
+}

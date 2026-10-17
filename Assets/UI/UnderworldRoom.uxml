@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/UI/MarketScreen.uss" />
+    <Style src="project://database/Assets/UI/MarketScreen.Parchment.uss" />
+    <!-- 지하 방 화면. 영지 화면과 같은 꼴을 쓴다 — 시각 띠 하나, 다가서면 뜨는 안내 하나.
+         거래판(거래 화면)과 정보 타임 대화는 거래소 화면이 이 위에 덮는다. -->
+    <ui:VisualElement name="room-root" class="village-root" picking-mode="Ignore">
+        <ui:Label name="room-clock" text="" class="village-visits" />
+        <ui:VisualElement name="room-prompt" class="village-prompt hidden">
+            <ui:Label name="room-place" text="" class="village-place" />
+            <ui:Label name="room-key" text="" class="village-key" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

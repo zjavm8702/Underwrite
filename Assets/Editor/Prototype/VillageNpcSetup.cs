@@ -260,7 +260,7 @@ namespace Underwrite.Editor
         /// 임시 몸. 주인공 프리팹에서 조작·물리를 떼어 낸다.
         /// NPC는 물리 몸 없이 걷는다(NpcWalker). 수십 명이 서로 밀치면 문간에 끼어 서 버린다.
         /// </summary>
-        private static GameObject CreateBody(GameObject prefab)
+        internal static GameObject CreateBody(GameObject prefab)
         {
             var npc = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             PrefabUtility.UnpackPrefabInstance(npc, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);

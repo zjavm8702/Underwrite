@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VillageTest.unity
     guid: 97c576b7bfb2f824bb45993ee2ad08fe
+  - enabled: 1
+    path: Assets/Scenes/Underworld.unity
+    guid: ffe806b7e09ebcd4e9b8be29a67c082a
   m_configObjects: {}

@@ -59,6 +59,11 @@ namespace Underwrite.UI
         [SerializeField] private bool IsInspectionDay;
         [SerializeField] private MarketSentiment StartingSentiment = MarketSentiment.Sentiment_Calm;
 
+        [Header("지하 방")]
+        [Tooltip("걸어 다니는 지하 방 씬이면 켠다. 거래판은 닫힌 채로 시작하고(주식판·Tab으로 연다), "
+            + "정보 타임은 정보상에게 가서 말을 걸어야 열린다(2026-10-17 사용자 결정).")]
+        [SerializeField] private bool RoomMode;
+
         [Header("공용 UI")]
         [Tooltip("확인이 필요한 일에 띄우는 팝업 한 벌. 비워 두면 팝업 없이 쪽지만 뜬다.")]
         [SerializeField] private VisualTreeAsset PopupTree;
@@ -108,6 +113,10 @@ namespace Underwrite.UI
         private bool InfoCollapsed = true;
         private bool HoldingsCollapsed = true;
         private int SceneIndex = -1;
+
+        // 지하 방에서 거래판이 열려 있는가. 방 모드가 아니면 늘 열린 것으로 본다.
+        private bool PanelOpen;
+        private bool PanelApplied;
         private UI_Popup Popup;
         private UI_Dialogue Dialogue;
         private UI_Tutorial Tutorial;
@@ -266,7 +275,12 @@ namespace Underwrite.UI
             // 그 순간 자산이 준비되지 않았을 때 영영 붙지 않는다.
             BuildPopup();
 
-            StartTutorialOnce();
+            // 지하 방에서는 거래판을 처음 열 때 안내한다. 닫힌 판 위에 안내를 띄우면 가리킬 것이 없다.
+            if (IsPanelOpen == true)
+            {
+                StartTutorialOnce();
+            }
+
             OpenIfDue();
             RefreshQuest();
 
@@ -275,8 +289,18 @@ namespace Underwrite.UI
             {
                 // 정보 타임이 오면 1배로 돌린다. 빠르게 흘리다 소식이 지나가면 반응할 틈이 없다.
                 Sim.Clock.SetSpeedScale(1f);
-                OpenScene();
+
+                if (RoomMode == true)
+                {
+                    WaitForInformant();
+                }
+                else
+                {
+                    OpenScene();
+                }
             }
+
+            ApplyPanel();
 
             Refresh();
         }
@@ -2375,6 +2399,134 @@ namespace Underwrite.UI
 
             Dialogue.SetBackground(SceneBackground());
             Dialogue.Play(BuildBriefingLines(), CloseBriefingScene);
+        }
+
+        // ── 지하 방 (2026-10-17) ─────────────────
+        // 거래 화면은 방 안의 주식판에서 여는 판이 된다. 방을 걷는 일은 UnderworldRoom이 맡는다.
+
+        /// <summary>지금 돌고 있는 시장. 방이 투자꾼 반응·시계를 읽는다.</summary>
+        public MarketSimulation Simulation
+        {
+            get
+            {
+                return Sim;
+            }
+        }
+
+        /// <summary>거래판이 열려 있는가. 방 모드가 아니면 늘 참이다.</summary>
+        public bool IsPanelOpen
+        {
+            get
+            {
+                return RoomMode == false || PanelOpen == true;
+            }
+        }
+
+        /// <summary>방을 덮고 있는가 — 거래판·정보 타임 대화·안내가 떠 있다. 이때 주인공은 걷지 않는다.</summary>
+        public bool IsCoveringRoom
+        {
+            get
+            {
+                return IsPanelOpen == true || SceneIndex >= 0 || (Tutorial != null && Tutorial.IsOpen == true);
+            }
+        }
+
+        /// <summary>정보 타임이 와서 정보상이 기다리는 중인가. 시간은 멈춰 있다.</summary>
+        public bool IsBriefingWaiting { get; private set; }
+
+        public void OpenPanel()
+        {
+            PanelOpen = true;
+            ApplyPanel();
+        }
+
+        /// <summary>판을 닫고 방으로 돌아간다. 안내가 떠 있는 동안에는 닫지 않는다.</summary>
+        public void ClosePanel()
+        {
+            if (RoomMode == false || (Tutorial != null && Tutorial.IsOpen == true))
+            {
+                return;
+            }
+
+            PanelOpen = false;
+            ApplyPanel();
+        }
+
+        /// <summary>정보상에게 말을 걸었다. 기다리던 소식이 열린다.</summary>
+        public void OpenBriefing()
+        {
+            if (IsBriefingWaiting == false)
+            {
+                return;
+            }
+
+            IsBriefingWaiting = false;
+            OpenScene();
+        }
+
+        /// <summary>
+        /// 정보 타임이 왔다. 시간을 멈추고 판을 닫는다 — 정보상에게 걸어가는 동안 가격이 먼저 움직이지 않게
+        /// (2026-10-17 사용자 결정 ①). 플레이어가 정보상에게 가면 <see cref="OpenBriefing"/>이 연다.
+        /// </summary>
+        private void WaitForInformant()
+        {
+            if (IsBriefingWaiting == true)
+            {
+                return;
+            }
+
+            IsBriefingWaiting = true;
+            Sim.Clock.SetPaused(true);
+            PanelOpen = false;
+        }
+
+        // 판이 닫히면 거래 화면 몸통만 감춘다. 대화상자·쪽지는 같은 판 위에 있으므로 그대로 둔다.
+        private void ApplyPanel()
+        {
+            if (Root == null)
+            {
+                return;
+            }
+
+            var body = Root.Q<VisualElement>("market-root");
+
+            if (body == null)
+            {
+                return;
+            }
+
+            var open = IsPanelOpen;
+            var shown = body.style.display != DisplayStyle.None;
+
+            if (PanelApplied == true && shown == open)
+            {
+                return;
+            }
+
+            PanelApplied = true;
+            body.style.display = open == true ? DisplayStyle.Flex : DisplayStyle.None;
+
+            if (RoomMode == true && Root.Q<Button>("room-button") == null)
+            {
+                AddRoomButton();
+            }
+        }
+
+        // 판 위에 「방으로」 단추를 끼운다. Tab으로도 닫힌다.
+        private void AddRoomButton()
+        {
+            var leave = Root.Q<Button>("village-button");
+
+            if (leave == null || leave.parent == null)
+            {
+                return;
+            }
+
+            var button = new Button(ClosePanel);
+            button.name = "room-button";
+            button.text = StringConstants.TEXT_ROOM_BACK;
+            button.AddToClassList("btn");
+            leave.parent.Insert(leave.parent.IndexOf(leave), button);
         }
 
         /// <summary>대화가 끝났다. 장이 다시 흐른다.</summary>

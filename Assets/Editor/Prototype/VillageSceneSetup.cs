@@ -384,7 +384,7 @@ namespace Underwrite.Editor
             }
         }
 
-        private static GameObject CreateQuad(string name, Vector2 at, Vector2 size, Color color, int order)
+        internal static GameObject CreateQuad(string name, Vector2 at, Vector2 size, Color color, int order)
         {
             var go = new GameObject(name);
             go.transform.position = new Vector3(at.x, at.y, 0f);

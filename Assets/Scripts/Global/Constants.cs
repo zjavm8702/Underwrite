@@ -187,6 +187,25 @@ namespace Underwrite.Global
         public static string TEXT_FOLK_BROKER = "게시판 앞 중개인";
         public static string TEXT_FOLK_SMITH = "대장장이";
         public static string TEXT_INFORMANT = "정보상";
+
+        // 지하 방 (2026-10-17). 거래판은 주식판에서 열고, 소식은 정보상에게 가서 듣는다.
+        public static string TEXT_ROOM_BACK = "방으로 · Tab";
+        public static string TEXT_ROOM_BOARD = "E · 거래판을 본다";
+        public static string TEXT_ROOM_INFORMANT_WAITING = "E · 정보상에게 소식을 듣는다";
+        public static string TEXT_ROOM_INFORMANT = "E · 정보상";
+        public static string TEXT_ROOM_HINT = "Tab · 거래판";
+        public static string TEXT_ROOM_CALL = "소식이 왔소.";
+        public static string TEXT_ROOM_IDLE_1 = "장이 열리면 다시 오시오.";
+        public static string TEXT_ROOM_IDLE_2 = "…볼일 있소?";
+        public static string TEXT_ROOM_WAITING_NOTE = "정보상이 부른다 · 시간이 멈췄다";
+
+        // 투자꾼의 혼잣말. 종목이 크게 움직이면 근처 사람이 한마디 한다.
+        public static string TEXT_INVESTOR_UP_1 = "좋아, 좋아!";
+        public static string TEXT_INVESTOR_UP_2 = "봐, 내 말이 맞지?";
+        public static string TEXT_INVESTOR_UP_3 = "지금 들어갔어야 했는데…";
+        public static string TEXT_INVESTOR_DOWN_1 = "망했네.";
+        public static string TEXT_INVESTOR_DOWN_2 = "팔아, 지금 팔아!";
+        public static string TEXT_INVESTOR_DOWN_3 = "…이럴 줄 알았지.";
         public static string TEXT_VILLAGE_NEXT_SESSION = "다음 장까지 {0}시간 {1}분";
         public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";
         public static string TEXT_DAY_END_COLLAPSE = "용사단이 의뢰를 접고 흩어졌다는 소식이 돌았다. 10년 뒤 그 자리에 설 사람이 없다.";
@@ -495,6 +514,13 @@ namespace Underwrite.Global
 
         // 영지에 있는 동안 이 간격(실제 초)마다 저장한다. 대화가 끝날 때·시간을 넘길 때·나갈 때도 저장한다.
         public static float SAVE_INTERVAL_SECONDS = 30f;
+
+        // 지하 방. 주식판·정보상에 말을 걸 수 있는 거리(유닛), 정보상이 부르는 간격(초),
+        // 투자꾼이 반응하는 한 틱 등락률과 그 사이 쉬는 시간(초).
+        public static float ROOM_REACH_DISTANCE = 2.4f;
+        public static float ROOM_CALL_INTERVAL_SECONDS = 3f;
+        public static float ROOM_INVESTOR_MOVE_RATIO = 0.012f;
+        public static float ROOM_INVESTOR_COOLDOWN_SECONDS = 2.5f;
         /// <summary>익명 의뢰를 꾸며 맡기는 데 드는 영지 시간(분).</summary>
         public static int REQUEST_MINUTES = 30;
         /// <summary>목적별 예치금. 시작 자금 500에 견주었다. 시제품 검증에서 조정한다.</summary>
