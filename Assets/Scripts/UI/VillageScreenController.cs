@@ -1982,20 +1982,34 @@ namespace Underwrite.UI
 
             var lines = new List<DialogueLine> { line };
 
-            // 정보를 산 자리의 주인이 무언가를 건넨다(필드 연기). 정보가 없는 대답에는 건네지 않는다.
-            if (secret == true)
-            {
-                StationNpc.GiveAt(spot.Name);
-            }
-
             if (scouted != null)
             {
                 lines.Add(OwnerLine(spot, scouted));
             }
 
             Dialogue.Play(lines, secret == true
-                ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Exclaim, Back(spot))
+                ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Exclaim, () => StartCoroutine(HandOver(spot)))
                 : React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, Back(spot)));
+        }
+
+        /// <summary>
+        /// 정보를 산 뒤 대화창을 잠깐 닫고 필드에서 건네는 장면을 보인다. 대화창이 화면을 덮어
+        /// 건네기 동작이 보이지 않았다(2026-10-17 사용자 보고). 자리의 주인이 건네고 주인공이 반응한 뒤 선택지로 돌아간다.
+        /// </summary>
+        private System.Collections.IEnumerator HandOver(VillageSpot spot)
+        {
+            Approaching = true;
+            Dialogue.Close();
+            StationNpc.GiveAt(spot.Name);
+
+            if (PlayerActor != null)
+            {
+                PlayerActor.Face(Vector2.up);
+            }
+
+            yield return new WaitForSeconds(Constants.HAND_OVER_SECONDS);
+            Approaching = false;
+            Back(spot)();
         }
 
         /// <summary>다음 장까지 한 가지 일을 할 시간이 남아 있는가.</summary>
