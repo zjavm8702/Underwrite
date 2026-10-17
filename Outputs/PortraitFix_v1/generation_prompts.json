@@ -1,0 +1,14 @@
+[
+  {
+    "name": "scholar",
+    "prompt": "Use case: precise-object-edit. Edit target is the attached 900x810 close crop of the scholar neutral portrait. Redraw ONLY his eyes/eyebrows and mouth to a relieved soft sigh expression: both eyes peacefully closed, tension released, subtly relaxed mouth parted for an exhale. Exactly ONE pair of eyes behind exactly ONE unchanged pair of glasses. Keep all glasses frames, bridge and pads precisely in place. Keep the exact head angle, nose, face silhouette, hair, ears, skin color, lighting, neck and clothing unchanged. Delicate warm linework and clear soft matte cel shading, no texture added. Preserve exact composition and dimensions, no zoom or movement. Transparent parts remain transparent. This is a local expression edit for a fixed game dialogue portrait; everything outside eyes/eyebrows and mouth must be identical."
+  },
+  {
+    "name": "elf_attempt1",
+    "prompt": "Use case: precise-object-edit. Edit target: attached 900x720 close crop of elf neutral portrait. Change ONLY the nose shading and nose line, preserving its exact location and small slender proportions in this slight right-facing three-quarter view. Make the nose clearly legible: a delicate lit bridge descending from the existing gold glasses nose pads, small defined narrow nose tip and nostril wings, a restrained warm cel-shaded shadow beneath the tip and wing. The glasses pads must visibly rest on the nose bridge, with gentle contact shadow. Do not draw a large nose. Keep the eyes, brows, mouth, hair, ear, and EVERY gold glasses frame stroke/shape in exactly the same position and appearance; no expression change. Matte soft clear cel shading, warm delicate linework. Keep exact dimensions/framing, no zoom, no head movement. No new highlights elsewhere. Transparent parts stay transparent."
+  },
+  {
+    "name": "elf_selected",
+    "prompt": "Edit target: original elf face close-up. IMPORTANT: the current nose is too absent/flat. Redraw a noticeably legible SMALL SLENDER three-quarter anime nose in exactly the existing nose position. Add a visible restrained warm peach cel shadow forming the side plane of the bridge from gold glasses pads down toward the tip; a delicate contour line for the lower bridge, clearly sculpted small tip and ala, small dark warm nostril mark and shadow UNDER the nose wing. It should unmistakably read as a three dimensional elegant adult nose at game portrait size. Nose pads must visibly touch the upper bridge with subtle contact shading. Do not change ANY gold frame stroke, eye, eyelash, brow, mouth, hair, face outline or ear. Keep framing and coordinates identical. The shadow should be a clean soft cel shape, no glossy bright spot, no realism, no heavy line across bridge. ONLY NOSE EDIT. Preserve transparency."
+  }
+]

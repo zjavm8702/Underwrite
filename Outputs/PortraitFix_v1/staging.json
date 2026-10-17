@@ -1,0 +1,86 @@
+{
+  "targets": [
+    {
+      "name": "face_scholar_relieved.png",
+      "from": "final/revised_face_scholar_relieved.png",
+      "to": "Assets/UI/Images/Faces/face_scholar_relieved.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    },
+    {
+      "name": "face_elf_neutral.png",
+      "from": "final/revised_face_elf_neutral.png",
+      "to": "Assets/UI/Images/Faces/face_elf_neutral.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    },
+    {
+      "name": "face_elf_happy.png",
+      "from": "final/revised_face_elf_happy.png",
+      "to": "Assets/UI/Images/Faces/face_elf_happy.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    },
+    {
+      "name": "face_elf_anxious.png",
+      "from": "final/revised_face_elf_anxious.png",
+      "to": "Assets/UI/Images/Faces/face_elf_anxious.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    },
+    {
+      "name": "face_elf_angry.png",
+      "from": "final/revised_face_elf_angry.png",
+      "to": "Assets/UI/Images/Faces/face_elf_angry.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    },
+    {
+      "name": "face_elf_shocked.png",
+      "from": "final/revised_face_elf_shocked.png",
+      "to": "Assets/UI/Images/Faces/face_elf_shocked.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    },
+    {
+      "name": "face_elf_sad.png",
+      "from": "final/revised_face_elf_sad.png",
+      "to": "Assets/UI/Images/Faces/face_elf_sad.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    },
+    {
+      "name": "face_elf_relieved.png",
+      "from": "final/revised_face_elf_relieved.png",
+      "to": "Assets/UI/Images/Faces/face_elf_relieved.png",
+      "width": 820,
+      "height": 1080,
+      "spriteMode": 1,
+      "rect": "full canvas",
+      "outsideSpriteRectAlpha": 0
+    }
+  ],
+  "scope": "PNG only",
+  "pivot": "spriteMode 1, alignment 0: full canvas center (410,540), PPU100; existing meta untouched"
+}

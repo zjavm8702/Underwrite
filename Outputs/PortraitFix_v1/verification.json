@@ -1,0 +1,424 @@
+{
+  "time": "2026-10-17T07:31:29.167Z",
+  "files": [
+    {
+      "name": "face_scholar_neutral.png",
+      "bbox": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        360053
+      ],
+      "expression": "neutral",
+      "outsideExpressionVsNeutral": 0,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        356.5,
+        350
+      ]
+    },
+    {
+      "name": "face_scholar_happy.png",
+      "bbox": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        360053
+      ],
+      "expression": "happy",
+      "outsideExpressionVsNeutral": 2,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        357,
+        353
+      ]
+    },
+    {
+      "name": "face_scholar_anxious.png",
+      "bbox": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        360053
+      ],
+      "expression": "anxious",
+      "outsideExpressionVsNeutral": 2,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        358,
+        353
+      ]
+    },
+    {
+      "name": "face_scholar_angry.png",
+      "bbox": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        360053
+      ],
+      "expression": "angry",
+      "outsideExpressionVsNeutral": 0,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        361,
+        349.5
+      ]
+    },
+    {
+      "name": "face_scholar_shocked.png",
+      "bbox": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        360053
+      ],
+      "expression": "shocked",
+      "outsideExpressionVsNeutral": 1,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        358,
+        350
+      ]
+    },
+    {
+      "name": "face_scholar_sad.png",
+      "bbox": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        360053
+      ],
+      "expression": "sad",
+      "outsideExpressionVsNeutral": 2,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        359,
+        350
+      ]
+    },
+    {
+      "name": "face_scholar_relieved.png",
+      "bbox": [
+        36,
+        101,
+        783,
+        950
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        360053
+      ],
+      "expression": "relieved",
+      "outsideExpressionVsNeutral": 0,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        360.5,
+        351.5
+      ]
+    },
+    {
+      "name": "face_elf_neutral.png",
+      "bbox": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        441775
+      ],
+      "expression": "neutral",
+      "outsideExpressionVsNeutral": 0,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        306,
+        341
+      ]
+    },
+    {
+      "name": "face_elf_happy.png",
+      "bbox": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        441775
+      ],
+      "expression": "happy",
+      "outsideExpressionVsNeutral": 5,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        305.5,
+        341
+      ]
+    },
+    {
+      "name": "face_elf_anxious.png",
+      "bbox": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        441775
+      ],
+      "expression": "anxious",
+      "outsideExpressionVsNeutral": 6,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        303.5,
+        338.5
+      ]
+    },
+    {
+      "name": "face_elf_angry.png",
+      "bbox": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        441775
+      ],
+      "expression": "angry",
+      "outsideExpressionVsNeutral": 5,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        306,
+        341
+      ]
+    },
+    {
+      "name": "face_elf_shocked.png",
+      "bbox": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        441775
+      ],
+      "expression": "shocked",
+      "outsideExpressionVsNeutral": 6,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        304.5,
+        341.5
+      ]
+    },
+    {
+      "name": "face_elf_sad.png",
+      "bbox": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        441775
+      ],
+      "expression": "sad",
+      "outsideExpressionVsNeutral": 20,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        306.5,
+        340.5
+      ]
+    },
+    {
+      "name": "face_elf_relieved.png",
+      "bbox": [
+        33,
+        66,
+        789,
+        855
+      ],
+      "hiddenRGB": 0,
+      "canvasContact": 0,
+      "alphaBelow32": 0,
+      "components": [
+        441775
+      ],
+      "expression": "relieved",
+      "outsideExpressionVsNeutral": 3249,
+      "alphaDifferenceVsNeutral": 0,
+      "eyeLine": [
+        312,
+        349
+      ]
+    }
+  ],
+  "alignment": {
+    "scholar": {
+      "eyeWindows": [
+        [
+          430,
+          349,
+          478,
+          379
+        ],
+        [
+          537,
+          340,
+          559,
+          367
+        ]
+      ],
+      "eyeRanges": [
+        4.5,
+        3.5
+      ],
+      "bboxRange": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "elf": {
+      "eyeWindows": [
+        [
+          407,
+          292,
+          448,
+          322
+        ],
+        [
+          541,
+          328,
+          579,
+          355
+        ]
+      ],
+      "eyeRanges": [
+        8.5,
+        10.5
+      ],
+      "bboxRange": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "notes": [
+    "Existing polygon masks retained for diagnostics. Outside-mask RGBA differences already exist in original other expressions, notably elf relieved 3249 pixels; no new non-nose changes introduced.",
+    "Elf original eye-line detector range is 10.5px on far eye (limit10); eye pixels were explicitly protected, so preexisting excess is retained. Scholar uses windows fitted to actual current Assets geometry, which differs from older doc coordinates.",
+    "Static dialogue portraits, no 8-direction animation, no Unity playback executed."
+  ],
+  "meta": {
+    "checked": 14,
+    "preserved": 14,
+    "changed": []
+  },
+  "deployed": [
+    {
+      "name": "face_scholar_relieved.png",
+      "sha256": "88561d75a2efa838044705ecb3fbc7e73b1a8ee6e5eae49024e75251e855d309",
+      "identicalToVerified": true
+    },
+    {
+      "name": "face_elf_neutral.png",
+      "sha256": "1e7343d9adaa4aebf974ff9866ddc51a252b872052abee6e45774c39773663cf",
+      "identicalToVerified": true
+    },
+    {
+      "name": "face_elf_happy.png",
+      "sha256": "73c8b57ab32c3afc1d0bd0d4fbaac1b7663b9deaff948d4d40d24a4aafa02f2c",
+      "identicalToVerified": true
+    },
+    {
+      "name": "face_elf_anxious.png",
+      "sha256": "4aeae5637544e7d452e17b938a5774a029d3a89d8c1a463e7fd9f29820f5a038",
+      "identicalToVerified": true
+    },
+    {
+      "name": "face_elf_angry.png",
+      "sha256": "32b79b1f0b267a7a64c2b7b69b0cea0a19fdc5379f09a39c4b836d4bf0d5e533",
+      "identicalToVerified": true
+    },
+    {
+      "name": "face_elf_shocked.png",
+      "sha256": "606b60eac43e6bea454f3f8e200cc8ffd0ba11cc886e5afcd6743f048833c9b1",
+      "identicalToVerified": true
+    },
+    {
+      "name": "face_elf_sad.png",
+      "sha256": "be37a45d8a80b744f658b133ffac982cea279614ac2490723d40e531b8f903cd",
+      "identicalToVerified": true
+    },
+    {
+      "name": "face_elf_relieved.png",
+      "sha256": "802c4d11681ea396b346e13b85424aaf95e90d649863fbeea25f8d7c54983fa0",
+      "identicalToVerified": true
+    }
+  ],
+  "patchPreservation": {
+    "scholarRelievedOutsidePatchVsNeutral": 0,
+    "elfOutsideNoseVsEachOriginal": 0,
+    "elfNoseIdenticalAcrossSeven": true
+  }
+}
