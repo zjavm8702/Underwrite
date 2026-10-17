@@ -17,7 +17,7 @@ namespace Underwrite.Global
         public static string TEXT_TUT_VILLAGE_4_TITLE = "말 걸기";
         public static string TEXT_TUT_VILLAGE_4_BODY = "길에 선 사람에게 다가가 E를 누르면 말을 건다. 무리 지어 다니는 모험단에게 말을 걸면 그들에 대해 무언가 알게 된다 — 수첩에 적힌다.";
         public static string TEXT_TUT_VILLAGE_5_TITLE = "메뉴";
-        public static string TEXT_TUT_VILLAGE_5_BODY = "시간 넘기기(원하는 시각까지 시계를 돌린다), 수첩(알아낸 것), 그리고 밤이 되면 잠자리. 할 일이 없으면 시간을 넘겨도 된다.";
+        public static string TEXT_TUT_VILLAGE_5_BODY = "시간 넘기기(원하는 시각까지 시계를 돌린다), 수첩(알아낸 것), 지하거래소로. 지하거래소는 장이 열릴 때(오전 9시·오후 9시)만 내려갈 수 있다.";
 
 
         // 지하거래소 첫 안내. 순서는 눈이 가는 순서다 — 무엇을 / 얼마에 / 어떻게 / 무엇을 보고.
@@ -36,6 +36,6 @@ namespace Underwrite.Global
         public static string TEXT_TUT_MARKET_7_TITLE = "정보 기록";
         public static string TEXT_TUT_MARKET_7_BODY = "장마다 두 번, 정보 타임에 모험 소식이 들어온다 — 지하세계가 동시에 듣는다. 남보다 앞서려면 장 사이 영지에서 미리 캐야 한다. 「내 종목」 탭은 가진 종목 소식만 모은다.";
         public static string TEXT_TUT_MARKET_8_TITLE = "시간";
-        public static string TEXT_TUT_MARKET_8_BODY = "배속을 바꾸거나, 장을 끝내거나, 지하시장을 나가 영지로 갈 수 있다. 장 사이 영지의 시간은 실제 시간처럼 흐른다.";
+        public static string TEXT_TUT_MARKET_8_BODY = "배속을 바꾸거나 장을 끝낼 수 있다. 장이 끝나면 지하세계는 닫힌다 — 지상(영지)으로 올라가 다음 장까지 시간을 보낸다.";
     }
 }

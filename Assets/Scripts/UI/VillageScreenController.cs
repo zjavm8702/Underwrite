@@ -47,6 +47,10 @@ namespace Underwrite.UI
         // 서로 돌아보거나 몸짓하는 중이다. 그동안 E를 다시 받지 않는다.
         private bool Approaching;
 
+        // 하루가 넘어갔는지 마지막으로 본 날. 0이면 아직 보지 않았다.
+        private int LastDayChecked;
+        private bool CollapseShown;
+
         // 대화가 닫힌 뒤 보일 주인공의 반응.
         private bool HasPending;
         private ActorMotion PendingMotion;
@@ -138,6 +142,18 @@ namespace Underwrite.UI
             NpcAmbient.Player = Player;
             WorldBubbles.Tick(Dialogue != null && Dialogue.IsOpen == true);
             PlayPendingReaction();
+            PlayCollapseIfNeeded();
+
+            // 실제 시간으로 날이 넘어가도(드물다) 기한은 따진다.
+            if (Approaching == false)
+            {
+                var turned = CheckDayTurn();
+
+                if (turned.Length > 0 && PlayerActor != null)
+                {
+                    PlayerActor.Say(turned);
+                }
+            }
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
@@ -559,7 +575,8 @@ namespace Underwrite.UI
                 // 웹툰 6화. 술통을 옮기러 내려간 창고 안쪽에 지하거래소가 있다.
                 var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO,
                     () => SceneManager.LoadScene(SceneRoutes.MARKET));
-                cellar.Note = StringConstants.TEXT_CELLAR_NOTE;
+                cellar.IsEnabled = MarketOpenNow();
+                cellar.Note = cellar.IsEnabled == true ? StringConstants.TEXT_CELLAR_NOTE : MarketClosedNote();
                 choices.Add(cellar);
             }
 
@@ -901,70 +918,101 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 하루를 닫는다. 기획서 §11의 넷째 단계 — 정보 정리 및 취침.
+        /// 영지의 시계가 다음 날 오전 9시를 넘었으면, 지나간 날의 후원 기한을 따지고 알릴 말을 모은다.
         ///
-        /// 오늘 영지에서 한 일을 숫자로 돌려준다. 쉬는 것과 마찬가지로, 무엇을 얻고 무엇을 썼는지
-        /// 보이지 않으면 하루를 어디에 썼는지가 고르는 일로 느껴지지 않는다.
-        /// 다 읽으면 거래소로 간다. 다음 장이 곧 열리기 때문이다. 날짜는 시장이 장을 열 때 넘긴다.
+        /// 잠자리(하루 마감)는 2026-10-17에 뺐다 — 시간 넘기기가 있고, 이세계에 떨어진 주인공이 어디서 자는지도
+        /// 맞지 않으며, 정보는 수첩과 정보 기록에 이미 남는다. 그래서 하루를 닫는 일은 시간이 흐르는 순간에 한다.
+        /// 넘어간 날이 없으면 빈 문자열.
         /// </summary>
-        private void Sleep()
+        private string CheckDayTurn()
         {
-            Clock.SkipBreak();
-            Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
-
-            var notes = GatherSession.Gathered.Count;
-            var body = string.Format(StringConstants.TEXT_DAY_END_MONEY, GatherSession.Earned, GatherSession.Spent)
-                + " "
-                + (notes > 0
-                    ? string.Format(StringConstants.TEXT_DAY_END_NOTES, notes)
-                    : StringConstants.TEXT_DAY_END_NO_NOTES);
-
-            // 기한은 보여 주고 금액은 숨긴다(상장흐름 설계안 §1-5 완화책 2).
-            // 못 들은 사정이 급해지면 경고만 띄운다. 마지막 단계는 숨기지 않는다(완화책 1).
             var today = Today();
-            var failed = PatronageLedger.EndOfDay(today);
-            var deadline = PatronageLedger.NearestDeadline(today + 1);
+
+            if (LastDayChecked <= 0)
+            {
+                LastDayChecked = today;
+                return string.Empty;
+            }
+
+            if (today <= LastDayChecked)
+            {
+                return string.Empty;
+            }
+
+            var failed = 0;
+
+            for (var day = LastDayChecked; day < today; day++)
+            {
+                failed += PatronageLedger.EndOfDay(day);
+            }
+
+            LastDayChecked = today;
 
             if (failed > 0)
             {
-                body = body + " " + StringConstants.TEXT_DAY_END_COLLAPSE;
-            }
-            else if (deadline > 0)
-            {
-                body = body + " " + string.Format(StringConstants.TEXT_DAY_END_DEADLINE, deadline);
+                return StringConstants.TEXT_DAY_END_COLLAPSE;
             }
 
-            if (failed == 0 && PatronageLedger.HasUnheardUrgent(today + 1) == true)
+            var notes = new List<string>();
+            var deadline = PatronageLedger.NearestDeadline(today);
+
+            if (deadline > 0)
             {
-                body = body + " " + StringConstants.TEXT_DAY_END_WARNING;
+                notes.Add(string.Format(StringConstants.TEXT_DAY_END_DEADLINE, deadline));
             }
 
-            if (MarketClock.IsInspectionDay(today + 1) == true)
+            if (PatronageLedger.HasUnheardUrgent(today) == true)
             {
-                body = body + " " + StringConstants.TEXT_DAY_END_INSPECTION;
+                notes.Add(StringConstants.TEXT_DAY_END_WARNING);
             }
 
-            var line = new DialogueLine(string.Format(StringConstants.TEXT_DAY_END_TITLE, today),
-                StringConstants.TEXT_DAY_END_TAG, body);
-            line.Note = string.Format(StringConstants.TEXT_DAY_END_NEXT,
-                ClockText.FromMinutes(Constants.MARKET_MORNING_START_HOUR * 60));
-
-            // 시나리오가 깨졌으면 더 진행하지 않는다(설계안 §1-5). 처음(인트로)으로 돌아간다.
-            if (failed > 0)
+            if (MarketClock.IsInspectionDay(today) == true)
             {
-                var ending = new List<DialogueLine>
-                {
-                    line,
-                    new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_1),
-                    new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_2),
-                    new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_3)
-                };
+                notes.Add(StringConstants.TEXT_DAY_TODAY_INSPECTION);
+            }
 
-                Dialogue.Play(ending, () => SceneManager.LoadScene(SceneRoutes.INTRO));
+            return string.Join("\n", notes);
+        }
+
+        /// <summary>
+        /// 시나리오가 깨졌으면 더 진행하지 않는다(설계안 §1-5). 붕괴 장면 뒤 처음(인트로)으로 돌아간다.
+        /// 매 프레임 본다. 대화나 시간 넘기기 연출이 끝난 뒤에 연다.
+        /// </summary>
+        private void PlayCollapseIfNeeded()
+        {
+            if (PatronageLedger.Collapsed == false || CollapseShown == true || Approaching == true
+                || Dialogue == null || Dialogue.IsOpen == true)
+            {
                 return;
             }
 
-            Dialogue.Play(new List<DialogueLine> { line }, () => SceneManager.LoadScene(SceneRoutes.MARKET));
+            CollapseShown = true;
+            Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
+            var ending = new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_DAY_END_COLLAPSE),
+                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_1),
+                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_2),
+                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_3)
+            };
+
+            Dialogue.Play(ending, () => SceneManager.LoadScene(SceneRoutes.INTRO));
+        }
+
+        /// <summary>
+        /// 지하거래소로 내려갈 수 있는가. 장이 열려 있을 때(곧 열릴 때)만 된다.
+        /// 장이 끝나면 지하세계는 닫힌다(2026-10-17 사용자 결정).
+        /// </summary>
+        private bool MarketOpenNow()
+        {
+            return Clock != null && Clock.BreakMinutesLeft <= Constants.BREAK_SKIP_MARGIN_MINUTES;
+        }
+
+        private string MarketClosedNote()
+        {
+            return Clock == null
+                ? StringConstants.TEXT_MARKET_CLOSED_NOTE
+                : string.Format(StringConstants.TEXT_MARKET_OPENS_AT, ClockText.FromMinutes(Clock.NextSessionMinute));
         }
 
         /// <summary>
@@ -1140,14 +1188,10 @@ namespace Underwrite.UI
 
             var canSkip = Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
             MenuItem(list, StringConstants.TEXT_SKIP_BREAK, canSkip, StringConstants.TEXT_MENU_NO_TIME, OpenClock);
-            // 잠자리는 오후장이 끝난 밤에만 메뉴에 나온다. 잠긴 채 보이면 언제 자야 하는지 헷갈린다(2026-10-17).
-            if (Clock.CanSleep == true)
-            {
-                MenuItem(list, StringConstants.TEXT_SLEEP, true, string.Empty, Sleep);
-            }
             MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
-            MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound,
-                StringConstants.TEXT_MENU_MARKET_LOCKED, () => SceneManager.LoadScene(SceneRoutes.MARKET));
+            MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound && MarketOpenNow(),
+                StoryProgress.CellarFound == false ? StringConstants.TEXT_MENU_MARKET_LOCKED : MarketClosedNote(),
+                () => SceneManager.LoadScene(SceneRoutes.MARKET));
 
             list.RemoveFromClassList("hidden");
             Root.Q<Button>("village-menu").AddToClassList("village-button--on");
@@ -1522,7 +1566,9 @@ namespace Underwrite.UI
             Clock.SpendBreakMinutes(minutes);
             SetText("village-fade-time", string.Format(StringConstants.TEXT_TIME_PASS,
                 ClockText.FromMinutes(fromHour * 60 + fromMinute), ClockText.FromMinutes(Clock.BreakMinuteOfDay)));
-            SetText("village-fade-note", string.Format(StringConstants.TEXT_TIME_PASS_NOTE, minutes / 60, minutes % 60));
+            var dayNote = CheckDayTurn();
+            var passNote = string.Format(StringConstants.TEXT_TIME_PASS_NOTE, minutes / 60, minutes % 60);
+            SetText("village-fade-note", dayNote.Length > 0 ? passNote + "\n\n" + dayNote : passNote);
 
             foreach (var party in FindObjectsByType<NpcParty>(FindObjectsInactive.Exclude))
             {

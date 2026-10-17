@@ -105,17 +105,6 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>
-        /// 잠자리에 들 수 있는가. **오후장이 끝난 뒤의 밤**에만 된다(2026-10-17 사용자 결정).
-        /// 장을 쉬어 오후장을 건너뛴 날은 「시간 넘기기」로 다음 장까지 간다.
-        /// </summary>
-        public bool CanSleep
-        {
-            get
-            {
-                return IsBreak == true && Session == MarketSession.Session_Evening && SkippedSessions == 0;
-            }
-        }
 
         /// <summary>
         /// 다음에 열릴 장이 오전장인가. 그렇다면 지금은 밤이고, 하루를 닫고 잠자리에 들 때다.

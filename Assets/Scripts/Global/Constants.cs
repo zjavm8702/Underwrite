@@ -141,13 +141,9 @@ namespace Underwrite.Global
 
         // 하루 끝 (기획서 §11의 넷째 단계 — 정보 정리 및 취침)
         public static string TEXT_SKIP_BREAK = "시간 넘기기";
-        public static string TEXT_SLEEP = "잠자리에 든다";
-        public static string TEXT_DAY_END_TAG = "하루 마감";
-        public static string TEXT_DAY_END_TITLE = "{0}일째가 저문다";
-        public static string TEXT_DAY_END_MONEY = "오늘 영지에서 {0:N0}을 벌고 {1:N0}을 썼다.";
-        public static string TEXT_DAY_END_NOTES = "캐낸 소식 {0}건은 정보 기록에 옮겨 적었다.";
-        public static string TEXT_DAY_END_NO_NOTES = "오늘은 캐낸 소식이 없다.";
-        public static string TEXT_DAY_END_NEXT = "내일 오전장은 {0}에 열린다.";
+        public static string TEXT_MARKET_OPENS_AT = "장이 닫혔다 · 다음 장 {0}";
+        public static string TEXT_MARKET_CLOSED_NOTE = "장이 닫혔다";
+        public static string TEXT_DAY_TODAY_INSPECTION = "오늘은 영주 시찰일이다. 지하시장은 하루 문을 닫는다.";
 
         // 후원 — 익명의 의뢰주 (후원흐름 설계안). 용사단 이름은 아직 정하지 않아 임시로 "용사단"이라 부른다.
         public static string TEXT_HERO_PARTY = "용사단";
@@ -172,7 +168,6 @@ namespace Underwrite.Global
         public static string TEXT_HERO_REACTION_MISSED = "(술을 나르다 들었다) \"이상한 의뢰가 하나 들어왔더라. 고마운 일이긴 한데, 지금 우리한테 필요한 건 그게 아니야.\"";
 
         public static string TEXT_DAY_END_DEADLINE = "들은 용사단 사정의 기한까지 {0}일.";
-        public static string TEXT_DAY_END_INSPECTION = "내일은 영주 시찰일이다. 지하시장은 하루 문을 닫는다.";
         public static string TEXT_VILLAGE_INSPECTION_TODAY = "오늘은 영주 시찰일 · 지하시장이 닫혔다";
         public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
         public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";

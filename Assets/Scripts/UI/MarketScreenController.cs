@@ -414,7 +414,7 @@ namespace Underwrite.UI
             var clock = Sim.Clock;
 
             if (clock.Phase != MarketPhase.Phase_Closed || clock.IsBreak == false
-                || clock.BreakMinutesLeft > Constants.BREAK_SKIP_MARGIN_MINUTES || clock.CanSleep == true
+                || clock.BreakMinutesLeft > Constants.BREAK_SKIP_MARGIN_MINUTES
                 || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
@@ -990,11 +990,10 @@ namespace Underwrite.UI
                 return;
             }
 
-            // 오후장이 끝나면 다음 날로는 거래소에서 넘어가지 않는다. 영지에서 잠자리에 들어야 하루가 닫힌다
-            // (2026-10-17 사용자 요청). 그래서 「다음 날 오전장 열기」는 감춘다.
-            var closedForNight = Sim.Clock.Phase == MarketPhase.Phase_Closed
-                && Sim.Clock.Session == MarketSession.Session_Evening;
-            skip.EnableInClassList("hidden", closedForNight);
+            // 장이 끝나면 지하세계는 닫힌다. 다음 장은 영지에서 시간을 보낸 뒤 내려와야 열린다
+            // (2026-10-17 사용자 결정). 닫힌 동안에는 「지하시장 나가기」만 남긴다.
+            var closed = Sim.Clock.Phase == MarketPhase.Phase_Closed;
+            skip.EnableInClassList("hidden", closed);
 
             if (Sim.Clock.Phase == MarketPhase.Phase_Closed)
             {
