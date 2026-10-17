@@ -151,6 +151,22 @@ namespace Underwrite.Patronage
             return failed;
         }
 
+        /// <summary>그 사정이 맞는 의뢰로 해결됐는가.</summary>
+        public static bool IsMet(string needId)
+        {
+            EnsureScenario();
+
+            for (var i = 0; i < Needs.Count; i++)
+            {
+                if (Needs[i].Id == needId)
+                {
+                    return Needs[i].State == NeedState.State_Met;
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>들은 사정 가운데 기한이 가장 가까운 것까지 남은 날. 없으면 -1.</summary>
         public static int NearestDeadline(int day)
         {

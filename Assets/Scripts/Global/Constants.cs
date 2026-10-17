@@ -350,6 +350,18 @@ namespace Underwrite.Global
         /// <summary>시찰 간격(일). 매번 달력에 미리 보인다. 시제품 검증에서 조정한다.</summary>
         public static int INSPECTION_INTERVAL_DAYS = 6;
 
+        // ── 용사단 일정 (루틴 설계안) ─────────────
+        /// <summary>원정을 떠나는 날. 시찰일(4일) 다음 날이다.</summary>
+        public static int HERO_EXPEDITION_DAY = 5;
+        /// <summary>원정 기간(일). 이 날들에는 여관에서 만날 수 없다.</summary>
+        public static int HERO_EXPEDITION_DAYS = 2;
+        /// <summary>여관 테이블에서 한 사람과 이야기하는 데 드는 영지 시간(분).</summary>
+        public static int HERO_TALK_MINUTES = 60;
+        /// <summary>이만큼 친해지면 현장 이야기를 덤으로 흘린다(관계와 투자의 다리).</summary>
+        public static int HERO_FIELD_TALK_AFFINITY = 3;
+        /// <summary>그 정도로 친할 때 현장 이야기가 나올 확률.</summary>
+        public static float HERO_FIELD_TALK_CHANCE = 0.5f;
+
         // ── 후원 (익명의 의뢰주) ──────────────────
         /// <summary>용사단 사정 하나의 기한(일). 사용자 결정 2026-10-17.</summary>
         public static int PATRONAGE_DEADLINE_DAYS = 5;

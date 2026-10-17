@@ -441,6 +441,24 @@ namespace Underwrite.Editor
             var so = new SerializedObject(controller);
             so.FindProperty("DialogueTree").objectReferenceValue = dialogue;
             so.FindProperty("Data").objectReferenceValue = data;
+
+            // 용사단 다섯의 표정 묶음. 순서는 StringConstants.HERO_FACE_ASSETS를 따른다.
+            var faces = so.FindProperty("HeroFaces");
+            faces.arraySize = StringConstants.HERO_FACE_ASSETS.Length;
+
+            for (var i = 0; i < StringConstants.HERO_FACE_ASSETS.Length; i++)
+            {
+                var path = $"Assets/Data/Portraits/{StringConstants.HERO_FACE_ASSETS[i]}.asset";
+                var set = AssetDatabase.LoadAssetAtPath<Data.PortraitSet>(path);
+
+                if (set == null)
+                {
+                    UnderwriteLog.Warning($"용사 표정 묶음이 없습니다: {path}");
+                }
+
+                faces.GetArrayElementAtIndex(i).objectReferenceValue = set;
+            }
+
             so.ApplyModifiedPropertiesWithoutUndo();
         }
 

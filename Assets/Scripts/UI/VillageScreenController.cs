@@ -30,6 +30,9 @@ namespace Underwrite.UI
         [Tooltip("표에서 사건을 읽는다. 비어 있으면 아무것도 캐지 못한다.")]
         [SerializeField] private GameDataSet Data;
 
+        [Tooltip("용사단 다섯의 표정 묶음. 학자 · 검사 · 마도사 · 전사 · 요정 순서다.")]
+        [SerializeField] private List<PortraitSet> HeroFaces = new List<PortraitSet>();
+
         private VisualElement Root;
         private UI_Dialogue Dialogue;
         private VillageSpot Here;
@@ -249,6 +252,13 @@ namespace Underwrite.UI
 
             Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
 
+            // 용사단이 원정에서 돌아온 날, 여관 문을 열면 재회 장면이 먼저다.
+            if (spot.HasCellar == true && HeroRoster.HasReturn(Today()) == true)
+            {
+                PlayReturn(() => Ask(spot));
+                return;
+            }
+
             var choices = new List<DialogueChoice>();
             var money = GatherSession.Available;
 
@@ -293,6 +303,11 @@ namespace Underwrite.UI
 
             if (spot.HasCellar == true)
             {
+                choices.Add(HeroTableChoice(spot));
+            }
+
+            if (spot.HasCellar == true)
+            {
                 // 웹툰 6화. 술통을 옮기러 내려간 창고 안쪽에 지하거래소가 있다.
                 var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO,
                     () => SceneManager.LoadScene(SceneRoutes.MARKET));
@@ -323,6 +338,197 @@ namespace Underwrite.UI
 
             var days = MarketClock.NextInspectionDay(today) - today;
             return " · " + string.Format(StringConstants.TEXT_VILLAGE_INSPECTION_SOON, days);
+        }
+
+        // ── 용사단 (루틴 설계안) ──────────────────
+
+        /// <summary>
+        /// 여관의 용사단 테이블. 시찰일에는 하루를 함께 보내는 장면으로 바뀐다.
+        /// 원정 중이면 잠그고 언제 돌아오는지 적는다.
+        /// </summary>
+        private DialogueChoice HeroTableChoice(VillageSpot spot)
+        {
+            var day = Today();
+
+            if (HeroRoster.HasDayOff(day) == true)
+            {
+                var dayOff = new DialogueChoice(StringConstants.TEXT_HERO_DAY_OFF, PlayDayOff);
+                dayOff.Note = StringConstants.TEXT_HERO_DAY_OFF_NOTE;
+                return dayOff;
+            }
+
+            var table = new DialogueChoice(StringConstants.TEXT_HERO_TABLE, () => OpenHeroTable(spot));
+
+            if (HeroRoster.IsAway(day) == true)
+            {
+                table.IsEnabled = false;
+                table.Note = string.Format(StringConstants.TEXT_HERO_TABLE_AWAY, HeroRoster.ReturnDay);
+                return table;
+            }
+
+            table.IsEnabled = HasTime() == true;
+            table.Note = HasTime() == true
+                ? string.Format(StringConstants.TEXT_HERO_TABLE_NOTE, Constants.HERO_TALK_MINUTES)
+                : StringConstants.TEXT_GATHER_NO_TIME;
+            return table;
+        }
+
+        private void OpenHeroTable(VillageSpot spot)
+        {
+            var day = Today();
+            var choices = new List<DialogueChoice>();
+            var heroes = HeroRoster.All;
+
+            for (var i = 0; i < heroes.Count; i++)
+            {
+                var hero = heroes[i];
+                var choice = new DialogueChoice(hero.Name, () => TalkToHero(hero));
+                choice.IsEnabled = hero.LastTalkDay != day;
+                choice.Note = choice.IsEnabled == true ? hero.Role : StringConstants.TEXT_HERO_TALKED_TODAY;
+                choices.Add(choice);
+            }
+
+            choices.Add(new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, null));
+
+            var line = new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_HERO_TABLE_ASK);
+            line.Choices = choices;
+            Dialogue.Play(new List<DialogueLine> { line }, null);
+        }
+
+        /// <summary>
+        /// 일꾼으로서 말을 건다. 기획서 §8의 두 관계 가운데 **일상의 주인공** 쪽이다.
+        /// 대답에 따라 호감이 오르고 표정이 바뀐다. 숫자는 보여 주지 않는다.
+        /// </summary>
+        private void TalkToHero(HeroProfile hero)
+        {
+            if (Clock != null)
+            {
+                Clock.SpendBreakMinutes(Constants.HERO_TALK_MINUTES);
+            }
+
+            hero.LastTalkDay = Today();
+
+            var greet = HeroLine(hero, StringConstants.HERO_GREET[hero.FaceIndex], PortraitEmotion.Emotion_Neutral);
+            greet.Choices = new List<DialogueChoice>
+            {
+                new DialogueChoice(StringConstants.TEXT_HERO_REPLY_WARM, () => ReactToHero(hero, 2,
+                    StringConstants.HERO_REACT_WARM[hero.FaceIndex], PortraitEmotion.Emotion_Relieved)),
+                new DialogueChoice(StringConstants.TEXT_HERO_REPLY_CURIOUS, () => ReactToHero(hero, 1,
+                    StringConstants.HERO_REACT_CURIOUS[hero.FaceIndex], PortraitEmotion.Emotion_Anxious)),
+                new DialogueChoice(StringConstants.TEXT_HERO_REPLY_PLAIN, () => ReactToHero(hero, 0,
+                    StringConstants.HERO_REACT_PLAIN[hero.FaceIndex], PortraitEmotion.Emotion_Neutral))
+            };
+
+            Dialogue.Play(new List<DialogueLine> { greet }, null);
+        }
+
+        /// <summary>
+        /// 대답에 대한 반응. 충분히 친하면 다른 용병단의 현장 이야기를 덤으로 흘린다.
+        /// 사랑하는 사람들과 가까워질수록 모르는 사람들에 대한 정보가 생긴다(루틴 설계안 — 관계와 투자의 다리).
+        /// 다만 덤일 뿐이다. 용사를 정보 도구로 만들지 않도록 확률로만 나온다.
+        /// </summary>
+        private void ReactToHero(HeroProfile hero, int affinity, string text, PortraitEmotion emotion)
+        {
+            hero.Affinity += affinity;
+
+            var lines = new List<DialogueLine> { HeroLine(hero, text, emotion) };
+
+            if (hero.Affinity >= Constants.HERO_FIELD_TALK_AFFINITY
+                && UnityEngine.Random.value < Constants.HERO_FIELD_TALK_CHANCE)
+            {
+                var rows = NextSlotRows();
+
+                if (rows.Count > 0)
+                {
+                    var pick = rows[UnityEngine.Random.Range(0, rows.Count)];
+                    var name = StockName(pick.StockId);
+                    var field = HeroLine(hero, string.Format(StringConstants.TEXT_HERO_FIELD_TALK, name, pick.Headline),
+                        PortraitEmotion.Emotion_Neutral);
+                    field.IsSecret = true;
+                    lines.Add(field);
+                    GatherSession.Record(0f, 0f, new GatheredNote(pick.StockId, pick.Headline,
+                        InfoSource.Source_TavernTalk));
+                }
+            }
+
+            Dialogue.Play(lines, null);
+        }
+
+        /// <summary>
+        /// 영주 시찰일. 지하가 닫히고 용사단도 쉰다. 큰 관계 장면의 날이다(루틴 설계안 — 일주일의 리듬).
+        /// 가장 친한 사람이 마지막 한마디를 한다. 하루의 남은 시간을 함께 보낸다.
+        /// </summary>
+        private void PlayDayOff()
+        {
+            var day = Today();
+            HeroRoster.MarkDayOff(day);
+            HeroRoster.AddAffinityToAll(1);
+
+            var favorite = HeroRoster.Favorite();
+            var sword = HeroRoster.All[1];
+            var lines = new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_OPEN),
+                HeroLine(sword, StringConstants.TEXT_DAY_OFF_INVITE, PortraitEmotion.Emotion_Neutral),
+                HeroLine(favorite, StringConstants.HERO_DAY_OFF_FAVORITE[favorite.FaceIndex],
+                    PortraitEmotion.Emotion_Happy),
+                new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_CLOSE)
+            };
+
+            if (Clock != null)
+            {
+                Clock.SkipBreak();
+            }
+
+            Dialogue.Play(lines, null);
+        }
+
+        /// <summary>
+        /// 원정에서 돌아온 날. 후원이 닿았는지가 그들의 몸으로 돌아온다(루틴 설계안 — 한 주기의 리듬).
+        /// 의뢰가 두 번 이상 맞았으면 학자가 의뢰주를 의심하기 시작한다(후원흐름 설계안 §2-6).
+        /// </summary>
+        private void PlayReturn(System.Action onDone)
+        {
+            var day = Today();
+            HeroRoster.MarkReturn(day);
+            var heroes = HeroRoster.All;
+            var lines = new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_EXPEDITION_TAG, StringConstants.TEXT_RETURN_OPEN)
+            };
+
+            if (PatronageLedger.Collapsed == true)
+            {
+                lines[0].Text = StringConstants.TEXT_RETURN_COLLAPSE;
+            }
+            else if (PatronageLedger.IsMet("need_healer") == true)
+            {
+                lines.Add(HeroLine(heroes[3], StringConstants.TEXT_RETURN_GOOD, PortraitEmotion.Emotion_Happy));
+            }
+            else
+            {
+                lines.Add(HeroLine(heroes[4], StringConstants.TEXT_RETURN_HURT, PortraitEmotion.Emotion_Sad));
+            }
+
+            if (PatronageLedger.Collapsed == false && PatronageLedger.Clues >= 2)
+            {
+                lines.Add(HeroLine(heroes[0], StringConstants.TEXT_RETURN_SUSPECT, PortraitEmotion.Emotion_Shocked));
+            }
+
+            Dialogue.Play(lines, onDone);
+        }
+
+        private DialogueLine HeroLine(HeroProfile hero, string text, PortraitEmotion emotion)
+        {
+            var line = new DialogueLine(hero.Name, hero.Role, text);
+            line.Emotion = emotion;
+
+            if (hero.FaceIndex < HeroFaces.Count && HeroFaces[hero.FaceIndex] != null)
+            {
+                line.Portrait = HeroFaces[hero.FaceIndex].Get(emotion);
+            }
+
+            return line;
         }
 
         private int Today()

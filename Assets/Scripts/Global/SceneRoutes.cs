@@ -8,6 +8,7 @@ namespace Underwrite.Global
     /// </summary>
     public static class SceneRoutes
     {
+        public const string INTRO = "Intro";
         public const string MARKET = "MarketPrototype";
         public const string VILLAGE = "VillageTest";
     }
