@@ -60,6 +60,12 @@ namespace Underwrite.Village
             BodyTransform = Body != null ? Body.transform : transform;
             BodySprite = BodyTransform.GetComponent<SpriteRenderer>();
             BodyRest = BodyTransform.localPosition;
+
+            // 사람은 모두 외곽선을 두른다(2026-10-17 사용자 결정). 사물과 그림이 섞인 화면에서 사람이 떠 보이게.
+            if (Constants.OUTLINE_ENABLED == true && GetComponent<SpriteOutline>() == null)
+            {
+                gameObject.AddComponent<SpriteOutline>();
+            }
         }
 
         /// <summary>그쪽을 바라본다. 8방향으로 맞춘다.</summary>

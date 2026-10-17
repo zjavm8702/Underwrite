@@ -569,6 +569,12 @@ namespace Underwrite.Global
 
         // 장소 이름표를 문 앞 자리에서 얼마나 위에 띄우는가(유닛). 문 위, 처마 아래쯤.
         public static float SIGN_HEIGHT_UNITS = 2.9f;
+
+        // 캐릭터 외곽선(SpriteOutline). 두께는 월드 유닛 — 화면 1배에서 약 2.5px, 확대하면 함께 굵어진다.
+        // 색은 검정 대신 짙은 갈색이 지금 화풍에 맞는다.
+        public static bool OUTLINE_ENABLED = true;
+        public static float OUTLINE_WIDTH_UNITS = 0.028f;
+        public static UnityEngine.Color OUTLINE_COLOR = new UnityEngine.Color(0.17f, 0.11f, 0.07f, 0.9f);
         public static float ROOM_CALL_INTERVAL_SECONDS = 3f;
         public static float ROOM_INVESTOR_MOVE_RATIO = 0.012f;
         public static float ROOM_INVESTOR_COOLDOWN_SECONDS = 2.5f;
