@@ -617,6 +617,7 @@ namespace Underwrite.UI
             if (spot.HasCellar == true)
             {
                 choices.Add(HeroTableChoice(spot));
+                choices.Add(SleepChoice());
             }
 
             // 창고 안쪽을 아직 모른다. 웹툰 5~6화의 사건을 겪어야 길이 열린다.
@@ -1273,6 +1274,15 @@ namespace Underwrite.UI
             var canSkip = Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
             MenuItem(list, StringConstants.TEXT_SKIP_BREAK, canSkip, StringConstants.TEXT_MENU_NO_TIME, OpenClock);
             MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
+
+            if (CanSleep() == true)
+            {
+                MenuItem(list, StringConstants.TEXT_SLEEP_CHOICE, true, string.Empty, () =>
+                {
+                    CloseMenu();
+                    Sleep();
+                });
+            }
             MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound && MarketOpenNow(),
                 StoryProgress.CellarFound == false ? StringConstants.TEXT_MENU_MARKET_LOCKED : MarketClosedNote(),
                 GoToMarket);
@@ -1642,6 +1652,12 @@ namespace Underwrite.UI
         /// </summary>
         private System.Collections.IEnumerator PassTime(int minutes)
         {
+            return PassTime(minutes, null);
+        }
+
+        /// <param name="title">어두운 화면에 시각 대신 띄울 말. 비우면 「몇 시 → 몇 시」.</param>
+        private System.Collections.IEnumerator PassTime(int minutes, string title)
+        {
             Approaching = true;
             var fade = EnsureFade();
             var fromHour = Clock.BreakHour;
@@ -1650,7 +1666,7 @@ namespace Underwrite.UI
             yield return FadeTo(fade, 1f);
 
             Clock.SpendBreakMinutes(minutes);
-            SetText("village-fade-time", string.Format(StringConstants.TEXT_TIME_PASS,
+            SetText("village-fade-time", title ?? string.Format(StringConstants.TEXT_TIME_PASS,
                 ClockText.FromMinutes(fromHour * 60 + fromMinute), ClockText.FromMinutes(Clock.BreakMinuteOfDay)));
             var dayNote = CheckDayTurn();
             var passNote = string.Format(StringConstants.TEXT_TIME_PASS_NOTE, minutes / 60, minutes % 60);
@@ -2033,6 +2049,144 @@ namespace Underwrite.UI
                     return StringConstants.TEXT_SIGN_TAVERN;
                 }
             }
+        }
+
+        // ── 잠자리 (2026-10-17 다시 넣음) ───────
+        // 오후장이 끝난 밤에만 잔다. 그날을 정리하고 주인공이 혼잣말을 한 뒤 아침 장 직전으로 넘어간다.
+        // 날이 바뀌는 처리(기한·붕괴)는 시간 넘기기와 같은 CheckDayTurn이 맡는다 — 두 번 세지 않는다.
+
+        private bool CanSleep()
+        {
+            return Clock != null && Clock.IsBreak == true && Clock.Session == MarketSession.Session_Evening
+                && Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
+        }
+
+        private DialogueChoice SleepChoice()
+        {
+            var choice = new DialogueChoice(StringConstants.TEXT_SLEEP_CHOICE, Sleep);
+            choice.IsEnabled = CanSleep();
+            choice.Note = choice.IsEnabled == true
+                ? string.Format(StringConstants.TEXT_SLEEP_CHOICE_NOTE, ClockText.FromMinutes(Clock.LatestBreakMinute))
+                : StringConstants.TEXT_SLEEP_LOCKED;
+            return choice;
+        }
+
+        private void Sleep()
+        {
+            if (CanSleep() == false)
+            {
+                return;
+            }
+
+            Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
+            // 오후장은 자정을 넘겨 끝나므로 영지 날짜는 이미 다음 날이다. 「며칠째 밤」은 장의 날짜로 적는다.
+            var today = Today();
+            var tag = string.Format(StringConstants.TEXT_SLEEP_TAG, Clock.Day);
+            var lines = new List<DialogueLine>
+            {
+                new DialogueLine(StringConstants.TEXT_SLEEP_SPEAKER, tag, SleepRecap(today)),
+                new DialogueLine(string.Empty, tag, PickMonologue(today))
+            };
+
+            Dialogue.Play(lines, () =>
+            {
+                var minutes = Clock.LatestBreakMinute - Clock.BreakMinuteOfDay;
+                StartCoroutine(PassTime(minutes, StringConstants.TEXT_SLEEP_FADE));
+            });
+        }
+
+        // 그날의 정리. 기한은 보이고 금액은 숨긴다(상장흐름 설계안 §1-5 완화책).
+        private string SleepRecap(int today)
+        {
+            var sim = BreakClock.Simulation;
+            var cash = sim == null ? GatherSession.Available : sim.Wallet.Cash + GatherSession.NetChange;
+            var held = sim == null ? 0f : sim.Wallet.HoldingsValue(sim.StockLookup);
+            var text = string.Format(StringConstants.TEXT_SLEEP_RECAP, cash, held, GatherSession.Gathered.Count);
+            var deadline = PatronageLedger.NearestDeadline(today);
+
+            if (deadline > 0)
+            {
+                text = text + "\n" + string.Format(StringConstants.TEXT_SLEEP_DEADLINE, deadline);
+            }
+
+            if (MarketClock.IsInspectionDay(today) == true)
+            {
+                text = text + "\n" + StringConstants.TEXT_SLEEP_INSPECTION;
+            }
+
+            return text;
+        }
+
+        /// <summary>
+        /// 이야기의 고비를 지난 뒤 한 번씩 나오는 혼잣말을 먼저, 없으면 평소의 밤 혼잣말을 고른다.
+        /// 열쇠는 상수 이름이다(저장에 남는다).
+        /// </summary>
+        private static string PickMonologue(int today)
+        {
+            var sim = BreakClock.Simulation;
+            var traded = sim != null && sim.Wallet.AllHoldings.Count > 0;
+            var heardNeed = false;
+
+            foreach (var need in PatronageLedger.All)
+            {
+                if (need.Heard == true && need.State == NeedState.State_Open)
+                {
+                    heardNeed = true;
+                }
+            }
+
+            var healed = PatronageLedger.IsMet(StringConstants.NEED_HEALER_ID);
+            var candidates = new List<KeyValuePair<string, bool>>
+            {
+                Monologue(nameof(StringConstants.TEXT_SLEEP_RETURN_SAFE), HeroRoster.ReturnDone == true && healed == true),
+                Monologue(nameof(StringConstants.TEXT_SLEEP_RETURN_HURT), HeroRoster.ReturnDone == true && healed == false),
+                Monologue(nameof(StringConstants.TEXT_SLEEP_SUSPECT),
+                    HeroRoster.ReturnDone == true && PatronageLedger.Clues >= Constants.HERO_SUSPECT_CLUES),
+                Monologue(nameof(StringConstants.TEXT_SLEEP_DAY_OFF), HeroRoster.DayOffDone),
+                Monologue(nameof(StringConstants.TEXT_SLEEP_FIRST_REQUEST), PatronageLedger.RequestsPosted > 0),
+                Monologue(nameof(StringConstants.TEXT_SLEEP_HEARD_NEED), heardNeed),
+                Monologue(nameof(StringConstants.TEXT_SLEEP_FIRST_TRADE), traded),
+                Monologue(nameof(StringConstants.TEXT_SLEEP_CELLAR), StoryProgress.CellarFound)
+            };
+
+            for (var i = 0; i < candidates.Count; i++)
+            {
+                var key = candidates[i].Key;
+
+                if (candidates[i].Value == true && StoryProgress.SleepSeen.Contains(key) == false)
+                {
+                    StoryProgress.SleepSeen.Add(key);
+                    return MonologueText(key);
+                }
+            }
+
+            switch (today % 3)
+            {
+                case 0:
+                {
+                    return StringConstants.TEXT_SLEEP_PLAIN_1;
+                }
+                case 1:
+                {
+                    return StringConstants.TEXT_SLEEP_PLAIN_2;
+                }
+                default:
+                {
+                    return StringConstants.TEXT_SLEEP_PLAIN_3;
+                }
+            }
+        }
+
+        private static KeyValuePair<string, bool> Monologue(string key, bool ready)
+        {
+            return new KeyValuePair<string, bool>(key, ready);
+        }
+
+        // 열쇠(상수 이름)로 지금 문구를 읽는다. 문구 표가 덮어쓴 값을 써야 한다.
+        private static string MonologueText(string key)
+        {
+            var field = typeof(StringConstants).GetField(key);
+            return field == null ? string.Empty : (string)field.GetValue(null);
         }
 
         /// <summary>

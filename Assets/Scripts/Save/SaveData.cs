@@ -187,6 +187,7 @@ namespace Underwrite.Save
         public bool CellarFound;
         public bool MarketTutorialDone;
         public bool VillageTutorialDone;
+        public List<string> SleepSeen = new List<string>();
     }
 
     [Serializable]

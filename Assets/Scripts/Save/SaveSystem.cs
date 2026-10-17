@@ -71,6 +71,8 @@ namespace Underwrite.Save
                 }
             };
 
+            data.Story.SleepSeen.AddRange(StoryProgress.SleepSeen);
+
             if (data.HasMarket == true)
             {
                 data.Market = BreakClock.Simulation.Capture();
@@ -172,6 +174,8 @@ namespace Underwrite.Save
             StoryProgress.CellarFound = data.Story.CellarFound;
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
+            StoryProgress.SleepSeen.Clear();
+            StoryProgress.SleepSeen.UnionWith(data.Story.SleepSeen);
             return true;
         }
 

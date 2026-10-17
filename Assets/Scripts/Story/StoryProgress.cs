@@ -18,8 +18,13 @@ namespace Underwrite.Story
         /// <summary>영지 첫 안내를 마쳤는가.</summary>
         public static bool VillageTutorialDone { get; set; }
 
+        /// <summary>잠자리 혼잣말 가운데 이미 나온 것(상수 이름). 한 번 나온 고비의 혼잣말은 다시 나오지 않는다.</summary>
+        public static readonly System.Collections.Generic.HashSet<string> SleepSeen =
+            new System.Collections.Generic.HashSet<string>();
+
         public static void Reset()
         {
+            SleepSeen.Clear();
             CellarFound = false;
             MarketTutorialDone = false;
             VillageTutorialDone = false;

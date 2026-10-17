@@ -86,7 +86,7 @@ namespace Underwrite.Market
         }
 
         /// <summary>
-        /// 영지에서 보는 날짜. 하루는 오전장이 열리는 9시에 시작한다.
+        /// 영지에서 보는 날짜. 영지에서는 자정에 날이 바뀐다(2026-10-17 — 다락방에서 자고 깨면 다음 날이어야 한다).
         ///
         /// <see cref="Day"/>는 거래소가 오전장을 열 때만 넘어간다. 그래서 장을 쉬고 영지에서 다음 날
         /// 낮까지 머물면 날짜가 그대로 남았다(2026-10-17 사용자 보고: "2일차에서 안 넘어간다").
@@ -101,8 +101,7 @@ namespace Underwrite.Market
                     return Day;
                 }
 
-                var sinceMorning = BreakMinuteOfDay - Constants.MARKET_MORNING_START_HOUR * 60;
-                return Day + Math.Max(0, sinceMorning / MINUTES_PER_DAY);
+                return Day + Math.Max(0, BreakMinuteOfDay / MINUTES_PER_DAY);
             }
         }
 
