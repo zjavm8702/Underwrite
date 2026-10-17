@@ -1223,7 +1223,8 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 화면 왼쪽 위의 「할 일」. 이야기가 시작되기 전(지하거래소를 찾고 들어가기 전)까지만 보인다.
+        /// 화면 왼쪽 위의 「할 일」(QuestLog). 지금 할 일과 어디서 무엇을 누르면 되는지.
+        /// 마치면 주인공이 기뻐하고 머리 위에 알린다. 보상이 있으면 영지에서 번 돈으로 들어간다.
         /// </summary>
         private void RefreshObjective()
         {
@@ -1238,19 +1239,34 @@ namespace Underwrite.UI
                 Root.Add(label);
             }
 
-            string text = null;
+            var done = QuestLog.Tick();
 
-            if (StoryProgress.CellarFound == false)
+            if (done != null)
             {
-                text = StringConstants.TEXT_OBJECTIVE_WORK;
-            }
-            else if (StoryProgress.MarketTutorialDone == false)
-            {
-                text = StringConstants.TEXT_OBJECTIVE_CELLAR;
+                if (done.Reward > 0f)
+                {
+                    GatherSession.Record(0f, done.Reward, null);
+                }
+
+                var actor = PlayerActor;
+
+                if (actor != null)
+                {
+                    actor.Say(done.Reward > 0f
+                        ? string.Format(StringConstants.TEXT_QUEST_DONE_REWARD, done.Title, done.Reward)
+                        : string.Format(StringConstants.TEXT_QUEST_DONE, done.Title));
+                }
+
+                HasPending = true;
+                PendingMotion = ActorMotion.Motion_Cheer;
+                PendingEmote = ActorEmote.Emote_Music;
             }
 
-            label.text = text ?? string.Empty;
-            label.EnableInClassList("hidden", text == null);
+            var active = QuestLog.Active;
+            label.text = active == null
+                ? string.Empty
+                : string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title) + "\n<size=15>" + active.Hint + "</size>";
+            label.EnableInClassList("hidden", active == null);
         }
 
         // ── 수첩 (2026-10-17 사용자 요청) ─────────

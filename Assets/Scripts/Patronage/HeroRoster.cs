@@ -38,6 +38,24 @@ namespace Underwrite.Patronage
             ReturnSeen.Clear();
         }
 
+        /// <summary>시찰일 장면을 한 번이라도 봤는가.</summary>
+        public static bool DayOffDone
+        {
+            get
+            {
+                return DayOffSeen.Count > 0;
+            }
+        }
+
+        /// <summary>귀환 장면을 한 번이라도 봤는가.</summary>
+        public static bool ReturnDone
+        {
+            get
+            {
+                return ReturnSeen.Count > 0;
+            }
+        }
+
         /// <summary>그날 용사단이 원정을 떠나 영지에 없는가.</summary>
         public static bool IsAway(int day)
         {

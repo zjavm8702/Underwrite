@@ -19,8 +19,6 @@ namespace Underwrite.Global
         public static string TEXT_TUT_VILLAGE_5_TITLE = "메뉴";
         public static string TEXT_TUT_VILLAGE_5_BODY = "시간 넘기기(원하는 시각까지 시계를 돌린다), 수첩(알아낸 것), 그리고 밤이 되면 잠자리. 할 일이 없으면 시간을 넘겨도 된다.";
 
-        public static string TEXT_OBJECTIVE_WORK = "할 일 · 여관에서 「주방 일을 거든다」";
-        public static string TEXT_OBJECTIVE_CELLAR = "할 일 · 여관 → 「창고로 내려간다」";
 
         // 지하거래소 첫 안내. 순서는 눈이 가는 순서다 — 무엇을 / 얼마에 / 어떻게 / 무엇을 보고.
         public static string TEXT_TUT_MARKET_1_TITLE = "지하거래소";

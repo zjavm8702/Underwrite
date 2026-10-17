@@ -353,6 +353,7 @@ namespace Underwrite.UI
 
             StartTutorialOnce();
             OpenIfDue();
+            RefreshQuest();
 
             // 보고는 틱과 무관하게 연다. 틱이 멈춘 뒤에 걸려 있으면 영영 안 열린다.
             if (Sim.HasBriefing == true && SceneIndex < 0 && (Tutorial == null || Tutorial.IsOpen == false))
@@ -363,6 +364,44 @@ namespace Underwrite.UI
             }
 
             Refresh();
+        }
+
+        /// <summary>
+        /// 거래소의 「할 일」 표시와 완료 알림. 거래소에서 끝나는 할 일(첫 거래 등)이 있다.
+        /// 보상은 지갑에 바로 들어간다.
+        /// </summary>
+        private void RefreshQuest()
+        {
+            var label = Root.Q<Label>("market-quest");
+
+            if (label == null)
+            {
+                label = new Label();
+                label.name = "market-quest";
+                label.AddToClassList("market-quest");
+                label.pickingMode = PickingMode.Ignore;
+                Root.Add(label);
+            }
+
+            var done = Story.QuestLog.Tick();
+
+            if (done != null)
+            {
+                if (done.Reward > 0f)
+                {
+                    Sim.Wallet.Earn(done.Reward);
+                }
+
+                ShowToast(StringConstants.TEXT_QUEST_TAB, done.Reward > 0f
+                    ? string.Format(StringConstants.TEXT_QUEST_DONE_REWARD, done.Title, done.Reward)
+                    : string.Format(StringConstants.TEXT_QUEST_DONE, done.Title), Side, true);
+            }
+
+            var active = Story.QuestLog.Active;
+            label.text = active == null
+                ? string.Empty
+                : string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title) + "  ·  " + active.Hint;
+            label.EnableInClassList("hidden", active == null);
         }
 
         /// <summary>
