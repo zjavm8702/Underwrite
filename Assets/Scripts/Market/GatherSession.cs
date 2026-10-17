@@ -41,6 +41,23 @@ namespace Underwrite.Market
         /// <summary>번 돈. 퀘스트로 종잣돈을 모으는 길이다. 기획서 §10.</summary>
         public static float Earned { get; private set; }
 
+        /// <summary>
+        /// 영지로 나올 때 들고 나온 돈. 거래 화면의 지갑에서 묶이지 않은 현금이다.
+        ///
+        /// 영지는 지갑을 직접 건드리지 않지만, 가진 것보다 많이 쓰게 둘 수는 없다.
+        /// 그러면 돌아왔을 때 현금이 음수가 된다. 그래서 나올 때의 잔고만 적어 둔다.
+        /// </summary>
+        public static float Budget { get; private set; }
+
+        /// <summary>지금 영지에서 쓸 수 있는 돈. 들고 나온 돈에 번 것을 더하고 쓴 것을 뺀다.</summary>
+        public static float Available
+        {
+            get
+            {
+                return Budget + Earned - Spent;
+            }
+        }
+
         /// <summary>다음 정보 타임의 번호. 캐내는 소식은 이 묶음에서 나온다.</summary>
         public static int NextSlot { get; set; }
 
@@ -73,9 +90,10 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>장이 끝나 영지의 시간이 시작된다.</summary>
-        public static void BeginBreak(int nextSlot)
+        /// <summary>장이 끝나 영지의 시간이 시작된다. <paramref name="budget"/>은 들고 나온 돈이다.</summary>
+        public static void BeginBreak(int nextSlot, float budget)
         {
+            Budget = budget;
             Spent = 0f;
             Earned = 0f;
             NextSlot = nextSlot;

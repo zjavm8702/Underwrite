@@ -1,0 +1,9 @@
+{
+  "method": "Pillow-equivalent GaussianBlur radius4: BT.601 fixed-point L grayscale;3 extended box passes per axis, radius3 plus edge weight0.4375, uint8 round per pass, clamped boundary; signed original-blur population std. Analytic Gaussian values separately in contrast_analytic.json",
+  "values": {
+    "ground.png": 17.44778300497114,
+    "ground_unshadowed.png": 17.31037399949136,
+    "../VillagePartsPilot_v2/ground.png": 42.43682831758892,
+    "../_reference/flagstone_size_test_45px.png": 7.352293292295612
+  }
+}

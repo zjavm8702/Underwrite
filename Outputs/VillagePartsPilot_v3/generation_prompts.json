@@ -1,0 +1,83 @@
+[
+  {
+    "step": 1,
+    "key": "groundPrompt",
+    "prompt": "Edit the FIRST reference image, the 1920x1080 flagstone scale test, into a finished non-pixel 2D hand-painted warm fantasy village ground plate. The SECOND image is a material/color and wear reference ONLY; its tiny regular cobblestones are rejected. Preserve FIRST image stone sizes, irregular polygon tessellation and screen-space flattening closely: stones 35–55 pixels wide averaging45 at final1920x1080, vertical dimension 0.45–0.55 of width. About43 stones across1920; about48 uneven courses down1080, but DO NOT lay aligned brick rows. Each slab is a distinct irregular broad polygon, not round cobble, no repeating tiling. Constant orthographic scale across entire image, no enlarging foreground. Create subtly faceted hand-painted matte sandstone surfaces, muted plane changes and occasional worn chips, smooth weathered broad shading, slight elegant soft cel painting. Not procedural-flat but very QUIET: thin 2–3px pale warm brown mortar only slightly darker than slabs, weak edges, no bright individual bevels, no black outlines, no grain, no random speckle or dense cracks. Preserve warm ochre beige average near RGB187,158,121. Target grayscale Gaussian radius4 high-pass standard deviation12–20 (v2 rejected42). No dramatic mottled lighting. Neutral upper-left daylight. Worn brighter smoother footpath starts at (972,615) and curves down to (1100,1080). Sparse restrained soil and tiny grass only near outside edges, one or two missing slabs. No transverse grassy seam through center. Fill image edge to edge with ground, no border/frame, no vignette. No buildings, props, people or cast/contact shadows, which will be restored exactly from unchanged v2 layout afterwards. Output landscape16:9 single full ground painting.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 23.3,
+    "source": "ground_generated.png",
+    "selected": false
+  },
+  {
+    "step": 2,
+    "key": "refinePrompt",
+    "prompt": "Edit this exact ground painting with ONE targeted adjustment: modestly increase small-scale stone material contrast by about30 percent, to grayscale minus Gaussian blur radius4 standard deviation14–16 at1920x1080 (currently11.4; required12–20). Keep quiet fine pale mortar and no bright bevels/no black edges. Add gently readable broad matte stone facets and shallow worn chips, no noise/grain. Preserve all existing slab geometry, flattened irregular polygons, sizes, 16:9 framing, worn footpath position, earth/grass positions and empty ground-only composition exactly. Keep stone widths35–55 averaging45 pixels and height half width. Keep warm mean RGB near187,158,121 (current image a little too yellow/bright; use slightly subdued beige ochre). No props, people, buildings or cast shadows. No repeating patterns or brick rows. Single full-bleed painting.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 22.1,
+    "source": "ground_refined.png",
+    "selected": false
+  },
+  {
+    "step": 3,
+    "key": "sizePrompt",
+    "prompt": "Edit ONLY the stone scale of this exact warm hand-painted quiet ground plate. Stones are currently too big, many60–75px wide at1920x1080. Make all stone polygons about25 percent smaller in both screen axes, without changing canvas or overall worn footpath. Target35–55px horizontal widths, average45px at final1920x1080, and each slab screen bounding height0.45–0.55 of width. There should be about46–48 irregular stones spanning full width. Nonaligned irregular polygon slabs, not rectangular brick courses. KEEP current matte handpainted facets, warm beige ochre color, muted 2px mortar, restrained edge dirt/grass, one or two missing slabs, exact worn path location, contrast (highpass Gaussian radius4 standard deviation about14). Very few small infill stones. Uniform scale across full frame, no perspective enlarging foreground. Output ground only, no objects/shadows/people/buildings, fullbleed16:9.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 24.9,
+    "source": "ground_scaled.png",
+    "selected": false
+  },
+  {
+    "step": 4,
+    "key": "finalPrompt",
+    "prompt": "Edit only surface readability and contrast, KEEP exact stone silhouettes, sizes, layout, footpath and composition. Current image highpass contrast grayscale minus Gaussian radius4 sigma is11.4 at1920x1080. Increase to15–17 by slightly darker thin mortar and clearer but subtle matte planar shading. REMOVE smeary random mottled facets and tiny chips inside slabs: use cleaner broad smooth 2D painted stone faces. No speckle, no noise, no grain, no glossy bright bevels, no dramatic outlining. Keep thin2px warm muted brown mortar. Preserve all existing45px stones (35–55 horizontal, screen height half width), irregular polygon shapes, no brick alignment. Slightly mute yellow saturation and darken a little toward average RGB187,158,121. Keep same quiet natural warm ground look. Ground only, no props/shadows/buildings/people.16:9 fullbleed.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 30.2,
+    "source": "ground_final.png",
+    "selected": false
+  },
+  {
+    "step": 5,
+    "key": "geometryPrompt",
+    "prompt": "Final geometry correction of this ground plate for a2D game: preserve warm color, brightness, contrast and broad footpath. Replace rounded thick chunky cobblestones with FLAT irregular angular polygon FLAGSTONES. Much flatter vertically: every main flagstone width roughly45 pixels, height22pixels on a1920x1080 canvas, i.e. SCREEN bounding-box height is half width. Target35–55px horizontal and0.45–0.55 height/width. All shapes stay thin and broad, not tall pentagons. About45 irregular slabs across full width and about48down height. No rows, no straight brick grid; vary angular contours and horizontal offsets. No thick bevels or round pillows. Mortar thin2px muted brown, slightly darker than slab faces. Matte soft cel paint with subtle worn plane shading and shallow understated edge, highpass grayscale Gaussian4 standard deviation14–17 (must12–20). Smooth clean broad tones; no scribbles/no mottling/no noise. Warm average RGB187,158,121. Same path begins at center(972,615) then curves lower right(1100,1080), sparse soil and tiny grass on edges only, two missing slabs. Do not add objects/people/buildings/shadows. Uniform orthographic stone scale.16:9 fullbleed ground only.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 19.4,
+    "source": "ground_geometry_rejected.png",
+    "selected": false
+  },
+  {
+    "step": 6,
+    "key": "lastPrompt",
+    "prompt": "Use FIRST reference as exact polygon layout and scale, paint only its surfaces, preserve small thin broad irregular polygon edges. A1920x1080 game ground: scale reference has45pixelwide stones. If your output is1672x941, stone widths must average39pixels and range30–48pixels, heights15–24pixels. Do not enlarge stones when painting. Need around43stones across width, about48stones down height. Flat angular sandstone slabs closely fitted, NO round cobbles, NO aligned brick rows. Quiet lowcontrast handpainted soft cel style, clean matte smooth faces, gentle broad shading of each flat stone, faint worn chips. SECOND reference is ONLY warm color and subtle material quality, not its stone size. Grayscale highpass sigma4px standard deviation14–17. Mortar2px thin pale warm brown only a little darker than slabs, no thick bevels or dark outlines. Average warm RGB187,158,121. Slightly brighter worn smoother path from(972,615)curving toward(1100,1080). Sparse soil/tinygrass only at outer edges; two missingslabs. No repeated pattern.No objects/people/buildings/castshadows.No vignette or border. Same scale top and bottom,fullbleed16:9.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 28,
+    "source": "ground_selected.png",
+    "selected": false
+  },
+  {
+    "step": 7,
+    "key": "freshPrompt",
+    "prompt": "2D non-pixel game ground texture plate,1920x1080 landscape16:9. Empty medieval village plaza, warmly painted muted sandstone, RGB187,158,121 average. VERY MANY MEDIUM SMALL FLAT IRREGULAR ANGULAR FLAGSTONE POLYGONS: about SIXTY stones across the full image width, about EIGHTY uneven courses down height. Each stone is twice as wide as tall, strongly flattened horizontally. All ground shown orthographic screen space no perspective depth. Absolutely not brick rows, fit jagged varied polygons with T-junctions and staggered joints in every direction. Closeup size moderate but MUCH SMALLER than normal landscape flagstone painting. Thin subtle pale brown2px mortar. Clean matte soft cel-painted smooth broad planes, slightly darker plane changes and shallow worn chips, quiet warm edges, NO bright bevel highlights,NO deep black outlines,NO noise or speckle. Small-scale grayscale contrast moderate standard deviation15 relative Gaussian4px. Keep floor subordinate to135px tall characters who will be placed later. Worn smoother paler footpath from image center(972,615)curves to(1100,1080). Only sparse unobtrusive dirt and small grasses at extreme border and two missing slabs. No figures,no buildings,no objects,no shadows,no lettering,no border,no vignette. Single unique nonrepeating painting,complete ground across full frame.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 22.3,
+    "source": "fresh_rejected.png",
+    "selected": false
+  },
+  {
+    "step": 8,
+    "key": "outpaintPrompt",
+    "prompt": "OUTPAINT ONLY: Fill the plain tan margins with continuation of the stone pavement. Keep central painted region at EXACT SAME SCALE and location; DO NOT zoom or enlarge it to fill margins. Extend the existing stones outward into new original non-repeated pavement across1920x1080. Remove internal rectangular soil/grass border and put sparse soil/grass only at OUTERMOST edge of final full image. Preserve stone sizes matching existing central region, their broad flattened polygon shape, thin pale mortar, matte quiet soft cel stone shading and warm palette. Keep quiet moderate contrast but readable stone relief. Continue worn brighter path to bottom frame. No visible rectangular boundary.No border.No props.No people.No buildings.No shadows.16:9 fullbleed single game ground painting, no repeated patches.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 29.9,
+    "source": "ground_outpaint.png",
+    "selected": false
+  },
+  {
+    "step": 9,
+    "key": "colorPrompt",
+    "prompt": "Perform ONLY a uniform global color grade on this exact image, DO NOT repaint or move ANY stone, shape, edge, path or plants. Preserve every contour and geometry. Current mean RGB is approximately(194,147,100), too orange. Desired mean near(187,158,121): reduce red7, increase green11, increase blue21. Warm desaturated beige sandstone rather than golden orange. Keep luminance/highfrequency contrast exactly same (grayscale Gaussian4 standard deviation16.8). Keep every slab width and height the same, every mortar edge identical. No other alterations. Full image ground only16:9.",
+    "tool": "built-in image_gen",
+    "duration_seconds": 26.5,
+    "source": "ground_color_final.png",
+    "selected": true
+  }
+]

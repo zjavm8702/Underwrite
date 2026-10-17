@@ -1,0 +1,229 @@
+{
+  "contacts": [
+    {
+      "file": "inn.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 618,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "tree_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 56,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "tree_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 67,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "lamp_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 28,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "lamp_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 27,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "table_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 175,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "table_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 146,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "barrel_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 51,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "barrel_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 49,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 24,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 29,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_c.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 29,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    }
+  ],
+  "rear": {
+    "polygon": [
+      [
+        695,
+        80
+      ],
+      [
+        1384,
+        80
+      ],
+      [
+        1384,
+        541
+      ],
+      [
+        1351,
+        571
+      ],
+      [
+        1242,
+        599
+      ],
+      [
+        736,
+        583
+      ],
+      [
+        695,
+        583
+      ]
+    ],
+    "added_blocked_pixels": 325454,
+    "reason": "block all roof-projected rear territory above inn footprint; side lanes outside inn canvas x695..1384 remain unchanged"
+  },
+  "depth_tests": [
+    {
+      "name": "door",
+      "foot": [
+        971,
+        627
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    },
+    {
+      "name": "lamp_behind",
+      "foot": [
+        668,
+        784
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 906
+    },
+    {
+      "name": "lamp_front",
+      "foot": [
+        1390,
+        869
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    },
+    {
+      "name": "tree_trunk_behind",
+      "foot": [
+        418,
+        682
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 2307
+    },
+    {
+      "name": "table_side",
+      "foot": [
+        940,
+        816
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    }
+  ],
+  "contact_detail_panels": [
+    {
+      "name": "barrel",
+      "rect": [
+        775,
+        570,
+        80,
+        80
+      ]
+    },
+    {
+      "name": "pot",
+      "rect": [
+        990,
+        580,
+        80,
+        80
+      ]
+    },
+    {
+      "name": "table_leg",
+      "rect": [
+        755,
+        750,
+        80,
+        80
+      ]
+    },
+    {
+      "name": "lamp",
+      "rect": [
+        625,
+        750,
+        80,
+        80
+      ]
+    },
+    {
+      "name": "inn_corner",
+      "rect": [
+        1203,
+        560,
+        80,
+        80
+      ]
+    }
+  ],
+  "ground": {
+    "source": "sources/ground_color_final.png",
+    "native": [
+      1672,
+      941
+    ],
+    "final": [
+      1920,
+      1080
+    ],
+    "method": "imagegen repaint using45px scale reference; whole source resized once; no tiling/cloning/mirroring",
+    "upscaled": true
+  }
+}

@@ -20,6 +20,8 @@
                 <ui:Label name="dialogue-tag" text="" class="dialogue-tag" />
                 <ui:Label name="dialogue-text" text="" class="dialogue-text" />
                 <ui:VisualElement class="grow" />
+                <!-- 고르는 자리. 선택지가 있는 줄에서만 채워지고, 그동안 「다음」은 숨는다. -->
+                <ui:VisualElement name="dialogue-choices" class="dialogue-choices hidden" />
                 <ui:VisualElement class="row" style="align-items: center; margin-top: 12px;">
                     <ui:Label name="dialogue-note" text="" class="dialogue-note grow" />
                     <ui:Button name="dialogue-next" text="다음" class="cta dialogue-next" />

@@ -76,6 +76,20 @@ namespace Underwrite.Market
         }
 
         /// <summary>
+        /// 다음에 열릴 장이 오전장인가. 그렇다면 지금은 밤이고, 하루를 닫고 잠자리에 들 때다.
+        /// 쉰 장이 있으면 한 장마다 오전·오후가 뒤바뀐다.
+        /// </summary>
+        public bool NextSessionIsMorning
+        {
+            get
+            {
+                var lastWasEvening = Session == MarketSession.Session_Evening;
+                var flips = SkippedSessions % 2 == 1;
+                return lastWasEvening != flips;
+            }
+        }
+
+        /// <summary>
         /// 다음 장을 쉰다. 영지의 시간이 한 장만큼 길어진다.
         ///
         /// 쉬는 동안에도 시장은 돈다. 가격이 움직이고 소식이 돌고 상장과 이탈이 일어난다.

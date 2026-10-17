@@ -11,5 +11,13 @@ namespace Underwrite.Market
     {
         /// <summary>지금 쓰는 시계. 거래 화면이 시뮬레이션을 만들 때 걸어 둔다.</summary>
         public static MarketClock Current { get; set; }
+
+        /// <summary>
+        /// 지금 돌고 있는 시장 전체. 거래 화면이 처음 만들 때 걸어 두고, 다시 열릴 때 이것을 이어 쓴다.
+        ///
+        /// 거래 화면이 시장을 자기 필드로만 들고 있으면, 영지에 다녀오는 순간 씬과 함께 사라진다.
+        /// 돌아오면 새 시장이 만들어져 현금·보유·날짜가 전부 처음으로 돌아갔다.
+        /// </summary>
+        public static MarketSimulation Simulation { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Underwrite.Enumeration;
 using UnityEngine;
 
@@ -34,6 +35,12 @@ namespace Underwrite.UI
 
         /// <summary>시장이 아직 모르는 이야기인가. 꼬리표 색이 달라진다.</summary>
         public bool IsSecret;
+
+        /// <summary>
+        /// 이 줄 끝에서 고를 것. 비어 있으면 「다음」으로 넘긴다.
+        /// 선택지가 있는 줄은 그 묶음의 마지막 줄이어야 한다. 고르는 순간 대화가 갈리기 때문이다.
+        /// </summary>
+        public List<DialogueChoice> Choices;
 
         public DialogueLine(string speaker, string tag, string text)
         {

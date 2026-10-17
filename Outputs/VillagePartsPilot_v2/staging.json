@@ -1,0 +1,256 @@
+{
+  "scope": "Outputs PNG only; no Assets writes or Unity hookup",
+  "status": "draft pending actual game-screen visual approval",
+  "production_files": [
+    {
+      "path": "Outputs/VillagePartsPilot_v2/inn.png",
+      "size": [
+        689,
+        531
+      ],
+      "pivot_in_png_top_left": [
+        265,
+        520
+      ],
+      "foot_canvas": [
+        960,
+        600
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/tree_a.png",
+      "size": [
+        362,
+        556
+      ],
+      "pivot_in_png_top_left": [
+        197,
+        547
+      ],
+      "foot_canvas": [
+        410,
+        710
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/tree_b.png",
+      "size": [
+        332,
+        476
+      ],
+      "pivot_in_png_top_left": [
+        188,
+        467
+      ],
+      "foot_canvas": [
+        1540,
+        635
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/lamp_a.png",
+      "size": [
+        81,
+        261
+      ],
+      "pivot_in_png_top_left": [
+        22,
+        253
+      ],
+      "foot_canvas": [
+        665,
+        795
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/lamp_b.png",
+      "size": [
+        78,
+        251
+      ],
+      "pivot_in_png_top_left": [
+        21,
+        243
+      ],
+      "foot_canvas": [
+        1390,
+        850
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/table_a.png",
+      "size": [
+        207,
+        108
+      ],
+      "pivot_in_png_top_left": [
+        103,
+        99
+      ],
+      "foot_canvas": [
+        815,
+        810
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/table_b.png",
+      "size": [
+        192,
+        95
+      ],
+      "pivot_in_png_top_left": [
+        96,
+        86
+      ],
+      "foot_canvas": [
+        1165,
+        750
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/barrel_a.png",
+      "size": [
+        72,
+        91
+      ],
+      "pivot_in_png_top_left": [
+        36,
+        82
+      ],
+      "foot_canvas": [
+        813,
+        611
+      ],
+      "operation": "new image_gen artwork in v1 canvas"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/barrel_b.png",
+      "size": [
+        69,
+        88
+      ],
+      "pivot_in_png_top_left": [
+        35,
+        79
+      ],
+      "foot_canvas": [
+        872,
+        615
+      ],
+      "operation": "new image_gen artwork in v1 canvas"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/pot_a.png",
+      "size": [
+        50,
+        56
+      ],
+      "pivot_in_png_top_left": [
+        26,
+        48
+      ],
+      "foot_canvas": [
+        1030,
+        625
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/pot_b.png",
+      "size": [
+        54,
+        59
+      ],
+      "pivot_in_png_top_left": [
+        29,
+        51
+      ],
+      "foot_canvas": [
+        1210,
+        645
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/pot_c.png",
+      "size": [
+        51,
+        54
+      ],
+      "pivot_in_png_top_left": [
+        25,
+        46
+      ],
+      "foot_canvas": [
+        1110,
+        615
+      ],
+      "operation": "byte-identical v1 copy"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/ground.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "pivot": "plate origin top-left (0,0); use same v1 scene placement"
+    },
+    {
+      "path": "Outputs/VillagePartsPilot_v2/walkable.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "pivot": "plate origin top-left (0,0); use same v1 scene placement"
+    }
+  ],
+  "changed_layout_fields": [
+    {
+      "file": "barrel_a.png",
+      "key": "foot"
+    },
+    {
+      "file": "barrel_a.png",
+      "key": "pivot_in_png"
+    },
+    {
+      "file": "barrel_a.png",
+      "key": "footprint"
+    },
+    {
+      "file": "barrel_b.png",
+      "key": "foot"
+    },
+    {
+      "file": "barrel_b.png",
+      "key": "pivot_in_png"
+    },
+    {
+      "file": "barrel_b.png",
+      "key": "footprint"
+    }
+  ],
+  "preview_files": [
+    "assembled.png",
+    "depth_test.png",
+    "v1_compare.png",
+    "contact_detail.png",
+    "edge_review.png",
+    "stone_measurements.png"
+  ],
+  "contact_detail_order": [
+    "barrel",
+    "pot",
+    "table leg",
+    "lamp",
+    "inn foundation corner"
+  ],
+  "knowledge_document": "Documents/Codex/Underwrite_영지_그림배경_제작기준.md"
+}

@@ -1,0 +1,800 @@
+{
+  "status": "draft pending game-screen approval",
+  "alpha_threshold": 32,
+  "files": [
+    {
+      "file": "inn.png",
+      "size": [
+        689,
+        531
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "tree_a.png",
+      "size": [
+        362,
+        556
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "tree_b.png",
+      "size": [
+        332,
+        476
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "lamp_a.png",
+      "size": [
+        81,
+        261
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "lamp_b.png",
+      "size": [
+        78,
+        251
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "table_a.png",
+      "size": [
+        207,
+        108
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "table_b.png",
+      "size": [
+        192,
+        95
+      ],
+      "components": 3,
+      "expected_components": 3,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "barrel_a.png",
+      "size": [
+        72,
+        91
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "barrel_b.png",
+      "size": [
+        69,
+        88
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "pot_a.png",
+      "size": [
+        50,
+        56
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "pot_b.png",
+      "size": [
+        54,
+        59
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "pot_c.png",
+      "size": [
+        51,
+        54
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "ground.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "pass": true
+    },
+    {
+      "file": "ground_unshadowed.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "pass": true
+    },
+    {
+      "file": "walkable.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "pass": true
+    }
+  ],
+  "depth_tests": [
+    {
+      "name": "door",
+      "foot": [
+        971,
+        627
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    },
+    {
+      "name": "lamp_behind",
+      "foot": [
+        668,
+        784
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 906
+    },
+    {
+      "name": "lamp_front",
+      "foot": [
+        1390,
+        869
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    },
+    {
+      "name": "tree_trunk_behind",
+      "foot": [
+        418,
+        682
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 2307
+    },
+    {
+      "name": "table_side",
+      "foot": [
+        940,
+        816
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    }
+  ],
+  "contacts": [
+    {
+      "file": "inn.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 618,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "tree_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 56,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "tree_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 67,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "lamp_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 28,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "lamp_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 27,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "table_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 175,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "table_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 146,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "barrel_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 51,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "barrel_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 49,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 24,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 29,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_c.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 29,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    }
+  ],
+  "ground": {
+    "source": "sources/groundUniform.png",
+    "native": [
+      1672,
+      941
+    ],
+    "final": [
+      1920,
+      1080
+    ],
+    "method": "four independently generated quarter paintings assembled once, then imagegen whole-plate repaint and density correction; final entire source resized once, no final tiling/cloning/mirroring",
+    "upscaled": true
+  },
+  "color": {
+    "method": "alpha-weighted sRGB byte average; no color space temperature inference",
+    "ground_rgb": [
+      187.388,
+      158.138,
+      121.444
+    ],
+    "unshadowed_rgb": [
+      188.819,
+      159.353,
+      122.432
+    ],
+    "objects_combined_rgb": [
+      142.77,
+      124.548,
+      86.934
+    ],
+    "objects": {
+      "inn.png": [
+        163.631,
+        129.183,
+        102.946
+      ],
+      "tree_a.png": [
+        102.702,
+        116.61,
+        53.683
+      ],
+      "tree_b.png": [
+        118,
+        127.709,
+        75.063
+      ],
+      "lamp_a.png": [
+        90.428,
+        79.461,
+        68.653
+      ],
+      "lamp_b.png": [
+        83.487,
+        73.311,
+        65.253
+      ],
+      "table_a.png": [
+        153.179,
+        103.251,
+        63.149
+      ],
+      "table_b.png": [
+        134.067,
+        86.948,
+        57.289
+      ],
+      "barrel_a.png": [
+        183.647,
+        146.048,
+        102.507
+      ],
+      "barrel_b.png": [
+        123.139,
+        101.105,
+        85.388
+      ],
+      "pot_a.png": [
+        145.623,
+        123.794,
+        85.639
+      ],
+      "pot_b.png": [
+        150.517,
+        141.233,
+        131.127
+      ],
+      "pot_c.png": [
+        132.17,
+        114.495,
+        69.217
+      ]
+    },
+    "chromatic_pass": true
+  },
+  "barrel_lids": [
+    {
+      "file": "barrel_a.png",
+      "source": "sources/single.png",
+      "surface_bbox": [
+        219,
+        145,
+        916,
+        478
+      ],
+      "width": 697,
+      "height": 333,
+      "ratio": 0.47776183644189385,
+      "pass": true,
+      "method": "manual horizontal lid surface bounds; vertical rim excluded; source boundary uncertainty about3px"
+    },
+    {
+      "file": "barrel_b.png",
+      "source": "sources/singleB.png",
+      "surface_bbox": [
+        219,
+        145,
+        916,
+        478
+      ],
+      "width": 697,
+      "height": 333,
+      "ratio": 0.47776183644189385,
+      "pass": true,
+      "method": "manual horizontal lid surface bounds; vertical rim excluded; source boundary uncertainty about3px"
+    }
+  ],
+  "barrels": [
+    {
+      "file": "barrel_a.png",
+      "source": "single",
+      "source_bbox": [
+        151,
+        124,
+        984,
+        1270
+      ],
+      "scale": 0.06538796861377506,
+      "final_bbox": [
+        8,
+        8,
+        62,
+        82
+      ],
+      "height": 75
+    },
+    {
+      "file": "barrel_b.png",
+      "source": "singleB",
+      "source_bbox": [
+        146,
+        122,
+        988,
+        1272
+      ],
+      "scale": 0.06255430060816682,
+      "final_bbox": [
+        8,
+        8,
+        60,
+        79
+      ],
+      "height": 72
+    }
+  ],
+  "stone_samples": [
+    {
+      "sample": 1,
+      "start": [
+        249,
+        880
+      ],
+      "end": [
+        265,
+        880
+      ],
+      "px": 17,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 2,
+      "start": [
+        275,
+        880
+      ],
+      "end": [
+        294,
+        880
+      ],
+      "px": 20,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 3,
+      "start": [
+        313,
+        880
+      ],
+      "end": [
+        331,
+        880
+      ],
+      "px": 19,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 4,
+      "start": [
+        344,
+        880
+      ],
+      "end": [
+        361,
+        880
+      ],
+      "px": 18,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 5,
+      "start": [
+        367,
+        880
+      ],
+      "end": [
+        388,
+        880
+      ],
+      "px": 22,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 6,
+      "start": [
+        146,
+        895
+      ],
+      "end": [
+        164,
+        895
+      ],
+      "px": 19,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 7,
+      "start": [
+        168,
+        895
+      ],
+      "end": [
+        190,
+        895
+      ],
+      "px": 23,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 8,
+      "start": [
+        209,
+        895
+      ],
+      "end": [
+        226,
+        895
+      ],
+      "px": 18,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 9,
+      "start": [
+        284,
+        895
+      ],
+      "end": [
+        303,
+        895
+      ],
+      "px": 20,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    },
+    {
+      "sample": 10,
+      "start": [
+        350,
+        915
+      ],
+      "end": [
+        369,
+        915
+      ],
+      "px": 20,
+      "pass": true,
+      "method": "visible bright face horizontal span excluding dark mortar; selected complete spans, not exhaustive stone segmentation; uncertainty1px"
+    }
+  ],
+  "repetition": [
+    {
+      "file": "ground.png",
+      "grid": 128,
+      "cells": 135,
+      "full_cells": 120,
+      "partial_bottom_cells": 15,
+      "pairs_compared": 7245,
+      "metric": "mean absolute RGB byte difference (0..255); near-identical threshold MAE<=1.0",
+      "near_identical_pairs": 0,
+      "exact_pairs": 0,
+      "minimum_proven_MAE_lower_bound": 1.0000203450520833,
+      "pass": true
+    },
+    {
+      "file": "ground_unshadowed.png",
+      "grid": 128,
+      "cells": 135,
+      "full_cells": 120,
+      "partial_bottom_cells": 15,
+      "pairs_compared": 7245,
+      "metric": "mean absolute RGB byte difference (0..255); near-identical threshold MAE<=1.0",
+      "near_identical_pairs": 0,
+      "exact_pairs": 0,
+      "minimum_proven_MAE_lower_bound": 1.0000203450520833,
+      "pass": true
+    }
+  ],
+  "walkable": {
+    "values": [
+      255,
+      0
+    ],
+    "blocked": 33791,
+    "footprint_mismatch_pixels": 0,
+    "pass": true
+  },
+  "layout_changes": [
+    {
+      "file": "barrel_a.png",
+      "key": "foot"
+    },
+    {
+      "file": "barrel_a.png",
+      "key": "pivot_in_png"
+    },
+    {
+      "file": "barrel_a.png",
+      "key": "footprint"
+    },
+    {
+      "file": "barrel_b.png",
+      "key": "foot"
+    },
+    {
+      "file": "barrel_b.png",
+      "key": "pivot_in_png"
+    },
+    {
+      "file": "barrel_b.png",
+      "key": "footprint"
+    }
+  ],
+  "unchanged_objects": [
+    {
+      "file": "inn.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "tree_a.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "tree_b.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "lamp_a.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "lamp_b.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "table_a.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "table_b.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "pot_a.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "pot_b.png",
+      "byte_identical_to_v1": true
+    },
+    {
+      "file": "pot_c.png",
+      "byte_identical_to_v1": true
+    }
+  ],
+  "meta": {
+    "before": 547,
+    "after": 549,
+    "unchanged": 547,
+    "changed": [],
+    "deleted": [],
+    "added": [
+      "Assets/Scripts/Data/VillageQuest.cs.meta",
+      "Assets/Scripts/UI/DialogueChoice.cs.meta"
+    ]
+  },
+  "v1_preservation": {
+    "checked": 42,
+    "changed": [
+      "generation_prompts.json",
+      "verification.json"
+    ]
+  },
+  "notes": [
+    "Static environment: no animation or playback timing. Five fixed depth tests use the exact v1 feet and same135px person.",
+    "Stone samples measure ten visible bright-face spans, not a proof that every irregular stone lies in17–23px; there remain smaller infill pieces and larger merged-looking shapes.",
+    "Final source is1672x941, resized once to1920x1080; not native1920 rendering. Final source repainted as a whole after unique quarter draft; no repeated final patches.",
+    "All small-object contact shadows are5px deep and stored only on ground; long projected shadows independent.",
+    "Current explicit Outputs-only PNG scope overrides generic project placement for this task; character animation hookup instructions do not apply to static props."
+  ]
+}

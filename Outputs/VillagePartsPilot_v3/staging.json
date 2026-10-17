@@ -1,0 +1,712 @@
+{
+  "status": "draft; contrast/repetition/alpha/mask passed; stone size and aspect incomplete",
+  "scope": "Outputs only; no Assets or Unity writes",
+  "repainted": [
+    "ground.png",
+    "walkable.png"
+  ],
+  "copied": [
+    {
+      "file": "inn.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "tree_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "tree_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "lamp_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "lamp_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "table_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "table_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "barrel_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "barrel_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "pot_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "pot_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "pot_c.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "layout.json",
+      "identical_to_v2": true
+    }
+  ],
+  "canvas": [
+    1920,
+    1080
+  ],
+  "ground_pivot": "same full-plate placement asv2; no importer modified",
+  "objects": [
+    {
+      "file": "inn.png",
+      "size": [
+        689,
+        531
+      ],
+      "foot": [
+        960,
+        600
+      ],
+      "pivot_in_png": [
+        265,
+        520
+      ],
+      "footprint": [
+        [
+          736,
+          583
+        ],
+        [
+          842,
+          552
+        ],
+        [
+          1351,
+          541
+        ],
+        [
+          1351,
+          571
+        ],
+        [
+          1242,
+          599
+        ]
+      ],
+      "anchors": {
+        "door": [
+          [
+            972,
+            615
+          ]
+        ],
+        "smoke": [
+          [
+            1240,
+            89
+          ]
+        ],
+        "light": [
+          [
+            896,
+            308
+          ],
+          [
+            1107,
+            308
+          ],
+          [
+            836,
+            471
+          ],
+          [
+            1125,
+            472
+          ]
+        ]
+      }
+    },
+    {
+      "file": "tree_a.png",
+      "size": [
+        362,
+        556
+      ],
+      "foot": [
+        410,
+        710
+      ],
+      "pivot_in_png": [
+        197,
+        547
+      ],
+      "footprint": [
+        [
+          387,
+          693
+        ],
+        [
+          423,
+          688
+        ],
+        [
+          437,
+          703
+        ],
+        [
+          428,
+          710
+        ],
+        [
+          390,
+          710
+        ]
+      ],
+      "anchors": {
+        "sway": [
+          [
+            408,
+            540
+          ]
+        ]
+      }
+    },
+    {
+      "file": "tree_b.png",
+      "size": [
+        332,
+        476
+      ],
+      "foot": [
+        1540,
+        635
+      ],
+      "pivot_in_png": [
+        188,
+        467
+      ],
+      "footprint": [
+        [
+          1521,
+          619
+        ],
+        [
+          1555,
+          615
+        ],
+        [
+          1564,
+          629
+        ],
+        [
+          1556,
+          635
+        ],
+        [
+          1522,
+          635
+        ]
+      ],
+      "anchors": {
+        "sway": [
+          [
+            1543,
+            511
+          ]
+        ]
+      }
+    },
+    {
+      "file": "lamp_a.png",
+      "size": [
+        81,
+        261
+      ],
+      "foot": [
+        665,
+        795
+      ],
+      "pivot_in_png": [
+        22,
+        253
+      ],
+      "footprint": [
+        [
+          652,
+          787
+        ],
+        [
+          677,
+          787
+        ],
+        [
+          679,
+          792
+        ],
+        [
+          665,
+          795
+        ],
+        [
+          651,
+          792
+        ]
+      ],
+      "anchors": {
+        "light": [
+          [
+            698,
+            613
+          ]
+        ]
+      }
+    },
+    {
+      "file": "lamp_b.png",
+      "size": [
+        78,
+        251
+      ],
+      "foot": [
+        1390,
+        850
+      ],
+      "pivot_in_png": [
+        21,
+        243
+      ],
+      "footprint": [
+        [
+          1378,
+          843
+        ],
+        [
+          1402,
+          843
+        ],
+        [
+          1404,
+          847
+        ],
+        [
+          1390,
+          850
+        ],
+        [
+          1376,
+          847
+        ]
+      ],
+      "anchors": {
+        "light": [
+          [
+            1421,
+            673
+          ]
+        ]
+      }
+    },
+    {
+      "file": "table_a.png",
+      "size": [
+        207,
+        108
+      ],
+      "foot": [
+        815,
+        810
+      ],
+      "pivot_in_png": [
+        103,
+        99
+      ],
+      "footprint": [
+        [
+          724,
+          792
+        ],
+        [
+          748,
+          786
+        ],
+        [
+          772,
+          796
+        ],
+        [
+          785,
+          786
+        ],
+        [
+          847,
+          786
+        ],
+        [
+          858,
+          795
+        ],
+        [
+          884,
+          787
+        ],
+        [
+          909,
+          794
+        ],
+        [
+          904,
+          805
+        ],
+        [
+          879,
+          806
+        ],
+        [
+          854,
+          801
+        ],
+        [
+          844,
+          810
+        ],
+        [
+          785,
+          810
+        ],
+        [
+          775,
+          800
+        ],
+        [
+          750,
+          806
+        ],
+        [
+          725,
+          805
+        ]
+      ],
+      "anchors": {}
+    },
+    {
+      "file": "table_b.png",
+      "size": [
+        192,
+        95
+      ],
+      "foot": [
+        1165,
+        750
+      ],
+      "pivot_in_png": [
+        96,
+        86
+      ],
+      "footprint": [
+        [
+          1078,
+          737
+        ],
+        [
+          1105,
+          728
+        ],
+        [
+          1129,
+          737
+        ],
+        [
+          1142,
+          724
+        ],
+        [
+          1192,
+          724
+        ],
+        [
+          1204,
+          738
+        ],
+        [
+          1230,
+          730
+        ],
+        [
+          1252,
+          738
+        ],
+        [
+          1249,
+          750
+        ],
+        [
+          1226,
+          750
+        ],
+        [
+          1204,
+          743
+        ],
+        [
+          1185,
+          750
+        ],
+        [
+          1143,
+          750
+        ],
+        [
+          1124,
+          743
+        ],
+        [
+          1100,
+          750
+        ],
+        [
+          1080,
+          750
+        ]
+      ],
+      "anchors": {}
+    },
+    {
+      "file": "barrel_a.png",
+      "size": [
+        72,
+        91
+      ],
+      "foot": [
+        813,
+        611
+      ],
+      "pivot_in_png": [
+        36,
+        82
+      ],
+      "footprint": [
+        [
+          791,
+          603
+        ],
+        [
+          813,
+          595
+        ],
+        [
+          835,
+          603
+        ],
+        [
+          835,
+          608
+        ],
+        [
+          813,
+          611
+        ],
+        [
+          791,
+          608
+        ]
+      ],
+      "anchors": {}
+    },
+    {
+      "file": "barrel_b.png",
+      "size": [
+        69,
+        88
+      ],
+      "foot": [
+        872,
+        615
+      ],
+      "pivot_in_png": [
+        35,
+        79
+      ],
+      "footprint": [
+        [
+          851,
+          607
+        ],
+        [
+          872,
+          599
+        ],
+        [
+          893,
+          607
+        ],
+        [
+          893,
+          612
+        ],
+        [
+          872,
+          615
+        ],
+        [
+          851,
+          612
+        ]
+      ],
+      "anchors": {}
+    },
+    {
+      "file": "pot_a.png",
+      "size": [
+        50,
+        56
+      ],
+      "foot": [
+        1030,
+        625
+      ],
+      "pivot_in_png": [
+        26,
+        48
+      ],
+      "footprint": [
+        [
+          1022,
+          620
+        ],
+        [
+          1038,
+          620
+        ],
+        [
+          1039,
+          623
+        ],
+        [
+          1035,
+          625
+        ],
+        [
+          1024,
+          625
+        ],
+        [
+          1021,
+          623
+        ]
+      ],
+      "anchors": {}
+    },
+    {
+      "file": "pot_b.png",
+      "size": [
+        54,
+        59
+      ],
+      "foot": [
+        1210,
+        645
+      ],
+      "pivot_in_png": [
+        29,
+        51
+      ],
+      "footprint": [
+        [
+          1201,
+          640
+        ],
+        [
+          1218,
+          640
+        ],
+        [
+          1220,
+          643
+        ],
+        [
+          1216,
+          645
+        ],
+        [
+          1204,
+          645
+        ],
+        [
+          1200,
+          643
+        ]
+      ],
+      "anchors": {}
+    },
+    {
+      "file": "pot_c.png",
+      "size": [
+        51,
+        54
+      ],
+      "foot": [
+        1110,
+        615
+      ],
+      "pivot_in_png": [
+        25,
+        46
+      ],
+      "footprint": [
+        [
+          1102,
+          611
+        ],
+        [
+          1118,
+          611
+        ],
+        [
+          1119,
+          613
+        ],
+        [
+          1115,
+          615
+        ],
+        [
+          1105,
+          615
+        ],
+        [
+          1101,
+          613
+        ]
+      ],
+      "anchors": {}
+    }
+  ],
+  "deliverable_hashes": {
+    "inn.png": "9af15d33b721515b9fe983e3360f193018ab339e96828ce425637b9ecd39252c",
+    "tree_a.png": "89077481c6782e5fcef159eb4fcbdeddbf5e58539c1490e94aafe7424625d0aa",
+    "tree_b.png": "db92f6736be929da6382fc4ac1128eeab1ff98e426904bf00e1ca5509403d773",
+    "lamp_a.png": "ba3eaca4c45582f5202229d3aef8c9eab87d4a1b27b4e28bb8eef68bc0154638",
+    "lamp_b.png": "a11d3082b6f3e3a4ee8c9219415df31d2632c3a81e5a0bd811d2e66185d85ed8",
+    "table_a.png": "1a695daaf10f1884f82bcf801ae64507fa72d1f223517ab9341a186ae62e44be",
+    "table_b.png": "df11e3b6d308526e50c0e351d2d89ed978d032ed560be1d1c4cf00e6d5a870e6",
+    "barrel_a.png": "0d053a3582a3ddc1a7f55a184b36d6acd1aca40ff44505af065a5dcf20f4dc1b",
+    "barrel_b.png": "1cfc5f4d1375b95cb54f0953836aa971597d6a23b967c0c753b8b10333e53563",
+    "pot_a.png": "b9c539cdadaf6cee733aa81f6886535a303394dffa52f5377ee41a6927a17b39",
+    "pot_b.png": "b91e621496ae1b1de04e84956faf8aa679e268f9830ee1341fd7d052068445f5",
+    "pot_c.png": "80ad65ce071fdf0e5d289e11dfdff97d1f94bedcc99741224f771bfb00441632",
+    "layout.json": "ba6b8177f6dce9277812b1768e20738d9c5e61402f2b231363468a16816ed554",
+    "ground.png": "833fbaf6c68f667fe64105f002495bf45e747ed11f0d3ba63ff3bb431bd4d84e",
+    "walkable.png": "36fbb23edd22a67f581c31c863fe82eb6a1f5fbfeba1ebbdfd399bfe5ea3f310",
+    "depth_test.png": "297e6c21a1805d0b9545f21f81241c42743a8222a4bf9cc3b19d61266501e1e4",
+    "v2_compare.png": "70202780d53efcb1faac29c3c70b2381da2e6303d43f0ca1df45860de92571f2",
+    "walkable_overlay.png": "f5cb8794fc9098fe875fc5de80606bf9a563011b4174dac1a307081a1433781c"
+  }
+}

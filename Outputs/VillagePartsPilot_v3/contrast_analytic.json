@@ -1,0 +1,9 @@
+{
+  "method": "8bit BT.601 grayscale round; signed original minus separable Gaussian sigma/radius4px, kernel+-16px, clamped boundary; population standard deviation",
+  "values": {
+    "ground.png": 17.154297494645114,
+    "ground_unshadowed.png": 17.019559247725052,
+    "../VillagePartsPilot_v2/ground.png": 41.5997269702236,
+    "../_reference/flagstone_size_test_45px.png": 7.27071203277247
+  }
+}

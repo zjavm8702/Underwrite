@@ -26,4 +26,22 @@ namespace Underwrite.Enumeration
         /// </summary>
         Activity_Enter
     }
+
+    /// <summary>
+    /// 영지에 선 사람이 무슨 자리에 있는가. 영지가 비어 보이지 않게 최대한 많이 세운다.
+    /// </summary>
+    public enum NpcRole
+    {
+        /// <summary>건물마다 한두 명. 문 앞 근처에 서 있다.</summary>
+        Role_Resident,
+
+        /// <summary>노점마다 한 명. 자리를 지킨다.</summary>
+        Role_Vendor,
+
+        /// <summary>
+        /// 모험단의 한 사람. 단 단위로 무리 지어 영지를 돌아다닌다.
+        /// 지하시장이 이들을 거래하지만 이들은 그것을 모른다. 설계안 §1-2.
+        /// </summary>
+        Role_Adventurer
+    }
 }

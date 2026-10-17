@@ -29,13 +29,27 @@ namespace Underwrite.UI
         private readonly Label Note;
         private readonly Label Count;
         private readonly Button Next;
+        private readonly VisualElement ChoiceBox;
 
         private readonly List<DialogueLine> Lines = new List<DialogueLine>();
+        private readonly List<DialogueChoice> ShownChoices = new List<DialogueChoice>();
 
         private Action OnDone;
         private Tween Running;
         private Sprite FigureShown;
         private int Index = -1;
+
+        // Play가 불릴 때마다 오른다. 선택지 안에서 대화가 이어졌는지 알아보는 데 쓴다.
+        private int PlayCount;
+
+        /// <summary>선택지가 떠 있어 고르기를 기다리는 중인가. 이때는 「다음」으로 넘길 수 없다.</summary>
+        public bool IsChoosing
+        {
+            get
+            {
+                return ShownChoices.Count > 0;
+            }
+        }
 
         /// <summary>지금 말하는 중인가.</summary>
         public bool IsOpen
@@ -76,6 +90,7 @@ namespace Underwrite.UI
             Note = built.Q<Label>("dialogue-note");
             Count = built.Q<Label>("dialogue-count");
             Next = built.Q<Button>("dialogue-next");
+            ChoiceBox = built.Q<VisualElement>("dialogue-choices");
 
             if (Next != null)
             {
@@ -125,12 +140,21 @@ namespace Underwrite.UI
                 Lines.Add(lines[i]);
             }
 
+            // 선택지를 고른 자리에서 이어 말하는 경우다. 상자를 다시 띄우면 깜빡이므로 그대로 둔다.
+            var continuing = IsOpen;
+
+            PlayCount++;
+            ClearChoices();
             OnDone = onDone;
             Index = 0;
-            FigureShown = null;
 
-            Veil.RemoveFromClassList("hidden");
-            PlayEnter();
+            if (continuing == false)
+            {
+                FigureShown = null;
+                Veil.RemoveFromClassList("hidden");
+                PlayEnter();
+            }
+
             Show();
         }
 
@@ -145,6 +169,12 @@ namespace Underwrite.UI
             if (Running != null && Running.IsActive() == true && Running.IsPlaying() == true)
             {
                 Running.Complete();
+                return;
+            }
+
+            // 고를 것이 있는 줄은 넘길 수 없다. 넘기면 아무것도 고르지 않은 채 대화가 끝난다.
+            if (HasChoices(Lines[Index]) == true)
+            {
                 return;
             }
 
@@ -165,9 +195,24 @@ namespace Underwrite.UI
             }
         }
 
+        /// <summary>
+        /// 떠 있는 선택지 가운데 하나를 고른다. 키보드 숫자 입력이 쓴다. 0부터 센다.
+        /// 선택지가 없거나, 아직 글자가 흐르는 중이거나, 잠긴 것이면 고르지 않고 false를 돌려준다.
+        /// </summary>
+        public bool TryPick(int index)
+        {
+            if (index < 0 || index >= ShownChoices.Count)
+            {
+                return false;
+            }
+
+            return Pick(ShownChoices[index]);
+        }
+
         public void Close()
         {
             KillRunning();
+            ClearChoices();
             Index = -1;
             Lines.Clear();
             OnDone = null;
@@ -200,10 +245,112 @@ namespace Underwrite.UI
             if (Next != null)
             {
                 Next.text = Index + 1 >= Lines.Count ? "끝" : "다음";
+                // 고르는 줄에서는 「다음」을 숨긴다. 둘 다 있으면 무엇을 누를지 망설인다.
+                Next.EnableInClassList("hidden", HasChoices(line));
             }
 
             ShowFigure(line.Portrait);
-            TypeOut(line.Text);
+            TypeOut(line.Text, HasChoices(line) == true ? line.Choices : null);
+        }
+
+        private static bool HasChoices(DialogueLine line)
+        {
+            return line != null && line.Choices != null && line.Choices.Count > 0;
+        }
+
+        /// <summary>
+        /// 선택지를 세운다. 글자가 다 흐른 뒤에 띄운다.
+        /// 말을 다 듣기 전에 고를 것이 보이면 읽지 않고 고른다.
+        /// </summary>
+        private void ShowChoices(List<DialogueChoice> choices)
+        {
+            ClearChoices();
+
+            if (ChoiceBox == null || choices == null)
+            {
+                return;
+            }
+
+            for (var i = 0; i < choices.Count; i++)
+            {
+                var choice = choices[i];
+
+                if (choice == null)
+                {
+                    continue;
+                }
+
+                ShownChoices.Add(choice);
+
+                var button = new Button();
+                button.AddToClassList("dialogue-choice");
+                button.EnableInClassList("dialogue-choice--locked", choice.IsEnabled == false);
+
+                // 번호를 붙여 둔다. 키보드 숫자로 고를 수 있다는 것을 따로 알려 줄 필요가 없다.
+                var text = new Label($"{ShownChoices.Count}. {choice.Text}");
+                text.AddToClassList("dialogue-choice-text");
+                button.Add(text);
+
+                if (string.IsNullOrEmpty(choice.Note) == false)
+                {
+                    var note = new Label(choice.Note);
+                    note.AddToClassList("dialogue-choice-note");
+                    button.Add(note);
+                }
+
+                button.clicked += () => Pick(choice);
+                ChoiceBox.Add(button);
+            }
+
+            ChoiceBox.EnableInClassList("hidden", ShownChoices.Count == 0);
+        }
+
+        private void ClearChoices()
+        {
+            ShownChoices.Clear();
+
+            if (ChoiceBox == null)
+            {
+                return;
+            }
+
+            ChoiceBox.Clear();
+            ChoiceBox.AddToClassList("hidden");
+        }
+
+        /// <summary>
+        /// 고른다. 고른 것의 할 일이 대화를 이어 가면(Play를 다시 부르면) 상자를 그대로 둔다.
+        /// 이어 가지 않으면 대화를 닫고 처음 Play에 넘긴 마무리를 부른다.
+        /// </summary>
+        private bool Pick(DialogueChoice choice)
+        {
+            if (choice == null || choice.IsEnabled == false || ShownChoices.Contains(choice) == false)
+            {
+                return false;
+            }
+
+            var before = PlayCount;
+            var done = OnDone;
+            ClearChoices();
+
+            if (choice.OnPicked != null)
+            {
+                choice.OnPicked();
+            }
+
+            if (PlayCount != before)
+            {
+                return true;
+            }
+
+            Close();
+
+            if (done != null)
+            {
+                done();
+            }
+
+            return true;
         }
 
         private void ShowFigure(Sprite portrait)
@@ -250,12 +397,13 @@ namespace Underwrite.UI
         /// 글자가 흘러나온다. 한 번에 다 뜨면 읽기 전에 눈이 먼저 지나간다.
         /// 넘기기를 누르면 즉시 끝까지 보여 주므로 기다릴 필요는 없다.
         /// </summary>
-        private void TypeOut(string text)
+        private void TypeOut(string text, List<DialogueChoice> choices)
         {
             KillRunning();
 
             if (Text == null)
             {
+                ShowChoices(choices);
                 return;
             }
 
@@ -276,6 +424,12 @@ namespace Underwrite.UI
                 Text.text = full.Substring(0, count);
             }, full.Length, full.Length * TYPE_PER_LETTER)
                 .SetEase(Ease.Linear).SetUpdate(true);
+
+            if (choices != null)
+            {
+                // 넘기기로 글자를 끝까지 보여 줘도 Complete가 이것을 부른다.
+                Running.OnComplete(() => ShowChoices(choices));
+            }
         }
 
         private void PlayEnter()

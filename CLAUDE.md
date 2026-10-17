@@ -42,8 +42,13 @@ Tools/codex-art.sh -n "<요청>"     # 호출 없이 보낼 프롬프트만 확�
 
 - **`codex exec`에는 `--ephemeral`이 필수다.** `~/.codex/thread_history_1.sqlite`가 400MB를 넘어 세션을 영속화하면 호출이 끝나지 않는다. `Tools/codex-run.sh`가 기본 적용하고, 이어서 질문하는 `-r`/`-R`에서만 영속화한다
 - **Codex에 넘기는 경로는 Windows 형식이어야 한다.** Git Bash의 `/tmp/...`는 `os error 123`이 난다. `Tools/codex-run.sh`가 `cygpath -w`로 변환한다
+- **Codex 납품물은 작업 완료 알림을 받은 뒤에 쓴다.** 파일이 폴더에 보여도 Codex는 아직 고치는 중일 수 있다. 시범 v1에서 마무리 전에 Unity로 옮겼다가 6장이 중간본으로 들어갔다
 - `.meta`·`.anim`·`.spriteLib`·`.controller`를 텍스트로 편집하지 않는다. Unity Editor API만 쓴다
-- 에디터 도구를 고치면 Unity 재컴파일이 필요하다. 나는 컴파일 결과를 볼 수 없으니 사용자에게 콘솔 확인을 요청한다
+- **실행 중인 Unity 에디터를 `unity command`로 직접 다룬다** (`com.unity.pipeline` 패키지). 에디터가 열려 있어야 한다
+  - 상태: `unity command --no-banner --json editor_status`
+  - 컴파일 확인: `eval --code 'UnityEditor.AssetDatabase.Refresh(); return true;'`로 새 파일을 들이고, `console_status`의 `groundTruth.compilationFailed`·`consoleErrors`를 본다. `console --level warn`이면 내용까지 나온다
+  - 그 밖에 `editor_play`/`editor_stop`, `screenshot`, `menu`(메뉴 실행), `eval`(C# 한 토막)이 있다. 목록은 `unity command --no-banner`
+  - 문서: `Library/PackageCache/com.unity.pipeline@*/Documentation~/`
 - `Assets/Scripts`의 시험용 스크립트는 코드 규칙의 평가 대상이 아니다. `Documents/Claude/Underwrite_코드_작업규칙.md` §13 참고
 
 ## 검수 자세

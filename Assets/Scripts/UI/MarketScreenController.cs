@@ -5,6 +5,7 @@ using Underwrite.Data;
 using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
+using Underwrite.Patronage;
 using Underwrite.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -201,6 +202,17 @@ namespace Underwrite.UI
                 return;
             }
 
+            // 영지에 다녀왔다. 이미 돌고 있는 시장을 이어 받는다. 새로 만들면 모든 것이 처음으로 돌아간다.
+            if (BreakClock.Simulation != null)
+            {
+                Sim = BreakClock.Simulation;
+                BreakClock.Current = Sim.Clock;
+                Sim.PlayerAtMarket = true;
+                SelectedId = Sim.Stocks.Count > 0 ? Sim.Stocks[0].Id : null;
+                ResetViewState();
+                return;
+            }
+
             // 표의 수치를 먼저 덮어쓴다. 시뮬레이션을 만든 뒤에 하면 시작 자금이 이미 정해져 있다.
             if (Data != null)
             {
@@ -208,6 +220,7 @@ namespace Underwrite.UI
             }
 
             Sim = new MarketSimulation(Seed, Constants.STARTING_CASH);
+            BreakClock.Simulation = Sim;
 
             // 영지도 같은 시계를 본다. 각자 들면 시각이 어긋난다.
             BreakClock.Current = Sim.Clock;
@@ -641,6 +654,7 @@ namespace Underwrite.UI
                 Sim.Clock.EndBreak();
                 ReportSkippedSessions();
                 Sim.OpenNextSession(IsInspectionDay);
+                CheckPatronageDeadlines();
 
                 var brought = Sim.ApplyGatherSession();
 
@@ -650,7 +664,7 @@ namespace Underwrite.UI
                         Side, true);
                 }
 
-                GatherSession.BeginBreak(Sim.NextBriefingSlot);
+                GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
                 ResetViewState();
                 Message = string.Format(StringConstants.TEXT_SESSION_OPENED,
                     SessionName(Sim.Clock.Session));
@@ -752,9 +766,26 @@ namespace Underwrite.UI
                 return;
             }
 
-            GatherSession.BeginBreak(Sim.NextBriefingSlot);
+            GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
             Sim.Clock.BeginBreak();
             SceneManager.LoadScene(SceneRoutes.VILLAGE);
+        }
+
+        /// <summary>
+        /// 날이 바뀌었으면 어제로 끝난 용사단 사정의 기한을 확인한다.
+        /// 영지에서 잠자리에 들지 않고 거래소에서만 날을 넘겨도 기한은 흐른다. 이미 확인한 날은 다시 세지 않는다.
+        /// </summary>
+        private void CheckPatronageDeadlines()
+        {
+            if (Sim.Clock.Session != MarketSession.Session_Morning)
+            {
+                return;
+            }
+
+            if (PatronageLedger.EndOfDay(Sim.Clock.Day - 1) > 0)
+            {
+                ShowToast(StringConstants.TEXT_HERO_PARTY, StringConstants.TEXT_DAY_END_COLLAPSE, Side, false);
+            }
         }
 
         /// <summary>장이 닫혀 있을 때만 영지로 나갈 수 있다.</summary>

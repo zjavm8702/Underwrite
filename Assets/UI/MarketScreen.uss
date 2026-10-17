@@ -1375,7 +1375,8 @@
     flex-grow: 1;
     flex-shrink: 1;
     min-height: 420px;
-    max-height: 560px;
+    /* 선택지가 넷이면 560px를 넘는다. 잘리면 마지막 선택지(그냥 간다)를 못 누른다. */
+    max-height: 900px;
     margin-left: 48px;
     background-color: var(--color-panel);
     border-radius: 18px;
@@ -1425,6 +1426,55 @@
     margin-left: 12px;
     background-color: var(--color-text);
     color: var(--color-panel);
+}
+
+/* 선택지. 말 상자 아래에 세로로 쌓는다.
+   번호를 앞에 붙여 키보드 숫자로도 고를 수 있게 한다. */
+.dialogue-choices {
+    margin-top: 12px;
+}
+
+.dialogue-choice {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: var(--color-divider);
+    background-color: var(--color-panel);
+}
+
+.dialogue-choice:hover {
+    border-color: var(--color-text);
+}
+
+.dialogue-choice-text {
+    font-size: 22px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+    white-space: normal;
+}
+
+.dialogue-choice-note {
+    font-size: 15px;
+    color: var(--color-text-weak);
+    white-space: normal;
+    margin-top: 2px;
+}
+
+/* 고를 수 없는 것도 숨기지 않는다. 흐리게 두고 이유를 적는다. */
+.dialogue-choice--locked {
+    opacity: 0.45;
+}
+
+.dialogue-choice--locked:hover {
+    border-color: var(--color-divider);
 }
 
 /* 거래소로 돌아가는 단추. 영지 화면 오른쪽 아래에 둔다. */

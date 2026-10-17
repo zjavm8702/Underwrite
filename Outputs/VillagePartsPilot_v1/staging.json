@@ -1,0 +1,147 @@
+{
+  "status": "PNG draft finalized; user visual approval pending",
+  "finalized_utc": "2026-10-17T04:36:48.724Z",
+  "write_scope": [
+    "Outputs/VillagePartsPilot_v1/",
+    "Documents/Codex/Underwrite_영지_그림배경_제작기준.md"
+  ],
+  "assets_written_by_this_task": false,
+  "unity_connected_by_this_task": false,
+  "production_png_count": 14,
+  "static_object_count": 12,
+  "manifest": [
+    {
+      "file": "ground.png",
+      "path": "Outputs/VillagePartsPilot_v1/ground.png",
+      "sha256": "eda47bf16536dbf6e1b9024831c68f4f6dc8f02936daf5ccde7b11f5bc5f1f91"
+    },
+    {
+      "file": "walkable.png",
+      "path": "Outputs/VillagePartsPilot_v1/walkable.png",
+      "sha256": "b5fc8367fbe00f1a3aa625c5484c21e19d2153d0806555797e836c2d19fe2cbb"
+    },
+    {
+      "file": "layout.json",
+      "path": "Outputs/VillagePartsPilot_v1/layout.json",
+      "sha256": "cf70bcef008d092fc48616c4fdad9afa1ba3299ce515a3a4a519fc0f214e0503"
+    },
+    {
+      "file": "inn.png",
+      "path": "Outputs/VillagePartsPilot_v1/inn.png",
+      "sha256": "9af15d33b721515b9fe983e3360f193018ab339e96828ce425637b9ecd39252c"
+    },
+    {
+      "file": "tree_a.png",
+      "path": "Outputs/VillagePartsPilot_v1/tree_a.png",
+      "sha256": "89077481c6782e5fcef159eb4fcbdeddbf5e58539c1490e94aafe7424625d0aa"
+    },
+    {
+      "file": "tree_b.png",
+      "path": "Outputs/VillagePartsPilot_v1/tree_b.png",
+      "sha256": "db92f6736be929da6382fc4ac1128eeab1ff98e426904bf00e1ca5509403d773"
+    },
+    {
+      "file": "lamp_a.png",
+      "path": "Outputs/VillagePartsPilot_v1/lamp_a.png",
+      "sha256": "ba3eaca4c45582f5202229d3aef8c9eab87d4a1b27b4e28bb8eef68bc0154638"
+    },
+    {
+      "file": "lamp_b.png",
+      "path": "Outputs/VillagePartsPilot_v1/lamp_b.png",
+      "sha256": "a11d3082b6f3e3a4ee8c9219415df31d2632c3a81e5a0bd811d2e66185d85ed8"
+    },
+    {
+      "file": "table_a.png",
+      "path": "Outputs/VillagePartsPilot_v1/table_a.png",
+      "sha256": "1a695daaf10f1884f82bcf801ae64507fa72d1f223517ab9341a186ae62e44be"
+    },
+    {
+      "file": "table_b.png",
+      "path": "Outputs/VillagePartsPilot_v1/table_b.png",
+      "sha256": "df11e3b6d308526e50c0e351d2d89ed978d032ed560be1d1c4cf00e6d5a870e6"
+    },
+    {
+      "file": "barrel_a.png",
+      "path": "Outputs/VillagePartsPilot_v1/barrel_a.png",
+      "sha256": "408e8e749b1d435e34a397dc5287bd57e1d28361a48d6161b584d1f2b73792cc"
+    },
+    {
+      "file": "barrel_b.png",
+      "path": "Outputs/VillagePartsPilot_v1/barrel_b.png",
+      "sha256": "9ac74398eebf3624d0936b2b2282e835ef8969c06109fcb133b8273abf3649d1"
+    },
+    {
+      "file": "pot_a.png",
+      "path": "Outputs/VillagePartsPilot_v1/pot_a.png",
+      "sha256": "b9c539cdadaf6cee733aa81f6886535a303394dffa52f5377ee41a6927a17b39"
+    },
+    {
+      "file": "pot_b.png",
+      "path": "Outputs/VillagePartsPilot_v1/pot_b.png",
+      "sha256": "b91e621496ae1b1de04e84956faf8aa679e268f9830ee1341fd7d052068445f5"
+    },
+    {
+      "file": "pot_c.png",
+      "path": "Outputs/VillagePartsPilot_v1/pot_c.png",
+      "sha256": "80ad65ce071fdf0e5d289e11dfdff97d1f94bedcc99741224f771bfb00441632"
+    },
+    {
+      "file": "assembled.png",
+      "path": "Outputs/VillagePartsPilot_v1/assembled.png",
+      "sha256": "71981235e322a657c164ff8cd3a0e529b59c8f6ec71580915721d9f08cae6ffc"
+    },
+    {
+      "file": "depth_test.png",
+      "path": "Outputs/VillagePartsPilot_v1/depth_test.png",
+      "sha256": "2552771495d60b41159390021cc2a6d357e0acb61e3af0c9c930816180b5996f"
+    },
+    {
+      "file": "v2_compare.png",
+      "path": "Outputs/VillagePartsPilot_v1/v2_compare.png",
+      "sha256": "fc856dbbdf84a4d7800158b0d8e231a24a3014af521cd0339dc5ced18b470749"
+    },
+    {
+      "file": "door_scale_check.png",
+      "path": "Outputs/VillagePartsPilot_v1/door_scale_check.png",
+      "sha256": "d1215ece44bb76988a8b47788b9b05beced7587ec3227a57c3fccee7a4129f01"
+    }
+  ],
+  "external_assets_readonly_comparison": [
+    {
+      "file": "ground.png",
+      "same": false,
+      "output_sha256": "eda47bf16536dbf6e1b9024831c68f4f6dc8f02936daf5ccde7b11f5bc5f1f91",
+      "external_assets_sha256": "172b5abf328db79bca22fd3f26feb7508c04c5a1ec86160367e4bfd9d6432b6e"
+    },
+    {
+      "file": "tree_a.png",
+      "same": false,
+      "output_sha256": "89077481c6782e5fcef159eb4fcbdeddbf5e58539c1490e94aafe7424625d0aa",
+      "external_assets_sha256": "d8e29374b5d31369a498c921623e6229be97834a73f712ca3315e5ba28939110"
+    },
+    {
+      "file": "lamp_b.png",
+      "same": false,
+      "output_sha256": "a11d3082b6f3e3a4ee8c9219415df31d2632c3a81e5a0bd811d2e66185d85ed8",
+      "external_assets_sha256": "e0e4edc39fccb19f1f50701c797a1a975ad3d28f4d90519db6c38380b983e7bb"
+    },
+    {
+      "file": "barrel_a.png",
+      "same": false,
+      "output_sha256": "408e8e749b1d435e34a397dc5287bd57e1d28361a48d6161b584d1f2b73792cc",
+      "external_assets_sha256": "2ce38f6d1d0b4c867fffa3e93a2903b4074b69f10d5b178eee4b940e7e7d997a"
+    },
+    {
+      "file": "barrel_b.png",
+      "same": false,
+      "output_sha256": "9ac74398eebf3624d0936b2b2282e835ef8969c06109fcb133b8273abf3649d1",
+      "external_assets_sha256": "84781e95dd96b52bdeedbf90f8a3d3b05272c05aeab0b1abed59bd5049d8b2a2"
+    },
+    {
+      "file": "pot_a.png",
+      "same": false,
+      "output_sha256": "b9c539cdadaf6cee733aa81f6886535a303394dffa52f5377ee41a6927a17b39",
+      "external_assets_sha256": "db487d116c11aa975a19e08371c357dcdd5fbf3593e520d095b76fe89232ac34"
+    }
+  ]
+}

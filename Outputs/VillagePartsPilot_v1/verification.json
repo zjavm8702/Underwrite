@@ -1,0 +1,1619 @@
+{
+  "status": "draft, numeric QA plus visual review complete",
+  "alpha_threshold": 32,
+  "connectivity": 8,
+  "files": [
+    {
+      "file": "assembled.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        2073600
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "barrel_a.png",
+      "size": [
+        72,
+        91
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        3642
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 2910,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 23,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "barrel_b.png",
+      "size": [
+        69,
+        88
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        3334
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 2738,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 21,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "depth_test.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        2073600
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "door_detail.png",
+      "size": [
+        220,
+        230
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        50131
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 469,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 140,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 726,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 0
+    },
+    {
+      "file": "door_scale_check.png",
+      "size": [
+        330,
+        270
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        89100
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 1196,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "edge_review.png",
+      "size": [
+        1440,
+        600
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        864000
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 4076,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "ground.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        2073600
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "classification": "production_plate",
+      "min_alpha": 255
+    },
+    {
+      "file": "ground_detail.png",
+      "size": [
+        500,
+        200
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        100000
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 1396,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "ground_unshadowed.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        2073600
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "inn.png",
+      "size": [
+        689,
+        531
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        284624
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 81235,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 1907,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "lamp_a.png",
+      "size": [
+        81,
+        261
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        3530
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 17611,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 232,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "lamp_b.png",
+      "size": [
+        78,
+        251
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        3362
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 16216,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 211,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "layout_overlay.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        2073600
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "person_135.png",
+      "size": [
+        52,
+        135
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        4142
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 2878,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 224,
+      "partial_alpha_more_than2px_inside": 10,
+      "canvas_contact_pixels": 22,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 0
+    },
+    {
+      "file": "pot_a.png",
+      "size": [
+        50,
+        56
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        724
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 2076,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 6,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "pot_b.png",
+      "size": [
+        54,
+        59
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        1078
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 2108,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 5,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "pot_c.png",
+      "size": [
+        51,
+        54
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        831
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 1923,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 7,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "table_a.png",
+      "size": [
+        207,
+        108
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        9574
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 12782,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 248,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "table_b.png",
+      "size": [
+        192,
+        95
+      ],
+      "alpha_components": 3,
+      "component_areas": [
+        4012,
+        1918,
+        1914
+      ],
+      "expected_components": 3,
+      "unexpected_components": 0,
+      "transparent_pixels": 10396,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 209,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "tree_a.png",
+      "size": [
+        362,
+        556
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        95723
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 105549,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 3527,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "tree_b.png",
+      "size": [
+        332,
+        476
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        76638
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 81394,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 1518,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "classification": "production_object",
+      "min_alpha": 0
+    },
+    {
+      "file": "v2_compare.png",
+      "size": [
+        2016,
+        700
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        1411200
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5428,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "v2_inn_detail.png",
+      "size": [
+        1000,
+        650
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        650000
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 3296,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "VillagePartsPilot_preview.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        2073600
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "classification": "QA_preview_or_reference",
+      "min_alpha": 255
+    },
+    {
+      "file": "walkable.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_components": 1,
+      "component_areas": [
+        2073600
+      ],
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "transparent_pixels": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "partial_alpha_pixels": 0,
+      "partial_alpha_more_than2px_inside": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "classification": "production_plate",
+      "min_alpha": 255
+    }
+  ],
+  "scales": [
+    {
+      "name": "door_outer_frame_height",
+      "px": 173.68,
+      "person_ratio": 1.2865185185185186,
+      "allowed_px": [
+        162,
+        176
+      ],
+      "pass": true,
+      "detail": {
+        "source_endpoints": [
+          [
+            650,
+            588
+          ],
+          [
+            650,
+            922
+          ]
+        ],
+        "scale": 0.52
+      }
+    },
+    {
+      "name": "inn_front_step_to_roof_ridge",
+      "px": 479.96,
+      "person_ratio": 3.555259259259259,
+      "allowed_px": [
+        473,
+        608
+      ],
+      "pass": true,
+      "detail": {
+        "source_endpoints": [
+          [
+            1205,
+            67
+          ],
+          [
+            628,
+            990
+          ]
+        ],
+        "scale": 0.52,
+        "excluded": "chimney and decorative finial",
+        "full_silhouette_height": 515
+      }
+    },
+    {
+      "name": "first_floor_window_sill_left",
+      "px": 72.8,
+      "person_ratio": 0.5392592592592592,
+      "allowed_px": [
+        68,
+        81
+      ],
+      "pass": true,
+      "detail": {
+        "source_sill_y": 827,
+        "wall_ground_y": 967,
+        "scale": 0.52
+      }
+    },
+    {
+      "name": "first_floor_window_sill_right",
+      "px": 72.28,
+      "person_ratio": 0.5354074074074074,
+      "allowed_px": [
+        68,
+        81
+      ],
+      "pass": true,
+      "detail": {
+        "source_sill_y": 828,
+        "wall_ground_y": 967,
+        "scale": 0.52
+      }
+    },
+    {
+      "name": "tree_a_silhouette_height",
+      "px": 540,
+      "person_ratio": 4,
+      "allowed_px": [
+        405,
+        675
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          353,
+          547
+        ],
+        "plants_included": false
+      }
+    },
+    {
+      "name": "tree_b_silhouette_height",
+      "px": 460,
+      "person_ratio": 3.4074074074074074,
+      "allowed_px": [
+        405,
+        675
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          323,
+          467
+        ],
+        "plants_included": false
+      }
+    },
+    {
+      "name": "lamp_a_silhouette_height",
+      "px": 245,
+      "person_ratio": 1.8148148148148149,
+      "allowed_px": [
+        216,
+        270
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          72,
+          252
+        ],
+        "plants_included": false
+      }
+    },
+    {
+      "name": "lamp_b_silhouette_height",
+      "px": 235,
+      "person_ratio": 1.7407407407407407,
+      "allowed_px": [
+        216,
+        270
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          69,
+          242
+        ],
+        "plants_included": false
+      }
+    },
+    {
+      "name": "barrel_a_silhouette_height",
+      "px": 75,
+      "person_ratio": 0.5555555555555556,
+      "allowed_px": [
+        68,
+        81
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          63,
+          82
+        ],
+        "plants_included": false
+      }
+    },
+    {
+      "name": "barrel_b_silhouette_height",
+      "px": 72,
+      "person_ratio": 0.5333333333333333,
+      "allowed_px": [
+        68,
+        81
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          60,
+          79
+        ],
+        "plants_included": false
+      }
+    },
+    {
+      "name": "pot_a_silhouette_height",
+      "px": 40,
+      "person_ratio": 0.2962962962962963,
+      "allowed_px": [
+        34,
+        47
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          41,
+          47
+        ],
+        "plants_included": true
+      }
+    },
+    {
+      "name": "pot_b_silhouette_height",
+      "px": 43,
+      "person_ratio": 0.31851851851851853,
+      "allowed_px": [
+        34,
+        47
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          45,
+          50
+        ],
+        "plants_included": true
+      }
+    },
+    {
+      "name": "pot_c_silhouette_height",
+      "px": 38,
+      "person_ratio": 0.2814814814814815,
+      "allowed_px": [
+        34,
+        47
+      ],
+      "pass": true,
+      "detail": {
+        "bbox_xyxy": [
+          8,
+          8,
+          42,
+          45
+        ],
+        "plants_included": true
+      }
+    },
+    {
+      "name": "table_a_surface_height",
+      "px": 57.948,
+      "person_ratio": 0.42924444444444443,
+      "allowed_px": [
+        54,
+        61
+      ],
+      "pass": true,
+      "detail": {
+        "source_ellipse": [
+          426,
+          270,
+          1075,
+          612
+        ],
+        "source_foot_y": 880,
+        "method": "foot to horizontal tabletop center",
+        "scale": 0.132
+      }
+    },
+    {
+      "name": "table_b_surface_height",
+      "px": 58.032,
+      "person_ratio": 0.4298666666666666,
+      "allowed_px": [
+        54,
+        61
+      ],
+      "pass": true,
+      "detail": {
+        "source_ellipse": [
+          443,
+          210,
+          1096,
+          534
+        ],
+        "source_foot_y": 840,
+        "method": "foot to horizontal tabletop center",
+        "scale": 0.124
+      }
+    },
+    {
+      "name": "ground_stone_sample_1",
+      "px": 18,
+      "person_ratio": 0.13333333333333333,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          913,
+          853
+        ],
+        "end": [
+          930,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_2",
+      "px": 21,
+      "person_ratio": 0.15555555555555556,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          933,
+          853
+        ],
+        "end": [
+          953,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_3",
+      "px": 19,
+      "person_ratio": 0.14074074074074075,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          957,
+          853
+        ],
+        "end": [
+          975,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_4",
+      "px": 20,
+      "person_ratio": 0.14814814814814814,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          978,
+          853
+        ],
+        "end": [
+          997,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_5",
+      "px": 19,
+      "person_ratio": 0.14074074074074075,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          1001,
+          853
+        ],
+        "end": [
+          1019,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_6",
+      "px": 23,
+      "person_ratio": 0.17037037037037037,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          1023,
+          853
+        ],
+        "end": [
+          1045,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_7",
+      "px": 21,
+      "person_ratio": 0.15555555555555556,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          1048,
+          853
+        ],
+        "end": [
+          1068,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_8",
+      "px": 22,
+      "person_ratio": 0.16296296296296298,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          1071,
+          853
+        ],
+        "end": [
+          1092,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_9",
+      "px": 21,
+      "person_ratio": 0.15555555555555556,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          1096,
+          853
+        ],
+        "end": [
+          1116,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    },
+    {
+      "name": "ground_stone_sample_10",
+      "px": 20,
+      "person_ratio": 0.14814814814814814,
+      "allowed_px": [
+        17,
+        23
+      ],
+      "pass": true,
+      "detail": {
+        "start": [
+          1120,
+          853
+        ],
+        "end": [
+          1139,
+          853
+        ],
+        "method": "ten consecutive full stone bright-face spans; final ground row853, luminance>.165*1000, excluding mortar; inspect ground_detail.png",
+        "uncertainty_px": 1
+      }
+    }
+  ],
+  "perspective": [
+    {
+      "file": "table_a.png",
+      "source_box_xyxy": [
+        426,
+        270,
+        1075,
+        612
+      ],
+      "width": 649,
+      "height": 342,
+      "ratio": 0.5269645608628659,
+      "allowed": [
+        0.45,
+        0.55
+      ],
+      "pass": true,
+      "note": "horizontal surface only, excluding vertical rim thickness; manual source boundary approx2px uncertainty"
+    },
+    {
+      "file": "table_b.png",
+      "source_box_xyxy": [
+        443,
+        210,
+        1096,
+        534
+      ],
+      "width": 653,
+      "height": 324,
+      "ratio": 0.49617151607963245,
+      "allowed": [
+        0.45,
+        0.55
+      ],
+      "pass": true,
+      "note": "horizontal surface only, excluding vertical rim thickness; manual source boundary approx2px uncertainty"
+    },
+    {
+      "file": "barrel_a.png",
+      "source_box_xyxy": [
+        190,
+        125,
+        943,
+        496
+      ],
+      "width": 753,
+      "height": 371,
+      "ratio": 0.49269588313413015,
+      "allowed": [
+        0.45,
+        0.55
+      ],
+      "pass": true,
+      "note": "horizontal surface only, excluding vertical rim thickness; manual source boundary approx2px uncertainty"
+    },
+    {
+      "file": "barrel_b.png",
+      "source_box_xyxy": [
+        189,
+        125,
+        943,
+        487
+      ],
+      "width": 754,
+      "height": 362,
+      "ratio": 0.48010610079575594,
+      "allowed": [
+        0.45,
+        0.55
+      ],
+      "pass": true,
+      "note": "horizontal surface only, excluding vertical rim thickness; manual source boundary approx2px uncertainty"
+    }
+  ],
+  "resolutions": [
+    {
+      "file": "inn.png",
+      "generation": [
+        1536,
+        1024
+      ],
+      "source_bbox_xyxy": [
+        133,
+        6,
+        1427,
+        995
+      ],
+      "source_crop": [
+        1295,
+        990
+      ],
+      "art_scale": 0.52,
+      "final": [
+        689,
+        531
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "tree_a.png",
+      "generation": [
+        1009,
+        1558
+      ],
+      "source_bbox_xyxy": [
+        30,
+        35,
+        981,
+        1519
+      ],
+      "source_crop": [
+        952,
+        1485
+      ],
+      "art_scale": 0.36363636363636365,
+      "final": [
+        362,
+        556
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "tree_b.png",
+      "generation": [
+        1013,
+        1552
+      ],
+      "source_bbox_xyxy": [
+        29,
+        87,
+        997,
+        1498
+      ],
+      "source_crop": [
+        969,
+        1412
+      ],
+      "art_scale": 0.32577903682719545,
+      "final": [
+        332,
+        476
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "lamp_a.png",
+      "generation": [
+        811,
+        1940
+      ],
+      "source_bbox_xyxy": [
+        189,
+        17,
+        681,
+        1887
+      ],
+      "source_crop": [
+        493,
+        1871
+      ],
+      "art_scale": 0.13094601817210047,
+      "final": [
+        81,
+        261
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "lamp_b.png",
+      "generation": [
+        818,
+        1923
+      ],
+      "source_bbox_xyxy": [
+        212,
+        63,
+        682,
+        1849
+      ],
+      "source_crop": [
+        471,
+        1787
+      ],
+      "art_scale": 0.1315053161723559,
+      "final": [
+        78,
+        251
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "table_a.png",
+      "generation": [
+        1499,
+        1049
+      ],
+      "source_bbox_xyxy": [
+        28,
+        188,
+        1471,
+        882
+      ],
+      "source_crop": [
+        1444,
+        695
+      ],
+      "art_scale": 0.132,
+      "final": [
+        207,
+        108
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "table_b.png",
+      "generation": [
+        1536,
+        1024
+      ],
+      "source_bbox_xyxy": [
+        61,
+        208,
+        1477,
+        845
+      ],
+      "source_crop": [
+        1417,
+        638
+      ],
+      "art_scale": 0.124,
+      "final": [
+        192,
+        95
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "barrel_a.png",
+      "generation": [
+        1134,
+        1387
+      ],
+      "source_bbox_xyxy": [
+        133,
+        123,
+        1001,
+        1278
+      ],
+      "source_crop": [
+        869,
+        1156
+      ],
+      "art_scale": 0.06487889273356401,
+      "final": [
+        72,
+        91
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "barrel_b.png",
+      "generation": [
+        1134,
+        1387
+      ],
+      "source_bbox_xyxy": [
+        147,
+        123,
+        988,
+        1271
+      ],
+      "source_crop": [
+        842,
+        1149
+      ],
+      "art_scale": 0.06266318537859007,
+      "final": [
+        69,
+        88
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "pot_a.png",
+      "generation": [
+        1330,
+        1182
+      ],
+      "source_bbox_xyxy": [
+        235,
+        75,
+        1099,
+        1082
+      ],
+      "source_crop": [
+        865,
+        1008
+      ],
+      "art_scale": 0.03968253968253968,
+      "final": [
+        50,
+        56
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "pot_b.png",
+      "generation": [
+        1244,
+        1264
+      ],
+      "source_bbox_xyxy": [
+        180,
+        147,
+        1037,
+        1120
+      ],
+      "source_crop": [
+        858,
+        974
+      ],
+      "art_scale": 0.044147843942505136,
+      "final": [
+        54,
+        59
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "pot_c.png",
+      "generation": [
+        1297,
+        1212
+      ],
+      "source_bbox_xyxy": [
+        222,
+        127,
+        1075,
+        1063
+      ],
+      "source_crop": [
+        854,
+        937
+      ],
+      "art_scale": 0.04055496264674493,
+      "final": [
+        51,
+        54
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "ground.png",
+      "generation": [
+        1672,
+        941
+      ],
+      "source_crop": [
+        400,
+        300
+      ],
+      "art_scale": 0.8,
+      "final": [
+        1920,
+        1080
+      ],
+      "method": "AI ground texture crop downsampled to320x240 then wrap tiled with24px blend; shadows projected from sprite alpha at fixed layout; no upscaling"
+    }
+  ],
+  "depth_tests": [
+    {
+      "name": "door",
+      "foot": [
+        971,
+        627
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occluded_fraction": 0,
+      "foot_is_walkable": true
+    },
+    {
+      "name": "lamp_behind",
+      "foot": [
+        668,
+        784
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 906,
+      "occluded_fraction": 0.21873491067117334,
+      "foot_is_walkable": true
+    },
+    {
+      "name": "lamp_front",
+      "foot": [
+        1390,
+        869
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occluded_fraction": 0,
+      "foot_is_walkable": true
+    },
+    {
+      "name": "tree_trunk_behind",
+      "foot": [
+        418,
+        682
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 2307,
+      "occluded_fraction": 0.5569773056494447,
+      "foot_is_walkable": true
+    },
+    {
+      "name": "table_side",
+      "foot": [
+        940,
+        816
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occluded_fraction": 0,
+      "foot_is_walkable": true
+    }
+  ],
+  "notes": [
+    "Approval pending: environment pilot, not approved entire village standard.",
+    "Original instructions full Unity animation workflow applies to character animations; current explicit request is PNG only.",
+    "Existing environment document single-image collision and giant paving instructions superseded for this pilot by latest user request.",
+    "Manual table surface height is ground-to-horizontal-center; rim front lip is not used.",
+    "Rejected first barrel lids failed perspective; camera guide used to regenerate. Final surface measurements pass."
+  ],
+  "walkable": {
+    "values": [
+      0,
+      255
+    ],
+    "footprint_mismatch_pixels": 0,
+    "blocked": 33643,
+    "total": 2073600,
+    "canopy_blocking": false,
+    "walkable_percent": 98.37755594135803
+  },
+  "v2_compare": {
+    "left": "accepted v2 crop [200,100,1000,700] at native 1:1, not resized",
+    "right": "pilot crop [520,30,1000,700] at native1:1",
+    "person_height_both": 135,
+    "v2_dimensions": [
+      3840,
+      2160
+    ],
+    "note": "v2 is3840x2160 world; do not downscale to1920 for comparison"
+  },
+  "meta": {
+    "before": 522,
+    "after": 547,
+    "unchanged": 522,
+    "changed": [],
+    "added": [
+      "Assets/Editor/Prototype/VillagePartsSetup.cs.meta",
+      "Assets/Editor/Utility/MiniJson.cs.meta",
+      "Assets/Editor/Utility.meta",
+      "Assets/Images/Village/Fx/smoke_puff.png.meta",
+      "Assets/Images/Village/Fx.meta",
+      "Assets/Images/Village/PartsPilot/barrel_a.png.meta",
+      "Assets/Images/Village/PartsPilot/barrel_b.png.meta",
+      "Assets/Images/Village/PartsPilot/ground.png.meta",
+      "Assets/Images/Village/PartsPilot/inn.png.meta",
+      "Assets/Images/Village/PartsPilot/lamp_a.png.meta",
+      "Assets/Images/Village/PartsPilot/lamp_b.png.meta",
+      "Assets/Images/Village/PartsPilot/pot_a.png.meta",
+      "Assets/Images/Village/PartsPilot/pot_b.png.meta",
+      "Assets/Images/Village/PartsPilot/pot_c.png.meta",
+      "Assets/Images/Village/PartsPilot/table_a.png.meta",
+      "Assets/Images/Village/PartsPilot/table_b.png.meta",
+      "Assets/Images/Village/PartsPilot/tree_a.png.meta",
+      "Assets/Images/Village/PartsPilot/tree_b.png.meta",
+      "Assets/Images/Village/PartsPilot.meta",
+      "Assets/Images/Village.meta",
+      "Assets/Scenes/VillagePartsPilot.unity.meta",
+      "Assets/Scripts/Village/LampFlicker.cs.meta",
+      "Assets/Scripts/Village/PartSway.cs.meta",
+      "Assets/Scripts/Village/YSortRenderer.cs.meta",
+      "Assets/Scripts/Village.meta"
+    ],
+    "deleted": []
+  },
+  "v2_preserved": {
+    "village_ground.png": {
+      "before": "ba424e495d6c944511f0b879fd8ce31e5b9a591a46f30d84e7f7e8ef6674e8b6",
+      "after": "ba424e495d6c944511f0b879fd8ce31e5b9a591a46f30d84e7f7e8ef6674e8b6",
+      "unchanged": true
+    },
+    "village_walkable.png": {
+      "before": "dde72e8a282fb609be62d5d22ba81620f0c08158448db942bb712d51c683974e",
+      "after": "dde72e8a282fb609be62d5d22ba81620f0c08158448db942bb712d51c683974e",
+      "unchanged": true
+    }
+  },
+  "assembly_visual": {
+    "holes_or_ghost_objects": "none found; unshadowed plate contains only continuous generated paving",
+    "fixed_shadows": "lower right projected silhouettes baked to ground; intentional traces remain when removing a fixed part",
+    "ground_texture": "generated native1672x941 central paving crop downsampled0.80 and tiled with24px seam blend; no enlargement; repeat pattern visible",
+    "asset_overlap": "source assets independent; table_b intentionally includes2 detached chairs",
+    "review_images": [
+      "assembled.png",
+      "depth_test.png",
+      "edge_review.png",
+      "door_scale_check.png",
+      "layout_overlay.png"
+    ]
+  }
+}

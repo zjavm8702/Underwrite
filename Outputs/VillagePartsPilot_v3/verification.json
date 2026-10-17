@@ -1,0 +1,780 @@
+{
+  "status": "draft pending game-screen approval",
+  "alpha_threshold": 32,
+  "files": [
+    {
+      "file": "inn.png",
+      "size": [
+        689,
+        531
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "tree_a.png",
+      "size": [
+        362,
+        556
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "tree_b.png",
+      "size": [
+        332,
+        476
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "lamp_a.png",
+      "size": [
+        81,
+        261
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "lamp_b.png",
+      "size": [
+        78,
+        251
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "table_a.png",
+      "size": [
+        207,
+        108
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "table_b.png",
+      "size": [
+        192,
+        95
+      ],
+      "components": 3,
+      "expected_components": 3,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "barrel_a.png",
+      "size": [
+        72,
+        91
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "barrel_b.png",
+      "size": [
+        69,
+        88
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "pot_a.png",
+      "size": [
+        50,
+        56
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "pot_b.png",
+      "size": [
+        54,
+        59
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "pot_c.png",
+      "size": [
+        51,
+        54
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 0,
+      "full_bleed_expected": false,
+      "pass": true
+    },
+    {
+      "file": "ground.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "pass": true
+    },
+    {
+      "file": "ground_unshadowed.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "pass": true
+    },
+    {
+      "file": "walkable.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "components": 1,
+      "expected_components": 1,
+      "unexpected_components": 0,
+      "hidden_RGB_pixels": 0,
+      "alpha_1_to31": 0,
+      "canvas_contact_pixels": 5996,
+      "full_bleed_expected": true,
+      "pass": true
+    }
+  ],
+  "depth_tests": [
+    {
+      "name": "door",
+      "foot": [
+        971,
+        627
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    },
+    {
+      "name": "lamp_behind",
+      "foot": [
+        668,
+        784
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 906
+    },
+    {
+      "name": "lamp_front",
+      "foot": [
+        1390,
+        869
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    },
+    {
+      "name": "tree_trunk_behind",
+      "foot": [
+        418,
+        682
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 2307
+    },
+    {
+      "name": "table_side",
+      "foot": [
+        940,
+        816
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0
+    }
+  ],
+  "contacts": [
+    {
+      "file": "inn.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 618,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "tree_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 56,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "tree_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 67,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "lamp_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 28,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "lamp_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 27,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "table_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 175,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "table_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 146,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "barrel_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 51,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "barrel_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 49,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_a.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 24,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_b.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 29,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    },
+    {
+      "file": "pot_c.png",
+      "method": "lowest opaque sprite pixel per column, foot zone only",
+      "width_columns": 29,
+      "thickness_px": 5,
+      "stored_in": "ground.png"
+    }
+  ],
+  "ground": {
+    "source": "sources/ground_color_final.png",
+    "native": [
+      1672,
+      941
+    ],
+    "final": [
+      1920,
+      1080
+    ],
+    "method": "imagegen repaint using45px scale reference; whole source resized once; no tiling/cloning/mirroring",
+    "upscaled": true
+  },
+  "color": {
+    "method": "alpha-weighted sRGB byte average; no color space temperature inference",
+    "ground_rgb": [
+      180.48,
+      152.102,
+      122.945
+    ],
+    "unshadowed_rgb": [
+      181.771,
+      153.193,
+      123.902
+    ],
+    "objects_combined_rgb": [
+      142.77,
+      124.548,
+      86.934
+    ],
+    "objects": {
+      "inn.png": [
+        163.631,
+        129.183,
+        102.946
+      ],
+      "tree_a.png": [
+        102.702,
+        116.61,
+        53.683
+      ],
+      "tree_b.png": [
+        118,
+        127.709,
+        75.063
+      ],
+      "lamp_a.png": [
+        90.428,
+        79.461,
+        68.653
+      ],
+      "lamp_b.png": [
+        83.487,
+        73.311,
+        65.253
+      ],
+      "table_a.png": [
+        153.179,
+        103.251,
+        63.149
+      ],
+      "table_b.png": [
+        134.067,
+        86.948,
+        57.289
+      ],
+      "barrel_a.png": [
+        183.647,
+        146.048,
+        102.507
+      ],
+      "barrel_b.png": [
+        123.139,
+        101.105,
+        85.388
+      ],
+      "pot_a.png": [
+        145.623,
+        123.794,
+        85.639
+      ],
+      "pot_b.png": [
+        150.517,
+        141.233,
+        131.127
+      ],
+      "pot_c.png": [
+        132.17,
+        114.495,
+        69.217
+      ]
+    },
+    "chromatic_pass": true
+  },
+  "repetition": [
+    {
+      "file": "ground.png",
+      "grid": 128,
+      "cells": 135,
+      "full_cells": 120,
+      "partial_bottom_cells": 15,
+      "pairs_compared": 7245,
+      "metric": "mean absolute RGB byte difference (0..255); near-identical threshold MAE<=1.0",
+      "near_identical_pairs": 0,
+      "exact_pairs": 0,
+      "minimum_proven_MAE_lower_bound": 1.0000203450520833,
+      "pass": true
+    },
+    {
+      "file": "ground_unshadowed.png",
+      "grid": 128,
+      "cells": 135,
+      "full_cells": 120,
+      "partial_bottom_cells": 15,
+      "pairs_compared": 7245,
+      "metric": "mean absolute RGB byte difference (0..255); near-identical threshold MAE<=1.0",
+      "near_identical_pairs": 0,
+      "exact_pairs": 0,
+      "minimum_proven_MAE_lower_bound": 1.0000203450520833,
+      "pass": true
+    }
+  ],
+  "contrast": {
+    "method": "Pillow-equivalent GaussianBlur radius4: BT.601 fixed-point L grayscale;3 extended box passes per axis, radius3 plus edge weight0.4375, uint8 round per pass, clamped boundary; signed original-blur population std. Analytic Gaussian values separately in contrast_analytic.json",
+    "values": {
+      "ground.png": 17.44778300497114,
+      "ground_unshadowed.png": 17.31037399949136,
+      "../VillagePartsPilot_v2/ground.png": 42.43682831758892,
+      "../_reference/flagstone_size_test_45px.png": 7.352293292295612
+    },
+    "pass": true
+  },
+  "stone_samples": [
+    {
+      "sample": 1,
+      "bbox": [
+        511,
+        320,
+        553,
+        340
+      ],
+      "width": 42,
+      "height": 20,
+      "ratio": 0.47619047619047616,
+      "pass": true,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 2,
+      "bbox": [
+        544,
+        320,
+        584,
+        342
+      ],
+      "width": 40,
+      "height": 22,
+      "ratio": 0.55,
+      "pass": true,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 3,
+      "bbox": [
+        580,
+        323,
+        641,
+        344
+      ],
+      "width": 61,
+      "height": 21,
+      "ratio": 0.3442622950819672,
+      "pass": false,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 4,
+      "bbox": [
+        639,
+        326,
+        675,
+        342
+      ],
+      "width": 36,
+      "height": 16,
+      "ratio": 0.4444444444444444,
+      "pass": false,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 5,
+      "bbox": [
+        673,
+        321,
+        707,
+        336
+      ],
+      "width": 34,
+      "height": 15,
+      "ratio": 0.4411764705882353,
+      "pass": false,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 6,
+      "bbox": [
+        706,
+        325,
+        759,
+        343
+      ],
+      "width": 53,
+      "height": 18,
+      "ratio": 0.33962264150943394,
+      "pass": false,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 7,
+      "bbox": [
+        755,
+        335,
+        795,
+        355
+      ],
+      "width": 40,
+      "height": 20,
+      "ratio": 0.5,
+      "pass": true,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 8,
+      "bbox": [
+        793,
+        339,
+        836,
+        357
+      ],
+      "width": 43,
+      "height": 18,
+      "ratio": 0.4186046511627907,
+      "pass": false,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 9,
+      "bbox": [
+        824,
+        355,
+        869,
+        369
+      ],
+      "width": 45,
+      "height": 14,
+      "ratio": 0.3111111111111111,
+      "pass": false,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    },
+    {
+      "sample": 10,
+      "bbox": [
+        846,
+        373,
+        887,
+        392
+      ],
+      "width": 41,
+      "height": 19,
+      "ratio": 0.4634146341463415,
+      "pass": true,
+      "method": "manual visible slab face bounding box, excludes mortar, ten consecutive complete slab faces in two visible rows, without filtering by pass; uncertainty about1px per edge; not exhaustive segmentation"
+    }
+  ],
+  "stone_sample_mean_width": 43.5,
+  "walkable": {
+    "values": [
+      255,
+      0
+    ],
+    "blocked": 359245,
+    "added_blocked_pixels": 325454,
+    "newly_unblocked_pixels": 0,
+    "expected_union_mismatch": 0,
+    "rear": {
+      "polygon": [
+        [
+          695,
+          80
+        ],
+        [
+          1384,
+          80
+        ],
+        [
+          1384,
+          541
+        ],
+        [
+          1351,
+          571
+        ],
+        [
+          1242,
+          599
+        ],
+        [
+          736,
+          583
+        ],
+        [
+          695,
+          583
+        ]
+      ],
+      "added_blocked_pixels": 325454,
+      "reason": "block all roof-projected rear territory above inn footprint; side lanes outside inn canvas x695..1384 remain unchanged"
+    },
+    "side_lane_points": [
+      {
+        "x": 675,
+        "y": 350,
+        "walkable": true
+      },
+      {
+        "x": 1405,
+        "y": 350,
+        "walkable": true
+      },
+      {
+        "x": 675,
+        "y": 550,
+        "walkable": true
+      },
+      {
+        "x": 1405,
+        "y": 550,
+        "walkable": true
+      }
+    ],
+    "pass": true
+  },
+  "copied_files": [
+    {
+      "file": "inn.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "tree_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "tree_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "lamp_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "lamp_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "table_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "table_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "barrel_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "barrel_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "pot_a.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "pot_b.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "pot_c.png",
+      "identical_to_v2": true
+    },
+    {
+      "file": "layout.json",
+      "identical_to_v2": true
+    }
+  ],
+  "meta": {
+    "before": 554,
+    "after": 554,
+    "unchanged": 554,
+    "changed": [],
+    "deleted": [],
+    "added": []
+  },
+  "protected": {
+    "checked": 141,
+    "changed": []
+  },
+  "notes": [
+    "Static environment, no animation; same five135px people positions and foot-Y sort asv2.",
+    "Stone samples are manual selected complete slabs, not all-stone segmentation. Some unsampled infill slabs and irregular tall/large slabs remain. Some measured stone heights fall outside0.45–0.55. Do not claim complete size/proportion acceptance.",
+    "Full painting native1672x941, resized once to1920x1080; not native1920 detail. Scale guide uses reduced painting only as imagegen input; selected final is one new outpaint image, no cloned tile patches.",
+    "Rear blockage uses conservative inn canvas horizontal extent695..1384 and y80 to footprint rear join; both side corridors preserved.",
+    "Original rule footprint-only changed for inn rear by explicit user request. Other props and layout unchanged.",
+    "No Assets writes or Unity integration."
+  ]
+}

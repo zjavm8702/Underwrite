@@ -1,0 +1,511 @@
+{
+  "resolutions": [
+    {
+      "file": "inn.png",
+      "generation": [
+        1536,
+        1024
+      ],
+      "source_bbox_xyxy": [
+        133,
+        6,
+        1427,
+        995
+      ],
+      "source_crop": [
+        1295,
+        990
+      ],
+      "art_scale": 0.52,
+      "final": [
+        689,
+        531
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "tree_a.png",
+      "generation": [
+        1009,
+        1558
+      ],
+      "source_bbox_xyxy": [
+        30,
+        35,
+        981,
+        1519
+      ],
+      "source_crop": [
+        952,
+        1485
+      ],
+      "art_scale": 0.36363636363636365,
+      "final": [
+        362,
+        556
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "tree_b.png",
+      "generation": [
+        1013,
+        1552
+      ],
+      "source_bbox_xyxy": [
+        29,
+        87,
+        997,
+        1498
+      ],
+      "source_crop": [
+        969,
+        1412
+      ],
+      "art_scale": 0.32577903682719545,
+      "final": [
+        332,
+        476
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "lamp_a.png",
+      "generation": [
+        811,
+        1940
+      ],
+      "source_bbox_xyxy": [
+        189,
+        17,
+        681,
+        1887
+      ],
+      "source_crop": [
+        493,
+        1871
+      ],
+      "art_scale": 0.13094601817210047,
+      "final": [
+        81,
+        261
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "lamp_b.png",
+      "generation": [
+        818,
+        1923
+      ],
+      "source_bbox_xyxy": [
+        212,
+        63,
+        682,
+        1849
+      ],
+      "source_crop": [
+        471,
+        1787
+      ],
+      "art_scale": 0.1315053161723559,
+      "final": [
+        78,
+        251
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "table_a.png",
+      "generation": [
+        1499,
+        1049
+      ],
+      "source_bbox_xyxy": [
+        28,
+        188,
+        1471,
+        882
+      ],
+      "source_crop": [
+        1444,
+        695
+      ],
+      "art_scale": 0.132,
+      "final": [
+        207,
+        108
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "table_b.png",
+      "generation": [
+        1536,
+        1024
+      ],
+      "source_bbox_xyxy": [
+        61,
+        208,
+        1477,
+        845
+      ],
+      "source_crop": [
+        1417,
+        638
+      ],
+      "art_scale": 0.124,
+      "final": [
+        192,
+        95
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "barrel_a.png",
+      "generation": [
+        1134,
+        1387
+      ],
+      "source_bbox_xyxy": [
+        133,
+        123,
+        1001,
+        1278
+      ],
+      "source_crop": [
+        869,
+        1156
+      ],
+      "art_scale": 0.06487889273356401,
+      "final": [
+        72,
+        91
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "barrel_b.png",
+      "generation": [
+        1134,
+        1387
+      ],
+      "source_bbox_xyxy": [
+        147,
+        123,
+        988,
+        1271
+      ],
+      "source_crop": [
+        842,
+        1149
+      ],
+      "art_scale": 0.06266318537859007,
+      "final": [
+        69,
+        88
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "pot_a.png",
+      "generation": [
+        1330,
+        1182
+      ],
+      "source_bbox_xyxy": [
+        235,
+        75,
+        1099,
+        1082
+      ],
+      "source_crop": [
+        865,
+        1008
+      ],
+      "art_scale": 0.03968253968253968,
+      "final": [
+        50,
+        56
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "pot_b.png",
+      "generation": [
+        1244,
+        1264
+      ],
+      "source_bbox_xyxy": [
+        180,
+        147,
+        1037,
+        1120
+      ],
+      "source_crop": [
+        858,
+        974
+      ],
+      "art_scale": 0.044147843942505136,
+      "final": [
+        54,
+        59
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "pot_c.png",
+      "generation": [
+        1297,
+        1212
+      ],
+      "source_bbox_xyxy": [
+        222,
+        127,
+        1075,
+        1063
+      ],
+      "source_crop": [
+        854,
+        937
+      ],
+      "art_scale": 0.04055496264674493,
+      "final": [
+        51,
+        54
+      ],
+      "padding": 8,
+      "upscale": false
+    },
+    {
+      "file": "ground.png",
+      "generation": [
+        1672,
+        941
+      ],
+      "source_crop": [
+        400,
+        300
+      ],
+      "art_scale": 0.8,
+      "final": [
+        1920,
+        1080
+      ],
+      "method": "AI ground texture crop downsampled to320x240 then wrap tiled with24px blend; shadows projected from sprite alpha at fixed layout; no upscaling"
+    }
+  ],
+  "part_checks": {
+    "inn": {
+      "components": [
+        284624
+      ],
+      "bbox": [
+        8,
+        8,
+        680,
+        522
+      ]
+    },
+    "tree_a": {
+      "components": [
+        95723
+      ],
+      "bbox": [
+        8,
+        8,
+        353,
+        547
+      ]
+    },
+    "tree_b": {
+      "components": [
+        76638
+      ],
+      "bbox": [
+        8,
+        8,
+        323,
+        467
+      ]
+    },
+    "lamp_a": {
+      "components": [
+        3530
+      ],
+      "bbox": [
+        8,
+        8,
+        72,
+        252
+      ]
+    },
+    "lamp_b": {
+      "components": [
+        3362
+      ],
+      "bbox": [
+        8,
+        8,
+        69,
+        242
+      ]
+    },
+    "table_a": {
+      "components": [
+        9574
+      ],
+      "bbox": [
+        8,
+        8,
+        198,
+        99
+      ]
+    },
+    "table_b": {
+      "components": [
+        4012,
+        1918,
+        1914
+      ],
+      "bbox": [
+        8,
+        8,
+        183,
+        86
+      ]
+    },
+    "barrel_a": {
+      "components": [
+        3642
+      ],
+      "bbox": [
+        8,
+        8,
+        63,
+        82
+      ]
+    },
+    "barrel_b": {
+      "components": [
+        3334
+      ],
+      "bbox": [
+        8,
+        8,
+        60,
+        79
+      ]
+    },
+    "pot_a": {
+      "components": [
+        724
+      ],
+      "bbox": [
+        8,
+        8,
+        41,
+        47
+      ]
+    },
+    "pot_b": {
+      "components": [
+        1078
+      ],
+      "bbox": [
+        8,
+        8,
+        45,
+        50
+      ]
+    },
+    "pot_c": {
+      "components": [
+        831
+      ],
+      "bbox": [
+        8,
+        8,
+        42,
+        45
+      ]
+    }
+  },
+  "depth_tests": [
+    {
+      "name": "door",
+      "foot": [
+        971,
+        627
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occluded_fraction": 0
+    },
+    {
+      "name": "lamp_behind",
+      "foot": [
+        668,
+        784
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 906,
+      "occluded_fraction": 0.21873491067117334
+    },
+    {
+      "name": "lamp_front",
+      "foot": [
+        1390,
+        869
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occluded_fraction": 0
+    },
+    {
+      "name": "tree_trunk_behind",
+      "foot": [
+        418,
+        682
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 2307,
+      "occluded_fraction": 0.5569773056494447
+    },
+    {
+      "name": "table_side",
+      "foot": [
+        940,
+        816
+      ],
+      "character_pixels": 4142,
+      "occluded_pixels": 0,
+      "occluded_fraction": 0
+    }
+  ],
+  "person": {
+    "source_bbox": [
+      42,
+      12,
+      311,
+      710
+    ],
+    "scale": 0.19313304721030042,
+    "final": [
+      52,
+      135
+    ]
+  },
+  "timing": "static environment, not animation"
+}

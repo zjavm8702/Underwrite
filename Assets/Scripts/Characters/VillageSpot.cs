@@ -1,3 +1,4 @@
+using Underwrite.Data;
 using Underwrite.Enumeration;
 using UnityEngine;
 
@@ -23,6 +24,51 @@ namespace Underwrite.Characters
 
         [Tooltip("한 번 묻는 데 드는 돈.")]
         [SerializeField] private float Cost = 20f;
+
+        [Tooltip("이 자리에서 맡을 수 있는 일. 제목이 비어 있으면 일이 없는 자리다.")]
+        [SerializeField] private VillageQuest Quest = new VillageQuest();
+
+        [Tooltip("창고 아래로 지하거래소에 내려갈 수 있는 자리인가. 웹툰 6화 — 여관 창고 안쪽이다.")]
+        [SerializeField] private bool Cellar;
+
+        [Tooltip("익명 의뢰를 받는 창구가 있는 자리인가. 길드다(후원흐름 설계안 §2-5).")]
+        [SerializeField] private bool RequestDesk;
+
+        /// <summary>익명 의뢰를 낼 수 있는 자리인가.</summary>
+        public bool HasRequestDesk
+        {
+            get
+            {
+                return RequestDesk;
+            }
+        }
+
+        /// <summary>창고 아래 지하거래소로 내려갈 수 있는가.</summary>
+        public bool HasCellar
+        {
+            get
+            {
+                return Cellar;
+            }
+        }
+
+        /// <summary>이 자리에서 맡을 수 있는 일. <see cref="HasWork"/>가 거짓이면 쓰지 않는다.</summary>
+        public VillageQuest Work
+        {
+            get
+            {
+                return Quest;
+            }
+        }
+
+        /// <summary>맡을 일이 있는 자리인가.</summary>
+        public bool HasWork
+        {
+            get
+            {
+                return Quest != null && string.IsNullOrEmpty(Quest.Title) == false && Quest.Minutes > 0;
+            }
+        }
 
         /// <summary>플레이어가 지금 이 자리에 닿아 있는가.</summary>
         public bool PlayerInside { get; private set; }

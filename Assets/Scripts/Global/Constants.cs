@@ -1,3 +1,5 @@
+using UnityEngine.InputSystem;
+
 namespace Underwrite.Global
 {
     /// <summary>
@@ -74,6 +76,66 @@ namespace Underwrite.Global
         public static string TEXT_SOURCE_PRIVATE_LETTER = "사적 서신";
         public static string TEXT_SOURCE_MARKET_BOARD = "시장 게시판";
         public static string TEXT_SOURCE_BROKER_LEAK = "중개인 누설";
+
+        // 영지에서 묻기 전에 고르는 자리
+        public static string TEXT_GATHER_ASK = "들은 게 있긴 한데, 공짜로 줄 수는 없지요.";
+        public static string TEXT_GATHER_PAY = "{0:N0}을 내고 묻는다";
+        public static string TEXT_GATHER_PAY_NOTE = "{0}분이 걸린다 · 가진 돈 {1:N0}";
+        public static string TEXT_GATHER_NO_MONEY = "돈이 모자란다 · 가진 돈 {0:N0}";
+        public static string TEXT_GATHER_LEAVE = "그냥 간다";
+
+        // 여관 창고 아래 지하거래소 (웹툰 6화)
+        public static string TEXT_CELLAR_GO = "창고로 내려간다";
+        public static string TEXT_CELLAR_NOTE = "술통 너머, 지하거래소";
+        public static string TEXT_GATHER_NO_TIME = "다음 장이 코앞이다";
+
+        // 영지에서 맡는 일 (기획서 §10 종잣돈 퀘스트)
+        public static string TEXT_WORK_NOTE = "{0}분이 걸린다 · {1:N0}을 받는다";
+        public static string TEXT_WORK_NO_TIME = "시간이 모자란다 · 다음 장까지 {0}분";
+        public static string TEXT_WORK_RUMOR = "그러고 보니 일하다 들었는데, {0} 쪽에 무슨 일이 있답니다.";
+        public static string TEXT_WORK_RESULT = "{0:N0}을 받았습니다. 다음 장까지 {1}시간 {2}분.";
+
+        // 하루 끝 (기획서 §11의 넷째 단계 — 정보 정리 및 취침)
+        public static string TEXT_SKIP_BREAK = "시간 넘기기";
+        public static string TEXT_SLEEP = "잠자리에 든다";
+        public static string TEXT_DAY_END_TAG = "하루 마감";
+        public static string TEXT_DAY_END_TITLE = "{0}일째가 저문다";
+        public static string TEXT_DAY_END_MONEY = "오늘 영지에서 {0:N0}을 벌고 {1:N0}을 썼다.";
+        public static string TEXT_DAY_END_NOTES = "캐낸 소식 {0}건은 정보 기록에 옮겨 적었다.";
+        public static string TEXT_DAY_END_NO_NOTES = "오늘은 캐낸 소식이 없다.";
+        public static string TEXT_DAY_END_NEXT = "내일 오전장은 {0:00}시에 열린다.";
+
+        // 후원 — 익명의 의뢰주 (후원흐름 설계안). 용사단 이름은 아직 정하지 않아 임시로 "용사단"이라 부른다.
+        public static string TEXT_HERO_PARTY = "용사단";
+        public static string TEXT_REQUEST_POST = "익명 의뢰를 낸다";
+        public static string TEXT_REQUEST_POST_NOTE = "봉인한 의뢰서와 보수 예치금";
+        public static string TEXT_REQUEST_POST_DEADLINE = "봉인한 의뢰서와 보수 예치금 · 들은 사정의 기한까지 {0}일";
+        public static string TEXT_REQUEST_CLERK = "길드 서기";
+        public static string TEXT_REQUEST_ASK = "어떤 의뢰입니까? 의뢰주 이름은 비워 두셔도 됩니다. 보수만 먼저 맡기시면 됩니다.";
+        public static string TEXT_REQUEST_PURPOSE_HEALING = "치료비를 선금으로 주는 의뢰";
+        public static string TEXT_REQUEST_PURPOSE_GEAR = "장비 수리비를 선금으로 주는 의뢰";
+        public static string TEXT_REQUEST_PURPOSE_SUPPLIES = "식량과 물자를 미리 대 주는 의뢰";
+        public static string TEXT_REQUEST_PURPOSE_TRAINING = "교관을 붙여 주는 의뢰";
+        public static string TEXT_REQUEST_COST_NOTE = "예치금 {0:N0} · 가진 돈 {1:N0}";
+        public static string TEXT_REQUEST_CANCEL = "그만둔다";
+        public static string TEXT_REQUEST_DONE = "봉인한 의뢰서를 창구에 맡겼다. 수신인은 {0}. 의뢰주 칸은 비워 두었다.";
+        public static string TEXT_REQUEST_DONE_NOTE = "{0:N0}을 맡겼습니다. 반응은 여관에서 들을 수 있다.";
+
+        public static string TEXT_NEED_HEALER_RUMOR = "(술을 나르다 들었다) \"치유사가 지난 원정에서 크게 다쳤어. 약값이 없으니 큰 의뢰는 전부 물렸지.\"";
+        public static string TEXT_NEED_HEALER_MET = "(술을 나르다 들었다) \"우리 앞으로 의뢰가 들어왔어. 치료비를 선금으로 준다고… 누가 우리 사정을 이렇게 잘 알지?\"";
+        public static string TEXT_NEED_SHIELD_RUMOR = "(술을 나르다 들었다) \"방패가 쪼개졌는데 대장간에 맡길 돈이 없어. 이대로 나가면 앞줄이 버티질 못해.\"";
+        public static string TEXT_NEED_SHIELD_MET = "(술을 나르다 들었다) \"수리비를 먼저 주는 의뢰라니. 방패 얘기는 여기서밖에 안 했는데.\"";
+        public static string TEXT_HERO_REACTION_MISSED = "(술을 나르다 들었다) \"이상한 의뢰가 하나 들어왔더라. 고마운 일이긴 한데, 지금 우리한테 필요한 건 그게 아니야.\"";
+
+        public static string TEXT_DAY_END_DEADLINE = "들은 용사단 사정의 기한까지 {0}일.";
+        public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";
+        public static string TEXT_DAY_END_COLLAPSE = "용사단이 의뢰를 접고 흩어졌다는 소식이 돌았다. 10년 뒤 그 자리에 설 사람이 없다.";
+
+        // 영지 사람에게 말 걸기
+        public static string TEXT_NPC_TALK_KEY = "E — 말을 건다";
+        public static string TEXT_NPC_ROLE_RESIDENT = "주민";
+        public static string TEXT_NPC_ROLE_VENDOR = "노점상";
+        public static string TEXT_NPC_ROLE_ADVENTURER = "모험단";
     }
 
     /// <summary>
@@ -245,5 +307,59 @@ namespace Underwrite.Global
         // ── 차트 ──────────────────────────────────
         /// <summary>종목별로 보관하는 가격 이력 길이.</summary>
         public const int PRICE_HISTORY_CAPACITY = 240;
+
+        // ── 영지 앞뒤 정렬 ────────────────────────
+        /// <summary>
+        /// 발밑 높이 1유닛을 정렬 순서 몇 칸으로 나눌지. 100이면 0.01유닛 차이까지 앞뒤를 가린다.
+        /// 영지가 위아래로 ±300유닛을 넘으면 sortingOrder 범위(±32767)를 벗어난다.
+        /// </summary>
+        public const int VILLAGE_SORT_PER_UNIT = 100;
+        /// <summary>바닥판의 정렬 순서. 어떤 사물·사람보다도 뒤에 깔린다.</summary>
+        public const int VILLAGE_SORT_GROUND = -32000;
+        /// <summary>
+        /// 주인공 루트에서 발바닥까지의 거리(월드 유닛). 스프라이트 피벗이 Center라서 루트는 몸 한가운데다.
+        /// 캔버스 724px의 아래 13px이 발바닥이고, PPU 100 × 축척 0.27이면 (362 − 13) × 0.0027 ≈ 0.94다.
+        /// </summary>
+        public const float PROTAGONIST_FOOT_OFFSET = -0.94f;
+
+        // ── 영지 NPC ──────────────────────────────
+        /// <summary>길 찾기 격자 한 칸(월드 유닛). 사람 발 폭(0.55)보다 조금 작게 잡는다.</summary>
+        public const float VILLAGE_NAV_CELL = 0.4f;
+        /// <summary>격자 칸을 막혔다고 볼 때 더하는 여유. 벽에 몸을 비비며 걷지 않게 한다.</summary>
+        public const float VILLAGE_NAV_CLEARANCE = 0.25f;
+        /// <summary>NPC 걷는 속도. 주인공(3.0)보다 느려야 영지를 산책하는 사람으로 보인다.</summary>
+        public static float NPC_WALK_SPEED = 1.5f;
+        /// <summary>모험단 안에서 앞사람과의 간격(월드 유닛).</summary>
+        public static float NPC_PARTY_SPACING = 0.8f;
+        /// <summary>목적지에 닿은 뒤 머무는 시간 범위(초).</summary>
+        public static float NPC_PARTY_REST_MIN = 4f;
+        public static float NPC_PARTY_REST_MAX = 10f;
+        /// <summary>모험단이 장소에 닿았을 때 문 앞에서 아래로 비켜 서는 거리(월드 유닛).</summary>
+        public static float NPC_PARTY_DOOR_GAP = 2.2f;
+        /// <summary>그 둘레에서 흩어지는 반지름. 단마다 같은 점에 겹쳐 서지 않게 한다.</summary>
+        public static float NPC_PARTY_SPREAD = 1.5f;
+        /// <summary>말을 걸 수 있는 거리(월드 유닛). 사람 키(1.9)보다 조금 작다.</summary>
+        public static float NPC_TALK_RANGE = 1.4f;
+
+        // ── 후원 (익명의 의뢰주) ──────────────────
+        /// <summary>용사단 사정 하나의 기한(일). 사용자 결정 2026-10-17.</summary>
+        public static int PATRONAGE_DEADLINE_DAYS = 5;
+        /// <summary>못 들은 사정의 기한이 이만큼 남으면 하루 결산에 경고를 띄운다.</summary>
+        public static int PATRONAGE_WARNING_DAYS = 2;
+        /// <summary>익명 의뢰를 꾸며 맡기는 데 드는 영지 시간(분).</summary>
+        public static int REQUEST_MINUTES = 30;
+        /// <summary>목적별 예치금. 시작 자금 500에 견주었다. 시제품 검증에서 조정한다.</summary>
+        public static float REQUEST_COST_HEALING = 120f;
+        public static float REQUEST_COST_GEAR = 150f;
+        public static float REQUEST_COST_SUPPLIES = 80f;
+        public static float REQUEST_COST_TRAINING = 100f;
+
+        // ── 대화 ──────────────────────────────────
+        /// <summary>선택지를 고르는 숫자 키. 화면에 붙는 번호 「1.」「2.」와 같은 순서다.</summary>
+        public static readonly Key[] DIALOGUE_CHOICE_KEYS =
+        {
+            Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4, Key.Digit5,
+            Key.Digit6, Key.Digit7, Key.Digit8, Key.Digit9
+        };
     }
 }
