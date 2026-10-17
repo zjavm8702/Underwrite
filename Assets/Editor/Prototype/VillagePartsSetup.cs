@@ -726,7 +726,10 @@ namespace Underwrite.Editor
             if (part.Sways == true)
             {
                 go.AddComponent<PartSway>();
+                BuildFireflies(go.transform, renderer.sortingOrder);
             }
+
+            BuildNightWindows(part, go.transform, sprite);
 
             if (part.File == SMITH_FILE)
             {
@@ -735,6 +738,78 @@ namespace Underwrite.Editor
                 var mapPoint = part.Foot + (SMITH_FORGE_IN_PNG - part.Pivot) / scale;
                 BuildForge(ToWorld(mapPoint, groundSize), foot.y, go.transform);
             }
+        }
+
+        /// <summary>
+        /// 밤의 창문 불빛. Tools/village_window_glow.py가 만든 Night/{이름}_night.png가 있으면 건물 위에 같은 피벗으로 겹친다.
+        /// </summary>
+        private static void BuildNightWindows(PartEntry part, Transform parent, Sprite owner)
+        {
+            var path = AssetFolder + "/Night/" + Path.GetFileNameWithoutExtension(part.File) + "_night.png";
+
+            if (File.Exists(path) == false)
+            {
+                return;
+            }
+
+            var pivot = new Vector2(part.Pivot.x / part.Size.x, 1f - part.Pivot.y / part.Size.y);
+            var importer = AssetImporter.GetAtPath(path) as TextureImporter;
+
+            if (importer == null || importer.textureType != TextureImporterType.Sprite
+                || Mathf.Approximately(importer.spritePixelsPerUnit, owner.pixelsPerUnit) == false)
+            {
+                ConfigureSprite(path, pivot, owner.pixelsPerUnit);
+            }
+
+            var go = new GameObject("Night Windows");
+            go.transform.SetParent(parent, false);
+            var glow = go.AddComponent<SpriteRenderer>();
+            glow.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            // 불빛은 스스로 빛난다. 밤의 어두운 전역광에 먹히지 않게 Unlit.
+            glow.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>(SPRITE_UNLIT_MATERIAL);
+            glow.color = new Color(1f, 1f, 1f, 0f);
+            go.AddComponent<NightGlow>();
+        }
+
+        /// <summary>나무 둘레의 반딧불이. 밤에만 천천히 떠다니며 깜빡인다.</summary>
+        private static void BuildFireflies(Transform parent, int order)
+        {
+            var go = new GameObject("Fireflies");
+            go.transform.SetParent(parent, false);
+            go.transform.localPosition = new Vector3(0f, 1.6f, 0f);
+
+            var system = go.AddComponent<ParticleSystem>();
+            var main = system.main;
+            main.startLifetime = new ParticleSystem.MinMaxCurve(3f, 5f);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(0.05f, 0.2f);
+            main.startSize = new ParticleSystem.MinMaxCurve(0.05f, 0.09f);
+            main.startColor = new ParticleSystem.MinMaxGradient(new Color(0.85f, 1f, 0.5f, 1f), new Color(1f, 0.95f, 0.55f, 1f));
+            main.maxParticles = 12;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
+
+            var emission = system.emission;
+            emission.rateOverTime = 0f;
+
+            var shape = system.shape;
+            shape.shapeType = ParticleSystemShapeType.Box;
+            shape.scale = new Vector3(3.5f, 2.5f, 0.1f);
+
+            var noise = system.noise;
+            noise.enabled = true;
+            noise.strength = 0.5f;
+            noise.frequency = 0.4f;
+
+            var color = system.colorOverLifetime;
+            color.enabled = true;
+            var gradient = new Gradient();
+            gradient.SetKeys(
+                new[] { new GradientColorKey(Color.white, 0f), new GradientColorKey(Color.white, 1f) },
+                new[] { new GradientAlphaKey(0f, 0f), new GradientAlphaKey(1f, 0.2f), new GradientAlphaKey(0.2f, 0.45f),
+                    new GradientAlphaKey(1f, 0.7f), new GradientAlphaKey(0f, 1f) });
+            color.color = gradient;
+
+            go.AddComponent<NightFireflies>();
+            Finish(go, system, order + 2, 0f);
         }
 
         /// <summary>다각형을 가로·세로로 줄인다. 기준은 둘러싼 상자의 가운데.</summary>

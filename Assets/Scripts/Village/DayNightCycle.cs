@@ -48,12 +48,20 @@ namespace Underwrite.Village
             new Key(24f, new Color(0.36f, 0.44f, 0.85f), 0.32f, 1f)
         };
 
+        /// <summary>밤의 정도. 0 낮, 1 깊은 밤. 창문 불빛·반딧불이가 읽는다(가로등이 켜진 정도와 같다).</summary>
+        public static float NightLevel { get; private set; }
+
+        // 이 정도 넘게 어두워지면 노점 장수와 문 앞 주민은 들어간다. 밤거리에는 용병단만 남는다.
+        private const float STREET_EMPTY_LEVEL = 0.9f;
+
         private Light2D Sun;
+        private readonly List<VillageNpc> Townsfolk = new List<VillageNpc>();
+        private bool StreetEmpty;
         private readonly List<LampFlicker> Lamps = new List<LampFlicker>();
 
         private void Start()
         {
-            foreach (var light in FindObjectsByType<Light2D>(FindObjectsSortMode.None))
+            foreach (var light in FindObjectsByType<Light2D>())
             {
                 if (light.lightType == Light2D.LightType.Global && Sun == null)
                 {
@@ -61,11 +69,19 @@ namespace Underwrite.Village
                 }
             }
 
-            foreach (var lamp in FindObjectsByType<LampFlicker>(FindObjectsSortMode.None))
+            foreach (var lamp in FindObjectsByType<LampFlicker>())
             {
                 if (lamp.gameObject.name == LAMP_NAME)
                 {
                     Lamps.Add(lamp);
+                }
+            }
+
+            foreach (var npc in FindObjectsByType<VillageNpc>())
+            {
+                if (npc.Kind == Enumeration.NpcRole.Role_Resident || npc.Kind == Enumeration.NpcRole.Role_Vendor)
+                {
+                    Townsfolk.Add(npc);
                 }
             }
 
@@ -94,6 +110,22 @@ namespace Underwrite.Village
             {
                 Sun.color = key.Color;
                 Sun.intensity = key.Intensity;
+            }
+
+            NightLevel = key.Lamps;
+            var empty = key.Lamps >= STREET_EMPTY_LEVEL;
+
+            if (empty != StreetEmpty)
+            {
+                StreetEmpty = empty;
+
+                for (var i = 0; i < Townsfolk.Count; i++)
+                {
+                    if (Townsfolk[i] != null)
+                    {
+                        Townsfolk[i].gameObject.SetActive(empty == false);
+                    }
+                }
             }
 
             for (var i = 0; i < Lamps.Count; i++)
