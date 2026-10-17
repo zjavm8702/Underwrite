@@ -24,6 +24,8 @@ namespace Underwrite.Village
         };
 
         private static Material Silhouette;
+        private static Material Edge;
+        private static readonly int EdgeOnlyId = Shader.PropertyToID("_EdgeOnly");
 
         private SpriteRenderer Body;
         private SpriteRenderer[] Copies;
@@ -49,6 +51,9 @@ namespace Underwrite.Village
                 {
                     Silhouette = new Material(source);
                     Silhouette.SetColor(FillColorId, Constants.OUTLINE_COLOR);
+                    Edge = new Material(source);
+                    Edge.SetColor(FillColorId, Constants.OUTLINE_COLOR);
+                    Edge.SetFloat(EdgeOnlyId, 1f);
                 }
             }
 
@@ -63,7 +68,7 @@ namespace Underwrite.Village
             Body.sortingOrder = order + 1;
 
             var scale = Mathf.Max(0.0001f, Mathf.Abs(Body.transform.lossyScale.x));
-            Copies = new SpriteRenderer[DIRECTIONS.Length];
+            Copies = new SpriteRenderer[DIRECTIONS.Length + 1];
 
             for (var i = 0; i < DIRECTIONS.Length; i++)
             {
@@ -77,6 +82,15 @@ namespace Underwrite.Village
                 copy.sortingOrder = order;
                 Copies[i] = copy;
             }
+
+            // 몸 위에 한 장 더 — 몸 가장자리의 옅은 띠를 선 색으로 덮는다.
+            var edge = new GameObject("Outline Edge");
+            edge.transform.SetParent(Body.transform, false);
+            var edgeRenderer = edge.AddComponent<SpriteRenderer>();
+            edgeRenderer.sharedMaterial = Edge;
+            edgeRenderer.sortingLayerID = Body.sortingLayerID;
+            edgeRenderer.sortingOrder = order + 2;
+            Copies[DIRECTIONS.Length] = edgeRenderer;
 
             Sync();
         }

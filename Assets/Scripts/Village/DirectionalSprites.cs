@@ -64,6 +64,18 @@ namespace Underwrite.Village
             Cloth.SetPropertyBlock(block);
         }
 
+        // 방향과 걷기·서기를 바로 바꾸지 않고 잠깐 버틴다(2026-10-18 사용자 보고 — 걷는 게 이상하다).
+        // 따라 걷는 단원은 앞사람의 발자국에 닿을 때마다 한 프레임 멈추고, 대각선에서는 방향이 매 프레임 뒤바뀌었다.
+        // 그때마다 걷기가 첫 프레임으로 돌아가 다리가 굳은 채 미끄러졌다.
+        private const float STOP_HOLD_SECONDS = 0.25f;
+        private const float TURN_HOLD_SECONDS = 0.15f;
+
+        private Vector2 PendingFacing;
+        private float TurnHeld;
+        private float StoppedFor;
+        private bool WantMoving;
+        private float Speed = 1f;
+
         public void SetDirection(Vector2 direction)
         {
             if (direction.sqrMagnitude < 0.0001f)
@@ -71,21 +83,71 @@ namespace Underwrite.Village
                 return;
             }
 
-            Facing = direction;
-            Pick();
+            PendingFacing = direction;
+
+            // 서 있을 때(돌아보기)는 바로 돈다.
+            if (Moving == false)
+            {
+                Facing = direction;
+                TurnHeld = 0f;
+                Pick();
+            }
         }
 
         public void SetSpeed(float speed)
         {
-            var moving = speed > 0.01f;
+            WantMoving = speed > 0.01f;
 
-            if (moving == Moving)
+            if (WantMoving == true)
+            {
+                Speed = speed;
+            }
+
+            if (WantMoving == true && Moving == false)
+            {
+                Moving = true;
+                StoppedFor = 0f;
+                Pick();
+            }
+        }
+
+        // 멈춤은 잠깐 이어져야 서기로, 방향은 잠깐 이어져야 돈다.
+        private void Settle()
+        {
+            if (Moving == true && WantMoving == false)
+            {
+                StoppedFor += Time.deltaTime;
+
+                if (StoppedFor >= STOP_HOLD_SECONDS)
+                {
+                    Moving = false;
+                    Pick();
+                }
+            }
+            else
+            {
+                StoppedFor = 0f;
+            }
+
+            if (Moving == false || PendingFacing.sqrMagnitude < 0.0001f)
             {
                 return;
             }
 
-            Moving = moving;
-            Pick();
+            if (DirectionName(PendingFacing, out var flip) == DirectionName(Facing, out var currentFlip) && flip == currentFlip)
+            {
+                TurnHeld = 0f;
+                return;
+            }
+
+            TurnHeld += Time.deltaTime;
+
+            if (TurnHeld >= TURN_HOLD_SECONDS)
+            {
+                Facing = PendingFacing;
+                TurnHeld = 0f;
+                Pick();
+            }
         }
 
         private void OnEnable()
@@ -97,12 +159,19 @@ namespace Underwrite.Village
 
         private void Update()
         {
+            Settle();
+
             if (Current == null || Current.Frames.Count == 0)
             {
                 return;
             }
 
-            FrameLeft -= Time.deltaTime;
+            // 걷기 그림은 주인공 걸음 빠르기에 맞춰 그렸다. 더 느리게 걸으면 발도 그만큼 느리게 —
+            // 그렇지 않으면 발이 땅 위에서 헛돈다(미끄러진다).
+            var rate = Moving == true
+                ? Mathf.Clamp(Speed / Global.Constants.PROTAGONIST_WALK_SPEED, 0.4f, 1.5f)
+                : 1f;
+            FrameLeft -= Time.deltaTime * rate;
 
             if (FrameLeft > 0f)
             {

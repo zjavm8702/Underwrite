@@ -110,8 +110,8 @@ namespace Underwrite.Editor
             cloth.transform.SetParent(body.transform, false);
             var clothRenderer = cloth.AddComponent<SpriteRenderer>();
             clothRenderer.sharedMaterial = ClothMaterial;
-            // 몸(외곽선이 붙으면 1) 위에 곱한다.
-            clothRenderer.sortingOrder = 2;
+            // 몸(외곽선이 붙으면 1)과 가장자리 덮개(2) 위에 곱한다.
+            clothRenderer.sortingOrder = 3;
 
             var actions = (Dictionary<string, object>)Characters[type];
             var frames = go.AddComponent<DirectionalSprites>();

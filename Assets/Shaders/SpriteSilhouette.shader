@@ -7,6 +7,8 @@ Shader "Underwrite/SpriteSilhouette"
     {
         [PerRendererData] _MainTex ("Sprite", 2D) = "white" {}
         _FillColor ("Fill Color", Color) = (0.17, 0.11, 0.07, 0.9)
+        // 0: 모양 전체를 칠한다(몸 뒤에 밀어 까는 외곽선). 1: 반투명한 가장자리만 칠한다(몸 위에 덮는 테두리).
+        _EdgeOnly ("Edge Only", Float) = 0
     }
 
     SubShader
@@ -38,6 +40,7 @@ Shader "Underwrite/SpriteSilhouette"
 
             CBUFFER_START(UnityPerMaterial)
                 half4 _FillColor;
+                half _EdgeOnly;
             CBUFFER_END
 
             struct Attributes
@@ -66,7 +69,17 @@ Shader "Underwrite/SpriteSilhouette"
             half4 Frag(Varyings input) : SV_Target
             {
                 half alpha = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv).a;
-                return half4(_FillColor.rgb, alpha * _FillColor.a);
+
+                // 그림의 가장자리 반투명 픽셀은 밝은 바탕에서 뽑혀 색이 옅다. 짙은 선 위에 그대로 얹히면
+                // 몸과 선 사이에 옅은 띠가 생겼다(2026-10-18 사용자 보고). 몸 위에서 그 띠만 덮는다.
+                if (_EdgeOnly > 0.5h)
+                {
+                    half edge = smoothstep(0.02h, 0.2h, alpha) * (1.0h - smoothstep(0.6h, 0.95h, alpha));
+                    return half4(_FillColor.rgb, edge * _FillColor.a);
+                }
+
+                // 밀어 까는 쪽은 또렷하게 — 반투명으로 번지면 그림자처럼 보인다.
+                return half4(_FillColor.rgb, step(0.4h, alpha) * _FillColor.a);
             }
             ENDHLSL
         }

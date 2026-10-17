@@ -511,6 +511,9 @@ namespace Underwrite.Global
         public const float VILLAGE_NAV_CLEARANCE = 0.25f;
         /// <summary>NPC 걷는 속도. 주인공(3.0)보다 느려야 영지를 산책하는 사람으로 보인다.</summary>
         public static float NPC_WALK_SPEED = 1.5f;
+
+        // 주인공 걸음 빠르기(PlayerCharacterInput). 걷기 그림의 보폭이 이 빠르기에 맞춰져 있다.
+        public static float PROTAGONIST_WALK_SPEED = 3f;
         /// <summary>모험단 안에서 앞사람과의 간격(월드 유닛).</summary>
         public static float NPC_PARTY_SPACING = 0.8f;
         /// <summary>목적지에 닿은 뒤 머무는 시간 범위(초).</summary>
