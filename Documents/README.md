@@ -14,7 +14,8 @@
 |---|---|
 | `Shared/Underwrite_기획서_v0.7.md` | **현행판.** §11이 시간 구조(40계절), §17·§18이 캐릭터·애니메이션 |
 | `Shared/Underwrite_시간구조_설계안.md` | 10년·계절·휴장 갭·계절 계획·멸망의 층·거품 시장·정보 모으기의 근거 (v0.7의 바탕) |
-| `Shared/Underwrite_다음_작업목록.md` | 작업 기록과 다음 할 일 |
+| `Shared/Underwrite_다음_작업목록.md` | **다음 할 일** |
+| `Shared/Underwrite_작업기록_2026-10.md` | 10월 작업 기록(지난 결정과 경위) |
 | `Shared/Underwrite_레퍼런스_조사.md` | 비슷한 게임과 교훈 (2026-10-17) |
 | `Shared/Underwrite_기획서_v0.3.md` | 이전판. 4방향·리깅 기준이며 v0.4에서 대체됨 |
 
