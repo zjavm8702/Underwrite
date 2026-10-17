@@ -34,4 +34,13 @@ namespace Underwrite.Enumeration
         /// <summary>기한을 넘겼다. 시나리오가 깨진다(상장흐름 설계안 §1-5).</summary>
         State_Failed
     }
+
+    /// <summary>모험단 도감의 한 줄을 어디서 알 수 있는가. 순서는 CODEX_FACTS의 열과 같다.</summary>
+    public enum CodexSource
+    {
+        Codex_Talk,
+        Codex_Guild,
+        Codex_Smith,
+        Codex_Tavern
+    }
 }

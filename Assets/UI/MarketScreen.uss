@@ -1733,3 +1733,62 @@
     margin-top: 8px;
 }
 
+/* ── 모험단 도감 줄 ───────────────────────── */
+.codex-fact {
+    font-size: 16px;
+    color: var(--color-text);
+    white-space: normal;
+    margin-top: 4px;
+}
+
+.codex-fact--unknown {
+    color: var(--color-text-weak);
+    -unity-font-style: italic;
+}
+
+/* ── 영지 수첩 ───────────────────────────── */
+.notebook {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(10, 8, 6, 0.55);
+    align-items: center;
+    justify-content: center;
+}
+
+.notebook-panel {
+    width: 760px;
+    height: 820px;
+    padding: 30px 36px 24px 36px;
+}
+
+.notebook-tabs {
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.notebook-tabs > Button {
+    width: 140px;
+    margin-right: 8px;
+}
+
+.notebook-list {
+    flex-grow: 1;
+}
+
+/* 영지 「할 일」. 이야기가 시작되기 전까지만 보인다. */
+.village-objective {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    padding: 10px 18px 10px 18px;
+    border-radius: 12px;
+    background-color: rgba(42, 33, 24, 0.82);
+    color: #F2C46B;
+    font-size: 19px;
+    -unity-font-style: bold;
+}
+

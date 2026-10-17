@@ -48,7 +48,10 @@ namespace Underwrite.UI
             /// <summary>지금 가진 종목의 소식만. 내 돈에 영향을 주는 것부터 읽게 한다.</summary>
             Filter_Mine,
             Filter_All,
-            Filter_Private
+            Filter_Private,
+
+            /// <summary>모험단 도감. 영지에서 조사한 만큼 채워진다.</summary>
+            Filter_Bands
         }
 
         [Header("장세")]
@@ -654,6 +657,7 @@ namespace Underwrite.UI
             Click("filter-mine", () => SetFilter(InfoFilter.Filter_Mine));
             Click("filter-all", () => SetFilter(InfoFilter.Filter_All));
             Click("filter-private", () => SetFilter(InfoFilter.Filter_Private));
+            Click("filter-bands", () => SetFilter(InfoFilter.Filter_Bands));
 
             Click("submit-button", Submit);
 
@@ -2543,6 +2547,19 @@ namespace Underwrite.UI
             InfoHeldShown = held;
             list.Clear();
 
+            if (Filter == InfoFilter.Filter_Bands)
+            {
+                for (var b = 0; b < StringConstants.CODEX_STOCK_IDS.Length; b++)
+                {
+                    var id = StringConstants.CODEX_STOCK_IDS[b];
+                    list.Add(CodexCards.Build(Sim, id, Sim.NameOf(id)));
+                }
+
+                SelectFilterButtons();
+                Root.Q<Label>("info-empty").EnableInClassList("hidden", true);
+                return;
+            }
+
             var shown = 0;
 
             for (var i = log.Count - 1; i >= 0 && shown < INFO_MAX_ROWS; i--)
@@ -2573,9 +2590,15 @@ namespace Underwrite.UI
                     : StringConstants.TEXT_INFO_EMPTY;
             }
 
+            SelectFilterButtons();
+        }
+
+        private void SelectFilterButtons()
+        {
             Select("filter-mine", Filter == InfoFilter.Filter_Mine);
             Select("filter-all", Filter == InfoFilter.Filter_All);
             Select("filter-private", Filter == InfoFilter.Filter_Private);
+            Select("filter-bands", Filter == InfoFilter.Filter_Bands);
         }
 
         // 보유 상태를 숫자 하나로 줄인다. 바뀌었는지만 알면 된다. 매 프레임 불리므로 할당하지 않는다.
@@ -2612,6 +2635,7 @@ namespace Underwrite.UI
             ShowFilterButton("filter-mine");
             ShowFilterButton("filter-all");
             ShowFilterButton("filter-private");
+            ShowFilterButton("filter-bands");
 
             var latest = Root.Q<Label>("info-latest");
 

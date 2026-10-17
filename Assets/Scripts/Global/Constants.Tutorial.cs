@@ -7,6 +7,21 @@ namespace Underwrite.Global
         public static string TEXT_TUTORIAL_DONE = "알겠다";
         public static string TEXT_TUTORIAL_SKIP = "건너뛰기";
 
+        // 영지 첫 안내 — 어디로 가서 무엇을 누르면 어떻게 되는지까지(2026-10-17 사용자 요청).
+        public static string TEXT_TUT_VILLAGE_1_TITLE = "영지";
+        public static string TEXT_TUT_VILLAGE_1_BODY = "가진 것 하나 없이 떨어진 영지다. WASD나 방향키로 걷는다. 마우스 휠로 가까이 볼 수 있다. 이곳의 시간은 실제 시간처럼 흐른다.";
+        public static string TEXT_TUT_VILLAGE_2_TITLE = "시각";
+        public static string TEXT_TUT_VILLAGE_2_BODY = "지금 시각과 다음 일이 있기까지 남은 시간. 할 수 있는 일마다 시간이 든다 — 어디에 쓸지 고르는 것이 이 영지의 일이다.";
+        public static string TEXT_TUT_VILLAGE_3_TITLE = "할 일";
+        public static string TEXT_TUT_VILLAGE_3_BODY = "먼저 먹고살아야 한다. 화면 왼쪽 위의 여관으로 걸어가 문 앞에 서면 간판이 뜬다. E를 누르고 「주방 일을 거든다」를 고른다. 두 시간 일하고 30을 받는다.";
+        public static string TEXT_TUT_VILLAGE_4_TITLE = "말 걸기";
+        public static string TEXT_TUT_VILLAGE_4_BODY = "길에 선 사람에게 다가가 E를 누르면 말을 건다. 무리 지어 다니는 모험단에게 말을 걸면 그들에 대해 무언가 알게 된다 — 수첩에 적힌다.";
+        public static string TEXT_TUT_VILLAGE_5_TITLE = "메뉴";
+        public static string TEXT_TUT_VILLAGE_5_BODY = "시간 넘기기(원하는 시각까지 시계를 돌린다), 수첩(알아낸 것), 그리고 밤이 되면 잠자리. 할 일이 없으면 시간을 넘겨도 된다.";
+
+        public static string TEXT_OBJECTIVE_WORK = "할 일 · 여관에서 「주방 일을 거든다」";
+        public static string TEXT_OBJECTIVE_CELLAR = "할 일 · 여관 → 「창고로 내려간다」";
+
         // 지하거래소 첫 안내. 순서는 눈이 가는 순서다 — 무엇을 / 얼마에 / 어떻게 / 무엇을 보고.
         public static string TEXT_TUT_MARKET_1_TITLE = "지하거래소";
         public static string TEXT_TUT_MARKET_1_BODY = "여기서는 물건이 아니라 모험단의 성공과 실패를 사고판다. 장은 하루 두 번, 오전 9시와 밤 9시에 열린다. 장이 열린 동안 시간은 빠르게 흐른다.";

@@ -244,6 +244,7 @@
                 <ui:Button name="filter-mine" text="내 종목" class="btn btn--small" />
                 <ui:Button name="filter-all" text="전체" class="btn btn--small" />
                 <ui:Button name="filter-private" text="나만 아는" class="btn btn--small" />
+                <ui:Button name="filter-bands" text="모험단" class="btn btn--small" />
             </ui:VisualElement>
             <ui:VisualElement name="info-body" class="info-popup-body">
                 <ui:Label name="info-empty" text="아직 들어온 소식이 없습니다." class="t-note" />

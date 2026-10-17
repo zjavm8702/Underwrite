@@ -39,6 +39,7 @@ namespace Underwrite.UI
         private VillageSpot Here;
         private VillageNpc NearNpc;
         private TimeDial Dial;
+        private UI_Tutorial Tutorial;
 
         // 지금 선택지를 띄운 자리. 용사 테이블처럼 자리를 넘겨받지 않는 곳에서 돌아갈 곳이다.
         private VillageSpot CurrentSpot;
@@ -122,7 +123,8 @@ namespace Underwrite.UI
             EnsureClock();
 
             // 영지의 시간은 실시간 1:1로 흐른다. 기획서 §11.
-            if (Clock != null)
+            // 첫 안내를 읽는 동안에는 시간이 흐르지 않는다.
+            if (Clock != null && (Tutorial == null || Tutorial.IsOpen == false))
             {
                 Clock.AdvanceBreak(Time.unscaledDeltaTime);
             }
@@ -130,13 +132,16 @@ namespace Underwrite.UI
             NearNpc = FindNearNpc();
             RefreshPrompt();
 
+            StartVillageTutorialOnce();
+            RefreshObjective();
+
             NpcAmbient.Player = Player;
             WorldBubbles.Tick(Dialogue != null && Dialogue.IsOpen == true);
             PlayPendingReaction();
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || MenuOpen == true;
+                || MenuOpen == true || NotebookOpen == true;
 
             var keyboard = Keyboard.current;
 
@@ -147,7 +152,8 @@ namespace Underwrite.UI
             }
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
-                || ClockOpen == true || Approaching == true)
+                || ClockOpen == true || Approaching == true || NotebookOpen == true
+                || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
             }
@@ -227,6 +233,16 @@ namespace Underwrite.UI
             }
 
             yield return new WaitForSeconds(Constants.ACTOR_APPROACH_SECONDS);
+
+            // 모험단에게 직접 말을 걸면 그 단에 대해 하나 알게 된다. 수첩(도감)에 적는다.
+            var learned = npc.Party != null ? BandCodex.Learn(npc.Party.Stock, CodexSource.Codex_Talk) : null;
+
+            if (learned != null && me != null)
+            {
+                me.Say(string.Format(StringConstants.TEXT_CODEX_LEARNED, npc.Group));
+                me.Emote(ActorEmote.Emote_Exclaim);
+            }
+
             Approaching = false;
         }
 
@@ -1124,6 +1140,7 @@ namespace Underwrite.UI
             {
                 MenuItem(list, StringConstants.TEXT_SLEEP, true, string.Empty, Sleep);
             }
+            MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
             MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound,
                 StringConstants.TEXT_MENU_MARKET_LOCKED, () => SceneManager.LoadScene(SceneRoutes.MARKET));
 
@@ -1163,6 +1180,214 @@ namespace Underwrite.UI
             {
                 menu.RemoveFromClassList("village-button--on");
             }
+        }
+
+        // ── 첫 안내와 할 일 ───────────────────────
+
+        /// <summary>
+        /// 처음 영지에 서면 어디로 가서 무엇을 누르면 어떻게 되는지까지 알려 준다(2026-10-17 사용자 요청).
+        /// 웹툰이 끝나고 처음 서는 곳이다. 그동안 시간을 멈춘다.
+        /// </summary>
+        private void StartVillageTutorialOnce()
+        {
+            if (Tutorial == null)
+            {
+                Tutorial = new UI_Tutorial(Root, StringConstants.TEXT_TUTORIAL_NEXT, StringConstants.TEXT_TUTORIAL_DONE,
+                    StringConstants.TEXT_TUTORIAL_SKIP);
+            }
+
+            Tutorial.Tick();
+
+            if (StoryProgress.VillageTutorialDone == true || Tutorial.IsOpen == true || StoryProgress.CellarFound == true)
+            {
+                return;
+            }
+
+            StoryProgress.VillageTutorialDone = true;
+            Tutorial.Play(new List<TutorialStep>
+            {
+                new TutorialStep(null, StringConstants.TEXT_TUT_VILLAGE_1_TITLE, StringConstants.TEXT_TUT_VILLAGE_1_BODY),
+                new TutorialStep("village-visits", StringConstants.TEXT_TUT_VILLAGE_2_TITLE,
+                    StringConstants.TEXT_TUT_VILLAGE_2_BODY),
+                new TutorialStep("village-objective", StringConstants.TEXT_TUT_VILLAGE_3_TITLE,
+                    StringConstants.TEXT_TUT_VILLAGE_3_BODY),
+                new TutorialStep(null, StringConstants.TEXT_TUT_VILLAGE_4_TITLE, StringConstants.TEXT_TUT_VILLAGE_4_BODY),
+                new TutorialStep("village-menu", StringConstants.TEXT_TUT_VILLAGE_5_TITLE,
+                    StringConstants.TEXT_TUT_VILLAGE_5_BODY)
+            }, null);
+        }
+
+        /// <summary>
+        /// 화면 왼쪽 위의 「할 일」. 이야기가 시작되기 전(지하거래소를 찾고 들어가기 전)까지만 보인다.
+        /// </summary>
+        private void RefreshObjective()
+        {
+            var label = Root.Q<Label>("village-objective");
+
+            if (label == null)
+            {
+                label = new Label();
+                label.name = "village-objective";
+                label.AddToClassList("village-objective");
+                label.pickingMode = PickingMode.Ignore;
+                Root.Add(label);
+            }
+
+            string text = null;
+
+            if (StoryProgress.CellarFound == false)
+            {
+                text = StringConstants.TEXT_OBJECTIVE_WORK;
+            }
+            else if (StoryProgress.MarketTutorialDone == false)
+            {
+                text = StringConstants.TEXT_OBJECTIVE_CELLAR;
+            }
+
+            label.text = text ?? string.Empty;
+            label.EnableInClassList("hidden", text == null);
+        }
+
+        // ── 수첩 (2026-10-17 사용자 요청) ─────────
+        // 영지에서 알아낸 것을 모아 본다. 들은 소식과 모험단 도감 두 갈래.
+
+        private bool NotebookOpen
+        {
+            get
+            {
+                var book = Root.Q<VisualElement>("notebook");
+                return book != null && book.style.display != DisplayStyle.None;
+            }
+        }
+
+        private void OpenNotebook(bool bands)
+        {
+            var book = Root.Q<VisualElement>("notebook");
+
+            if (book == null)
+            {
+                book = new VisualElement();
+                book.name = "notebook";
+                book.AddToClassList("notebook");
+
+                var panel = new VisualElement();
+                panel.AddToClassList("popup");
+                panel.AddToClassList("notebook-panel");
+
+                var title = new Label(StringConstants.TEXT_NOTEBOOK);
+                title.AddToClassList("popup-title");
+
+                var tabs = new VisualElement();
+                tabs.AddToClassList("notebook-tabs");
+                var news = new Button(() => OpenNotebook(false));
+                news.name = "notebook-news";
+                news.text = StringConstants.TEXT_NOTEBOOK_NEWS;
+                news.AddToClassList("btn");
+                var codex = new Button(() => OpenNotebook(true));
+                codex.name = "notebook-bands";
+                codex.text = StringConstants.TEXT_CODEX_TAB;
+                codex.AddToClassList("btn");
+                tabs.Add(news);
+                tabs.Add(codex);
+
+                var list = new ScrollView();
+                list.name = "notebook-list";
+                list.AddToClassList("notebook-list");
+
+                var close = new Button(() => book.style.display = DisplayStyle.None);
+                close.text = StringConstants.TEXT_NOTEBOOK_CLOSE;
+                close.AddToClassList("popup-button");
+                close.AddToClassList("popup-button--main");
+
+                panel.Add(title);
+                panel.Add(tabs);
+                panel.Add(list);
+                panel.Add(close);
+                book.Add(panel);
+                Root.Add(book);
+            }
+
+            book.style.display = DisplayStyle.Flex;
+            book.BringToFront();
+            Root.Q<Button>("notebook-news").EnableInClassList("btn--selected", bands == false);
+            Root.Q<Button>("notebook-bands").EnableInClassList("btn--selected", bands == true);
+
+            var scroll = Root.Q<ScrollView>("notebook-list");
+            scroll.Clear();
+            var sim = BreakClock.Simulation;
+
+            if (bands == true)
+            {
+                for (var i = 0; i < StringConstants.CODEX_STOCK_IDS.Length; i++)
+                {
+                    var id = StringConstants.CODEX_STOCK_IDS[i];
+                    scroll.Add(CodexCards.Build(sim, id, sim == null ? id : sim.NameOf(id)));
+                }
+
+                return;
+            }
+
+            // 이번에 영지에서 캔 것(가장 최근부터), 그 앞의 나만 아는 소식들.
+            var shown = 0;
+            var gathered = GatherSession.Gathered;
+
+            for (var i = gathered.Count - 1; i >= 0; i--)
+            {
+                scroll.Add(NewsCard(sim, gathered[i].StockId, gathered[i].Headline));
+                shown++;
+            }
+
+            if (sim != null)
+            {
+                var log = sim.InfoLog;
+
+                for (var i = log.Count - 1; i >= 0 && shown < Constants.NOTEBOOK_MAX_ROWS; i--)
+                {
+                    if (log[i].IsPublic == true)
+                    {
+                        continue;
+                    }
+
+                    scroll.Add(NewsCard(sim, log[i].StockId, log[i].Headline));
+                    shown++;
+                }
+            }
+
+            if (shown == 0)
+            {
+                var empty = new Label(StringConstants.TEXT_NOTEBOOK_EMPTY);
+                empty.AddToClassList("t-note");
+                scroll.Add(empty);
+            }
+        }
+
+        private static VisualElement NewsCard(MarketSimulation sim, string stockId, string headline)
+        {
+            var card = new VisualElement();
+            card.AddToClassList("info-card");
+            card.AddToClassList("info-card--private");
+
+            var held = sim == null ? 0 : sim.Wallet.QuantityOf(stockId);
+            card.EnableInClassList("info-card--held", held > 0);
+
+            var line = new VisualElement();
+            line.AddToClassList("info-line");
+            var name = new Label(sim == null ? stockId : sim.NameOf(stockId));
+            name.AddToClassList("info-stock");
+            line.Add(name);
+
+            if (held > 0)
+            {
+                var badge = new Label(string.Format(StringConstants.TEXT_INFO_HELD, held));
+                badge.AddToClassList("info-held");
+                line.Add(badge);
+            }
+
+            var text = new Label(headline);
+            text.AddToClassList("info-headline");
+            card.Add(line);
+            card.Add(text);
+            return card;
         }
 
         // ── 원형 시계 ─────────────────────────────
@@ -1445,7 +1670,7 @@ namespace Underwrite.UI
             {
                 SpendTime(spot);
                 GatherSession.Record(spot.Price, 0f, null);
-                Say(spot, "아직 돌고 있는 이야기가 없습니다.", null, false);
+                Say(spot, "아직 돌고 있는 이야기가 없습니다.", null, false, null, ScoutBand(spot));
                 return;
             }
 
@@ -1500,7 +1725,51 @@ namespace Underwrite.UI
 
             SpendTime(spot);
             GatherSession.Record(spot.Price, 0f, note);
-            Say(spot, body, PortraitOf(pick.StockId), note != null, HeldNote(pick.StockId));
+            Say(spot, body, PortraitOf(pick.StockId), note != null, HeldNote(pick.StockId), ScoutBand(spot));
+        }
+
+        /// <summary>
+        /// 그 자리에서 모험단 하나에 대해 알게 된다(도감). 갓 도착한 단이 먼저다 — 상장 전 조사.
+        /// 새로 알았으면 대화에 붙일 한 줄, 없으면 null.
+        /// </summary>
+        private static string ScoutBand(VillageSpot spot)
+        {
+            CodexSource source;
+
+            switch (spot.InfoSource)
+            {
+                case InfoSource.Source_GuildRecord:
+                {
+                    source = CodexSource.Codex_Guild;
+                    break;
+                }
+                case InfoSource.Source_SmithOrder:
+                {
+                    source = CodexSource.Codex_Smith;
+                    break;
+                }
+                case InfoSource.Source_TavernTalk:
+                {
+                    source = CodexSource.Codex_Tavern;
+                    break;
+                }
+                default:
+                {
+                    return null;
+                }
+            }
+
+            var sim = BreakClock.Simulation;
+            var id = BandCodex.PickUnknown(sim, source);
+            var fact = id == null ? null : BandCodex.Learn(id, source);
+
+            if (fact == null)
+            {
+                return null;
+            }
+
+            return string.Format(StringConstants.TEXT_CODEX_LEARNED,
+                string.Format(StringConstants.TEXT_CODEX_LEARNED_LINE, sim.NameOf(id), fact));
         }
 
         /// <summary>
@@ -1523,7 +1792,8 @@ namespace Underwrite.UI
         /// <summary>
         /// 자리의 주인이 말한다. 묻는 쪽은 플레이어이므로 말하는 이는 늘 그 자리의 사람이다.
         /// </summary>
-        private void Say(VillageSpot spot, string text, Sprite portrait, bool secret, string heldNote = null)
+        private void Say(VillageSpot spot, string text, Sprite portrait, bool secret, string heldNote = null,
+            string scouted = null)
         {
             var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
             line.Portrait = portrait;
@@ -1532,7 +1802,14 @@ namespace Underwrite.UI
             line.Tag = heldNote == null ? spot.Name : spot.Name + " · " + heldNote;
             line.Note = BuildNote(spot, secret);
 
-            Dialogue.Play(new List<DialogueLine> { line }, secret == true
+            var lines = new List<DialogueLine> { line };
+
+            if (scouted != null)
+            {
+                lines.Add(new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, scouted));
+            }
+
+            Dialogue.Play(lines, secret == true
                 ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Exclaim, Back(spot))
                 : React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, Back(spot)));
         }

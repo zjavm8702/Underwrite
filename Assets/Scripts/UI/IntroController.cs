@@ -129,6 +129,7 @@ namespace Underwrite.UI
             PatronageLedger.Reset();
             HeroRoster.Reset();
             StoryProgress.Reset();
+            BandCodex.Reset();
 
             // 웹툰을 다 본 뒤에는 마을에서 시작한다. 지하거래소는 여관 일을 하다 직접 찾는다.
             SceneManager.LoadScene(SceneRoutes.VILLAGE);

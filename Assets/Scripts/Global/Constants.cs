@@ -471,6 +471,8 @@ namespace Underwrite.Global
         /// <summary>시간 넘기기 연출: 어두워지기·머물기·밝아지기(초).</summary>
         public static float TIME_PASS_FADE = 0.35f;
         public static float TIME_PASS_HOLD = 1.1f;
+        /// <summary>영지 수첩에 보여 줄 소식 수.</summary>
+        public const int NOTEBOOK_MAX_ROWS = 30;
 
         // ── 대화 ──────────────────────────────────
         /// <summary>선택지를 고르는 숫자 키. 화면에 붙는 번호 「1.」「2.」와 같은 순서다.</summary>

@@ -491,6 +491,27 @@ namespace Underwrite.Market
             return BandStage.Band_NotArrived;
         }
 
+        /// <summary>종목의 이름. 아직 상장 전인 단도 찾는다. 모르면 아이디를 돌려준다.</summary>
+        public string NameOf(string stockId)
+        {
+            AdventurerStock stock;
+
+            if (StockTable.TryGetValue(stockId, out stock) == true)
+            {
+                return stock.DisplayName;
+            }
+
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                if (Waiting[i].Stock.Id == stockId)
+                {
+                    return Waiting[i].Stock.DisplayName;
+                }
+            }
+
+            return stockId;
+        }
+
         /// <summary>도착했지만 아직 상장되지 않은 단의 이름. 없으면 빈 목록.</summary>
         public List<string> ArrivedNames()
         {

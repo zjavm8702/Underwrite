@@ -15,10 +15,14 @@ namespace Underwrite.Story
         /// <summary>지하거래소 첫 안내를 마쳤는가(건너뛴 것도 마친 것으로 본다).</summary>
         public static bool MarketTutorialDone { get; set; }
 
+        /// <summary>영지 첫 안내를 마쳤는가.</summary>
+        public static bool VillageTutorialDone { get; set; }
+
         public static void Reset()
         {
             CellarFound = false;
             MarketTutorialDone = false;
+            VillageTutorialDone = false;
         }
     }
 }
