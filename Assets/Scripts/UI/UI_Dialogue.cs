@@ -80,6 +80,9 @@ namespace Underwrite.UI
             built.style.right = 0f;
             built.style.top = 0f;
             built.style.bottom = 0f;
+            // 틀은 화면 전체를 덮는 투명한 상자다. 클릭을 받으면 대화가 닫혀 있어도 아래 화면이 전부 막힌다.
+            // 클릭은 대화가 열렸을 때 dialogue-root가 받는다. 닫히면 hidden(display: none)이라 통과한다.
+            built.pickingMode = PickingMode.Ignore;
 
             Veil = built.Q<VisualElement>("dialogue-root");
             Figure = built.Q<VisualElement>("dialogue-figure");
