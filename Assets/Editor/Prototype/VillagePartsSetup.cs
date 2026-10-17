@@ -50,8 +50,8 @@ namespace Underwrite.Editor
         private const string SMITH_FILE = "smith.png";
         private static readonly Vector2 SMITH_FORGE_IN_PNG = new Vector2(650f, 740f);
 
-        private const float FORGE_LIGHT_INTENSITY = 1.1f;
-        private const float FORGE_LIGHT_RADIUS = 2.2f;
+        private const float FORGE_LIGHT_INTENSITY = 0.8f;
+        private const float FORGE_LIGHT_RADIUS = 1.8f;
         private static readonly Color FORGE_COLOR = new Color(1f, 0.55f, 0.2f);
         private const string SPRITE_UNLIT_MATERIAL =
             "Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat";
@@ -759,7 +759,9 @@ namespace Underwrite.Editor
         }
 
         /// <summary>
-        /// 대장간 화로의 불(2026-10-17 사용자 요청). 불빛은 2D 라이트로 일렁이고, 불꽃 알갱이가 화로 안에서 피어오른다.
+        /// 대장간 화로의 불(2026-10-17 사용자 요청). 처음 판은 큰 원이 피어올라 "효과처럼" 보였다.
+        /// 그래서 진짜 불처럼 둘로 나눈다 — 화로 안에서 낮게 일렁이는 작은 불꽃, 그리고 가끔 튀어 올라
+        /// 중력에 휘며 꺼지는 불씨. 불빛은 2D 라이트로 은은하게 일렁인다.
         /// 그림에 불을 그리지 않은 것은 아트 규칙(불빛 번짐은 코드가 붙인다) 그대로다.
         /// </summary>
         private static void BuildForge(Vector2 at, float ownerFootY, Transform parent)
@@ -776,38 +778,104 @@ namespace Underwrite.Editor
             light.pointLightInnerRadius = 0f;
             go.AddComponent<LampFlicker>();
 
+            var order = YSortRenderer.OrderFor(ownerFootY) + 1;
+            BuildFlames(go.transform, order);
+            BuildSparks(go.transform, order + 1);
+        }
+
+        // 화로 안의 낮은 불꽃. 작고 짧게, 거의 오르지 않는다 — 숯 위에서 혀처럼 날름거린다.
+        private static void BuildFlames(Transform parent, int order)
+        {
+            var go = new GameObject("Flames");
+            go.transform.SetParent(parent, false);
+
             var system = go.AddComponent<ParticleSystem>();
             var main = system.main;
-            main.startLifetime = new ParticleSystem.MinMaxCurve(0.5f, 0.9f);
-            main.startSpeed = new ParticleSystem.MinMaxCurve(0.2f, 0.5f);
-            main.startSize = new ParticleSystem.MinMaxCurve(0.18f, 0.34f);
-            main.startColor = new ParticleSystem.MinMaxGradient(new Color(1f, 0.85f, 0.35f, 0.9f),
-                new Color(1f, 0.42f, 0.12f, 0.9f));
-            main.maxParticles = 40;
+            main.startLifetime = new ParticleSystem.MinMaxCurve(0.18f, 0.35f);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(0.15f, 0.35f);
+            main.startSize = new ParticleSystem.MinMaxCurve(0.07f, 0.14f);
+            main.startColor = new ParticleSystem.MinMaxGradient(new Color(1f, 0.78f, 0.3f, 0.85f),
+                new Color(1f, 0.45f, 0.12f, 0.85f));
+            main.maxParticles = 60;
             main.simulationSpace = ParticleSystemSimulationSpace.World;
             main.prewarm = true;
 
             var emission = system.emission;
-            emission.rateOverTime = 26f;
+            emission.rateOverTime = 45f;
 
             var shape = system.shape;
             shape.shapeType = ParticleSystemShapeType.Box;
-            shape.scale = new Vector3(0.9f, 0.12f, 0.1f);
-            // 원뿔·상자는 기본으로 +Z를 향한다. 화면 위(+Y)로 피어오르게 눕힌다.
+            shape.scale = new Vector3(0.8f, 0.06f, 0.05f);
+            // 상자는 기본으로 +Z를 향한다. 화면 위(+Y)로 피어오르게 눕힌다.
             shape.rotation = new Vector3(-90f, 0f, 0f);
 
             var size = system.sizeOverLifetime;
             size.enabled = true;
-            size.size = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.Linear(0f, 1f, 1f, 0.1f));
+            size.size = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.Linear(0f, 1f, 1f, 0.2f));
 
             var color = system.colorOverLifetime;
             color.enabled = true;
             var gradient = new Gradient();
             gradient.SetKeys(
-                new[] { new GradientColorKey(new Color(1f, 0.9f, 0.5f), 0f), new GradientColorKey(new Color(1f, 0.3f, 0.08f), 1f) },
-                new[] { new GradientAlphaKey(0f, 0f), new GradientAlphaKey(0.95f, 0.15f), new GradientAlphaKey(0f, 1f) });
+                new[] { new GradientColorKey(new Color(1f, 0.92f, 0.6f), 0f), new GradientColorKey(new Color(0.9f, 0.25f, 0.05f), 1f) },
+                new[] { new GradientAlphaKey(0f, 0f), new GradientAlphaKey(0.9f, 0.2f), new GradientAlphaKey(0f, 1f) });
             color.color = gradient;
 
+            Finish(go, system, order, 0f);
+        }
+
+        // 튀는 불씨. 아주 작고 밝다. 위로 튀었다가 중력에 휘며 꺼지고, 움직이는 쪽으로 살짝 늘어진다.
+        // 고르게 나오지 않고 가끔 몇 개씩 터진다 — 숯이 탁 튀는 느낌.
+        private static void BuildSparks(Transform parent, int order)
+        {
+            var go = new GameObject("Sparks");
+            go.transform.SetParent(parent, false);
+
+            var system = go.AddComponent<ParticleSystem>();
+            var main = system.main;
+            main.startLifetime = new ParticleSystem.MinMaxCurve(0.5f, 1.1f);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(0.8f, 1.8f);
+            main.startSize = new ParticleSystem.MinMaxCurve(0.025f, 0.05f);
+            main.startColor = new ParticleSystem.MinMaxGradient(new Color(1f, 0.95f, 0.7f, 1f),
+                new Color(1f, 0.7f, 0.25f, 1f));
+            main.gravityModifier = 0.35f;
+            main.maxParticles = 40;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
+
+            var emission = system.emission;
+            emission.rateOverTime = 4f;
+            emission.SetBursts(new[]
+            {
+                new ParticleSystem.Burst(0.4f, 3, 6, 1, 1.3f),
+                new ParticleSystem.Burst(1.1f, 2, 4, 1, 2.1f)
+            });
+
+            var shape = system.shape;
+            shape.shapeType = ParticleSystemShapeType.Cone;
+            shape.angle = 28f;
+            shape.radius = 0.25f;
+            shape.rotation = new Vector3(-90f, 0f, 0f);
+
+            var noise = system.noise;
+            noise.enabled = true;
+            noise.strength = 0.25f;
+            noise.frequency = 1.5f;
+
+            var color = system.colorOverLifetime;
+            color.enabled = true;
+            var gradient = new Gradient();
+            gradient.SetKeys(
+                new[] { new GradientColorKey(new Color(1f, 0.97f, 0.8f), 0f), new GradientColorKey(new Color(1f, 0.55f, 0.15f), 0.5f),
+                    new GradientColorKey(new Color(0.8f, 0.2f, 0.05f), 1f) },
+                new[] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 0.6f), new GradientAlphaKey(0f, 1f) });
+            color.color = gradient;
+
+            // 움직이는 쪽으로 늘린다 — 점이 아니라 짧은 선으로 보여야 불똥이다.
+            Finish(go, system, order, 0.06f);
+        }
+
+        private static void Finish(GameObject go, ParticleSystem system, int order, float stretch)
+        {
             var sheet = system.textureSheetAnimation;
             sheet.enabled = true;
             sheet.mode = ParticleSystemAnimationMode.Sprites;
@@ -816,7 +884,14 @@ namespace Underwrite.Editor
             // 불은 스스로 빛난다. 조명에 먹히지 않게 Unlit을 쓴다.
             var renderer = go.GetComponent<ParticleSystemRenderer>();
             renderer.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>(SPRITE_UNLIT_MATERIAL);
-            renderer.sortingOrder = YSortRenderer.OrderFor(ownerFootY) + 1;
+            renderer.sortingOrder = order;
+
+            if (stretch > 0f)
+            {
+                renderer.renderMode = ParticleSystemRenderMode.Stretch;
+                renderer.velocityScale = stretch;
+                renderer.lengthScale = 1f;
+            }
         }
 
         private static void BuildLamp(Vector2 at, Transform parent)
