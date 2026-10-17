@@ -6,7 +6,7 @@
 
 1. **`Documents/Codex/Underwrite_아트_작업규칙.md`** — 아트의 최종 권한. 작업 시작 전에 읽는다.
 2. **`Documents/Codex/Underwrite_8방향_애니메이션_자동생성툴.md`** — Unity 연결 도구 사용법.
-3. **`Documents/Shared/Underwrite_기획서_v0.6.md`** — 세계관·캐릭터 설정. §17·§18이 아트 관련.
+3. **`Documents/Shared/Underwrite_기획서_v0.7.md`** — 세계관·캐릭터 설정. §17·§18이 아트 관련.
 4. **`AGENTS.md`** — 프로젝트 루트. 작업 완료 범위.
 5. 이 문서 — 위 문서들의 요약과 보고 양식.
 
