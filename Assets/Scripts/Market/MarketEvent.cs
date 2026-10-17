@@ -95,9 +95,15 @@ namespace Underwrite.Market
         /// <summary>시장에도 공개된 정보인지. 거짓이면 플레이어만 아는 정보다.</summary>
         public bool IsPublic { get; private set; }
 
+        /// <summary>며칠째 어느 장에 들어온 소식인가. 틱만으로는 언제인지 알 수 없다.</summary>
+        public int Day { get; private set; }
+        public MarketSession Session { get; private set; }
+
         public InfoEntry(int tick, string stockId, string headline, InfoSource source,
-            EventStage stage, bool isPublic)
+            EventStage stage, bool isPublic, int day, MarketSession session)
         {
+            Day = day;
+            Session = session;
             Tick = tick;
             StockId = stockId;
             Headline = headline;

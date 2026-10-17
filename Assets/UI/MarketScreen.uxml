@@ -238,9 +238,10 @@
                 <ui:Label text="정보 기록" class="t-panel" />
                 <ui:Label name="info-count" text="0건" class="t-note" style="margin-left: 8px;" />
                 <ui:Label name="info-latest" text="" class="info-latest grow" />
+                <!-- 2026-10-17 사용자 요청: 내 주식에 영향이 가는 소식을 따로 본다. 「공개」는 「전체」에서 점으로 구분한다. -->
+                <ui:Button name="filter-mine" text="내 종목" class="btn btn--small" />
                 <ui:Button name="filter-all" text="전체" class="btn btn--small" />
                 <ui:Button name="filter-private" text="나만 아는" class="btn btn--small" />
-                <ui:Button name="filter-public" text="공개" class="btn btn--small" />
             </ui:VisualElement>
             <ui:VisualElement name="info-body" class="info-popup-body">
                 <ui:Label name="info-empty" text="아직 들어온 소식이 없습니다." class="t-note" />

@@ -476,6 +476,7 @@ namespace Underwrite.UI
                     var field = HeroLine(hero, string.Format(StringConstants.TEXT_HERO_FIELD_TALK, name, pick.Headline),
                         PortraitEmotion.Emotion_Neutral);
                     field.IsSecret = true;
+                    field.Note = HeldNote(pick.StockId);
                     lines.Add(field);
                     GatherSession.Record(0f, 0f, new GatheredNote(pick.StockId, pick.Headline,
                         InfoSource.Source_TavernTalk));
@@ -720,6 +721,7 @@ namespace Underwrite.UI
 
             var text = quest.Done;
             GatheredNote note = null;
+            string rumorStock = null;
 
             // 여관 일꾼의 자리. 단골인 용사단의 이야기가 들린다(후원흐름 설계안 §2-2).
             // 의뢰에 대한 반응이 있으면 그것이, 없으면 아직 못 들은 사정이 먼저다.
@@ -739,6 +741,7 @@ namespace Underwrite.UI
                     var name = StockName(pick.StockId);
                     note = new GatheredNote(pick.StockId, $"{name} 쪽에 무슨 일이 있다.", spot.InfoSource);
                     text = text + " " + string.Format(StringConstants.TEXT_WORK_RUMOR, name);
+                    rumorStock = pick.StockId;
                 }
             }
 
@@ -748,6 +751,12 @@ namespace Underwrite.UI
             var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
             line.IsSecret = note != null;
             line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, quest.Reward, minutes / 60, minutes % 60);
+            var held = rumorStock == null ? null : HeldNote(rumorStock);
+
+            if (held != null)
+            {
+                line.Note = held + " · " + line.Note;
+            }
 
             Dialogue.Play(new List<DialogueLine> { line }, null);
         }
@@ -1152,18 +1161,35 @@ namespace Underwrite.UI
 
             SpendTime(spot);
             GatherSession.Record(spot.Price, 0f, note);
-            Say(spot, body, PortraitOf(pick.StockId), note != null);
+            Say(spot, body, PortraitOf(pick.StockId), note != null, HeldNote(pick.StockId));
+        }
+
+        /// <summary>
+        /// 그 종목을 지금 가지고 있으면 "내가 가진 종목 · N주"를 돌려준다. 아니면 null.
+        /// 영지에서 캔 소식이 내 돈에 닿는지 그 자리에서 알게 한다(2026-10-17 사용자 요청).
+        /// </summary>
+        private static string HeldNote(string stockId)
+        {
+            var sim = BreakClock.Simulation;
+
+            if (sim == null)
+            {
+                return null;
+            }
+
+            var quantity = sim.Wallet.QuantityOf(stockId);
+            return quantity > 0 ? string.Format(StringConstants.TEXT_HELD_NOTE, quantity) : null;
         }
 
         /// <summary>
         /// 자리의 주인이 말한다. 묻는 쪽은 플레이어이므로 말하는 이는 늘 그 자리의 사람이다.
         /// </summary>
-        private void Say(VillageSpot spot, string text, Sprite portrait, bool secret)
+        private void Say(VillageSpot spot, string text, Sprite portrait, bool secret, string heldNote = null)
         {
             var line = new DialogueLine(SpeakerOf(spot.InfoSource), spot.Name, text);
             line.Portrait = portrait;
             line.IsSecret = secret;
-            line.Note = BuildNote(spot, secret);
+            line.Note = heldNote == null ? BuildNote(spot, secret) : heldNote + " · " + BuildNote(spot, secret);
 
             Dialogue.Play(new List<DialogueLine> { line }, null);
         }

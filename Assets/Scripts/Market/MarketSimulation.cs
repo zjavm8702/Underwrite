@@ -154,7 +154,7 @@ namespace Underwrite.Market
             {
                 var note = notes[i];
                 InfoEntries.Add(new InfoEntry(Clock.Tick, note.StockId, note.Headline,
-                    note.Source, EventStage.Stage_Report, false));
+                    note.Source, EventStage.Stage_Report, false, Clock.Day, Clock.Session));
             }
 
             return notes.Count;
@@ -884,7 +884,8 @@ namespace Underwrite.Market
             if (step.VisibleToPlayer == true)
             {
                 InfoEntries.Add(new InfoEntry(
-                    Clock.Tick, step.StockId, step.Headline, step.Source, step.Stage, step.AffectsMarket));
+                    Clock.Tick, step.StockId, step.Headline, step.Source, step.Stage, step.AffectsMarket,
+                    Clock.Day, Clock.Session));
             }
         }
 

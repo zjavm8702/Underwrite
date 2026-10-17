@@ -45,9 +45,10 @@ namespace Underwrite.UI
 
         private enum InfoFilter
         {
+            /// <summary>지금 가진 종목의 소식만. 내 돈에 영향을 주는 것부터 읽게 한다.</summary>
+            Filter_Mine,
             Filter_All,
-            Filter_Private,
-            Filter_Public
+            Filter_Private
         }
 
         [Header("장세")]
@@ -94,6 +95,7 @@ namespace Underwrite.UI
         private OrderSide Side = OrderSide.Side_Buy;
         private int Quantity = 10;
         private InfoFilter Filter = InfoFilter.Filter_All;
+        private int InfoHeldShown = -1;
         private int InfoCountShown = -1;
         private int ChartTickShown = -1;
         private int BookTickShown = -1;
@@ -589,9 +591,9 @@ namespace Underwrite.UI
                 });
             }
 
+            Click("filter-mine", () => SetFilter(InfoFilter.Filter_Mine));
             Click("filter-all", () => SetFilter(InfoFilter.Filter_All));
             Click("filter-private", () => SetFilter(InfoFilter.Filter_Private));
-            Click("filter-public", () => SetFilter(InfoFilter.Filter_Public));
 
             Click("submit-button", Submit);
 
@@ -2431,13 +2433,17 @@ namespace Underwrite.UI
 
             RefreshInfoHead(log);
 
-            // 목록은 매 프레임 다시 만들지 않는다. 기록이 늘었을 때만 다시 그린다.
-            if (InfoCountShown == log.Count)
+            // 목록은 매 프레임 다시 만들지 않는다. 기록이 늘었거나 보유가 바뀌었을 때만 다시 그린다.
+            // 보유가 바뀌면 「보유 N주」 표시와 「내 종목」 탭의 내용이 달라진다.
+            var held = HeldSignature();
+
+            if (InfoCountShown == log.Count && InfoHeldShown == held)
             {
                 return;
             }
 
             InfoCountShown = log.Count;
+            InfoHeldShown = held;
             list.Clear();
 
             var shown = 0;
@@ -2451,7 +2457,7 @@ namespace Underwrite.UI
                     continue;
                 }
 
-                if (Filter == InfoFilter.Filter_Public && entry.IsPublic == false)
+                if (Filter == InfoFilter.Filter_Mine && Sim.Wallet.QuantityOf(entry.StockId) <= 0)
                 {
                     continue;
                 }
@@ -2465,11 +2471,27 @@ namespace Underwrite.UI
             if (empty != null)
             {
                 empty.EnableInClassList("hidden", shown > 0);
+                empty.text = Filter == InfoFilter.Filter_Mine
+                    ? StringConstants.TEXT_INFO_EMPTY_MINE
+                    : StringConstants.TEXT_INFO_EMPTY;
             }
 
+            Select("filter-mine", Filter == InfoFilter.Filter_Mine);
             Select("filter-all", Filter == InfoFilter.Filter_All);
             Select("filter-private", Filter == InfoFilter.Filter_Private);
-            Select("filter-public", Filter == InfoFilter.Filter_Public);
+        }
+
+        // 보유 상태를 숫자 하나로 줄인다. 바뀌었는지만 알면 된다. 매 프레임 불리므로 할당하지 않는다.
+        private int HeldSignature()
+        {
+            var signature = 0;
+
+            for (var i = 0; i < Sim.Stocks.Count; i++)
+            {
+                signature = signature * 31 + Sim.Wallet.QuantityOf(Sim.Stocks[i].Id);
+            }
+
+            return signature;
         }
 
         /// <summary>
@@ -2490,9 +2512,9 @@ namespace Underwrite.UI
             SetText("info-count", $"{log.Count}건");
 
             // 접혀 있으면 필터는 거를 목록이 없다. 버튼을 치워야 최근 소식 한 줄이 들어간다.
+            ShowFilterButton("filter-mine");
             ShowFilterButton("filter-all");
             ShowFilterButton("filter-private");
-            ShowFilterButton("filter-public");
 
             var latest = Root.Q<Label>("info-latest");
 
@@ -2522,50 +2544,63 @@ namespace Underwrite.UI
             button.EnableInClassList("hidden", InfoCollapsed);
         }
 
+        /// <summary>
+        /// 소식 한 장. 두 줄이다 — 첫 줄은 누구의·언제·어디서, 둘째 줄은 내용.
+        /// 예전에는 세 줄에 "시장에 공개됨"이 한 줄을 통째로 쓰고 종목 이름은 작은 회색 글씨에 묻혀
+        /// 한 화면에 두 장밖에 안 보였다(2026-10-17 사용자 보고: 가독성이 떨어진다).
+        /// 가진 종목의 소식은 왼쪽 띠와 「보유 N주」로 바로 알아보게 한다.
+        /// </summary>
         private VisualElement BuildInfoCard(InfoEntry entry)
         {
+            var heldQuantity = Sim.Wallet.QuantityOf(entry.StockId);
+
             var card = new VisualElement();
             card.AddToClassList("info-card");
             card.EnableInClassList("info-card--private", entry.IsPublic == false);
+            card.EnableInClassList("info-card--held", heldQuantity > 0);
 
-            var head = new VisualElement();
-            head.AddToClassList("info-head");
-
-            var tag = new Label(entry.IsPublic == true
-                ? StringConstants.TEXT_TAG_PUBLIC
-                : StringConstants.TEXT_TAG_PRIVATE);
-            tag.AddToClassList("info-tag");
-            tag.AddToClassList(entry.IsPublic == true ? "info-tag--public" : "info-tag--private");
-
-            Builder.Length = 0;
-            Builder.Append(SourceText(entry.Source)).Append(" · ").Append(entry.Tick).Append("틱");
+            var line = new VisualElement();
+            line.AddToClassList("info-line");
 
             AdventurerStock stock;
+            var name = Sim.StockLookup.TryGetValue(entry.StockId, out stock) == true
+                ? stock.DisplayName
+                : entry.StockId;
 
-            if (Sim.StockLookup.TryGetValue(entry.StockId, out stock) == true)
+            var stockLabel = new Label(name);
+            stockLabel.AddToClassList("info-stock");
+            line.Add(stockLabel);
+
+            if (heldQuantity > 0)
             {
-                Builder.Append(" · ").Append(stock.DisplayName);
+                var held = new Label(string.Format(StringConstants.TEXT_INFO_HELD, heldQuantity));
+                held.AddToClassList("info-held");
+                line.Add(held);
             }
 
-            var meta = new Label(Builder.ToString());
-            meta.AddToClassList("info-meta");
+            var when = new Label(string.Format(StringConstants.TEXT_INFO_WHEN, SourceText(entry.Source), entry.Day,
+                SessionName(entry.Session)));
+            when.AddToClassList("info-when");
+            line.Add(when);
 
-            head.Add(tag);
-            head.Add(meta);
+            // 공개 여부는 점으로. 나만 아는 소식만 글자를 붙인다 — 그쪽이 드물고 값지다.
+            var dot = new VisualElement();
+            dot.AddToClassList("info-dot");
+            dot.AddToClassList(entry.IsPublic == true ? "info-dot--public" : "info-dot--private");
+            line.Add(dot);
+
+            if (entry.IsPublic == false)
+            {
+                var secret = new Label(StringConstants.TEXT_INFO_PRIVATE_SHORT);
+                secret.AddToClassList("info-secret");
+                line.Add(secret);
+            }
 
             var headline = new Label(entry.Headline);
             headline.AddToClassList("info-headline");
 
-            card.Add(head);
+            card.Add(line);
             card.Add(headline);
-
-            if (entry.IsPublic == false)
-            {
-                var note = new Label(StringConstants.TEXT_INFO_NOT_PUBLIC);
-                note.AddToClassList("t-note");
-                card.Add(note);
-            }
-
             return card;
         }
 

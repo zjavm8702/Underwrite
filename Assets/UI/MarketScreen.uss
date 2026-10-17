@@ -370,50 +370,87 @@
 /* ── 정보 카드 ────────────────────────────── */
 
 .info-card {
-    min-height: 96px;
     flex-shrink: 0;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 10px 14px 10px 14px;
+    margin-bottom: 8px;
     background-color: var(--color-canvas);
+    border-left-width: 4px;
+    border-left-color: rgba(0, 0, 0, 0);
 }
 
 .info-card--private {
     background-color: var(--color-private-soft);
-    border-left-width: 4px;
-    border-left-color: var(--color-private);
 }
 
-.info-tag {
-    font-size: 18px;
+/* 가진 종목의 소식. 왼쪽 띠로 먼저 눈에 띄게 한다. */
+.info-card--held {
+    border-left-color: rgb(158, 52, 40);
+}
+
+.info-line {
+    flex-direction: row;
+    align-items: center;
+}
+
+.info-stock {
+    font-size: 17px;
     -unity-font-style: bold;
+    color: var(--color-text);
     flex-shrink: 0;
 }
 
-.info-head {
-    flex-direction: column;
+.info-held {
+    font-size: 13px;
+    -unity-font-style: bold;
+    color: rgb(247, 240, 226);
+    background-color: rgb(158, 52, 40);
+    border-radius: 8px;
+    padding: 1px 8px 1px 8px;
+    margin-left: 8px;
+    flex-shrink: 0;
 }
 
-.info-meta {
-    font-size: 16px;
+.info-when {
+    flex-grow: 1;
+    min-width: 0;
+    font-size: 14px;
     color: var(--color-text-weak);
-    margin-top: 2px;
-    white-space: normal;
+    -unity-text-align: middle-right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 8px;
 }
 
-.info-tag--private {
+.info-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 5px;
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+
+.info-dot--public {
+    background-color: var(--color-text-weak);
+}
+
+.info-dot--private {
+    background-color: var(--color-private);
+}
+
+.info-secret {
+    font-size: 13px;
+    -unity-font-style: bold;
     color: var(--color-private);
-}
-
-.info-tag--public {
-    color: var(--color-text-weak);
+    margin-left: 4px;
+    flex-shrink: 0;
 }
 
 .info-headline {
-    font-size: 20px;
-    -unity-font-style: bold;
+    font-size: 18px;
     white-space: normal;
-    margin-top: 8px;
+    margin-top: 4px;
+    color: var(--color-text);
 }
 
 /* ── 주문 ─────────────────────────────────── */
@@ -722,7 +759,7 @@
 }
 
 .info-popup-body {
-    height: 320px;
+    height: 420px;
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 16px;

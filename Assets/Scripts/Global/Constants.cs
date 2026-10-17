@@ -73,6 +73,11 @@ namespace Underwrite.Global
         public static string TEXT_TAG_PUBLIC = "시장에 공개됨";
         public static string TEXT_TAG_PRIVATE = "나만 아는 정보";
         public static string TEXT_INFO_NOT_PUBLIC = "아직 시장에 공개되지 않음.";
+        public static string TEXT_INFO_HELD = "보유 {0}주";
+        public static string TEXT_INFO_WHEN = "{0} · {1}일 {2}";
+        public static string TEXT_INFO_PRIVATE_SHORT = "나만 앎";
+        public static string TEXT_INFO_EMPTY_MINE = "가진 종목에 대한 소식이 아직 없습니다.";
+        public static string TEXT_HELD_NOTE = "내가 가진 종목 · {0}주";
 
         public static string TEXT_SOURCE_TAVERN_TALK = "여관 소문";
         public static string TEXT_SOURCE_GUILD_RECORD = "길드 기록";
