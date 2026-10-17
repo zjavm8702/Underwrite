@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Underwrite.Enumeration;
+using Underwrite.Save;
 
 namespace Underwrite.Market
 {
@@ -91,6 +92,44 @@ namespace Underwrite.Market
         }
 
         /// <summary>장이 끝나 영지의 시간이 시작된다. <paramref name="budget"/>은 들고 나온 돈이다.</summary>
+        internal static GatherState Capture()
+        {
+            var state = new GatherState
+            {
+                Spent = Spent,
+                Earned = Earned,
+                Budget = Budget,
+                NextSlot = NextSlot
+            };
+
+            for (var i = 0; i < Notes.Count; i++)
+            {
+                state.Notes.Add(new NoteState
+                {
+                    StockId = Notes[i].StockId,
+                    Headline = Notes[i].Headline,
+                    Source = Notes[i].Source
+                });
+            }
+
+            return state;
+        }
+
+        internal static void Restore(GatherState state)
+        {
+            Spent = state.Spent;
+            Earned = state.Earned;
+            Budget = state.Budget;
+            NextSlot = state.NextSlot;
+            Notes.Clear();
+
+            for (var i = 0; i < state.Notes.Count; i++)
+            {
+                var row = state.Notes[i];
+                Notes.Add(new GatheredNote(row.StockId, row.Headline, row.Source));
+            }
+        }
+
         public static void BeginBreak(int nextSlot, float budget)
         {
             Budget = budget;

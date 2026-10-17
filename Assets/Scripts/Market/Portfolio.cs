@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Underwrite.Global;
+using Underwrite.Save;
 
 namespace Underwrite.Market
 {
@@ -30,6 +31,12 @@ namespace Underwrite.Market
         }
 
         /// <summary>매도한다. 실현 손익을 돌려준다.</summary>
+        internal void Restore(int quantity, float averageCost)
+        {
+            Quantity = quantity;
+            AverageCost = averageCost;
+        }
+
         internal float Remove(int quantity, float price)
         {
             if (quantity > Quantity)
@@ -159,6 +166,52 @@ namespace Underwrite.Market
             }
 
             Cash = startingCash;
+        }
+
+        /// <summary>저장할 값. 장 사이에만 저장하므로 묶인 돈과 주식(지정가 대기)은 없다.</summary>
+        internal WalletState Capture()
+        {
+            var state = new WalletState
+            {
+                Cash = Cash,
+                RealizedProfit = RealizedProfit,
+                PatronageSpent = PatronageSpent
+            };
+
+            foreach (var pair in Holdings)
+            {
+                if (pair.Value.Quantity <= 0)
+                {
+                    continue;
+                }
+
+                state.Holdings.Add(new HoldingState
+                {
+                    StockId = pair.Key,
+                    Quantity = pair.Value.Quantity,
+                    AverageCost = pair.Value.AverageCost
+                });
+            }
+
+            return state;
+        }
+
+        internal void Restore(WalletState state)
+        {
+            Cash = state.Cash;
+            RealizedProfit = state.RealizedProfit;
+            PatronageSpent = state.PatronageSpent;
+            ReservedCash = 0f;
+            ReservedShares.Clear();
+            Holdings.Clear();
+
+            for (var i = 0; i < state.Holdings.Count; i++)
+            {
+                var row = state.Holdings[i];
+                var holding = new Holding(row.StockId);
+                holding.Restore(row.Quantity, row.AverageCost);
+                Holdings.Add(row.StockId, holding);
+            }
         }
 
         public IReadOnlyDictionary<string, Holding> AllHoldings

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Underwrite.Data;
 using Underwrite.Global;
 using UnityEngine;
+using Underwrite.Save;
 
 namespace Underwrite.Patronage
 {
@@ -36,6 +37,49 @@ namespace Underwrite.Patronage
             Heroes.Clear();
             DayOffSeen.Clear();
             ReturnSeen.Clear();
+        }
+
+        internal static HeroesState Capture()
+        {
+            Ensure();
+            var state = new HeroesState();
+
+            for (var i = 0; i < Heroes.Count; i++)
+            {
+                var hero = new HeroState { Id = Heroes[i].Id, Affinity = Heroes[i].Affinity, LastTalkDay = Heroes[i].LastTalkDay };
+                hero.TopicsSeen.AddRange(Heroes[i].TopicsSeen);
+                state.People.Add(hero);
+            }
+
+            state.DayOffSeen.AddRange(DayOffSeen);
+            state.ReturnSeen.AddRange(ReturnSeen);
+            return state;
+        }
+
+        internal static void Restore(HeroesState state)
+        {
+            Reset();
+            Ensure();
+
+            for (var i = 0; i < state.People.Count; i++)
+            {
+                var row = state.People[i];
+
+                for (var h = 0; h < Heroes.Count; h++)
+                {
+                    if (Heroes[h].Id != row.Id)
+                    {
+                        continue;
+                    }
+
+                    Heroes[h].Affinity = row.Affinity;
+                    Heroes[h].LastTalkDay = row.LastTalkDay;
+                    Heroes[h].TopicsSeen.UnionWith(row.TopicsSeen);
+                }
+            }
+
+            DayOffSeen.UnionWith(state.DayOffSeen);
+            ReturnSeen.UnionWith(state.ReturnSeen);
         }
 
         /// <summary>시찰일 장면을 한 번이라도 봤는가.</summary>

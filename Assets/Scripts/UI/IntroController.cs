@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using Underwrite.Data;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
+using Underwrite.Save;
 using Underwrite.Story;
 using Underwrite.Utility;
 using UnityEngine;
@@ -22,6 +24,9 @@ namespace Underwrite.UI
     {
         [Tooltip("웹툰 페이지. 순서대로 보여 준다.")]
         [SerializeField] private List<Texture2D> Pages = new List<Texture2D>();
+
+        [Tooltip("이어하기 때 시장을 표에서 다시 짜는 데 쓴다.")]
+        [SerializeField] private GameDataSet Data;
 
         private VisualElement Page;
         private Label Count;
@@ -75,6 +80,20 @@ namespace Underwrite.UI
             skip.style.top = 32f;
             veil.Add(skip);
 
+            // 저장이 있으면 웹툰을 다시 볼 필요가 없다. 마지막으로 있던 영지에서 잇는다.
+            var saved = SaveSystem.PeekClock();
+
+            if (saved != null)
+            {
+                var resume = new Button(Continue);
+                resume.text = string.Format(StringConstants.TEXT_INTRO_CONTINUE, saved.CalendarDay,
+                    ClockText.FromMinutes(saved.BreakMinuteOfDay));
+                resume.style.position = Position.Absolute;
+                resume.style.left = 36f;
+                resume.style.top = 32f;
+                veil.Add(resume);
+            }
+
             Index = 0;
             Show();
         }
@@ -122,6 +141,18 @@ namespace Underwrite.UI
         }
 
         /// <summary>새 게임을 연다. 이전 판의 기록이 남아 있으면 비운다.</summary>
+        private void Continue()
+        {
+            if (SaveSystem.Load(Data) == false)
+            {
+                UnderwriteLog.Warning("저장을 불러오지 못해 처음부터 시작합니다.", context: this);
+                Finish();
+                return;
+            }
+
+            SceneManager.LoadScene(SceneRoutes.VILLAGE);
+        }
+
         private void Finish()
         {
             BreakClock.Simulation = null;

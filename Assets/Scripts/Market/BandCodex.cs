@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Underwrite.Enumeration;
 using Underwrite.Global;
+using Underwrite.Save;
 
 namespace Underwrite.Market
 {
@@ -19,6 +20,35 @@ namespace Underwrite.Market
         public static void Reset()
         {
             LearnedCycle.Clear();
+        }
+
+        internal static List<CodexState> Capture()
+        {
+            var list = new List<CodexState>();
+
+            foreach (var pair in LearnedCycle)
+            {
+                var row = new CodexState { StockId = pair.Key };
+                row.LearnedCycle.AddRange(pair.Value);
+                list.Add(row);
+            }
+
+            return list;
+        }
+
+        internal static void Restore(List<CodexState> rows)
+        {
+            LearnedCycle.Clear();
+
+            for (var i = 0; i < rows.Count; i++)
+            {
+                var cycles = CyclesOf(rows[i].StockId);
+
+                for (var c = 0; c < cycles.Length && c < rows[i].LearnedCycle.Count; c++)
+                {
+                    cycles[c] = rows[i].LearnedCycle[c];
+                }
+            }
         }
 
         private static int CurrentCycle

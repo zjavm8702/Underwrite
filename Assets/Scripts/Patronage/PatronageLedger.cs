@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Underwrite.Data;
 using Underwrite.Enumeration;
 using Underwrite.Global;
+using Underwrite.Save;
 
 namespace Underwrite.Patronage
 {
@@ -50,6 +51,56 @@ namespace Underwrite.Patronage
         }
 
         /// <summary>그날이 된 사정을 연다. 하루가 시작되거나 영지에 나올 때 부른다.</summary>
+        internal static PatronageState Capture()
+        {
+            EnsureScenario();
+            var state = new PatronageState
+            {
+                Collapsed = Collapsed,
+                Clues = Clues,
+                RequestsPosted = RequestsPosted
+            };
+
+            for (var i = 0; i < Needs.Count; i++)
+            {
+                state.Needs.Add(new NeedSaveState { Id = Needs[i].Id, State = Needs[i].State, Heard = Needs[i].Heard });
+            }
+
+            state.Reactions.AddRange(Reactions);
+            state.ReactionDays.AddRange(ReactionDays);
+            return state;
+        }
+
+        /// <summary>사정의 내용은 코드에서 다시 짜고, 어디까지 왔는지만 덮어쓴다.</summary>
+        internal static void Restore(PatronageState state)
+        {
+            Reset();
+            EnsureScenario();
+            Collapsed = state.Collapsed;
+            Clues = state.Clues;
+            RequestsPosted = state.RequestsPosted;
+
+            for (var i = 0; i < state.Needs.Count; i++)
+            {
+                for (var n = 0; n < Needs.Count; n++)
+                {
+                    if (Needs[n].Id == state.Needs[i].Id)
+                    {
+                        Needs[n].State = state.Needs[i].State;
+                        Needs[n].Heard = state.Needs[i].Heard;
+                    }
+                }
+            }
+
+            var count = state.Reactions.Count < state.ReactionDays.Count ? state.Reactions.Count : state.ReactionDays.Count;
+
+            for (var i = 0; i < count; i++)
+            {
+                Reactions.Add(state.Reactions[i]);
+                ReactionDays.Add(state.ReactionDays[i]);
+            }
+        }
+
         public static void Reveal(int day)
         {
             EnsureScenario();

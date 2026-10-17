@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Underwrite.Data;
 using Underwrite.UI;
 using Underwrite.Utility;
 using UnityEditor;
@@ -19,6 +20,7 @@ namespace Underwrite.Editor
         private const string SCENE_PATH = "Assets/Scenes/Intro.unity";
         private const string WEBTOON_FOLDER = "Assets/Images/Webtoon";
         private const string PANEL_SETTINGS = "Assets/UI/MarketPanelSettings.asset";
+        private const string GAME_DATA = "Assets/Data/GameDataSet.asset";
 
         [MenuItem("Underwrite/인트로 씬 만들기")]
         public static void Build()
@@ -53,6 +55,8 @@ namespace Underwrite.Editor
                 pages.GetArrayElementAtIndex(i).objectReferenceValue = AssetDatabase.LoadAssetAtPath<Texture2D>(paths[i]);
             }
 
+            // 이어하기는 시장을 표에서 다시 짠다.
+            so.FindProperty("Data").objectReferenceValue = AssetDatabase.LoadAssetAtPath<GameDataSet>(GAME_DATA);
             so.ApplyModifiedPropertiesWithoutUndo();
 
             EditorSceneManager.MarkSceneDirty(scene);

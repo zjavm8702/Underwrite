@@ -21,6 +21,10 @@ namespace Underwrite.Global
 
         // 용사단 사정의 열쇠. 귀환 장면과 이야기 주제가 이 사정이 풀렸는지를 본다.
         public const string NEED_HEALER_ID = "need_healer";
+
+        // 저장 파일. Application.persistentDataPath 아래에 둔다(PC·안드로이드 공통).
+        public const string SAVE_FILE_NAME = "underwrite_save.json";
+        public const string SAVE_TEMP_SUFFIX = ".tmp";
         public const string ANIM_PARAM_DIRECTION_Y = "DirectionY";
         public const string ANIM_PARAM_SPEED = "Speed";
 
@@ -474,6 +478,12 @@ namespace Underwrite.Global
         public static int PATRONAGE_DEADLINE_DAYS = 5;
         /// <summary>못 들은 사정의 기한이 이만큼 남으면 하루 결산에 경고를 띄운다.</summary>
         public static int PATRONAGE_WARNING_DAYS = 2;
+
+        // 저장. 판이 바뀌어 옛 저장을 읽을 수 없게 되면 판 번호를 올린다 — 이어하기 단추가 사라진다.
+        public const int SAVE_VERSION = 1;
+
+        // 영지에 있는 동안 이 간격(실제 초)마다 저장한다. 대화가 끝날 때·시간을 넘길 때·나갈 때도 저장한다.
+        public static float SAVE_INTERVAL_SECONDS = 30f;
         /// <summary>익명 의뢰를 꾸며 맡기는 데 드는 영지 시간(분).</summary>
         public static int REQUEST_MINUTES = 30;
         /// <summary>목적별 예치금. 시작 자금 500에 견주었다. 시제품 검증에서 조정한다.</summary>

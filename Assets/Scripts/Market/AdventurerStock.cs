@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Underwrite.Enumeration;
 using Underwrite.Global;
+using Underwrite.Save;
 
 namespace Underwrite.Market
 {
@@ -322,6 +323,43 @@ namespace Underwrite.Market
         internal void StopTrading()
         {
             IsTradable = false;
+        }
+
+        internal StockState Capture()
+        {
+            var state = new StockState
+            {
+                Id = Id,
+                TrueValue = TrueValue,
+                MarketExpectation = MarketExpectation,
+                Price = Price,
+                IsTradable = IsTradable,
+                LeftBecause = LeftBecause,
+                NoticedDelistCycle = NoticedDelistCycle,
+                PlannedReason = PlannedReason,
+                SessionOpenPrice = SessionOpenPrice,
+                Momentum = Momentum
+            };
+
+            state.History.AddRange(History);
+            return state;
+        }
+
+        /// <summary>저장한 값을 덮어쓴다. 이름·성격·유동성은 표에서 오므로 건드리지 않는다.</summary>
+        internal void Restore(StockState state)
+        {
+            TrueValue = state.TrueValue;
+            MarketExpectation = state.MarketExpectation;
+            Price = state.Price;
+            IsTradable = state.IsTradable;
+            LeftBecause = state.LeftBecause;
+            NoticedDelistCycle = state.NoticedDelistCycle;
+            PlannedReason = state.PlannedReason;
+            SessionOpenPrice = state.SessionOpenPrice;
+            Momentum = state.Momentum;
+            MicroOffset = 0f;
+            History.Clear();
+            History.AddRange(state.History);
         }
     }
 }

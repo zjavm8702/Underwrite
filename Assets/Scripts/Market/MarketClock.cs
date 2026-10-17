@@ -1,6 +1,7 @@
 using System;
 using Underwrite.Enumeration;
 using Underwrite.Global;
+using Underwrite.Save;
 
 namespace Underwrite.Market
 {
@@ -554,6 +555,44 @@ namespace Underwrite.Market
             }
 
             return AccumulateTicks(deltaSeconds);
+        }
+
+        /// <summary>저장할 값. 시계는 영지와 거래소가 함께 보므로 장 밖에서도 저장된다.</summary>
+        internal ClockState Capture()
+        {
+            return new ClockState
+            {
+                Accumulated = Accumulated,
+                BreakAccumulated = BreakAccumulated,
+                SessionsDone = SessionsDone,
+                Tick = Tick,
+                Day = Day,
+                BreakMinuteOfDay = BreakMinuteOfDay,
+                IsBreak = IsBreak,
+                SkippedSessions = SkippedSessions,
+                Cycle = Cycle,
+                Phase = Phase,
+                Session = Session
+            };
+        }
+
+        /// <summary>저장한 시계를 되살린다. 배속과 일시정지는 되살리지 않는다 — 다시 켜면 1배로 시작한다.</summary>
+        internal static MarketClock Restore(ClockState state)
+        {
+            return new MarketClock
+            {
+                Accumulated = state.Accumulated,
+                BreakAccumulated = state.BreakAccumulated,
+                SessionsDone = state.SessionsDone,
+                Tick = state.Tick,
+                Day = state.Day,
+                BreakMinuteOfDay = state.BreakMinuteOfDay,
+                IsBreak = state.IsBreak,
+                SkippedSessions = state.SkippedSessions,
+                Cycle = state.Cycle,
+                Phase = state.Phase,
+                Session = state.Session
+            };
         }
 
         private int AccumulateTicks(float deltaSeconds)

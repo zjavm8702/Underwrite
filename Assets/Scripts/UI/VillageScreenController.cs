@@ -5,6 +5,7 @@ using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
+using Underwrite.Save;
 using Underwrite.Story;
 using Underwrite.Utility;
 using Underwrite.Village;
@@ -56,6 +57,10 @@ namespace Underwrite.UI
         private ActorMotion PendingMotion;
         private ActorEmote PendingEmote;
 
+        // 자동 저장. 마지막 저장 뒤 흐른 실제 초와, 지난 프레임에 대화가 떠 있었는가.
+        private float SaveTimer;
+        private bool WasTalking;
+
         // 시계를 연 뒤 토글로 다음 장을 건너뛰었는가. 「그만둔다」로 닫으면 되돌린다.
         private bool SkipFromClock;
         private Transform Player;
@@ -104,6 +109,45 @@ namespace Underwrite.UI
             VillageSpotEvents.Exited -= OnExit;
         }
 
+        // 폰은 꺼지기 전에 알려 주지 않는다. 앱이 뒤로 가는 순간이 마지막 기회다.
+        private void OnApplicationPause(bool paused)
+        {
+            if (paused == true)
+            {
+                SaveSystem.Save();
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            SaveSystem.Save();
+        }
+
+        /// <summary>
+        /// 영지에 들어온 첫 프레임, 대화가 끝날 때, 그리고 일정 간격으로 저장한다.
+        /// 대화 중에는 저장하지 않는다 — 고르는 도중의 상태가 반쯤 바뀌어 있을 수 있다.
+        /// </summary>
+        private void AutoSave()
+        {
+            var talking = Dialogue != null && Dialogue.IsOpen == true;
+            SaveTimer -= Time.unscaledDeltaTime;
+
+            if (talking == false && (WasTalking == true || SaveTimer <= 0f))
+            {
+                SaveSystem.Save();
+                SaveTimer = Constants.SAVE_INTERVAL_SECONDS;
+            }
+
+            WasTalking = talking;
+        }
+
+        /// <summary>지하거래소로 내려간다. 장중은 저장하지 않으므로 내려가기 직전을 남긴다.</summary>
+        private void GoToMarket()
+        {
+            SaveSystem.Save();
+            SceneManager.LoadScene(SceneRoutes.MARKET);
+        }
+
         private void Update()
         {
             if (Root == null)
@@ -132,6 +176,8 @@ namespace Underwrite.UI
             {
                 Clock.AdvanceBreak(Time.unscaledDeltaTime);
             }
+
+            AutoSave();
 
             NearNpc = FindNearNpc();
             RefreshPrompt();
@@ -574,7 +620,7 @@ namespace Underwrite.UI
             {
                 // 웹툰 6화. 술통을 옮기러 내려간 창고 안쪽에 지하거래소가 있다.
                 var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO,
-                    () => SceneManager.LoadScene(SceneRoutes.MARKET));
+                    GoToMarket);
                 cellar.IsEnabled = MarketOpenNow();
                 cellar.Note = cellar.IsEnabled == true ? StringConstants.TEXT_CELLAR_NOTE : MarketClosedNote();
                 choices.Add(cellar);
@@ -1024,6 +1070,8 @@ namespace Underwrite.UI
                 new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_3)
             };
 
+            // 판이 끝났다. 이어할 것이 없다 — 다음은 처음부터다.
+            SaveSystem.Delete();
             Dialogue.Play(ending, () => SceneManager.LoadScene(SceneRoutes.INTRO));
         }
 
@@ -1219,7 +1267,7 @@ namespace Underwrite.UI
             MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
             MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound && MarketOpenNow(),
                 StoryProgress.CellarFound == false ? StringConstants.TEXT_MENU_MARKET_LOCKED : MarketClosedNote(),
-                () => SceneManager.LoadScene(SceneRoutes.MARKET));
+                GoToMarket);
 
             list.RemoveFromClassList("hidden");
             Root.Q<Button>("village-menu").AddToClassList("village-button--on");
@@ -1748,7 +1796,7 @@ namespace Underwrite.UI
             // 정보를 캐는 곳만 있는 것이 아니다. 지하시장 입구는 걸어 들어가는 문이다.
             if (spot.Kind == VillageActivity.Activity_Enter)
             {
-                SceneManager.LoadScene(SceneRoutes.MARKET);
+                GoToMarket();
                 return;
             }
 

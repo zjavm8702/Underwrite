@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Underwrite.Enumeration;
 using Underwrite.Global;
+using Underwrite.Save;
 
 namespace Underwrite.Market
 {
@@ -53,8 +54,9 @@ namespace Underwrite.Market
         private readonly List<MarketEventStep> Schedule = new List<MarketEventStep>();
         private readonly List<InfoEntry> InfoEntries = new List<InfoEntry>();
         private readonly List<PendingOrder> Pending = new List<PendingOrder>();
-        private readonly Random Rng;
-        private readonly Random MicroRng;
+        // 불러오면 다시 씨앗을 뿌린다. Random의 속을 저장할 수 없어서다.
+        private Random Rng;
+        private Random MicroRng;
         private float MicroTimer;
 
         private int NextEventIndex;
@@ -206,8 +208,12 @@ namespace Underwrite.Market
             Briefing.Clear();
         }
 
+        /// <summary>처음 만들 때의 씨앗. 불러올 때 같은 판을 다시 짜는 데 쓴다.</summary>
+        public int Seed { get; private set; }
+
         public MarketSimulation(int seed, float startingCash)
         {
+            Seed = seed;
             MicroRng = new Random(seed ^ 0x5F3759DF);
             Rng = new Random(seed);
             Wallet = new Portfolio(startingCash);
@@ -774,6 +780,114 @@ namespace Underwrite.Market
         }
 
         /// <summary>아직 상장되지 않은 종목과 그 주기.</summary>
+        /// <summary>
+        /// 저장할 값. 장 사이에만 부른다 — 대기 주문·정보 타임 연출은 담지 않는다.
+        /// 사건 일정·대기열·이탈 계획은 표에서 다시 짜므로 어디까지 왔는지만 적는다.
+        /// </summary>
+        internal MarketState Capture()
+        {
+            var state = new MarketState
+            {
+                Seed = Seed,
+                Sentiment = Sentiment,
+                NextEventIndex = NextEventIndex,
+                InfoTimesOpened = InfoTimesOpened,
+                NextSlot = NextSlot,
+                BriefingOrder = BriefingOrder,
+                Wallet = Wallet.Capture()
+            };
+
+            for (var i = 0; i < StockOrder.Count; i++)
+            {
+                state.Stocks.Add(StockOrder[i].Capture());
+            }
+
+            for (var i = 0; i < InfoEntries.Count; i++)
+            {
+                var entry = InfoEntries[i];
+                state.Info.Add(new InfoState
+                {
+                    Tick = entry.Tick,
+                    StockId = entry.StockId,
+                    Headline = entry.Headline,
+                    Source = entry.Source,
+                    Stage = entry.Stage,
+                    IsPublic = entry.IsPublic,
+                    Day = entry.Day,
+                    Session = entry.Session
+                });
+            }
+
+            return state;
+        }
+
+        /// <summary>
+        /// 표에서 새로 짠 판에 저장한 값을 덮어쓴다. 저장 때 상장돼 있던 대기열의 단은 상장시킨다.
+        /// 저장에는 있는데 표에 없는 종목은 버린다(표가 바뀐 경우).
+        /// </summary>
+        internal void Restore(MarketState state, MarketClock clock)
+        {
+            Clock = clock;
+            Sentiment = state.Sentiment;
+            NextEventIndex = state.NextEventIndex;
+            InfoTimesOpened = state.InfoTimesOpened;
+            NextSlot = state.NextSlot;
+            BriefingOrder = state.BriefingOrder;
+            HasBriefing = false;
+            Briefing.Clear();
+            Notices.Clear();
+            Wallet.Restore(state.Wallet);
+
+            for (var i = 0; i < state.Stocks.Count; i++)
+            {
+                var row = state.Stocks[i];
+                AdventurerStock stock;
+
+                if (StockTable.TryGetValue(row.Id, out stock) == false)
+                {
+                    stock = TakeWaiting(row.Id);
+
+                    if (stock == null)
+                    {
+                        continue;
+                    }
+
+                    AddStock(stock);
+                }
+
+                stock.Restore(row);
+            }
+
+            InfoEntries.Clear();
+
+            for (var i = 0; i < state.Info.Count; i++)
+            {
+                var row = state.Info[i];
+                InfoEntries.Add(new InfoEntry(row.Tick, row.StockId, row.Headline, row.Source, row.Stage, row.IsPublic,
+                    row.Day, row.Session));
+            }
+
+            // 같은 씨앗이면 불러올 때마다 같은 흐름이 되풀이된다. 지나온 장 수를 섞는다.
+            var salt = clock.Cycle * 7919 + clock.Day * 104729 + clock.Tick;
+            Rng = new Random(Seed ^ salt);
+            MicroRng = new Random((Seed ^ 0x5F3759DF) ^ salt);
+        }
+
+        private AdventurerStock TakeWaiting(string stockId)
+        {
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                if (Waiting[i].Stock.Id == stockId)
+                {
+                    var stock = Waiting[i].Stock;
+                    Waiting.RemoveAt(i);
+                    return stock;
+                }
+            }
+
+            return null;
+        }
+
         public void AddWaiting(AdventurerStock stock, int cycle)
         {
             Waiting.Add(new WaitingEntry { Stock = stock, Cycle = cycle });

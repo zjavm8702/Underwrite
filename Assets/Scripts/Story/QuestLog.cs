@@ -58,6 +58,21 @@ namespace Underwrite.Story
             Current = 0;
         }
 
+        /// <summary>지금 몇 번째 할 일까지 왔는가. 저장에 쓴다.</summary>
+        public static int CurrentIndex
+        {
+            get
+            {
+                return Current;
+            }
+        }
+
+        public static void Restore(int index)
+        {
+            Quests.Clear();
+            Current = index < 0 ? 0 : index;
+        }
+
         /// <summary>
         /// 지금 할 일이 끝났는지 본다. 끝났으면 다음으로 넘어가고 마친 것을 돌려준다. 아니면 null.
         /// 한 번에 하나만 넘긴다 — 여러 개가 한꺼번에 끝나도 하나씩 알린다.

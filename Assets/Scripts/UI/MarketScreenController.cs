@@ -132,76 +132,6 @@ namespace Underwrite.UI
         /// 다른 하나는 UIDocument와의 초기화 순서가 뒤집힐 때다.
         /// 그래서 Update와 OnEnable에서도 불러 스스로 복구하게 둔다.
         /// </summary>
-        /// <summary>
-        /// 거래 대상을 표에서 만든다. 표가 없으면 코드에 박힌 프로토타입을 쓴다.
-        /// 표를 물리지 않았다고 화면이 비면 무엇이 잘못됐는지 알기 어렵다.
-        /// </summary>
-        private List<AdventurerStock> BuildStocks()
-        {
-            if (Data == null || Data.StockRows == null || Data.StockRows.Rows.Count == 0)
-            {
-                return PrototypeScenario.CreateStocks();
-            }
-
-            var rows = Data.StockRows.Rows;
-            var list = new List<AdventurerStock>(rows.Count);
-
-            for (var i = 0; i < rows.Count; i++)
-            {
-                var row = rows[i];
-                var stock = new AdventurerStock(row.Id, row.DisplayName, row.Personality,
-                    row.TrueValue, row.Liquidity);
-
-                // 나중에 올라올 종목은 대기열로 간다. 첫 주기에 전부 상장하면 자리가 넘친다.
-                if (row.ListCycle > 1)
-                {
-                    Sim.AddWaiting(stock, row.ListCycle);
-                    Sim.PlanDeparture(row.Id, row.DelistCycle, row.DelistReason);
-                    continue;
-                }
-
-                list.Add(stock);
-            }
-
-            return list;
-        }
-
-        /// <summary>떠날 주기와 사유를 표에서 읽어 등록한다. 청산율은 상장 시점부터 보인다.</summary>
-        private void RegisterDepartures()
-        {
-            if (Data == null || Data.StockRows == null)
-            {
-                return;
-            }
-
-            var rows = Data.StockRows.Rows;
-
-            for (var i = 0; i < rows.Count; i++)
-            {
-                Sim.PlanDeparture(rows[i].Id, rows[i].DelistCycle, rows[i].DelistReason);
-            }
-        }
-
-        private List<MarketEventStep> BuildEvents()
-        {
-            if (Data == null || Data.EventRows == null || Data.EventRows.Rows.Count == 0)
-            {
-                return PrototypeScenario.CreateEvents();
-            }
-
-            var rows = Data.EventRows.Rows;
-            var list = new List<MarketEventStep>(rows.Count);
-
-            for (var i = 0; i < rows.Count; i++)
-            {
-                var row = rows[i];
-                list.Add(new MarketEventStep(row.Slot, row.StockId, row.Stage, row.Headline,
-                    row.Source, row.Visibility, row.ExpectationDelta, row.ValueDelta));
-            }
-
-            return list;
-        }
-
         private void EnsureSimulation()
         {
             if (Sim != null)
@@ -230,26 +160,11 @@ namespace Underwrite.UI
             // 마을에서 먼저 하루를 시작했으면 그 시계가 남아 있다. 그 다음 장부터 연다.
             var villageClock = BreakClock.Current;
 
-            Sim = new MarketSimulation(Seed, Constants.STARTING_CASH);
+            Sim = MarketFactory.Create(Data, Seed, StartingSentiment);
             BreakClock.Simulation = Sim;
 
             // 영지도 같은 시계를 본다. 각자 들면 시각이 어긋난다.
             BreakClock.Current = Sim.Clock;
-
-            var stocks = BuildStocks();
-
-            for (var i = 0; i < stocks.Count; i++)
-            {
-                Sim.AddStock(stocks[i]);
-            }
-
-            // 용사단 종목. 용병단과 달리 표에서 오지 않는다 — 이야기와 묶인 하나뿐인 종목이다.
-            Sim.AddStock(new AdventurerStock(Constants.HERO_STOCK_ID, StringConstants.TEXT_HERO_STOCK_NAME,
-                StockPersonality.Personality_Index, Constants.HERO_INDEX_VALUE, Constants.HERO_INDEX_LIQUIDITY));
-
-            RegisterDepartures();
-            Sim.AddEvents(BuildEvents());
-            Sim.SetSentiment(StartingSentiment);
 
             // 마을에서 시작한 판이면(인트로 → 여관 → 창고) 오전장은 이미 지났다. 그날 오후장부터 연다.
             // 마을에서 번 돈도 지갑에 넣는다.
@@ -266,7 +181,7 @@ namespace Underwrite.UI
             }
             Sim.PlayerAtMarket = true;
 
-            SelectedId = stocks[0].Id;
+            SelectedId = Sim.Stocks[0].Id;
             ResetViewState();
         }
 
