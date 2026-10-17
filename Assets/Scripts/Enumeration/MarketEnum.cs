@@ -6,7 +6,14 @@ namespace Underwrite.Enumeration
         Personality_Veteran,
         Personality_Rookie,
         Personality_HighRisk,
-        Personality_Famous
+        Personality_Famous,
+
+        /// <summary>
+        /// 용사단. 지수형(S&P 500·VOO)이다 — 아주 조금씩, 꾸준히 오른다(상장흐름 설계안 §1-4).
+        /// 3년치 실적이 공개돼 있어 놀라움이 없다. 후원 기한을 넘기면 무너진다(§1-5).
+        /// 표(PersonalityTable)로 덮어쓰지 않는다. 맨 뒤에 둔다 — 앞에 끼우면 직렬화된 값이 밀린다.
+        /// </summary>
+        Personality_Index
     }
 
     /// <summary>여러 종목에 공통으로 걸리는 시장 분위기. 기획서 §7.</summary>

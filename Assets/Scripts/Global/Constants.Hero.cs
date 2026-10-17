@@ -103,6 +103,11 @@ namespace Underwrite.Global
         public static string TEXT_DISCOVER_END = "사고파는 건 물건이 아니었다. 모험가의 성공과 실패에 돈이 몰리고 있었다. …이건, 주식판이잖아.";
         public static string TEXT_DISCOVER_NOTE = "여관 창고 안쪽 — 이제 「창고로 내려간다」로 지하거래소에 갈 수 있다.";
 
+        // ── 거래소의 용사단 종목 ──────────────────
+        public static string TEXT_HERO_STOCK_NAME = "용사단 (지수)";
+        public static string TEXT_HERO_STOCK_COLLAPSE = "용사단 종목이 무너졌다. {0}주를 주당 {1:N1}에 청산했습니다.";
+        public static string TEXT_HERO_STOCK_COLLAPSE_NONE = "용사단 종목이 무너졌다. 지하세계가 술렁인다.";
+
         // ── 원정과 귀환 ──────────────────────────
         public static string TEXT_EXPEDITION_TAG = "원정 귀환";
         public static string TEXT_RETURN_OPEN = "용사단이 돌아왔다. 문이 열리자 여관이 한꺼번에 들썩였다.";

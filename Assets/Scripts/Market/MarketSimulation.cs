@@ -407,6 +407,7 @@ namespace Underwrite.Market
         public void EndSessionAndRoll()
         {
             Notices.Clear();
+            GrowIndexStocks();
 
             if (Clock.CountSessionAndAdvanceCycle() == false)
             {
@@ -416,6 +417,54 @@ namespace Underwrite.Market
             ApplyDepartures();
             ApplyArrivals();
             ApplyNotices();
+        }
+
+        /// <summary>
+        /// 지수형 종목의 내재가치를 장마다 조금 올린다. 용사단은 3년째 영지의 의뢰를 다 해내고 있다.
+        /// 가격은 이 값을 향해 천천히 따라간다. 놀라움이 없는 종목이다(설계안 §1-4).
+        /// </summary>
+        private void GrowIndexStocks()
+        {
+            for (var i = 0; i < StockOrder.Count; i++)
+            {
+                var stock = StockOrder[i];
+
+                if (stock.IsTradable == true && stock.Personality == StockPersonality.Personality_Index)
+                {
+                    stock.ResolveOutcome(Constants.HERO_INDEX_GROWTH_PER_SESSION);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 시나리오가 깨졌다. 용사단 종목이 무너지고 상장 폐지된다(설계안 §1-5).
+        /// 지수는 안전한 것이 아니라 플레이어가 안전하게 유지하는 것이다.
+        /// 이미 무너졌으면 아무것도 하지 않고 null, 아니면 알릴 문구를 돌려준다.
+        /// </summary>
+        public string CollapseIndex(string stockId)
+        {
+            AdventurerStock stock;
+
+            if (StockTable.TryGetValue(stockId, out stock) == false || stock.IsTradable == false)
+            {
+                return null;
+            }
+
+            stock.ResolveOutcome(Constants.HERO_INDEX_COLLAPSE_RATIO - 1f);
+            stock.SetPrice(stock.TrueValue);
+            stock.RecordHistory();
+            stock.Leave(DelistReason.Delist_Wiped);
+
+            var held = Wallet.QuantityOf(stockId);
+
+            if (held <= 0)
+            {
+                return StringConstants.TEXT_HERO_STOCK_COLLAPSE_NONE;
+            }
+
+            ReleaseOrdersOf(stockId);
+            Wallet.Sell(stockId, held, stock.TrueValue);
+            return string.Format(StringConstants.TEXT_HERO_STOCK_COLLAPSE, held, stock.TrueValue);
         }
 
         /// <summary>이번 주기에 떠나기로 되어 있는 종목을 내보낸다. 보유분은 청산한다.</summary>

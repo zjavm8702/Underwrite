@@ -310,6 +310,22 @@ namespace Underwrite.Global
         public static float VOLATILITY_ROOKIE = 1.8f;
         public static float VOLATILITY_HIGH_RISK = 2.4f;
         public static float VOLATILITY_FAMOUS = 1.0f;
+        /// <summary>용사단 지수. 거의 흔들리지 않는다.</summary>
+        public static float VOLATILITY_INDEX = 0.15f;
+
+        // ── 용사단 지수 (상장흐름 설계안 §1-4·§1-5) ──
+        public const string HERO_STOCK_ID = "STOCK_HEROES";
+        /// <summary>처음 가치.</summary>
+        public static float HERO_INDEX_VALUE = 100f;
+        /// <summary>두꺼운 호가. 지수는 큰돈이 들어가도 잘 움직이지 않는다.</summary>
+        public static float HERO_INDEX_LIQUIDITY = 2000f;
+        /// <summary>
+        /// 장마다 오르는 내재가치. 한 주기(4장) 약 2%, 40주기 약 2.2배 — 설계안의 "분기 +2%".
+        /// 안전하게만 가면 반드시 모자라야 한다. 그래서 작다.
+        /// </summary>
+        public static float HERO_INDEX_GROWTH_PER_SESSION = 0.005f;
+        /// <summary>시나리오가 깨지면 남는 가치의 비율. 실적이 끊기면 지수가 성립하지 않는다.</summary>
+        public static float HERO_INDEX_COLLAPSE_RATIO = 0.12f;
 
         // ── 시장 분위기별 배율 ────────────────────
         // NASDAQ 10년(2016~2025)은 상승 8년 / 하락 2년이었다. 평온한 장에 약한 상승 편향을 둔다.

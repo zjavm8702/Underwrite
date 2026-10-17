@@ -179,6 +179,10 @@ namespace Underwrite.Market
                     {
                         return Constants.VOLATILITY_HIGH_RISK;
                     }
+                    case StockPersonality.Personality_Index:
+                    {
+                        return Constants.VOLATILITY_INDEX;
+                    }
                     default:
                     {
                         return Constants.VOLATILITY_FAMOUS;

@@ -212,6 +212,7 @@ namespace Underwrite.UI
                 Sim.PlayerAtMarket = true;
                 SelectedId = Sim.Stocks.Count > 0 ? Sim.Stocks[0].Id : null;
                 ResetViewState();
+                ApplyCollapse();
                 return;
             }
 
@@ -236,6 +237,10 @@ namespace Underwrite.UI
             {
                 Sim.AddStock(stocks[i]);
             }
+
+            // 용사단 종목. 용병단과 달리 표에서 오지 않는다 — 이야기와 묶인 하나뿐인 종목이다.
+            Sim.AddStock(new AdventurerStock(Constants.HERO_STOCK_ID, StringConstants.TEXT_HERO_STOCK_NAME,
+                StockPersonality.Personality_Index, Constants.HERO_INDEX_VALUE, Constants.HERO_INDEX_LIQUIDITY));
 
             RegisterDepartures();
             Sim.AddEvents(BuildEvents());
@@ -806,6 +811,27 @@ namespace Underwrite.UI
             if (PatronageLedger.EndOfDay(Sim.Clock.Day - 1) > 0)
             {
                 ShowToast(StringConstants.TEXT_HERO_PARTY, StringConstants.TEXT_DAY_END_COLLAPSE, Side, false);
+            }
+
+            ApplyCollapse();
+        }
+
+        /// <summary>
+        /// 시나리오가 깨졌으면 용사단 종목을 무너뜨린다. 영지에서 깨졌어도 거래소에 들어오는 순간 반영된다.
+        /// </summary>
+        private void ApplyCollapse()
+        {
+            if (PatronageLedger.Collapsed == false)
+            {
+                return;
+            }
+
+            var note = Sim.CollapseIndex(Constants.HERO_STOCK_ID);
+
+            if (note != null)
+            {
+                ShowToast(StringConstants.TEXT_HERO_PARTY, note, Side, false);
+                ResetViewState();
             }
         }
 
@@ -2639,6 +2665,13 @@ namespace Underwrite.UI
         /// </summary>
         private void ShowToast(string title, string note, OrderSide side, bool accepted)
         {
+            // 화면이 붙기 전(OnEnable에서 시장을 이어 받을 때)에도 불릴 수 있다. 그때는 아래 문구로만 남긴다.
+            if (Root == null)
+            {
+                Message = note;
+                return;
+            }
+
             var area = Root.Q<VisualElement>("toast-area");
 
             if (area == null)
