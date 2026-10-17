@@ -1,0 +1,53 @@
+{
+  "mockup": true,
+  "actual_game_capture": false,
+  "background": "Outputs/NpcField_v1/map_three_vendors.png",
+  "common_scale": 0.19313304721030042,
+  "placement": [
+    {
+      "type": "protagonist",
+      "direction": "E",
+      "frame": 0,
+      "foot": [
+        600,
+        150
+      ]
+    },
+    {
+      "type": "leader",
+      "direction": "E",
+      "frame": 0,
+      "foot": [
+        760,
+        150
+      ]
+    },
+    {
+      "type": "archer",
+      "direction": "E",
+      "frame": 0,
+      "foot": [
+        920,
+        150
+      ]
+    },
+    {
+      "type": "shield",
+      "direction": "E",
+      "frame": 0,
+      "foot": [
+        1080,
+        150
+      ]
+    },
+    {
+      "type": "porter",
+      "direction": "E",
+      "frame": 0,
+      "foot": [
+        1240,
+        150
+      ]
+    }
+  ]
+}

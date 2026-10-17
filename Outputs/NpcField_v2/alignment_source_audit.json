@@ -1,0 +1,107 @@
+[
+  {
+    "type": "archer",
+    "direction": "S",
+    "head_foot_offset": 5.942307692307693,
+    "max_extent": 79.51923076923077,
+    "fit_height": 690
+  },
+  {
+    "type": "archer",
+    "direction": "SE",
+    "head_foot_offset": 3.2307692307692264,
+    "max_extent": 81.11538461538461,
+    "fit_height": 690
+  },
+  {
+    "type": "archer",
+    "direction": "E",
+    "head_foot_offset": -6.079999999999998,
+    "max_extent": 77.79153846153847,
+    "fit_height": 690
+  },
+  {
+    "type": "archer",
+    "direction": "NE",
+    "head_foot_offset": -0.019230769230773603,
+    "max_extent": 86.17307692307693,
+    "fit_height": 690
+  },
+  {
+    "type": "archer",
+    "direction": "N",
+    "head_foot_offset": -0.5600000000000023,
+    "max_extent": 83.16,
+    "fit_height": 690
+  },
+  {
+    "type": "shield",
+    "direction": "S",
+    "head_foot_offset": 0.7826086956521721,
+    "max_extent": 91.05533596837944,
+    "fit_height": 700
+  },
+  {
+    "type": "shield",
+    "direction": "SE",
+    "head_foot_offset": 0.15217391304348382,
+    "max_extent": 112.23913043478261,
+    "fit_height": 699
+  },
+  {
+    "type": "shield",
+    "direction": "E",
+    "head_foot_offset": -8.934782608695656,
+    "max_extent": 89.04347826086956,
+    "fit_height": 700
+  },
+  {
+    "type": "shield",
+    "direction": "NE",
+    "head_foot_offset": -12.956521739130437,
+    "max_extent": 102.17391304347827,
+    "fit_height": 700
+  },
+  {
+    "type": "shield",
+    "direction": "N",
+    "head_foot_offset": 3.0238095238095184,
+    "max_extent": 99,
+    "fit_height": 690
+  },
+  {
+    "type": "porter",
+    "direction": "S",
+    "head_foot_offset": 0.452380952380949,
+    "max_extent": 101.77738095238095,
+    "fit_height": 675
+  },
+  {
+    "type": "porter",
+    "direction": "SE",
+    "head_foot_offset": -0.3809523809523796,
+    "max_extent": 117.16666666666667,
+    "fit_height": 624
+  },
+  {
+    "type": "porter",
+    "direction": "E",
+    "head_foot_offset": -1.717391304347828,
+    "max_extent": 113,
+    "fit_height": 675
+  },
+  {
+    "type": "porter",
+    "direction": "NE",
+    "head_foot_offset": -13.69047619047619,
+    "max_extent": 111,
+    "fit_height": 652
+  },
+  {
+    "type": "porter",
+    "direction": "N",
+    "head_foot_offset": 0.021739130434781373,
+    "max_extent": 100.39130434782608,
+    "fit_height": 675
+  }
+]

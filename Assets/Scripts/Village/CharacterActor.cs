@@ -85,6 +85,13 @@ namespace Underwrite.Village
         /// <summary>그쪽을 바라본다. 8방향으로 맞춘다.</summary>
         public void Face(Vector2 direction)
         {
+            var frames = GetComponent<DirectionalSprites>();
+
+            if (frames != null)
+            {
+                frames.SetDirection(direction);
+            }
+
             if (Body == null || direction.sqrMagnitude < 0.0001f)
             {
                 return;

@@ -204,6 +204,8 @@ namespace Underwrite.Editor
                 }
             }
 
+            var bandArt = BandWalkerSetup.Import();
+
             for (var p = 0; p < PARTIES.Length; p++)
             {
                 var cast = PARTIES[p];
@@ -218,7 +220,11 @@ namespace Underwrite.Editor
                 {
                     var foot = start + new Vector2(m * 0.6f, -0.4f * m);
                     // 걸음 빠르기를 조금씩 달리한다. 똑같으면 행진처럼 보인다.
-                    var npc = CreateNpc(prefab, party.transform, foot, cast.Tint, 0.95f + 0.05f * m);
+                    // 단원 그림(NpcField_v2)이 들어왔으면 단장·궁수·방패병·짐꾼을 쓰고, 없으면 임시본.
+                    var speed = 0.95f + 0.05f * m;
+                    var npc = bandArt == true
+                        ? BandWalkerSetup.Create(BandWalkerSetup.TYPES[m % BandWalkerSetup.TYPES.Length], party.transform, foot, speed)
+                        : CreateNpc(prefab, party.transform, foot, cast.Tint, speed);
                     npc.AddComponent<VillageNpc>().Configure(NpcRole.Role_Adventurer, cast.Names[m], cast.Band,
                         new List<string>(cast.Lines));
                     npc.AddComponent<NpcAmbient>();
@@ -226,7 +232,9 @@ namespace Underwrite.Editor
                     count++;
                 }
 
-                party.AddComponent<NpcParty>().Configure(members, new List<Vector2>(destinations), cast.StockId);
+                var npcParty = party.AddComponent<NpcParty>();
+                npcParty.Configure(members, new List<Vector2>(destinations), cast.StockId);
+                npcParty.SetDefaultTint(Color.HSVToRGB((p * 0.33f + 0.05f) % 1f, 0.6f, 1f));
             }
 
             UnderwriteLog.Info($"영지에 사람 {count}명을 세웠습니다. 모험단 {PARTIES.Length}개.");

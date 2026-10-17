@@ -55,6 +55,7 @@ namespace Underwrite.Village
         /// </summary>
         public void Assign(string stockId, string bandName, Color tint)
         {
+            Tint = tint;
             StockId = stockId == null ? string.Empty : stockId;
 
             if (string.IsNullOrEmpty(StockId) == true)
@@ -83,6 +84,15 @@ namespace Underwrite.Village
                     npc.Configure(NpcRole.Role_Adventurer, string.Format(MemberTitle(i), bandName), bandName, lines);
                 }
 
+                // 그린 단원은 천(마스크)에만 단 색을 곱한다. 임시본은 몸 전체를 물들인다.
+                var frames = Members[i].GetComponent<DirectionalSprites>();
+
+                if (frames != null)
+                {
+                    frames.SetTint(tint);
+                    continue;
+                }
+
                 foreach (var renderer in Members[i].GetComponentsInChildren<SpriteRenderer>(true))
                 {
                     if (renderer.gameObject.name == BODY_RENDERER)
@@ -96,6 +106,27 @@ namespace Underwrite.Village
         }
 
         private const string BODY_RENDERER = "Body";
+
+        [Tooltip("단 색. 그린 단원은 천에만 곱해진다.")]
+        [SerializeField] private Color Tint = Color.white;
+
+        public void SetDefaultTint(Color tint)
+        {
+            Tint = tint;
+        }
+
+        private void ApplyTint()
+        {
+            for (var i = 0; i < Members.Count; i++)
+            {
+                var frames = Members[i] == null ? null : Members[i].GetComponent<DirectionalSprites>();
+
+                if (frames != null)
+                {
+                    frames.SetTint(Tint);
+                }
+            }
+        }
 
         // 앞사람부터 단장·궁수·방패병·짐꾼. 문구는 부를 때 상수에서 읽는다(문구 표가 덮어쓴 값).
         private static string MemberTitle(int index)
@@ -164,6 +195,8 @@ namespace Underwrite.Village
 
         private void Start()
         {
+            // 그린 단원의 천 색은 장면에 저장되지 않는다(렌더러별 값). 시작할 때 입힌다.
+            ApplyTint();
             ApplyStage();
 
             // 처음에는 저마다 다른 때에 출발한다. 모든 단이 동시에 움직이면 꾸민 티가 난다.

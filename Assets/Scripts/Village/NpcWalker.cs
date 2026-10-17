@@ -33,6 +33,7 @@ namespace Underwrite.Village
 
         private readonly List<Vector2> Path = new List<Vector2>();
         private Animator Body;
+        private DirectionalSprites Frames;
         private int PathIndex;
         private bool HasDirectTarget;
         private Vector2 DirectTarget;
@@ -106,7 +107,7 @@ namespace Underwrite.Village
         /// <summary>그쪽을 바라본다. 서서 이야기할 때 서로 마주 보게 한다.</summary>
         public void Face(Vector2 direction)
         {
-            if (Body == null || direction.sqrMagnitude < FACE_EPSILON)
+            if (direction.sqrMagnitude < FACE_EPSILON)
             {
                 return;
             }
@@ -117,8 +118,9 @@ namespace Underwrite.Village
         private void Awake()
         {
             Body = GetComponentInChildren<Animator>();
+            Frames = GetComponent<DirectionalSprites>();
 
-            if (Body == null)
+            if (Body == null && Frames == null)
             {
                 UnderwriteLog.Warning("Animator가 없어 걷는 모습을 보일 수 없습니다.", context: this);
             }
@@ -184,6 +186,11 @@ namespace Underwrite.Village
 
         private void SetDirection(Vector2 direction)
         {
+            if (Frames != null)
+            {
+                Frames.SetDirection(direction);
+            }
+
             if (Body == null)
             {
                 return;
@@ -199,6 +206,11 @@ namespace Underwrite.Village
 
         private void SetSpeed(float speed)
         {
+            if (Frames != null)
+            {
+                Frames.SetSpeed(speed);
+            }
+
             if (Body == null)
             {
                 return;

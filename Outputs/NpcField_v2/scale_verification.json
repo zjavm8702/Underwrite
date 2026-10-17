@@ -1,0 +1,57 @@
+{
+  "protagonist": {
+    "bbox": [
+      42,
+      12,
+      311,
+      710
+    ]
+  },
+  "characters": {
+    "leader": {
+      "bbox": [
+        57,
+        41,
+        308,
+        710
+      ],
+      "silhouette_height": 670,
+      "ratio_to_protagonist": 0.9585121602288984,
+      "note": "includes carried equipment"
+    },
+    "archer": {
+      "bbox": [
+        76,
+        21,
+        286,
+        710
+      ],
+      "silhouette_height": 690,
+      "ratio_to_protagonist": 0.9871244635193133,
+      "note": "includes bow above crown; body height requires visual comparison"
+    },
+    "shield": {
+      "bbox": [
+        36,
+        11,
+        327,
+        710
+      ],
+      "silhouette_height": 700,
+      "ratio_to_protagonist": 1.0014306151645207,
+      "note": "includes carried equipment"
+    },
+    "porter": {
+      "bbox": [
+        16,
+        38,
+        354,
+        710
+      ],
+      "silhouette_height": 673,
+      "ratio_to_protagonist": 0.9628040057224606,
+      "note": "includes carried equipment"
+    }
+  },
+  "map_scale": 0.19313304721030042
+}

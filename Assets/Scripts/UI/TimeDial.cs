@@ -11,8 +11,9 @@ namespace Underwrite.UI
     /// 손에 잡히지 않는다. 시계 위에 지금부터 다음 장까지의 구간을 칠해 두고, 그 안에서 원하는 시각을 고르게 한다.
     ///
     /// 문자판은 늘 12시간이다. 24시간 판으로 바꾸면 12가 아래로 가 시계가 뒤집힌 것처럼 보였다(2026-10-17 사용자 보고).
-    /// 장을 건너뛰어 구간이 12시간을 넘으면 호를 두 겹(바깥 첫 바퀴, 안쪽 둘째 바퀴)으로 그리고,
-    /// 문자판을 누르면 그 시각 가운데 지금 고른 것에 가까운 바퀴를 고른다.
+    /// 장을 건너뛰어 구간이 12시간을 넘어도 띠는 한 겹이다(두 겹은 소용돌이처럼 헷갈렸다 — 사용자 결정).
+    /// 고른 시각이 다음 날이면 띠를 밤색으로 칠하고, 화면 글자에 「내일」을 붙인다(VillageScreenController).
+    /// 문자판을 누르면 같은 자리의 두 시각 가운데 지금 고른 것에 가까운 쪽을 고른다.
     /// 분은 하루 기준(1439를 넘을 수 있다)으로 받는다.
     /// </summary>
     public sealed class TimeDial : VisualElement
@@ -25,6 +26,7 @@ namespace Underwrite.UI
         private static readonly Color RIM = new Color(0.36f, 0.26f, 0.17f);
         private static readonly Color RANGE = new Color(0.86f, 0.74f, 0.52f);
         private static readonly Color CHOSEN = new Color(0.55f, 0.33f, 0.16f);
+        private static readonly Color CHOSEN_NEXT_DAY = new Color(0.22f, 0.25f, 0.45f);
         private static readonly Color INK = new Color(0.16f, 0.13f, 0.09f);
 
         private int Now;
@@ -37,6 +39,15 @@ namespace Underwrite.UI
 
         /// <summary>고른 시각이 바뀌었다. 하루 기준 분을 넘긴다.</summary>
         public event Action<int> Changed;
+
+        /// <summary>고른 시각이 지금보다 다음 날인가(자정을 넘었는가).</summary>
+        public bool IsNextDay
+        {
+            get
+            {
+                return Selected / (2 * HALF_DAY) > Now / (2 * HALF_DAY);
+            }
+        }
 
         /// <summary>고른 시각(하루 기준 분).</summary>
         public int SelectedMinute
@@ -204,13 +215,12 @@ namespace Underwrite.UI
             painter.Arc(center, radius, Angle.Degrees(0f), Angle.Degrees(360f));
             painter.Fill();
 
-            // 지금부터 다음 장 직전까지(쓸 수 있는 시간)와 고른 시각까지(쓸 시간).
-            // 첫 바퀴는 바깥 띠, 12시간을 넘는 둘째 바퀴는 안쪽 띠.
-            var second = Now + Period;
-            DrawArc(painter, center, radius * 0.66f, Now, Mathf.Min(Limit, second), RANGE, radius * 0.16f);
-            DrawArc(painter, center, radius * 0.66f, Now, Mathf.Min(Selected, second), CHOSEN, radius * 0.16f);
-            DrawArc(painter, center, radius * 0.44f, second, Limit, RANGE, radius * 0.14f);
-            DrawArc(painter, center, radius * 0.44f, second, Selected, CHOSEN, radius * 0.14f);
+            // 지금부터 다음 장 직전까지(쓸 수 있는 시간)와 고른 시각까지(쓸 시간). 한 겹.
+            // 12시간을 넘는 쪽은 마지막 한 바퀴만 그린다 — 바늘 끝에서 끝나야 읽힌다.
+            var width = radius * 0.2f;
+            DrawArc(painter, center, radius * 0.62f, Math.Max(Now, Limit - Period), Limit, RANGE, width);
+            DrawArc(painter, center, radius * 0.62f, Math.Max(Now, Selected - Period), Selected,
+                IsNextDay == true ? CHOSEN_NEXT_DAY : CHOSEN, width);
 
             // 테두리와 눈금
             painter.strokeColor = RIM;

@@ -1,0 +1,311 @@
+{
+  "idle_fixed_lower": [
+    {
+      "type": "leader",
+      "direction": "S",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "leader",
+      "direction": "SE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "leader",
+      "direction": "E",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "leader",
+      "direction": "NE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "leader",
+      "direction": "N",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "archer",
+      "direction": "S",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "archer",
+      "direction": "SE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "archer",
+      "direction": "E",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "archer",
+      "direction": "NE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "archer",
+      "direction": "N",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "shield",
+      "direction": "S",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "shield",
+      "direction": "SE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "shield",
+      "direction": "E",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "shield",
+      "direction": "NE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "shield",
+      "direction": "N",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "porter",
+      "direction": "S",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "porter",
+      "direction": "SE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "porter",
+      "direction": "E",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "porter",
+      "direction": "NE",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "porter",
+      "direction": "N",
+      "region_y": 480,
+      "changed_pixels_per_frame": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "cloth": {
+    "leader": {
+      "masked_pixels": 523412,
+      "empty_masks": [],
+      "non_achromatic_masked_pixels": 0,
+      "median_gray_value": 179,
+      "median_percent": 70.19607843137254
+    },
+    "archer": {
+      "masked_pixels": 272941,
+      "empty_masks": [],
+      "non_achromatic_masked_pixels": 0,
+      "median_gray_value": 178,
+      "median_percent": 69.80392156862744
+    },
+    "shield": {
+      "masked_pixels": 672709,
+      "empty_masks": [],
+      "non_achromatic_masked_pixels": 0,
+      "median_gray_value": 179,
+      "median_percent": 70.19607843137254
+    },
+    "porter": {
+      "masked_pixels": 401253,
+      "empty_masks": [],
+      "non_achromatic_masked_pixels": 0,
+      "median_gray_value": 179,
+      "median_percent": 70.19607843137254
+    }
+  },
+  "stride": {
+    "source_code": "Assets/Scripts/Characters/Input/PlayerCharacterInput.cs",
+    "player_move_speed_units_per_s": 3,
+    "new_cycle_s": 0.8,
+    "travel_per_cycle_at_same_speed_units": 2.4,
+    "ppu_reference": 100,
+    "travel_pixels_at_ppu100": 240,
+    "actual_runtime_movement_verified": false,
+    "reference_clip_stop_times_s": {
+      "S": 0.8,
+      "SE": 0.8,
+      "E": 0.7,
+      "NE": 0.8,
+      "N": 0.8
+    },
+    "note": "distance is speed times duration, conditional on using player speed. Source E clip alone has0.7s; no Assets modified."
+  }
+}

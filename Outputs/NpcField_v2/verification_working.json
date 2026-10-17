@@ -1,0 +1,2665 @@
+{
+  "status": "draft",
+  "records": [
+    {
+      "file": "leader/Idle/S/S_00.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        58,
+        9,
+        272,
+        433
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        17,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        17,
+        61,
+        345,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        125692
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4962,
+      "mask_pixels": 19837,
+      "mask_components": 12,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/S/S_01.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        302,
+        9,
+        515,
+        433
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        17,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        17,
+        61,
+        343,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        125189
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4961,
+      "mask_pixels": 19460,
+      "mask_components": 15,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/S/S_02.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        546,
+        11,
+        758,
+        434
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        18,
+        63
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        18,
+        63,
+        343,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        124526
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4960,
+      "mask_pixels": 19686,
+      "mask_components": 11,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/S/S_03.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        784,
+        10,
+        997,
+        433
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        17,
+        63
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        18,
+        63,
+        343,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        124090
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4960,
+      "mask_pixels": 19129,
+      "mask_components": 13,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/S/S_04.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        1026,
+        10,
+        1237,
+        433
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        19,
+        63
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        19,
+        63,
+        342,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        122990
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4954,
+      "mask_pixels": 18836,
+      "mask_components": 13,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/S/S_05.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        1268,
+        9,
+        1481,
+        433
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        17,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        17,
+        61,
+        343,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        124517
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4961,
+      "mask_pixels": 18868,
+      "mask_components": 13,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_00.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        21,
+        443,
+        245,
+        867
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        148,
+        61
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        148,
+        61,
+        491,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        111968
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5343,
+      "mask_pixels": 28547,
+      "mask_components": 10,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_01.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        256,
+        448,
+        455,
+        860
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        167,
+        79
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        167,
+        79,
+        472,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        107990
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4270,
+      "mask_pixels": 20765,
+      "mask_components": 13,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_02.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        466,
+        448,
+        669,
+        866
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        164,
+        70
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        164,
+        70,
+        475,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        105956
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4196,
+      "mask_pixels": 21891,
+      "mask_components": 12,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_03.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        684,
+        443,
+        885,
+        859
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        166,
+        73
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        166,
+        73,
+        474,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106515
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4694,
+      "mask_pixels": 21231,
+      "mask_components": 11,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_04.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        905,
+        448,
+        1113,
+        866
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        160,
+        70
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        160,
+        70,
+        479,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106103
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4332,
+      "mask_pixels": 24372,
+      "mask_components": 14,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_05.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        1128,
+        445,
+        1328,
+        863
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        166,
+        70
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        166,
+        70,
+        472,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106768
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4360,
+      "mask_pixels": 22287,
+      "mask_components": 10,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_06.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        1347,
+        444,
+        1545,
+        866
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        168,
+        64
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        168,
+        64,
+        471,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        104133
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4233,
+      "mask_pixels": 22055,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/S/S_07.png",
+      "source": "sources/leader_S.png",
+      "source_bbox": [
+        1556,
+        440,
+        1756,
+        862
+      ],
+      "common_direction_scale": 1.5294117647058822,
+      "placement": [
+        166,
+        64
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        166,
+        64,
+        472,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106948
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4604,
+      "mask_pixels": 21827,
+      "mask_components": 15,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/E/E_00.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        226,
+        22,
+        419,
+        453
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        35,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        35,
+        61,
+        326,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        107880
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4345,
+      "mask_pixels": 20687,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/E/E_01.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        451,
+        22,
+        641,
+        453
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        37,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        37,
+        61,
+        323,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106784
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4348,
+      "mask_pixels": 20291,
+      "mask_components": 5,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/E/E_02.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        674,
+        22,
+        863,
+        453
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        38,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        38,
+        61,
+        323,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        107215
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4395,
+      "mask_pixels": 20356,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/E/E_03.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        895,
+        22,
+        1085,
+        453
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        37,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        37,
+        61,
+        323,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106737
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4355,
+      "mask_pixels": 20132,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/E/E_04.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        1116,
+        22,
+        1306,
+        453
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        37,
+        61
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        37,
+        61,
+        323,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106171
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4270,
+      "mask_pixels": 20181,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/E/E_05.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        1344,
+        22,
+        1531,
+        454
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        40,
+        59
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        40,
+        59,
+        322,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        106178
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4306,
+      "mask_pixels": 19719,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_00.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        15,
+        471,
+        263,
+        853
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        133,
+        135
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        133,
+        135,
+        507,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        93680
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5661,
+      "mask_pixels": 21425,
+      "mask_components": 5,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_01.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        250,
+        473,
+        452,
+        856
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        167,
+        133
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        167,
+        133,
+        471,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        82844
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4967,
+      "mask_pixels": 19993,
+      "mask_components": 4,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_02.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        468,
+        471,
+        661,
+        856
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        174,
+        130
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        130,
+        464,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        77883
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4634,
+      "mask_pixels": 19475,
+      "mask_components": 3,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_03.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        668,
+        471,
+        910,
+        853
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        137,
+        135
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        137,
+        135,
+        502,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        86691
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5595,
+      "mask_pixels": 19674,
+      "mask_components": 3,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_04.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        896,
+        472,
+        1139,
+        856
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        136,
+        132
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        136,
+        132,
+        502,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        89984
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5595,
+      "mask_pixels": 19428,
+      "mask_components": 4,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_05.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        1113,
+        472,
+        1317,
+        856
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        166,
+        132
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        166,
+        133,
+        473,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        80826
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5130,
+      "mask_pixels": 20268,
+      "mask_components": 3,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_06.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        1328,
+        472,
+        1523,
+        854
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        173,
+        135
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        173,
+        135,
+        467,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        79655
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4645,
+      "mask_pixels": 20706,
+      "mask_components": 5,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/E/E_07.png",
+      "source": "sources/leader_E.png",
+      "source_bbox": [
+        1534,
+        472,
+        1773,
+        853
+      ],
+      "common_direction_scale": 1.5046296296296295,
+      "placement": [
+        139,
+        136
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        139,
+        136,
+        499,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        86568
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5486,
+      "mask_pixels": 19620,
+      "mask_components": 4,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/SE/SE_00.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        57,
+        22,
+        296,
+        455
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        2,
+        65
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        2,
+        65,
+        359,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        133163
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5079,
+      "mask_pixels": 43944,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/SE/SE_01.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        314,
+        22,
+        548,
+        453
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        6,
+        67
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        6,
+        67,
+        355,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        130750
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5043,
+      "mask_pixels": 41918,
+      "mask_components": 11,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/SE/SE_02.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        566,
+        23,
+        799,
+        454
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        7,
+        67
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        7,
+        67,
+        355,
+        709
+      ],
+      "components": 1,
+      "areas": [
+        130316
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4974,
+      "mask_pixels": 41873,
+      "mask_components": 11,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/SE/SE_03.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        816,
+        22,
+        1052,
+        454
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        4,
+        66
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        4,
+        66,
+        356,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        131421
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5055,
+      "mask_pixels": 42149,
+      "mask_components": 11,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/SE/SE_04.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        1071,
+        22,
+        1305,
+        453
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        6,
+        67
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        6,
+        67,
+        355,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        130366
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5002,
+      "mask_pixels": 42396,
+      "mask_components": 11,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/SE/SE_05.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        1323,
+        22,
+        1555,
+        454
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        7,
+        66
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        7,
+        66,
+        353,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        129522
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4982,
+      "mask_pixels": 42104,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_00.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        25,
+        472,
+        232,
+        870
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        165,
+        117
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        165,
+        117,
+        474,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100451
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4631,
+      "mask_pixels": 32891,
+      "mask_components": 10,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_01.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        244,
+        473,
+        443,
+        870
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        171,
+        118
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        171,
+        118,
+        468,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        96831
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4565,
+      "mask_pixels": 31592,
+      "mask_components": 10,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_02.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        462,
+        473,
+        661,
+        869
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        171,
+        120
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        171,
+        120,
+        468,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        92640
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4159,
+      "mask_pixels": 29978,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_03.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        675,
+        471,
+        881,
+        863
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        166,
+        126
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        166,
+        126,
+        473,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        95238
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4179,
+      "mask_pixels": 31632,
+      "mask_components": 10,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_04.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        902,
+        474,
+        1112,
+        869
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        163,
+        121
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        163,
+        121,
+        476,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        100082
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4602,
+      "mask_pixels": 32973,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_05.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        1121,
+        472,
+        1324,
+        870
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        168,
+        117
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        168,
+        117,
+        471,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        96049
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4431,
+      "mask_pixels": 31289,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_06.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        1337,
+        472,
+        1532,
+        870
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        174,
+        117
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        174,
+        117,
+        465,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        93581
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4195,
+      "mask_pixels": 29748,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/SE/SE_07.png",
+      "source": "sources/leader_SE.png",
+      "source_bbox": [
+        1547,
+        470,
+        1746,
+        868
+      ],
+      "common_direction_scale": 1.489607390300231,
+      "placement": [
+        171,
+        117
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        171,
+        117,
+        468,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94757
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4477,
+      "mask_pixels": 29140,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/NE/NE_00.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        65,
+        34,
+        269,
+        443
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        21,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        21,
+        71,
+        340,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        116479
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5051,
+      "mask_pixels": 42649,
+      "mask_components": 5,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/NE/NE_01.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        346,
+        34,
+        549,
+        443
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        22,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        22,
+        71,
+        339,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        114791
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5072,
+      "mask_pixels": 42167,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/NE/NE_02.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        625,
+        34,
+        825,
+        443
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        24,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        24,
+        71,
+        337,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        114249
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5056,
+      "mask_pixels": 41545,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/NE/NE_03.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        897,
+        33,
+        1103,
+        443
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        19,
+        69
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        19,
+        70,
+        341,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        115829
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5122,
+      "mask_pixels": 42915,
+      "mask_components": 5,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/NE/NE_04.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        1181,
+        34,
+        1382,
+        443
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        23,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        23,
+        71,
+        337,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        114348
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5049,
+      "mask_pixels": 41683,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/NE/NE_05.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        1456,
+        34,
+        1659,
+        443
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        22,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        22,
+        71,
+        339,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        114744
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5066,
+      "mask_pixels": 41828,
+      "mask_components": 5,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_00.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        14,
+        457,
+        226,
+        851
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        154,
+        94
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        154,
+        94,
+        485,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97170
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5261,
+      "mask_pixels": 33665,
+      "mask_components": 5,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_01.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        225,
+        458,
+        441,
+        852
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        151,
+        94
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        151,
+        94,
+        489,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94953
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5395,
+      "mask_pixels": 32269,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_02.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        445,
+        462,
+        664,
+        853
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        148,
+        99
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        148,
+        99,
+        490,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        95138
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5157,
+      "mask_pixels": 33631,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_03.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        641,
+        461,
+        852,
+        849
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        155,
+        104
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        155,
+        104,
+        484,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        95562
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5085,
+      "mask_pixels": 32993,
+      "mask_components": 4,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_04.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        860,
+        457,
+        1082,
+        851
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        146,
+        94
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        146,
+        94,
+        493,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        98084
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5283,
+      "mask_pixels": 36402,
+      "mask_components": 4,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_05.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        1078,
+        463,
+        1298,
+        852
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        148,
+        102
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        148,
+        102,
+        492,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94565
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5291,
+      "mask_pixels": 32463,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_06.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        1305,
+        461,
+        1542,
+        853
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        134,
+        98
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        134,
+        98,
+        505,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97415
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5402,
+      "mask_pixels": 34706,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/NE/NE_07.png",
+      "source": "sources/leader_NE.png",
+      "source_bbox": [
+        1525,
+        458,
+        1755,
+        849
+      ],
+      "common_direction_scale": 1.5609756097560976,
+      "placement": [
+        140,
+        99
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        140,
+        99,
+        500,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        97662
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5447,
+      "mask_pixels": 34323,
+      "mask_components": 6,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/N/N_00.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        86,
+        7,
+        328,
+        451
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        6,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        6,
+        71,
+        354,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        126255
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4763,
+      "mask_pixels": 53156,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/N/N_01.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        356,
+        6,
+        602,
+        451
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        3,
+        70
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        3,
+        71,
+        357,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        126756
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4786,
+      "mask_pixels": 53712,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/N/N_02.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        630,
+        7,
+        875,
+        451
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        4,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        4,
+        71,
+        357,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        127089
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4793,
+      "mask_pixels": 54084,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/N/N_03.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        902,
+        7,
+        1148,
+        451
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        3,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        3,
+        71,
+        356,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        127141
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4781,
+      "mask_pixels": 54220,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/N/N_04.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        1175,
+        7,
+        1422,
+        451
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        3,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        3,
+        71,
+        359,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        128551
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4761,
+      "mask_pixels": 55458,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Idle/N/N_05.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        1450,
+        7,
+        1695,
+        451
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        4,
+        71
+      ],
+      "size": [
+        362,
+        724
+      ],
+      "bbox": [
+        4,
+        71,
+        357,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        127275
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4773,
+      "mask_pixels": 54398,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_00.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        7,
+        467,
+        247,
+        867
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        147,
+        134
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        147,
+        134,
+        493,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        94248
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4237,
+      "mask_pixels": 39889,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_01.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        259,
+        468,
+        464,
+        867
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        172,
+        136
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        172,
+        136,
+        467,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        85275
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4385,
+      "mask_pixels": 31630,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_02.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        481,
+        467,
+        679,
+        869
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        177,
+        131
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        177,
+        131,
+        462,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        87849
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 3943,
+      "mask_pixels": 33076,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_03.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        695,
+        466,
+        892,
+        857
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        178,
+        147
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        178,
+        147,
+        462,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        84513
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4025,
+      "mask_pixels": 32175,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_04.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        913,
+        467,
+        1124,
+        871
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        168,
+        129
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        168,
+        129,
+        472,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        91535
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4575,
+      "mask_pixels": 35661,
+      "mask_components": 8,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_05.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        1136,
+        467,
+        1345,
+        869
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        169,
+        131
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        169,
+        131,
+        470,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        85421
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 5090,
+      "mask_pixels": 30880,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_06.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        1359,
+        467,
+        1566,
+        867
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        170,
+        134
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        170,
+        134,
+        468,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        86415
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4459,
+      "mask_pixels": 33284,
+      "mask_components": 9,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    },
+    {
+      "file": "leader/Walking/N/N_07.png",
+      "source": "sources/leader_N.png",
+      "source_bbox": [
+        1578,
+        467,
+        1770,
+        866
+      ],
+      "common_direction_scale": 1.4382022471910112,
+      "placement": [
+        181,
+        136
+      ],
+      "size": [
+        640,
+        724
+      ],
+      "bbox": [
+        181,
+        136,
+        458,
+        710
+      ],
+      "components": 1,
+      "areas": [
+        84412
+      ],
+      "hidden_rgb": 0,
+      "canvas_touch": 0,
+      "alpha_1_31": 0,
+      "edge_semialpha": 4370,
+      "mask_pixels": 30938,
+      "mask_components": 7,
+      "mask_hidden_rgb": 0,
+      "mask_outside_original_alpha": 0,
+      "mask_method": "neutral-color garment selection, opaque interior only; visual audit required"
+    }
+  ]
+}

@@ -87,7 +87,7 @@ namespace Underwrite.Village
         private static Color TintOf(string stockId)
         {
             var hue = (stockId.GetHashCode() & 0x7fffffff) % 360 / 360f;
-            return Color.HSVToRGB(hue, 0.3f, 1f);
+            return Color.HSVToRGB(hue, 0.6f, 1f);
         }
     }
 }
