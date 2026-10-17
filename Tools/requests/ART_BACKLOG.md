@@ -15,7 +15,7 @@ Codex 사용량이 적으니 **한 번에 하나씩**, 사장님 확인을 받�
 
 ---
 
-## 1. 영지 전체 지도 — 파츠 방식 `village_parts_full_v1` — 10/17 요청함 (진행 중)
+## 1. ~~영지 전체 지도 — 파츠 방식 `village_parts_full_v1`~~ — 10/17 완료 (커밋 6a04b88, Codex 검수 단계 오류 → 직접 검수)
 
 시범 v3(`Outputs/VillagePartsPilot_v3`)이 기준이다. 그 규격을 영지 전체로 넓힌다.
 
