@@ -391,9 +391,11 @@ namespace Underwrite.Market
                 order.MarkFilled();
                 LastFilledCount++;
 
-                // 체결도 가격을 민다. 시장가와 같은 유동성 규칙을 쓴다.
-                var impact = PriceModel.OrderImpact(stock, order.Side, order.Quantity);
-                stock.SetPrice(PriceModel.ClampMove(stock.Price, stock.Price + impact));
+                // 체결도 가격을 민다. 시장가와 같이 호가를 먹은 만큼만 움직인다.
+                float sweptAverage;
+                float sweptLast;
+                OrderBook.Sweep(stock, MicroSeq, order.Side, order.Quantity, out sweptAverage, out sweptLast);
+                stock.SetPrice(PriceModel.ClampMove(stock.Price, sweptLast));
                 stock.AdjustLiquidity(order.Quantity * 0.1f);
             }
         }
@@ -920,8 +922,9 @@ namespace Underwrite.Market
                 return Reject(OrderResult.Result_RejectedMarketClosed, StringConstants.TEXT_ORDER_MARKET_CLOSED);
             }
 
-            var impact = PriceModel.OrderImpact(stock, side, quantity);
-            var fill = stock.LivePrice + impact * 0.5f;
+            float fill;
+            float lastPrice;
+            OrderBook.Sweep(stock, MicroSeq, side, quantity, out fill, out lastPrice);
 
             if (fill < Constants.PRICE_FLOOR)
             {
@@ -949,7 +952,8 @@ namespace Underwrite.Market
                 Wallet.Sell(stockId, quantity, fill);
             }
 
-            stock.SetPrice(PriceModel.ClampMove(stock.Price, stock.Price + impact));
+            // 현재가는 마지막으로 먹은 호가가 된다. 보이는 호가창 밖으로 튀지 않는다.
+            stock.SetPrice(PriceModel.ClampMove(stock.Price, lastPrice));
 
             // 거래가 일어나면 유동성이 조금 늘어난다. 거래량이 유동성을 만든다. 기획서 §7.
             stock.AdjustLiquidity(quantity * 0.1f);

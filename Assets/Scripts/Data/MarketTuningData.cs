@@ -60,7 +60,7 @@ namespace Underwrite.Data
         [SerializeField] private float BookTickRatio = 0.004f;
 
         [Tooltip("호가 한 단계에 쌓이는 수량의 기본 비율.")]
-        [SerializeField] private float BookDepthBase = 0.12f;
+        [SerializeField] private float BookDepthBase = 0.35f;
 
         [Tooltip("호가가 멀어질수록 두꺼워지는 정도.")]
         [SerializeField] private float BookDepthGrowth = 0.45f;

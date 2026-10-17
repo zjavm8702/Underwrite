@@ -76,6 +76,39 @@ namespace Underwrite.Market
         }
 
         /// <summary>
+        /// 영지에서 보는 날짜. 하루는 오전장이 열리는 9시에 시작한다.
+        ///
+        /// <see cref="Day"/>는 거래소가 오전장을 열 때만 넘어간다. 그래서 장을 쉬고 영지에서 다음 날
+        /// 낮까지 머물면 날짜가 그대로 남았다(2026-10-17 사용자 보고: "2일차에서 안 넘어간다").
+        /// 영지의 시계가 다음 날 9시를 지나면 그만큼 더해 보여 준다. 거래소가 장을 열면 Day가 따라온다.
+        /// </summary>
+        public int CalendarDay
+        {
+            get
+            {
+                if (IsBreak == false)
+                {
+                    return Day;
+                }
+
+                var sinceMorning = BreakMinuteOfDay - Constants.MARKET_MORNING_START_HOUR * 60;
+                return Day + Math.Max(0, sinceMorning / MINUTES_PER_DAY);
+            }
+        }
+
+        /// <summary>
+        /// 잠자리에 들 수 있는가. **오후장이 끝난 뒤의 밤**에만 된다(2026-10-17 사용자 결정).
+        /// 장을 쉬어 오후장을 건너뛴 날은 「시간 넘기기」로 다음 장까지 간다.
+        /// </summary>
+        public bool CanSleep
+        {
+            get
+            {
+                return IsBreak == true && Session == MarketSession.Session_Evening && SkippedSessions == 0;
+            }
+        }
+
+        /// <summary>
         /// 다음에 열릴 장이 오전장인가. 그렇다면 지금은 밤이고, 하루를 닫고 잠자리에 들 때다.
         /// 쉰 장이 있으면 한 장마다 오전·오후가 뒤바뀐다.
         /// </summary>
@@ -222,6 +255,7 @@ namespace Underwrite.Market
 
         // 장과 장 사이의 간격. 9시와 21시에 열리므로 12시간으로 고르다.
         private const int SESSION_GAP_MINUTES = 12 * 60;
+        private const int MINUTES_PER_DAY = 24 * 60;
 
         /// <summary>
         /// 몇 주기째인가. 주기는 원정 한 번이고 40주기가 10년이다. 설계안 §2.

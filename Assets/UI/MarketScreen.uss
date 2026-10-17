@@ -1514,3 +1514,42 @@
     border-color: rgb(104, 64, 28);
     color: rgb(248, 243, 232);
 }
+
+/* ── 눌림 연출 ────────────────────────────────
+   2026-10-17 사용자 요청. 누르는 순간 살짝 줄었다가 돌아온다.
+   :active는 누르고 있는 동안만 켜진다. 그림 교체는 테마 파일(.Parchment)이 맡는다. */
+.btn,
+.cta,
+.ratio-btn,
+.tab,
+.type-tab,
+.popup-button,
+.dialogue-next,
+.dialogue-choice,
+.village-leave,
+.village-skip,
+.village-rest {
+    transition-property: scale, opacity;
+    transition-duration: 0.08s, 0.08s;
+    transition-timing-function: ease-out, ease-out;
+}
+
+.btn:active,
+.cta:active,
+.ratio-btn:active,
+.tab:active,
+.type-tab:active,
+.popup-button:active,
+.dialogue-next:active,
+.dialogue-choice:active,
+.village-leave:active,
+.village-skip:active,
+.village-rest:active {
+    scale: 0.96 0.96;
+}
+
+/* 잠긴 것은 눌려도 반응하지 않는다. 눌리는 척하면 고를 수 있는 줄 안다. */
+.btn--disabled:active,
+.dialogue-choice--locked:active {
+    scale: 1 1;
+}

@@ -21,12 +21,14 @@
                 <ui:Label name="phase-chip" text="개장" class="status-chip" />
                 <ui:Label name="clock-text" text="장중 경과 00:00 · 0 / 96틱" class="t-body weak status-chip" />
                 <ui:Label name="sentiment-text" text="분위기 평온" class="t-body status-chip" />
-                <ui:Button name="pause-button" text="일시정지" class="btn" />
-                <ui:Button name="speed-1" text="1배" class="btn btn--small" />
-                <ui:Button name="speed-4" text="4배" class="btn btn--small" />
-                <ui:Button name="skip-button" text="오전장 넘기기" class="btn" />
-                <ui:Button name="place-button" text="지하시장에 있음" class="btn" />
-                <ui:Button name="village-button" text="영지로" class="btn" />
+                <!-- 2026-10-17 사용자 결정: 상단 단추는 「○○장 끝내기」와 「지하시장 나가기」 둘만 둔다.
+                     정지·배속·자리 단추는 숨겨 두기만 한다. 튜토리얼이나 설정에서 다시 쓸 수 있다. -->
+                <ui:Button name="pause-button" text="일시정지" class="btn hidden" />
+                <ui:Button name="speed-1" text="1배" class="btn btn--small hidden" />
+                <ui:Button name="speed-4" text="4배" class="btn btn--small hidden" />
+                <ui:Button name="skip-button" text="오전장 끝내기" class="btn" />
+                <ui:Button name="place-button" text="지하시장에 있음" class="btn hidden" />
+                <ui:Button name="village-button" text="지하시장 나가기" class="btn" />
             </ui:VisualElement>
         </ui:VisualElement>
 

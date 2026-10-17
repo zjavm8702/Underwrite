@@ -30,6 +30,7 @@ namespace Underwrite.UI
         private readonly Label Count;
         private readonly Button Next;
         private readonly VisualElement ChoiceBox;
+        private readonly VisualElement Spacer;
 
         private readonly List<DialogueLine> Lines = new List<DialogueLine>();
         private readonly List<DialogueChoice> ShownChoices = new List<DialogueChoice>();
@@ -94,6 +95,9 @@ namespace Underwrite.UI
             Count = built.Q<Label>("dialogue-count");
             Next = built.Q<Button>("dialogue-next");
             ChoiceBox = built.Q<VisualElement>("dialogue-choices");
+            // 본문과 「다음」 사이를 벌리는 빈 칸. 선택지가 뜨면 접는다.
+            // 그대로 두면 선택지 위에 빈 칸이 끼어 선택지가 상자 아래로 삐져나간다(2026-10-17 보고).
+            Spacer = FindSpacer(Box);
 
             if (Next != null)
             {
@@ -121,6 +125,26 @@ namespace Underwrite.UI
             {
                 Veil.AddToClassList(className);
             }
+        }
+
+        // 상자의 직속 자식 가운데 빈 칸(grow)을 찾는다. 이름 줄의 말하는 이 라벨도 grow를 달고 있어
+        // 깊이 찾으면 그것이 먼저 걸린다.
+        private static VisualElement FindSpacer(VisualElement box)
+        {
+            if (box == null)
+            {
+                return null;
+            }
+
+            foreach (var child in box.Children())
+            {
+                if (child.ClassListContains("grow") == true && child.childCount == 0 && child is Label == false)
+                {
+                    return child;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>대화를 시작한다. 줄이 없으면 바로 끝낸 것으로 본다.</summary>
@@ -306,6 +330,11 @@ namespace Underwrite.UI
             }
 
             ChoiceBox.EnableInClassList("hidden", ShownChoices.Count == 0);
+
+            if (Spacer != null)
+            {
+                Spacer.EnableInClassList("hidden", ShownChoices.Count > 0);
+            }
         }
 
         private void ClearChoices()
@@ -319,6 +348,11 @@ namespace Underwrite.UI
 
             ChoiceBox.Clear();
             ChoiceBox.AddToClassList("hidden");
+
+            if (Spacer != null)
+            {
+                Spacer.RemoveFromClassList("hidden");
+            }
         }
 
         /// <summary>

@@ -94,6 +94,15 @@ namespace Underwrite.Global
         public static string TEXT_INTRO_SKIP = "건너뛰기";
         public static string TEXT_INTRO_COUNT = "{0} / {1} · 클릭하거나 스페이스로 넘긴다";
 
+        // ── 지하거래소 발견 (웹툰 5~6화를 직접 겪는다) ──
+        public static string TEXT_DISCOVER_TAG = "여덟째 날";
+        public static string TEXT_DISCOVER_OWNER = "(여관 주인이 턱짓한다) 손 비었으면 창고에서 술통 좀 올려 와.";
+        public static string TEXT_DISCOVER_OVERHEAR = "(구석 자리, 두건 쓴 손님이 낮게 말한다) \"귀환 소식 떴어. 지금 팔아.\"";
+        public static string TEXT_DISCOVER_THINK = "…팔아? 뭘?";
+        public static string TEXT_DISCOVER_CELLAR = "술통을 옮기러 내려간 창고 안쪽에서 사람들 소리가 났다. 매수, 전량 매도, 칠판 위의 숫자들.";
+        public static string TEXT_DISCOVER_END = "사고파는 건 물건이 아니었다. 모험가의 성공과 실패에 돈이 몰리고 있었다. …이건, 주식판이잖아.";
+        public static string TEXT_DISCOVER_NOTE = "여관 창고 안쪽 — 이제 「창고로 내려간다」로 지하거래소에 갈 수 있다.";
+
         // ── 원정과 귀환 ──────────────────────────
         public static string TEXT_EXPEDITION_TAG = "원정 귀환";
         public static string TEXT_RETURN_OPEN = "용사단이 돌아왔다. 문이 열리자 여관이 한꺼번에 들썩였다.";

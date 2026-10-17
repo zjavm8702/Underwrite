@@ -98,6 +98,57 @@ namespace Underwrite.Market
         }
 
         /// <summary>
+        /// 시장가 주문이 호가를 1단계부터 먹어 들어간다. 화면에 보이는 호가창과 같은 수량을 쓴다.
+        ///
+        /// 예전에는 체결 충격을 유동성으로 따로 계산해서, 호가창 1단계에 수십 주가 보이는데도
+        /// 10주만 사도 현재가가 15% 튀었다. 이제 체결은 보이는 호가 그대로다.
+        /// 작은 주문은 1단계에서 끝나 한 칸만 움직이고, 큰 주문은 여러 단계를 먹어 올라가 랠리가 된다.
+        /// </summary>
+        /// <param name="averageFill">평균 체결가.</param>
+        /// <param name="lastPrice">마지막으로 먹은 단계의 가격. 체결 뒤 현재가가 이 가격이 된다.</param>
+        public static void Sweep(AdventurerStock stock, int seq, OrderSide side, int quantity,
+            out float averageFill, out float lastPrice)
+        {
+            if (stock == null)
+            {
+                throw new ArgumentNullException(nameof(stock));
+            }
+
+            var step = TickSize(stock.Price);
+            var center = SnapToTick(stock.LivePrice, stock.Price);
+            // 사는 쪽은 매도 호가(위)를, 파는 쪽은 매수 호가(아래)를 먹는다.
+            var bookSide = side == OrderSide.Side_Buy ? OrderSide.Side_Sell : OrderSide.Side_Buy;
+            var sign = side == OrderSide.Side_Buy ? 1f : -1f;
+
+            var left = quantity;
+            var spent = 0f;
+            lastPrice = center;
+
+            for (var level = 1; left > 0 && level <= Constants.BOOK_SWEEP_LIMIT; level++)
+            {
+                var price = center + sign * step * level;
+
+                if (price < Constants.PRICE_FLOOR)
+                {
+                    price = Constants.PRICE_FLOOR;
+                }
+
+                var take = Math.Min(left, DepthAt(stock, seq, level, bookSide));
+                spent += price * take;
+                left -= take;
+                lastPrice = price;
+            }
+
+            // 한도까지 먹고도 남으면 마지막 가격에 나머지를 채운다. 호가가 바닥난 종목이다.
+            if (left > 0)
+            {
+                spent += lastPrice * left;
+            }
+
+            averageFill = quantity > 0 ? spent / quantity : center;
+        }
+
+        /// <summary>
         /// 한 단계에 쌓인 수량. 유동성이 클수록 두껍고, 멀수록 두껍다.
         /// 흔들림은 갱신 번호·단계·종목에서 만든 결정적 값이라 같은 갱신이면 같은 숫자가 나온다.
         /// </summary>

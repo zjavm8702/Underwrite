@@ -53,6 +53,9 @@ namespace Underwrite.Global
         public static string TEXT_SIDE_BUY = "매수";
         public static string TEXT_SIDE_SELL = "매도";
         public static string TEXT_SESSION_OPENED = "{0}이 열렸습니다.";
+        public static string TEXT_SESSION_END = "{0} 끝내기";
+        public static string TEXT_SESSION_OPEN_NEXT = "{0} 열기";
+        public static string TEXT_LEAVE_MARKET = "지하시장 나가기";
         public static string TEXT_SESSION_SKIPPED = "장을 넘겼습니다. 소식 {0}건.";
         public static string TEXT_SESSION_SKIPPED_FILLED = "장을 넘겼습니다. 소식 {0}건, 지정가 체결 {1}건.";
         public static string TEXT_AUTO_PAUSED = "결과가 확정되어 자동 정지했습니다.";
@@ -296,12 +299,17 @@ namespace Underwrite.Global
         // ── 호가와 지정가 ─────────────────────────
         /// <summary>호가창에 보여줄 매수·매도 각 단계 수.</summary>
         public const int BOOK_LEVELS = 5;
+        /// <summary>
+        /// 시장가 주문이 먹어 들어갈 수 있는 호가 단계의 한도. 화면에는 5단계만 보이지만 그 밖에도 호가는 있다.
+        /// 이것을 넘는 주문은 마지막 가격에 남은 수량을 채운다.
+        /// </summary>
+        public const int BOOK_SWEEP_LIMIT = 40;
         /// <summary>호가 단위를 가격의 몇 배로 잡을지. 126.8이면 약 0.5가 된다.</summary>
         public static float BOOK_TICK_RATIO = 0.004f;
         /// <summary>호가 단위의 하한.</summary>
         public const float BOOK_TICK_MIN = 0.1f;
         /// <summary>1단계 호가에 쌓이는 수량을 유동성의 몇 배로 잡을지.</summary>
-        public static float BOOK_DEPTH_BASE = 0.12f;
+        public static float BOOK_DEPTH_BASE = 0.35f;
         /// <summary>단계가 멀어질수록 수량이 늘어나는 비율.</summary>
         public static float BOOK_DEPTH_GROWTH = 0.45f;
         /// <summary>한 종목에 동시에 걸 수 있는 지정가 주문 수.</summary>

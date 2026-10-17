@@ -5,6 +5,7 @@ using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
+using Underwrite.Story;
 using Underwrite.Utility;
 using Underwrite.Village;
 using UnityEngine;
@@ -306,7 +307,8 @@ namespace Underwrite.UI
                 choices.Add(HeroTableChoice(spot));
             }
 
-            if (spot.HasCellar == true)
+            // 창고 안쪽을 아직 모른다. 웹툰 5~6화의 사건을 겪어야 길이 열린다.
+            if (spot.HasCellar == true && StoryProgress.CellarFound == true)
             {
                 // 웹툰 6화. 술통을 옮기러 내려간 창고 안쪽에 지하거래소가 있다.
                 var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO,
@@ -338,6 +340,30 @@ namespace Underwrite.UI
 
             var days = MarketClock.NextInspectionDay(today) - today;
             return " · " + string.Format(StringConstants.TEXT_VILLAGE_INSPECTION_SOON, days);
+        }
+
+        /// <summary>
+        /// 지하거래소를 찾는 장면. 웹툰 5~6화를 플레이어가 직접 겪는다(2026-10-17 사용자 결정).
+        /// 인트로 다음에 곧바로 주식 창이 열리면 뜬금없다. 마을에서 일하다 우연히 찾아야 한다.
+        /// </summary>
+        private void PlayDiscovery(VillageSpot spot)
+        {
+            StoryProgress.CellarFound = true;
+
+            var owner = SpeakerOf(spot.InfoSource);
+            var lines = new List<DialogueLine>
+            {
+                new DialogueLine(owner, StringConstants.TEXT_DISCOVER_TAG, StringConstants.TEXT_DISCOVER_OWNER),
+                new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_DISCOVER_OVERHEAR),
+                new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_DISCOVER_THINK),
+                new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_DISCOVER_CELLAR),
+                new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_DISCOVER_END)
+            };
+
+            lines[lines.Count - 1].Note = StringConstants.TEXT_DISCOVER_NOTE;
+
+            // 다 보면 바로 고르게 한다. 창고로 내려갈지, 일단 둘러볼지.
+            Dialogue.Play(lines, () => Ask(spot));
         }
 
         // ── 용사단 (루틴 설계안) ──────────────────
@@ -533,7 +559,7 @@ namespace Underwrite.UI
 
         private int Today()
         {
-            return Clock == null ? 1 : Clock.Day;
+            return Clock == null ? 1 : Clock.CalendarDay;
         }
 
         /// <summary>길드 창구의 「익명 의뢰를 낸다」. 들은 사정이 있으면 기한을 붙여 보여 준다.</summary>
@@ -632,8 +658,9 @@ namespace Underwrite.UI
 
             // 기한은 보여 주고 금액은 숨긴다(상장흐름 설계안 §1-5 완화책 2).
             // 못 들은 사정이 급해지면 경고만 띄운다. 마지막 단계는 숨기지 않는다(완화책 1).
-            var failed = PatronageLedger.EndOfDay(Clock.Day);
-            var deadline = PatronageLedger.NearestDeadline(Clock.Day + 1);
+            var today = Today();
+            var failed = PatronageLedger.EndOfDay(today);
+            var deadline = PatronageLedger.NearestDeadline(today + 1);
 
             if (failed > 0)
             {
@@ -644,17 +671,17 @@ namespace Underwrite.UI
                 body = body + " " + string.Format(StringConstants.TEXT_DAY_END_DEADLINE, deadline);
             }
 
-            if (failed == 0 && PatronageLedger.HasUnheardUrgent(Clock.Day + 1) == true)
+            if (failed == 0 && PatronageLedger.HasUnheardUrgent(today + 1) == true)
             {
                 body = body + " " + StringConstants.TEXT_DAY_END_WARNING;
             }
 
-            if (MarketClock.IsInspectionDay(Clock.Day + 1) == true)
+            if (MarketClock.IsInspectionDay(today + 1) == true)
             {
                 body = body + " " + StringConstants.TEXT_DAY_END_INSPECTION;
             }
 
-            var line = new DialogueLine(string.Format(StringConstants.TEXT_DAY_END_TITLE, Clock.Day),
+            var line = new DialogueLine(string.Format(StringConstants.TEXT_DAY_END_TITLE, today),
                 StringConstants.TEXT_DAY_END_TAG, body);
             line.Note = string.Format(StringConstants.TEXT_DAY_END_NEXT, Constants.MARKET_MORNING_START_HOUR);
 
@@ -676,6 +703,14 @@ namespace Underwrite.UI
             if (Clock != null)
             {
                 Clock.SpendBreakMinutes(quest.Minutes);
+            }
+
+            // 처음으로 여관 일을 거들면 웹툰 5~6화가 벌어진다. 창고 안쪽에서 지하거래소를 찾는다.
+            if (spot.HasCellar == true && StoryProgress.CellarFound == false)
+            {
+                GatherSession.Record(0f, quest.Reward, null);
+                PlayDiscovery(spot);
+                return;
             }
 
             var text = quest.Done;
@@ -743,7 +778,7 @@ namespace Underwrite.UI
                         return;
                     }
 
-                    if (Clock.NextSessionIsMorning == true)
+                    if (Clock.CanSleep == true)
                     {
                         Sleep();
                         return;
@@ -828,7 +863,7 @@ namespace Underwrite.UI
 
             if (skip != null && Clock != null)
             {
-                skip.text = Clock.NextSessionIsMorning == true
+                skip.text = Clock.CanSleep == true
                     ? StringConstants.TEXT_SLEEP
                     : StringConstants.TEXT_SKIP_BREAK;
             }

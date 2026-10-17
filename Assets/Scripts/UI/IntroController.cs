@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
+using Underwrite.Story;
 using Underwrite.Utility;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,7 +14,7 @@ namespace Underwrite.UI
     /// <summary>
     /// 인트로. 웹툰 1~6화를 한 장씩 넘긴다.
     ///
-    /// 웹툰은 "그래도… 시작할 곳은 생겼다" — 지하거래소에서 끝난다. 그래서 다 읽으면 거래소로 간다.
+    /// 다 읽으면 마을(여관 앞)에서 시작한다. 웹툰 5~6화의 지하거래소 발견은 플레이어가 직접 겪는다.
     /// 새 게임이므로 씬을 넘나드는 기록(시장, 영지, 후원, 용사단)을 모두 비우고 시작한다.
     /// </summary>
     [RequireComponent(typeof(UIDocument))]
@@ -127,8 +128,10 @@ namespace Underwrite.UI
             BreakClock.Current = null;
             PatronageLedger.Reset();
             HeroRoster.Reset();
+            StoryProgress.Reset();
 
-            SceneManager.LoadScene(SceneRoutes.MARKET);
+            // 웹툰을 다 본 뒤에는 마을에서 시작한다. 지하거래소는 여관 일을 하다 직접 찾는다.
+            SceneManager.LoadScene(SceneRoutes.VILLAGE);
         }
     }
 }

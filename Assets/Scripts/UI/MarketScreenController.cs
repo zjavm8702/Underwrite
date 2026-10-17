@@ -219,6 +219,9 @@ namespace Underwrite.UI
                 Data.Apply();
             }
 
+            // 마을에서 먼저 하루를 시작했으면 그 시계가 남아 있다. 그 다음 장부터 연다.
+            var villageClock = BreakClock.Current;
+
             Sim = new MarketSimulation(Seed, Constants.STARTING_CASH);
             BreakClock.Simulation = Sim;
 
@@ -235,7 +238,20 @@ namespace Underwrite.UI
             RegisterDepartures();
             Sim.AddEvents(BuildEvents());
             Sim.SetSentiment(StartingSentiment);
-            Sim.OpenSession(IsInspectionDay);
+
+            // 마을에서 시작한 판이면(인트로 → 여관 → 창고) 오전장은 이미 지났다. 그날 오후장부터 연다.
+            // 마을에서 번 돈도 지갑에 넣는다.
+            if (villageClock != null && villageClock.IsBreak == true)
+            {
+                Sim.OpenSession(IsInspectionDay, MarketSession.Session_Evening);
+                Sim.ApplyGatherSession();
+                // 한 번 넣었으면 비운다. 다음 장을 열 때 또 더해지면 안 된다.
+                GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
+            }
+            else
+            {
+                Sim.OpenSession(IsInspectionDay);
+            }
             Sim.PlayerAtMarket = true;
 
             SelectedId = stocks[0].Id;
@@ -752,18 +768,18 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 영지로 나간다. 장이 열려 있는 동안에는 자리를 뜨지 않는다.
+        /// 영지로 나간다. 장중이면 그 장을 마감하고 나간다.
         ///
         /// 기획서 §11의 하루는 장 → 영지 → 장 → 취침으로 돈다.
         /// 장중에 나갈 수 있으면 가격이 흐르는 동안 정보를 캐게 되어 두 층이 겹친다.
         /// </summary>
         private void GoToVillage()
         {
-            if (Sim.Clock.Phase == MarketPhase.Phase_Open)
+            // 장중에 나가면 그 장은 끝까지 흘려보낸다. 장중에 영지를 돌면 두 층이 겹치므로
+            // 나가는 순간 장을 마감한다(2026-10-17 사용자 결정 — 단추는 「끝내기」와 「나가기」 둘뿐).
+            if (Sim.Clock.Phase != MarketPhase.Phase_Closed)
             {
-                Message = "장이 열려 있는 동안에는 자리를 뜰 수 없습니다.";
-                ShowToast("나갈 수 없다", Message, Side, false);
-                return;
+                SkipOrOpen();
             }
 
             GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
@@ -788,7 +804,7 @@ namespace Underwrite.UI
             }
         }
 
-        /// <summary>장이 닫혀 있을 때만 영지로 나갈 수 있다.</summary>
+        /// <summary>「지하시장 나가기」는 언제나 누를 수 있다. 장중이면 그 장을 마감하고 나간다.</summary>
         private void RefreshVillageButton()
         {
             var button = Root.Q<Button>("village-button");
@@ -798,9 +814,9 @@ namespace Underwrite.UI
                 return;
             }
 
-            var closed = Sim.Clock.Phase == MarketPhase.Phase_Closed;
-            button.SetEnabled(closed);
-            button.EnableInClassList("btn--disabled", closed == false);
+            button.text = StringConstants.TEXT_LEAVE_MARKET;
+            button.SetEnabled(true);
+            button.EnableInClassList("btn--disabled", false);
         }
 
         /// <summary>화면이 다시 그려지도록 캐시를 비운다.</summary>
@@ -827,11 +843,11 @@ namespace Underwrite.UI
                 var next = Sim.Clock.Session == MarketSession.Session_Morning
                     ? StringConstants.TEXT_SESSION_EVENING
                     : StringConstants.TEXT_SESSION_NEXT_MORNING;
-                skip.text = next + " 열기";
+                skip.text = string.Format(StringConstants.TEXT_SESSION_OPEN_NEXT, next);
                 return;
             }
 
-            skip.text = SessionName(Sim.Clock.Session) + " 넘기기";
+            skip.text = string.Format(StringConstants.TEXT_SESSION_END, SessionName(Sim.Clock.Session));
         }
 
         private static string SessionName(MarketSession session)
@@ -1038,8 +1054,9 @@ namespace Underwrite.UI
             {
                 for (var i = 0; i < RATIO_FIT_STEPS && quantity > 0; i++)
                 {
-                    var impact = PriceModel.OrderImpact(stock, Side, quantity);
-                    var fill = stock.LivePrice + impact * 0.5f;
+                    float fill;
+                    float last;
+                    OrderBook.Sweep(stock, Sim.MicroSeq, Side, quantity, out fill, out last);
 
                     if (fill * quantity <= budget)
                     {
@@ -2019,8 +2036,10 @@ namespace Underwrite.UI
             SetFieldValue("limit-value", LimitPrice.ToString("N1"));
 
             var halted = Sim.Clock.Phase != MarketPhase.Phase_Open;
-            var impact = PriceModel.OrderImpact(stock, Side, Quantity);
-            var fill = stock.LivePrice + impact * 0.5f;
+            // 예상 체결가도 실제 체결과 같은 방식으로 호가를 먹어 계산한다.
+            float fill;
+            float swept;
+            OrderBook.Sweep(stock, Sim.MicroSeq, Side, Quantity, out fill, out swept);
 
             var shown = limiting == true ? LimitPrice : fill;
 

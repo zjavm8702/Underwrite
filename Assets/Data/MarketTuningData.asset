@@ -26,6 +26,6 @@ MonoBehaviour:
   MicroLimit: 0.007
   OrderImpactScale: 0.9
   BookTickRatio: 0.004
-  BookDepthBase: 0.12
+  BookDepthBase: 0.35
   BookDepthGrowth: 0.45
   StartingCash: 500
