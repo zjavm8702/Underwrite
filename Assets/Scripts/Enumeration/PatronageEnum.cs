@@ -35,7 +35,7 @@ namespace Underwrite.Enumeration
         State_Failed
     }
 
-    /// <summary>모험단 도감의 한 줄을 어디서 알 수 있는가. 순서는 CODEX_FACTS의 열과 같다.</summary>
+    /// <summary>모험단 도감의 한 줄을 어디서 알 수 있는가. 순서는 CODEX_HINTS와 같다. 말 걸기·길드는 변하지 않고, 대장간·여관은 주기마다 바뀐다.</summary>
     public enum CodexSource
     {
         Codex_Talk,
