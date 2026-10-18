@@ -2597,6 +2597,7 @@ namespace Underwrite.UI
             get
             {
                 return (Ledger != null && Ledger.IsOpen == true) || (Smith != null && Smith.IsOpen == true)
+                    || (Rules != null && Rules.IsOpen == true)
                     || (Dice != null && Dice.IsOpen == true) || (Deduce != null && Deduce.IsOpen == true);
             }
         }
@@ -3672,28 +3673,41 @@ namespace Underwrite.UI
         /// </summary>
         internal bool StartStopPractice(InfoSource place, System.Action onDone)
         {
+            // 연습 판 전에 규칙서를 넘겨 본다 - 규칙을 다 보고 나서 손으로 해 본다(2026-10-18 사장님).
             if (place == InfoSource.Source_TavernTalk)
             {
-                Dialogue.Close();
-                StartDicePractice(onDone);
+                OpenRules(StringConstants.TEXT_RULE_DICE_HEADING, MiniGameRules.Dice(), place, () => StartDicePractice(onDone));
                 return true;
             }
 
             if (place == InfoSource.Source_SmithOrder)
             {
-                Dialogue.Close();
-                StartSmithPractice(onDone);
+                OpenRules(StringConstants.TEXT_RULE_SMITH_HEADING, MiniGameRules.Smith(), place, () => StartSmithPractice(onDone));
                 return true;
             }
 
             if (place == InfoSource.Source_GuildRecord)
             {
-                Dialogue.Close();
-                StartDeducePractice(onDone);
+                OpenRules(StringConstants.TEXT_RULE_DEDUCE_HEADING, MiniGameRules.Deduce(), place, () => StartDeducePractice(onDone));
                 return true;
             }
 
             return false;
+        }
+
+        private UI_RuleBook Rules;
+
+        private void OpenRules(string heading, List<RulePage> pages, InfoSource place, System.Action then)
+        {
+            Dialogue.Close();
+
+            if (Rules == null)
+            {
+                Rules = new UI_RuleBook(Root);
+            }
+
+            Rules.Open(heading, pages, BackgroundOf(place), then);
+            GameAudio.Play(SoundEffect.Sound_Page);
         }
 
         /// <summary>프롤로그 첫 안내: 왼쪽 위 목표. 걷기는 순찰 동안 데려가므로 지금은 말하지 않는다.</summary>
