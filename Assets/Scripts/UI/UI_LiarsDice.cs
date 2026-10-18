@@ -19,6 +19,7 @@ namespace Underwrite.UI
         private readonly VisualElement OpponentRow;
         private readonly VisualElement PlayerRow;
         private readonly Label Bid;
+        private readonly Label Coach;
         private readonly Label Message;
         private readonly Label CountLabel;
         private readonly VisualElement FaceRow;
@@ -77,6 +78,10 @@ namespace Underwrite.UI
             OpponentRow.AddToClassList("dice-row");
             Bid = new Label();
             Bid.AddToClassList("dice-bid");
+
+            // 연습 판의 코치, 실전의 판단 재료 한 줄.
+            Coach = new Label();
+            Coach.AddToClassList("dice-coach");
             PlayerRow = new VisualElement();
             PlayerRow.AddToClassList("dice-row");
 
@@ -140,6 +145,7 @@ namespace Underwrite.UI
             table.Add(Mood);
             table.Add(OpponentRow);
             table.Add(Bid);
+            table.Add(Coach);
             table.Add(PlayerRow);
             table.Add(Controls);
             table.Add(NextButton);
@@ -272,6 +278,49 @@ namespace Underwrite.UI
             }
 
             BidButton.SetEnabled(Game.IsValidRaise(PickCount, PickFace));
+            RefreshCoach(myTurn);
+        }
+
+        // 연습 판이면 각본의 코치를 띄우고 배울 동작 말고는 잠근다. 실전이면 내 차례에 판단 재료만 준다.
+        private void RefreshCoach(bool myTurn)
+        {
+            var scripted = Game.CurrentScriptRound;
+            var text = string.Empty;
+
+            if (scripted != null)
+            {
+                if (Game.IsRevealed == true)
+                {
+                    text = scripted.RevealHint;
+                }
+                else if (myTurn == true && Game.BidCount == 0)
+                {
+                    text = scripted.OpenHint;
+                }
+                else if (myTurn == true)
+                {
+                    text = scripted.ResponseHint;
+                    BidButton.SetEnabled(scripted.AllowRaise == true && Game.IsValidRaise(PickCount, PickFace));
+                    CallButton.SetEnabled(scripted.AllowCall);
+                }
+            }
+            else if (myTurn == true && Game.BidCount > 0)
+            {
+                var mine = 0;
+
+                foreach (var die in Game.PlayerDice)
+                {
+                    if (die == Game.BidFace)
+                    {
+                        mine++;
+                    }
+                }
+
+                text = string.Format(StringConstants.TEXT_DICE_HELP, Game.BidFace, mine, Game.OpponentDice.Length);
+            }
+
+            Coach.text = text ?? string.Empty;
+            Coach.style.display = string.IsNullOrEmpty(text) == true ? DisplayStyle.None : DisplayStyle.Flex;
         }
 
         // 주사위 한 줄. 가린 주사위는 「?」, 판이 열리면 걸린 눈과 같은 주사위를 밝힌다.

@@ -42,6 +42,17 @@ namespace Underwrite.Global
             "얼굴이 벌겋다. 큰소리를 친다."
         };
 
+        public static string TEXT_DICE_HELP = "내 손에 {0} 눈이 {1}개 · 상대 주사위 {2}개 중엔 보통 0~1개";
+
+        // 연습 판(프롤로그 여관). 상대는 단골 손님, 주사위와 수는 정해져 있다.
+        public static string TEXT_DICE_TUT_OPPONENT = "단골 손님";
+        public static string TEXT_DICE_TUT_MOOD = "주인 부탁으로 연습 상대를 해 준다.";
+        public static string TEXT_DICE_TUT_1_OPEN = "네 손에 4가 둘이다. 둘의 주사위를 합치면 4는 적어도 둘 — 개수 2, 눈 4를 고르고 「부른다」.";
+        public static string TEXT_DICE_TUT_1_RESPONSE = "「4 눈이 6개」? 여덟 개 중 여섯이라니 — 네 손엔 둘뿐이다. 「거짓말!」을 외치자.";
+        public static string TEXT_DICE_TUT_1_REVEAL = "열어 보니 4는 셋. 상대가 허세를 부렸다 — 외친 내가 이겼다.";
+        public static string TEXT_DICE_TUT_2_RESPONSE = "「3 눈이 2개」 — 네 손에만 3이 둘, 맞는 말이다. 의심 말고 하나 얹어 개수 3, 눈 3으로 「부른다」.";
+        public static string TEXT_DICE_TUT_2_REVEAL = "열어 보니 3은 셋 — 내 말이 맞았다. 그럴듯한 말엔 올려 불러 넘기는 것도 수다.";
+
         public static string TEXT_DICE_TAG = "주사위 내기";
         public static string TEXT_DICE_WON = "「크으, 졌다 졌어.」 술기운에 {0} 사람이 털어놓는다.";
         public static string TEXT_DICE_WON_NOTHING = "「크으, 졌다.」 …털어놓을 얘기는 없는 모양이다. 술값은 굳었다.";

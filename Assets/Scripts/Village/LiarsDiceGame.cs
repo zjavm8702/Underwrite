@@ -60,8 +60,29 @@ namespace Underwrite.Village
             }
         }
 
+        /// <summary>연습 판의 각본. 없으면 보통 판.</summary>
+        public LiarsDiceScript Script { get; private set; }
+
+        /// <summary>지금 판의 각본(연습 판일 때만). 각본이 끝났으면 null.</summary>
+        public LiarsDiceScript.Round CurrentScriptRound
+        {
+            get
+            {
+                if (Script == null || RoundNumber < 1 || RoundNumber > Script.Rounds.Count)
+                {
+                    return null;
+                }
+
+                return Script.Rounds[RoundNumber - 1];
+            }
+        }
+
+        /// <summary>몇 번째 판인가(1부터).</summary>
+        public int RoundNumber { get; private set; }
+
         private readonly System.Random Rng;
         private bool PlayerStartsNext;
+        private int ScriptMove;
 
         public LiarsDiceGame(System.Random rng, float boldness, int dicePerPlayer)
         {
@@ -73,14 +94,38 @@ namespace Underwrite.Village
             StartRound();
         }
 
+        /// <summary>연습 판. 각본의 주사위와 상대의 수대로 흘러간다. 상대는 늘 조심스럽다.</summary>
+        public LiarsDiceGame(LiarsDiceScript script)
+        {
+            Rng = new System.Random(0);
+            Script = script;
+            Boldness = 0f;
+            PlayerDice = new int[script.Rounds[0].PlayerDice.Length];
+            OpponentDice = new int[script.Rounds[0].OpponentDice.Length];
+            StartRound();
+        }
+
         /// <summary>새 판. 다시 굴리고 먼저 부르는 쪽을 번갈아 정한다.</summary>
         public void StartRound()
         {
-            Roll(PlayerDice);
-            Roll(OpponentDice);
+            RoundNumber++;
             BidCount = 0;
             BidFace = 0;
             IsRevealed = false;
+            ScriptMove = 0;
+
+            var scripted = CurrentScriptRound;
+
+            if (scripted != null)
+            {
+                System.Array.Copy(scripted.PlayerDice, PlayerDice, PlayerDice.Length);
+                System.Array.Copy(scripted.OpponentDice, OpponentDice, OpponentDice.Length);
+                IsPlayerTurn = scripted.PlayerFirst;
+                return;
+            }
+
+            Roll(PlayerDice);
+            Roll(OpponentDice);
             IsPlayerTurn = PlayerStartsNext;
             PlayerStartsNext = !PlayerStartsNext;
         }
@@ -131,6 +176,26 @@ namespace Underwrite.Village
             if (IsOver == true || IsRevealed == true || IsPlayerTurn == true)
             {
                 return false;
+            }
+
+            // 연습 판은 각본대로 둔다. 각본이 다하면 보통 판처럼 판단한다.
+            var scripted = CurrentScriptRound;
+
+            if (scripted != null && ScriptMove < scripted.OpponentMoves.Count)
+            {
+                var move = scripted.OpponentMoves[ScriptMove++];
+
+                if (move[0] == 0 && BidCount > 0)
+                {
+                    Reveal();
+                    return false;
+                }
+
+                if (IsValidRaise(move[0], move[1]) == true)
+                {
+                    SetBid(move[0], move[1], false);
+                    return true;
+                }
             }
 
             if (BidCount == 0)

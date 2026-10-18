@@ -221,15 +221,27 @@ namespace Underwrite.UI
             });
         }
 
-        // 정거장 하나: 주인의 소개 → 품삯 → 마무리. 맛보기 놀이는 다음 단계에서 소개와 품삯 사이에 들어간다.
+        // 정거장 하나: 주인의 소개 → 연습 판(있으면) → 품삯 → 마무리.
         private void PlayStop(VillageSpot spot, int index)
         {
             Directing = true;
-            var lines = new List<DialogueLine>
+            var intro = new List<DialogueLine>
             {
                 Host.OwnerLineFor(spot, StringConstants.TEXT_PROLOGUE_STOP_INTRO[index])
             };
 
+            Host.PlayLines(spot.InfoSource, intro, () =>
+            {
+                if (Host.StartStopPractice(spot.InfoSource, () => FinishStop(spot, index)) == false)
+                {
+                    FinishStop(spot, index);
+                }
+            });
+        }
+
+        private void FinishStop(VillageSpot spot, int index)
+        {
+            var lines = new List<DialogueLine>();
             var wage = Constants.PROLOGUE_WAGES[index];
 
             if (wage > 0f)

@@ -3054,22 +3054,88 @@ namespace Underwrite.UI
             DiceGame = new LiarsDiceGame(new System.Random(Random.Range(int.MinValue, int.MaxValue)), boldness,
                 Constants.DICE_PER_PLAYER);
 
-            if (Dice == null)
+            EnsureDiceScreen();
+            DicePracticeDone = null;
+            Dice.Open(DiceGame, StockName(DiceBand), mood, BackgroundOf(spot.InfoSource));
+            GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        // 연습 판이 끝나면 부를 것. 있으면 보통 판의 결과(소문·술값) 대신 이것을 부른다.
+        private System.Action DicePracticeDone;
+
+        private void EnsureDiceScreen()
+        {
+            if (Dice != null)
             {
-                Dice = new UI_LiarsDice(Root);
-                Dice.Finished += won =>
-                {
-                    Dice.Close();
-                    ConcludeDice(won);
-                };
-                Dice.Left += () =>
-                {
-                    Dice.Close();
-                    ConcludeDice(false);
-                };
+                return;
             }
 
-            Dice.Open(DiceGame, StockName(DiceBand), mood, BackgroundOf(spot.InfoSource));
+            Dice = new UI_LiarsDice(Root);
+            Dice.Finished += won =>
+            {
+                Dice.Close();
+                EndDice(won);
+            };
+            Dice.Left += () =>
+            {
+                Dice.Close();
+                EndDice(false);
+            };
+        }
+
+        private void EndDice(bool won)
+        {
+            var practice = DicePracticeDone;
+            DicePracticeDone = null;
+
+            if (practice != null)
+            {
+                practice();
+                return;
+            }
+
+            ConcludeDice(won);
+        }
+
+        /// <summary>
+        /// 주사위 연습 판(프롤로그 여관 정거장). 주사위와 상대의 수가 정해져 있고, 지지 않는다 — 끝나면 <paramref name="onDone"/>.
+        /// 1판: 내 손을 근거로 부르기 → 상대 허세에 「거짓말!」. 2판: 그럴듯한 말엔 올려 부르기.
+        /// </summary>
+        internal void StartDicePractice(System.Action onDone)
+        {
+            var script = new LiarsDiceScript();
+
+            var first = new LiarsDiceScript.Round
+            {
+                PlayerDice = new[] { 4, 4, 2, 6 },
+                OpponentDice = new[] { 1, 4, 5, 3 },
+                PlayerFirst = true,
+                OpenHint = StringConstants.TEXT_DICE_TUT_1_OPEN,
+                ResponseHint = StringConstants.TEXT_DICE_TUT_1_RESPONSE,
+                RevealHint = StringConstants.TEXT_DICE_TUT_1_REVEAL,
+                AllowRaise = false
+            };
+            first.OpponentMoves.Add(new[] { 6, 4 });
+            script.Rounds.Add(first);
+
+            var second = new LiarsDiceScript.Round
+            {
+                PlayerDice = new[] { 3, 3, 5, 1 },
+                OpponentDice = new[] { 3, 2, 6, 6 },
+                PlayerFirst = false,
+                ResponseHint = StringConstants.TEXT_DICE_TUT_2_RESPONSE,
+                RevealHint = StringConstants.TEXT_DICE_TUT_2_REVEAL,
+                AllowCall = false
+            };
+            second.OpponentMoves.Add(new[] { 2, 3 });
+            second.OpponentMoves.Add(new[] { 0, 0 });
+            script.Rounds.Add(second);
+
+            DiceGame = new LiarsDiceGame(script);
+            EnsureDiceScreen();
+            DicePracticeDone = onDone;
+            Dice.Open(DiceGame, StringConstants.TEXT_DICE_TUT_OPPONENT, StringConstants.TEXT_DICE_TUT_MOOD,
+                BackgroundOf(InfoSource.Source_TavernTalk));
             GameAudio.Play(SoundEffect.Sound_Page);
         }
 
@@ -3499,6 +3565,21 @@ namespace Underwrite.UI
         {
             Dialogue.SetBackground(place.HasValue == true ? BackgroundOf(place.Value) : "dialogue-root--street");
             Dialogue.Play(lines, then);
+        }
+
+        /// <summary>
+        /// 순찰 정거장의 연습 판을 연다. 그 장소에 연습 판이 있으면 참 — 끝나면 <paramref name="onDone"/>.
+        /// </summary>
+        internal bool StartStopPractice(InfoSource place, System.Action onDone)
+        {
+            if (place == InfoSource.Source_TavernTalk)
+            {
+                Dialogue.Close();
+                StartDicePractice(onDone);
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>프롤로그 첫 안내: 걷기와 왼쪽 위 목표.</summary>

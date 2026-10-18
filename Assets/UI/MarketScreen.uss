@@ -2145,6 +2145,18 @@
 }
 
 /* 두 줄: 위는 개수·눈, 아래는 부른다·거짓말. */
+/* 연습 판의 코치 · 실전의 판단 재료. 말 상자와 구분되게 옅은 띠. */
+.dice-coach {
+    font-size: 19px;
+    color: #5A4632;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    padding: 8px 16px 8px 16px;
+    border-radius: 8px;
+    background-color: rgba(242, 196, 107, 0.28);
+    max-width: 900px;
+}
+
 .dice-controls {
     align-items: center;
 }
