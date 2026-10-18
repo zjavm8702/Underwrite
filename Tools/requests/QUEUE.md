@@ -27,6 +27,7 @@
 | 17c | `underworld_room_v3.md` | `UnderworldRoom_v3` | **부분 통과 — 임시 반영(10/18).** 과장 Play 검수: 배치·카운터·계단·칠판(분필 글씨 맞음) 통과. 바닥이 차갑고 밋밋한 회색 한 톤, 질감 4종이 조각보처럼 섞임, 닳은 길·구석 그늘 없음, 카운터 뒤 같은 기둥 선반 셋. **Codex 교차 검수와 바닥 보완은 사용량이 차면** |
 | 17d | `underworld_room_v4.md` | `UnderworldRoom_v4` | **반영(10/18 저녁), 사장님 판정 대기** — 바닥 회갈색 판석 하나로 통일, 돌 옆벽 계단·창고가 보이는 출입구, 반복 기둥 → 선반·통 거치대·장부 꽂이. 과장 Play 확인 |
 | 18 | `portrait_folk_v3.md` | `PortraitFolk_v3` | **완료 — 반영(10/18 저녁)**. 교차 검수: Codex 통과 · 과장 통과(다섯이 다른 사람으로 읽힘, 결점 있음, 정보상 두건). 약점: 놀람 표정 차이가 약함. 정보상 초상 데이터(`folk_informant.asset`)를 GameDataSet에 연결 |
+| 18b | `onboarding_scenes_v1.md` | `OnboardingScenes_v1` | 진행 중(10/18 밤) — 용사단을 알아보는 장면 · 다락방 아침 일러스트(사장님: 튜토리얼 연출 강화) |
 | 19 | `underworld_people_v1.md` | `UnderworldPeople_v1` | 대기 — 지하 방 v2 통과 뒤. 앉은 투자꾼 다섯 + 카운터 뒤 정보상 |
 | 20 | `slop_ideas_doc_v1.md` | (문서) | 대기 — **후순위**(사장님). 슬롭 개선 아이디어 문서 |
 
