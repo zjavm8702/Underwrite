@@ -1775,13 +1775,13 @@ namespace Underwrite.UI
                     break;
                 }
                 case QuestGiver.Giver_Swordswoman:
-                {
-                    line = HeroLine(HeroRoster.All[1], quest.Ask, PortraitEmotion.Emotion_Happy);
-                    break;
-                }
                 case QuestGiver.Giver_Scholar:
                 {
-                    line = HeroLine(HeroRoster.All[0], quest.Ask, PortraitEmotion.Emotion_Neutral);
+                    // 부탁할 사람이 떠났으면 혼잣말로 받는다.
+                    var hero = HeroRoster.All[quest.Giver == QuestGiver.Giver_Scholar ? 0 : 1];
+                    line = hero.Condition == HeroCondition.Condition_Dead
+                        ? new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, quest.Ask)
+                        : HeroLine(hero, quest.Ask, PortraitEmotion.Emotion_Neutral);
                     break;
                 }
                 default:
@@ -2684,10 +2684,18 @@ namespace Underwrite.UI
 
             var lines = new List<DialogueLine>
             {
-                new DialogueLine(string.Empty, StringConstants.TEXT_DEPART_TAG, StringConstants.TEXT_DEPART_OPEN),
-                HeroLine(HeroRoster.Favorite(), StringConstants.TEXT_DEPART_FAREWELL, PortraitEmotion.Emotion_Happy),
-                new DialogueLine(string.Empty, StringConstants.TEXT_DEPART_TAG, StringConstants.TEXT_DEPART_PLAN)
+                new DialogueLine(string.Empty, StringConstants.TEXT_DEPART_TAG, StringConstants.TEXT_DEPART_OPEN)
             };
+
+            // 모두 떠났으면 작별을 건넬 사람이 없다.
+            var farewell = HeroRoster.Favorite();
+
+            if (farewell != null)
+            {
+                lines.Add(HeroLine(farewell, StringConstants.TEXT_DEPART_FAREWELL, PortraitEmotion.Emotion_Happy));
+            }
+
+            lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_DEPART_TAG, StringConstants.TEXT_DEPART_PLAN));
 
             Dialogue.Play(lines, AskPlanMonth);
         }

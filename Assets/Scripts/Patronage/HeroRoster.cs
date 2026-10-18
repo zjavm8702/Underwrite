@@ -122,7 +122,8 @@ namespace Underwrite.Patronage
         /// <summary>오늘 시찰일 장면을 아직 보지 않았는가.</summary>
         public static bool HasDayOff(int day)
         {
-            return Market.MarketClock.IsInspectionDay(day) == true && DayOffSeen.Contains(day) == false;
+            return Market.MarketClock.IsInspectionDay(day) == true && DayOffSeen.Contains(day) == false
+                && Favorite() != null;
         }
 
         /// <summary>오늘 귀환 장면을 아직 보지 않았는가.</summary>
