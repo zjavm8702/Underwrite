@@ -21,6 +21,9 @@ namespace Underwrite.UI
         private readonly VillageScreenController Host;
         private bool Directing;
 
+        // 이 단계의 길 안내를 이미 시작했는가. 단계가 바뀌면 다시 안내한다(불러온 판에서도).
+        private PrologueStage? GuidedStage;
+
         public VillagePrologueHandler(VillageScreenController host)
         {
             Host = host;
@@ -49,6 +52,15 @@ namespace Underwrite.UI
             get
             {
                 return Stage < PrologueStage.Stage_Kitchen;
+            }
+        }
+
+        /// <summary>프롤로그 동안은 주인공을 직접 움직이지 못한다 — 다음 장소로 데려간다(사장님 — 강제 진행).</summary>
+        public bool LocksPlayer
+        {
+            get
+            {
+                return IsActive;
             }
         }
 
@@ -88,10 +100,50 @@ namespace Underwrite.UI
 
             WorldSigns.Highlight(TargetName());
 
-            if (Stage == PrologueStage.Stage_Opening && Directing == false && Host.CanDirect() == true)
+            if (Directing == true || Host.IsGuiding == true || Host.CanDirect() == false)
+            {
+                return;
+            }
+
+            if (Stage == PrologueStage.Stage_Opening)
             {
                 PlayOpening();
+                return;
             }
+
+            // 여덟째 날은 여관 주인의 부탁(할 일 「먹고살 길」)을 들은 뒤에 데려간다.
+            if (Stage == PrologueStage.Stage_Kitchen && QuestLog.HasPendingIntro == true)
+            {
+                return;
+            }
+
+            if (GuidedStage != Stage)
+            {
+                GuidedStage = Stage;
+                Guide();
+            }
+        }
+
+        // 다음 장소를 비추고 문 앞까지 데려간 뒤, 그 장소의 장면을 연다.
+        private void Guide()
+        {
+            var spot = Host.FindSpot(TargetSource());
+
+            if (spot == null)
+            {
+                return;
+            }
+
+            Host.GuideTo(spot, () =>
+            {
+                if (Stage == PrologueStage.Stage_Kitchen)
+                {
+                    Host.StartKitchenWork(spot);
+                    return;
+                }
+
+                HandleSpot(spot);
+            });
         }
 
         /// <summary>시계 칸. 시장 달력과 다음 장 시각은 숨긴다.</summary>

@@ -32,6 +32,19 @@ namespace Underwrite.Global
         public static string TEXT_SMITH_RIGHT_FALSE = "앞뒤가 맞는다. {0}에 대한 여관의 말은 헛말이다.";
         public static string TEXT_SMITH_WRONG_GUESS = "다시 읽어 보니 확신이 서지 않는다. 대장장이가 꽂이를 치웠다.";
 
+        // 연습 꽂이(프롤로그 대장간). 한 상단의 주문 — 지난 계절 · 다른 무리 · 취소 · 이번 계절(정답) 순.
+        public static string TEXT_SMITH_TUT_TARGET = "붉은 망치 상단";
+        public static string TEXT_SMITH_TUT_TASK = "대장장이: 「붉은 망치 상단 주문 가운데 오늘 만들 걸 짚어 줘. 지난 계절 것, 취소된 건 빼고.」";
+        public static string TEXT_SMITH_TUT_HINT = "주문서마다 날짜와 셈 상태가 적혀 있다. 지난 계절 것과 「취소」 도장이 찍힌 것은 오늘 일이 아니다.";
+        public static string TEXT_SMITH_TUT_DONE = "그거야. 지난 계절 것도, 취소된 것도 오늘 일이 아니지.";
+        public static readonly string[] TEXT_SMITH_TUT_ITEMS =
+        {
+            "장검 둘 벼리기",
+            "편자 넷 갈기",
+            "투구 셋 수선",
+            "사슬 갑옷 고리 땜질"
+        };
+
         // 주문서의 셈 상태. 마지막 칸이 취소다(SmithSlip.Status).
         public static readonly string[] TEXT_SMITH_STATUS = { "완납", "선금", "외상", "취소" };
 

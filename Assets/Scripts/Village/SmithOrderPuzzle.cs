@@ -28,11 +28,14 @@ namespace Underwrite.Village
 
         public int Suspicion { get; private set; }
 
+        /// <summary>프롤로그의 연습 꽂이인가. 쫓겨나지 않고, 소문 판정 없이 증거를 짚으면 끝난다.</summary>
+        public bool IsPractice { get; private set; }
+
         public bool IsKickedOut
         {
             get
             {
-                return Suspicion >= Constants.SMITH_ORDER_MAX_SUSPICION;
+                return IsPractice == false && Suspicion >= Constants.SMITH_ORDER_MAX_SUSPICION;
             }
         }
 
@@ -97,6 +100,32 @@ namespace Underwrite.Village
             puzzle.Fill(sim, subjects, StringConstants.SMITH_EVIDENCE[profile][turn], rng, day);
             return puzzle;
         }
+
+        /// <summary>
+        /// 연습 꽂이(프롤로그 대장간 정거장). 시장이 없어도 된다 — 이름 없는 상단 하나의 주문 셋(지난 계절·취소·이번 계절)과
+        /// 다른 무리의 주문 하나. 「지난 계절과 취소는 빼고 이번 계절에 살아 있는 주문을 짚는다」만 익힌다.
+        /// </summary>
+        public static SmithOrderPuzzle CreatePractice()
+        {
+            var puzzle = new SmithOrderPuzzle();
+            var name = StringConstants.TEXT_SMITH_TUT_TARGET;
+            var other = StringConstants.TEXT_LEDGER_FILLER_BANDS[0];
+            var cancelled = StringConstants.TEXT_SMITH_STATUS.Length - 1;
+            var items = StringConstants.TEXT_SMITH_TUT_ITEMS;
+
+            puzzle.IsPractice = true;
+            puzzle.TargetId = PRACTICE_ID;
+            puzzle.Rumor = string.Empty;
+            puzzle.Slips.Add(Slip(PRACTICE_ID, name, items[0], 0, 0));
+            puzzle.Slips.Add(Slip(null, other, items[1], 1, 1));
+            puzzle.Slips.Add(Slip(PRACTICE_ID, name, items[2], 1, cancelled));
+            var proof = Slip(PRACTICE_ID, name, items[3], 2, 2);
+            puzzle.Slips.Add(proof);
+            puzzle.EvidenceIndex = puzzle.Slips.IndexOf(proof);
+            return puzzle;
+        }
+
+        private const string PRACTICE_ID = "PRACTICE";
 
         /// <summary>짚은 주문서가 무엇인가. 증거가 아니면 의심이 하나 오른다.</summary>
         public SlipPick Check(int index)

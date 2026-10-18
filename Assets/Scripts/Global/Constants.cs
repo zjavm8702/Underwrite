@@ -459,6 +459,9 @@ namespace Underwrite.Global
         public static int DEDUCE_TRIES = 3;
         public static int DEDUCE_WRONG_MINUTES = 10;
 
+        // 연습 기록의 씨앗. 늘 같은 판이 나온다.
+        public static int DEDUCE_PRACTICE_SEED = 7;
+
         // 프롤로그 순찰(일곱째 날). 정거장 순서와 품삯 — 여관 · 대장간 · 길드 · 게시판 · 영주관.
         // 품삯 합이 목표에 조금 못 미친다. 나머지는 여덟째 날 주방 일로 채운다(그 일 도중에 창고를 찾는다).
         public static readonly InfoSource[] PROLOGUE_STOPS =
@@ -472,6 +475,19 @@ namespace Underwrite.Global
 
         // 잠에서 깨는 여덟째 날 아침(하루 기준 분). 시장 달력의 1년 봄 1일째다.
         public static int PROLOGUE_WAKE_MINUTE = 7 * 60 + 50;
+
+        // 프롤로그 자동 이동. 걷는 속도(유닛/초, 플레이어와 같다), 도착 거리, 끼었다고 볼 시간,
+        // 길찾기 격자 한 칸, 발 크기(막힘 검사 상자), 출발·도착을 감싸는 여유.
+        public static float AUTOWALK_SPEED = 3f;
+        public static float AUTOWALK_ARRIVE_DISTANCE = 0.15f;
+        public static float AUTOWALK_STUCK_SECONDS = 2f;
+        public static float AUTOWALK_CELL = 0.4f;
+        public static readonly UnityEngine.Vector2 AUTOWALK_FOOT = new UnityEngine.Vector2(0.45f, 0.25f);
+        public static float AUTOWALK_MARGIN = 6f;
+
+        // 다음 장소를 카메라로 비추는 시간과 주인공에게 돌아온 뒤 걷기 시작까지(초).
+        public static float PROLOGUE_SHOW_SECONDS = 1.6f;
+        public static float PROLOGUE_RETURN_SECONDS = 0.7f;
 
         // 인트로에서 보이는 웹툰 장 수. 나머지(5~6장)는 창고 발견 장면에서 쓴다.
         public static int INTRO_PAGES_SHOWN = 4;

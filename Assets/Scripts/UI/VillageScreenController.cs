@@ -233,7 +233,8 @@ namespace Underwrite.UI
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
             // (2026-10-17 사용자 보고).
             LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true);
+                || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
+                || IsGuiding == true || Prologue.LocksPlayer == true);
 
             var keyboard = Keyboard.current;
 
@@ -2794,15 +2795,51 @@ namespace Underwrite.UI
             SmithDay = Today();
             Clock.SpendBreakMinutes(Constants.SMITH_ORDER_MINUTES);
 
-            if (Smith == null)
-            {
-                Smith = new UI_SmithOrders(Root);
-                Smith.Picked += PickSmithSlip;
-                Smith.Left += () => Smith.Close();
-            }
-
+            EnsureSmithScreen();
+            SmithPracticeDone = null;
             Smith.Open(Orders, StockName(Orders.TargetId), BackgroundOf(spot.InfoSource));
             GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        // 연습 꽂이가 끝나면 부를 것(프롤로그 대장간 정거장).
+        private System.Action SmithPracticeDone;
+
+        private void EnsureSmithScreen()
+        {
+            if (Smith != null)
+            {
+                return;
+            }
+
+            Smith = new UI_SmithOrders(Root);
+            Smith.Picked += PickSmithSlip;
+            Smith.Left += () =>
+            {
+                Smith.Close();
+                EndSmithPractice();
+            };
+        }
+
+        /// <summary>연습 꽂이. 시간·의심 없이, 증거를 짚으면 끝난다(중간에 그만둬도 끝).</summary>
+        internal void StartSmithPractice(System.Action onDone)
+        {
+            Orders = SmithOrderPuzzle.CreatePractice();
+            SmithSpot = FindSpot(InfoSource.Source_SmithOrder);
+            SmithPracticeDone = onDone;
+            EnsureSmithScreen();
+            Smith.Open(Orders, string.Empty, BackgroundOf(InfoSource.Source_SmithOrder), StringConstants.TEXT_SMITH_TUT_TASK);
+            GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        private void EndSmithPractice()
+        {
+            var done = SmithPracticeDone;
+            SmithPracticeDone = null;
+
+            if (done != null)
+            {
+                done();
+            }
         }
 
         private void PickSmithSlip(int index)
@@ -2813,6 +2850,15 @@ namespace Underwrite.UI
             }
 
             var pick = Orders.Check(index);
+
+            if (pick == SlipPick.Pick_Evidence && Orders.IsPractice == true)
+            {
+                Smith.Close();
+                Dialogue.SetBackground(BackgroundOf(InfoSource.Source_SmithOrder));
+                Dialogue.Play(new List<DialogueLine> { OwnerLine(SmithSpot, StringConstants.TEXT_SMITH_TUT_DONE) },
+                    EndSmithPractice);
+                return;
+            }
 
             if (pick == SlipPick.Pick_Evidence)
             {
@@ -2832,7 +2878,11 @@ namespace Underwrite.UI
                 message = StringConstants.TEXT_SMITH_WRONG_CANCELLED;
             }
 
-            Clock.SpendBreakMinutes(Constants.SMITH_ORDER_WRONG_MINUTES);
+            if (Orders.IsPractice == false)
+            {
+                Clock.SpendBreakMinutes(Constants.SMITH_ORDER_WRONG_MINUTES);
+            }
+
             Smith.MarkWrong(index, Orders.Suspicion, message);
             GameAudio.Play(SoundEffect.Sound_Close);
 
@@ -2941,24 +2991,74 @@ namespace Underwrite.UI
             DeduceDay = Today();
             Clock.SpendBreakMinutes(Constants.DEDUCE_MINUTES);
 
-            if (Deduce == null)
-            {
-                Deduce = new UI_GuildDeduction(Root);
-                Deduce.Solved += () =>
-                {
-                    Deduce.Close();
-                    ConcludeDeduce();
-                };
-                Deduce.Missed += OnDeduceMissed;
-                Deduce.Left += () => Deduce.Close();
-            }
-
+            EnsureDeduceScreen();
+            DeducePracticeDone = null;
             Deduce.Open(DeducePuzzle, BackgroundOf(spot.InfoSource));
             GameAudio.Play(SoundEffect.Sound_Page);
         }
 
+        // 연습 기록이 끝나면 부를 것(프롤로그 길드 정거장).
+        private System.Action DeducePracticeDone;
+
+        private void EnsureDeduceScreen()
+        {
+            if (Deduce != null)
+            {
+                return;
+            }
+
+            Deduce = new UI_GuildDeduction(Root);
+            Deduce.Solved += () =>
+            {
+                Deduce.Close();
+
+                if (DeducePuzzle.IsPractice == true)
+                {
+                    Dialogue.SetBackground(BackgroundOf(InfoSource.Source_GuildRecord));
+                    Dialogue.Play(new List<DialogueLine> { OwnerLine(DeduceSpot, StringConstants.TEXT_DEDUCE_TUT_DONE) },
+                        EndDeducePractice);
+                    return;
+                }
+
+                ConcludeDeduce();
+            };
+            Deduce.Missed += OnDeduceMissed;
+            Deduce.Left += () =>
+            {
+                Deduce.Close();
+                EndDeducePractice();
+            };
+        }
+
+        /// <summary>연습 기록. 시간·기회 없이, 다 맞히면 끝난다(중간에 그만둬도 끝).</summary>
+        internal void StartDeducePractice(System.Action onDone)
+        {
+            DeducePuzzle = GuildDeduction.CreatePractice();
+            DeduceSpot = FindSpot(InfoSource.Source_GuildRecord);
+            DeducePracticeDone = onDone;
+            EnsureDeduceScreen();
+            Deduce.Open(DeducePuzzle, BackgroundOf(InfoSource.Source_GuildRecord));
+            GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        private void EndDeducePractice()
+        {
+            var done = DeducePracticeDone;
+            DeducePracticeDone = null;
+
+            if (done != null)
+            {
+                done();
+            }
+        }
+
         private void OnDeduceMissed(bool outOfTries)
         {
+            if (DeducePuzzle.IsPractice == true)
+            {
+                return;
+            }
+
             Clock.SpendBreakMinutes(Constants.DEDUCE_WRONG_MINUTES);
             GameAudio.Play(SoundEffect.Sound_Close);
 
@@ -3579,18 +3679,95 @@ namespace Underwrite.UI
                 return true;
             }
 
+            if (place == InfoSource.Source_SmithOrder)
+            {
+                Dialogue.Close();
+                StartSmithPractice(onDone);
+                return true;
+            }
+
+            if (place == InfoSource.Source_GuildRecord)
+            {
+                Dialogue.Close();
+                StartDeducePractice(onDone);
+                return true;
+            }
+
             return false;
         }
 
-        /// <summary>프롤로그 첫 안내: 걷기와 왼쪽 위 목표.</summary>
+        /// <summary>프롤로그 첫 안내: 왼쪽 위 목표. 걷기는 순찰 동안 데려가므로 지금은 말하지 않는다.</summary>
         internal void PlayPrologueTutorial()
         {
             Tutorial.Play(new List<TutorialStep>
             {
-                new TutorialStep(null, StringConstants.TEXT_PROLOGUE_TUT_MOVE_TITLE, StringConstants.TEXT_PROLOGUE_TUT_MOVE_BODY),
                 new TutorialStep("village-objective", StringConstants.TEXT_PROLOGUE_TUT_GOAL_TITLE,
                     StringConstants.TEXT_PROLOGUE_TUT_GOAL_BODY)
             }, null);
+        }
+
+        /// <summary>다음 장소로 데려가는 중인가(카메라 비추기 · 자동 걷기).</summary>
+        internal bool IsGuiding { get; private set; }
+
+        /// <summary>
+        /// 다음 장소를 카메라로 잠깐 비춘 뒤, 주인공을 그 문 앞까지 걷게 한다. 닿으면 문 쪽을 보고 <paramref name="onArrive"/>.
+        /// </summary>
+        internal void GuideTo(VillageSpot spot, System.Action onArrive)
+        {
+            StartCoroutine(Guide(spot, onArrive));
+        }
+
+        private System.Collections.IEnumerator Guide(VillageSpot spot, System.Action onArrive)
+        {
+            IsGuiding = true;
+            var camera = FindAnyObjectByType<Unity.Cinemachine.CinemachineCamera>();
+            var follow = camera == null ? null : camera.Follow;
+
+            if (camera != null)
+            {
+                camera.Follow = spot.transform;
+                yield return new WaitForSeconds(Constants.PROLOGUE_SHOW_SECONDS);
+                camera.Follow = follow;
+                yield return new WaitForSeconds(Constants.PROLOGUE_RETURN_SECONDS);
+            }
+
+            if (Player == null)
+            {
+                IsGuiding = false;
+                onArrive();
+                yield break;
+            }
+
+            var walker = Player.GetComponent<VillageAutoWalk>();
+
+            if (walker == null)
+            {
+                walker = Player.gameObject.AddComponent<VillageAutoWalk>();
+            }
+
+            var arrived = false;
+            walker.WalkTo(spot.transform.position, () => arrived = true);
+
+            while (arrived == false)
+            {
+                yield return null;
+            }
+
+            var actor = PlayerActor;
+
+            if (actor != null)
+            {
+                actor.Face(Vector2.up);
+            }
+
+            IsGuiding = false;
+            onArrive();
+        }
+
+        /// <summary>여덟째 날 여관에 닿았다 — 주방 일을 거든다(그 도중에 창고를 찾는다).</summary>
+        internal void StartKitchenWork(VillageSpot spot)
+        {
+            DoWork(spot);
         }
 
         private DialogueLine OwnerLine(VillageSpot spot, string text)

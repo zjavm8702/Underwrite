@@ -38,6 +38,9 @@ namespace Underwrite.Village
         /// <summary>보상받을 단(가장 먼 원정 = 0번 목적지를 가는 단).</summary>
         public string TargetId { get; private set; }
 
+        /// <summary>프롤로그의 연습 기록인가. 기회가 줄지 않고 보상이 없다.</summary>
+        public bool IsPractice { get; private set; }
+
         private readonly List<Clue> Facts = new List<Clue>();
 
         private GuildDeduction()
@@ -101,6 +104,40 @@ namespace Underwrite.Village
         }
 
         /// <summary>
+        /// 연습 기록(프롤로그 길드 정거장). 시장이 없어도 된다 — 이름 없는 무리 셋으로 같은 규칙의 퍼즐을 짠다.
+        /// 늘 같은 판이 나오게 씨앗을 고정한다(설명과 화면이 어긋나지 않게).
+        /// </summary>
+        public static GuildDeduction CreatePractice()
+        {
+            var rng = new System.Random(Constants.DEDUCE_PRACTICE_SEED);
+            var puzzle = new GuildDeduction();
+            puzzle.IsPractice = true;
+
+            foreach (var name in StringConstants.TEXT_LEDGER_FILLER_BANDS)
+            {
+                puzzle.BandIds.Add(null);
+                puzzle.BandNames.Add(name);
+            }
+
+            PickDistinct(StringConstants.TEXT_DEDUCE_DESTINATIONS, puzzle.Destinations, rng);
+            PickDistinct(StringConstants.TEXT_DEDUCE_CLIENTS, puzzle.Clients, rng);
+
+            var destOrder = new List<int> { 0, 1, 2 };
+            var clientOrder = new List<int> { 0, 1, 2 };
+            Shuffle(destOrder, rng);
+            Shuffle(clientOrder, rng);
+
+            for (var row = 0; row < SIZE; row++)
+            {
+                puzzle.DestinationOf[row] = destOrder[row];
+                puzzle.ClientOf[row] = clientOrder[row];
+            }
+
+            puzzle.BuildClues(rng);
+            return puzzle;
+        }
+
+        /// <summary>
         /// 플레이어의 표를 맞춰 본다. 다 맞으면 참. 틀리면 기회가 하나 준다.
         /// 표에 빈칸(-1)이 있으면 맞춰 보지 않는다 — 부른 쪽이 막아야 한다.
         /// </summary>
@@ -110,7 +147,11 @@ namespace Underwrite.Village
             {
                 if (destinations[i] != DestinationOf[i] || clients[i] != ClientOf[i])
                 {
-                    TriesLeft--;
+                    if (IsPractice == false)
+                    {
+                        TriesLeft--;
+                    }
+
                     return false;
                 }
             }

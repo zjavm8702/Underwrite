@@ -27,6 +27,7 @@ namespace Underwrite.UI
         private readonly Button BidButton;
         private readonly Button CallButton;
         private readonly Button NextButton;
+        private readonly Button LeaveButton;
         private readonly List<Button> FaceButtons = new List<Button>();
 
         private LiarsDiceGame Game;
@@ -154,12 +155,12 @@ namespace Underwrite.UI
             footer.AddToClassList("ledger-footer");
             Message = new Label();
             Message.AddToClassList("ledger-message");
-            var leave = new Button(OnLeave);
-            leave.text = StringConstants.TEXT_DICE_LEAVE;
-            leave.AddToClassList("popup-button");
-            leave.AddToClassList("ledger-leave");
+            LeaveButton = new Button(OnLeave);
+            LeaveButton.text = StringConstants.TEXT_DICE_LEAVE;
+            LeaveButton.AddToClassList("popup-button");
+            LeaveButton.AddToClassList("ledger-leave");
             footer.Add(Message);
-            footer.Add(leave);
+            footer.Add(LeaveButton);
 
             Overlay.Add(header);
             Overlay.Add(hint);
@@ -172,6 +173,8 @@ namespace Underwrite.UI
         {
             Game = game;
             OpponentName = opponentName;
+            // 연습 판(프롤로그)은 끝까지 해야 넘어간다.
+            LeaveButton.style.display = game.Script != null ? DisplayStyle.None : DisplayStyle.Flex;
             Mood.text = string.Format(StringConstants.TEXT_DICE_MOOD_LINE, opponentName, mood);
 
             if (string.IsNullOrEmpty(Place) == false)

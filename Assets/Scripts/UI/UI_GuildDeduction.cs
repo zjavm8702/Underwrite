@@ -18,6 +18,7 @@ namespace Underwrite.UI
         private readonly VisualElement Table;
         private readonly Label Tries;
         private readonly Label Message;
+        private readonly Button LeaveButton;
 
         private GuildDeduction Puzzle;
         private string Place;
@@ -89,13 +90,13 @@ namespace Underwrite.UI
             check.AddToClassList("popup-button");
             check.AddToClassList("popup-button--main");
             check.AddToClassList("ledger-leave");
-            var leave = new Button(OnLeave);
-            leave.text = StringConstants.TEXT_DEDUCE_LEAVE;
-            leave.AddToClassList("popup-button");
-            leave.AddToClassList("ledger-leave");
+            LeaveButton = new Button(OnLeave);
+            LeaveButton.text = StringConstants.TEXT_DEDUCE_LEAVE;
+            LeaveButton.AddToClassList("popup-button");
+            LeaveButton.AddToClassList("ledger-leave");
             footer.Add(Message);
             footer.Add(check);
-            footer.Add(leave);
+            footer.Add(LeaveButton);
 
             Overlay.Add(header);
             Overlay.Add(hint);
@@ -106,7 +107,10 @@ namespace Underwrite.UI
         public void Open(GuildDeduction puzzle, string placeClass)
         {
             Puzzle = puzzle;
-            Message.text = string.Empty;
+            // 연습 기록은 기회를 세지 않는다 — 대신 첫 줄에 길잡이를 띄운다.
+            Message.text = puzzle.IsPractice == true ? StringConstants.TEXT_DEDUCE_TUT_HINT : string.Empty;
+            Tries.style.display = puzzle.IsPractice == true ? DisplayStyle.None : DisplayStyle.Flex;
+            LeaveButton.style.display = puzzle.IsPractice == true ? DisplayStyle.None : DisplayStyle.Flex;
             DestPick = new[] { -1, -1, -1 };
             ClientPick = new[] { -1, -1, -1 };
 

@@ -14,9 +14,11 @@ namespace Underwrite.UI
         private readonly VisualElement Root;
         private readonly VisualElement Overlay;
         private readonly Label Rumor;
+        private readonly Label Hint;
         private readonly VisualElement Rack;
         private readonly Label Suspicion;
         private readonly Label Message;
+        private readonly Button LeaveButton;
         private string Place;
 
         /// <summary>주문서를 짚었다. 꽂이 안의 순번을 넘긴다.</summary>
@@ -53,8 +55,8 @@ namespace Underwrite.UI
             Rumor = new Label();
             Rumor.AddToClassList("smith-rumor");
 
-            var hint = new Label(StringConstants.TEXT_SMITH_HINT);
-            hint.AddToClassList("ledger-hint");
+            Hint = new Label(StringConstants.TEXT_SMITH_HINT);
+            Hint.AddToClassList("ledger-hint");
 
             Rack = new VisualElement();
             Rack.AddToClassList("smith-rack");
@@ -63,26 +65,32 @@ namespace Underwrite.UI
             footer.AddToClassList("ledger-footer");
             Message = new Label();
             Message.AddToClassList("ledger-message");
-            var leave = new Button(OnLeave);
-            leave.text = StringConstants.TEXT_SMITH_LEAVE;
-            leave.AddToClassList("popup-button");
-            leave.AddToClassList("ledger-leave");
+            LeaveButton = new Button(OnLeave);
+            LeaveButton.text = StringConstants.TEXT_SMITH_LEAVE;
+            LeaveButton.AddToClassList("popup-button");
+            LeaveButton.AddToClassList("ledger-leave");
             footer.Add(Message);
-            footer.Add(leave);
+            footer.Add(LeaveButton);
 
             Overlay.Add(header);
             Overlay.Add(Rumor);
-            Overlay.Add(hint);
+            Overlay.Add(Hint);
             Overlay.Add(Rack);
             Overlay.Add(footer);
         }
 
-        /// <summary>꽂이를 펼친다. <paramref name="placeClass"/>는 배경 그림 클래스(대화 배경과 같다).</summary>
-        public void Open(SmithOrderPuzzle puzzle, string rumorBand, string placeClass)
+        /// <summary>
+        /// 꽂이를 펼친다. <paramref name="placeClass"/>는 배경 그림 클래스(대화 배경과 같다).
+        /// <paramref name="task"/>가 있으면 소문 줄 대신 그 부탁을 띄운다(연습 꽂이).
+        /// </summary>
+        public void Open(SmithOrderPuzzle puzzle, string rumorBand, string placeClass, string task = null)
         {
             Rack.Clear();
             Message.text = string.Empty;
-            Rumor.text = string.Format(StringConstants.TEXT_SMITH_RUMOR, rumorBand, puzzle.Rumor);
+            Rumor.text = task ?? string.Format(StringConstants.TEXT_SMITH_RUMOR, rumorBand, puzzle.Rumor);
+            LeaveButton.style.display = puzzle.IsPractice == true ? DisplayStyle.None : DisplayStyle.Flex;
+            Suspicion.style.display = puzzle.IsPractice == true ? DisplayStyle.None : DisplayStyle.Flex;
+            Hint.text = puzzle.IsPractice == true ? StringConstants.TEXT_SMITH_TUT_HINT : StringConstants.TEXT_SMITH_HINT;
 
             if (string.IsNullOrEmpty(Place) == false)
             {
