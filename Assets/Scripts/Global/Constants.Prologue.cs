@@ -85,8 +85,6 @@ namespace Underwrite.Global
         public static string TEXT_MINIMAP_HINT = "M · 지도";
         public static string TEXT_MINIMAP_HINT_CLOSE = "M · 닫기";
 
-        public static string TEXT_PROLOGUE_TUT_MOVE_TITLE = "영지";
-        public static string TEXT_PROLOGUE_TUT_MOVE_BODY = "가진 것 하나 없이 떨어진 영지. WASD나 방향키로 걷고, 문 앞에서 E를 누른다. 마우스 휠로 가까이 볼 수 있다.";
         public static string TEXT_PROLOGUE_TUT_GOAL_TITLE = "목표";
         public static string TEXT_PROLOGUE_TUT_GOAL_BODY = "왼쪽 위에 지금 할 일이 늘 보인다. 반짝이는 이름표가 다음에 갈 곳이다.";
     }

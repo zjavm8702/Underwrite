@@ -23,7 +23,6 @@ namespace Underwrite.Global
         public static string TEXT_DICE_ROUND_WON = "내가 이겼다";
         public static string TEXT_DICE_ROUND_LOST = "내가 졌다";
         public static string TEXT_DICE_COUNT = "{0}개";
-        public static string TEXT_DICE_FACE = "{0} 눈";
         public static string TEXT_DICE_HIDDEN = "?";
         public static string TEXT_DICE_BTN_BID = "부른다";
         public static string TEXT_DICE_BTN_CALL = "거짓말!";

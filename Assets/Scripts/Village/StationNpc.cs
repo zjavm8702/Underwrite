@@ -47,18 +47,6 @@ namespace Underwrite.Village
             }
         }
 
-        /// <summary>그 자리를 맡은 사람에게 건네기를 시킨다. 없으면 아무 일도 없다.</summary>
-        public static void GiveAt(string place)
-        {
-            for (var i = 0; i < All.Count; i++)
-            {
-                if (All[i] != null && All[i].isActiveAndEnabled == true && All[i].Place == place)
-                {
-                    All[i].PlayGive();
-                }
-            }
-        }
-
         public void Configure(string place, SpriteRenderer body, StationClip idle, StationClip work, StationClip give)
         {
             Place = place;
@@ -66,11 +54,6 @@ namespace Underwrite.Village
             Idle = idle;
             Work = work;
             Give = give;
-        }
-
-        public void PlayGive()
-        {
-            Play(Give);
         }
 
         private void OnEnable()

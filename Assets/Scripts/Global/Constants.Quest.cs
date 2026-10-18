@@ -45,6 +45,5 @@ namespace Underwrite.Global
         public static string TEXT_QUEST_DONE = "할 일을 마쳤다 — {0}";
         public static string TEXT_QUEST_DONE_REWARD = "할 일을 마쳤다 — {0} · {1:N0}을 받았다";
         public static string TEXT_QUEST_TAB = "할 일";
-        public static string TEXT_QUEST_ALL_DONE = "지금은 할 일이 없다.";
     }
 }

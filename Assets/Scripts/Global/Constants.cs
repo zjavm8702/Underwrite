@@ -30,7 +30,6 @@ namespace Underwrite.Global
         public const string ANIM_PARAM_SPEED = "Speed";
 
         public const string ANIM_STATE_IDLE = "Idle";
-        public const string ANIM_STATE_WALKING = "Walking";
         public const string ANIM_STATE_CHEER = "Cheer";
         // 아직 그림이 없는 몸짓. Animator에 이 이름의 상태가 생기면 그것을 재생한다(CharacterActor).
         public const string ANIM_STATE_NOD = "Nod";
@@ -69,7 +68,6 @@ namespace Underwrite.Global
         // 거래 화면 문구. 표(UITextTable)가 덮어쓴다.
         public static string TEXT_SESSION_MORNING = "오전장";
         public static string TEXT_SESSION_EVENING = "오후장";
-        public static string TEXT_SESSION_NEXT_MORNING = "다음 날 오전장";
         public static string TEXT_SIDE_BUY = "매수";
         public static string TEXT_SIDE_SELL = "매도";
         public static string TEXT_SESSION_OPENED = "{0}이 열렸습니다.";
@@ -90,10 +88,6 @@ namespace Underwrite.Global
         public static string TEXT_SCENE_PUBLIC = "지하세계가 같은 순간에 들었습니다. 가격은 이미 움직였습니다.";
         public static string TEXT_SCENE_PRIVATE = "아직 시장에 돌지 않은 이야기입니다.";
         public static string TEXT_INFO_EMPTY = "아직 들어온 소식이 없습니다.";
-        public static string TEXT_HOLDINGS_EMPTY = "보유한 종목이 없습니다.";
-        public static string TEXT_TAG_PUBLIC = "시장에 공개됨";
-        public static string TEXT_TAG_PRIVATE = "나만 아는 정보";
-        public static string TEXT_INFO_NOT_PUBLIC = "아직 시장에 공개되지 않음.";
 
         // 상장 흐름 (상장흐름 설계안 §3)
         public static string TEXT_LISTING_ARRIVED = "{0}{이} 영지에 도착했다. 다음 계절 상장 예정 · 예상 공모가 {1:N1}";
@@ -133,26 +127,10 @@ namespace Underwrite.Global
 
         // 영지 메뉴와 원형 시계 (2026-10-17)
         public static string TEXT_MENU = "메뉴";
-        public static string TEXT_MENU_MARKET = "지하거래소로";
-        public static string TEXT_MENU_MARKET_LOCKED = "아직 모른다";
-        public static string TEXT_MENU_NO_TIME = "다음 장이 코앞이다";
-        public static string TEXT_CLOCK_TITLE = "몇 시까지 보낼까";
-        public static string TEXT_CLOCK_PICK = "{0}까지 · {1}시간 {2}분";
-        public static string TEXT_CLOCK_LIMIT = "다음 장은 {0}에 열린다. 그 직전까지 고를 수 있다.";
-        public static string TEXT_CLOCK_CONFIRM = "그때까지 보낸다";
-        public static string TEXT_CLOCK_CANCEL = "그만둔다";
         public static string TEXT_CLOCK_AM = "AM";
         public static string TEXT_CLOCK_PM = "PM";
         public static string TEXT_TIME_PASS = "{0}  →  {1}";
         public static string TEXT_TIME_PASS_NOTE = "{0}시간 {1}분이 흘렀다";
-        public static string TEXT_CLOCK_TOMORROW = "내일 {0}";
-        public static string TEXT_CLOCK_SKIP_SESSION = "{0} 건너뛰기 — 그다음 장 직전까지 돌릴 수 있다";
-        public static string TEXT_CLOCK_SKIP_REOPENING = "다음 오후장은 재개장이다 — 건너뛸 수 없다";
-
-        // 하루 끝 (기획서 §11의 넷째 단계 — 정보 정리 및 취침)
-        public static string TEXT_SKIP_BREAK = "시간 넘기기";
-        public static string TEXT_MARKET_OPENS_AT = "장이 닫혔다 · 다음 장 {0}";
-        public static string TEXT_MARKET_CLOSED_NOTE = "장이 닫혔다";
 
         // 후원 — 익명의 의뢰주 (후원흐름 설계안). 용사단 이름은 임시다(2026-10-17).
         public static string TEXT_HERO_PARTY = "새벽별 용사단";
@@ -230,7 +208,6 @@ namespace Underwrite.Global
         public static string TEXT_INVESTOR_DOWN_1 = "망했네.";
         public static string TEXT_INVESTOR_DOWN_2 = "팔아, 지금 팔아!";
         public static string TEXT_INVESTOR_DOWN_3 = "…이럴 줄 알았지.";
-        public static string TEXT_VILLAGE_NEXT_SESSION = "다음 장까지 {0}시간 {1}분";
         public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";
         public static string TEXT_DAY_END_FAILED = "용사단의 사정 하나를 놓쳤다. 그 값은 원정에서 치르게 된다.";
 
@@ -283,9 +260,6 @@ namespace Underwrite.Global
 
         /// <summary>두 번째 정보 타임. 장의 2/3 지점이다.</summary>
         public const int INFO_TIME_SECOND_TICK = 48;
-
-        /// <summary>한 장에 열리는 정보 타임 횟수.</summary>
-        public const int INFO_TIMES_PER_SESSION = 2;
 
         /// <summary>
         /// 한 계절(= 주기, 원정 한 번)에 플레이하는 날 수. 40계절이 10년이다. 시간구조 설계안 §2.
@@ -432,10 +406,7 @@ namespace Underwrite.Global
         // 메뉴 「소리」의 단계: 크게 · 작게 · 끔. 순서는 TEXT_VOLUME_STEPS와 같다.
         public static readonly float[] AUDIO_VOLUME_STEPS = { 1f, 0.4f, 0f };
 
-        // 장부 맞추기(길드 기록실). 들어가는 데 드는 시간, 잘못 짚을 때마다 더 드는 시간, 쫓겨나는 의심.
-        // 묻기(60분·돈)보다 짧지만 틀리면 길어진다. 장부의 단 수는 4~6.
-        public static int LEDGER_MINUTES = 30;
-        public static int LEDGER_WRONG_MINUTES = 10;
+        // 장부 맞추기(길드 기록실). 쫓겨나는 의심. 장부의 단 수는 4~6.
         public static int LEDGER_MAX_SUSPICION = 3;
         public static int LEDGER_MIN_ROWS = 4;
         public static int LEDGER_MAX_ROWS = 6;
@@ -444,17 +415,13 @@ namespace Underwrite.Global
 
         // 주문서 읽기(대장간). 꽂이의 주문서 수, 걸리는 시간, 잘못 짚을 때마다 더 드는 시간, 쫓겨나는 의심.
         public static int SMITH_ORDER_SLIPS = 6;
-        public static int SMITH_ORDER_MINUTES = 30;
-        public static int SMITH_ORDER_WRONG_MINUTES = 10;
         public static int SMITH_ORDER_MAX_SUSPICION = 3;
 
         // 그 단의 지난 계절 미끼 주문서를 넣을 확률(둘째 계절부터). 취소된 미끼는 늘 넣는다.
         public static float SMITH_ORDER_OLD_DECOY_CHANCE = 0.6f;
 
-        // 길드 기록 짜맞추기. 걸리는 시간, 맞춰 볼 기회, 틀릴 때마다 더 드는 시간.
-        public static int DEDUCE_MINUTES = 30;
+        // 길드 기록 짜맞추기. 맞춰 볼 기회.
         public static int DEDUCE_TRIES = 3;
-        public static int DEDUCE_WRONG_MINUTES = 10;
 
         // 연습 기록의 씨앗. 늘 같은 판이 나온다.
         public static int DEDUCE_PRACTICE_SEED = 7;
@@ -523,7 +490,6 @@ namespace Underwrite.Global
         public const int DICE_FACES = 6;
         public static int DICE_PER_PLAYER = 4;
         public static int DICE_ROUNDS_TO_WIN = 2;
-        public static int DICE_MINUTES = 30;
         public static float DICE_STAKE = 10f;
 
         // 상대의 판단. 플레이어가 부른 말이 맞을 확률이 (기준 − 대담함 × 폭)보다 낮으면 의심한다.
@@ -552,30 +518,14 @@ namespace Underwrite.Global
 
         // 여관 엿듣기. 귀 기울일 기회, 한 번에 드는 시간(분), 용병단 테이블 수, 한 줄을 다 듣는 데 필요한 머묾.
         public static int EAVES_TURNS = 4;
-        public static int EAVES_MINUTES = 10;
         public static int EAVES_BAND_TABLES = 3;
         public static int EAVES_LISTENS_TO_FINISH = 2;
-
-        /// <summary>
-        /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.
-        /// 장중과 달리 압축하지 않는다. 그 시간이 플레이어의 것이기 때문이다.
-        /// </summary>
-        public static float BREAK_MINUTES_PER_REAL_SECOND = 1f / 60f;
 
         /// <summary>
         /// 「시간 넘기기」로 건너뛸 때 다음 장 몇 분 전에 멈추는가.
         /// 바로 개장에 떨어뜨리면 숨 돌릴 틈 없이 장이 시작된다.
         /// </summary>
         public static int BREAK_SKIP_MARGIN_MINUTES = 10;
-
-        /// <summary>
-        /// 영지에서 한 가지 일을 하는 데 드는 게임 시간(분).
-        /// 영지의 자원은 횟수가 아니라 시간이다. 시간을 다 쓰면 장이 열린다.
-        /// </summary>
-        public static int GATHER_MINUTES_PER_VISIT = 60;
-
-        /// <summary>상장 자리의 기본 수. 설계안 §6에 따라 분위기와 연차로 늘거나 준다.</summary>
-        public static int LISTING_SLOTS = 3;
 
         /// <summary>전멸 청산율. 잔여 자산만 돌려받는다.</summary>
         public static float LIQUIDATION_WIPED = 0.15f;
@@ -754,8 +704,6 @@ namespace Underwrite.Global
         public static int HERO_DAY_OFF_SEASON_DAY = 3;
 
         // ── 용사단 일정 (루틴 설계안) ─────────────
-        /// <summary>여관 테이블에서 한 사람과 이야기하는 데 드는 영지 시간(분).</summary>
-        public static int HERO_TALK_MINUTES = 60;
         /// <summary>이만큼 친해지면 현장 이야기를 덤으로 흘린다(관계와 투자의 다리).</summary>
         public static int HERO_FIELD_TALK_AFFINITY = 3;
 
@@ -805,8 +753,6 @@ namespace Underwrite.Global
         public static float ROOM_CALL_INTERVAL_SECONDS = 3f;
         public static float ROOM_INVESTOR_MOVE_RATIO = 0.012f;
         public static float ROOM_INVESTOR_COOLDOWN_SECONDS = 2.5f;
-        /// <summary>익명 의뢰를 꾸며 맡기는 데 드는 영지 시간(분).</summary>
-        public static int REQUEST_MINUTES = 30;
         /// <summary>목적별 예치금. 시작 자금 500에 견주었다. 시제품 검증에서 조정한다.</summary>
         public static float REQUEST_COST_HEALING = 120f;
         // 원정지로 보내는 익명 의뢰는 길드를 한 번 더 거치므로 비싸다(시간구조 설계안 §3 — 원격 익명 의뢰).

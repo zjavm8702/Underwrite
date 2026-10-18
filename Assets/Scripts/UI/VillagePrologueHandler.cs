@@ -47,15 +47,6 @@ namespace Underwrite.UI
             }
         }
 
-        /// <summary>일곱째 날(순찰과 잠) 동안은 시간이 흐르지 않는다.</summary>
-        public bool FreezesTime
-        {
-            get
-            {
-                return Stage < PrologueStage.Stage_Kitchen;
-            }
-        }
-
         /// <summary>프롤로그가 장면을 띄우는 중인가(제목 카드 · 혼잣말 · 정거장). 다른 대화가 끼어들지 않게.</summary>
         public bool IsDirecting
         {

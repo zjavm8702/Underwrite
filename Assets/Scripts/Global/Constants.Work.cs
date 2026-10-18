@@ -29,6 +29,5 @@ namespace Underwrite.Global
         public static string TEXT_WORK_TRAY_EMPTY = "비었다";
         public static string TEXT_WORK_RIGHT = "맞다. 받는 사람이 고개를 끄덕인다.";
         public static string TEXT_WORK_WRONG = "아니다 — 주문은 {0}였다.";
-        public static string TEXT_WORK_SCORE = "{0}건 가운데 {1}건을 맞게 냈다 · 품삯 {2:N0}";
     }
 }

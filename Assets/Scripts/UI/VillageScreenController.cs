@@ -62,7 +62,6 @@ namespace Underwrite.UI
         }
         private VillageSpot Here;
         private VillageNpc NearNpc;
-        private TimeDial Dial;
         private UI_Tutorial Tutorial;
 
         // 지하를 찾기 전의 마을 생활(2026-10-18 온보딩). 순찰·잠·여덟째 날을 맡는다.
@@ -97,8 +96,6 @@ namespace Underwrite.UI
         private float SaveTimer;
         private bool WasTalking;
 
-        // 시계를 연 뒤 토글로 다음 장을 건너뛰었는가. 「그만둔다」로 닫으면 되돌린다.
-        private bool SkipFromClock;
         private Transform Player;
         private bool LeaveBound;
 
@@ -159,7 +156,7 @@ namespace Underwrite.UI
         {
             var talking = Dialogue != null && Dialogue.IsOpen == true;
             WorldBubbles.Tick(talking);
-            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true,
+            WorldSigns.Tick(talking || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true,
                 Constants.SIGN_HEIGHT_UNITS);
         }
 
@@ -310,13 +307,13 @@ namespace Underwrite.UI
             }
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
-            VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
+            VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true)
                 || MenuOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || Approaching == true;
 
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
             // (2026-10-17 사용자 보고).
-            LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
+            LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true)
                 || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || Prologue.LocksPlayer == true || IsStaging == true);
 
@@ -329,7 +326,7 @@ namespace Underwrite.UI
             }
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
-                || ClockOpen == true || Approaching == true || NotebookOpen == true || PuzzleOpen == true
+                || Approaching == true || NotebookOpen == true || PuzzleOpen == true
                 || MiniGameOpen == true || IsStaging == true)
             {
                 return;
@@ -566,17 +563,6 @@ namespace Underwrite.UI
             }
 
             return found;
-        }
-
-        /// <summary>
-        /// 영지 사람에게 말을 건다. 짧은 한마디로 끝난다.
-        /// 모험단과는 관계를 맺지 않는다(설계안 §1-2). 이름과 얼굴만 아는 사이다.
-        /// </summary>
-        private void TalkTo(VillageNpc npc)
-        {
-            var line = new DialogueLine(npc.Name, TagOf(npc), npc.PickLine());
-            Dialogue.SetBackground(null);
-            Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
         private static string TagOf(VillageNpc npc)
@@ -1019,41 +1005,6 @@ namespace Underwrite.UI
             LeaveBound = true;
             menu.text = StringConstants.TEXT_MENU;
             menu.clicked += ToggleMenu;
-
-            var slot = Root.Q<VisualElement>("village-clock-dial");
-
-            if (slot != null)
-            {
-                Dial = new TimeDial();
-                Dial.style.flexGrow = 1f;
-                Dial.Changed += ShowClockPick;
-                slot.Add(Dial);
-            }
-
-            var cancel = Root.Q<Button>("village-clock-cancel");
-
-            if (cancel != null)
-            {
-                cancel.text = StringConstants.TEXT_CLOCK_CANCEL;
-                cancel.clicked += CancelClock;
-            }
-
-            var confirm = Root.Q<Button>("village-clock-confirm");
-
-            if (confirm != null)
-            {
-                confirm.text = StringConstants.TEXT_CLOCK_CONFIRM;
-                confirm.clicked += ConfirmClock;
-            }
-
-            SetText("village-clock-title", StringConstants.TEXT_CLOCK_TITLE);
-
-            var skipToggle = Root.Q<Toggle>("village-clock-skip");
-
-            if (skipToggle != null)
-            {
-                skipToggle.RegisterValueChangedCallback(evt => ToggleSkipSession(evt.newValue));
-            }
         }
 
         // ── 메뉴 (드롭업) ─────────────────────────
@@ -1082,15 +1033,6 @@ namespace Underwrite.UI
             {
                 var list = Root.Q<VisualElement>("village-menu-list");
                 return list != null && list.ClassListContains("hidden") == false;
-            }
-        }
-
-        private bool ClockOpen
-        {
-            get
-            {
-                var clock = Root.Q<VisualElement>("village-clock");
-                return clock != null && clock.ClassListContains("hidden") == false;
             }
         }
 
@@ -1384,7 +1326,7 @@ namespace Underwrite.UI
                 || Prologue.AwaitsRecognition == true
                 || Prologue.IsDirecting == true || IsGuiding == true || (TitleCard != null && TitleCard.IsOpen == true)
                 || Dialogue == null || Dialogue.IsOpen == true
-                || Approaching == true || ClockOpen == true || PuzzleOpen == true || MiniGameOpen == true
+                || Approaching == true || PuzzleOpen == true || MiniGameOpen == true
                 || DepartureRunning == true
                 || (Tutorial != null && Tutorial.IsOpen == true))
             {
@@ -1610,135 +1552,10 @@ namespace Underwrite.UI
             return card;
         }
 
-        // ── 원형 시계 ─────────────────────────────
-
-        /// <summary>
-        /// 몇 시까지 보낼지 고른다. 지금부터 다음 장 직전까지가 고를 수 있는 구간이다(2026-10-17 사용자 요청).
-        /// </summary>
-        private void OpenClock()
-        {
-            if (Clock == null || Dial == null)
-            {
-                return;
-            }
-
-            SkipFromClock = false;
-            RefreshClockRange();
-            Root.Q<VisualElement>("village-clock").RemoveFromClassList("hidden");
-        }
-
-        /// <summary>
-        /// 고를 수 있는 구간과 토글을 시계의 지금 상태에 맞춘다.
-        /// 다음 장을 건너뛰었으면 구간이 그다음 장 직전까지 늘어난다(2026-10-17 사용자 요청).
-        /// </summary>
-        private void RefreshClockRange()
-        {
-            Dial.SetRange(Clock.BreakMinuteOfDay, Clock.LatestBreakMinute);
-
-            var next = Clock.NextSessionMinute;
-            SetText("village-clock-limit", string.Format(StringConstants.TEXT_CLOCK_LIMIT, DialTimeText(next)));
-
-            var toggle = Root.Q<Toggle>("village-clock-skip");
-
-            if (toggle == null)
-            {
-                return;
-            }
-
-            // 건너뛸 장의 이름. 이미 하나 건너뛰었으면 그 장을 가리킨다.
-            var skipped = Clock.SkippedSessions > 0;
-            var morning = Clock.SessionAt(skipped == true ? Clock.SkippedSessions - 1 : 0) == MarketSession.Session_Morning;
-            var session = morning == true ? StringConstants.TEXT_SESSION_MORNING : StringConstants.TEXT_SESSION_EVENING;
-            toggle.text = string.Format(StringConstants.TEXT_CLOCK_SKIP_SESSION, session);
-            toggle.SetValueWithoutNotify(skipped);
-
-            // 계절 첫날의 재개장은 건너뛸 수 없다(설계안 §2). 막힌 까닭을 토글 글자로 알린다.
-            var locked = skipped == false && Clock.IsReopeningAt(0) == true;
-            toggle.SetEnabled(locked == false);
-
-            if (locked == true)
-            {
-                toggle.text = StringConstants.TEXT_CLOCK_SKIP_REOPENING;
-            }
-        }
-
-        /// <summary>
-        /// 다음 장을 건너뛴다. 기획서 §11 — 장에 나가는 것은 선택이다.
-        /// 「오늘 장 쉬기」 단추를 없애고 시계 안의 토글로 옮겼다(2026-10-17 사용자 결정).
-        /// 쉬어도 시장은 돈다. 거래소로 돌아가면 쉰 장을 치르고 그동안 자산이 얼마나 움직였는지 알린다.
-        /// </summary>
-        private void ToggleSkipSession(bool skip)
-        {
-            if (Clock == null)
-            {
-                return;
-            }
-
-            if (skip == true && Clock.SkippedSessions == 0)
-            {
-                Clock.SkipNextSession();
-                SkipFromClock = true;
-            }
-            else if (skip == false && Clock.SkippedSessions > 0)
-            {
-                // 이미 그 장의 시간을 써 버렸으면 무를 수 없다. 시간을 빚질 수는 없다.
-                if (Clock.UndoSkippedSession() == true)
-                {
-                    SkipFromClock = false;
-                }
-            }
-
-            RefreshClockRange();
-        }
-
-        private void ShowClockPick(int minute)
-        {
-            if (Clock == null)
-            {
-                return;
-            }
-
-            var spend = minute - Clock.BreakMinuteOfDay;
-            SetText("village-clock-pick", string.Format(StringConstants.TEXT_CLOCK_PICK,
-                DialTimeText(minute), spend / 60, spend % 60));
-        }
-
-        /// <summary>
-        /// 시계 창에 적는 시각. 지금보다 다음 날이면 「내일」을 붙인다 — 문자판은 12시간이라
-        /// 바늘만 보고는 오늘 밤 11시인지 내일 오후 1시인지 알 수 없다(띠 색과 함께 읽힌다).
-        /// </summary>
-        private string DialTimeText(int minute)
-        {
-            var text = ClockText.FromMinutes(minute);
-
-            if (minute / (24 * 60) > Clock.BreakMinuteOfDay / (24 * 60))
-            {
-                return string.Format(StringConstants.TEXT_CLOCK_TOMORROW, text);
-            }
-
-            return text;
-        }
-
-        private void ConfirmClock()
-        {
-            var minutes = Clock != null && Dial != null ? Dial.SelectedMinute - Clock.BreakMinuteOfDay : 0;
-            CloseClock();
-
-            if (minutes > 0)
-            {
-                StartCoroutine(PassTime(minutes));
-            }
-        }
-
         /// <summary>
         /// 시간이 흐르는 연출(2026-10-17 사용자 요청). 화면이 어두워지고 시각이 넘어간 뒤 다시 밝아진다.
         /// 어두운 동안 사람들이 자리를 옮긴다 — 다시 밝아지면 영지가 다른 시간의 모습이다.
         /// </summary>
-        private System.Collections.IEnumerator PassTime(int minutes)
-        {
-            return PassTime(minutes, null);
-        }
-
         /// <param name="title">어두운 화면에 시각 대신 띄울 말. 비우면 「몇 시 → 몇 시」.</param>
         private System.Collections.IEnumerator PassTime(int minutes, string title)
         {
@@ -1818,28 +1635,6 @@ namespace Underwrite.UI
             if (target <= 0f)
             {
                 fade.style.display = DisplayStyle.None;
-            }
-        }
-
-        private void CancelClock()
-        {
-            // 시계 안에서 켠 건너뛰기는 「그만둔다」와 함께 되돌린다.
-            if (SkipFromClock == true && Clock != null)
-            {
-                Clock.UndoSkippedSession();
-            }
-
-            CloseClock();
-        }
-
-        private void CloseClock()
-        {
-            SkipFromClock = false;
-            var clock = Root.Q<VisualElement>("village-clock");
-
-            if (clock != null)
-            {
-                clock.AddToClassList("hidden");
             }
         }
 
@@ -2152,7 +1947,7 @@ namespace Underwrite.UI
         private void PlayDepartureIfDue()
         {
             if (DepartureRunning == true || Clock == null || Clock.IsBreak == false || Approaching == true
-                || Dialogue == null || Dialogue.IsOpen == true || ClockOpen == true
+                || Dialogue == null || Dialogue.IsOpen == true
                 || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
@@ -2376,7 +2171,6 @@ namespace Underwrite.UI
                 text = text + "\n" + string.Format(StringConstants.TEXT_SLEEP_DEADLINE, deadline);
             }
 
-
             return text;
         }
 
@@ -2590,7 +2384,7 @@ namespace Underwrite.UI
             }
 
             var covered = (Dialogue != null && Dialogue.IsOpen == true) || NotebookOpen == true || PuzzleOpen == true
-                || MiniGameOpen == true || ClockOpen == true || (TitleCard != null && TitleCard.IsOpen == true);
+                || MiniGameOpen == true || (TitleCard != null && TitleCard.IsOpen == true);
 
             if (covered == false && keyboard != null && keyboard.mKey.wasPressedThisFrame == true)
             {
@@ -2605,7 +2399,7 @@ namespace Underwrite.UI
         /// <summary>대화·연출·안내가 모두 닫혀 있어 새 장면을 띄워도 되는가.</summary>
         internal bool CanDirect()
         {
-            return Dialogue != null && Dialogue.IsOpen == false && Approaching == false && ClockOpen == false
+            return Dialogue != null && Dialogue.IsOpen == false && Approaching == false
                 && (TitleCard == null || TitleCard.IsOpen == false) && (Webtoon == null || Webtoon.IsOpen == false)
                 && PuzzleOpen == false && MiniGameOpen == false && (Tutorial == null || Tutorial.IsOpen == false);
         }

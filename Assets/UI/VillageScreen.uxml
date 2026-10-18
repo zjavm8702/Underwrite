@@ -10,22 +10,6 @@
         <ui:VisualElement name="village-menu-list" class="village-menu-list hidden" />
         <ui:Button name="village-menu" text="메뉴" class="village-button village-menu" />
 
-        <!-- 「시간 넘기기」의 원형 시계. 바늘을 끌어 몇 시까지 보낼지 고른다. -->
-        <ui:VisualElement name="village-clock" class="village-clock hidden">
-            <ui:VisualElement class="village-clock-panel popup">
-                <ui:Label name="village-clock-title" text="" class="popup-title" />
-                <ui:VisualElement name="village-clock-dial" class="village-clock-dial" />
-                <ui:Label name="village-clock-pick" text="" class="village-clock-pick" />
-                <!-- 켜면 다음 장을 건너뛰고, 그다음 장 직전까지 시간을 돌릴 수 있다. -->
-                <ui:Toggle name="village-clock-skip" text="" class="village-clock-skip" />
-                <ui:Label name="village-clock-limit" text="" class="popup-body" />
-                <ui:VisualElement class="row village-clock-buttons">
-                    <ui:Button name="village-clock-cancel" text="" class="popup-button" />
-                    <ui:Button name="village-clock-confirm" text="" class="popup-button popup-button--main" />
-                </ui:VisualElement>
-            </ui:VisualElement>
-        </ui:VisualElement>
-
         <!-- 자리에 다가서면 뜬다. -->
         <ui:VisualElement name="village-prompt" class="village-prompt hidden">
             <ui:Label name="village-place" text="" class="village-place" />

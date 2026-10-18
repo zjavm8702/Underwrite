@@ -230,7 +230,6 @@ namespace Underwrite.Market
             }
         }
 
-
         /// <summary>
         /// 다음 장을 쉰다. 영지의 시간이 한 장만큼 길어진다.
         ///
@@ -246,31 +245,6 @@ namespace Underwrite.Market
             }
 
             SkippedSessions++;
-            return true;
-        }
-
-        /// <summary>
-        /// 쉬기로 한 것을 무른다. **아직 그 시간을 쓰지 않았을 때만** 된다.
-        ///
-        /// 쉬기로 하고 여섯 시간을 더 쓴 뒤에 무르면 시각이 다음 장을 넘어서 버린다.
-        /// 시간을 빚질 수는 없으므로, 되돌려도 남는 시간이 있을 때만 허락한다.
-        /// </summary>
-        public bool UndoSkippedSession()
-        {
-            if (SkippedSessions <= 0)
-            {
-                return false;
-            }
-
-            MarketSession session;
-            int day;
-
-            if (BreakMinuteOfDay > SessionStartAfter(SkippedSessions - 1, out session, out day))
-            {
-                return false;
-            }
-
-            SkippedSessions--;
             return true;
         }
 
@@ -317,23 +291,6 @@ namespace Underwrite.Market
             IsBreak = true;
             BreakAccumulated = 0f;
             BreakMinuteOfDay = minuteOfDay;
-        }
-
-        /// <summary>영지의 시간을 실시간 속도로 흘린다. 매 프레임 불린다.</summary>
-        public void AdvanceBreak(float deltaSeconds)
-        {
-            if (IsBreak == false)
-            {
-                return;
-            }
-
-            BreakAccumulated += deltaSeconds * Constants.BREAK_MINUTES_PER_REAL_SECOND;
-
-            while (BreakAccumulated >= 1f)
-            {
-                BreakAccumulated -= 1f;
-                SpendBreakMinutes(1);
-            }
         }
 
         /// <summary>
@@ -399,15 +356,6 @@ namespace Underwrite.Market
         /// </summary>
         public int Cycle { get; private set; } = 1;
 
-        /// <summary>이번 장이 계절의 마지막 장(출발하는 날의 오후장)인가. 끝나면 주기가 넘어간다.</summary>
-        public bool IsLastSessionOfCycle
-        {
-            get
-            {
-                return DayInSeason(Day) == DaysInSeason(SeasonOf(Day)) && Session == MarketSession.Session_Evening;
-            }
-        }
-
         /// <summary>장을 넘길 때 틱을 하나 강제로 진행시킨다. 실시간 경과와 무관하다.</summary>
         public void ForceTick()
         {
@@ -459,16 +407,6 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>현재 게임 내 시각의 시 부분. 오후장은 자정에 끝난다.</summary>
-        public int ClockHour
-        {
-            get
-            {
-                var total = StartHour * 60 + ElapsedMinutes;
-                return total / 60 % 24;
-            }
-        }
-
         /// <summary>
         /// 장중 게임 시각의 초까지(하루 기준 초). 틱 사이도 흐르게 보여 배속이 눈에 보인다(2026-10-17 사용자 요청).
         /// 1배에서 게임 1분이 실시간 3초다.
@@ -479,15 +417,6 @@ namespace Underwrite.Market
             {
                 var minutes = StartHour * 60 + ElapsedMinutes + Math.Min(Accumulated, Constants.MARKET_MINUTES_PER_TICK);
                 return (int)(minutes * 60f) % (24 * 60 * 60);
-            }
-        }
-
-        /// <summary>현재 게임 내 시각의 분 부분.</summary>
-        public int ClockMinute
-        {
-            get
-            {
-                return ElapsedMinutes % 60;
             }
         }
 
@@ -535,26 +464,6 @@ namespace Underwrite.Market
                 }
 
                 return fraction;
-            }
-        }
-
-        public float SessionProgress
-        {
-            get
-            {
-                if (TicksPerSession <= 0)
-                {
-                    return 0f;
-                }
-
-                var ratio = (float)Tick / TicksPerSession;
-
-                if (ratio > 1f)
-                {
-                    return 1f;
-                }
-
-                return ratio;
             }
         }
 
