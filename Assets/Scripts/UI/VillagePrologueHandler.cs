@@ -20,7 +20,7 @@ namespace Underwrite.UI
     public sealed class VillagePrologueHandler
     {
         private readonly VillageScreenController Host;
-        private bool Directing;
+        private bool directing;
 
         // 이 단계의 길 안내를 이미 시작했는가. 단계가 바뀌면 다시 안내한다(불러온 판에서도).
         private PrologueStage? GuidedStage;
@@ -52,7 +52,7 @@ namespace Underwrite.UI
         {
             get
             {
-                return Directing;
+                return directing;
             }
         }
 
@@ -107,17 +107,17 @@ namespace Underwrite.UI
                 WorldSigns.Highlight(null);
 
                 // 첫 장을 마치고 지하에서 올라오면 여관에서 용사단을 알아본다.
-                if (AwaitsRecognition == true && Directing == false && Host.CanDirect() == true)
+                if (AwaitsRecognition == true && directing == false && Host.CanDirect() == true)
                 {
                     PlayRecognition();
                 }
 
                 // 다음 날(2일째) 아침 — 행동력 안내. (웹툰 7장 「개미의 결심」이 납품되면 그 앞에 붙는다.)
                 if (StoryProgress.HeroesRecognized == true && StoryProgress.ActionTutorialDone == false
-                    && Host.IsMorningBreak == true && Directing == false && Host.CanDirect() == true)
+                    && Host.IsMorningBreak == true && directing == false && Host.CanDirect() == true)
                 {
-                    Directing = true;
-                    Host.PlayResolveWebtoon(() => Host.PlayActionTutorial(() => Directing = false));
+                    directing = true;
+                    Host.PlayResolveWebtoon(() => Host.PlayActionTutorial(() => directing = false));
                 }
 
                 return;
@@ -126,13 +126,13 @@ namespace Underwrite.UI
             WorldSigns.Highlight(TargetName());
 
             // 첫 카드는 다른 조건을 기다리지 않고 영지가 뜨는 첫 프레임에 띄운다 — 영지가 먼저 보이지 않게.
-            if (Stage == PrologueStage.Stage_Opening && Directing == false)
+            if (Stage == PrologueStage.Stage_Opening && directing == false)
             {
                 PlayOpening();
                 return;
             }
 
-            if (Directing == true || Host.IsGuiding == true || Host.CanDirect() == false)
+            if (directing == true || Host.IsGuiding == true || Host.CanDirect() == false)
             {
                 return;
             }
@@ -318,7 +318,7 @@ namespace Underwrite.UI
 
         private void PlayOpening()
         {
-            Directing = true;
+            directing = true;
             Host.ShowTitleFromDark(StringConstants.TEXT_PROLOGUE_DAY7, StringConstants.TEXT_PROLOGUE_CARD_DAY7_SUB, PlayOpeningLines);
         }
 
@@ -341,7 +341,7 @@ namespace Underwrite.UI
             // 거리에 선 혼잣말이다. 여관 그림을 깔지 않는다.
             Host.PlayLines(null, lines, () =>
             {
-                Directing = false;
+                directing = false;
                 StoryProgress.Prologue = PrologueStage.Stage_Inn;
                 StoryProgress.VillageTutorialDone = true;
                 Host.PlayPrologueTutorial();
@@ -352,7 +352,7 @@ namespace Underwrite.UI
         // 정거장 하나: 주인의 소개 → 연습 판(있으면) → 품삯 → 마무리.
         private void PlayStop(VillageSpot spot, int index)
         {
-            Directing = true;
+            directing = true;
             var intro = new List<DialogueLine>
             {
                 Host.OwnerLineFor(spot, StringConstants.TEXT_PROLOGUE_STOP_INTRO[index])
@@ -384,7 +384,7 @@ namespace Underwrite.UI
 
             Host.PlayLines(spot.InfoSource, lines, () =>
             {
-                Directing = false;
+                directing = false;
 
                 if (wage > 0f)
                 {
@@ -398,7 +398,7 @@ namespace Underwrite.UI
 
         private void PlaySleep(VillageSpot spot)
         {
-            Directing = true;
+            directing = true;
             var lines = new List<DialogueLine>
             {
                 Host.OwnerLineFor(spot, StringConstants.TEXT_PROLOGUE_SLEEP_OWNER),
@@ -432,13 +432,13 @@ namespace Underwrite.UI
                 lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_PROLOGUE_DAY8, text));
             }
 
-            Host.PlayScene(StringConstants.SCENE_CLASS_ATTIC, lines, () => Directing = false);
+            Host.PlayScene(StringConstants.SCENE_CLASS_ATTIC, lines, () => directing = false);
         }
 
         // 동기 전환 장면: 여관 구석의 용사단을 알아본다(장면 일러스트 위). 끝나면 여관 주인이 다음 할 일로 이끈다.
         private void PlayRecognition()
         {
-            Directing = true;
+            directing = true;
             Host.ShowTitle(StringConstants.TEXT_HEROES_CARD, StringConstants.TEXT_HEROES_CARD_SUB, null, () =>
             {
                 var lines = new List<DialogueLine>();
@@ -458,7 +458,7 @@ namespace Underwrite.UI
                 Host.PlayScene(StringConstants.SCENE_CLASS_HEROES, lines, () =>
                 {
                     StoryProgress.HeroesRecognized = true;
-                    Directing = false;
+                    directing = false;
                     SaveSystem.Save();
                 });
             });

@@ -38,7 +38,7 @@ namespace Underwrite.UI
         private readonly List<Marker> People = new List<Marker>();
         private Rect WorldBounds;
         private Texture2D Snapshot;
-        private bool Expanded;
+        private bool isExpanded;
         private string Target;
 
         /// <param name="hideWhileCapturing">지도 그림에 찍히면 안 되는 것(주인공 — 점으로 따로 그린다).</param>
@@ -105,13 +105,13 @@ namespace Underwrite.UI
         {
             get
             {
-                return Expanded;
+                return isExpanded;
             }
         }
 
         public void Toggle()
         {
-            Expanded = Expanded == false;
+            isExpanded = isExpanded == false;
             ApplyExpanded();
         }
 
@@ -280,8 +280,8 @@ namespace Underwrite.UI
 
         private void ApplyExpanded()
         {
-            Frame.EnableInClassList("minimap--expanded", Expanded);
-            Hint.text = Expanded == true ? StringConstants.TEXT_MINIMAP_HINT_CLOSE : StringConstants.TEXT_MINIMAP_HINT;
+            Frame.EnableInClassList("minimap--expanded", isExpanded);
+            Hint.text = isExpanded == true ? StringConstants.TEXT_MINIMAP_HINT_CLOSE : StringConstants.TEXT_MINIMAP_HINT;
         }
     }
 }

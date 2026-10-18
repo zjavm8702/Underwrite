@@ -6,8 +6,7 @@ namespace Underwrite.Global
     /// <summary>
     /// 문자열 상수. 태그·파라미터·경로처럼 외부 에셋과 묶인 계약과 표시용 문자열을 모두 모은다.
     /// 코드 규칙 §7 참고. 표시용은 TEXT_ 접두사를 쓴다.
-    /// </summary>
-    /// <summary>
+    ///
     /// 문자열 상수.
     ///
     /// 화면에 나가는 문구(TEXT_*)는 <c>static</c>이다. 표(UITextTable)가 덮어쓰기 때문이다.
@@ -48,6 +47,9 @@ namespace Underwrite.Global
         public static string TEXT_MARKET_PHASE_CLOSED = "폐장";
         public static string TEXT_MARKET_PHASE_OPEN = "개장";
         public static string TEXT_MARKET_PHASE_HALTED = "휴장";
+        /// <summary>값이 없는 칸(가진 것이 없거나 휴장).</summary>
+        public static string TEXT_EMPTY_VALUE = "—";
+        public static string TEXT_PERCENT = "%";
 
         public static string TEXT_SENTIMENT_CALM = "평온";
         public static string TEXT_SENTIMENT_FEVER = "투자 열풍";
@@ -220,8 +222,7 @@ namespace Underwrite.Global
 
     /// <summary>
     /// 숫자·조정값 상수. 가격 모델의 계수는 전부 여기에 모아 한곳에서 조정한다.
-    /// </summary>
-    /// <summary>
+    ///
     /// 공용 상수.
     ///
     /// 밸런스를 보면서 고치는 값은 <c>static</c>이다. 표(MarketTuningData)가 장을 열기 전에

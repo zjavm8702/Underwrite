@@ -17,18 +17,6 @@ namespace Underwrite.Market
         public string Message;
     }
 
-    /// <summary>
-    /// 시장 전체를 진행시킨다. 엔진에 의존하지 않으므로 테스트에서 틱을 직접 돌릴 수 있다.
-    ///
-    /// 담당 범위
-    /// - 틱마다 종목 가격을 갱신하고 기대를 식힌다
-    /// - 일정에 놓인 사건을 소문 → 보고 → 결과 순서로 적용한다
-    /// - 시장가 주문을 체결하고 유동성에 따라 가격을 민다
-    /// - 플레이어가 아는 정보만 정보 기록에 쌓는다
-    ///
-    /// 거래 장소 제약: 사용자 결정(2026-10-16)에 따라 주문은 지하시장에서만 받는다.
-    /// 이동 중에는 가격과 속보 조회만 가능하다. <see cref="PlayerAtMarket"/>로 통제한다.
-    /// </summary>
     /// <summary>아직 상장되지 않은 종목과 올라올 주기.</summary>
     public struct WaitingEntry
     {
@@ -43,6 +31,18 @@ namespace Underwrite.Market
         public DelistReason Reason;
     }
 
+    /// <summary>
+    /// 시장 전체를 진행시킨다. 엔진에 의존하지 않으므로 테스트에서 틱을 직접 돌릴 수 있다.
+    ///
+    /// 담당 범위
+    /// - 틱마다 종목 가격을 갱신하고 기대를 식힌다
+    /// - 일정에 놓인 사건을 소문 → 보고 → 결과 순서로 적용한다
+    /// - 시장가 주문을 체결하고 유동성에 따라 가격을 민다
+    /// - 플레이어가 아는 정보만 정보 기록에 쌓는다
+    ///
+    /// 거래 장소 제약: 사용자 결정(2026-10-16)에 따라 주문은 지하시장에서만 받는다.
+    /// 이동 중에는 가격과 속보 조회만 가능하다. <see cref="PlayerAtMarket"/>로 통제한다.
+    /// </summary>
     public sealed class MarketSimulation
     {
         private readonly List<WaitingEntry> Waiting = new List<WaitingEntry>();

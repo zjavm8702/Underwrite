@@ -205,6 +205,10 @@ namespace Underwrite.UI
 
             var document = GetComponent<UIDocument>();
             Root = document.rootVisualElement;
+            // 화면을 다시 만들면 머리줄 글을 새로 넣어야 한다.
+            HeaderClockKey = -1;
+            HeaderMood = null;
+            HeaderSpeed = -1;
 
             if (Root == null)
             {
@@ -514,7 +518,7 @@ namespace Underwrite.UI
 
         private void BuildStockRows()
         {
-            var list = Root.Q<VisualElement>("stock-list");
+            var list = Cached<VisualElement>("stock-list");
 
             if (list == null)
             {
@@ -649,7 +653,7 @@ namespace Underwrite.UI
             Click("ratio-75", () => ApplyRatio(0.75f));
             Click("ratio-100", () => ApplyRatio(1f));
 
-            var head = Root.Q<VisualElement>("info-head");
+            var head = Cached<VisualElement>("info-head");
 
             if (head != null)
             {
@@ -665,7 +669,7 @@ namespace Underwrite.UI
                 });
             }
 
-            var holdingsHead = Root.Q<VisualElement>("holdings-head");
+            var holdingsHead = Cached<VisualElement>("holdings-head");
 
             if (holdingsHead != null)
             {
@@ -683,7 +687,7 @@ namespace Underwrite.UI
 
             Click("submit-button", Submit);
 
-            var chart = Root.Q<VisualElement>("chart");
+            var chart = Cached<VisualElement>("chart");
 
             if (chart != null)
             {
@@ -693,7 +697,7 @@ namespace Underwrite.UI
 
         private void Click(string elementName, System.Action action)
         {
-            var button = Root.Q<Button>(elementName);
+            var button = Cached<Button>(elementName);
 
             if (button == null)
             {
@@ -896,12 +900,6 @@ namespace Underwrite.UI
             }
         }
 
-        /// <summary>
-        /// 영지로 나간다. 장중이면 그 장을 마감하고 나간다.
-        ///
-        /// 기획서 §11의 하루는 장 → 영지 → 장 → 취침으로 돈다.
-        /// 장중에 나갈 수 있으면 가격이 흐르는 동안 정보를 캐게 되어 두 층이 겹친다.
-        /// </summary>
         /// <summary>지하 방의 출구(여관 위층으로)에서 부른다. 장이 열려 있으면 올라가지 않는다.</summary>
         internal bool LeaveToVillage()
         {
@@ -914,6 +912,12 @@ namespace Underwrite.UI
             return true;
         }
 
+        /// <summary>
+        /// 영지로 나간다. 장중이면 그 장을 마감하고 나간다.
+        ///
+        /// 기획서 §11의 하루는 장 → 영지 → 장 → 취침으로 돈다.
+        /// 장중에 나갈 수 있으면 가격이 흐르는 동안 정보를 캐게 되어 두 층이 겹친다.
+        /// </summary>
         private void GoToVillage()
         {
             // 장중에 나가면 그 장은 끝까지 흘려보낸다. 장중에 영지를 돌면 두 층이 겹치므로
@@ -1011,7 +1015,7 @@ namespace Underwrite.UI
         /// </summary>
         private void RefreshVillageButton()
         {
-            var button = Root.Q<Button>("village-button");
+            var button = Cached<Button>("village-button");
 
             if (button == null)
             {
@@ -1036,7 +1040,7 @@ namespace Underwrite.UI
 
         private void RefreshSkipButton()
         {
-            var skip = Root.Q<Button>("skip-button");
+            var skip = Cached<Button>("skip-button");
 
             if (skip == null)
             {
@@ -1126,7 +1130,7 @@ namespace Underwrite.UI
         /// </summary>
         private void BindQuantityField()
         {
-            var field = Root.Q<TextField>("qty-value");
+            var field = Cached<TextField>("qty-value");
 
             if (field == null)
             {
@@ -1153,7 +1157,7 @@ namespace Underwrite.UI
         /// <summary>지정가도 직접 친다. 칸을 떠날 때 호가 단위로 맞춘다.</summary>
         private void BindLimitField()
         {
-            var field = Root.Q<TextField>("limit-value");
+            var field = Cached<TextField>("limit-value");
 
             if (field == null)
             {
@@ -1200,7 +1204,7 @@ namespace Underwrite.UI
         /// </summary>
         private void SetFieldValue(string elementName, string value)
         {
-            var field = Root.Q<TextField>(elementName);
+            var field = Cached<TextField>(elementName);
 
             if (field == null)
             {
@@ -1351,9 +1355,13 @@ namespace Underwrite.UI
             RefreshHoldings();
         }
 
+        private long HeaderClockKey = -1;
+        private string HeaderMood;
+        private int HeaderSpeed = -1;
+
         private void RefreshHeader()
         {
-            var phase = Root.Q<Label>("phase-chip");
+            var phase = Cached<Label>("phase-chip");
 
             if (phase != null)
             {
@@ -1369,35 +1377,56 @@ namespace Underwrite.UI
             var seconds = Sim.Clock.Phase == MarketPhase.Phase_Closed && Sim.Clock.IsBreak == true
                 ? Sim.Clock.BreakMinuteOfDay * 60 + Sim.Clock.BreakSecond
                 : Sim.Clock.ClockTotalSeconds;
-            SetText("clock-text",
-                // 며칠째인지 맨 앞에 — 영지 시계와 같은 순서·같은 말(2026-10-17 사용자 요청).
-                ClockText.SeasonDay(Sim.Clock.CalendarDay)
-                + string.Format(StringConstants.TEXT_CLOCK_SESSION, label, ClockText.FromSeconds(seconds, true))
-                + string.Format(StringConstants.TEXT_CLOCK_TICKS, Sim.Clock.Tick, Sim.Clock.TicksPerSession));
-            SetText("sentiment-text", string.Format(StringConstants.TEXT_SENTIMENT, SentimentText(Sim.Sentiment)));
+            // 날짜·장·초·틱이 바뀔 때만 다시 조립한다(매 프레임 문자열 조립 금지).
+            var clockKey = (((long)Sim.Clock.CalendarDay * 2 + (int)Sim.Clock.Session) * 86400 + seconds) * 1000 + Sim.Clock.Tick;
 
-            var pause = Root.Q<Button>("pause-button");
+            if (clockKey != HeaderClockKey)
+            {
+                HeaderClockKey = clockKey;
+                SetText("clock-text",
+                    // 며칠째인지 맨 앞에 — 영지 시계와 같은 순서·같은 말(2026-10-17 사용자 요청).
+                    ClockText.SeasonDay(Sim.Clock.CalendarDay)
+                    + string.Format(StringConstants.TEXT_CLOCK_SESSION, label, ClockText.FromSeconds(seconds, true))
+                    + string.Format(StringConstants.TEXT_CLOCK_TICKS, Sim.Clock.Tick, Sim.Clock.TicksPerSession));
+            }
+
+            var mood = SentimentText(Sim.Sentiment);
+
+            if (ReferenceEquals(mood, HeaderMood) == false)
+            {
+                HeaderMood = mood;
+                SetText("sentiment-text", string.Format(StringConstants.TEXT_SENTIMENT, mood));
+            }
+
+            var pause = Cached<Button>("pause-button");
 
             if (pause != null)
             {
                 pause.text = Sim.Clock.IsPaused == true ? StringConstants.TEXT_RESUME : StringConstants.TEXT_PAUSE;
             }
 
-            var place = Root.Q<Button>("place-button");
+            var place = Cached<Button>("place-button");
 
             if (place != null)
             {
                 place.text = Sim.PlayerAtMarket == true ? StringConstants.TEXT_PLACE_MARKET : StringConstants.TEXT_PLACE_MOVING;
             }
 
-            SetButtonText("speed-cycle", string.Format(StringConstants.TEXT_SPEED, Mathf.RoundToInt(Sim.Clock.SpeedScale)));
+            var speed = Mathf.RoundToInt(Sim.Clock.SpeedScale);
+
+            if (speed != HeaderSpeed)
+            {
+                HeaderSpeed = speed;
+                SetButtonText("speed-cycle", string.Format(StringConstants.TEXT_SPEED, speed));
+            }
+
             Select("speed-cycle", Sim.Clock.SpeedScale > 1f);
             Select("speed-1", Mathf.Approximately(Sim.Clock.SpeedScale, 1f));
             Select("speed-4", Mathf.Approximately(Sim.Clock.SpeedScale, 4f));
             RefreshSkipButton();
             RefreshVillageButton();
 
-            var banner = Root.Q<VisualElement>("halt-banner");
+            var banner = Cached<VisualElement>("halt-banner");
 
             if (banner != null)
             {
@@ -1500,7 +1529,7 @@ namespace Underwrite.UI
                 ? StringConstants.TEXT_CHART_HALTED
                 : string.Format(StringConstants.TEXT_CHART_FOOTER, Sim.Clock.TicksPerSession));
 
-            var change = Root.Q<Label>("chart-change");
+            var change = Cached<Label>("chart-change");
 
             if (change != null)
             {
@@ -1516,7 +1545,7 @@ namespace Underwrite.UI
             }
 
             ChartTickShown = Sim.MicroSeq;
-            var chart = Root.Q<VisualElement>("chart");
+            var chart = Cached<VisualElement>("chart");
 
             if (chart != null)
             {
@@ -1533,7 +1562,7 @@ namespace Underwrite.UI
         /// </summary>
         private void RefreshChartMarkers(AdventurerStock stock)
         {
-            var chart = Root.Q<VisualElement>("chart");
+            var chart = Cached<VisualElement>("chart");
 
             if (chart == null)
             {
@@ -2085,7 +2114,7 @@ namespace Underwrite.UI
         /// </summary>
         private void RefreshBook()
         {
-            var list = Root.Q<VisualElement>("book-list");
+            var list = Cached<VisualElement>("book-list");
 
             if (list == null)
             {
@@ -2153,8 +2182,8 @@ namespace Underwrite.UI
         /// <summary>대기 중인 지정가 주문 목록. 취소 버튼을 함께 둔다.</summary>
         private void RefreshPending()
         {
-            var list = Root.Q<VisualElement>("pending-list");
-            var title = Root.Q<VisualElement>("pending-head");
+            var list = Cached<VisualElement>("pending-list");
+            var title = Cached<VisualElement>("pending-head");
 
             if (list == null)
             {
@@ -2237,8 +2266,8 @@ namespace Underwrite.UI
 
             var buying = Side == OrderSide.Side_Buy;
 
-            var buyTab = Root.Q<Button>("side-buy");
-            var sellTab = Root.Q<Button>("side-sell");
+            var buyTab = Cached<Button>("side-buy");
+            var sellTab = Cached<Button>("side-sell");
 
             if (buyTab != null)
             {
@@ -2256,7 +2285,7 @@ namespace Underwrite.UI
             Toggle("type-market", "type-tab--on", limiting == false);
             Toggle("type-limit", "type-tab--on", limiting);
 
-            var limitRow = Root.Q<VisualElement>("limit-row");
+            var limitRow = Cached<VisualElement>("limit-row");
 
             if (limitRow != null)
             {
@@ -2280,8 +2309,8 @@ namespace Underwrite.UI
 
             SetText("price-label", halted == true ? StringConstants.TEXT_PRICE_LAST : StringConstants.TEXT_PRICE_NOW);
             SetText("order-price", stock.LivePrice.ToString("N1"));
-            SetText("order-fill", halted == true ? "—" : shown.ToString("N1"));
-            SetText("order-total", halted == true ? "—" : (shown * Quantity).ToString("N1"));
+            SetText("order-fill", halted == true ? StringConstants.TEXT_EMPTY_VALUE : shown.ToString("N1"));
+            SetText("order-total", halted == true ? StringConstants.TEXT_EMPTY_VALUE : (shown * Quantity).ToString("N1"));
             SetText("order-cash", Sim.Wallet.AvailableCash.ToString("N0"));
 
             SetText("order-hint", limiting == true
@@ -2293,7 +2322,7 @@ namespace Underwrite.UI
 
             // 없는 주식을 팔 수는 없다. 수량칸을 눌러도 아무 일이 없는 것보다 잠가 두는 쪽이 낫다.
             var nothingToSell = buying == false && available <= 0;
-            var qtyBox = Root.Q<VisualElement>("qty-box");
+            var qtyBox = Cached<VisualElement>("qty-box");
 
             if (qtyBox != null)
             {
@@ -2301,7 +2330,7 @@ namespace Underwrite.UI
                 qtyBox.EnableInClassList("qty-box--off", nothingToSell);
             }
 
-            var ratioRow = Root.Q<VisualElement>("ratio-row");
+            var ratioRow = Cached<VisualElement>("ratio-row");
 
             if (ratioRow != null)
             {
@@ -2319,11 +2348,11 @@ namespace Underwrite.UI
             SetText("hold-avg", averageCost.ToString("N1"));
 
             var profit = (stock.LivePrice - averageCost) * held;
-            var profitLabel = Root.Q<Label>("hold-profit");
+            var profitLabel = Cached<Label>("hold-profit");
 
             if (profitLabel != null)
             {
-                profitLabel.text = held == 0 ? "—" : (profit >= 0f ? "+" : "") + profit.ToString("N1");
+                profitLabel.text = held == 0 ? StringConstants.TEXT_EMPTY_VALUE : Signed(profit, string.Empty);
                 profitLabel.EnableInClassList("rise", held > 0 && profit > 0f);
                 profitLabel.EnableInClassList("fall", held > 0 && profit < 0f);
             }
@@ -2332,10 +2361,10 @@ namespace Underwrite.UI
             var impactRatio = stock.LivePrice <= 0f ? 0f : (fill - stock.LivePrice) / stock.LivePrice;
             SetText("impact-label", string.Format(StringConstants.TEXT_IMPACT_LABEL, Quantity));
             SetText("day-impact", halted == true
-                ? "—"
-                : (impactRatio >= 0f ? "+" : "") + (impactRatio * 100f).ToString("N1") + "%");
+                ? StringConstants.TEXT_EMPTY_VALUE
+                : Signed(impactRatio * 100f, StringConstants.TEXT_PERCENT));
 
-            var submit = Root.Q<Button>("submit-button");
+            var submit = Cached<Button>("submit-button");
 
             if (submit != null)
             {
@@ -2379,7 +2408,7 @@ namespace Underwrite.UI
         /// </summary>
         private void RefreshHoldings()
         {
-            var popup = Root.Q<VisualElement>("holdings-popup");
+            var popup = Cached<VisualElement>("holdings-popup");
 
             if (popup == null)
             {
@@ -2416,11 +2445,11 @@ namespace Underwrite.UI
 
             SetText("holdings-count", string.Format(StringConstants.TEXT_HOLDINGS_COUNT, owned));
 
-            var profitLabel = Root.Q<Label>("holdings-profit");
+            var profitLabel = Cached<Label>("holdings-profit");
 
             if (profitLabel != null)
             {
-                profitLabel.text = owned == 0 ? "—" : (profit >= 0f ? "+" : "") + profit.ToString("N1");
+                profitLabel.text = owned == 0 ? StringConstants.TEXT_EMPTY_VALUE : Signed(profit, string.Empty);
                 profitLabel.EnableInClassList("rise", owned > 0 && profit > 0f);
                 profitLabel.EnableInClassList("fall", owned > 0 && profit < 0f);
             }
@@ -2439,7 +2468,7 @@ namespace Underwrite.UI
 
             HoldingsSeqShown = Sim.MicroSeq;
 
-            var list = Root.Q<ScrollView>("holdings-list");
+            var list = Cached<ScrollView>("holdings-list");
 
             if (list == null)
             {
@@ -2462,7 +2491,7 @@ namespace Underwrite.UI
                 list.Add(BuildHoldingRow(stock, quantity));
             }
 
-            var empty = Root.Q<Label>("holdings-empty");
+            var empty = Cached<Label>("holdings-empty");
 
             if (empty != null)
             {
@@ -2643,7 +2672,7 @@ namespace Underwrite.UI
                 return;
             }
 
-            var body = Root.Q<VisualElement>("market-root");
+            var body = Cached<VisualElement>("market-root");
 
             if (body == null)
             {
@@ -2661,7 +2690,7 @@ namespace Underwrite.UI
             PanelApplied = true;
             body.style.display = open == true ? DisplayStyle.Flex : DisplayStyle.None;
 
-            if (RoomMode == true && Root.Q<Button>("room-button") == null)
+            if (RoomMode == true && Cached<Button>("room-button") == null)
             {
                 AddRoomButton();
             }
@@ -2670,7 +2699,7 @@ namespace Underwrite.UI
         // 판 위에 「방으로」 단추를 끼운다. Tab으로도 닫힌다.
         private void AddRoomButton()
         {
-            var leave = Root.Q<Button>("village-button");
+            var leave = Cached<Button>("village-button");
 
             if (leave == null || leave.parent == null)
             {
@@ -2859,7 +2888,7 @@ namespace Underwrite.UI
 
         private void RefreshInfo()
         {
-            var list = Root.Q<ScrollView>("info-list");
+            var list = Cached<ScrollView>("info-list");
 
             if (list == null)
             {
@@ -2896,7 +2925,7 @@ namespace Underwrite.UI
                 }
 
                 SelectFilterButtons();
-                Root.Q<Label>("info-empty").EnableInClassList("hidden", true);
+                Cached<Label>("info-empty").EnableInClassList("hidden", true);
                 return;
             }
 
@@ -2920,7 +2949,7 @@ namespace Underwrite.UI
                 shown++;
             }
 
-            var empty = Root.Q<Label>("info-empty");
+            var empty = Cached<Label>("info-empty");
 
             if (empty != null)
             {
@@ -2960,7 +2989,7 @@ namespace Underwrite.UI
         /// </summary>
         private void RefreshInfoHead(IReadOnlyList<InfoEntry> log)
         {
-            var popup = Root.Q<VisualElement>("info-popup");
+            var popup = Cached<VisualElement>("info-popup");
 
             if (popup != null)
             {
@@ -2977,7 +3006,7 @@ namespace Underwrite.UI
             ShowFilterButton("filter-private");
             ShowFilterButton("filter-bands");
 
-            var latest = Root.Q<Label>("info-latest");
+            var latest = Cached<Label>("info-latest");
 
             if (latest == null)
             {
@@ -2995,7 +3024,7 @@ namespace Underwrite.UI
 
         private void ShowFilterButton(string elementName)
         {
-            var button = Root.Q<Button>(elementName);
+            var button = Cached<Button>(elementName);
 
             if (button == null)
             {
@@ -3069,7 +3098,7 @@ namespace Underwrite.UI
 
         private void SetButtonText(string elementName, string value)
         {
-            var button = Root.Q<Button>(elementName);
+            var button = Cached<Button>(elementName);
 
             if (button == null)
             {
@@ -3092,7 +3121,7 @@ namespace Underwrite.UI
                 return;
             }
 
-            var area = Root.Q<VisualElement>("toast-area");
+            var area = Cached<VisualElement>("toast-area");
 
             if (area == null)
             {
@@ -3207,7 +3236,7 @@ namespace Underwrite.UI
         /// <summary>접기 손잡이의 그림을 상태에 맞춘다.</summary>
         private void SetToggleIcon(string elementName, bool collapsed)
         {
-            var icon = Root.Q<VisualElement>(elementName);
+            var icon = Cached<VisualElement>(elementName);
 
             if (icon == null)
             {
@@ -3218,11 +3247,18 @@ namespace Underwrite.UI
             icon.EnableInClassList("icon--expand", collapsed == false);
         }
 
+        // 부호를 붙인 소수 한 자리(+1.5 / -0.3) 뒤에 단위를 붙인다.
+        private static string Signed(float value, string unit)
+        {
+            var sign = value >= 0f ? StringConstants.TEXT_DICE_PLUS : string.Empty;
+            return sign + value.ToString("N1") + unit;
+        }
+
         private void SetText(string elementName, string value)
         {
-            var label = Root.Q<Label>(elementName);
+            var label = Cached<Label>(elementName);
 
-            if (label == null)
+            if (label == null || label.text == value)
             {
                 return;
             }
@@ -3230,10 +3266,39 @@ namespace Underwrite.UI
             label.text = value;
         }
 
+        private readonly Dictionary<string, VisualElement> Elements = new Dictionary<string, VisualElement>();
+
+        // 이름으로 찾은 요소를 기억한다. 매 프레임 트리를 뒤지지 않게. 화면에서 떨어진 요소는 다시 찾는다.
+        private T Cached<T>(string elementName) where T : VisualElement
+        {
+            VisualElement element;
+
+            if (Elements.TryGetValue(elementName, out element) == true && element.panel != null)
+            {
+                var typed = element as T;
+
+                if (typed != null)
+                {
+                    return typed;
+                }
+            }
+
+            var found = Root.Q<T>(elementName);
+
+            if (found == null)
+            {
+                Elements.Remove(elementName);
+                return null;
+            }
+
+            Elements[elementName] = found;
+            return found;
+        }
+
         /// <summary>버튼에 클래스를 켜고 끈다.</summary>
         private void Toggle(string elementName, string className, bool on)
         {
-            var button = Root.Q<Button>(elementName);
+            var button = Cached<Button>(elementName);
 
             if (button == null)
             {
@@ -3245,7 +3310,7 @@ namespace Underwrite.UI
 
         private void Select(string elementName, bool selected)
         {
-            var button = Root.Q<Button>(elementName);
+            var button = Cached<Button>(elementName);
 
             if (button == null)
             {

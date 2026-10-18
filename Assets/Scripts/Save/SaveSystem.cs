@@ -69,8 +69,8 @@ namespace Underwrite.Save
                 Story = new StoryState
                 {
                     CellarFound = StoryProgress.CellarFound,
-                    Prologue = (int)StoryProgress.Prologue,
-                    MarketOnboarding = (int)StoryProgress.MarketOnboarding,
+                    Prologue = StoryProgress.Prologue,
+                    MarketOnboarding = StoryProgress.MarketOnboarding,
                     PracticeCash = StoryProgress.PracticeCash,
                     HeroesRecognized = StoryProgress.HeroesRecognized,
                     FirstSessionDone = StoryProgress.FirstSessionDone,
@@ -192,7 +192,7 @@ namespace Underwrite.Save
             StoryProgress.CellarFound = data.Story.CellarFound;
             // 프롤로그가 생기기 전 저장(10/18)은 값이 0이다. 창고를 찾았으면 끝난 것으로 본다.
             // 범위를 벗어난 값(손상)도 끝난 것으로 본다 — 멈춤 순서 배열 밖을 읽지 않게.
-            var prologue = data.Story.Prologue;
+            var prologue = (int)data.Story.Prologue;
 
             if (data.Story.CellarFound == true || prologue < 0 || prologue > (int)PrologueStage.Stage_Done)
             {
@@ -203,7 +203,7 @@ namespace Underwrite.Save
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
             // 튜토리얼이 생기기 전 저장(10/18)은 값이 0이다. 거래소 안내를 이미 봤으면 끝난 것으로 본다.
             // 범위를 벗어난 값(손상·새 판의 단계)은 끝난 것으로 본다 — 튜토리얼에 갇히는 것보다 낫다.
-            var onboarding = data.Story.MarketOnboarding;
+            var onboarding = (int)data.Story.MarketOnboarding;
             var done = (int)MarketOnboardingStage.Onboarding_Done;
 
             if ((data.Story.MarketTutorialDone == true && onboarding == 0) || onboarding < 0 || onboarding > done)

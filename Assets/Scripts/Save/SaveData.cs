@@ -200,11 +200,11 @@ namespace Underwrite.Save
     {
         public bool CellarFound;
 
-        /// <summary>프롤로그 단계(PrologueStage).</summary>
-        public int Prologue;
+        /// <summary>프롤로그 단계. JsonUtility는 enum을 정수로 적으므로 옛 저장(int)과 그대로 맞는다.</summary>
+        public PrologueStage Prologue;
 
-        /// <summary>첫 지하 방문 튜토리얼 단계(MarketOnboardingStage).</summary>
-        public int MarketOnboarding;
+        /// <summary>첫 지하 방문 튜토리얼 단계.</summary>
+        public MarketOnboardingStage MarketOnboarding;
         public float PracticeCash = -1f;
         public bool HeroesRecognized;
         public bool FirstSessionDone;

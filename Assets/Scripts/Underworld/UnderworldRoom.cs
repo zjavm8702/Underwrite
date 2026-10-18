@@ -220,7 +220,12 @@ namespace Underwrite.Underworld
 
         private void RefreshPrompt(Transform near)
         {
-            var prompt = Root.Q<VisualElement>("room-prompt");
+            if (Prompt == null)
+            {
+                Prompt = Root.Q<VisualElement>("room-prompt");
+            }
+
+            var prompt = Prompt;
 
             if (prompt == null)
             {
@@ -260,9 +265,21 @@ namespace Underwrite.Underworld
         }
 
         /// <summary>영지 시계와 같은 순서로 적는다. 정보상이 부르면 그것을 먼저 알린다.</summary>
+        // 시계 줄 캐시. 날짜·장·초·안내가 바뀔 때만 다시 조립한다(매 프레임 문자열 조립 금지).
+        private int ClockKey = -1;
+
         private void RefreshClock()
         {
             var clock = Market.Simulation.Clock;
+            var waiting = Market.IsBriefingWaiting == true ? 1 : 0;
+            var key = ((clock.CalendarDay * 2 + (int)clock.Session) * 86400 + clock.ClockTotalSeconds) * 2 + waiting;
+
+            if (key == ClockKey)
+            {
+                return;
+            }
+
+            ClockKey = key;
             var session = clock.Session == MarketSession.Session_Evening
                 ? StringConstants.TEXT_SESSION_EVENING
                 : StringConstants.TEXT_SESSION_MORNING;
@@ -386,9 +403,25 @@ namespace Underwrite.Underworld
             return pick == 1 ? StringConstants.TEXT_INVESTOR_DOWN_2 : StringConstants.TEXT_INVESTOR_DOWN_3;
         }
 
+        private VisualElement Prompt;
+        private readonly Dictionary<string, Label> Labels = new Dictionary<string, Label>();
+
+        // 매 프레임 불린다. 찾은 이름표를 기억한다.
         private void SetText(string name, string value)
         {
-            var label = Root.Q<Label>(name);
+            Label label;
+
+            if (Labels.TryGetValue(name, out label) == false)
+            {
+                label = Root.Q<Label>(name);
+
+                if (label == null)
+                {
+                    return;
+                }
+
+                Labels.Add(name, label);
+            }
 
             if (label != null && label.text != value)
             {

@@ -48,6 +48,9 @@ namespace Underwrite.UI
         // 잠과 계절 출발(2026-10-19 정리 — 화면에서 떼어 냄).
         private VillageNightHandler Night;
 
+        // 돈 내고 묻기(2026-10-19 정리 — 화면에서 떼어 냄).
+        private VillageGatherHandler Gathering;
+
         internal VisualElement Root
         {
             get
@@ -196,7 +199,7 @@ namespace Underwrite.UI
         }
 
         /// <summary>지하거래소로 내려간다. 장중은 저장하지 않으므로 내려가기 직전을 남긴다.</summary>
-        private void GoToMarket()
+        internal void GoToMarket()
         {
             SaveSystem.Save();
             SceneManager.LoadScene(SceneRoutes.UNDERWORLD);
@@ -243,6 +246,11 @@ namespace Underwrite.UI
             if (Night == null)
             {
                 Night = new VillageNightHandler(this);
+            }
+
+            if (Gathering == null)
+            {
+                Gathering = new VillageGatherHandler(this);
             }
 
             BindLeave();
@@ -359,11 +367,24 @@ namespace Underwrite.UI
         // ── 필드 연기 (2026-10-17) ────────────────
         // 대화창은 화면을 덮는다. 그래서 상호작용은 대화 앞뒤로 필드에서 보인다.
 
+        private CharacterActor playerActor;
+
+        // 매 프레임 쓰인다 — 한 번 찾아 둔다.
         private CharacterActor PlayerActor
         {
             get
             {
-                return Player == null ? null : Player.GetComponent<CharacterActor>();
+                if (Player == null)
+                {
+                    return null;
+                }
+
+                if (playerActor == null)
+                {
+                    playerActor = Player.GetComponent<CharacterActor>();
+                }
+
+                return playerActor;
             }
         }
 
@@ -496,13 +517,6 @@ namespace Underwrite.UI
             }
         }
 
-        /// <summary>
-        /// 주인공의 반응을 적어 두고 다음 일로 바로 넘어간다. 반응은 대화가 완전히 닫힌 뒤 필드에서 한다.
-        ///
-        /// 처음에는 대화를 닫고 반응한 뒤 선택지를 다시 열었는데, 필드가 잠깐 비쳤다 다시 덮여 어색했다
-        /// (2026-10-17 사용자 보고). 그래서 같은 자리의 볼일은 끊김 없이 잇고, 자리를 뜰 때 마지막 반응을 보인다.
-        /// 더 센 반응(환호 > 깡충 > 놀람 > 끄덕)이 약한 것을 덮는다.
-        /// </summary>
         /// <summary>대화가 닫혔으면 적어 둔 반응을 필드에서 한다. 매 프레임 부른다.</summary>
         private void PlayPendingReaction()
         {
@@ -639,12 +653,6 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 묻기 전에 고르게 한다. 돈과 시간이 드는 일이므로 E 한 번에 바로 써 버리지 않는다.
-        ///
-        /// 돈이 모자라면 선택지를 잠그고 가진 돈을 보여 준다. 예전에는 영지가 지갑을 보지 않아
-        /// 가진 것보다 많이 쓸 수 있었고, 거래 화면으로 돌아가면 현금이 음수가 됐다.
-        /// </summary>
-        /// <summary>
         /// 그 자리에서 고를 것이 있는가.
         /// 들어가는 문, 값도 일도 창고도 창구도 없는 곳, 시간이 없는데 창고도 없는 곳은 고를 것이 없다.
         /// 창고가 있는 여관은 시간이 없어도 내려갈 수 있어야 한다. 다음 장이 거기서 열린다.
@@ -691,7 +699,7 @@ namespace Underwrite.UI
 
             if (OffersChoices(spot) == false)
             {
-                Gather(spot);
+                Gathering.Gather(spot);
                 return;
             }
 
@@ -711,10 +719,10 @@ namespace Underwrite.UI
             if (spot.Price > 0f && StoryProgress.CellarFound == true)
             {
                 var pay = new DialogueChoice(string.Format(StringConstants.TEXT_GATHER_PAY, spot.Price),
-                    () => Gather(spot));
-                pay.IsEnabled = money >= spot.Price && HasTime() == true;
+                    () => Gathering.Gather(spot));
+                pay.IsEnabled = money >= spot.Price && Gathering.HasTime() == true;
 
-                if (HasTime() == false)
+                if (Gathering.HasTime() == false)
                 {
                     pay.Note = StringConstants.TEXT_GATHER_NO_TIME;
                 }
@@ -1003,7 +1011,7 @@ namespace Underwrite.UI
                 return;
             }
 
-            var menu = Root.Q<Button>("village-menu");
+            var menu = Cached<Button>("village-menu");
 
             if (menu == null)
             {
@@ -1039,7 +1047,7 @@ namespace Underwrite.UI
         {
             get
             {
-                var list = Root.Q<VisualElement>("village-menu-list");
+                var list = Cached<VisualElement>("village-menu-list");
                 return list != null && list.ClassListContains("hidden") == false;
             }
         }
@@ -1066,7 +1074,7 @@ namespace Underwrite.UI
         /// </summary>
         private void BuildMenu()
         {
-            var list = Root.Q<VisualElement>("village-menu-list");
+            var list = Cached<VisualElement>("village-menu-list");
 
             if (list == null || Clock == null)
             {
@@ -1081,7 +1089,7 @@ namespace Underwrite.UI
                 MenuItem(list, string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]),
                     true, string.Empty, GameAudio.CycleVolume);
                 list.RemoveFromClassList("hidden");
-                Root.Q<Button>("village-menu").AddToClassList("village-button--on");
+                Cached<Button>("village-menu").AddToClassList("village-button--on");
                 return;
             }
 
@@ -1109,7 +1117,7 @@ namespace Underwrite.UI
             }
 
             list.RemoveFromClassList("hidden");
-            Root.Q<Button>("village-menu").AddToClassList("village-button--on");
+            Cached<Button>("village-menu").AddToClassList("village-button--on");
         }
 
         private void MenuItem(VisualElement list, string text, bool enabled, string lockedNote, System.Action action)
@@ -1131,14 +1139,14 @@ namespace Underwrite.UI
 
         private void CloseMenu()
         {
-            var list = Root.Q<VisualElement>("village-menu-list");
+            var list = Cached<VisualElement>("village-menu-list");
 
             if (list != null)
             {
                 list.AddToClassList("hidden");
             }
 
-            var menu = Root.Q<Button>("village-menu");
+            var menu = Cached<Button>("village-menu");
 
             if (menu != null)
             {
@@ -1539,7 +1547,7 @@ namespace Underwrite.UI
 
         private void RefreshPrompt()
         {
-            var prompt = Root.Q<VisualElement>("village-prompt");
+            var prompt = Cached<VisualElement>("village-prompt");
 
             if (prompt == null)
             {
@@ -1581,142 +1589,11 @@ namespace Underwrite.UI
 
             if (paid == true)
             {
-                cost = HasTime() == true ? CostOf(Here) : StringConstants.TEXT_GATHER_KEY_LATE;
+                cost = Gathering.HasTime() == true ? CostOf(Here) : StringConstants.TEXT_GATHER_KEY_LATE;
             }
 
             SetText("village-cost", cost);
             SetText("village-key", StringConstants.TEXT_GATHER_KEY);
-        }
-
-        /// <summary>
-        /// 자리에 맞는 정보를 캔다.
-        ///
-        /// 값이 비쌀수록 또렷하다. 여관은 누구 이야기가 돌지만 알려 주고,
-        /// 길드 기록은 내용까지 알려 준다. 게시판은 공짜지만 이미 다 아는 것만 있다.
-        /// </summary>
-        private void Gather(VillageSpot spot)
-        {
-            // 정보를 캐는 곳만 있는 것이 아니다. 지하시장 입구는 걸어 들어가는 문이다.
-            if (spot.Kind == VillageActivity.Activity_Enter)
-            {
-                GoToMarket();
-                return;
-            }
-
-            Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
-
-            if (HasTime() == false)
-            {
-                Say(spot, StringConstants.TEXT_GATHER_TOO_LATE, false);
-                return;
-            }
-
-            var rows = NextSlotRows();
-
-            if (rows.Count == 0)
-            {
-                SpendTime(spot);
-                GatherSession.Record(spot.Price, 0f, null);
-                Say(spot, StringConstants.TEXT_GATHER_NOTHING, false, null, ScoutBand(spot));
-                return;
-            }
-
-            var pick = rows[Random.Range(0, rows.Count)];
-            var name = StockName(pick.StockId);
-
-            string title;
-            string body;
-            GatheredNote note;
-
-            switch (spot.InfoSource)
-            {
-                case InfoSource.Source_GuildRecord:
-                {
-                    title = StringConstants.TEXT_GATHER_GUILD_TITLE;
-                    body = pick.Headline;
-                    note = new GatheredNote(pick.StockId, pick.Headline, spot.InfoSource);
-                    break;
-                }
-                case InfoSource.Source_MarketBoard:
-                {
-                    title = StringConstants.TEXT_GATHER_BOARD_TITLE;
-                    body = StringConstants.TEXT_GATHER_BOARD_BODY;
-                    note = null;
-                    break;
-                }
-                case InfoSource.Source_SmithOrder:
-                {
-                    // 대장간은 내용이 아니라 **움직임의 크기**를 알려 준다.
-                    // 누가 크게 준비하는지는 알지만 왜인지는 모른다.
-                    title = StringConstants.TEXT_GATHER_SMITH_TITLE;
-                    body = string.Format(StringConstants.TEXT_GATHER_SMITH_BODY, name);
-                    note = new GatheredNote(pick.StockId, string.Format(StringConstants.TEXT_GATHER_SMITH_NOTE, name), spot.InfoSource);
-                    break;
-                }
-                case InfoSource.Source_PrivateLetter:
-                {
-                    // 가장 비싼 만큼 가장 또렷하다. 소식의 내용이 그대로 나온다.
-                    title = StringConstants.TEXT_GATHER_LETTER_TITLE;
-                    body = pick.Headline;
-                    note = new GatheredNote(pick.StockId, pick.Headline, spot.InfoSource);
-                    break;
-                }
-                default:
-                {
-                    title = StringConstants.TEXT_GATHER_TAVERN_TITLE;
-                    body = string.Format(StringConstants.TEXT_GATHER_TAVERN_BODY, name);
-                    note = new GatheredNote(pick.StockId, string.Format(StringConstants.TEXT_GATHER_VAGUE_NOTE, name), spot.InfoSource);
-                    break;
-                }
-            }
-
-            SpendTime(spot);
-            GatherSession.Record(spot.Price, 0f, note);
-            Say(spot, body, note != null, HeldNote(pick.StockId), ScoutBand(spot));
-        }
-
-        /// <summary>
-        /// 그 자리에서 모험단 하나에 대해 알게 된다(도감). 갓 도착한 단이 먼저다 — 상장 전 조사.
-        /// 새로 알았으면 대화에 붙일 한 줄, 없으면 null.
-        /// </summary>
-        private static string ScoutBand(VillageSpot spot)
-        {
-            CodexSource source;
-
-            switch (spot.InfoSource)
-            {
-                case InfoSource.Source_GuildRecord:
-                {
-                    source = CodexSource.Codex_Guild;
-                    break;
-                }
-                case InfoSource.Source_SmithOrder:
-                {
-                    source = CodexSource.Codex_Smith;
-                    break;
-                }
-                case InfoSource.Source_TavernTalk:
-                {
-                    source = CodexSource.Codex_Tavern;
-                    break;
-                }
-                default:
-                {
-                    return null;
-                }
-            }
-
-            var sim = BreakClock.Simulation;
-            var id = BandCodex.PickUnknown(sim, source);
-            var fact = id == null ? null : BandCodex.Learn(id, source);
-
-            if (fact == null)
-            {
-                return null;
-            }
-
-            return string.Format(StringConstants.TEXT_CODEX_LEARNED,
-                string.Format(StringConstants.TEXT_CODEX_LEARNED_LINE, sim.NameOf(id), fact));
         }
 
         /// <summary>
@@ -1734,53 +1611,6 @@ namespace Underwrite.UI
 
             var quantity = sim.Wallet.QuantityOf(stockId);
             return quantity > 0 ? string.Format(StringConstants.TEXT_HELD_NOTE, quantity) : null;
-        }
-
-        /// <summary>
-        /// 자리의 주인이 말한다. 묻는 쪽은 플레이어이므로 말하는 이는 늘 그 자리의 사람이다.
-        /// </summary>
-        private void Say(VillageSpot spot, string text, bool secret, string heldNote = null, string scouted = null)
-        {
-            var line = OwnerLine(spot, text);
-            line.IsSecret = secret;
-            // 가진 종목의 소문이면 이름 옆에 붉은 배지를 붙인다. 작은 글씨 안내로는 놓친다(2026-10-17 사용자 요청).
-            line.Badge = heldNote;
-            line.Note = BuildNote(spot, secret);
-
-            var lines = new List<DialogueLine> { line };
-
-            if (scouted != null)
-            {
-                lines.Add(OwnerLine(spot, scouted));
-            }
-
-            // 대화창을 닫고 필드에서 건네는 장면은 뺐다 — 마을이 한 번 비쳤다가 다시 대화창이 떴다(2026-10-19 사장님).
-            Dialogue.Play(lines, Back(spot));
-        }
-
-        /// <summary>돈 내고 묻기에 쓸 행동력이 남아 있는가.</summary>
-        private bool HasTime()
-        {
-            return ActionPoints.Has(Constants.AP_GATHER);
-        }
-
-        /// <summary>돈 내고 묻기 — 행동력을 쓴다(돈은 부른 쪽이 기록한다).</summary>
-        private void SpendTime(VillageSpot spot)
-        {
-            ActionPoints.Spend(Constants.AP_GATHER);
-        }
-
-        private string BuildNote(VillageSpot spot, bool secret)
-        {
-            var spent = spot.Price > 0f ? string.Format(StringConstants.TEXT_GATHER_SPENT, spot.Price) : string.Empty;
-            var left = string.Format(StringConstants.TEXT_GATHER_TIME_LEFT, ActionPoints.Current);
-
-            if (secret == false)
-            {
-                return spent + left;
-            }
-
-            return spent + StringConstants.TEXT_GATHER_SECRET + left;
         }
 
         // 장소마다 이름표를 세운다. 무엇을 하는 곳인지 다가가기 전에 알 수 있게.
@@ -2330,6 +2160,27 @@ namespace Underwrite.UI
         }
 
         private readonly Dictionary<string, Label> Labels = new Dictionary<string, Label>();
+        private readonly Dictionary<string, VisualElement> Elements = new Dictionary<string, VisualElement>();
+
+        // UXML에 늘 있는 요소를 한 번 찾아 기억한다. 매 프레임 트리를 뒤지지 않게.
+        private T Cached<T>(string elementName) where T : VisualElement
+        {
+            VisualElement element;
+
+            if (Elements.TryGetValue(elementName, out element) == false)
+            {
+                element = Root.Q<T>(elementName);
+
+                if (element == null)
+                {
+                    return null;
+                }
+
+                Elements.Add(elementName, element);
+            }
+
+            return element as T;
+        }
 
         // 매 프레임 불린다. 찾은 이름표를 기억하고, 글이 같으면 다시 넣지 않는다.
         private void SetText(string elementName, string value)

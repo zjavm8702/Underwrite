@@ -23,7 +23,7 @@ namespace Underwrite.UI
 
         private readonly MarketScreenController Host;
         private readonly Label Coach;
-        private bool Busy;
+        private bool IsBusy;
         private float CoachTimer;
 
         private string PracticeStock;
@@ -108,7 +108,7 @@ namespace Underwrite.UI
                 }
             }
 
-            if (IsActive == false || Busy == true || Host.CanDirect() == false)
+            if (IsActive == false || IsBusy == true || Host.CanDirect() == false)
             {
                 return;
             }
@@ -184,7 +184,7 @@ namespace Underwrite.UI
 
         private void PlayArrive()
         {
-            Busy = true;
+            IsBusy = true;
             var lines = new List<DialogueLine>();
 
             foreach (var text in StringConstants.TEXT_MTUT_ARRIVE)
@@ -194,7 +194,7 @@ namespace Underwrite.UI
 
             Host.PlayRoomLines(lines, () =>
             {
-                Busy = false;
+                IsBusy = false;
                 Stage = MarketOnboardingStage.Onboarding_ToBoard;
                 SetCoach(StringConstants.TEXT_MTUT_COACH_BOARD);
             });
@@ -202,7 +202,7 @@ namespace Underwrite.UI
 
         private void PlayPanelTour()
         {
-            Busy = true;
+            IsBusy = true;
             SetCoach(null);
             Host.PlayTutorial(new List<TutorialStep>
             {
@@ -216,7 +216,7 @@ namespace Underwrite.UI
                 new TutorialStep("asset-row", StringConstants.TEXT_MTUT_8_TITLE, StringConstants.TEXT_MTUT_8_BODY)
             }, () =>
             {
-                Busy = false;
+                IsBusy = false;
                 StoryProgress.MarketTutorialDone = true;
                 Stage = MarketOnboardingStage.Onboarding_FirstBuy;
                 SetCoach(StringConstants.TEXT_MTUT_COACH_BUY);
@@ -225,7 +225,7 @@ namespace Underwrite.UI
 
         private void PlayTradeAgain()
         {
-            Busy = true;
+            IsBusy = true;
             SetCoach(null);
             Host.PlayTutorial(new List<TutorialStep>
             {
@@ -235,7 +235,7 @@ namespace Underwrite.UI
                 new TutorialStep("skip-button", StringConstants.TEXT_MTUT_12_TITLE, StringConstants.TEXT_MTUT_12_BODY)
             }, () =>
             {
-                Busy = false;
+                IsBusy = false;
                 Stage = MarketOnboardingStage.Onboarding_Done;
             });
         }

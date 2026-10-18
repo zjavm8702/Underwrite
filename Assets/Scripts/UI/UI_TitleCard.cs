@@ -20,7 +20,7 @@ namespace Underwrite.UI
         private float Elapsed;
         private float Fade;
         private float Hold;
-        private bool DarkFired;
+        private bool IsDarkFired;
         private Action OnDark;
         private Action OnDone;
 
@@ -79,7 +79,7 @@ namespace Underwrite.UI
             OnDark = onDark;
             OnDone = onDone;
             Elapsed = 0f;
-            DarkFired = false;
+            IsDarkFired = false;
             Overlay.style.opacity = 0f;
 
             if (Overlay.parent == null)
@@ -108,9 +108,9 @@ namespace Underwrite.UI
                 return;
             }
 
-            if (DarkFired == false)
+            if (IsDarkFired == false)
             {
-                DarkFired = true;
+                IsDarkFired = true;
                 Overlay.style.opacity = 1f;
                 Fire(ref OnDark);
             }
