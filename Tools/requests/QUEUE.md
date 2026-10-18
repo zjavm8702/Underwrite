@@ -21,6 +21,7 @@
 | 13 | `village_parts_pilot_v1~v3.md` | `VillagePartsPilot_v1~v3` | **완료** — v3 바닥(판석 45px) 통과, 영지 전체의 기준 |
 | 14 | `ui_frames_v1.md` | `UIFrames_v1` | **완료** — 적용함 |
 | 15 | `portrait_fix_v1·v2.md` | `PortraitFix_v1·v2` | **완료** — 엘프 코는 추후 재검토 |
+| 16 | `ui_market_kit_v1.md` | `MarketUI_Kit_v1` | 진행 중(10/18) — 거래 화면 키트. 슬롭 점검 5-1의 4번. 납품 뒤 과장·Codex 교차 검수 |
 
 **다음 목록은 `ART_BACKLOG.md`** (2026-10-17 정리, 우선순위 순). Codex 사용량이 적어 한 건씩 확인받고 건다.
 

@@ -416,6 +416,8 @@ namespace Underwrite.Market
         /// <summary>장 하나가 끝났음을 알린다. 계절 넘김은 여기가 아니라 재개장에서 한다(<see cref="OpenNextSession"/>).</summary>
         public void EndSession()
         {
+            // 정보 타임이 오기 전에 장이 끝났으면(건너뛰기·휴장) 묵혀 둔 결과를 지금 내놓는다.
+            ReleaseHeldOutcomes(int.MaxValue);
             GrowIndexStocks();
             Clock.CountSession();
         }
@@ -621,6 +623,19 @@ namespace Underwrite.Market
             return list;
         }
 
+        // 재개장 장에서 정보 타임까지 묵혀 두는 원정 결과(시간구조 설계안 §2 「재개장 오후장 안에서」).
+        // 1차 정보 타임에 공식 결과(대장간 장부·길드 기록), 2차에 숨은 사정(여관 소문의 진위)이 나온다.
+        // 장 밖에서는 비어 있다 — 장이 끝날 때 남은 것을 모두 내놓으므로 저장하지 않는다.
+        private readonly List<HeldOutcome> HeldOutcomes = new List<HeldOutcome>();
+
+        private sealed class HeldOutcome
+        {
+            public string StockId;
+            public string Headline;
+            public InfoSource Source;
+            public int InfoTime;
+        }
+
         private void AddCodexOutcome(string stockId, string headline, InfoSource source, bool noted)
         {
             if (noted == true)
@@ -628,9 +643,44 @@ namespace Underwrite.Market
                 headline = StringConstants.TEXT_CODEX_NOTED + headline;
             }
 
-            InfoEntries.Add(new InfoEntry(Clock.Tick, stockId, headline, source, EventStage.Stage_Outcome, true,
-                Clock.Day, Clock.Session));
-            HasPendingAlert = true;
+            HeldOutcomes.Add(new HeldOutcome
+            {
+                StockId = stockId,
+                Headline = headline,
+                Source = source,
+                InfoTime = source == InfoSource.Source_SmithOrder ? 1 : 2
+            });
+        }
+
+        /// <summary>
+        /// 묵혀 둔 결과 가운데 <paramref name="infoTime"/>번째 정보 타임까지의 것을 내놓는다.
+        /// 소식이 지하에 퍼지는 순간이라 가격이 남은 거리의 일부를 한 번 더 건너뛴다(<see cref="Constants.INFO_RELEASE_JUMP"/>).
+        /// </summary>
+        private void ReleaseHeldOutcomes(int infoTime)
+        {
+            for (var i = 0; i < HeldOutcomes.Count; i++)
+            {
+                var held = HeldOutcomes[i];
+
+                if (held.InfoTime > infoTime)
+                {
+                    continue;
+                }
+
+                InfoEntries.Add(new InfoEntry(Clock.Tick, held.StockId, held.Headline, held.Source,
+                    EventStage.Stage_Outcome, true, Clock.Day, Clock.Session));
+                HasPendingAlert = true;
+
+                AdventurerStock stock;
+
+                if (StockTable.TryGetValue(held.StockId, out stock) == true && stock.IsTradable == true)
+                {
+                    stock.SetPrice(stock.Price + (stock.TargetPrice - stock.Price) * Constants.INFO_RELEASE_JUMP);
+                }
+
+                HeldOutcomes.RemoveAt(i);
+                i--;
+            }
         }
 
         /// <summary>
@@ -1357,6 +1407,8 @@ namespace Underwrite.Market
                 InformantTips--;
                 AddInformantTip();
             }
+
+            ReleaseHeldOutcomes(InfoTimesOpened);
 
             Briefing.Clear();
 

@@ -362,6 +362,8 @@ namespace Underwrite.Global
         public static float REOPEN_GAP_SHARE = 0.6f;
         // 이보다 작게 움직인 종목은 재개장 알림에서 오르내린 수로 세지 않는다.
         public static float REOPEN_GAP_MIN_RATIO = 0.005f;
+        // 재개장 장의 정보 타임에 원정 결과가 공개될 때, 남은 거리의 이만큼을 한 번 더 건너뛴다.
+        public static float INFO_RELEASE_JUMP = 0.5f;
 
         // 계절 계획(시간구조 설계안 §3). 여관 일 한 달에 버는 돈, 짐수레 한 달에 오르는 호감.
         // 여관 일 셋이면 시작 자금(500)의 절반쯤 — 투자 자금이 필요한 계절에 고를 만하게.
