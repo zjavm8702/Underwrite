@@ -52,6 +52,7 @@ Tools/codex-art.sh -n "<요청>"     # 호출 없이 보낼 프롬프트만 확�
   - **테스트:** `unity command --no-banner --json run_tests --mode editor --filter Underwrite.Editor.Tests --filter_type assembly` (`Assets/Editor/Tests`). 판정 로직을 바꾸면 돌린다
   - **UI Toolkit 화면 캡처:** `screenshot`은 오버레이 UI가 안 찍힌다. Play 중 `capture_game_view --source screen --save_path Temp/x.png` → 실제로는 `Assets/Temp/`에 떨어지니 옮기고 지운다
   - **Play 시험은 진짜 저장 파일을 덮어쓴다**(영지 자동 저장). 시험 전 `%USERPROFILE%/AppData/LocalLow/DefaultCompany/Underwrite/underwrite_save.json`을 백업하고 끝나면 되돌린다
+    - **백업은 날짜·시각을 붙인 새 파일로 남기고 덮어쓰지 않는다** (`save_YYYYMMDD_HHMMSS.json`). 같은 이름 하나로 돌려 쓰다가 이미 덮인 세이브를 백업해 사장님 진행을 잃었다(10/18)
   - 문서: `Library/PackageCache/com.unity.pipeline@*/Documentation~/`
 - `Assets/Scripts`의 시험용 스크립트는 코드 규칙의 평가 대상이 아니다. `Documents/Claude/Underwrite_코드_작업규칙.md` §13 참고
 
