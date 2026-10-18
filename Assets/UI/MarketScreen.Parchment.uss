@@ -288,23 +288,31 @@
     border-width: 0;
 }
 
+/* 팝업·미니게임 단추는 거래 화면 키트와 같은 나무 판(2026-10-18 UI 부품 쓰임표 — 단추 계열 넷을 줄인다).
+   밀랍 빨강은 주 행동 하나(--main)에만 — 거래 화면의 「최종 주문만 밀랍」과 같은 약속. */
 .popup-button {
-    background-image: url("project://database/Assets/UI/Images/popup_button_normal.png");
+    background-image: url("project://database/Assets/UI/Images/MarketKit/kit_market_btn_normal.png");
     background-color: rgba(0, 0, 0, 0);
     -unity-slice-left: 48;
     -unity-slice-right: 48;
     -unity-slice-top: 48;
     -unity-slice-bottom: 48;
     -unity-slice-scale: 0.25px;
-    /* 밀랍 단추는 짙다. 글자는 밝게. */
-    color: #F7F0E2;
+    color: #F2E7D2;
     border-width: 0;
 }
 
-.popup-button:active,
+.popup-button:active {
+    background-image: url("project://database/Assets/UI/Images/MarketKit/kit_market_btn_pressed.png");
+}
+
 .popup-button--main {
-    background-image: url("project://database/Assets/UI/Images/popup_button_pressed.png");
+    background-image: url("project://database/Assets/UI/Images/popup_button_normal.png");
     color: #F7F0E2;
+}
+
+.popup-button--main:active {
+    background-image: url("project://database/Assets/UI/Images/popup_button_pressed.png");
 }
 
 /* ── 대화: 이 게임의 심장. 나무 테두리 안의 크림색 종이 ── */
