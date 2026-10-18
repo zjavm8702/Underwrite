@@ -43,6 +43,8 @@ namespace Underwrite.Editor
         // 벽의 문(배치표 room_block의 틈 x 140~380, 벽 바닥 y 245) 앞 — 출구와 들어온 자리(지도 1배 픽셀).
         private static readonly Vector2 EXIT_DOOR_PX = new Vector2(260f, 280f);
         private static readonly Vector2 ENTER_PX = new Vector2(260f, 420f);
+        // 벽 바닥(지도 픽셀 y). 이보다 아래에서 시작해 뺀 사물 안에 든 막이는 그 사물의 것이다(계단 옆벽).
+        private const float WALL_BOTTOM_PX = 245f;
 
         /// <summary>방에 사람과 화면을 붙일 자리들(월드 좌표).</summary>
         public sealed class RoomPoints
@@ -134,7 +136,7 @@ namespace Underwrite.Editor
 
             var holder = new GameObject("Room Parts");
             BuildPlate(plateFile, size);
-            BuildWalls(root, size, holder.transform);
+            BuildWalls(root, size, holder.transform, SkippedRects(parts));
 
             var points = new RoomPoints { Size = size / PIXELS_PER_UNIT };
 
@@ -207,7 +209,57 @@ namespace Underwrite.Editor
         }
 
         // 벽(위·좌우 테두리). 배치표의 room_block 다각형을 막는다.
-        private static void BuildWalls(Dictionary<string, object> root, Vector2 size, Transform parent)
+        // 뺀 사물이 차지하던 지도 영역(픽셀, 위 원점).
+        private static List<Rect> SkippedRects(List<object> parts)
+        {
+            var rects = new List<Rect>();
+
+            foreach (var item in parts)
+            {
+                var part = (Dictionary<string, object>)item;
+
+                if (IsSkipped((string)part["id"]) == false || part.ContainsKey("foot") == false)
+                {
+                    continue;
+                }
+
+                var foot = ToVector(part["foot"]);
+                var pivot = ToVector(part["pivot_in_png"]);
+                var partSize = ToVector(part["size"]);
+                rects.Add(new Rect(foot - pivot, partSize));
+            }
+
+            return rects;
+        }
+
+        private static bool IsInsideSkipped(List<Vector2> polygon, List<Rect> skipped)
+        {
+            var min = polygon[0];
+            var max = polygon[0];
+
+            for (var i = 1; i < polygon.Count; i++)
+            {
+                min = Vector2.Min(min, polygon[i]);
+                max = Vector2.Max(max, polygon[i]);
+            }
+
+            if (min.y < WALL_BOTTOM_PX)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < skipped.Count; i++)
+            {
+                if (skipped[i].Contains(min) == true && skipped[i].Contains(max) == true)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static void BuildWalls(Dictionary<string, object> root, Vector2 size, Transform parent, List<Rect> skipped)
         {
             if (root.TryGetValue("room_block", out var blocks) == false || blocks is List<object> list == false)
             {
@@ -220,6 +272,13 @@ namespace Underwrite.Editor
             foreach (var polygon in list)
             {
                 var points = ToVectors(polygon);
+
+                // 계단을 뺐으면 그 옆벽 막이도 뺀다 — 보이지 않는 벽이 남는다(2026-10-19 사장님).
+                if (IsInsideSkipped(points, skipped) == true)
+                {
+                    continue;
+                }
+
                 var world = new Vector2[points.Count];
 
                 for (var i = 0; i < world.Length; i++)

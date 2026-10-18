@@ -2620,29 +2620,8 @@ namespace Underwrite.UI
                 lines.Add(OwnerLine(spot, scouted));
             }
 
-            Dialogue.Play(lines, secret == true
-                ? () => StartCoroutine(HandOver(spot))
-                : Back(spot));
-        }
-
-        /// <summary>
-        /// 정보를 산 뒤 대화창을 잠깐 닫고 필드에서 건네는 장면을 보인다. 대화창이 화면을 덮어
-        /// 건네기 동작이 보이지 않았다(2026-10-17 사용자 보고). 자리의 주인이 건네고 주인공이 반응한 뒤 선택지로 돌아간다.
-        /// </summary>
-        private System.Collections.IEnumerator HandOver(VillageSpot spot)
-        {
-            Approaching = true;
-            Dialogue.Close();
-            StationNpc.GiveAt(spot.Name);
-
-            if (PlayerActor != null)
-            {
-                PlayerActor.Face(Vector2.up);
-            }
-
-            yield return new WaitForSeconds(Constants.HAND_OVER_SECONDS);
-            Approaching = false;
-            Back(spot)();
+            // 대화창을 닫고 필드에서 건네는 장면은 뺐다 — 마을이 한 번 비쳤다가 다시 대화창이 떴다(2026-10-19 사장님).
+            Dialogue.Play(lines, Back(spot));
         }
 
         /// <summary>돈 내고 묻기에 쓸 행동력이 남아 있는가.</summary>

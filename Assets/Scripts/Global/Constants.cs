@@ -786,9 +786,6 @@ namespace Underwrite.Global
         // 장소 이름표를 문 앞 자리에서 얼마나 위에 띄우는가(유닛). 문 위, 처마 아래쯤.
         public static float SIGN_HEIGHT_UNITS = 2.9f;
 
-        // 정보를 산 뒤 대화창을 닫고 건네는 장면을 보이는 시간(초). 건네기(Give) 1.3초 + 주인공 반응.
-        public static float HAND_OVER_SECONDS = 1.8f;
-
         // 이 시각(시)부터 다락방에서 잘 수 있다. 오후장이 끝나는 자정부터다(설계안 §1). 24시 이상은 다음 날 새벽.
         public static int SLEEP_FROM_HOUR = 24;
 
