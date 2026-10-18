@@ -250,10 +250,12 @@ namespace Underwrite.Global
         public const int MARKET_SESSION_MINUTES = 360;
         /// <summary>
         /// 실시간 1초가 흐르는 게임 내 분. 배속 1.0 기준.
-        /// 0.3333이면 한 틱이 실시간 15초, 한 장이 약 18분이다.
-        /// 이보다 빠르면 가격이 눈으로 따라가기 어렵고, 판단할 틈이 없다.
+        /// 0.6667이면 한 틱이 실시간 7.5초, 한 장이 약 9분이다.
+        /// 2026-10-18 0.3333(장 18분)에서 올림: 목표 플레이 시간 20~30시간(사장님)에 40계절을 담으려면 장이 절반이어야 한다.
+        /// 틱 하나의 게임 내 의미(5분, 가격 모델)는 그대로라 시장 균형은 바뀌지 않고 실시간 흐름만 빨라진다.
+        /// 표(MarketTuningData)가 이 값을 덮어쓴다.
         /// </summary>
-        public static float MARKET_MINUTES_PER_REAL_SECOND = 0.3333f;
+        public static float MARKET_MINUTES_PER_REAL_SECOND = 0.6667f;
 
         /// <summary>오전장 개장 시각. 08시부터 14시까지다(시간구조 설계안 §1).</summary>
         public const int MARKET_MORNING_START_HOUR = 8;
@@ -264,7 +266,7 @@ namespace Underwrite.Global
         /// <summary>
         /// 장중 정보 타임이 열리는 틱. 한 장에 두 번이다.
         /// 지하세계로 모험 진행 상황이 들어오는 순간이고, 그때 시장이 함께 반응한다.
-        /// 72틱 장에서 24·48이면 장 시작 6분·12분 지점이다.
+        /// 72틱 장에서 24·48이면 장 시작 3분·6분 지점이다(1배속).
         /// </summary>
         public const int INFO_TIME_FIRST_TICK = 24;
 

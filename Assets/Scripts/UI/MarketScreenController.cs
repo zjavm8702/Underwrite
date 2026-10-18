@@ -983,7 +983,7 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 배속을 돌린다. 1배 → 2배 → 4배 → 1배. 한 장이 약 18분 → 9분 → 4분 30초가 된다.
+        /// 배속을 돌린다. 1배 → 2배 → 4배 → 1배. 한 장이 약 9분 → 4분 30초 → 2분 15초가 된다.
         /// 장중에 영지를 돌아다니는 대신 고른 방법이다(2026-10-17). 두 시간 축(장 압축 / 영지 1:1)을 섞지 않는다.
         /// </summary>
         private void CycleSpeed()
@@ -1423,7 +1423,7 @@ namespace Underwrite.UI
             }
 
             // 매 프레임이 아니라 미세 호가가 바뀔 때만 다시 그린다.
-            // 틱마다 한 번이면 15초에 점 하나라 선이 멈춰 있는 것처럼 보인다.
+            // 틱마다 한 번이면 7.5초에 점 하나라 선이 멈춰 있는 것처럼 보인다.
             // generateVisualContent 안에서는 트리를 건드리지 않으므로 여기서만 요청한다.
             if (ChartTickShown == Sim.MicroSeq)
             {
@@ -1935,7 +1935,7 @@ namespace Underwrite.UI
             }
 
             // 마지막으로 지금 이 순간의 호가까지 잇는다.
-            // 틱 종가만 찍으면 15초에 한 번 꺾이는 선이 되어 멈춰 보인다.
+            // 틱 종가만 찍으면 7.5초에 한 번 꺾이는 선이 되어 멈춰 보인다.
             var livePoint = LiveChartPoint(stock, history.Count, total, min, span, size);
             painter.LineTo(livePoint);
 

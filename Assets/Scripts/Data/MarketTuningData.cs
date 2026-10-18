@@ -14,8 +14,8 @@ namespace Underwrite.Data
     public sealed class MarketTuningData : ScriptableObject
     {
         [Header("시간")]
-        [Tooltip("실시간 1초가 흐르는 게임 내 분. 0.3333이면 한 틱이 15초, 한 장이 약 18분이다.")]
-        [SerializeField] private float MinutesPerRealSecond = 0.3333f;
+        [Tooltip("실시간 1초가 흐르는 게임 내 분. 0.6667이면 한 틱이 7.5초, 한 장이 약 9분이다.")]
+        [SerializeField] private float MinutesPerRealSecond = 0.6667f;
 
         [Header("가격 흐름")]
         [Tooltip("목표가를 향해 올라갈 때의 수렴 속도.")]

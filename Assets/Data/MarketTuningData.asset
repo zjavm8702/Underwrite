@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203abbfff7dda4e4a8fa76d650c18a39, type: 3}
   m_Name: MarketTuningData
   m_EditorClassIdentifier: Underwrite.Runtime::Underwrite.Data.MarketTuningData
-  MinutesPerRealSecond: 0.3333
+  MinutesPerRealSecond: 0.6667
   ReversionPerTick: 0.02
   ReversionDownPerTick: 0.035
   NoiseBase: 0.0032
