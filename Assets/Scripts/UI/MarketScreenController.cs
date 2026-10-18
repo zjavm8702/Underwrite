@@ -547,7 +547,7 @@ namespace Underwrite.UI
                 top.Add(price);
                 top.Add(change);
 
-                var sub = new Label("보유 0주 · 평균 매입가 0.0");
+                var sub = new Label(StringConstants.TEXT_STOCK_HOLD_EMPTY);
                 sub.AddToClassList("t-note");
                 sub.name = "sub";
 
@@ -745,7 +745,7 @@ namespace Underwrite.UI
 
                 if (brought > 0)
                 {
-                    ShowToast("영지에서 들은 것", $"캐낸 소식 {brought}건이 정보 기록에 들어왔습니다.",
+                    ShowToast(StringConstants.TEXT_TOAST_BROUGHT_TITLE, string.Format(StringConstants.TEXT_TOAST_BROUGHT_BODY, brought),
                         Side, true);
                 }
 
@@ -795,8 +795,8 @@ namespace Underwrite.UI
             var news = Sim.InfoLog.Count - beforeNews;
             var sign = moved >= 0f ? "+" : string.Empty;
 
-            ShowToast("쉰 동안의 장",
-                $"장 {sessions}회가 지나갔습니다. 자산 {sign}{moved:N0}, 오간 소식 {news}건.",
+            ShowToast(StringConstants.TEXT_TOAST_AWAY_TITLE,
+                string.Format(StringConstants.TEXT_TOAST_AWAY_BODY, sessions, sign, moved, news),
                 Side, true);
         }
 
@@ -837,7 +837,7 @@ namespace Underwrite.UI
                 var notice = Sim.CycleNotices[i];
 
                 // 청산은 돈을 잃는 사건이다. 흘려보내지 않고 확인을 받는다.
-                if (notice.Contains("청산했습니다") == true)
+                if (notice.Contains(StringConstants.TEXT_NOTICE_SOLD_MARK) == true)
                 {
                     liquidation = liquidation.Length == 0 ? notice : liquidation + "\n" + notice;
                     continue;
@@ -849,7 +849,7 @@ namespace Underwrite.UI
             if (liquidation.Length > 0 && Popup != null)
             {
                 Sim.Clock.SetPaused(true);
-                Popup.Show(title, "상장 폐지", liquidation, "확인", null,
+                Popup.Show(title, StringConstants.TEXT_POPUP_DELIST_TITLE, liquidation, StringConstants.TEXT_POPUP_OK, null,
                     () => Sim.Clock.SetPaused(false), null);
             }
 
@@ -1031,15 +1031,16 @@ namespace Underwrite.UI
 
                 if (queued.Result == OrderResult.Result_Queued)
                 {
-                    Message = $"{queued.FillPrice:N1}에 {queued.Quantity}주 {verb} 주문을 걸었습니다.";
-                    ShowToast($"{verb} 주문을 걸었습니다",
-                        $"{StockName(SelectedId)} · {queued.Quantity}주 · 지정가 {queued.FillPrice:N1}", Side, true);
+                    Message = string.Format(StringConstants.TEXT_ORDER_QUEUED_MESSAGE, queued.FillPrice, queued.Quantity, verb);
+                    ShowToast(string.Format(StringConstants.TEXT_ORDER_QUEUED_TITLE, verb),
+                        string.Format(StringConstants.TEXT_ORDER_QUEUED_BODY, StockName(SelectedId), queued.Quantity,
+                            queued.FillPrice), Side, true);
                     PendingCountShown = -1;
                     return;
                 }
 
                 Message = queued.Message;
-                ShowToast("주문이 막혔습니다", queued.Message, Side, false);
+                ShowToast(StringConstants.TEXT_ORDER_BLOCKED_TITLE, queued.Message, Side, false);
                 return;
             }
 
@@ -1052,15 +1053,16 @@ namespace Underwrite.UI
 
             if (receipt.Result == OrderResult.Result_Filled)
             {
-                Message = $"{verb} {receipt.Quantity}주 @ {receipt.FillPrice:N1} = {receipt.TotalAmount:N0}";
-                ShowToast($"{verb} 체결",
-                    $"{StockName(SelectedId)} · {receipt.Quantity}주 @ {receipt.FillPrice:N1}"
-                    + $" = {receipt.TotalAmount:N0}", Side, true);
+                Message = string.Format(StringConstants.TEXT_ORDER_FILLED_MESSAGE, verb, receipt.Quantity, receipt.FillPrice,
+                    receipt.TotalAmount);
+                ShowToast(string.Format(StringConstants.TEXT_ORDER_FILLED_TITLE, verb),
+                    string.Format(StringConstants.TEXT_ORDER_FILLED_BODY, StockName(SelectedId), receipt.Quantity,
+                        receipt.FillPrice, receipt.TotalAmount), Side, true);
                 return;
             }
 
             Message = receipt.Message;
-            ShowToast("주문이 막혔습니다", receipt.Message, Side, false);
+            ShowToast(StringConstants.TEXT_ORDER_BLOCKED_TITLE, receipt.Message, Side, false);
         }
 
         /// <summary>
@@ -1304,7 +1306,9 @@ namespace Underwrite.UI
                 phase.EnableInClassList("status-chip--halt", Sim.Clock.Phase == MarketPhase.Phase_Halted);
             }
 
-            var label = Sim.Clock.Session == MarketSession.Session_Evening ? "오후장" : "오전장";
+            var label = Sim.Clock.Session == MarketSession.Session_Evening
+                ? StringConstants.TEXT_SESSION_EVENING
+                : StringConstants.TEXT_SESSION_MORNING;
             // 장이 닫혀 영지의 시간이 흐르는 동안에는 영지 시각을 보인다. 장 끝 시각에 멈춰 있으면
             // 영지에서 시간을 넘기고 와도 갱신이 안 된 것처럼 보인다(2026-10-17 사용자 보고).
             var seconds = Sim.Clock.Phase == MarketPhase.Phase_Closed && Sim.Clock.IsBreak == true
@@ -1313,22 +1317,22 @@ namespace Underwrite.UI
             SetText("clock-text",
                 // 며칠째인지 맨 앞에 — 영지 시계와 같은 순서·같은 말(2026-10-17 사용자 요청).
                 ClockText.SeasonDay(Sim.Clock.CalendarDay)
-                + $" · {label} {ClockText.FromSeconds(seconds, true)}"
-                + $" · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
-            SetText("sentiment-text", $"분위기 {SentimentText(Sim.Sentiment)}");
+                + string.Format(StringConstants.TEXT_CLOCK_SESSION, label, ClockText.FromSeconds(seconds, true))
+                + string.Format(StringConstants.TEXT_CLOCK_TICKS, Sim.Clock.Tick, Sim.Clock.TicksPerSession));
+            SetText("sentiment-text", string.Format(StringConstants.TEXT_SENTIMENT, SentimentText(Sim.Sentiment)));
 
             var pause = Root.Q<Button>("pause-button");
 
             if (pause != null)
             {
-                pause.text = Sim.Clock.IsPaused == true ? "재개" : "일시정지";
+                pause.text = Sim.Clock.IsPaused == true ? StringConstants.TEXT_RESUME : StringConstants.TEXT_PAUSE;
             }
 
             var place = Root.Q<Button>("place-button");
 
             if (place != null)
             {
-                place.text = Sim.PlayerAtMarket == true ? "지하시장에 있음" : "영지 이동 중";
+                place.text = Sim.PlayerAtMarket == true ? StringConstants.TEXT_PLACE_MARKET : StringConstants.TEXT_PLACE_MOVING;
             }
 
             SetButtonText("speed-cycle", string.Format(StringConstants.TEXT_SPEED, Mathf.RoundToInt(Sim.Clock.SpeedScale)));
@@ -1389,7 +1393,8 @@ namespace Underwrite.UI
                 if (sub != null)
                 {
                     Builder.Length = 0;
-                    Builder.Append("보유 ").Append(Sim.Wallet.QuantityOf(stock.Id)).Append("주 · 평균 매입가 ");
+                    Builder.Append(StringConstants.TEXT_STOCK_HOLD_PREFIX).Append(Sim.Wallet.QuantityOf(stock.Id))
+                        .Append(StringConstants.TEXT_STOCK_HOLD_MIDDLE);
                     Builder.Append(Sim.Wallet.AverageCostOf(stock.Id).ToString("N1"));
                     sub.text = Builder.ToString();
                 }
@@ -1438,7 +1443,7 @@ namespace Underwrite.UI
             var halted = Sim.Clock.Phase == MarketPhase.Phase_Halted;
             SetText("chart-footer", halted == true
                 ? StringConstants.TEXT_CHART_HALTED
-                : $"한 장 · {Sim.Clock.TicksPerSession}틱");
+                : string.Format(StringConstants.TEXT_CHART_FOOTER, Sim.Clock.TicksPerSession));
 
             var change = Root.Q<Label>("chart-change");
 
@@ -1538,7 +1543,7 @@ namespace Underwrite.UI
 
             // 시작 라벨은 늘 왼쪽 끝 점 오른쪽에 눕힌다. 위로 올리면 종목 이름·가격 글자와 겹친다.
             PlaceMarker(chart, "marker-open", "chart-marker-label--open",
-                $"시작 {scale.OpenValue:N1}", PlotLeft() + 12f, openY, plotWidth,
+                string.Format(StringConstants.TEXT_CHART_OPEN, scale.OpenValue), PlotLeft() + 12f, openY, plotWidth,
                 true, MarkerAnchor.Anchor_Left);
 
             // 아직 시작가가 그대로 저가(고가)이면 같은 점에 라벨 두 개가 포개진다.
@@ -1551,7 +1556,7 @@ namespace Underwrite.UI
             {
                 var lowY = ChartY(scale.LowValue, min, span, height);
                 PlaceMarker(chart, "marker-low", "chart-marker-label--low",
-                    $"저 {scale.LowValue:N1}", ChartXAt(scale.LowIndex, total, width), lowY, plotWidth,
+                    string.Format(StringConstants.TEXT_CHART_LOW, scale.LowValue), ChartXAt(scale.LowIndex, total, width), lowY, plotWidth,
                     lowY > height - CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
             }
 
@@ -1563,7 +1568,7 @@ namespace Underwrite.UI
             {
                 var highY = ChartY(scale.HighValue, min, span, height);
                 PlaceMarker(chart, "marker-high", "chart-marker-label--high",
-                    $"고 {scale.HighValue:N1}", ChartXAt(scale.HighIndex, total, width), highY, plotWidth,
+                    string.Format(StringConstants.TEXT_CHART_HIGH, scale.HighValue), ChartXAt(scale.HighIndex, total, width), highY, plotWidth,
                     highY > CHART_LABEL_EDGE, MarkerAnchor.Anchor_Center);
             }
         }
@@ -2145,12 +2150,12 @@ namespace Underwrite.UI
                     ? StringConstants.TEXT_SIDE_BUY
                     : StringConstants.TEXT_SIDE_SELL;
 
-                var text = new Label($"{name} · {order.LimitPrice:N1} {order.Quantity}주 {verb}");
+                var text = new Label(string.Format(StringConstants.TEXT_PENDING_ROW, name, order.LimitPrice, order.Quantity, verb));
                 text.AddToClassList("pending-text");
                 text.AddToClassList(order.Side == OrderSide.Side_Buy ? "rise" : "fall");
 
                 var cancel = new Button();
-                cancel.text = "취소";
+                cancel.text = StringConstants.TEXT_PENDING_CANCEL;
                 cancel.AddToClassList("pending-cancel");
                 var id = order.Id;
                 cancel.clicked += () =>
@@ -2218,7 +2223,7 @@ namespace Underwrite.UI
 
             var shown = limiting == true ? LimitPrice : fill;
 
-            SetText("price-label", halted == true ? "마지막 거래가" : "현재가");
+            SetText("price-label", halted == true ? StringConstants.TEXT_PRICE_LAST : StringConstants.TEXT_PRICE_NOW);
             SetText("order-price", stock.LivePrice.ToString("N1"));
             SetText("order-fill", halted == true ? "—" : shown.ToString("N1"));
             SetText("order-total", halted == true ? "—" : (shown * Quantity).ToString("N1"));
@@ -2250,9 +2255,11 @@ namespace Underwrite.UI
             }
 
             // 매수는 현금의 몇 할, 매도는 보유의 몇 할이다. 마지막 칸만 말이 달라진다.
-            SetButtonText("ratio-100", buying == true ? "최대" : "전량");
+            SetButtonText("ratio-100", buying == true ? StringConstants.TEXT_RATIO_MAX_BUY : StringConstants.TEXT_RATIO_MAX_SELL);
 
-            SetText("hold-qty", held == available ? $"{held}주" : $"{held}주 (가용 {available})");
+            SetText("hold-qty", held == available
+                ? string.Format(StringConstants.TEXT_HOLD_QTY, held)
+                : string.Format(StringConstants.TEXT_HOLD_QTY_LOCKED, held, available));
             var averageCost = Sim.Wallet.AverageCostOf(stock.Id);
             SetText("hold-avg", averageCost.ToString("N1"));
 
@@ -2268,7 +2275,7 @@ namespace Underwrite.UI
 
             // 유동성은 날것의 수치라 뜻이 와닿지 않는다. 이 수량이 가격을 얼마나 미는지로 적는다.
             var impactRatio = stock.LivePrice <= 0f ? 0f : (fill - stock.LivePrice) / stock.LivePrice;
-            SetText("impact-label", $"체결 충격 ({Quantity}주)");
+            SetText("impact-label", string.Format(StringConstants.TEXT_IMPACT_LABEL, Quantity));
             SetText("day-impact", halted == true
                 ? "—"
                 : (impactRatio >= 0f ? "+" : "") + (impactRatio * 100f).ToString("N1") + "%");
@@ -2298,11 +2305,13 @@ namespace Underwrite.UI
                 }
                 else if (limiting == true)
                 {
-                    submit.text = $"{LimitPrice:N1}에 {Quantity}주 {(buying == true ? "매수" : "매도")}";
+                    submit.text = string.Format(StringConstants.TEXT_SUBMIT_LIMIT, LimitPrice, Quantity,
+                        buying == true ? StringConstants.TEXT_SIDE_BUY : StringConstants.TEXT_SIDE_SELL);
                 }
                 else
                 {
-                    submit.text = $"{Quantity}주 {(buying == true ? "매수" : "매도")}";
+                    submit.text = string.Format(StringConstants.TEXT_SUBMIT_MARKET, Quantity,
+                        buying == true ? StringConstants.TEXT_SIDE_BUY : StringConstants.TEXT_SIDE_SELL);
                 }
             }
 
@@ -2350,7 +2359,7 @@ namespace Underwrite.UI
                 profit += (stock.LivePrice - holding.AverageCost) * holding.Quantity;
             }
 
-            SetText("holdings-count", $"{owned}종목");
+            SetText("holdings-count", string.Format(StringConstants.TEXT_HOLDINGS_COUNT, owned));
 
             var profitLabel = Root.Q<Label>("holdings-profit");
 
@@ -2422,7 +2431,7 @@ namespace Underwrite.UI
             var name = new Label(stock.DisplayName);
             name.AddToClassList("holding-name");
 
-            var qty = new Label($"{quantity}주");
+            var qty = new Label(string.Format(StringConstants.TEXT_HOLD_QTY, quantity));
             qty.AddToClassList("holding-qty");
 
             top.Add(name);
@@ -2431,7 +2440,7 @@ namespace Underwrite.UI
             var bottom = new VisualElement();
             bottom.AddToClassList("holding-line");
 
-            var sub = new Label($"평균 {averageCost:N1} · 평가 {value:N1}");
+            var sub = new Label(string.Format(StringConstants.TEXT_HOLDING_SUB, averageCost, value));
             sub.AddToClassList("holding-sub");
 
             var profitText = (profit >= 0f ? "+" : "") + profit.ToString("N1")
@@ -2806,7 +2815,7 @@ namespace Underwrite.UI
 
             SetToggleIcon("info-toggle-icon", InfoCollapsed);
 
-            SetText("info-count", $"{log.Count}건");
+            SetText("info-count", string.Format(StringConstants.TEXT_INFO_COUNT, log.Count));
 
             // 접혀 있으면 필터는 거를 목록이 없다. 버튼을 치워야 최근 소식 한 줄이 들어간다.
             ShowFilterButton("filter-mine");
@@ -3102,7 +3111,7 @@ namespace Underwrite.UI
                 }
                 case MarketPhase.Phase_Halted:
                 {
-                    return "휴장";
+                    return StringConstants.TEXT_MARKET_PHASE_HALTED_SHORT;
                 }
                 default:
                 {

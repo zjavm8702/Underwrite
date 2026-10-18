@@ -1463,7 +1463,7 @@ namespace Underwrite.UI
                 {
                     var pick = rows[Random.Range(0, rows.Count)];
                     var name = StockName(pick.StockId);
-                    note = new GatheredNote(pick.StockId, $"{name} 쪽에 무슨 일이 있다.", spot.InfoSource);
+                    note = new GatheredNote(pick.StockId, string.Format(StringConstants.TEXT_GATHER_VAGUE_NOTE, name), spot.InfoSource);
                     text = text + " " + string.Format(StringConstants.TEXT_WORK_RUMOR, name);
                     rumorStock = pick.StockId;
                 }
@@ -2253,10 +2253,10 @@ namespace Underwrite.UI
             }
 
             SetText("village-place", Here.Name);
-            SetText("village-cost", Here.Price > 0f ? $"{Here.Price:N0}을 낸다" : "값은 없다");
+            SetText("village-cost", Here.Price > 0f ? string.Format(StringConstants.TEXT_GATHER_COST, Here.Price) : StringConstants.TEXT_GATHER_FREE);
             SetText("village-key", HasTime() == true
-                ? "E — 묻는다"
-                : "다음 장이 코앞이다");
+                ? StringConstants.TEXT_GATHER_KEY
+                : StringConstants.TEXT_GATHER_KEY_LATE);
         }
 
         /// <summary>
@@ -2278,7 +2278,7 @@ namespace Underwrite.UI
 
             if (HasTime() == false)
             {
-                Say(spot, "다음 장이 코앞입니다. 지금 가면 개장을 놓칩니다.", false);
+                Say(spot, StringConstants.TEXT_GATHER_TOO_LATE, false);
                 return;
             }
 
@@ -2288,7 +2288,7 @@ namespace Underwrite.UI
             {
                 SpendTime(spot);
                 GatherSession.Record(spot.Price, 0f, null);
-                Say(spot, "아직 돌고 있는 이야기가 없습니다.", false, null, ScoutBand(spot));
+                Say(spot, StringConstants.TEXT_GATHER_NOTHING, false, null, ScoutBand(spot));
                 return;
             }
 
@@ -2303,15 +2303,15 @@ namespace Underwrite.UI
             {
                 case InfoSource.Source_GuildRecord:
                 {
-                    title = "기록에 적혀 있다";
+                    title = StringConstants.TEXT_GATHER_GUILD_TITLE;
                     body = pick.Headline;
                     note = new GatheredNote(pick.StockId, pick.Headline, spot.InfoSource);
                     break;
                 }
                 case InfoSource.Source_MarketBoard:
                 {
-                    title = "게시판을 훑는다";
-                    body = "새로 붙은 종이는 없습니다. 이미 시장에 돈 이야기뿐입니다.";
+                    title = StringConstants.TEXT_GATHER_BOARD_TITLE;
+                    body = StringConstants.TEXT_GATHER_BOARD_BODY;
                     note = null;
                     break;
                 }
@@ -2319,24 +2319,24 @@ namespace Underwrite.UI
                 {
                     // 대장간은 내용이 아니라 **움직임의 크기**를 알려 준다.
                     // 누가 크게 준비하는지는 알지만 왜인지는 모른다.
-                    title = "주문 장부를 넘겨 본다";
-                    body = $"{name} 쪽에서 장비를 크게 맞췄습니다. 큰 원정을 준비하는 모양입니다.";
-                    note = new GatheredNote(pick.StockId, $"{name} 쪽이 장비를 크게 맞췄다", spot.InfoSource);
+                    title = StringConstants.TEXT_GATHER_SMITH_TITLE;
+                    body = string.Format(StringConstants.TEXT_GATHER_SMITH_BODY, name);
+                    note = new GatheredNote(pick.StockId, string.Format(StringConstants.TEXT_GATHER_SMITH_NOTE, name), spot.InfoSource);
                     break;
                 }
                 case InfoSource.Source_PrivateLetter:
                 {
                     // 가장 비싼 만큼 가장 또렷하다. 소식의 내용이 그대로 나온다.
-                    title = "서신을 읽는다";
+                    title = StringConstants.TEXT_GATHER_LETTER_TITLE;
                     body = pick.Headline;
                     note = new GatheredNote(pick.StockId, pick.Headline, spot.InfoSource);
                     break;
                 }
                 default:
                 {
-                    title = "술자리에서 들었다";
-                    body = $"{name} 쪽 이야기가 돈다는 것까지는 알아냈습니다. 내용까지는 못 들었습니다.";
-                    note = new GatheredNote(pick.StockId, $"{name} 쪽에 무슨 일이 있다.", spot.InfoSource);
+                    title = StringConstants.TEXT_GATHER_TAVERN_TITLE;
+                    body = string.Format(StringConstants.TEXT_GATHER_TAVERN_BODY, name);
+                    note = new GatheredNote(pick.StockId, string.Format(StringConstants.TEXT_GATHER_VAGUE_NOTE, name), spot.InfoSource);
                     break;
                 }
             }
@@ -2469,16 +2469,16 @@ namespace Underwrite.UI
 
         private string BuildNote(VillageSpot spot, bool secret)
         {
-            var spent = spot.Price > 0f ? $"{spot.Price:N0}을 썼습니다. " : string.Empty;
+            var spent = spot.Price > 0f ? string.Format(StringConstants.TEXT_GATHER_SPENT, spot.Price) : string.Empty;
             var minutes = Clock == null ? 0 : Clock.BreakMinutesLeft;
-            var left = $"다음 장까지 {minutes / 60}시간 {minutes % 60}분.";
+            var left = string.Format(StringConstants.TEXT_GATHER_TIME_LEFT, minutes / 60, minutes % 60);
 
             if (secret == false)
             {
                 return spent + left;
             }
 
-            return spent + "시장은 아직 모르는 이야기입니다. " + left;
+            return spent + StringConstants.TEXT_GATHER_SECRET + left;
         }
 
         // 장소마다 이름표를 세운다. 무엇을 하는 곳인지 다가가기 전에 알 수 있게.

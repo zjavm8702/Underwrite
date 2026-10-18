@@ -184,6 +184,10 @@ namespace Underwrite.Global
         public static string TEXT_SEASON_DAY = "{0}년 {1} {2}일째";
         public static string TEXT_ARRIVALS_HEAD = "다음 계절 상장 예정";
         public static string TEXT_ARRIVAL_ROW = "{0} · 영지에 와 있다";
+        // 재개장 때 시장이 남기는 알림. 상장 폐지(보유 없음 · 청산)와 신규 상장.
+        public static string TEXT_NOTICE_DELIST_NONE = "{0} 상장 폐지. 보유분 없음.";
+        public static string TEXT_NOTICE_DELIST_SOLD = "{0} 상장 폐지. {1}주를 주당 {2:N1}에 청산했습니다.";
+        public static string TEXT_NOTICE_LISTED = "{0} 신규 상장. 공모가 {1:N1}.";
         // 지하 방 칠판의 분필 글씨. 종목(세 칸) · 현재가(한 칸) · 장 시작 대비(한 칸).
         public static string TEXT_CHALK_PRICE = "{0:N1}";
         public static string TEXT_CHALK_CHANGE = "{0}{1:N1}%";

@@ -915,7 +915,7 @@ namespace Underwrite.Market
 
                 if (held <= 0)
                 {
-                    Notices.Add($"{stock.DisplayName} 상장 폐지. 보유分 없음.".Replace("分", "분"));
+                    Notices.Add(string.Format(StringConstants.TEXT_NOTICE_DELIST_NONE, stock.DisplayName));
                     continue;
                 }
 
@@ -924,7 +924,7 @@ namespace Underwrite.Market
 
                 var unit = stock.TrueValue * ratio;
                 Wallet.Sell(stock.Id, held, unit);
-                Notices.Add($"{stock.DisplayName} 상장 폐지. {held}주를 주당 {unit:N1}에 청산했습니다.");
+                Notices.Add(string.Format(StringConstants.TEXT_NOTICE_DELIST_SOLD, stock.DisplayName, held, unit));
             }
         }
 
@@ -946,7 +946,7 @@ namespace Underwrite.Market
                 }
 
                 AddStock(entry.Stock);
-                Notices.Add($"{entry.Stock.DisplayName} 신규 상장. 공모가 {entry.Stock.Price:N1}.");
+                Notices.Add(string.Format(StringConstants.TEXT_NOTICE_LISTED, entry.Stock.DisplayName, entry.Stock.Price));
             }
 
             Waiting.RemoveAll(e => e.Cycle <= Clock.Cycle);
