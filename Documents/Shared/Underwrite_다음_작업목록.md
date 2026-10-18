@@ -84,6 +84,9 @@
 
 ## 6. 미뤄 둔 것
 
+- **[기술 부채] 코드에 박힌 화면 문구 약 66곳** — `MarketScreenController`·`VillageScreenController`·`MarketSimulation`의 `$"…"` 한국어 문구를 `TEXT_*` 상수로(코드 규칙 §7-2). 현지화 전에 반드시. 기계적 작업이라 데모 뒤에(과장, 10/18 집계)
+- **[기술 부채] `VillageScreenController` 3,100줄·`MarketScreenController` 3,150줄** — 규칙 §2대로 손놀림·정보 모으기·계절 계획을 Handler로 나누기. 자동 테스트(`Assets/Editor/Tests`)를 늘린 뒤에
+
 - 언어 설정(현지화) — 새 문구는 `TEXT_*` 상수로만 (`작업기록` 「추후 — 언어 설정」 참고)
 - 글꼴 교체
 - 저장 보강(주인공 위치, 여러 칸) — 지금은 「기능이 있는 정도」로 충분(사장님)
