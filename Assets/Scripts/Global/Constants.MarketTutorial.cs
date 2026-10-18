@@ -6,6 +6,11 @@ namespace Underwrite.Global
     /// </summary>
     public static partial class StringConstants
     {
+        // 지하 방 출구(계단 대신 벽의 문, 2026-10-18).
+        public static string TEXT_ROOM_EXIT = "여관 위층으로";
+        public static string TEXT_ROOM_EXIT_KEY = "E · 올라간다";
+        public static string TEXT_ROOM_EXIT_LOCKED = "장이 끝나야 올라갈 수 있다";
+
         // 1. 도착 — 정보상의 첫인사와 시장 게시판 소개.
         public static string TEXT_MTUT_TAG = "처음 온 손님";
         public static readonly string[] TEXT_MTUT_ARRIVE =

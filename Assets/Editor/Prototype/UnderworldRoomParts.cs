@@ -37,7 +37,12 @@ namespace Underwrite.Editor
 
         // 납품에는 있지만 깔지 않는 사물(배치표 id 앞부분). 검수에서 반려됐고 빼도 방이 성립하는 것.
         // 비워 두면 모두 깐다.
-        private static readonly string[] SKIP_PART_PREFIXES = { };
+        // 계단은 바닥 위에 얹힌 모형처럼 보여 뺀다(2026-10-18 사장님). 위층으로는 벽의 문(출구)에서 바로 올라간다.
+        private static readonly string[] SKIP_PART_PREFIXES = { "stairs" };
+
+        // 벽의 문(배치표 room_block의 틈 x 140~380, 벽 바닥 y 245) 앞 — 출구와 들어온 자리(지도 1배 픽셀).
+        private static readonly Vector2 EXIT_DOOR_PX = new Vector2(260f, 280f);
+        private static readonly Vector2 ENTER_PX = new Vector2(260f, 420f);
 
         /// <summary>방에 사람과 화면을 붙일 자리들(월드 좌표).</summary>
         public sealed class RoomPoints
@@ -46,6 +51,7 @@ namespace Underwrite.Editor
             public Vector2 Spawn;
             public Vector2 BoardFront;
             public Vector2 Informant;
+            public Vector2 Exit;
             public Vector2 BoardTextCenter;
             public Vector2 BoardTextSize;
             public readonly List<Vector2> Seats = new List<Vector2>();
@@ -150,6 +156,10 @@ namespace Underwrite.Editor
                 {
                     points.Spawn = ToWorld(FirstPoint(spawn), size);
                 }
+
+                // 계단을 빼서 문 앞에서 들어오고 나간다.
+                points.Exit = ToWorld(EXIT_DOOR_PX, size);
+                points.Spawn = ToWorld(ENTER_PX, size);
 
                 if (anchors.TryGetValue("informant", out var informant) == true)
                 {

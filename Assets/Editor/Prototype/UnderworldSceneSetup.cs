@@ -104,6 +104,7 @@ namespace Underwrite.Editor
             var delivery = UnderworldRoomParts.FindDelivery();
             var points = delivery == null ? null : UnderworldRoomParts.Build(delivery);
             var boardFront = new GameObject("Board Front");
+            var exit = new GameObject("Exit");
             var boardText = new GameObject("Board Text Area");
             var boardTextSize = new Vector2(BOARD_SIZE.x * 0.9f, BOARD_SIZE.y * 0.8f);
             var investorSpots = new List<Vector2>(INVESTORS);
@@ -114,6 +115,7 @@ namespace Underwrite.Editor
             {
                 VillageSceneSetup.SetGroundSize(points.Size);
                 boardFront.transform.position = new Vector3(points.BoardFront.x, points.BoardFront.y, 0f);
+                exit.transform.position = new Vector3(points.Exit.x, points.Exit.y, 0f);
                 boardText.transform.position = new Vector3(points.BoardTextCenter.x, points.BoardTextCenter.y, 0f);
                 boardTextSize = points.BoardTextSize;
                 informantAt = points.Informant;
@@ -228,6 +230,7 @@ namespace Underwrite.Editor
             so.FindProperty("Market").objectReferenceValue = market;
             so.FindProperty("Board").objectReferenceValue = board;
             so.FindProperty("Informant").objectReferenceValue = informant;
+            so.FindProperty("Exit").objectReferenceValue = GameObject.Find("Exit") == null ? null : GameObject.Find("Exit").transform;
             so.FindProperty("BoardTextArea").objectReferenceValue = boardText;
             so.FindProperty("BoardTextSize").vector2Value = boardTextSize;
 

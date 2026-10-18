@@ -35,6 +35,9 @@ namespace Underwrite.Underworld
         [Tooltip("테이블에 앉은 투자꾼들. 종목이 크게 움직이면 한 사람이 혼잣말을 한다.")]
         [SerializeField] private List<CharacterActor> Investors = new List<CharacterActor>();
 
+        [Tooltip("여관 위층으로 올라가는 출구(벽의 문). 장이 끝난 뒤에만 올라간다.")]
+        [SerializeField] private Transform Exit;
+
         [Tooltip("주식판 그림의 글자 칸 가운데. 분필 글씨가 여기에 맞춰 뜬다.")]
         [SerializeField] private Transform BoardTextArea;
 
@@ -51,6 +54,14 @@ namespace Underwrite.Underworld
         private readonly Dictionary<string, float> LastSeen = new Dictionary<string, float>();
         private float InvestorCooldown;
         private float CallTimer;
+
+        private CharacterActor PlayerActor
+        {
+            get
+            {
+                return Player == null ? null : Player.GetComponent<CharacterActor>();
+            }
+        }
 
         private void Update()
         {
@@ -115,6 +126,17 @@ namespace Underwrite.Underworld
                 return;
             }
 
+            if (near == Exit)
+            {
+                // 장이 열려 있으면 올라가지 않는다 — 장 끝내기로 넘기고 나서 올라간다.
+                if (Market.LeaveToVillage() == false && PlayerActor != null)
+                {
+                    PlayerActor.Say(StringConstants.TEXT_ROOM_EXIT_LOCKED);
+                }
+
+                return;
+            }
+
             TalkToInformant();
         }
 
@@ -168,7 +190,7 @@ namespace Underwrite.Underworld
             Transform best = null;
             var bestDistance = Constants.ROOM_REACH_DISTANCE;
             var informant = Informant == null ? null : Informant.transform;
-            var targets = new[] { Board, informant };
+            var targets = new[] { Board, informant, Exit };
 
             for (var i = 0; i < targets.Length; i++)
             {
@@ -208,7 +230,14 @@ namespace Underwrite.Underworld
             var place = near == Board ? StringConstants.TEXT_SOURCE_MARKET_BOARD : StringConstants.TEXT_INFORMANT;
             string key;
 
-            if (near == Board)
+            if (near == Exit)
+            {
+                place = StringConstants.TEXT_ROOM_EXIT;
+                key = Market.Simulation.Clock.Phase == MarketPhase.Phase_Closed
+                    ? StringConstants.TEXT_ROOM_EXIT_KEY
+                    : StringConstants.TEXT_ROOM_EXIT_LOCKED;
+            }
+            else if (near == Board)
             {
                 key = StringConstants.TEXT_ROOM_BOARD;
             }

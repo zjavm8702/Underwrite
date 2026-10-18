@@ -4,6 +4,7 @@ using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Village;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 namespace Underwrite.UI
@@ -20,6 +21,13 @@ namespace Underwrite.UI
             public VisualElement Element;
             public Vector2 Normalized;
             public string Title;
+        }
+
+        private struct LightState
+        {
+            public bool Enabled;
+            public Color Color;
+            public float Intensity;
         }
 
         private readonly VisualElement Frame;
@@ -174,6 +182,25 @@ namespace Underwrite.UI
         {
             var renderers = hidden == null ? new SpriteRenderer[0] : hidden.GetComponentsInChildren<SpriteRenderer>();
 
+            // 낮·밤 조명이 지도에 박히면 영지에 들어올 때마다 색이 달라진다. 찍는 동안만 낮 조명으로 맞춘다.
+            var lights = Object.FindObjectsByType<Light2D>();
+            var states = new LightState[lights.Length];
+
+            for (var i = 0; i < lights.Length; i++)
+            {
+                states[i] = new LightState { Enabled = lights[i].enabled, Color = lights[i].color, Intensity = lights[i].intensity };
+
+                if (lights[i].lightType == Light2D.LightType.Global)
+                {
+                    lights[i].color = Color.white;
+                    lights[i].intensity = 1f;
+                }
+                else
+                {
+                    lights[i].enabled = false;
+                }
+            }
+
             foreach (var renderer in renderers)
             {
                 renderer.enabled = false;
@@ -213,6 +240,13 @@ namespace Underwrite.UI
                 foreach (var renderer in renderers)
                 {
                     renderer.enabled = true;
+                }
+
+                for (var i = 0; i < lights.Length; i++)
+                {
+                    lights[i].enabled = states[i].Enabled;
+                    lights[i].color = states[i].Color;
+                    lights[i].intensity = states[i].Intensity;
                 }
             }
         }

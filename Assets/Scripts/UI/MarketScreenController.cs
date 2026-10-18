@@ -786,6 +786,11 @@ namespace Underwrite.UI
             var before = Sim.InfoLog.Count;
             var filled = Sim.SkipToClose();
             var news = Sim.InfoLog.Count - before;
+
+            // 넘긴 장의 정보 타임은 정보 기록에만 남긴다. 장을 넘기고 나서 정보상에게 불려 가는 건 어색하다(2026-10-18 사장님).
+            Sim.AcknowledgeBriefing();
+            IsBriefingWaiting = false;
+
             RollCycle();
             ResetViewState();
 
@@ -891,6 +896,18 @@ namespace Underwrite.UI
         /// 기획서 §11의 하루는 장 → 영지 → 장 → 취침으로 돈다.
         /// 장중에 나갈 수 있으면 가격이 흐르는 동안 정보를 캐게 되어 두 층이 겹친다.
         /// </summary>
+        /// <summary>지하 방의 출구(여관 위층으로)에서 부른다. 장이 열려 있으면 올라가지 않는다.</summary>
+        internal bool LeaveToVillage()
+        {
+            if (Sim.Clock.Phase != MarketPhase.Phase_Closed)
+            {
+                return false;
+            }
+
+            GoToVillage();
+            return true;
+        }
+
         private void GoToVillage()
         {
             // 장중에 나가면 그 장은 끝까지 흘려보낸다. 장중에 영지를 돌면 두 층이 겹치므로
