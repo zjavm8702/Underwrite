@@ -18,6 +18,8 @@ namespace Underwrite.UI
         private readonly Label Subtitle;
 
         private float Elapsed;
+        private float Fade;
+        private float Hold;
         private bool DarkFired;
         private Action OnDark;
         private Action OnDone;
@@ -48,6 +50,19 @@ namespace Underwrite.UI
         /// <summary>어두워짐 → 글씨 → 걷힘. 가장 어두울 때 <paramref name="onDark"/>, 다 걷히면 <paramref name="onDone"/>.</summary>
         public void Play(string title, string subtitle, Action onDark, Action onDone)
         {
+            Begin(title, subtitle, Constants.TITLE_CARD_FADE_SECONDS, Constants.TITLE_CARD_HOLD_SECONDS, onDark, onDone);
+        }
+
+        /// <summary>글씨 없는 짧은 암전. 장소를 옮길 때 쓴다.</summary>
+        public void Blink(Action onDark, Action onDone)
+        {
+            Begin(string.Empty, null, Constants.BLINK_FADE_SECONDS, Constants.BLINK_HOLD_SECONDS, onDark, onDone);
+        }
+
+        private void Begin(string title, string subtitle, float fade, float hold, Action onDark, Action onDone)
+        {
+            Fade = fade;
+            Hold = hold;
             Title.text = title;
             Subtitle.text = subtitle ?? string.Empty;
             Subtitle.style.display = string.IsNullOrEmpty(subtitle) == true ? DisplayStyle.None : DisplayStyle.Flex;
@@ -74,8 +89,8 @@ namespace Underwrite.UI
             }
 
             Elapsed += delta;
-            var fade = Constants.TITLE_CARD_FADE_SECONDS;
-            var hold = Constants.TITLE_CARD_HOLD_SECONDS;
+            var fade = Fade;
+            var hold = Hold;
 
             if (Elapsed < fade)
             {

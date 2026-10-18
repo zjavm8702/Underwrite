@@ -1809,6 +1809,7 @@ namespace Underwrite.UI
         private void PlayQuestIntroIfDue()
         {
             if (QuestLog.HasPendingIntro == false || Prologue == null || Prologue.AllowsQuests == false
+                || Prologue.IsDirecting == true || IsGuiding == true || (TitleCard != null && TitleCard.IsOpen == true)
                 || Dialogue == null || Dialogue.IsOpen == true
                 || Approaching == true || ClockOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || DepartureRunning == true
@@ -3788,40 +3789,53 @@ namespace Underwrite.UI
             StartCoroutine(Guide(spot, onArrive));
         }
 
+        // 짧은 암전 동안 문 앞으로 옮긴다. 자동 걷기는 장애물에 걸려 어색했다(2026-10-18 사장님 — 순간이동으로).
         private System.Collections.IEnumerator Guide(VillageSpot spot, System.Action onArrive)
         {
             IsGuiding = true;
-            var camera = FindAnyObjectByType<Unity.Cinemachine.CinemachineCamera>();
-            var follow = camera == null ? null : camera.Follow;
 
-            if (camera != null)
+            if (TitleCard == null)
             {
-                camera.Follow = spot.transform;
-                yield return new WaitForSeconds(Constants.PROLOGUE_SHOW_SECONDS);
-                camera.Follow = follow;
-                yield return new WaitForSeconds(Constants.PROLOGUE_RETURN_SECONDS);
-            }
-
-            if (Player == null)
-            {
-                IsGuiding = false;
-                onArrive();
-                yield break;
-            }
-
-            var walker = Player.GetComponent<VillageAutoWalk>();
-
-            if (walker == null)
-            {
-                walker = Player.gameObject.AddComponent<VillageAutoWalk>();
+                TitleCard = new UI_TitleCard(Root);
             }
 
             var arrived = false;
-            walker.WalkTo(spot.transform.position, () => arrived = true);
+            TitleCard.Blink(() => WarpTo(spot), () => arrived = true);
 
             while (arrived == false)
             {
                 yield return null;
+            }
+
+            IsGuiding = false;
+            onArrive();
+        }
+
+        private void WarpTo(VillageSpot spot)
+        {
+            if (Player == null)
+            {
+                return;
+            }
+
+            var from = Player.position;
+            var to = spot.transform.position + (Vector3)Constants.PROLOGUE_WARP_OFFSET;
+            var body = Player.GetComponentInChildren<Rigidbody2D>();
+
+            if (body != null)
+            {
+                body.position = to;
+                body.linearVelocity = Vector2.zero;
+            }
+
+            Player.position = to;
+
+            // 카메라가 쫓아가며 미끄러지지 않게 같은 만큼 함께 옮긴다.
+            var camera = FindAnyObjectByType<Unity.Cinemachine.CinemachineCamera>();
+
+            if (camera != null)
+            {
+                camera.OnTargetObjectWarped(Player, to - from);
             }
 
             var actor = PlayerActor;
@@ -3830,9 +3844,6 @@ namespace Underwrite.UI
             {
                 actor.Face(Vector2.up);
             }
-
-            IsGuiding = false;
-            onArrive();
         }
 
         /// <summary>여덟째 날 여관에 닿았다 — 주방 일을 거든다(그 도중에 창고를 찾는다).</summary>

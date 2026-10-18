@@ -2356,6 +2356,7 @@
 .deduce-pick {
     width: 220px;
     height: 56px;
+    -unity-text-align: middle-center;
     margin: 0 8px 0 8px;
     font-size: 20px;
     color: #2B2118;

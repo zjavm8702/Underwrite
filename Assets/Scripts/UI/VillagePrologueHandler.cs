@@ -55,6 +55,15 @@ namespace Underwrite.UI
             }
         }
 
+        /// <summary>프롤로그가 장면을 띄우는 중인가(제목 카드 · 혼잣말 · 정거장). 다른 대화가 끼어들지 않게.</summary>
+        public bool IsDirecting
+        {
+            get
+            {
+                return Directing;
+            }
+        }
+
         /// <summary>프롤로그 동안은 주인공을 직접 움직이지 못한다 — 다음 장소로 데려간다(사장님 — 강제 진행).</summary>
         public bool LocksPlayer
         {

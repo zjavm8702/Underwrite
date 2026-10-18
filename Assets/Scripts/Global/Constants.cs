@@ -476,18 +476,10 @@ namespace Underwrite.Global
         // 잠에서 깨는 여덟째 날 아침(하루 기준 분). 시장 달력의 1년 봄 1일째다.
         public static int PROLOGUE_WAKE_MINUTE = 7 * 60 + 50;
 
-        // 프롤로그 자동 이동. 걷는 속도(유닛/초, 플레이어와 같다), 도착 거리, 끼었다고 볼 시간,
-        // 길찾기 격자 한 칸, 발 크기(막힘 검사 상자), 출발·도착을 감싸는 여유.
-        public static float AUTOWALK_SPEED = 3f;
-        public static float AUTOWALK_ARRIVE_DISTANCE = 0.15f;
-        public static float AUTOWALK_STUCK_SECONDS = 2f;
-        public static float AUTOWALK_CELL = 0.4f;
-        public static readonly UnityEngine.Vector2 AUTOWALK_FOOT = new UnityEngine.Vector2(0.45f, 0.25f);
-        public static float AUTOWALK_MARGIN = 6f;
-
-        // 다음 장소를 카메라로 비추는 시간과 주인공에게 돌아온 뒤 걷기 시작까지(초).
-        public static float PROLOGUE_SHOW_SECONDS = 1.6f;
-        public static float PROLOGUE_RETURN_SECONDS = 0.7f;
+        // 프롤로그 장소 이동(순간이동). 문 앞 칸에서 조금 아래에 세운다. 암전 시간(초).
+        public static readonly UnityEngine.Vector2 PROLOGUE_WARP_OFFSET = new UnityEngine.Vector2(0f, -0.6f);
+        public static float BLINK_FADE_SECONDS = 0.35f;
+        public static float BLINK_HOLD_SECONDS = 0.2f;
 
         // 장소에 닿았을 때 돌아볼 주인을 찾는 거리(유닛).
         public static float PROLOGUE_GREET_RADIUS = 4f;
