@@ -36,8 +36,30 @@ namespace Underwrite.UI
         [Tooltip("용사단 다섯의 표정 묶음. 학자 · 검사 · 마도사 · 전사 · 요정 순서다.")]
         [SerializeField] private List<PortraitSet> HeroFaces = new List<PortraitSet>();
 
-        private VisualElement Root;
-        private UI_Dialogue Dialogue;
+        private VisualElement root;
+        private UI_Dialogue dialogue;
+
+        // 정보 모으기 놀이(2026-10-19 정리 — 화면에서 떼어 냄).
+        private VillageMiniGameHandler MiniGames;
+
+        // 용사단과 길드 창구(2026-10-19 정리 — 화면에서 떼어 냄).
+        private VillageHeroHandler Heroes;
+
+        internal VisualElement Root
+        {
+            get
+            {
+                return root;
+            }
+        }
+
+        internal UI_Dialogue Dialogue
+        {
+            get
+            {
+                return dialogue;
+            }
+        }
         private VillageSpot Here;
         private VillageNpc NearNpc;
         private TimeDial Dial;
@@ -50,7 +72,15 @@ namespace Underwrite.UI
         private UI_VillageMinimap Minimap;
 
         // 지금 선택지를 띄운 자리. 용사 테이블처럼 자리를 넘겨받지 않는 곳에서 돌아갈 곳이다.
-        private VillageSpot CurrentSpot;
+        private VillageSpot currentSpot;
+
+        internal VillageSpot CurrentSpot
+        {
+            get
+            {
+                return currentSpot;
+            }
+        }
 
         // 서로 돌아보거나 몸짓하는 중이다. 그동안 E를 다시 받지 않는다.
         private bool Approaching;
@@ -177,7 +207,7 @@ namespace Underwrite.UI
             if (Root == null)
             {
                 var document = GetComponent<UIDocument>();
-                Root = document == null ? null : document.rootVisualElement;
+                root = document == null ? null : document.rootVisualElement;
 
                 if (Root == null)
                 {
@@ -191,13 +221,23 @@ namespace Underwrite.UI
             {
                 WorldSigns.Attach(Root);
                 WorldBubbles.Attach(Root);
-                Dialogue = new UI_Dialogue(Root, DialogueTree);
+                dialogue = new UI_Dialogue(Root, DialogueTree);
                 AddSigns();
             }
 
             if (Prologue == null)
             {
                 Prologue = new VillagePrologueHandler(this);
+            }
+
+            if (MiniGames == null)
+            {
+                MiniGames = new VillageMiniGameHandler(this);
+            }
+
+            if (Heroes == null)
+            {
+                Heroes = new VillageHeroHandler(this);
             }
 
             BindLeave();
@@ -626,7 +666,7 @@ namespace Underwrite.UI
         /// 대화가 끝날 때마다 마을로 튕겨 나가면 같은 자리에서 여러 일을 할 때 E를 다시 눌러야 한다.
         /// 고를 것이 없어진 자리(시간이 다 됨 등)면 그냥 닫는다.
         /// </summary>
-        private System.Action Back(VillageSpot spot)
+        internal System.Action Back(VillageSpot spot)
         {
             return () =>
             {
@@ -646,9 +686,9 @@ namespace Underwrite.UI
         /// 자리의 선택지. <paramref name="again"/>이면 볼일을 하나 마치고 돌아온 것이다 — 처음 인사를 되풀이하지 않는다
         /// (2026-10-17 사용자 보고: "들은 게 있긴 한데…"가 자꾸 나온다).
         /// </summary>
-        private void Ask(VillageSpot spot, bool again)
+        internal void Ask(VillageSpot spot, bool again)
         {
-            CurrentSpot = spot;
+            currentSpot = spot;
 
             if (again == false)
             {
@@ -666,7 +706,7 @@ namespace Underwrite.UI
             // 용사단이 원정에서 돌아온 날, 여관 문을 열면 재회 장면이 먼저다.
             if (spot.HasCellar == true && HeroRoster.HasReturn(Today()) == true)
             {
-                PlayReturn(() => Ask(spot));
+                Heroes.PlayReturn(() => Ask(spot));
                 return;
             }
 
@@ -708,32 +748,32 @@ namespace Underwrite.UI
 
             if (spot.InfoSource == InfoSource.Source_GuildRecord)
             {
-                choices.Add(LedgerChoice(spot));
-                choices.Add(DeduceChoice(spot));
+                choices.Add(MiniGames.LedgerChoice(spot));
+                choices.Add(MiniGames.DeduceChoice(spot));
             }
 
             if (spot.InfoSource == InfoSource.Source_SmithOrder)
             {
-                choices.Add(SmithOrderChoice(spot));
+                choices.Add(MiniGames.SmithOrderChoice(spot));
             }
 
             if (spot.HasRequestDesk == true)
             {
-                choices.Add(PostChoice(spot));
+                choices.Add(Heroes.PostChoice(spot));
             }
 
             if (spot.HasCellar == true)
             {
                 if (StoryProgress.CellarFound == true)
                 {
-                    choices.Add(EavesChoice());
-                    choices.Add(DiceChoice(spot));
+                    choices.Add(MiniGames.EavesChoice());
+                    choices.Add(MiniGames.DiceChoice(spot));
                 }
 
                 // 용사단 테이블은 그들을 알아본 뒤에 연다(온보딩 — 동기 전환 장면).
                 if (StoryProgress.HeroesRecognized == true)
                 {
-                    choices.Add(HeroTableChoice(spot));
+                    choices.Add(Heroes.HeroTableChoice(spot));
                 }
 
                 choices.Add(SleepChoice());
@@ -789,324 +829,7 @@ namespace Underwrite.UI
                 () => Dialogue.Play(lines, null));
         }
 
-        // ── 용사단 (루틴 설계안) ──────────────────
-
-        /// <summary>
-        /// 여관의 용사단 테이블. 시찰일에는 하루를 함께 보내는 장면으로 바뀐다.
-        /// 원정 중이면 잠그고 언제 돌아오는지 적는다.
-        /// </summary>
-        private DialogueChoice HeroTableChoice(VillageSpot spot)
-        {
-            var day = Today();
-
-            if (HeroRoster.HasDayOff(day) == true)
-            {
-                var dayOff = new DialogueChoice(StringConstants.TEXT_HERO_DAY_OFF, PlayDayOff);
-                dayOff.Note = StringConstants.TEXT_HERO_DAY_OFF_NOTE;
-                return dayOff;
-            }
-
-            // 용사단과의 대화는 이야기다 — 행동력이 들지 않는다(2026-10-19).
-            var table = new DialogueChoice(StringConstants.TEXT_HERO_TABLE, () => OpenHeroTable(spot));
-            table.Note = StringConstants.TEXT_HERO_TABLE_NOTE;
-            return table;
-        }
-
-        private void OpenHeroTable(VillageSpot spot)
-        {
-            var day = Today();
-            var choices = new List<DialogueChoice>();
-            var heroes = HeroRoster.All;
-
-            for (var i = 0; i < heroes.Count; i++)
-            {
-                var hero = heroes[i];
-                var choice = new DialogueChoice(hero.Name, () => TalkToHero(hero));
-
-                // 떠난 사람의 자리도 테이블에 남겨 둔다. 비어 있는 것이 보여야 한다.
-                if (hero.Condition == HeroCondition.Condition_Dead)
-                {
-                    choice.IsEnabled = false;
-                    choice.Note = StringConstants.TEXT_HERO_GONE;
-                    choices.Add(choice);
-                    continue;
-                }
-
-                choice.IsEnabled = hero.LastTalkDay != day;
-                choice.Note = choice.IsEnabled == true ? hero.Role : StringConstants.TEXT_HERO_TALKED_TODAY;
-                choices.Add(choice);
-            }
-
-            choices.Add(new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot, true)));
-
-            var line = new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_HERO_TABLE_ASK);
-            line.Choices = choices;
-            Dialogue.Play(new List<DialogueLine> { line }, null);
-        }
-
-        /// <summary>
-        /// 일꾼으로서 말을 건다. 기획서 §8의 두 관계 가운데 **일상의 주인공** 쪽이다.
-        /// 대답에 따라 호감이 오르고 표정이 바뀐다. 숫자는 보여 주지 않는다.
-        /// </summary>
-        private void TalkToHero(HeroProfile hero)
-        {
-            hero.LastTalkDay = Today();
-
-            var topic = HeroTopics.Next(hero);
-
-            if (topic != null)
-            {
-                TalkAbout(hero, topic);
-                return;
-            }
-
-            var greet = HeroLine(hero, StringConstants.HERO_GREET[hero.FaceIndex], PortraitEmotion.Emotion_Neutral);
-            greet.Choices = new List<DialogueChoice>
-            {
-                new DialogueChoice(StringConstants.TEXT_HERO_REPLY_WARM, () => ReactToHero(hero, 2,
-                    StringConstants.HERO_REACT_WARM[hero.FaceIndex], PortraitEmotion.Emotion_Relieved)),
-                new DialogueChoice(StringConstants.TEXT_HERO_REPLY_CURIOUS, () => ReactToHero(hero, 1,
-                    StringConstants.HERO_REACT_CURIOUS[hero.FaceIndex], PortraitEmotion.Emotion_Anxious)),
-                new DialogueChoice(StringConstants.TEXT_HERO_REPLY_PLAIN, () => ReactToHero(hero, 0,
-                    StringConstants.HERO_REACT_PLAIN[hero.FaceIndex], PortraitEmotion.Emotion_Neutral))
-            };
-
-            Dialogue.Play(new List<DialogueLine> { greet }, null);
-        }
-
-        /// <summary>
-        /// 용사가 이야기를 꺼낸다. 주인공은 대답을 고른다. 반응부터는 평소 대화와 같다(호감·몸짓·현장 이야기).
-        /// </summary>
-        private void TalkAbout(HeroProfile hero, HeroTopic topic)
-        {
-            hero.TopicsSeen.Add(topic.Id);
-
-            var opening = HeroLine(hero, topic.Opening, topic.OpeningEmotion);
-            opening.Choices = new List<DialogueChoice>();
-
-            for (var i = 0; i < topic.Replies.Length; i++)
-            {
-                var reply = topic.Replies[i];
-                opening.Choices.Add(new DialogueChoice(reply.Text,
-                    () => ReactToHero(hero, reply.Affinity, reply.Answer, reply.AnswerEmotion)));
-            }
-
-            Dialogue.Play(new List<DialogueLine> { opening }, null);
-        }
-
-        /// <summary>
-        /// 대답에 대한 반응. 충분히 친하면 다른 용병단의 현장 이야기를 덤으로 흘린다.
-        /// 사랑하는 사람들과 가까워질수록 모르는 사람들에 대한 정보가 생긴다(루틴 설계안 — 관계와 투자의 다리).
-        /// 다만 덤일 뿐이다. 용사를 정보 도구로 만들지 않도록 확률로만 나온다.
-        /// </summary>
-        private void ReactToHero(HeroProfile hero, int affinity, string text, PortraitEmotion emotion)
-        {
-            hero.Affinity += affinity;
-
-            var lines = new List<DialogueLine> { HeroLine(hero, text, emotion) };
-
-            if (hero.Affinity >= Constants.HERO_FIELD_TALK_AFFINITY
-                && UnityEngine.Random.value < Constants.HERO_FIELD_TALK_CHANCE)
-            {
-                var rows = NextSlotRows();
-
-                if (rows.Count > 0)
-                {
-                    var pick = rows[UnityEngine.Random.Range(0, rows.Count)];
-                    var name = StockName(pick.StockId);
-                    var field = HeroLine(hero, string.Format(StringConstants.TEXT_HERO_FIELD_TALK, name, pick.Headline),
-                        PortraitEmotion.Emotion_Neutral);
-                    field.IsSecret = true;
-                    var heldTag = HeldNote(pick.StockId);
-
-                    field.Badge = heldTag;
-                    lines.Add(field);
-                    GatherSession.Record(0f, 0f, new GatheredNote(pick.StockId, pick.Headline,
-                        InfoSource.Source_TavernTalk));
-                }
-            }
-
-            // 이야기를 마치면 테이블로 돌아간다. 다른 사람에게도 말을 걸 수 있다.
-            // 따뜻하게 대답했으면 주인공도 살짝 들뜬다. 숫자 대신 몸짓으로 관계가 오른 것을 보인다.
-            System.Action back = () =>
-            {
-                if (CurrentSpot != null)
-                {
-                    OpenHeroTable(CurrentSpot);
-                }
-            };
-
-            Dialogue.Play(lines, affinity >= 2
-                ? back
-                : back);
-        }
-
-        /// <summary>
-        /// 용사단이 쉬는 날(계절의 셋째 날). 큰 관계 장면의 날이다(루틴 설계안 — 일주일의 리듬).
-        /// 가장 친한 사람이 마지막 한마디를 한다. 이번 휴장의 남은 행동력을 함께 보내는 데 쓴다.
-        /// </summary>
-        private void PlayDayOff()
-        {
-            var day = Today();
-            HeroRoster.MarkDayOff(day);
-            HeroRoster.AddAffinityToAll(1);
-
-            var favorite = HeroRoster.Favorite();
-            var sword = HeroRoster.All[1].Condition == HeroCondition.Condition_Dead ? favorite : HeroRoster.All[1];
-            var lines = new List<DialogueLine>
-            {
-                new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_OPEN),
-                HeroLine(sword, StringConstants.TEXT_DAY_OFF_INVITE, PortraitEmotion.Emotion_Neutral),
-                HeroLine(favorite, StringConstants.HERO_DAY_OFF_FAVORITE[favorite.FaceIndex],
-                    PortraitEmotion.Emotion_Happy),
-                new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_CLOSE)
-            };
-
-            // 시계는 턴제라 휴장을 넘기면 장 직전에 설 뿐이다. 대신 남은 행동력을 다 쓴다.
-            ActionPoints.Spend(ActionPoints.Current);
-
-            Dialogue.Play(lines, Back(CurrentSpot));
-        }
-
-        /// <summary>
-        /// 원정에서 돌아온 날. 후원이 닿았는지가 그들의 몸으로 돌아온다(루틴 설계안 — 한 주기의 리듬).
-        /// 의뢰가 두 번 이상 맞았으면 학자가 의뢰주를 의심하기 시작한다(후원흐름 설계안 §2-6).
-        /// </summary>
-        private void PlayReturn(System.Action onDone)
-        {
-            var day = Today();
-
-            // 데모의 마지막 귀환이면 귀환 장면 뒤에 마무리를 붙인다.
-            if (StoryProgress.DemoEndSeen == false && MarketClock.SeasonOf(day) >= Constants.DEMO_END_SEASON)
-            {
-                var after = onDone;
-                onDone = () => PlayDemoEnd(after);
-            }
-
-            HeroRoster.MarkReturn(day);
-            var heroes = HeroRoster.All;
-            var lines = new List<DialogueLine>
-            {
-                new DialogueLine(string.Empty, StringConstants.TEXT_EXPEDITION_TAG, StringConstants.TEXT_RETURN_OPEN)
-            };
-
-            // 지난 계절에 놓친 사정의 대가. 몸 상태가 바뀐 날이 지난 계절 안이면 이번 원정에서 일어난 일이다.
-            var since = MarketClock.SeasonStartDay(MarketClock.SeasonOf(day) - 1);
-            var struck = false;
-
-            for (var i = 0; i < heroes.Count; i++)
-            {
-                var hero = heroes[i];
-
-                if (hero.ConditionDay < since || hero.ConditionDay >= day)
-                {
-                    continue;
-                }
-
-                if (hero.Condition == HeroCondition.Condition_Dead)
-                {
-                    if (struck == false)
-                    {
-                        lines[0].Text = StringConstants.TEXT_RETURN_DEATH_OPEN;
-                    }
-
-                    lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_EXPEDITION_TAG,
-                        string.Format(StringConstants.TEXT_RETURN_DEATH_NAME, hero.Name)));
-                    var mourner = HeroRoster.Favorite();
-
-                    if (mourner != null)
-                    {
-                        lines.Add(HeroLine(mourner, StringConstants.TEXT_RETURN_DEATH_LINE, PortraitEmotion.Emotion_Sad));
-                    }
-
-                    struck = true;
-                }
-                else if (hero.Condition == HeroCondition.Condition_Wounded)
-                {
-                    lines.Add(HeroLine(hero, StringConstants.HERO_RETURN_WOUNDED[i], PortraitEmotion.Emotion_Sad));
-                    struck = true;
-                }
-            }
-
-            if (struck == false)
-            {
-                var warrior = heroes[Constants.HERO_INDEX_WARRIOR];
-                var speaker = warrior.Condition == HeroCondition.Condition_Dead ? HeroRoster.Favorite() : warrior;
-
-                if (speaker != null)
-                {
-                    lines.Add(HeroLine(speaker, StringConstants.TEXT_RETURN_GOOD, PortraitEmotion.Emotion_Happy));
-                }
-            }
-
-            if (heroes[0].Condition != HeroCondition.Condition_Dead
-                && PatronageLedger.Clues >= Constants.HERO_SUSPECT_CLUES)
-            {
-                lines.Add(HeroLine(heroes[0], StringConstants.TEXT_RETURN_SUSPECT, PortraitEmotion.Emotion_Shocked));
-            }
-
-            Dialogue.Play(lines, onDone);
-        }
-
-        /// <summary>
-        /// 데모 마무리(2026-10-18). 두 계절 동안 무엇을 지켰고 무엇을 잃었는지 숫자로 한 번 보여 준다.
-        /// 「조금 더 둘러본다」면 판은 그대로 이어진다 — 저장도 지우지 않는다.
-        /// </summary>
-        private void PlayDemoEnd(System.Action onStay)
-        {
-            StoryProgress.DemoEndSeen = true;
-
-            var healthy = 0;
-            var wounded = 0;
-            var dead = 0;
-            var heroes = HeroRoster.All;
-
-            for (var i = 0; i < heroes.Count; i++)
-            {
-                switch (heroes[i].Condition)
-                {
-                    case HeroCondition.Condition_Dead:
-                    {
-                        dead++;
-                        break;
-                    }
-                    case HeroCondition.Condition_Wounded:
-                    {
-                        wounded++;
-                        break;
-                    }
-                    default:
-                    {
-                        healthy++;
-                        break;
-                    }
-                }
-            }
-
-            var sim = BreakClock.Simulation;
-            var worth = (sim == null ? 0f : sim.Wallet.TotalValue(sim.StockLookup)) + GatherSession.NetChange;
-            var last = new DialogueLine(string.Empty, StringConstants.TEXT_DEMO_TAG, StringConstants.TEXT_DEMO_END_2);
-            last.Choices = new List<DialogueChoice>
-            {
-                new DialogueChoice(StringConstants.TEXT_DEMO_TO_TITLE, () =>
-                {
-                    SaveSystem.Save();
-                    SceneManager.LoadScene(SceneRoutes.INTRO);
-                }),
-                new DialogueChoice(StringConstants.TEXT_DEMO_STAY, onStay)
-            };
-
-            Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
-            Dialogue.Play(new List<DialogueLine>
-            {
-                new DialogueLine(string.Empty, StringConstants.TEXT_DEMO_TAG, StringConstants.TEXT_DEMO_END_1),
-                new DialogueLine(string.Empty, StringConstants.TEXT_DEMO_TAG, string.Format(
-                    StringConstants.TEXT_DEMO_END_SUMMARY, worth, healthy, wounded, dead, SeasonPlan.OmenClues)),
-                last
-            }, null);
-        }
-
-        private DialogueLine HeroLine(HeroProfile hero, string text, PortraitEmotion emotion)
+        internal DialogueLine HeroLine(HeroProfile hero, string text, PortraitEmotion emotion)
         {
             var line = new DialogueLine(hero.Name, hero.Role, text);
             line.Emotion = emotion;
@@ -1119,74 +842,9 @@ namespace Underwrite.UI
             return line;
         }
 
-        private int Today()
+        internal int Today()
         {
             return Clock == null ? 1 : Clock.CalendarDay;
-        }
-
-        /// <summary>길드 창구의 「익명 의뢰를 낸다」. 들은 사정이 있으면 기한을 붙여 보여 준다.</summary>
-        private DialogueChoice PostChoice(VillageSpot spot)
-        {
-            // 후원은 이 게임의 목적이다 — 행동력으로 막지 않는다. 돈은 든다(2026-10-19).
-            var post = new DialogueChoice(StringConstants.TEXT_REQUEST_POST, () => OpenRequestForm(spot));
-
-            var deadline = PatronageLedger.NearestDeadline(Today());
-            post.Note = deadline > 0
-                ? string.Format(StringConstants.TEXT_REQUEST_POST_DEADLINE, deadline)
-                : StringConstants.TEXT_REQUEST_POST_NOTE;
-            return post;
-        }
-
-        /// <summary>
-        /// 길드 창구에서 익명 의뢰를 꾸민다. 후원흐름 설계안 §3-2.
-        /// 지금은 "무엇을 위한 의뢰인가" 하나만 고른다. 나머지 항목(선지급 물자, 보수, 위험도)은 하나씩 연다.
-        /// 고르는 근거는 여관에서 엿들은 말뿐이다. 무엇이 필요한지는 화면에 적지 않는다.
-        /// </summary>
-        private void OpenRequestForm(VillageSpot spot)
-        {
-            var money = GatherSession.Available;
-            var choices = new List<DialogueChoice>
-            {
-                RequestChoice(RequestPurpose.Purpose_Healing, StringConstants.TEXT_REQUEST_PURPOSE_HEALING,
-                    Constants.REQUEST_COST_HEALING, money),
-                RequestChoice(RequestPurpose.Purpose_Gear, StringConstants.TEXT_REQUEST_PURPOSE_GEAR,
-                    Constants.REQUEST_COST_GEAR, money),
-                RequestChoice(RequestPurpose.Purpose_Supplies, StringConstants.TEXT_REQUEST_PURPOSE_SUPPLIES,
-                    Constants.REQUEST_COST_SUPPLIES, money),
-                RequestChoice(RequestPurpose.Purpose_Training, StringConstants.TEXT_REQUEST_PURPOSE_TRAINING,
-                    Constants.REQUEST_COST_TRAINING, money),
-                new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Ask(spot, true))
-            };
-
-            var line = new DialogueLine(StringConstants.TEXT_REQUEST_CLERK, spot.Name, StringConstants.TEXT_REQUEST_ASK);
-            line.Choices = choices;
-            Dialogue.Play(new List<DialogueLine> { line }, null);
-        }
-
-        private DialogueChoice RequestChoice(RequestPurpose purpose, string text, float cost, float money)
-        {
-            var choice = new DialogueChoice(text, () => PostRequest(purpose, cost));
-            choice.IsEnabled = money >= cost;
-            choice.Note = choice.IsEnabled == true
-                ? string.Format(StringConstants.TEXT_REQUEST_COST_NOTE, cost, money)
-                : string.Format(StringConstants.TEXT_GATHER_NO_MONEY, money);
-            return choice;
-        }
-
-        /// <summary>
-        /// 의뢰를 맡긴다. 돈은 영지에서 쓴 돈으로 적혀 거래 화면으로 돌아갈 때 빠진다.
-        /// 맞았는지는 여기서 알려 주지 않는다. 다음에 여관에서 일할 때 그들의 말로 듣는다.
-        /// </summary>
-        private void PostRequest(RequestPurpose purpose, float cost)
-        {
-            GatherSession.Record(cost, 0f, null);
-            PatronageLedger.Post(purpose, Today());
-
-            var line = new DialogueLine(string.Empty, StringConstants.TEXT_REQUEST_CLERK,
-                string.Format(StringConstants.TEXT_REQUEST_DONE, StringConstants.TEXT_HERO_PARTY));
-            line.Note = string.Format(StringConstants.TEXT_REQUEST_DONE_NOTE, cost);
-            Dialogue.Play(new List<DialogueLine> { line },
-                Back(CurrentSpot));
         }
 
         /// <summary>
@@ -1340,230 +998,7 @@ namespace Underwrite.UI
                 return;
             }
 
-            StartWorkOrders(spot);
-        }
-
-        // ── 주문 나르기 (2026-10-17 사장님 결정 — 실제로 해야 끝나는 일) ───────
-
-        private UI_WorkOrders Work;
-        private VillageSpot WorkSpot;
-
-        private bool WorkOpen
-        {
-            get
-            {
-                return Work != null && Work.IsOpen == true;
-            }
-        }
-
-        // 손놀림·엿듣기 화면이 떠 있는가. 떠 있는 동안 주인공은 걷지 않고 휠은 카메라로 새지 않는다.
-        private bool MiniGameOpen
-        {
-            get
-            {
-                return WorkOpen == true || (Eaves != null && Eaves.IsOpen == true);
-            }
-        }
-
-        // ── 여관 엿듣기 (시간구조 설계안 §7) ───────
-        // 술을 나르며 테이블 사이를 돈다. 누구 곁에 머물지 고르는 판단형. 하루에 한 번.
-
-        private UI_Eavesdrop Eaves;
-        private EavesdropSession EavesSession;
-        private int EavesDay;
-
-        private DialogueChoice EavesChoice()
-        {
-            var choice = new DialogueChoice(StringConstants.TEXT_EAVES_CHOICE, StartEaves);
-
-            if (EavesDay == Today())
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_EAVES_DONE_TODAY;
-            }
-            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
-            }
-            else
-            {
-                choice.Note = string.Format(StringConstants.TEXT_EAVES_CHOICE_NOTE, Constants.EAVES_TURNS,
-                    Constants.AP_MINIGAME);
-            }
-
-            return choice;
-        }
-
-        private void StartEaves()
-        {
-            var heroesTalk = HeroRoster.Favorite() != null && PatronageLedger.HasOverhear(Today()) == true;
-            EavesSession = EavesdropSession.Create(BreakClock.Simulation, heroesTalk,
-                new System.Random(Random.Range(int.MinValue, int.MaxValue)));
-
-            if (EavesSession == null)
-            {
-                Dialogue.Play(new List<DialogueLine>
-                {
-                    new DialogueLine(string.Empty, StringConstants.TEXT_EAVES_TITLE, StringConstants.TEXT_EAVES_NONE)
-                }, null);
-                return;
-            }
-
-            Dialogue.Close();
-            EavesDay = Today();
-            ActionPoints.Spend(Constants.AP_MINIGAME);
-
-            if (Eaves == null)
-            {
-                Eaves = new UI_Eavesdrop(Root);
-                Eaves.Listened += ListenAt;
-                Eaves.Left += () => Eaves.Close();
-            }
-
-            Eaves.Open(EavesSession);
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        private void ListenAt(EavesdropSession.Table table)
-        {
-            var heard = EavesSession.Listen(table);
-
-            if (heard == false)
-            {
-                if (EavesSession.IsCaught == true)
-                {
-                    Eaves.AddLine(string.Format(StringConstants.TEXT_EAVES_CAUGHT, table.Name));
-                    GameAudio.Play(SoundEffect.Sound_Close);
-                }
-
-                Eaves.Refresh();
-                return;
-            }
-
-            if (table.IsHeroes == true)
-            {
-                Eaves.AddLine(PatronageLedger.Overhear(Today()) ?? StringConstants.TEXT_EAVES_HEROES_NOTHING);
-            }
-            else if (table.IsDone == true)
-            {
-                var fact = BandCodex.Learn(table.BandId, CodexSource.Codex_Tavern);
-
-                if (fact != null)
-                {
-                    GatherSession.Record(0f, 0f, new GatheredNote(table.BandId, fact, InfoSource.Source_TavernTalk));
-                    Eaves.AddLine(string.Format(StringConstants.TEXT_EAVES_FULL, table.Name, fact));
-                }
-            }
-            else
-            {
-                Eaves.AddLine(EavesSession.FragmentOf(BreakClock.Simulation, table));
-            }
-
-            GameAudio.Play(SoundEffect.Sound_Page);
-            Eaves.Refresh();
-        }
-
-        private void StartWorkOrders(VillageSpot spot)
-        {
-            Dialogue.Close();
-            WorkSpot = spot;
-
-            if (Work == null)
-            {
-                Work = new UI_WorkOrders(Root);
-                Work.Finished += accuracy =>
-                {
-                    Work.Close();
-                    FinishWork(WorkSpot, Mathf.Lerp(Constants.WORK_MIN_PAY, 1f, accuracy));
-                };
-                Work.Skipped += () =>
-                {
-                    Work.Close();
-                    FinishWork(WorkSpot, Constants.WORK_SLOPPY_PAY);
-                };
-            }
-
-            string[] items;
-            string[] places;
-            string title;
-
-            switch (spot.InfoSource)
-            {
-                case InfoSource.Source_SmithOrder:
-                {
-                    items = StringConstants.WORK_SMITH_ITEMS;
-                    places = StringConstants.WORK_SMITH_PLACES;
-                    title = StringConstants.TEXT_WORK_TITLE_SMITH;
-                    break;
-                }
-                case InfoSource.Source_GuildRecord:
-                {
-                    items = StringConstants.WORK_GUILD_ITEMS;
-                    places = StringConstants.WORK_GUILD_PLACES;
-                    title = StringConstants.TEXT_WORK_TITLE_GUILD;
-                    break;
-                }
-                default:
-                {
-                    items = StringConstants.WORK_TAVERN_ITEMS;
-                    places = StringConstants.WORK_TAVERN_PLACES;
-                    title = StringConstants.TEXT_WORK_TITLE_TAVERN;
-                    break;
-                }
-            }
-
-            var task = WorkOrderTask.Create(items, places, Constants.WORK_ORDERS,
-                new System.Random(Random.Range(int.MinValue, int.MaxValue)));
-            Work.Open(task, title, BackgroundOf(spot.InfoSource));
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        /// <summary>일을 마쳤다. 품삯은 손놀림만큼(<paramref name="pay"/>는 정해진 품삯에 곱하는 비율).</summary>
-        private void FinishWork(VillageSpot spot, float pay)
-        {
-            Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
-
-            var quest = spot.Work;
-            var reward = Mathf.Round(quest.Reward * pay);
-            GameAudio.Play(SoundEffect.Sound_Coins);
-            var text = quest.Done;
-            GatheredNote note = null;
-            string rumorStock = null;
-
-            // 여관 일꾼의 자리. 단골인 용사단의 이야기가 들린다(후원흐름 설계안 §2-2).
-            // 의뢰에 대한 반응이 있으면 그것이, 없으면 아직 못 들은 사정이 먼저다.
-            var overheard = spot.HasCellar == true ? PatronageLedger.Overhear(Today()) : null;
-
-            if (overheard != null)
-            {
-                text = text + " " + overheard;
-            }
-            else if (quest.GivesRumor == true)
-            {
-                var rows = NextSlotRows();
-
-                if (rows.Count > 0)
-                {
-                    var pick = rows[Random.Range(0, rows.Count)];
-                    var name = StockName(pick.StockId);
-                    note = new GatheredNote(pick.StockId, string.Format(StringConstants.TEXT_GATHER_VAGUE_NOTE, name), spot.InfoSource);
-                    text = text + " " + string.Format(StringConstants.TEXT_WORK_RUMOR, name);
-                    rumorStock = pick.StockId;
-                }
-            }
-
-            GatherSession.Record(0f, reward, note);
-
-            var line = OwnerLine(spot, text);
-            line.IsSecret = note != null;
-            line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, reward, ActionPoints.Current);
-            var held = rumorStock == null ? null : HeldNote(rumorStock);
-
-            line.Badge = held;
-
-            Dialogue.Play(new List<DialogueLine> { line },
-                Back(spot));
+            MiniGames.StartWorkOrders(spot);
         }
 
         /// <summary>메뉴 단추와 원형 시계. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
@@ -1622,6 +1057,24 @@ namespace Underwrite.UI
         }
 
         // ── 메뉴 (드롭업) ─────────────────────────
+
+        // 추리형 놀이 화면이나 규칙서가 떠 있는가.
+        private bool PuzzleOpen
+        {
+            get
+            {
+                return (MiniGames != null && MiniGames.IsPuzzleOpen == true) || (Rules != null && Rules.IsOpen == true);
+            }
+        }
+
+        // 손놀림·엿듣기 화면이 떠 있는가.
+        private bool MiniGameOpen
+        {
+            get
+            {
+                return MiniGames != null && MiniGames.IsHandOpen == true;
+            }
+        }
 
         private bool MenuOpen
         {
@@ -2589,7 +2042,7 @@ namespace Underwrite.UI
         /// 그 종목을 지금 가지고 있으면 "내가 가진 종목 · N주"를 돌려준다. 아니면 null.
         /// 영지에서 캔 소식이 내 돈에 닿는지 그 자리에서 알게 한다(2026-10-17 사용자 요청).
         /// </summary>
-        private static string HeldNote(string stockId)
+        internal static string HeldNote(string stockId)
         {
             var sim = BreakClock.Simulation;
 
@@ -2683,713 +2136,6 @@ namespace Underwrite.UI
                     return StringConstants.TEXT_SIGN_TAVERN;
                 }
             }
-        }
-
-        // ── 장부 맞추기 (시간구조 설계안 §7 — 첫 추리형 정보 모으기) ───────
-        // 의뢰 기록과 지급 기록을 맞춰 어긋난 단을 찾고, 그것이 무슨 뜻인지 짐작한다. 맞히면 그 단의 대장간 사정을 안다.
-        // 돈 대신 시간과 기록 담당의 의심을 건다. 하루에 한 번.
-
-        private UI_LedgerPuzzle Ledger;
-        private LedgerPuzzle Puzzle;
-        private VillageSpot LedgerSpot;
-
-        // 추리형 정보 모으기 화면(장부 맞추기·주문서 읽기)이 떠 있는가.
-        private bool PuzzleOpen
-        {
-            get
-            {
-                return (Ledger != null && Ledger.IsOpen == true) || (Smith != null && Smith.IsOpen == true)
-                    || (Rules != null && Rules.IsOpen == true)
-                    || (Dice != null && Dice.IsOpen == true) || (Deduce != null && Deduce.IsOpen == true);
-            }
-        }
-
-        private DialogueChoice LedgerChoice(VillageSpot spot)
-        {
-            var choice = new DialogueChoice(StringConstants.TEXT_LEDGER_CHOICE, () => StartLedger(spot));
-            if (BreakClock.Simulation == null)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_LEDGER_NONE;
-            }
-            else if (StoryProgress.LedgerDay == Today())
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_LEDGER_DONE_TODAY;
-            }
-            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
-            }
-            else
-            {
-                choice.Note = string.Format(StringConstants.TEXT_LEDGER_CHOICE_NOTE, Constants.AP_MINIGAME);
-            }
-
-            return choice;
-        }
-
-        private void StartLedger(VillageSpot spot)
-        {
-            Puzzle = LedgerPuzzle.Create(BreakClock.Simulation, new System.Random(Random.Range(int.MinValue, int.MaxValue)),
-                Today());
-
-            if (Puzzle == null)
-            {
-                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_LEDGER_NONE) }, null);
-                return;
-            }
-
-            Dialogue.Close();
-            LedgerSpot = spot;
-            StoryProgress.LedgerDay = Today();
-            ActionPoints.Spend(Constants.AP_MINIGAME);
-
-            if (Ledger == null)
-            {
-                Ledger = new UI_LedgerPuzzle(Root);
-                Ledger.Picked += PickLedgerRow;
-                Ledger.Left += () => Ledger.Close();
-            }
-
-            Ledger.Open(Puzzle);
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        private void PickLedgerRow(int index)
-        {
-            if (Puzzle == null)
-            {
-                return;
-            }
-
-            if (Puzzle.Check(index) == true)
-            {
-                Ledger.Close();
-                DeduceLedger();
-                return;
-            }
-
-            Ledger.MarkWrong(index, Puzzle.Suspicion);
-            GameAudio.Play(SoundEffect.Sound_Close);
-
-            if (Puzzle.IsKickedOut == true)
-            {
-                Ledger.Close();
-                Dialogue.SetBackground(BackgroundOf(LedgerSpot.InfoSource));
-                Dialogue.Play(new List<DialogueLine> { OwnerLine(LedgerSpot, StringConstants.TEXT_LEDGER_KICKED) },
-                    null);
-            }
-        }
-
-        // 찾았다. 무슨 뜻인지 고른다. 맞는 답은 섞어서 보인다.
-        private void DeduceLedger()
-        {
-            var name = StockName(Puzzle.TargetId);
-            var options = Puzzle.TargetGains == true
-                ? StringConstants.TEXT_LEDGER_GAIN_OPTIONS
-                : StringConstants.TEXT_LEDGER_LOSS_OPTIONS;
-            var order = new List<int>();
-
-            for (var i = 0; i < options.Length; i++)
-            {
-                order.Insert(Random.Range(0, order.Count + 1), i);
-            }
-
-            var choices = new List<DialogueChoice>();
-
-            for (var i = 0; i < order.Count; i++)
-            {
-                var right = order[i] == 0;
-                choices.Add(new DialogueChoice(options[order[i]], () => ConcludeLedger(right)));
-            }
-
-            var ask = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG, StringConstants.TEXT_LEDGER_ASK);
-            ask.Choices = choices;
-
-            Dialogue.SetBackground(BackgroundOf(LedgerSpot.InfoSource));
-            Dialogue.Play(new List<DialogueLine>
-            {
-                new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
-                    string.Format(StringConstants.TEXT_LEDGER_FOUND, name, Puzzle.TargetReward, Puzzle.TargetPaid)),
-                new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
-                    Puzzle.TargetGains == true ? StringConstants.TEXT_LEDGER_CLUE_GAIN : StringConstants.TEXT_LEDGER_CLUE_LOSS),
-                ask
-            }, null);
-        }
-
-        private void ConcludeLedger(bool right)
-        {
-            if (right == false)
-            {
-                var miss = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
-                    StringConstants.TEXT_LEDGER_WRONG_GUESS);
-                Dialogue.Play(new List<DialogueLine> { miss }, null);
-                return;
-            }
-
-            var id = Puzzle.TargetId;
-            var fact = BandCodex.Learn(id, CodexSource.Codex_Smith);
-
-            if (fact != null)
-            {
-                GatherSession.Record(0f, 0f, new GatheredNote(id, fact, InfoSource.Source_SmithOrder));
-            }
-
-            var line = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
-                string.Format(StringConstants.TEXT_LEDGER_RIGHT, StockName(id), fact ?? string.Empty));
-            Dialogue.Play(new List<DialogueLine> { line }, null);
-        }
-
-        // ── 주문서 읽기 (대장간 — 셋째 정보 모으기, 추리형) ───────
-        // 여관에서 도는 소문 하나를 주문서로 가린다. 그 단의 이번 계절, 취소되지 않은 주문을 짚고 맞는 말인지 판정한다.
-        // 맞히면 도감의 소문 줄에 확인 표시가 붙는다. 엿듣기로 듣고 여기서 가리는 짝이다. 하루에 한 번.
-
-        private UI_SmithOrders Smith;
-        private SmithOrderPuzzle Orders;
-        private VillageSpot SmithSpot;
-
-        private DialogueChoice SmithOrderChoice(VillageSpot spot)
-        {
-            var choice = new DialogueChoice(StringConstants.TEXT_SMITH_CHOICE, () => StartSmithOrders(spot));
-            if (BreakClock.Simulation == null)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_SMITH_NONE;
-            }
-            else if (StoryProgress.SmithDay == Today())
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_SMITH_DONE_TODAY;
-            }
-            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
-            }
-            else
-            {
-                choice.Note = string.Format(StringConstants.TEXT_SMITH_CHOICE_NOTE, Constants.AP_MINIGAME);
-            }
-
-            return choice;
-        }
-
-        private void StartSmithOrders(VillageSpot spot)
-        {
-            Orders = SmithOrderPuzzle.Create(BreakClock.Simulation,
-                new System.Random(Random.Range(int.MinValue, int.MaxValue)), Today());
-
-            if (Orders == null)
-            {
-                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_SMITH_NONE) }, null);
-                return;
-            }
-
-            Dialogue.Close();
-            SmithSpot = spot;
-            StoryProgress.SmithDay = Today();
-            ActionPoints.Spend(Constants.AP_MINIGAME);
-
-            EnsureSmithScreen();
-            SmithPracticeDone = null;
-            Smith.Open(Orders, StockName(Orders.TargetId), BackgroundOf(spot.InfoSource));
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        // 연습 꽂이가 끝나면 부를 것(프롤로그 대장간 정거장).
-        private System.Action SmithPracticeDone;
-
-        private void EnsureSmithScreen()
-        {
-            if (Smith != null)
-            {
-                return;
-            }
-
-            Smith = new UI_SmithOrders(Root);
-            Smith.Picked += PickSmithSlip;
-            Smith.Left += () =>
-            {
-                Smith.Close();
-                EndSmithPractice();
-            };
-        }
-
-        /// <summary>연습 꽂이. 시간·의심 없이, 증거를 짚으면 끝난다(중간에 그만둬도 끝).</summary>
-        internal void StartSmithPractice(System.Action onDone)
-        {
-            Orders = SmithOrderPuzzle.CreatePractice();
-            SmithSpot = FindSpot(InfoSource.Source_SmithOrder);
-            SmithPracticeDone = onDone;
-            EnsureSmithScreen();
-            Smith.Open(Orders, string.Empty, BackgroundOf(InfoSource.Source_SmithOrder), StringConstants.TEXT_SMITH_TUT_TASK);
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        private void EndSmithPractice()
-        {
-            var done = SmithPracticeDone;
-            SmithPracticeDone = null;
-
-            if (done != null)
-            {
-                done();
-            }
-        }
-
-        private void PickSmithSlip(int index)
-        {
-            if (Orders == null)
-            {
-                return;
-            }
-
-            var pick = Orders.Check(index);
-
-            if (pick == SlipPick.Pick_Evidence && Orders.IsPractice == true)
-            {
-                Smith.Close();
-                Dialogue.SetBackground(BackgroundOf(InfoSource.Source_SmithOrder));
-                Dialogue.Play(new List<DialogueLine> { OwnerLine(SmithSpot, StringConstants.TEXT_SMITH_TUT_DONE) },
-                    EndSmithPractice);
-                return;
-            }
-
-            if (pick == SlipPick.Pick_Evidence)
-            {
-                Smith.Close();
-                JudgeRumor();
-                return;
-            }
-
-            var message = StringConstants.TEXT_SMITH_WRONG_BAND;
-
-            if (pick == SlipPick.Pick_LastSeason)
-            {
-                message = StringConstants.TEXT_SMITH_WRONG_OLD;
-            }
-            else if (pick == SlipPick.Pick_Cancelled)
-            {
-                message = StringConstants.TEXT_SMITH_WRONG_CANCELLED;
-            }
-
-            Smith.MarkWrong(index, Orders.Suspicion, message);
-            GameAudio.Play(SoundEffect.Sound_Close);
-
-            if (Orders.IsKickedOut == true)
-            {
-                Smith.Close();
-                Dialogue.SetBackground(BackgroundOf(SmithSpot.InfoSource));
-                Dialogue.Play(new List<DialogueLine> { OwnerLine(SmithSpot, StringConstants.TEXT_SMITH_KICKED) },
-                    null);
-            }
-        }
-
-        // 증거를 찾았다. 맞는 말인지 헛말인지 고른다. 두 답의 순서는 섞는다.
-        private void JudgeRumor()
-        {
-            var sayTrue = new DialogueChoice(StringConstants.TEXT_SMITH_VERDICT_TRUE, () => ConcludeRumor(true));
-            var sayFalse = new DialogueChoice(StringConstants.TEXT_SMITH_VERDICT_FALSE, () => ConcludeRumor(false));
-            var choices = Random.value < 0.5f
-                ? new List<DialogueChoice> { sayTrue, sayFalse }
-                : new List<DialogueChoice> { sayFalse, sayTrue };
-
-            var ask = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
-                string.Format(StringConstants.TEXT_SMITH_ASK, Orders.Rumor));
-            ask.Choices = choices;
-
-            Dialogue.SetBackground(BackgroundOf(SmithSpot.InfoSource));
-            Dialogue.Play(new List<DialogueLine>
-            {
-                new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
-                    string.Format(StringConstants.TEXT_SMITH_FOUND, StockName(Orders.TargetId), Orders.Evidence.Item)),
-                ask
-            }, null);
-        }
-
-        private void ConcludeRumor(bool saidTrue)
-        {
-            if (saidTrue != Orders.RumorTrue)
-            {
-                var miss = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
-                    StringConstants.TEXT_SMITH_WRONG_GUESS);
-                Dialogue.Play(new List<DialogueLine> { miss }, null);
-                return;
-            }
-
-            var id = Orders.TargetId;
-            BandCodex.Verify(id, Orders.RumorTrue);
-            GatherSession.Record(0f, 0f, new GatheredNote(id, BandCodex.LineOf(id, CodexSource.Codex_Tavern),
-                InfoSource.Source_SmithOrder));
-
-            var line = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
-                string.Format(Orders.RumorTrue == true ? StringConstants.TEXT_SMITH_RIGHT_TRUE : StringConstants.TEXT_SMITH_RIGHT_FALSE,
-                    StockName(id)));
-            Dialogue.Play(new List<DialogueLine> { line }, null);
-        }
-
-        // ── 기록 짜맞추기 (길드 — 보드게임 「미니 크라임」을 줄인 추리) ───────
-        // 기록 쪽지로 단 셋의 목적지·의뢰인을 짜맞춘다. 다 맞히면 먼 원정을 가는 단의 대장간 사정을 안다.
-        // 장부 맞추기와 같은 보상이라 둘을 견줘 보고 하나를 고른다(2026-10-18 사장님 — 구현해 보고 정한다). 하루에 한 번.
-
-        private UI_GuildDeduction Deduce;
-        private GuildDeduction DeducePuzzle;
-        private VillageSpot DeduceSpot;
-
-        private DialogueChoice DeduceChoice(VillageSpot spot)
-        {
-            var choice = new DialogueChoice(StringConstants.TEXT_DEDUCE_CHOICE, () => StartDeduce(spot));
-            if (BreakClock.Simulation == null)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_DEDUCE_NONE;
-            }
-            else if (StoryProgress.DeduceDay == Today())
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_DEDUCE_DONE_TODAY;
-            }
-            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
-            }
-            else
-            {
-                choice.Note = string.Format(StringConstants.TEXT_DEDUCE_CHOICE_NOTE, Constants.AP_MINIGAME);
-            }
-
-            return choice;
-        }
-
-        private void StartDeduce(VillageSpot spot)
-        {
-            DeducePuzzle = GuildDeduction.Create(BreakClock.Simulation,
-                new System.Random(Random.Range(int.MinValue, int.MaxValue)));
-
-            if (DeducePuzzle == null)
-            {
-                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_DEDUCE_NONE) }, null);
-                return;
-            }
-
-            Dialogue.Close();
-            DeduceSpot = spot;
-            StoryProgress.DeduceDay = Today();
-            ActionPoints.Spend(Constants.AP_MINIGAME);
-
-            EnsureDeduceScreen();
-            DeducePracticeDone = null;
-            Deduce.Open(DeducePuzzle, BackgroundOf(spot.InfoSource));
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        // 연습 기록이 끝나면 부를 것(프롤로그 길드 정거장).
-        private System.Action DeducePracticeDone;
-
-        private void EnsureDeduceScreen()
-        {
-            if (Deduce != null)
-            {
-                return;
-            }
-
-            Deduce = new UI_GuildDeduction(Root);
-            Deduce.Solved += () =>
-            {
-                Deduce.Close();
-
-                if (DeducePuzzle.IsPractice == true)
-                {
-                    Dialogue.SetBackground(BackgroundOf(InfoSource.Source_GuildRecord));
-                    Dialogue.Play(new List<DialogueLine> { OwnerLine(DeduceSpot, StringConstants.TEXT_DEDUCE_TUT_DONE) },
-                        EndDeducePractice);
-                    return;
-                }
-
-                ConcludeDeduce();
-            };
-            Deduce.Missed += OnDeduceMissed;
-            Deduce.Left += () =>
-            {
-                Deduce.Close();
-                EndDeducePractice();
-            };
-        }
-
-        /// <summary>연습 기록. 시간·기회 없이, 다 맞히면 끝난다(중간에 그만둬도 끝).</summary>
-        internal void StartDeducePractice(System.Action onDone)
-        {
-            DeducePuzzle = GuildDeduction.CreatePractice();
-            DeduceSpot = FindSpot(InfoSource.Source_GuildRecord);
-            DeducePracticeDone = onDone;
-            EnsureDeduceScreen();
-            Deduce.Open(DeducePuzzle, BackgroundOf(InfoSource.Source_GuildRecord));
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        private void EndDeducePractice()
-        {
-            var done = DeducePracticeDone;
-            DeducePracticeDone = null;
-
-            if (done != null)
-            {
-                done();
-            }
-        }
-
-        private void OnDeduceMissed(bool outOfTries)
-        {
-            if (DeducePuzzle.IsPractice == true)
-            {
-                return;
-            }
-
-            GameAudio.Play(SoundEffect.Sound_Close);
-
-            if (outOfTries == false)
-            {
-                return;
-            }
-
-            Deduce.Close();
-            Dialogue.SetBackground(BackgroundOf(DeduceSpot.InfoSource));
-            Dialogue.Play(new List<DialogueLine> { OwnerLine(DeduceSpot, StringConstants.TEXT_DEDUCE_OUT) },
-                null);
-        }
-
-        private void ConcludeDeduce()
-        {
-            var id = DeducePuzzle.TargetId;
-            var fact = BandCodex.Learn(id, CodexSource.Codex_Smith);
-
-            if (fact != null)
-            {
-                GatherSession.Record(0f, 0f, new GatheredNote(id, fact, InfoSource.Source_SmithOrder));
-            }
-
-            var line = new DialogueLine(string.Empty, StringConstants.TEXT_DEDUCE_TAG,
-                string.Format(StringConstants.TEXT_DEDUCE_RIGHT, DeducePuzzle.Destinations[0], StockName(id), fact ?? string.Empty));
-            Dialogue.SetBackground(BackgroundOf(DeduceSpot.InfoSource));
-            Dialogue.Play(new List<DialogueLine> { line }, null);
-        }
-
-        // ── 주사위 내기 (여관 — 라이어스 다이스) ───────
-        // 모험단 한 사람과 주사위로 겨룬다. 이기면 취한 상대가 그 단에 도는 말을 끝까지 털어놓고, 지면 술값을 낸다.
-        // 엿듣기를 갈음할 여관 놀이 후보(2026-10-18 사장님과 합의 — 구현해 보고 정한다). 하루에 한 번.
-
-        private UI_LiarsDice Dice;
-        private LiarsDiceGame DiceGame;
-        private string DiceBand;
-        private VillageSpot DiceSpot;
-
-        private DialogueChoice DiceChoice(VillageSpot spot)
-        {
-            var choice = new DialogueChoice(StringConstants.TEXT_DICE_CHOICE, () => StartDice(spot));
-            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
-            var money = GatherSession.Available;
-
-            if (BreakClock.Simulation == null)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_DICE_NONE;
-            }
-            else if (StoryProgress.DiceDay == Today())
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_DICE_DONE_TODAY;
-            }
-            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
-            {
-                choice.IsEnabled = false;
-                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
-            }
-            else if (money < Constants.DICE_STAKE)
-            {
-                choice.IsEnabled = false;
-                choice.Note = string.Format(StringConstants.TEXT_DICE_NO_MONEY, Constants.DICE_STAKE, money);
-            }
-            else
-            {
-                choice.Note = string.Format(StringConstants.TEXT_DICE_CHOICE_NOTE, Constants.AP_MINIGAME, Constants.DICE_STAKE);
-            }
-
-            return choice;
-        }
-
-        private void StartDice(VillageSpot spot)
-        {
-            DiceBand = PickDiceBand(BreakClock.Simulation);
-
-            if (DiceBand == null)
-            {
-                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_DICE_NONE) }, null);
-                return;
-            }
-
-            Dialogue.Close();
-            DiceSpot = spot;
-            StoryProgress.DiceDay = Today();
-            ActionPoints.Spend(Constants.AP_MINIGAME);
-
-            var boldness = Random.Range(Constants.DICE_BOLDNESS_MIN, Constants.DICE_BOLDNESS_MAX);
-            var moods = StringConstants.TEXT_DICE_MOODS;
-            var mood = moods[Mathf.Clamp((int)(boldness * moods.Length), 0, moods.Length - 1)];
-            DiceGame = new LiarsDiceGame(new System.Random(Random.Range(int.MinValue, int.MaxValue)), boldness,
-                Constants.DICE_PER_PLAYER);
-
-            EnsureDiceScreen();
-            DicePracticeDone = null;
-            Dice.Open(DiceGame, StockName(DiceBand), mood, BackgroundOf(spot.InfoSource));
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        // 연습 판이 끝나면 부를 것. 있으면 보통 판의 결과(소문·술값) 대신 이것을 부른다.
-        private System.Action DicePracticeDone;
-
-        private void EnsureDiceScreen()
-        {
-            if (Dice != null)
-            {
-                return;
-            }
-
-            Dice = new UI_LiarsDice(Root);
-            Dice.Finished += won =>
-            {
-                Dice.Close();
-                EndDice(won);
-            };
-            Dice.Left += () =>
-            {
-                Dice.Close();
-                EndDice(false);
-            };
-        }
-
-        private void EndDice(bool won)
-        {
-            var practice = DicePracticeDone;
-            DicePracticeDone = null;
-
-            if (practice != null)
-            {
-                practice();
-                return;
-            }
-
-            ConcludeDice(won);
-        }
-
-        /// <summary>
-        /// 주사위 연습 판(프롤로그 여관 정거장). 주사위와 상대의 수가 정해져 있고, 지지 않는다 — 끝나면 <paramref name="onDone"/>.
-        /// 1판: 내 손을 근거로 부르기 → 상대 허세에 「거짓말!」. 2판: 그럴듯한 말엔 올려 부르기.
-        /// </summary>
-        internal void StartDicePractice(System.Action onDone)
-        {
-            var script = new LiarsDiceScript();
-
-            var first = new LiarsDiceScript.Round
-            {
-                PlayerDice = new[] { 4, 4, 2, 6 },
-                OpponentDice = new[] { 1, 4, 5, 3 },
-                PlayerFirst = true,
-                OpenHint = StringConstants.TEXT_DICE_TUT_1_OPEN,
-                ResponseHint = StringConstants.TEXT_DICE_TUT_1_RESPONSE,
-                RevealHint = StringConstants.TEXT_DICE_TUT_1_REVEAL,
-                AllowRaise = false,
-                ExpectedCount = 2,
-                ExpectedFace = 4
-            };
-            first.OpponentMoves.Add(new[] { 6, 4 });
-            script.Rounds.Add(first);
-
-            var second = new LiarsDiceScript.Round
-            {
-                PlayerDice = new[] { 3, 3, 5, 1 },
-                OpponentDice = new[] { 3, 2, 6, 6 },
-                PlayerFirst = false,
-                ResponseHint = StringConstants.TEXT_DICE_TUT_2_RESPONSE,
-                RevealHint = StringConstants.TEXT_DICE_TUT_2_REVEAL,
-                AllowCall = false,
-                ExpectedCount = 3,
-                ExpectedFace = 3
-            };
-            second.OpponentMoves.Add(new[] { 2, 3 });
-            second.OpponentMoves.Add(new[] { 0, 0 });
-            script.Rounds.Add(second);
-
-            DiceGame = new LiarsDiceGame(script);
-            EnsureDiceScreen();
-            DicePracticeDone = onDone;
-            Dice.Open(DiceGame, StringConstants.TEXT_DICE_TUT_OPPONENT, StringConstants.TEXT_DICE_TUT_MOOD,
-                BackgroundOf(InfoSource.Source_TavernTalk));
-            GameAudio.Play(SoundEffect.Sound_Page);
-        }
-
-        // 아직 도는 말을 모르는 단을 먼저 고른다. 다 알면 아무 단이나 — 술값 내기는 할 수 있다.
-        private static string PickDiceBand(MarketSimulation sim)
-        {
-            if (sim == null)
-            {
-                return null;
-            }
-
-            var unknown = new List<string>();
-            var any = new List<string>();
-
-            foreach (var id in sim.CodexSubjects())
-            {
-                if (sim.CodexProfileOf(id) < 0)
-                {
-                    continue;
-                }
-
-                any.Add(id);
-
-                if (BandCodex.IsKnown(id, CodexSource.Codex_Tavern) == false)
-                {
-                    unknown.Add(id);
-                }
-            }
-
-            var pool = unknown.Count > 0 ? unknown : any;
-            return pool.Count == 0 ? null : pool[Random.Range(0, pool.Count)];
-        }
-
-        private void ConcludeDice(bool won)
-        {
-            Dialogue.SetBackground(BackgroundOf(DiceSpot.InfoSource));
-
-            if (won == false)
-            {
-                GatherSession.Record(Constants.DICE_STAKE, 0f, null);
-                GameAudio.Play(SoundEffect.Sound_Coins);
-                var lost = new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG,
-                    string.Format(StringConstants.TEXT_DICE_LOST, Constants.DICE_STAKE));
-                Dialogue.Play(new List<DialogueLine> { lost }, null);
-                return;
-            }
-
-            var fact = BandCodex.Learn(DiceBand, CodexSource.Codex_Tavern);
-            var lines = new List<DialogueLine>();
-
-            if (fact == null)
-            {
-                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG, StringConstants.TEXT_DICE_WON_NOTHING));
-            }
-            else
-            {
-                GatherSession.Record(0f, 0f, new GatheredNote(DiceBand, fact, InfoSource.Source_TavernTalk));
-                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG,
-                    string.Format(StringConstants.TEXT_DICE_WON, StockName(DiceBand))));
-                lines.Add(new DialogueLine(string.Empty, StockName(DiceBand), fact));
-            }
-
-            Dialogue.Play(lines, null);
         }
 
         // ── 출발과 계절 계획 (시간구조 설계안 §2·§3) ───────
@@ -3924,19 +2670,19 @@ namespace Underwrite.UI
             // 연습 판 전에 규칙서를 넘겨 본다 - 규칙을 다 보고 나서 손으로 해 본다(2026-10-18 사장님).
             if (place == InfoSource.Source_TavernTalk)
             {
-                OpenRules(StringConstants.TEXT_RULE_DICE_HEADING, MiniGameRules.Dice(), place, () => StartDicePractice(onDone));
+                OpenRules(StringConstants.TEXT_RULE_DICE_HEADING, MiniGameRules.Dice(), place, () => MiniGames.StartDicePractice(onDone));
                 return true;
             }
 
             if (place == InfoSource.Source_SmithOrder)
             {
-                OpenRules(StringConstants.TEXT_RULE_SMITH_HEADING, MiniGameRules.Smith(), place, () => StartSmithPractice(onDone));
+                OpenRules(StringConstants.TEXT_RULE_SMITH_HEADING, MiniGameRules.Smith(), place, () => MiniGames.StartSmithPractice(onDone));
                 return true;
             }
 
             if (place == InfoSource.Source_GuildRecord)
             {
-                OpenRules(StringConstants.TEXT_RULE_DEDUCE_HEADING, MiniGameRules.Deduce(), place, () => StartDeducePractice(onDone));
+                OpenRules(StringConstants.TEXT_RULE_DEDUCE_HEADING, MiniGameRules.Deduce(), place, () => MiniGames.StartDeducePractice(onDone));
                 return true;
             }
 
@@ -4114,7 +2860,7 @@ namespace Underwrite.UI
             return line;
         }
 
-        private static string BackgroundOf(InfoSource source)
+        internal static string BackgroundOf(InfoSource source)
         {
             switch (source)
             {
@@ -4142,7 +2888,7 @@ namespace Underwrite.UI
         }
 
         /// <summary>다음 정보 타임에 들어올 소식. 그것을 미리 캐는 것이 조사다.</summary>
-        private List<EventEntry> NextSlotRows()
+        internal List<EventEntry> NextSlotRows()
         {
             var found = new List<EventEntry>();
 
@@ -4174,7 +2920,7 @@ namespace Underwrite.UI
             return name == stockId ? StockName(stockId) : name;
         }
 
-        private string StockName(string stockId)
+        internal string StockName(string stockId)
         {
             if (Data == null || Data.StockRows == null)
             {
