@@ -214,7 +214,9 @@ namespace Underwrite.Save
             StoryProgress.MarketOnboarding = (MarketOnboardingStage)onboarding;
             StoryProgress.PracticeCash = data.Story.PracticeCash;
             // 행동력이 생기기 전 저장(10/18)은 값이 false다 — 이미 용사단을 만난 판이면 안내를 본 것으로 쳐서 행동력을 바로 채운다.
-            StoryProgress.ActionTutorialDone = data.Story.ActionTutorialDone == true || data.QuestIndex > Constants.QUEST_HEROES_MET_INDEX;
+            // 옛 저장은 행동력 열쇠가 없어 기본값(-1)이다. 지금 저장은 지하를 찾은 뒤 열쇠가 늘 있으니 false를 그대로 둔다(Codex 리뷰 10/19).
+            var legacy = data.Story.ActionFilledKey < 0 && data.QuestIndex > Constants.QUEST_HEROES_MET_INDEX;
+            StoryProgress.ActionTutorialDone = data.Story.ActionTutorialDone == true || legacy == true;
             // 이 장면이 생기기 전 저장(10/18)에서 이미 용사단과 이야기했으면 본 것으로 친다. 첫 장 판정이 읽으니 먼저 복원한다.
             StoryProgress.HeroesRecognized = data.Story.HeroesRecognized == true || data.QuestIndex > Constants.QUEST_HEROES_MET_INDEX;
             StoryProgress.FirstSessionDone = data.Story.FirstSessionDone == true || StoryProgress.HeroesRecognized == true

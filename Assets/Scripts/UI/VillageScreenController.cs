@@ -1293,6 +1293,8 @@ namespace Underwrite.UI
         private VillageNpc TagNpc;
         private int TagHeld = -1;
         private int TagStage = -1;
+        private string TagGroup;
+        private string TagStock;
         private string TagText;
 
         // 장소 값 칸. 서 있는 동안 매 프레임 불리니 장소가 바뀔 때만 만든다.
@@ -1321,9 +1323,15 @@ namespace Underwrite.UI
                 stage = (int)sim.StageOf(party.Stock);
             }
 
-            if (npc != TagNpc || held != TagHeld || stage != TagStage || TagText == null)
+            // 같은 사람에게 다른 단이 배정될 수 있다(PartyCasting) — 소속 이름과 종목도 본다(Codex 리뷰 10/19).
+            var stock = party == null ? null : party.Stock;
+
+            if (npc != TagNpc || held != TagHeld || stage != TagStage || TagText == null
+                || ReferenceEquals(npc.Group, TagGroup) == false || ReferenceEquals(stock, TagStock) == false)
             {
                 TagNpc = npc;
+                TagGroup = npc.Group;
+                TagStock = stock;
                 TagHeld = held;
                 TagStage = stage;
                 TagText = TagOf(npc);
