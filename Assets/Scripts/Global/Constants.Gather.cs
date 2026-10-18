@@ -9,8 +9,8 @@ namespace Underwrite.Global
         public static string TEXT_GATHER_COST = "{0:N0}을 낸다";
         public static string TEXT_GATHER_FREE = "값은 없다";
         public static string TEXT_GATHER_KEY = "E — 묻는다";
-        public static string TEXT_GATHER_KEY_LATE = "다음 장이 코앞이다";
-        public static string TEXT_GATHER_TOO_LATE = "다음 장이 코앞입니다. 지금 가면 개장을 놓칩니다.";
+        public static string TEXT_GATHER_KEY_LATE = "행동력이 없다";
+        public static string TEXT_GATHER_TOO_LATE = "행동력이 없다. 장으로 가거나, 새벽이면 자야 한다.";
         public static string TEXT_GATHER_NOTHING = "아직 돌고 있는 이야기가 없습니다.";
 
         public static string TEXT_GATHER_GUILD_TITLE = "기록에 적혀 있다";
@@ -27,7 +27,7 @@ namespace Underwrite.Global
         public static string TEXT_GATHER_VAGUE_NOTE = "{0} 쪽에 무슨 일이 있다.";
 
         public static string TEXT_GATHER_SPENT = "{0:N0}을 썼습니다. ";
-        public static string TEXT_GATHER_TIME_LEFT = "다음 장까지 {0}시간 {1}분.";
+        public static string TEXT_GATHER_TIME_LEFT = "남은 행동력 {0}.";
         public static string TEXT_GATHER_SECRET = "시장은 아직 모르는 이야기입니다. ";
     }
 }

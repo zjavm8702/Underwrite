@@ -7,7 +7,7 @@ namespace Underwrite.Global
     public static partial class StringConstants
     {
         public static string TEXT_SMITH_CHOICE = "주문서 꽂이를 들여다본다";
-        public static string TEXT_SMITH_CHOICE_NOTE = "{0}분 · 여관 소문이 맞는지 주문서로 가린다";
+        public static string TEXT_SMITH_CHOICE_NOTE = "행동력 {0} · 여관 소문이 맞는지 주문서로 가린다";
         public static string TEXT_SMITH_NONE = "이번 계절 소문은 더 가려 볼 것이 없다";
         public static string TEXT_SMITH_DONE_TODAY = "오늘은 이미 꽂이를 봤다";
 

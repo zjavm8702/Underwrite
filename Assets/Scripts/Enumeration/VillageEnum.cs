@@ -60,4 +60,17 @@ namespace Underwrite.Enumeration
         /// <summary>그 단의 이번 계절 주문이지만 취소됐다.</summary>
         Pick_Cancelled
     }
+
+    /// <summary>영지의 휴장 하나(2026-10-19 — 행동력). 영지의 낮·밤도 이 셋으로 바뀐다.</summary>
+    public enum VillagePhase
+    {
+        /// <summary>장 전 아침(잠에서 깬 뒤 오전장까지).</summary>
+        Phase_Morning,
+
+        /// <summary>오전장이 끝난 뒤 오후장까지.</summary>
+        Phase_Afternoon,
+
+        /// <summary>오후장이 끝난 뒤 새벽. 장이 없다 — 자면 다음 날 오전.</summary>
+        Phase_Night
+    }
 }

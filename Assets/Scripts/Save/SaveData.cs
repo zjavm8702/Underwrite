@@ -207,6 +207,9 @@ namespace Underwrite.Save
         public int MarketOnboarding;
         public float PracticeCash = -1f;
         public bool HeroesRecognized;
+        public bool ActionTutorialDone;
+        public int ActionPoints;
+        public int ActionFilledKey = -1;
 
         // 하루 한 번 정보 모으기의 마지막 날.
         public int LedgerDay;

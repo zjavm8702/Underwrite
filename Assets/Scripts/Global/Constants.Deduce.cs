@@ -7,7 +7,7 @@ namespace Underwrite.Global
     public static partial class StringConstants
     {
         public static string TEXT_DEDUCE_CHOICE = "흩어진 의뢰 기록을 짜맞춘다";
-        public static string TEXT_DEDUCE_CHOICE_NOTE = "{0}분 · 표를 다 맞히면 먼 원정을 가는 단의 사정";
+        public static string TEXT_DEDUCE_CHOICE_NOTE = "행동력 {0} · 표를 다 맞히면 먼 원정을 가는 단의 사정";
         public static string TEXT_DEDUCE_NONE = "오늘은 짜맞출 기록이 없다";
         public static string TEXT_DEDUCE_DONE_TODAY = "오늘은 이미 기록을 봤다";
 

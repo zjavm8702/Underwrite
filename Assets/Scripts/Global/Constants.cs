@@ -116,18 +116,18 @@ namespace Underwrite.Global
         public static string TEXT_GATHER_ASK = "들은 게 있긴 한데, 공짜로 줄 수는 없지요.";
         public static string TEXT_GATHER_ASK_AGAIN = "또 볼일이 있으신가요?";
         public static string TEXT_GATHER_PAY = "{0:N0}을 내고 묻는다";
-        public static string TEXT_GATHER_PAY_NOTE = "{0}분이 걸린다 · 가진 돈 {1:N0}";
+        public static string TEXT_GATHER_PAY_NOTE = "행동력 {0} · 가진 돈 {1:N0}";
         public static string TEXT_GATHER_NO_MONEY = "돈이 모자란다 · 가진 돈 {0:N0}";
         public static string TEXT_GATHER_LEAVE = "그냥 간다";
 
         // 여관 창고 아래 지하거래소 (웹툰 6화)
         public static string TEXT_CELLAR_GO = "창고로 내려간다";
         public static string TEXT_CELLAR_NOTE = "술통 너머, 지하거래소";
-        public static string TEXT_GATHER_NO_TIME = "다음 장이 코앞이다";
+        public static string TEXT_GATHER_NO_TIME = "행동력이 없다";
 
         // 영지에서 맡는 일 (기획서 §10 종잣돈 퀘스트)
-        public static string TEXT_WORK_NOTE = "{0}분이 걸린다 · {1:N0}을 받는다";
-        public static string TEXT_WORK_NO_TIME = "시간이 모자란다 · 다음 장까지 {0}분";
+        public static string TEXT_WORK_NOTE = "행동력 {0} · {1:N0}을 받는다";
+        public static string TEXT_WORK_NO_TIME = "행동력이 모자란다 · 남은 행동력 {0}";
         public static string TEXT_WORK_RUMOR = "그러고 보니 일하다 들었는데, {0} 쪽에 무슨 일이 있답니다.";
         public static string TEXT_WORK_RESULT = "{0:N0}을 받았습니다. 다음 장까지 {1}시간 {2}분.";
 
@@ -496,6 +496,20 @@ namespace Underwrite.Global
 
         // 미니맵 그림의 가로 픽셀. 펼친 지도(화면의 84%)에서도 흐리지 않을 만큼.
         public static int MINIMAP_SNAPSHOT_WIDTH = 1600;
+
+        // 영지 행동력(2026-10-19 사장님). 휴장마다 받는 양과 행동마다 드는 양.
+        public static int AP_MORNING = 3;
+        public static int AP_AFTERNOON = 3;
+        public static int AP_NIGHT = 2;
+        public static int AP_GATHER = 1;
+        public static int AP_TALK = 1;
+        public static int AP_MINIGAME = 1;
+        public static int AP_WORK = 2;
+
+        // 게임 안 웹툰: 액자 높이(화면 높이 대비), 7장 칸 경계(Outputs/Webtoon_ch7_v1/panels.json).
+        public static float WEBTOON_FRAME_HEIGHT = 0.86f;
+        public static float WEBTOON_FRAME_WIDTH = 0.9f;
+        public static readonly int[] WEBTOON_CH7_PANELS = { 0, 419, 427, 800, 808, 1212, 1220, 1774 };
 
         // 인트로에서 보이는 웹툰 장 수. 나머지(5~6장)는 창고 발견 장면에서 쓴다.
         public static int INTRO_PAGES_SHOWN = 4;

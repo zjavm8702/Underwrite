@@ -6,7 +6,7 @@ namespace Underwrite.Global
     public static partial class StringConstants
     {
         public static string TEXT_LEDGER_CHOICE = "기록실 장부를 맞춰 본다";
-        public static string TEXT_LEDGER_CHOICE_NOTE = "{0}분 · 어긋난 줄을 찾으면 확실한 사실";
+        public static string TEXT_LEDGER_CHOICE_NOTE = "행동력 {0} · 어긋난 줄을 찾으면 확실한 사실";
         public static string TEXT_LEDGER_NONE = "오늘은 맞춰 볼 장부가 없다";
         public static string TEXT_LEDGER_DONE_TODAY = "오늘은 이미 장부를 봤다";
 

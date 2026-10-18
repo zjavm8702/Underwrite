@@ -120,6 +120,14 @@ namespace Underwrite.UI
                     PlayRecognition();
                 }
 
+                // 다음 날(2일째) 아침 — 행동력 안내. (웹툰 7장 「개미의 결심」이 납품되면 그 앞에 붙는다.)
+                if (StoryProgress.HeroesRecognized == true && StoryProgress.ActionTutorialDone == false
+                    && Host.IsMorningBreak == true && Directing == false && Host.CanDirect() == true)
+                {
+                    Directing = true;
+                    Host.PlayResolveWebtoon(() => Host.PlayActionTutorial(() => Directing = false));
+                }
+
                 return;
             }
 

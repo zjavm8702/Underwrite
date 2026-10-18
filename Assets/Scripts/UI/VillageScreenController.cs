@@ -203,11 +203,11 @@ namespace Underwrite.UI
             BindLeave();
             EnsureClock();
 
-            // 영지의 시간은 실시간 1:1로 흐른다. 기획서 §11.
-            // 첫 안내를 읽는 동안과 프롤로그 일곱째 날(마을 순찰)에는 시간이 흐르지 않는다.
-            if (Clock != null && (Tutorial == null || Tutorial.IsOpen == false) && Prologue.FreezesTime == false)
+            // 영지는 시간 대신 행동력(2026-10-19 사장님). 시계는 휴장 동안 흐르지 않고, 휴장이 바뀌면 행동력을 채운다.
+            // 행동력 안내(2일째 아침)를 보기 전에는 0 — 첫날 새벽은 용사단 장면을 보고 자는 밤이다.
+            if (Clock != null && Clock.IsBreak == true && StoryProgress.CellarFound == true)
             {
-                Clock.AdvanceBreak(Time.unscaledDeltaTime);
+                ActionPoints.FillIfNew(Clock.Day, Clock.BreakMinuteOfDay, StoryProgress.ActionTutorialDone == false);
             }
 
             AutoSave();
@@ -229,6 +229,13 @@ namespace Underwrite.UI
             }
 
             StartVillageTutorialOnce();
+
+            // 게임 안 웹툰은 스페이스로도 넘긴다.
+            if (Webtoon != null && Webtoon.IsOpen == true && Keyboard.current != null
+                && Keyboard.current.spaceKey.wasPressedThisFrame == true)
+            {
+                Webtoon.Next();
+            }
 
             if (TitleCard != null)
             {
@@ -365,19 +372,58 @@ namespace Underwrite.UI
 
             yield return new WaitForSeconds(Constants.ACTOR_APPROACH_SECONDS);
 
-            // 모험단에게 직접 말을 걸면 그 단에 대해 하나 알게 된다. 수첩(도감)에 적는다.
+            // 모험단에게 직접 말을 걸면 그 단에 대해 하나 알게 된다 — 행동력 1(2026-10-19). 수첩(도감)에 적는다.
             // 지하를 찾기 전에는 그냥 오가는 손님이다 — 적지 않는다(온보딩 설계안 §5).
-            var learned = npc.Party != null && StoryProgress.CellarFound == true
-                ? BandCodex.Learn(npc.Party.Stock, CodexSource.Codex_Talk)
-                : null;
-
-            if (learned != null && me != null)
+            // 반응은 필드 몸짓으로 보인다(대화창이 없는 곳이라 몸짓이 유일한 감정 표현이다).
+            if (npc.Party != null && StoryProgress.CellarFound == true && me != null)
             {
-                me.Say(string.Format(StringConstants.TEXT_CODEX_LEARNED, npc.Group));
-                me.Emote(ActorEmote.Emote_Exclaim);
+                ReactToAdventurer(npc, me, them);
             }
 
             Approaching = false;
+        }
+
+        private void ReactToAdventurer(VillageNpc npc, CharacterActor me, CharacterActor them)
+        {
+            var stock = npc.Party.Stock;
+
+            if (BandCodex.IsKnown(stock, CodexSource.Codex_Talk) == true)
+            {
+                me.Say(StringConstants.TEXT_NPC_ALREADY_KNOWN);
+                return;
+            }
+
+            if (ActionPoints.Has(Constants.AP_TALK) == false)
+            {
+                me.Say(StringConstants.TEXT_NPC_NO_AP);
+                me.Emote(ActorEmote.Emote_Dots);
+                return;
+            }
+
+            var learned = BandCodex.Learn(stock, CodexSource.Codex_Talk);
+
+            if (learned == null)
+            {
+                // 도감에 오르지 않는 단 — 알려 줄 게 없다.
+                if (them != null)
+                {
+                    them.Play(ActorMotion.Motion_Shake);
+                    them.Emote(ActorEmote.Emote_Dots);
+                }
+
+                me.Say(StringConstants.TEXT_NPC_SHRUG);
+                return;
+            }
+
+            ActionPoints.Spend(Constants.AP_TALK);
+
+            if (them != null)
+            {
+                them.Play(ActorMotion.Motion_Nod);
+            }
+
+            me.Say(string.Format(StringConstants.TEXT_CODEX_LEARNED, npc.Group));
+            me.Emote(ActorEmote.Emote_Exclaim);
         }
 
         private static ActorMotion MotionOf(NpcRole role)
@@ -406,22 +452,13 @@ namespace Underwrite.UI
         /// (2026-10-17 사용자 보고). 그래서 같은 자리의 볼일은 끊김 없이 잇고, 자리를 뜰 때 마지막 반응을 보인다.
         /// 더 센 반응(환호 > 깡충 > 놀람 > 끄덕)이 약한 것을 덮는다.
         /// </summary>
-        private System.Action React(ActorMotion motion, ActorEmote emote, System.Action then)
+        /// <summary>
+        /// 대화창 장면이 끝난 뒤 이어질 일. 예전에는 여기서 필드 몸짓을 걸었지만 뺐다(2026-10-19 사장님 —
+        /// 대화창에서는 초상 표정이 감정을 맡고, 몸짓은 대화창이 없는 필드 상호작용에만 쓴다). 호출부를 그대로 두려고 이름을 남긴다.
+        /// </summary>
+        private static System.Action React(ActorMotion motion, ActorEmote emote, System.Action then)
         {
-            return () =>
-            {
-                if (HasPending == false || Strength(motion) >= Strength(PendingMotion))
-                {
-                    HasPending = true;
-                    PendingMotion = motion;
-                    PendingEmote = emote;
-                }
-
-                if (then != null)
-                {
-                    then();
-                }
-            };
+            return then;
         }
 
         private static int Strength(ActorMotion motion)
@@ -607,8 +644,7 @@ namespace Underwrite.UI
         private bool OffersChoices(VillageSpot spot)
         {
             return spot.Kind != VillageActivity.Activity_Enter
-                && (spot.Price > 0f || spot.HasWork == true || spot.HasCellar == true || spot.HasRequestDesk == true)
-                && (HasTime() == true || spot.HasCellar == true);
+                && (spot.Price > 0f || spot.HasWork == true || spot.HasCellar == true || spot.HasRequestDesk == true);
         }
 
         /// <summary>
@@ -680,8 +716,7 @@ namespace Underwrite.UI
                 }
                 else
                 {
-                    pay.Note = string.Format(StringConstants.TEXT_GATHER_PAY_NOTE,
-                        Constants.GATHER_MINUTES_PER_VISIT, money);
+                    pay.Note = string.Format(StringConstants.TEXT_GATHER_PAY_NOTE, Constants.AP_GATHER, money);
                 }
                 choices.Add(pay);
             }
@@ -689,12 +724,11 @@ namespace Underwrite.UI
             if (spot.HasWork == true)
             {
                 var quest = spot.Work;
-                var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
                 var work = new DialogueChoice(quest.Title, () => DoWork(spot));
-                work.IsEnabled = left >= quest.Minutes;
+                work.IsEnabled = ActionPoints.Has(Constants.AP_WORK);
                 work.Note = work.IsEnabled == true
-                    ? string.Format(StringConstants.TEXT_WORK_NOTE, quest.Minutes, quest.Reward)
-                    : string.Format(StringConstants.TEXT_WORK_NO_TIME, left);
+                    ? string.Format(StringConstants.TEXT_WORK_NOTE, Constants.AP_WORK, quest.Reward)
+                    : string.Format(StringConstants.TEXT_WORK_NO_TIME, ActionPoints.Current);
                 choices.Add(work);
             }
 
@@ -735,10 +769,9 @@ namespace Underwrite.UI
             if (spot.HasCellar == true && StoryProgress.CellarFound == true)
             {
                 // 웹툰 6화. 술통을 옮기러 내려간 창고 안쪽에 지하거래소가 있다.
-                var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO,
-                    GoToMarket);
+                var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO, GoToSession);
                 cellar.IsEnabled = MarketOpenNow();
-                cellar.Note = cellar.IsEnabled == true ? StringConstants.TEXT_CELLAR_NOTE : MarketClosedNote();
+                cellar.Note = cellar.IsEnabled == true ? SessionNote() : MarketClosedNote();
                 choices.Add(cellar);
             }
 
@@ -816,11 +849,9 @@ namespace Underwrite.UI
                 return dayOff;
             }
 
+            // 용사단과의 대화는 이야기다 — 행동력이 들지 않는다(2026-10-19).
             var table = new DialogueChoice(StringConstants.TEXT_HERO_TABLE, () => OpenHeroTable(spot));
-            table.IsEnabled = HasTime() == true;
-            table.Note = HasTime() == true
-                ? string.Format(StringConstants.TEXT_HERO_TABLE_NOTE, Constants.HERO_TALK_MINUTES)
-                : StringConstants.TEXT_GATHER_NO_TIME;
+            table.Note = StringConstants.TEXT_HERO_TABLE_NOTE;
             return table;
         }
 
@@ -862,11 +893,6 @@ namespace Underwrite.UI
         /// </summary>
         private void TalkToHero(HeroProfile hero)
         {
-            if (Clock != null)
-            {
-                Clock.SpendBreakMinutes(Constants.HERO_TALK_MINUTES);
-            }
-
             hero.LastTalkDay = Today();
 
             var topic = HeroTopics.Next(hero);
@@ -1146,14 +1172,8 @@ namespace Underwrite.UI
         /// <summary>길드 창구의 「익명 의뢰를 낸다」. 들은 사정이 있으면 기한을 붙여 보여 준다.</summary>
         private DialogueChoice PostChoice(VillageSpot spot)
         {
+            // 후원은 이 게임의 목적이다 — 행동력으로 막지 않는다. 돈은 든다(2026-10-19).
             var post = new DialogueChoice(StringConstants.TEXT_REQUEST_POST, () => OpenRequestForm(spot));
-            post.IsEnabled = HasTime() == true;
-
-            if (HasTime() == false)
-            {
-                post.Note = StringConstants.TEXT_GATHER_NO_TIME;
-                return post;
-            }
 
             var deadline = PatronageLedger.NearestDeadline(Today());
             post.Note = deadline > 0
@@ -1204,11 +1224,6 @@ namespace Underwrite.UI
         /// </summary>
         private void PostRequest(RequestPurpose purpose, float cost)
         {
-            if (Clock != null)
-            {
-                Clock.SpendBreakMinutes(Constants.REQUEST_MINUTES);
-            }
-
             GatherSession.Record(cost, 0f, null);
             PatronageLedger.Post(purpose, Today());
 
@@ -1286,14 +1301,59 @@ namespace Underwrite.UI
         /// </summary>
         private bool MarketOpenNow()
         {
-            return Clock != null && Clock.BreakMinutesLeft <= Constants.BREAK_SKIP_MARGIN_MINUTES;
+            return Clock != null && Clock.IsBreak == true && Phase != VillagePhase.Phase_Night;
         }
 
         private string MarketClosedNote()
         {
-            return Clock == null
-                ? StringConstants.TEXT_MARKET_CLOSED_NOTE
-                : string.Format(StringConstants.TEXT_MARKET_OPENS_AT, ClockText.FromMinutes(Clock.NextSessionMinute));
+            return StringConstants.TEXT_MENU_NIGHT_NO_SESSION;
+        }
+
+        private string SessionNote()
+        {
+            return ActionPoints.Current > 0
+                ? string.Format(StringConstants.TEXT_MENU_TO_SESSION_NOTE, ActionPoints.Current)
+                : StringConstants.TEXT_CELLAR_NOTE;
+        }
+
+        /// <summary>지금 휴장(오전 · 오후 · 새벽). 영지 시계가 휴장 동안 흐르지 않으므로 시각 하나로 정해진다.</summary>
+        private VillagePhase Phase
+        {
+            get
+            {
+                return Clock == null ? VillagePhase.Phase_Morning : ActionPoints.PhaseOf(Clock.BreakMinuteOfDay);
+            }
+        }
+
+        /// <summary>장으로 간다 — 남은 휴장을 넘기고 지하로 내려간다(턴 넘기기).</summary>
+        private void GoToSession()
+        {
+            if (MarketOpenNow() == false)
+            {
+                return;
+            }
+
+            Clock.SkipBreak();
+            GoToMarket();
+        }
+
+        /// <summary>이번 장은 쉰다 — 장 하나를 거르고 그 뒤 휴장으로 넘어간다(다음 휴장의 행동력을 받는다).</summary>
+        private void SkipSessionTurn()
+        {
+            if (MarketOpenNow() == false)
+            {
+                return;
+            }
+
+            var start = Clock.NextSessionMinute;
+
+            if (Clock.SkipNextSession() == false)
+            {
+                return;
+            }
+
+            StartCoroutine(PassTime(start + Constants.MARKET_SESSION_MINUTES - Clock.BreakMinuteOfDay,
+                StringConstants.TEXT_SKIP_SESSION_FADE));
         }
 
         /// <summary>
@@ -1308,9 +1368,10 @@ namespace Underwrite.UI
 
             var quest = spot.Work;
 
-            if (Clock != null)
+            // 프롤로그의 주방 일은 공짜다(행동력은 지하를 안 뒤부터).
+            if (StoryProgress.CellarFound == true)
             {
-                Clock.SpendBreakMinutes(quest.Minutes);
+                ActionPoints.Spend(Constants.AP_WORK);
             }
 
             // 처음으로 여관 일을 거들면 웹툰 5~6화가 벌어진다. 창고 안쪽에서 지하거래소를 찾는다.
@@ -1356,14 +1417,13 @@ namespace Underwrite.UI
         private DialogueChoice EavesChoice()
         {
             var choice = new DialogueChoice(StringConstants.TEXT_EAVES_CHOICE, StartEaves);
-            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
 
             if (EavesDay == Today())
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_EAVES_DONE_TODAY;
             }
-            else if (left < Constants.EAVES_TURNS * Constants.EAVES_MINUTES)
+            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
@@ -1371,7 +1431,7 @@ namespace Underwrite.UI
             else
             {
                 choice.Note = string.Format(StringConstants.TEXT_EAVES_CHOICE_NOTE, Constants.EAVES_TURNS,
-                    Constants.EAVES_MINUTES);
+                    Constants.AP_MINIGAME);
             }
 
             return choice;
@@ -1394,6 +1454,7 @@ namespace Underwrite.UI
 
             Dialogue.Close();
             EavesDay = Today();
+            ActionPoints.Spend(Constants.AP_MINIGAME);
 
             if (Eaves == null)
             {
@@ -1409,7 +1470,6 @@ namespace Underwrite.UI
         private void ListenAt(EavesdropSession.Table table)
         {
             var heard = EavesSession.Listen(table);
-            Clock.SpendBreakMinutes(Constants.EAVES_MINUTES);
 
             if (heard == false)
             {
@@ -1665,8 +1725,16 @@ namespace Underwrite.UI
                 return;
             }
 
-            var canSkip = Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
-            MenuItem(list, StringConstants.TEXT_SKIP_BREAK, canSkip, StringConstants.TEXT_MENU_NO_TIME, OpenClock);
+            // 턴 넘기기: 오전·오후에는 장으로 가거나 쉬고, 새벽에는 잔다(2026-10-19 행동력).
+            MenuItem(list, StringConstants.TEXT_MENU_TO_SESSION, MarketOpenNow(),
+                MarketClosedNote(), GoToSession);
+
+            var nextSession = Clock.SessionAt(0) == MarketSession.Session_Morning
+                ? StringConstants.TEXT_SESSION_MORNING
+                : StringConstants.TEXT_SESSION_EVENING;
+            MenuItem(list, string.Format(StringConstants.TEXT_MENU_SKIP_SESSION, nextSession),
+                MarketOpenNow() == true && Clock.IsReopeningAt(0) == false,
+                MarketOpenNow() == true ? StringConstants.TEXT_MENU_SKIP_LOCKED : MarketClosedNote(), SkipSessionTurn);
             MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
             MenuItem(list, string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]),
                 true, string.Empty, GameAudio.CycleVolume);
@@ -1679,9 +1747,6 @@ namespace Underwrite.UI
                     Sleep();
                 });
             }
-            MenuItem(list, StringConstants.TEXT_MENU_MARKET, StoryProgress.CellarFound && MarketOpenNow(),
-                StoryProgress.CellarFound == false ? StringConstants.TEXT_MENU_MARKET_LOCKED : MarketClosedNote(),
-                GoToMarket);
 
             list.RemoveFromClassList("hidden");
             Root.Q<Button>("village-menu").AddToClassList("village-button--on");
@@ -2334,10 +2399,8 @@ namespace Underwrite.UI
             }
             else
             {
-                SetText("village-visits",
-                    ClockText.SeasonDay(Today()) + " · " + timeOfDay
-                    + " · " + string.Format(StringConstants.TEXT_VILLAGE_NEXT_SESSION, left / 60, left % 60)
-                    + InspectionTag());
+                SetText("village-visits", string.Format(StringConstants.TEXT_VILLAGE_STATUS,
+                    ClockText.SeasonDay(Today()), PhaseName(Phase), ActionDots()) + InspectionTag());
             }
 
             if (Here == null)
@@ -2550,28 +2613,22 @@ namespace Underwrite.UI
             Back(spot)();
         }
 
-        /// <summary>다음 장까지 한 가지 일을 할 시간이 남아 있는가.</summary>
+        /// <summary>돈 내고 묻기에 쓸 행동력이 남아 있는가.</summary>
         private bool HasTime()
         {
-            return Clock != null && Clock.BreakMinutesLeft >= Constants.GATHER_MINUTES_PER_VISIT;
+            return ActionPoints.Has(Constants.AP_GATHER);
         }
 
-        /// <summary>한 가지 일에 쓴 시간만큼 시각을 민다.</summary>
+        /// <summary>돈 내고 묻기 — 행동력을 쓴다(돈은 부른 쪽이 기록한다).</summary>
         private void SpendTime(VillageSpot spot)
         {
-            if (Clock == null)
-            {
-                return;
-            }
-
-            Clock.SpendBreakMinutes(Constants.GATHER_MINUTES_PER_VISIT);
+            ActionPoints.Spend(Constants.AP_GATHER);
         }
 
         private string BuildNote(VillageSpot spot, bool secret)
         {
             var spent = spot.Price > 0f ? string.Format(StringConstants.TEXT_GATHER_SPENT, spot.Price) : string.Empty;
-            var minutes = Clock == null ? 0 : Clock.BreakMinutesLeft;
-            var left = string.Format(StringConstants.TEXT_GATHER_TIME_LEFT, minutes / 60, minutes % 60);
+            var left = string.Format(StringConstants.TEXT_GATHER_TIME_LEFT, ActionPoints.Current);
 
             if (secret == false)
             {
@@ -2639,8 +2696,6 @@ namespace Underwrite.UI
         private DialogueChoice LedgerChoice(VillageSpot spot)
         {
             var choice = new DialogueChoice(StringConstants.TEXT_LEDGER_CHOICE, () => StartLedger(spot));
-            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
-
             if (BreakClock.Simulation == null)
             {
                 choice.IsEnabled = false;
@@ -2651,14 +2706,14 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_LEDGER_DONE_TODAY;
             }
-            else if (left < Constants.LEDGER_MINUTES)
+            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
             }
             else
             {
-                choice.Note = string.Format(StringConstants.TEXT_LEDGER_CHOICE_NOTE, Constants.LEDGER_MINUTES);
+                choice.Note = string.Format(StringConstants.TEXT_LEDGER_CHOICE_NOTE, Constants.AP_MINIGAME);
             }
 
             return choice;
@@ -2678,7 +2733,7 @@ namespace Underwrite.UI
             Dialogue.Close();
             LedgerSpot = spot;
             StoryProgress.LedgerDay = Today();
-            Clock.SpendBreakMinutes(Constants.LEDGER_MINUTES);
+            ActionPoints.Spend(Constants.AP_MINIGAME);
 
             if (Ledger == null)
             {
@@ -2705,7 +2760,6 @@ namespace Underwrite.UI
                 return;
             }
 
-            Clock.SpendBreakMinutes(Constants.LEDGER_WRONG_MINUTES);
             Ledger.MarkWrong(index, Puzzle.Suspicion);
             GameAudio.Play(SoundEffect.Sound_Close);
 
@@ -2788,8 +2842,6 @@ namespace Underwrite.UI
         private DialogueChoice SmithOrderChoice(VillageSpot spot)
         {
             var choice = new DialogueChoice(StringConstants.TEXT_SMITH_CHOICE, () => StartSmithOrders(spot));
-            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
-
             if (BreakClock.Simulation == null)
             {
                 choice.IsEnabled = false;
@@ -2800,14 +2852,14 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_SMITH_DONE_TODAY;
             }
-            else if (left < Constants.SMITH_ORDER_MINUTES)
+            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
             }
             else
             {
-                choice.Note = string.Format(StringConstants.TEXT_SMITH_CHOICE_NOTE, Constants.SMITH_ORDER_MINUTES);
+                choice.Note = string.Format(StringConstants.TEXT_SMITH_CHOICE_NOTE, Constants.AP_MINIGAME);
             }
 
             return choice;
@@ -2827,7 +2879,7 @@ namespace Underwrite.UI
             Dialogue.Close();
             SmithSpot = spot;
             StoryProgress.SmithDay = Today();
-            Clock.SpendBreakMinutes(Constants.SMITH_ORDER_MINUTES);
+            ActionPoints.Spend(Constants.AP_MINIGAME);
 
             EnsureSmithScreen();
             SmithPracticeDone = null;
@@ -2912,11 +2964,6 @@ namespace Underwrite.UI
                 message = StringConstants.TEXT_SMITH_WRONG_CANCELLED;
             }
 
-            if (Orders.IsPractice == false)
-            {
-                Clock.SpendBreakMinutes(Constants.SMITH_ORDER_WRONG_MINUTES);
-            }
-
             Smith.MarkWrong(index, Orders.Suspicion, message);
             GameAudio.Play(SoundEffect.Sound_Close);
 
@@ -2983,8 +3030,6 @@ namespace Underwrite.UI
         private DialogueChoice DeduceChoice(VillageSpot spot)
         {
             var choice = new DialogueChoice(StringConstants.TEXT_DEDUCE_CHOICE, () => StartDeduce(spot));
-            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
-
             if (BreakClock.Simulation == null)
             {
                 choice.IsEnabled = false;
@@ -2995,14 +3040,14 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_DEDUCE_DONE_TODAY;
             }
-            else if (left < Constants.DEDUCE_MINUTES)
+            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
             }
             else
             {
-                choice.Note = string.Format(StringConstants.TEXT_DEDUCE_CHOICE_NOTE, Constants.DEDUCE_MINUTES);
+                choice.Note = string.Format(StringConstants.TEXT_DEDUCE_CHOICE_NOTE, Constants.AP_MINIGAME);
             }
 
             return choice;
@@ -3022,7 +3067,7 @@ namespace Underwrite.UI
             Dialogue.Close();
             DeduceSpot = spot;
             StoryProgress.DeduceDay = Today();
-            Clock.SpendBreakMinutes(Constants.DEDUCE_MINUTES);
+            ActionPoints.Spend(Constants.AP_MINIGAME);
 
             EnsureDeduceScreen();
             DeducePracticeDone = null;
@@ -3092,7 +3137,6 @@ namespace Underwrite.UI
                 return;
             }
 
-            Clock.SpendBreakMinutes(Constants.DEDUCE_WRONG_MINUTES);
             GameAudio.Play(SoundEffect.Sound_Close);
 
             if (outOfTries == false)
@@ -3147,7 +3191,7 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_DICE_DONE_TODAY;
             }
-            else if (left < Constants.DICE_MINUTES)
+            else if (ActionPoints.Has(Constants.AP_MINIGAME) == false)
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
@@ -3159,7 +3203,7 @@ namespace Underwrite.UI
             }
             else
             {
-                choice.Note = string.Format(StringConstants.TEXT_DICE_CHOICE_NOTE, Constants.DICE_MINUTES, Constants.DICE_STAKE);
+                choice.Note = string.Format(StringConstants.TEXT_DICE_CHOICE_NOTE, Constants.AP_MINIGAME, Constants.DICE_STAKE);
             }
 
             return choice;
@@ -3178,7 +3222,7 @@ namespace Underwrite.UI
             Dialogue.Close();
             DiceSpot = spot;
             StoryProgress.DiceDay = Today();
-            Clock.SpendBreakMinutes(Constants.DICE_MINUTES);
+            ActionPoints.Spend(Constants.AP_MINIGAME);
 
             var boldness = Random.Range(Constants.DICE_BOLDNESS_MIN, Constants.DICE_BOLDNESS_MAX);
             var moods = StringConstants.TEXT_DICE_MOODS;
@@ -3658,6 +3702,102 @@ namespace Underwrite.UI
         /// <summary>
         /// 자리의 주인이 하는 말. 이름과 얼굴은 그 자리의 소식을 전하는 주민이다 — 지하 정보 타임에도 같은 사람이 나온다.
         /// </summary>
+        private static string PhaseName(VillagePhase phase)
+        {
+            switch (phase)
+            {
+                case VillagePhase.Phase_Morning:
+                {
+                    return StringConstants.TEXT_PHASE_MORNING;
+                }
+                case VillagePhase.Phase_Afternoon:
+                {
+                    return StringConstants.TEXT_PHASE_AFTERNOON;
+                }
+                default:
+                {
+                    return StringConstants.TEXT_PHASE_NIGHT;
+                }
+            }
+        }
+
+        // 행동력 점(●●○). 휴장이 바뀔 때만 다시 만든다 — 매 프레임 문자열을 조립하지 않게.
+        private string DotsCache = string.Empty;
+        private int DotsCurrent = -1;
+        private int DotsMax = -1;
+
+        private string ActionDots()
+        {
+            var max = ActionPoints.MaxOf(Phase);
+
+            if (DotsCurrent == ActionPoints.Current && DotsMax == max)
+            {
+                return DotsCache;
+            }
+
+            DotsCurrent = ActionPoints.Current;
+            DotsMax = max;
+            var builder = new System.Text.StringBuilder();
+
+            for (var i = 0; i < max; i++)
+            {
+                builder.Append(i < DotsCurrent ? StringConstants.TEXT_AP_FULL : StringConstants.TEXT_AP_EMPTY);
+            }
+
+            DotsCache = builder.ToString();
+            return DotsCache;
+        }
+
+        private UI_WebtoonPanels Webtoon;
+
+        /// <summary>2일째 아침 — 웹툰 7장 「개미의 결심」을 칸 단위로 보여 준다. 그림이 없으면 바로 넘어간다.</summary>
+        internal void PlayResolveWebtoon(System.Action then)
+        {
+            var texture = Resources.Load<Texture2D>(StringConstants.WEBTOON_CH7_RESOURCE);
+
+            if (texture == null)
+            {
+                then();
+                return;
+            }
+
+            if (Webtoon == null)
+            {
+                Webtoon = new UI_WebtoonPanels(Root);
+            }
+
+            Webtoon.Open(texture, Constants.WEBTOON_CH7_PANELS, then);
+        }
+
+        /// <summary>2일째 아침 — 행동력 안내. 끝나면 이번 휴장의 몫을 채운다.</summary>
+        internal void PlayActionTutorial(System.Action then)
+        {
+            Tutorial.Play(new List<TutorialStep>
+            {
+                new TutorialStep("village-visits", StringConstants.TEXT_AP_TUT_1_TITLE, StringConstants.TEXT_AP_TUT_1_BODY),
+                new TutorialStep(null, StringConstants.TEXT_AP_TUT_2_TITLE, StringConstants.TEXT_AP_TUT_2_BODY),
+                new TutorialStep("village-menu", StringConstants.TEXT_AP_TUT_3_TITLE, StringConstants.TEXT_AP_TUT_3_BODY),
+                new TutorialStep(null, StringConstants.TEXT_AP_TUT_4_TITLE, StringConstants.TEXT_AP_TUT_4_BODY)
+            }, () =>
+            {
+                StoryProgress.ActionTutorialDone = true;
+                ActionPoints.Refill(Clock.BreakMinuteOfDay);
+
+                if (then != null)
+                {
+                    then();
+                }
+            });
+        }
+
+        internal bool IsMorningBreak
+        {
+            get
+            {
+                return Clock != null && Clock.IsBreak == true && Phase == VillagePhase.Phase_Morning;
+            }
+        }
+
         private void TickMinimap(Keyboard keyboard)
         {
             if (Minimap == null && Player != null)
@@ -3690,7 +3830,7 @@ namespace Underwrite.UI
         internal bool CanDirect()
         {
             return Dialogue != null && Dialogue.IsOpen == false && Approaching == false && ClockOpen == false
-                && (TitleCard == null || TitleCard.IsOpen == false)
+                && (TitleCard == null || TitleCard.IsOpen == false) && (Webtoon == null || Webtoon.IsOpen == false)
                 && PuzzleOpen == false && MiniGameOpen == false && (Tutorial == null || Tutorial.IsOpen == false);
         }
 

@@ -2012,6 +2012,38 @@
     background-color: rgba(247, 230, 190, 0.96);
 }
 
+/* ── 게임 안 웹툰 (2026-10-19) ─────────────── */
+.webtoon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #0E0A07;
+    justify-content: center;
+    align-items: center;
+}
+
+.webtoon-frame {
+    overflow: hidden;
+    border-width: 3px;
+    border-color: #F2E7D2;
+}
+
+.webtoon-page {
+    position: absolute;
+    left: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.webtoon-hint {
+    position: absolute;
+    bottom: 18px;
+    right: 28px;
+    font-size: 16px;
+    color: rgba(242, 231, 210, 0.7);
+}
+
 /* ── 영지 미니맵 (2026-10-18) ───────────────
    오른쪽 위 시계 아래에 작게(지도 비율 16:9), 펼치면 화면 가운데에 크게. 바닥은 영지 바닥 그림. */
 .minimap {

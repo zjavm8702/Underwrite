@@ -4,7 +4,7 @@ namespace Underwrite.Global
     public static partial class StringConstants
     {
         public static string TEXT_DICE_CHOICE = "모험단 테이블에서 주사위 내기를 건다";
-        public static string TEXT_DICE_CHOICE_NOTE = "{0}분 · 이기면 취한 상대가 입을 연다 · 지면 술값 {1}";
+        public static string TEXT_DICE_CHOICE_NOTE = "행동력 {0} · 이기면 취한 상대가 입을 연다 · 지면 술값 {1}";
         public static string TEXT_DICE_NONE = "주사위를 받아 줄 테이블이 없다";
         public static string TEXT_DICE_DONE_TODAY = "오늘은 이미 한 판 했다";
         public static string TEXT_DICE_NO_MONEY = "술값 {0}이 없다 · 가진 돈 {1:N0}";
