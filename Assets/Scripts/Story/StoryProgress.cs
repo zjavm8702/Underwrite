@@ -31,7 +31,7 @@ namespace Underwrite.Story
         public static PrologueStage Prologue { get; set; }
 
         /// <summary>
-        /// 여관에서 용사단을 알아보는 장면을 봤는가(온보딩의 동기 전환 — 「돈이 저들에게 가면 결말이 바뀔지도」).
+        /// 여관에서 용사단을 알아보는 장면을 봤는가(온보딩의 동기 전환).
         /// 그 전에는 용사단 테이블과 다음 할 일이 열리지 않는다.
         /// </summary>
         public static bool HeroesRecognized { get; set; }
