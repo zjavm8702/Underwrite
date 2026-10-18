@@ -111,7 +111,7 @@ namespace Underwrite.UI
 
         public void Toggle()
         {
-            Expanded = !Expanded;
+            Expanded = Expanded == false;
             ApplyExpanded();
         }
 

@@ -15,7 +15,7 @@ namespace Underwrite.Global
 
         public static string TEXT_GATHER_GUILD_TITLE = "기록에 적혀 있다";
         public static string TEXT_GATHER_BOARD_TITLE = "게시판을 훑는다";
-        public static string TEXT_GATHER_BOARD_BODY = "새로 붙은 종이는 없습니다. 이미 시장에 돈 이야기뿐입니다.";
+        public static string TEXT_GATHER_BOARD_BODY = "새로 붙은 종이는 없습니다. 요즘은 모험단 소식만 붙는군요.";
         public static string TEXT_GATHER_SMITH_TITLE = "주문 장부를 넘겨 본다";
         public static string TEXT_GATHER_SMITH_BODY = "{0} 쪽에서 장비를 크게 맞췄습니다. 큰 원정을 준비하는 모양입니다.";
         public static string TEXT_GATHER_SMITH_NOTE = "{0} 쪽이 장비를 크게 맞췄다";
@@ -28,6 +28,6 @@ namespace Underwrite.Global
 
         public static string TEXT_GATHER_SPENT = "{0:N0}을 썼습니다. ";
         public static string TEXT_GATHER_TIME_LEFT = "남은 행동력 {0}.";
-        public static string TEXT_GATHER_SECRET = "시장은 아직 모르는 이야기입니다. ";
+        public static string TEXT_GATHER_SECRET = "(아직 아무도 모르는 이야기다) ";
     }
 }

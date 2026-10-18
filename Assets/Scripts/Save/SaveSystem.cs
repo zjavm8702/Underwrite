@@ -191,9 +191,15 @@ namespace Underwrite.Save
             SeasonPlan.Restore(data.SeasonPlan);
             StoryProgress.CellarFound = data.Story.CellarFound;
             // 프롤로그가 생기기 전 저장(10/18)은 값이 0이다. 창고를 찾았으면 끝난 것으로 본다.
-            StoryProgress.Prologue = data.Story.CellarFound == true
-                ? PrologueStage.Stage_Done
-                : (PrologueStage)data.Story.Prologue;
+            // 범위를 벗어난 값(손상)도 끝난 것으로 본다 — 멈춤 순서 배열 밖을 읽지 않게.
+            var prologue = data.Story.Prologue;
+
+            if (data.Story.CellarFound == true || prologue < 0 || prologue > (int)PrologueStage.Stage_Done)
+            {
+                prologue = (int)PrologueStage.Stage_Done;
+            }
+
+            StoryProgress.Prologue = (PrologueStage)prologue;
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
             // 튜토리얼이 생기기 전 저장(10/18)은 값이 0이다. 거래소 안내를 이미 봤으면 끝난 것으로 본다.
             // 범위를 벗어난 값(손상·새 판의 단계)은 끝난 것으로 본다 — 튜토리얼에 갇히는 것보다 낫다.
@@ -207,12 +213,13 @@ namespace Underwrite.Save
 
             StoryProgress.MarketOnboarding = (MarketOnboardingStage)onboarding;
             StoryProgress.PracticeCash = data.Story.PracticeCash;
-            StoryProgress.ActionTutorialDone = data.Story.ActionTutorialDone;
+            // 행동력이 생기기 전 저장(10/18)은 값이 false다 — 이미 용사단을 만난 판이면 안내를 본 것으로 쳐서 행동력을 바로 채운다.
+            StoryProgress.ActionTutorialDone = data.Story.ActionTutorialDone == true || data.QuestIndex > Constants.QUEST_HEROES_MET_INDEX;
+            // 이 장면이 생기기 전 저장(10/18)에서 이미 용사단과 이야기했으면 본 것으로 친다. 첫 장 판정이 읽으니 먼저 복원한다.
+            StoryProgress.HeroesRecognized = data.Story.HeroesRecognized == true || data.QuestIndex > Constants.QUEST_HEROES_MET_INDEX;
             StoryProgress.FirstSessionDone = data.Story.FirstSessionDone == true || StoryProgress.HeroesRecognized == true
                 || StoryProgress.MarketOnboarding == MarketOnboardingStage.Onboarding_Done;
             ActionPoints.Restore(data.Story.ActionPoints, data.Story.ActionFilledKey);
-            // 이 장면이 생기기 전 저장(10/18)에서 이미 용사단과 이야기했으면 본 것으로 친다.
-            StoryProgress.HeroesRecognized = data.Story.HeroesRecognized == true || data.QuestIndex > 3;
             StoryProgress.LedgerDay = data.Story.LedgerDay;
             StoryProgress.SmithDay = data.Story.SmithDay;
             StoryProgress.DiceDay = data.Story.DiceDay;

@@ -942,8 +942,8 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 영주 시찰일. 지하가 닫히고 용사단도 쉰다. 큰 관계 장면의 날이다(루틴 설계안 — 일주일의 리듬).
-        /// 가장 친한 사람이 마지막 한마디를 한다. 하루의 남은 시간을 함께 보낸다.
+        /// 용사단이 쉬는 날(계절의 셋째 날). 큰 관계 장면의 날이다(루틴 설계안 — 일주일의 리듬).
+        /// 가장 친한 사람이 마지막 한마디를 한다. 이번 휴장의 남은 행동력을 함께 보내는 데 쓴다.
         /// </summary>
         private void PlayDayOff()
         {
@@ -962,10 +962,8 @@ namespace Underwrite.UI
                 new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_CLOSE)
             };
 
-            if (Clock != null)
-            {
-                Clock.SkipBreak();
-            }
+            // 시계는 턴제라 휴장을 넘기면 장 직전에 설 뿐이다. 대신 남은 행동력을 다 쓴다.
+            ActionPoints.Spend(ActionPoints.Current);
 
             Dialogue.Play(lines, Back(CurrentSpot));
         }
@@ -1206,6 +1204,13 @@ namespace Underwrite.UI
             {
                 LastDayChecked = today;
                 PartyCasting.Cast(today, false);
+                // 씬이 새로 떴다 — 장중(오후장 끝 자정)이나 다른 씬에서 넘어간 날을 놓치지 않게 어제를 따진다.
+                // 이미 따진 사정은 실패로 바뀌어 있어 다시 세지 않는다.
+                if (today > 1 && PatronageLedger.EndOfDay(today - 1) > 0)
+                {
+                    return StringConstants.TEXT_DAY_END_FAILED;
+                }
+
                 return string.Empty;
             }
 
@@ -1550,10 +1555,9 @@ namespace Underwrite.UI
 
             GatherSession.Record(0f, reward, note);
 
-            var minutes = Clock == null ? 0 : Clock.BreakMinutesLeft;
             var line = OwnerLine(spot, text);
             line.IsSecret = note != null;
-            line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, reward, minutes / 60, minutes % 60);
+            line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, reward, ActionPoints.Current);
             var held = rumorStock == null ? null : HeldNote(rumorStock);
 
             line.Badge = held;
@@ -1782,7 +1786,12 @@ namespace Underwrite.UI
         /// </summary>
         private void RefreshObjective()
         {
-            var label = Root.Q<Label>("village-objective");
+            var label = ObjectiveLabel;
+
+            if (label == null)
+            {
+                label = Root.Q<Label>("village-objective");
+            }
 
             if (label == null)
             {
@@ -1792,6 +1801,8 @@ namespace Underwrite.UI
                 label.pickingMode = PickingMode.Ignore;
                 Root.Add(label);
             }
+
+            ObjectiveLabel = label;
 
             // 일곱째 날은 할 일 대신 프롤로그 목표를 보인다.
             var goal = Prologue == null ? null : Prologue.GoalText();
@@ -1828,21 +1839,86 @@ namespace Underwrite.UI
 
             // 받은 것과 진행도만 보인다(2026-10-17 사장님 결정). 아직 받지 않은 일은 보이지 않는다.
             var active = QuestLog.HasPendingIntro == true ? null : QuestLog.Active;
-            var text = string.Empty;
+            var progress = -1;
 
-            if (active != null)
+            if (active != null && active.Goal > 0 && active.Progress != null)
             {
-                text = string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title);
-
-                if (active.Goal > 0 && active.Progress != null)
-                {
-                    text += "\n<size=15>" + string.Format(StringConstants.TEXT_QUEST_PROGRESS,
-                        System.Math.Min(active.Progress(), active.Goal), active.Goal) + "</size>";
-                }
+                progress = System.Math.Min(active.Progress(), active.Goal);
             }
 
-            label.text = text;
+            if (active != ObjectiveQuest || progress != ObjectiveProgress)
+            {
+                ObjectiveQuest = active;
+                ObjectiveProgress = progress;
+                var text = string.Empty;
+
+                if (active != null)
+                {
+                    text = string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title);
+
+                    if (progress >= 0)
+                    {
+                        text += "\n<size=15>" + string.Format(StringConstants.TEXT_QUEST_PROGRESS, progress, active.Goal) + "</size>";
+                    }
+                }
+
+                ObjectiveText = text;
+            }
+
+            if (label.text != ObjectiveText)
+            {
+                label.text = ObjectiveText;
+            }
+
             label.EnableInClassList("hidden", active == null);
+        }
+
+        private Label ObjectiveLabel;
+        private Quest ObjectiveQuest;
+        private int ObjectiveProgress = -1;
+        private string ObjectiveText = string.Empty;
+        private VillageSpot CostSpot;
+        private string CostText;
+        private VillageNpc TagNpc;
+        private int TagHeld = -1;
+        private int TagStage = -1;
+        private string TagText;
+
+        // 장소 값 칸. 서 있는 동안 매 프레임 불리니 장소가 바뀔 때만 만든다.
+        private string CostOf(VillageSpot spot)
+        {
+            if (spot != CostSpot || CostText == null)
+            {
+                CostSpot = spot;
+                CostText = spot.Price > 0f ? string.Format(StringConstants.TEXT_GATHER_COST, spot.Price) : StringConstants.TEXT_GATHER_FREE;
+            }
+
+            return CostText;
+        }
+
+        // 가까운 사람의 꼬리표. 사람·보유 수량·상장 단계가 바뀔 때만 다시 만든다.
+        private string NearTag(VillageNpc npc)
+        {
+            var held = -1;
+            var stage = -1;
+            var party = npc.Party;
+            var sim = BreakClock.Simulation;
+
+            if (party != null && sim != null && string.IsNullOrEmpty(party.Stock) == false)
+            {
+                held = sim.Wallet.QuantityOf(party.Stock);
+                stage = (int)sim.StageOf(party.Stock);
+            }
+
+            if (npc != TagNpc || held != TagHeld || stage != TagStage || TagText == null)
+            {
+                TagNpc = npc;
+                TagHeld = held;
+                TagStage = stage;
+                TagText = TagOf(npc);
+            }
+
+            return TagText;
         }
 
         /// <summary>
@@ -2339,16 +2415,12 @@ namespace Underwrite.UI
             // 대화 중에는 안내를 감춘다. 두 개가 같이 떠 있으면 무엇을 누르라는지 모른다.
             var talking = Dialogue != null && Dialogue.IsOpen == true;
             prompt.EnableInClassList("hidden", (Here == null && NearNpc == null) || talking);
-            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
-            var hour = Clock == null ? 0 : Clock.BreakHour;
-            var minute = Clock == null ? 0 : Clock.BreakMinute;
-            // 며칠째인지 맨 앞에 둔다. 기한·시찰·원정이 모두 날짜로 움직인다(2026-10-17 사용자 요청).
-            var timeOfDay = ClockText.FromSeconds((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond), true);
-
             // 프롤로그 동안은 시장 달력과 다음 장 시각을 숨긴다.
             if (Prologue != null && Prologue.IsActive == true)
             {
-                SetText("village-visits", Prologue.ClockLabel(timeOfDay));
+                var hour = Clock == null ? 0 : Clock.BreakHour;
+                var minute = Clock == null ? 0 : Clock.BreakMinute;
+                SetText("village-visits", Prologue.ClockLabel((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond)));
             }
             else
             {
@@ -2360,7 +2432,7 @@ namespace Underwrite.UI
                 if (NearNpc != null)
                 {
                     SetText("village-place", NearNpc.Name);
-                    SetText("village-cost", TagOf(NearNpc));
+                    SetText("village-cost", NearTag(NearNpc));
                     SetText("village-key", StringConstants.TEXT_NPC_TALK_KEY);
                 }
 
@@ -2368,10 +2440,18 @@ namespace Underwrite.UI
             }
 
             SetText("village-place", Here.Name);
-            SetText("village-cost", Here.Price > 0f ? string.Format(StringConstants.TEXT_GATHER_COST, Here.Price) : StringConstants.TEXT_GATHER_FREE);
-            SetText("village-key", HasTime() == true
-                ? StringConstants.TEXT_GATHER_KEY
-                : StringConstants.TEXT_GATHER_KEY_LATE);
+            // E는 언제나 선택지를 연다(잠자리·용사단 탁자는 행동력이 없어도 된다). 값 칸은 돈 내고 묻기만 말한다 —
+            // 창고를 찾기 전(프롤로그)에는 그 선택지가 없으니 비운다.
+            var paid = StoryProgress.CellarFound == true && Here.Kind == VillageActivity.Activity_Gather;
+            var cost = string.Empty;
+
+            if (paid == true)
+            {
+                cost = HasTime() == true ? CostOf(Here) : StringConstants.TEXT_GATHER_KEY_LATE;
+            }
+
+            SetText("village-cost", cost);
+            SetText("village-key", StringConstants.TEXT_GATHER_KEY);
         }
 
         /// <summary>
@@ -3733,7 +3813,11 @@ namespace Underwrite.UI
                 Webtoon = new UI_WebtoonPanels(Root);
             }
 
-            Webtoon.Open(texture, Constants.WEBTOON_CH7_PANELS, then);
+            Webtoon.Open(texture, Constants.WEBTOON_CH7_PANELS, () =>
+            {
+                Resources.UnloadAsset(texture);
+                then();
+            });
         }
 
         /// <summary>2일째 아침 — 행동력 안내. 끝나면 이번 휴장의 몫을 채운다.</summary>
@@ -4131,16 +4215,29 @@ namespace Underwrite.UI
             return stockId;
         }
 
+        private readonly Dictionary<string, Label> Labels = new Dictionary<string, Label>();
+
+        // 매 프레임 불린다. 찾은 이름표를 기억하고, 글이 같으면 다시 넣지 않는다.
         private void SetText(string elementName, string value)
         {
-            var label = Root.Q<Label>(elementName);
+            Label label;
 
-            if (label == null)
+            if (Labels.TryGetValue(elementName, out label) == false)
             {
-                return;
+                label = Root.Q<Label>(elementName);
+
+                if (label == null)
+                {
+                    return;
+                }
+
+                Labels.Add(elementName, label);
             }
 
-            label.text = value;
+            if (label.text != value)
+            {
+                label.text = value;
+            }
         }
     }
 }

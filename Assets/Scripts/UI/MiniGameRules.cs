@@ -11,7 +11,6 @@ namespace Underwrite.UI
     /// </summary>
     public static class MiniGameRules
     {
-        private const long STEP_MS = 900;
 
         // ── 주사위 내기 ─────────────────────────
 
@@ -287,7 +286,7 @@ namespace Underwrite.UI
                             cell.text = step == 0 ? StringConstants.TEXT_DEDUCE_BLANK : options[step - 1];
                             cell.EnableInClassList("deduce-pick--blank", step == 0);
                             cell.EnableInClassList("rule-pressed", true);
-                            cell.schedule.Execute(() => cell.EnableInClassList("rule-pressed", false)).StartingIn(150);
+                            cell.schedule.Execute(() => cell.EnableInClassList("rule-pressed", false)).StartingIn(Constants.RULE_PRESS_MS);
                         });
                     }
                 },
@@ -340,7 +339,7 @@ namespace Underwrite.UI
 
         // ── 무대 부품 ───────────────────────────
 
-        // steps 칸을 STEP_MS마다 0, 1, …, steps-1 순으로 되풀이한다. 무대 요소가 사라지면 함께 멈춘다.
+        // steps 칸을 RULE_STEP_MS마다 0, 1, …, steps-1 순으로 되풀이한다. 무대 요소가 사라지면 함께 멈춘다.
         private static void Loop(VisualElement set, int steps, Action<int> apply)
         {
             var step = 0;
@@ -349,7 +348,7 @@ namespace Underwrite.UI
             {
                 step = (step + 1) % steps;
                 apply(step);
-            }).Every(STEP_MS).StartingIn(STEP_MS);
+            }).Every(Constants.RULE_STEP_MS).StartingIn(Constants.RULE_STEP_MS);
         }
 
         private static VisualElement Row(VisualElement set)

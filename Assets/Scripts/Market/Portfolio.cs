@@ -214,6 +214,20 @@ namespace Underwrite.Market
             }
         }
 
+        /// <summary>한 주라도 가진 첫 종목. 없으면 null. 구체 사전을 돌아 매 프레임 불러도 할당이 없다.</summary>
+        public string FirstHeldStock()
+        {
+            foreach (var pair in Holdings)
+            {
+                if (pair.Value.Quantity > 0)
+                {
+                    return pair.Key;
+                }
+            }
+
+            return null;
+        }
+
         public IReadOnlyDictionary<string, Holding> AllHoldings
         {
             get

@@ -19,10 +19,13 @@ namespace Underwrite.UI
 
         private static readonly List<Sign> Signs = new List<Sign>();
         private static VisualElement Layer;
+        private static bool IsHighlightKnown;
+        private static string HighlightTitle;
 
         public static void Attach(VisualElement root)
         {
             Signs.Clear();
+            IsHighlightKnown = false;
             Layer = new VisualElement();
             Layer.name = "world-signs";
             Layer.pickingMode = PickingMode.Ignore;
@@ -68,6 +71,15 @@ namespace Underwrite.UI
         /// </summary>
         public static void Highlight(string title)
         {
+            // 매 프레임 불린다. 같은 이름이면 할 일이 없다.
+            if (IsHighlightKnown == true && HighlightTitle == title)
+            {
+                return;
+            }
+
+            IsHighlightKnown = true;
+            HighlightTitle = title;
+
             foreach (var sign in Signs)
             {
                 sign.Plate.EnableInClassList("world-sign--target", title != null && sign.Title == title);

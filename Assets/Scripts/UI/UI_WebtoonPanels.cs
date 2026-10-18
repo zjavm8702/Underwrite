@@ -86,6 +86,9 @@ namespace Underwrite.UI
             if (Index * 2 >= Bounds.Length)
             {
                 Overlay.RemoveFromHierarchy();
+                // 세로로 긴 원본 그림을 쥐고 있지 않게 놓는다. 내리는 것은 불러온 쪽이 한다.
+                Page.style.backgroundImage = StyleKeyword.Null;
+                Texture = null;
                 var done = Done;
                 Done = null;
 

@@ -9,20 +9,20 @@ namespace Underwrite.Global
 
         // 영지 첫 안내 — 어디로 가서 무엇을 누르면 어떻게 되는지까지(2026-10-17 사용자 요청).
         public static string TEXT_TUT_VILLAGE_1_TITLE = "영지";
-        public static string TEXT_TUT_VILLAGE_1_BODY = "가진 것 하나 없이 떨어진 영지다. WASD나 방향키로 걷는다. 마우스 휠로 가까이 볼 수 있다. 이곳의 시간은 실제 시간처럼 흐른다.";
-        public static string TEXT_TUT_VILLAGE_2_TITLE = "시각";
-        public static string TEXT_TUT_VILLAGE_2_BODY = "지금 시각과 다음 일이 있기까지 남은 시간. 할 수 있는 일마다 시간이 든다 — 어디에 쓸지 고르는 것이 이 영지의 일이다.";
+        public static string TEXT_TUT_VILLAGE_1_BODY = "가진 것 하나 없이 떨어진 영지다. WASD나 방향키로 걷는다. 마우스 휠로 가까이 볼 수 있다. M을 누르면 영지 지도가 펼쳐진다.";
+        public static string TEXT_TUT_VILLAGE_2_TITLE = "행동력";
+        public static string TEXT_TUT_VILLAGE_2_BODY = "날짜와 지금 휴장(오전·오후·새벽), 남은 행동력. 할 수 있는 일마다 행동력이 든다 — 어디에 쓸지 고르는 것이 이 영지의 일이다.";
         public static string TEXT_TUT_VILLAGE_3_TITLE = "할 일";
-        public static string TEXT_TUT_VILLAGE_3_BODY = "먼저 먹고살아야 한다. 화면 왼쪽 위의 여관으로 걸어가 문 앞에 서면 간판이 뜬다. E를 누르고 「주방 일을 거든다」를 고른다. 두 시간 일하고 30을 받는다.";
+        public static string TEXT_TUT_VILLAGE_3_BODY = "먼저 먹고살아야 한다. 화면 왼쪽 위의 여관으로 걸어가 문 앞에 서면 간판이 뜬다. E를 누르고 「주방 일을 거든다」를 고른다. 행동력 2를 쓰고 30을 받는다.";
         public static string TEXT_TUT_VILLAGE_4_TITLE = "말 걸기";
         public static string TEXT_TUT_VILLAGE_4_BODY = "길에 선 사람에게 다가가 E를 누르면 말을 건다. 무리 지어 다니는 모험단에게 말을 걸면 그들에 대해 무언가 알게 된다 — 수첩에 적힌다.";
         public static string TEXT_TUT_VILLAGE_5_TITLE = "메뉴";
-        public static string TEXT_TUT_VILLAGE_5_BODY = "시간 넘기기(원하는 시각까지 시계를 돌린다), 수첩(알아낸 것), 지하거래소로. 지하거래소는 장이 열릴 때(오전 8시·오후 6시)만 내려갈 수 있다.";
+        public static string TEXT_TUT_VILLAGE_5_BODY = "장으로 간다(지하 장에 내려간다), 이번 장은 쉰다, 수첩(알아낸 것), 소리. 새벽에는 장이 없다 — 다락방에서 잔다.";
 
 
         // 지하거래소 첫 안내. 순서는 눈이 가는 순서다 — 무엇을 / 얼마에 / 어떻게 / 무엇을 보고.
         public static string TEXT_TUT_MARKET_1_TITLE = "지하거래소";
-        public static string TEXT_TUT_MARKET_1_BODY = "여기서는 물건이 아니라 모험단의 성공과 실패를 사고판다. 장은 하루 두 번, 오전 8시와 오후 6시에 열린다. 장이 열린 동안 시간은 빠르게 흐른다.";
+        public static string TEXT_TUT_MARKET_1_BODY = "여기서는 물건이 아니라 모험단의 성공과 실패를 사고판다. 장은 하루 두 번, 오전장과 오후장이 열린다. 장이 열린 동안에는 시간이 흐른다.";
         public static string TEXT_TUT_MARKET_2_TITLE = "거래 종목";
         public static string TEXT_TUT_MARKET_2_BODY = "용병단은 소문에 크게 흔들린다. 용사단(지수)은 아주 조금씩 꾸준히 오른다 — 대신 그들이 무너지면 같이 무너진다. 누르면 그 종목을 본다.";
         public static string TEXT_TUT_MARKET_3_TITLE = "가격";
@@ -36,6 +36,6 @@ namespace Underwrite.Global
         public static string TEXT_TUT_MARKET_7_TITLE = "정보 기록";
         public static string TEXT_TUT_MARKET_7_BODY = "장마다 두 번, 정보 타임에 모험 소식이 들어온다 — 지하세계가 동시에 듣는다. 남보다 앞서려면 장 사이 영지에서 미리 캐야 한다. 「내 종목」 탭은 가진 종목 소식만 모은다.";
         public static string TEXT_TUT_MARKET_8_TITLE = "시간";
-        public static string TEXT_TUT_MARKET_8_BODY = "배속을 바꾸거나 장을 끝낼 수 있다. 장이 끝나면 지하세계는 닫힌다 — 지상(영지)으로 올라가 다음 장까지 시간을 보낸다.";
+        public static string TEXT_TUT_MARKET_8_BODY = "배속을 바꾸거나 장을 끝낼 수 있다. 장이 끝나면 지하세계는 닫힌다 — 벽의 문으로 여관 위층에 올라가 다음 장까지 영지에서 지낸다.";
     }
 }

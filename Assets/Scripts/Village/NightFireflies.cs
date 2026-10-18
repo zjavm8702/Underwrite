@@ -8,16 +8,32 @@ namespace Underwrite.Village
     {
         [SerializeField] private float MaxRate = 1.6f;
 
-        private ParticleSystem.EmissionModule Emission;
+        // 모듈(struct)은 들고 있지 않는다 — Play 중 스크립트를 다시 읽으면 비어서 예외가 난다. 시스템만 들고 그때그때 꺼낸다.
+        private ParticleSystem Particles;
+        private float Rate = -1f;
 
         private void Awake()
         {
-            Emission = GetComponent<ParticleSystem>().emission;
+            Particles = GetComponent<ParticleSystem>();
         }
 
         private void Update()
         {
-            Emission.rateOverTime = MaxRate * DayNightCycle.NightLevel;
+            if (Particles == null)
+            {
+                Particles = GetComponent<ParticleSystem>();
+            }
+
+            var rate = MaxRate * DayNightCycle.NightLevel;
+
+            if (rate == Rate)
+            {
+                return;
+            }
+
+            Rate = rate;
+            var emission = Particles.emission;
+            emission.rateOverTime = rate;
         }
     }
 }

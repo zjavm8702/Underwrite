@@ -48,7 +48,7 @@ namespace Underwrite.Global
         // 시장 화면 표시용
         public static string TEXT_MARKET_PHASE_CLOSED = "폐장";
         public static string TEXT_MARKET_PHASE_OPEN = "개장";
-        public static string TEXT_MARKET_PHASE_HALTED = "휴장 — 영주 조사";
+        public static string TEXT_MARKET_PHASE_HALTED = "휴장";
 
         public static string TEXT_SENTIMENT_CALM = "평온";
         public static string TEXT_SENTIMENT_FEVER = "투자 열풍";
@@ -129,7 +129,7 @@ namespace Underwrite.Global
         public static string TEXT_WORK_NOTE = "행동력 {0} · {1:N0}을 받는다";
         public static string TEXT_WORK_NO_TIME = "행동력이 모자란다 · 남은 행동력 {0}";
         public static string TEXT_WORK_RUMOR = "그러고 보니 일하다 들었는데, {0} 쪽에 무슨 일이 있답니다.";
-        public static string TEXT_WORK_RESULT = "{0:N0}을 받았습니다. 다음 장까지 {1}시간 {2}분.";
+        public static string TEXT_WORK_RESULT = "{0:N0}을 받았다. 남은 행동력 {1}.";
 
         // 영지 메뉴와 원형 시계 (2026-10-17)
         public static string TEXT_MENU = "메뉴";
@@ -506,6 +506,14 @@ namespace Underwrite.Global
         // 게임 안 웹툰: 액자 높이(화면 높이 대비), 7장 칸 경계(Outputs/Webtoon_ch7_v1/panels.json).
         public static float WEBTOON_FRAME_HEIGHT = 0.86f;
         public static float WEBTOON_FRAME_WIDTH = 0.9f;
+        /// <summary>하루의 분.</summary>
+        public static int MINUTES_PER_DAY = 24 * 60;
+        /// <summary>이 의뢰 순번을 넘긴 저장은 용사단을 이미 만난 것이다(옛 저장 보정).</summary>
+        public static int QUEST_HEROES_MET_INDEX = 3;
+        /// <summary>규칙서 움직이는 그림 한 걸음(ms).</summary>
+        public static long RULE_STEP_MS = 900;
+        /// <summary>규칙서에서 눌린 칸이 원래대로 돌아오기까지(ms).</summary>
+        public static long RULE_PRESS_MS = 150;
         public static readonly int[] WEBTOON_CH7_PANELS = { 0, 419, 427, 800, 808, 1212, 1220, 1774 };
 
         // 인트로에서 보이는 웹툰 장 수. 나머지(5~6장)는 창고 발견 장면에서 쓴다.

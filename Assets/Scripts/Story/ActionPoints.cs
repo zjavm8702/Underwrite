@@ -32,7 +32,7 @@ namespace Underwrite.Story
         /// <summary>그 시각이 어느 휴장인가. 영지의 낮·밤도 이 셋으로 바뀐다.</summary>
         public static VillagePhase PhaseOf(int breakMinuteOfDay)
         {
-            var minute = breakMinuteOfDay % (24 * 60);
+            var minute = breakMinuteOfDay % Constants.MINUTES_PER_DAY;
 
             if (minute >= Constants.MARKET_MORNING_START_HOUR * 60 + Constants.MARKET_SESSION_MINUTES
                 && minute < Constants.MARKET_EVENING_START_HOUR * 60)
@@ -90,7 +90,7 @@ namespace Underwrite.Story
         /// </summary>
         public static int KeyOf(int day, int breakMinuteOfDay)
         {
-            return day * 100 + breakMinuteOfDay / (24 * 60) * 10 + (int)PhaseOf(breakMinuteOfDay);
+            return day * 100 + breakMinuteOfDay / Constants.MINUTES_PER_DAY * 10 + (int)PhaseOf(breakMinuteOfDay);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Underwrite.Story
         /// </summary>
         public static int Normalize(int breakMinuteOfDay)
         {
-            var dayStart = breakMinuteOfDay / (24 * 60) * (24 * 60);
+            var dayStart = breakMinuteOfDay / Constants.MINUTES_PER_DAY * Constants.MINUTES_PER_DAY;
             var minute = breakMinuteOfDay - dayStart;
             var morning = Constants.MARKET_MORNING_START_HOUR * 60;
             var evening = Constants.MARKET_EVENING_START_HOUR * 60;

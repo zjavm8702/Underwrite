@@ -2722,15 +2722,7 @@ namespace Underwrite.UI
         /// <summary>가진 종목 하나(없으면 null).</summary>
         internal string HeldStock()
         {
-            foreach (var pair in Sim.Wallet.AllHoldings)
-            {
-                if (pair.Value.Quantity > 0)
-                {
-                    return pair.Key;
-                }
-            }
-
-            return null;
+            return Sim.Wallet.FirstHeldStock();
         }
 
         internal float CashNow()

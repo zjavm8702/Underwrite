@@ -5,6 +5,7 @@ using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Save;
 using Underwrite.Story;
+using Underwrite.Utility;
 
 namespace Underwrite.UI
 {
@@ -191,18 +192,38 @@ namespace Underwrite.UI
             }
         }
 
-        /// <summary>시계 칸. 시장 달력과 다음 장 시각은 숨긴다.</summary>
-        public string ClockLabel(string timeOfDay)
+        // 매 프레임 불리는 두 글의 캐시. 단계·시각·번 돈·갈 곳이 바뀔 때만 다시 만든다.
+        private PrologueStage ClockStage = PrologueStage.Stage_Done;
+        private int ClockSeconds = -1;
+        private string ClockCache;
+        private PrologueStage GoalStage = PrologueStage.Stage_Done;
+        private float GoalEarned = -1f;
+        private string GoalTarget;
+        private string GoalCache;
+
+        /// <summary>시계 칸. 시장 달력과 다음 장 시각은 숨긴다. <paramref name="secondsOfDay"/>는 그날 0시부터의 초.</summary>
+        public string ClockLabel(int secondsOfDay)
         {
+            if (ClockCache != null && ClockStage == Stage && ClockSeconds == secondsOfDay)
+            {
+                return ClockCache;
+            }
+
+            ClockStage = Stage;
+            ClockSeconds = secondsOfDay;
+
             if (Stage == PrologueStage.Stage_Kitchen)
             {
-                return string.Format(StringConstants.TEXT_PROLOGUE_CLOCK, StringConstants.TEXT_PROLOGUE_DAY8, timeOfDay);
+                ClockCache = string.Format(StringConstants.TEXT_PROLOGUE_CLOCK, StringConstants.TEXT_PROLOGUE_DAY8,
+                    ClockText.FromSeconds(secondsOfDay, true));
+                return ClockCache;
             }
 
             var part = Stage == PrologueStage.Stage_Sleep
                 ? StringConstants.TEXT_PROLOGUE_EVENING
                 : StringConstants.TEXT_PROLOGUE_AFTERNOON;
-            return string.Format(StringConstants.TEXT_PROLOGUE_CLOCK, StringConstants.TEXT_PROLOGUE_DAY7, part);
+            ClockCache = string.Format(StringConstants.TEXT_PROLOGUE_CLOCK, StringConstants.TEXT_PROLOGUE_DAY7, part);
+            return ClockCache;
         }
 
         /// <summary>화면 위 목표. 여덟째 날부터는 할 일(QuestLog)이 대신한다 — 그때는 null.</summary>
@@ -213,15 +234,29 @@ namespace Underwrite.UI
                 return null;
             }
 
-            var text = string.Format(StringConstants.TEXT_PROLOGUE_GOAL, Earned(), Constants.PROLOGUE_GOAL);
+            var earned = Earned();
+            var target = Stage == PrologueStage.Stage_Sleep ? null : TargetName();
+
+            if (GoalCache != null && GoalStage == Stage && GoalEarned == earned && ReferenceEquals(GoalTarget, target) == true)
+            {
+                return GoalCache;
+            }
+
+            GoalStage = Stage;
+            GoalEarned = earned;
+            GoalTarget = target;
+            var text = string.Format(StringConstants.TEXT_PROLOGUE_GOAL, earned, Constants.PROLOGUE_GOAL);
 
             if (Stage == PrologueStage.Stage_Sleep)
             {
-                return text + StringConstants.TEXT_PROLOGUE_GOAL_SLEEP;
+                GoalCache = text + StringConstants.TEXT_PROLOGUE_GOAL_SLEEP;
+            }
+            else
+            {
+                GoalCache = target == null ? text : text + string.Format(StringConstants.TEXT_PROLOGUE_GOAL_NEXT, target);
             }
 
-            var target = TargetName();
-            return target == null ? text : text + string.Format(StringConstants.TEXT_PROLOGUE_GOAL_NEXT, target);
+            return GoalCache;
         }
 
         /// <summary>
