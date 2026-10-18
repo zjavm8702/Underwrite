@@ -156,6 +156,77 @@ namespace Underwrite.Editor.Tests
         }
 
         [Test]
+        public void DiceChanceMatchesBinomial()
+        {
+            Assert.AreEqual(1f, LiarsDiceGame.ChanceAtLeast(0, 4));
+            Assert.AreEqual(0f, LiarsDiceGame.ChanceAtLeast(5, 4));
+            Assert.AreEqual(1f - System.Math.Pow(5.0 / 6.0, 4), LiarsDiceGame.ChanceAtLeast(1, 4), 0.0001f);
+            Assert.AreEqual(System.Math.Pow(1.0 / 6.0, 4), LiarsDiceGame.ChanceAtLeast(4, 4), 0.0001f);
+        }
+
+        [Test]
+        public void DiceMatchesAlwaysEndWithFairReveals()
+        {
+            for (var seed = 0; seed < 2000; seed++)
+            {
+                var rng = new System.Random(seed);
+                var game = new LiarsDiceGame(new System.Random(seed * 7 + 1), (float)rng.NextDouble(), Constants.DICE_PER_PLAYER);
+                var guard = 0;
+
+                while (game.IsOver == false)
+                {
+                    Assert.Less(++guard, 500, $"seed {seed} — 끝나지 않는다");
+
+                    if (game.IsRevealed == true)
+                    {
+                        var holds = game.CountAll(game.BidFace) >= game.BidCount;
+                        Assert.AreEqual(holds == game.BidByPlayer, game.RevealPlayerWon, $"seed {seed} — 판정");
+                        game.StartRound();
+                        continue;
+                    }
+
+                    if (game.IsPlayerTurn == false)
+                    {
+                        var count = game.BidCount;
+                        var face = game.BidFace;
+
+                        if (game.OpponentAct() == true)
+                        {
+                            Assert.IsTrue(game.BidCount > count || (game.BidCount == count && game.BidFace > face),
+                                $"seed {seed} — 상대가 낮게 불렀다");
+                            Assert.LessOrEqual(game.BidCount, game.TotalDice, $"seed {seed}");
+                        }
+
+                        continue;
+                    }
+
+                    // 플레이어 대신: 반쯤은 의심하고, 아니면 한 단계 올린다.
+                    if (game.BidCount > 0 && rng.Next(2) == 0)
+                    {
+                        Assert.IsTrue(game.PlayerCall());
+                        continue;
+                    }
+
+                    var nextCount = game.BidCount == 0 ? 1 : game.BidCount;
+                    var nextFace = game.BidCount == 0 ? 1 : game.BidFace + 1;
+
+                    if (nextFace > Constants.DICE_FACES)
+                    {
+                        nextFace = 1;
+                        nextCount++;
+                    }
+
+                    if (game.PlayerBid(nextCount, nextFace) == false)
+                    {
+                        Assert.IsTrue(game.PlayerCall(), $"seed {seed} — 올릴 수도 의심할 수도 없다");
+                    }
+                }
+
+                Assert.AreEqual(Constants.DICE_ROUNDS_TO_WIN, System.Math.Max(game.PlayerWins, game.OpponentWins));
+            }
+        }
+
+        [Test]
         public void SmithOrdersHaveExactlyOneEvidence()
         {
             var cancelled = StringConstants.TEXT_SMITH_STATUS.Length - 1;

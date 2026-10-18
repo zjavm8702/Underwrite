@@ -1978,6 +1978,142 @@
     font-size: 20px;
 }
 
+/* ── 주사위 내기 (여관) ───────────────
+   배경은 대화 배경 클래스(dialogue-root--tavern)를 함께 붙인다. 가운데 종이 한 장이 술상이다. */
+.dice {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -unity-background-scale-mode: scale-and-crop;
+    padding: 28px 48px 28px 48px;
+}
+
+/* .popup의 고정 폭(620px)을 풀어 화면 가운데 넓게 편다. */
+.dice-table {
+    flex-grow: 1;
+    width: 1100px;
+    align-self: center;
+    margin: 16px 0 12px 0;
+    padding: 36px 48px 36px 48px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dice-mood {
+    font-size: 20px;
+    color: var(--color-text-weak);
+    -unity-font-style: italic;
+}
+
+.dice-row {
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 주사위 한 알. 숫자 칸이라 장식 없이 크고 또렷하게. */
+.dice-die {
+    width: 72px;
+    height: 72px;
+    margin: 0 8px 0 8px;
+    font-size: 40px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: #2B2118;
+    background-color: #F7F0E2;
+    border-width: 3px;
+    border-color: #5A4632;
+    border-radius: 12px;
+}
+
+.dice-die--hidden {
+    color: #F7F0E2;
+    background-color: #5A4632;
+}
+
+.dice-die--match {
+    border-color: #B5323E;
+    background-color: #FBE3C4;
+}
+
+.dice-bid {
+    font-size: 30px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+    margin: 8px 0 8px 0;
+}
+
+/* 두 줄: 위는 개수·눈, 아래는 부른다·거짓말. */
+.dice-controls {
+    align-items: center;
+}
+
+.dice-pick,
+.dice-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.dice-count {
+    flex-direction: row;
+    align-items: center;
+    margin-right: 18px;
+}
+
+.dice-step {
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+}
+
+.dice-count-label {
+    width: 72px;
+    font-size: 26px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: var(--color-text);
+}
+
+.dice-faces {
+    flex-direction: row;
+    margin-right: 18px;
+}
+
+.dice-face-button {
+    width: 52px;
+    height: 52px;
+    margin: 0 3px 0 3px;
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: #2B2118;
+    background-color: #F7F0E2;
+    border-width: 2px;
+    border-color: #A89276;
+    border-radius: 10px;
+}
+
+.dice-face-button--on {
+    border-color: #B5323E;
+    border-width: 3px;
+    background-color: #FBE3C4;
+}
+
+.dice-action {
+    width: 180px;
+    height: 56px;
+    margin: 0 8px 0 8px;
+    font-size: 21px;
+}
+
+.dice-next {
+    width: 240px;
+    height: 56px;
+    font-size: 21px;
+}
+
 /* ── 주문서 읽기 (대장간) ───────────────
    배경은 대화 배경 클래스(dialogue-root--smith)를 함께 붙인다. 주문서는 종이 틀 카드, 3장씩 두 줄. */
 .smith-orders {

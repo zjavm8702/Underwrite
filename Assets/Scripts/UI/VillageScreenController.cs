@@ -666,6 +666,7 @@ namespace Underwrite.UI
                 if (StoryProgress.CellarFound == true)
                 {
                     choices.Add(EavesChoice());
+                    choices.Add(DiceChoice(spot));
                 }
 
                 choices.Add(HeroTableChoice(spot));
@@ -2531,7 +2532,8 @@ namespace Underwrite.UI
         {
             get
             {
-                return (Ledger != null && Ledger.IsOpen == true) || (Smith != null && Smith.IsOpen == true);
+                return (Ledger != null && Ledger.IsOpen == true) || (Smith != null && Smith.IsOpen == true)
+                    || (Dice != null && Dice.IsOpen == true);
             }
         }
 
@@ -2821,6 +2823,152 @@ namespace Underwrite.UI
                 string.Format(Orders.RumorTrue == true ? StringConstants.TEXT_SMITH_RIGHT_TRUE : StringConstants.TEXT_SMITH_RIGHT_FALSE,
                     StockName(id)));
             Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
+        }
+
+        // ── 주사위 내기 (여관 — 라이어스 다이스) ───────
+        // 모험단 한 사람과 주사위로 겨룬다. 이기면 취한 상대가 그 단에 도는 말을 끝까지 털어놓고, 지면 술값을 낸다.
+        // 엿듣기를 갈음할 여관 놀이 후보(2026-10-18 사장님과 합의 — 구현해 보고 정한다). 하루에 한 번.
+
+        private UI_LiarsDice Dice;
+        private LiarsDiceGame DiceGame;
+        private string DiceBand;
+        private VillageSpot DiceSpot;
+        private int DiceDay;
+
+        private DialogueChoice DiceChoice(VillageSpot spot)
+        {
+            var choice = new DialogueChoice(StringConstants.TEXT_DICE_CHOICE, () => StartDice(spot));
+            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
+            var money = GatherSession.Available;
+
+            if (BreakClock.Simulation == null)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_DICE_NONE;
+            }
+            else if (DiceDay == Today())
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_DICE_DONE_TODAY;
+            }
+            else if (left < Constants.DICE_MINUTES)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
+            }
+            else if (money < Constants.DICE_STAKE)
+            {
+                choice.IsEnabled = false;
+                choice.Note = string.Format(StringConstants.TEXT_DICE_NO_MONEY, Constants.DICE_STAKE, money);
+            }
+            else
+            {
+                choice.Note = string.Format(StringConstants.TEXT_DICE_CHOICE_NOTE, Constants.DICE_MINUTES, Constants.DICE_STAKE);
+            }
+
+            return choice;
+        }
+
+        private void StartDice(VillageSpot spot)
+        {
+            DiceBand = PickDiceBand(BreakClock.Simulation);
+
+            if (DiceBand == null)
+            {
+                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_DICE_NONE) }, null);
+                return;
+            }
+
+            Dialogue.Close();
+            DiceSpot = spot;
+            DiceDay = Today();
+            Clock.SpendBreakMinutes(Constants.DICE_MINUTES);
+
+            var boldness = Random.Range(Constants.DICE_BOLDNESS_MIN, Constants.DICE_BOLDNESS_MAX);
+            var moods = StringConstants.TEXT_DICE_MOODS;
+            var mood = moods[Mathf.Clamp((int)(boldness * moods.Length), 0, moods.Length - 1)];
+            DiceGame = new LiarsDiceGame(new System.Random(Random.Range(int.MinValue, int.MaxValue)), boldness,
+                Constants.DICE_PER_PLAYER);
+
+            if (Dice == null)
+            {
+                Dice = new UI_LiarsDice(Root);
+                Dice.Finished += won =>
+                {
+                    Dice.Close();
+                    ConcludeDice(won);
+                };
+                Dice.Left += () =>
+                {
+                    Dice.Close();
+                    ConcludeDice(false);
+                };
+            }
+
+            Dice.Open(DiceGame, StockName(DiceBand), mood, BackgroundOf(spot.InfoSource));
+            GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        // 아직 도는 말을 모르는 단을 먼저 고른다. 다 알면 아무 단이나 — 술값 내기는 할 수 있다.
+        private static string PickDiceBand(MarketSimulation sim)
+        {
+            if (sim == null)
+            {
+                return null;
+            }
+
+            var unknown = new List<string>();
+            var any = new List<string>();
+
+            foreach (var id in sim.CodexSubjects())
+            {
+                if (sim.CodexProfileOf(id) < 0)
+                {
+                    continue;
+                }
+
+                any.Add(id);
+
+                if (BandCodex.IsKnown(id, CodexSource.Codex_Tavern) == false)
+                {
+                    unknown.Add(id);
+                }
+            }
+
+            var pool = unknown.Count > 0 ? unknown : any;
+            return pool.Count == 0 ? null : pool[Random.Range(0, pool.Count)];
+        }
+
+        private void ConcludeDice(bool won)
+        {
+            Dialogue.SetBackground(BackgroundOf(DiceSpot.InfoSource));
+
+            if (won == false)
+            {
+                GatherSession.Record(Constants.DICE_STAKE, 0f, null);
+                GameAudio.Play(SoundEffect.Sound_Coins);
+                var lost = new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG,
+                    string.Format(StringConstants.TEXT_DICE_LOST, Constants.DICE_STAKE));
+                Dialogue.Play(new List<DialogueLine> { lost }, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Dots, null));
+                return;
+            }
+
+            var fact = BandCodex.Learn(DiceBand, CodexSource.Codex_Tavern);
+            var lines = new List<DialogueLine>();
+
+            if (fact == null)
+            {
+                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG, StringConstants.TEXT_DICE_WON_NOTHING));
+            }
+            else
+            {
+                GatherSession.Record(0f, 0f, new GatheredNote(DiceBand, fact, InfoSource.Source_TavernTalk));
+                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG,
+                    string.Format(StringConstants.TEXT_DICE_WON, StockName(DiceBand))));
+                lines.Add(new DialogueLine(string.Empty, StockName(DiceBand), fact));
+            }
+
+            Dialogue.Play(lines, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
         }
 
         // ── 출발과 계절 계획 (시간구조 설계안 §2·§3) ───────

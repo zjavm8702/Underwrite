@@ -454,6 +454,25 @@ namespace Underwrite.Global
         // 그 단의 지난 계절 미끼 주문서를 넣을 확률(둘째 계절부터). 취소된 미끼는 늘 넣는다.
         public static float SMITH_ORDER_OLD_DECOY_CHANCE = 0.6f;
 
+        // 여관 주사위 내기. 눈 수, 한 사람의 주사위 수, 이겨야 하는 판 수, 걸리는 시간, 지면 내는 술값.
+        public const int DICE_FACES = 6;
+        public static int DICE_PER_PLAYER = 4;
+        public static int DICE_ROUNDS_TO_WIN = 2;
+        public static int DICE_MINUTES = 30;
+        public static float DICE_STAKE = 10f;
+
+        // 상대의 판단. 플레이어가 부른 말이 맞을 확률이 (기준 − 대담함 × 폭)보다 낮으면 의심한다.
+        // 올릴 말이 이 확률보다 낮으면 차라리 의심한다. 대담함 × 비율의 확률로 하나 더 얹어 허세를 부른다.
+        public static float DICE_DOUBT_BASE = 0.45f;
+        public static float DICE_DOUBT_BOLD = 0.25f;
+        public static float DICE_GIVE_UP_CHANCE = 0.25f;
+        public static float DICE_BLUFF_RATE = 0.4f;
+        public static float DICE_BOLDNESS_MIN = 0.15f;
+        public static float DICE_BOLDNESS_MAX = 0.85f;
+
+        // 상대가 생각하는 척하는 시간(초, 실시간). 바로 받아치면 기계 같다.
+        public static float DICE_THINK_SECONDS = 0.9f;
+
         // 주문서 카드의 기울기(도). 자리 순서대로 돌려 쓴다.
         public static readonly float[] SMITH_SLIP_TILTS = { -1.6f, 0.9f, -0.5f, 1.3f, -1.1f, 0.6f };
 
