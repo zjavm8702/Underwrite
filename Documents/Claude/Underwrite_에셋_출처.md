@@ -19,4 +19,8 @@ CC0이라 표기 의무는 없지만, 크레딧에 이름을 넣는다(만든 �
 
 ## 그림
 
-그림은 모두 Codex(대리) 납품물이다(`Outputs/`). 외부 에셋 없음.
+그림은 Codex(대리) 납품물이다(`Outputs/`). 외부 에셋을 바탕으로 쓴 것은 아래뿐이다(상시 지시서 §2-1 — 무료 에셋 먼저).
+
+| 쓰인 곳 | 원본 | 만든 이 | 라이선스 | 출처 · 확인 |
+|---|---|---|---|---|
+| 지하 방 바닥(`Assets/Images/Underworld/Room` 바닥판, 납품 `Outputs/UnderworldRoom_v3`) | Tileable Bricks Ground Textures – Set 1 (Ground_01~04, 무료판) — 줄이고 세로로 누르고 색을 낮춰 섞음 | Cethiel | CC0 1.0 | https://opengameart.org/content/tileable-bricks-ground-textures-set-1 · 과장이 10/18 제작자 페이지에서 CC0 확인, 원본 ZIP은 `work/cethiel_set1/`(커밋 안 함) |
