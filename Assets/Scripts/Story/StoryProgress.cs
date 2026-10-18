@@ -30,11 +30,19 @@ namespace Underwrite.Story
         /// <summary>프롤로그(지하를 찾기 전의 마을 생활)의 어디쯤인가. 옛 저장은 창고를 찾았으면 끝으로 친다.</summary>
         public static PrologueStage Prologue { get; set; }
 
-        /// <summary>첫 지하 방문 튜토리얼이 끝난 단계 값.</summary>
-        public const int MARKET_ONBOARDING_DONE = 6;
+        /// <summary>첫 지하 방문 튜토리얼의 단계.</summary>
+        public static MarketOnboardingStage MarketOnboarding { get; set; }
 
-        /// <summary>첫 지하 방문 튜토리얼의 단계(MarketOnboardingHandler.STAGE_*).</summary>
-        public static int MarketOnboarding { get; set; }
+        /// <summary>
+        /// 첫 지하 방문의 연습 매수 직전 현금(-1이면 아직). 연습 매도 뒤 이 금액으로 되돌린다 — 도중에 나갔다 와도 같은 값(코드 리뷰 10/18).
+        /// </summary>
+        public static float PracticeCash { get; set; } = -1f;
+
+        // 하루에 한 번만 하는 정보 모으기의 마지막 날(0이면 아직). 불러온 뒤에도 같은 날 다시 못 하게 저장한다.
+        public static int LedgerDay { get; set; }
+        public static int SmithDay { get; set; }
+        public static int DiceDay { get; set; }
+        public static int DeduceDay { get; set; }
 
         /// <summary>데모 마무리 장면을 봤는가. 한 번만 보인다 — 그 뒤로는 그대로 이어서 둘러볼 수 있다.</summary>
         public static bool DemoEndSeen { get; set; }
@@ -47,7 +55,12 @@ namespace Underwrite.Story
             CellarFound = false;
             Prologue = PrologueStage.Stage_Opening;
             MarketTutorialDone = false;
-            MarketOnboarding = 0;
+            MarketOnboarding = MarketOnboardingStage.Onboarding_Arrive;
+            PracticeCash = -1f;
+            LedgerDay = 0;
+            SmithDay = 0;
+            DiceDay = 0;
+            DeduceDay = 0;
             VillageTutorialDone = false;
         }
     }

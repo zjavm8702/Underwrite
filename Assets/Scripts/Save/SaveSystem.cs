@@ -70,7 +70,12 @@ namespace Underwrite.Save
                 {
                     CellarFound = StoryProgress.CellarFound,
                     Prologue = (int)StoryProgress.Prologue,
-                    MarketOnboarding = StoryProgress.MarketOnboarding,
+                    MarketOnboarding = (int)StoryProgress.MarketOnboarding,
+                    PracticeCash = StoryProgress.PracticeCash,
+                    LedgerDay = StoryProgress.LedgerDay,
+                    SmithDay = StoryProgress.SmithDay,
+                    DiceDay = StoryProgress.DiceDay,
+                    DeduceDay = StoryProgress.DeduceDay,
                     MarketTutorialDone = StoryProgress.MarketTutorialDone,
                     VillageTutorialDone = StoryProgress.VillageTutorialDone,
                     Bankruptcies = StoryProgress.Bankruptcies,
@@ -186,9 +191,21 @@ namespace Underwrite.Save
                 : (PrologueStage)data.Story.Prologue;
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
             // 튜토리얼이 생기기 전 저장(10/18)은 값이 0이다. 거래소 안내를 이미 봤으면 끝난 것으로 본다.
-            StoryProgress.MarketOnboarding = data.Story.MarketTutorialDone == true && data.Story.MarketOnboarding == 0
-                ? StoryProgress.MARKET_ONBOARDING_DONE
-                : data.Story.MarketOnboarding;
+            // 범위를 벗어난 값(손상·새 판의 단계)은 끝난 것으로 본다 — 튜토리얼에 갇히는 것보다 낫다.
+            var onboarding = data.Story.MarketOnboarding;
+            var done = (int)MarketOnboardingStage.Onboarding_Done;
+
+            if ((data.Story.MarketTutorialDone == true && onboarding == 0) || onboarding < 0 || onboarding > done)
+            {
+                onboarding = done;
+            }
+
+            StoryProgress.MarketOnboarding = (MarketOnboardingStage)onboarding;
+            StoryProgress.PracticeCash = data.Story.PracticeCash;
+            StoryProgress.LedgerDay = data.Story.LedgerDay;
+            StoryProgress.SmithDay = data.Story.SmithDay;
+            StoryProgress.DiceDay = data.Story.DiceDay;
+            StoryProgress.DeduceDay = data.Story.DeduceDay;
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
             StoryProgress.Bankruptcies = data.Story.Bankruptcies;
             StoryProgress.DemoEndSeen = data.Story.DemoEndSeen;

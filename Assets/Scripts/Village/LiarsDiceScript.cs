@@ -22,6 +22,10 @@ namespace Underwrite.Village
             public string ResponseHint;
             public string RevealHint;
 
+            /// <summary>내가 불러야 하는 말(개수 0이면 제한 없음). 다른 말로는 부를 수 없다 — 각본을 벗어나 지는 일이 없게.</summary>
+            public int ExpectedCount;
+            public int ExpectedFace;
+
             /// <summary>상대 말에 답할 때 허락하는 동작.</summary>
             public bool AllowCall = true;
             public bool AllowRaise = true;

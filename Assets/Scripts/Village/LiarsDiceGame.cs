@@ -149,7 +149,8 @@ namespace Underwrite.Village
         /// <summary>플레이어가 부른다. 받아들여지면 참.</summary>
         public bool PlayerBid(int count, int face)
         {
-            if (IsOver == true || IsRevealed == true || IsPlayerTurn == false || IsValidRaise(count, face) == false)
+            if (IsOver == true || IsRevealed == true || IsPlayerTurn == false || IsValidRaise(count, face) == false
+                || IsScriptedBid(count, face) == false)
             {
                 return false;
             }
@@ -251,6 +252,19 @@ namespace Underwrite.Village
 
             SetBid(bestCount, bestFace, false);
             return true;
+        }
+
+        /// <summary>연습 판에서 각본이 기대하는 말인가. 보통 판이거나 제한이 없으면 늘 참.</summary>
+        public bool IsScriptedBid(int count, int face)
+        {
+            var scripted = CurrentScriptRound;
+
+            if (scripted == null || scripted.ExpectedCount == 0)
+            {
+                return true;
+            }
+
+            return count == scripted.ExpectedCount && face == scripted.ExpectedFace;
         }
 
         /// <summary>그 눈이 둘의 주사위를 합쳐 몇 개인가.</summary>

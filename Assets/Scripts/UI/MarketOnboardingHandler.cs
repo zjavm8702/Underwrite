@@ -9,7 +9,7 @@ namespace Underwrite.UI
     /// <summary>
     /// 첫 지하 방문 튜토리얼(2026-10-18 사장님). 거래 화면(<see cref="MarketScreenController"/>)이 조립한다.
     ///
-    /// 단계(<see cref="StoryProgress.MarketOnboarding"/>, 저장 포함):
+    /// 단계(<see cref="MarketOnboardingStage"/> · <see cref="StoryProgress.MarketOnboarding"/>, 저장 포함):
     /// 0 도착 — 시간을 멈추고 정보상이 지하와 시장 게시판을 소개한다
     /// 1 게시판으로 — 거래판을 처음 열면 종목·시세·호가·매수매도·시장가지정가·수량·주문·자산을 짚는다
     /// 2 첫 매수 — 1주를 산다(종목만 고르고 매수·시장가·1주는 고정)
@@ -20,21 +20,12 @@ namespace Underwrite.UI
     /// </summary>
     public sealed class MarketOnboardingHandler
     {
-        public const int STAGE_ARRIVE = 0;
-        public const int STAGE_TO_BOARD = 1;
-        public const int STAGE_FIRST_BUY = 2;
-        public const int STAGE_FIRST_SELL = 3;
-        public const int STAGE_FIRST_BRIEFING = 4;
-        public const int STAGE_TRADE_AGAIN = 5;
-        public const int STAGE_DONE = StoryProgress.MARKET_ONBOARDING_DONE;
 
         private readonly MarketScreenController Host;
         private readonly Label Coach;
         private bool Busy;
         private float CoachTimer;
 
-        // 지하에 처음 들어왔을 때의 현금. 연습 매수·매도가 끝나면 여기로 되돌린다.
-        private float ArrivalCash = -1f;
         private string PracticeStock;
 
         public MarketOnboardingHandler(MarketScreenController host, VisualElement root)
@@ -47,7 +38,7 @@ namespace Underwrite.UI
             SetCoach(null);
         }
 
-        private static int Stage
+        private static MarketOnboardingStage Stage
         {
             get
             {
@@ -63,7 +54,7 @@ namespace Underwrite.UI
         {
             get
             {
-                return Stage < STAGE_DONE;
+                return Stage < MarketOnboardingStage.Onboarding_Done;
             }
         }
 
@@ -72,14 +63,14 @@ namespace Underwrite.UI
         {
             get
             {
-                return Stage < STAGE_FIRST_BRIEFING;
+                return Stage < MarketOnboardingStage.Onboarding_FirstBriefing;
             }
         }
 
         /// <summary>첫 정보 타임에 소식 앞에 붙일 정보상 소개. 이 단계가 아니면 null.</summary>
         public List<DialogueLine> BriefingIntro()
         {
-            if (Stage != STAGE_FIRST_BRIEFING)
+            if (Stage != MarketOnboardingStage.Onboarding_FirstBriefing)
             {
                 return null;
             }
@@ -97,9 +88,9 @@ namespace Underwrite.UI
         /// <summary>정보 타임 대화가 끝났다.</summary>
         public void OnBriefingClosed()
         {
-            if (Stage == STAGE_FIRST_BRIEFING)
+            if (Stage == MarketOnboardingStage.Onboarding_FirstBriefing)
             {
-                Stage = STAGE_TRADE_AGAIN;
+                Stage = MarketOnboardingStage.Onboarding_TradeAgain;
                 SetCoach(StringConstants.TEXT_MTUT_COACH_AFTER);
             }
         }
@@ -127,19 +118,20 @@ namespace Underwrite.UI
                 Host.HoldTime();
             }
 
-            if (ArrivalCash < 0f)
+            // 연습 매수 직전 현금을 한 번만 적는다(저장된다 — 나갔다 와도 같은 값).
+            if (StoryProgress.PracticeCash < 0f && Stage <= MarketOnboardingStage.Onboarding_FirstBuy)
             {
-                ArrivalCash = Host.CashNow();
+                StoryProgress.PracticeCash = Host.CashNow();
             }
 
             switch (Stage)
             {
-                case STAGE_ARRIVE:
+                case MarketOnboardingStage.Onboarding_Arrive:
                 {
                     PlayArrive();
                     break;
                 }
-                case STAGE_TO_BOARD:
+                case MarketOnboardingStage.Onboarding_ToBoard:
                 {
                     if (Host.IsPanelOpen == true)
                     {
@@ -148,7 +140,7 @@ namespace Underwrite.UI
 
                     break;
                 }
-                case STAGE_FIRST_BUY:
+                case MarketOnboardingStage.Onboarding_FirstBuy:
                 {
                     // 종목만 고른다. 매수·시장가·1주는 고정.
                     Host.ForceOrder(null, OrderSide.Side_Buy);
@@ -156,21 +148,21 @@ namespace Underwrite.UI
 
                     if (PracticeStock != null)
                     {
-                        Stage = STAGE_FIRST_SELL;
+                        Stage = MarketOnboardingStage.Onboarding_FirstSell;
                         SetCoach(StringConstants.TEXT_MTUT_COACH_SELL);
                     }
 
                     break;
                 }
-                case STAGE_FIRST_SELL:
+                case MarketOnboardingStage.Onboarding_FirstSell:
                 {
                     Host.ForceOrder(PracticeStock, OrderSide.Side_Sell);
 
                     if (Host.HeldStock() == null)
                     {
                         // 연습이었다 — 오르내린 차이는 정보상이 메워 준다.
-                        Host.ResetPracticeCash(ArrivalCash);
-                        Stage = STAGE_FIRST_BRIEFING;
+                        Host.ResetPracticeCash(StoryProgress.PracticeCash);
+                        Stage = MarketOnboardingStage.Onboarding_FirstBriefing;
                         Host.ReleaseTime();
                         SetCoach(StringConstants.TEXT_MTUT_COACH_FLOW);
                         CoachTimer = Constants.MTUT_FLOW_COACH_SECONDS;
@@ -178,7 +170,7 @@ namespace Underwrite.UI
 
                     break;
                 }
-                case STAGE_TRADE_AGAIN:
+                case MarketOnboardingStage.Onboarding_TradeAgain:
                 {
                     if (Host.IsPanelOpen == true)
                     {
@@ -203,7 +195,7 @@ namespace Underwrite.UI
             Host.PlayRoomLines(lines, () =>
             {
                 Busy = false;
-                Stage = STAGE_TO_BOARD;
+                Stage = MarketOnboardingStage.Onboarding_ToBoard;
                 SetCoach(StringConstants.TEXT_MTUT_COACH_BOARD);
             });
         }
@@ -226,7 +218,7 @@ namespace Underwrite.UI
             {
                 Busy = false;
                 StoryProgress.MarketTutorialDone = true;
-                Stage = STAGE_FIRST_BUY;
+                Stage = MarketOnboardingStage.Onboarding_FirstBuy;
                 SetCoach(StringConstants.TEXT_MTUT_COACH_BUY);
             });
         }
@@ -244,7 +236,7 @@ namespace Underwrite.UI
             }, () =>
             {
                 Busy = false;
-                Stage = STAGE_DONE;
+                Stage = MarketOnboardingStage.Onboarding_Done;
             });
         }
 

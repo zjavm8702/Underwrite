@@ -203,8 +203,15 @@ namespace Underwrite.Save
         /// <summary>프롤로그 단계(PrologueStage).</summary>
         public int Prologue;
 
-        /// <summary>첫 지하 방문 튜토리얼 단계.</summary>
+        /// <summary>첫 지하 방문 튜토리얼 단계(MarketOnboardingStage).</summary>
         public int MarketOnboarding;
+        public float PracticeCash = -1f;
+
+        // 하루 한 번 정보 모으기의 마지막 날.
+        public int LedgerDay;
+        public int SmithDay;
+        public int DiceDay;
+        public int DeduceDay;
 
         public bool MarketTutorialDone;
         public bool VillageTutorialDone;

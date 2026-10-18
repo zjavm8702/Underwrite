@@ -180,6 +180,30 @@ namespace Underwrite.Editor.Tests
         }
 
         [Test]
+        public void DicePracticeOnlyAcceptsScriptedBid()
+        {
+            var script = new LiarsDiceScript();
+            var round = new LiarsDiceScript.Round
+            {
+                PlayerDice = new[] { 4, 4, 2, 6 },
+                OpponentDice = new[] { 1, 4, 5, 3 },
+                PlayerFirst = true,
+                ExpectedCount = 2,
+                ExpectedFace = 4
+            };
+            round.OpponentMoves.Add(new[] { 6, 4 });
+            script.Rounds.Add(round);
+            var game = new LiarsDiceGame(script);
+
+            Assert.IsFalse(game.PlayerBid(8, 6), "각본 밖의 말은 받지 않는다");
+            Assert.IsTrue(game.PlayerBid(2, 4));
+            Assert.IsTrue(game.OpponentAct());
+            Assert.AreEqual(6, game.BidCount);
+            Assert.IsTrue(game.PlayerCall());
+            Assert.IsTrue(game.RevealPlayerWon, "허세를 잡아 이긴다");
+        }
+
+        [Test]
         public void DiceChanceMatchesBinomial()
         {
             Assert.AreEqual(1f, LiarsDiceGame.ChanceAtLeast(0, 4));

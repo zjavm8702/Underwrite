@@ -280,7 +280,7 @@ namespace Underwrite.UI
                 FaceButtons[i].EnableInClassList("dice-face-button--on", i + 1 == PickFace);
             }
 
-            BidButton.SetEnabled(Game.IsValidRaise(PickCount, PickFace));
+            BidButton.SetEnabled(Game.IsValidRaise(PickCount, PickFace) && Game.IsScriptedBid(PickCount, PickFace));
             RefreshCoach(myTurn);
         }
 
@@ -303,7 +303,8 @@ namespace Underwrite.UI
                 else if (myTurn == true)
                 {
                     text = scripted.ResponseHint;
-                    BidButton.SetEnabled(scripted.AllowRaise == true && Game.IsValidRaise(PickCount, PickFace));
+                    BidButton.SetEnabled(scripted.AllowRaise == true && Game.IsValidRaise(PickCount, PickFace)
+                        && Game.IsScriptedBid(PickCount, PickFace));
                     CallButton.SetEnabled(scripted.AllowCall);
                 }
             }

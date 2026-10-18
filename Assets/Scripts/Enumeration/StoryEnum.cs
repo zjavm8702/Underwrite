@@ -65,4 +65,28 @@ namespace Underwrite.Enumeration
         /// <summary>지하를 찾았다. 프롤로그 끝.</summary>
         Stage_Done
     }
+
+    /// <summary>첫 지하 방문 튜토리얼의 단계(2026-10-18). 순서가 곧 진행이다.</summary>
+    public enum MarketOnboardingStage
+    {
+        /// <summary>정보상의 첫인사와 시장 게시판 소개.</summary>
+        Onboarding_Arrive,
+
+        /// <summary>게시판으로 가서 거래판을 연다. 처음 열면 거래판 안내.</summary>
+        Onboarding_ToBoard,
+
+        /// <summary>1주 산다(매수·시장가·1주 고정).</summary>
+        Onboarding_FirstBuy,
+
+        /// <summary>산 1주를 판다. 팔면 현금을 도착 때로 되돌린다.</summary>
+        Onboarding_FirstSell,
+
+        /// <summary>시간이 흐른다. 첫 정보 타임에 정보상이 자기와 정보를 소개한다.</summary>
+        Onboarding_FirstBriefing,
+
+        /// <summary>소식을 본 뒤 다시 거래하는 법.</summary>
+        Onboarding_TradeAgain,
+
+        Onboarding_Done
+    }
 }

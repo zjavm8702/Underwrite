@@ -252,7 +252,8 @@ namespace Underwrite.UI
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
                 || ClockOpen == true || Approaching == true || NotebookOpen == true || PuzzleOpen == true
-                || MiniGameOpen == true || (Tutorial != null && Tutorial.IsOpen == true))
+                || MiniGameOpen == true || (Tutorial != null && Tutorial.IsOpen == true)
+                || IsGuiding == true || Prologue.IsDirecting == true || (TitleCard != null && TitleCard.IsOpen == true))
             {
                 return;
             }
@@ -2598,7 +2599,6 @@ namespace Underwrite.UI
         private UI_LedgerPuzzle Ledger;
         private LedgerPuzzle Puzzle;
         private VillageSpot LedgerSpot;
-        private int LedgerDay;
 
         // 추리형 정보 모으기 화면(장부 맞추기·주문서 읽기)이 떠 있는가.
         private bool PuzzleOpen
@@ -2621,7 +2621,7 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_LEDGER_NONE;
             }
-            else if (LedgerDay == Today())
+            else if (StoryProgress.LedgerDay == Today())
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_LEDGER_DONE_TODAY;
@@ -2652,7 +2652,7 @@ namespace Underwrite.UI
 
             Dialogue.Close();
             LedgerSpot = spot;
-            LedgerDay = Today();
+            StoryProgress.LedgerDay = Today();
             Clock.SpendBreakMinutes(Constants.LEDGER_MINUTES);
 
             if (Ledger == null)
@@ -2759,7 +2759,6 @@ namespace Underwrite.UI
         private UI_SmithOrders Smith;
         private SmithOrderPuzzle Orders;
         private VillageSpot SmithSpot;
-        private int SmithDay;
 
         private DialogueChoice SmithOrderChoice(VillageSpot spot)
         {
@@ -2771,7 +2770,7 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_SMITH_NONE;
             }
-            else if (SmithDay == Today())
+            else if (StoryProgress.SmithDay == Today())
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_SMITH_DONE_TODAY;
@@ -2802,7 +2801,7 @@ namespace Underwrite.UI
 
             Dialogue.Close();
             SmithSpot = spot;
-            SmithDay = Today();
+            StoryProgress.SmithDay = Today();
             Clock.SpendBreakMinutes(Constants.SMITH_ORDER_MINUTES);
 
             EnsureSmithScreen();
@@ -2955,7 +2954,6 @@ namespace Underwrite.UI
         private UI_GuildDeduction Deduce;
         private GuildDeduction DeducePuzzle;
         private VillageSpot DeduceSpot;
-        private int DeduceDay;
 
         private DialogueChoice DeduceChoice(VillageSpot spot)
         {
@@ -2967,7 +2965,7 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_DEDUCE_NONE;
             }
-            else if (DeduceDay == Today())
+            else if (StoryProgress.DeduceDay == Today())
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_DEDUCE_DONE_TODAY;
@@ -2998,7 +2996,7 @@ namespace Underwrite.UI
 
             Dialogue.Close();
             DeduceSpot = spot;
-            DeduceDay = Today();
+            StoryProgress.DeduceDay = Today();
             Clock.SpendBreakMinutes(Constants.DEDUCE_MINUTES);
 
             EnsureDeduceScreen();
@@ -3107,7 +3105,6 @@ namespace Underwrite.UI
         private LiarsDiceGame DiceGame;
         private string DiceBand;
         private VillageSpot DiceSpot;
-        private int DiceDay;
 
         private DialogueChoice DiceChoice(VillageSpot spot)
         {
@@ -3120,7 +3117,7 @@ namespace Underwrite.UI
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_DICE_NONE;
             }
-            else if (DiceDay == Today())
+            else if (StoryProgress.DiceDay == Today())
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_DICE_DONE_TODAY;
@@ -3155,7 +3152,7 @@ namespace Underwrite.UI
 
             Dialogue.Close();
             DiceSpot = spot;
-            DiceDay = Today();
+            StoryProgress.DiceDay = Today();
             Clock.SpendBreakMinutes(Constants.DICE_MINUTES);
 
             var boldness = Random.Range(Constants.DICE_BOLDNESS_MIN, Constants.DICE_BOLDNESS_MAX);
@@ -3223,7 +3220,9 @@ namespace Underwrite.UI
                 OpenHint = StringConstants.TEXT_DICE_TUT_1_OPEN,
                 ResponseHint = StringConstants.TEXT_DICE_TUT_1_RESPONSE,
                 RevealHint = StringConstants.TEXT_DICE_TUT_1_REVEAL,
-                AllowRaise = false
+                AllowRaise = false,
+                ExpectedCount = 2,
+                ExpectedFace = 4
             };
             first.OpponentMoves.Add(new[] { 6, 4 });
             script.Rounds.Add(first);
@@ -3235,7 +3234,9 @@ namespace Underwrite.UI
                 PlayerFirst = false,
                 ResponseHint = StringConstants.TEXT_DICE_TUT_2_RESPONSE,
                 RevealHint = StringConstants.TEXT_DICE_TUT_2_REVEAL,
-                AllowCall = false
+                AllowCall = false,
+                ExpectedCount = 3,
+                ExpectedFace = 3
             };
             second.OpponentMoves.Add(new[] { 2, 3 });
             second.OpponentMoves.Add(new[] { 0, 0 });
@@ -3653,17 +3654,26 @@ namespace Underwrite.UI
             }
         }
 
+        // 장소는 씬이 뜰 때 정해져 바뀌지 않는다. 처음 한 번만 찾는다(코드 규칙 §10 — 매 프레임 씬 검색 금지).
+        private Dictionary<InfoSource, VillageSpot> SpotsBySource;
+
         internal VillageSpot FindSpot(InfoSource source)
         {
-            foreach (var spot in FindObjectsByType<VillageSpot>(FindObjectsInactive.Exclude))
+            if (SpotsBySource == null)
             {
-                if (spot.InfoSource == source && spot.Kind != VillageActivity.Activity_Enter)
+                SpotsBySource = new Dictionary<InfoSource, VillageSpot>();
+
+                foreach (var spot in FindObjectsByType<VillageSpot>(FindObjectsInactive.Exclude))
                 {
-                    return spot;
+                    if (spot.Kind != VillageActivity.Activity_Enter && SpotsBySource.ContainsKey(spot.InfoSource) == false)
+                    {
+                        SpotsBySource.Add(spot.InfoSource, spot);
+                    }
                 }
             }
 
-            return null;
+            VillageSpot found;
+            return SpotsBySource.TryGetValue(source, out found) == true ? found : null;
         }
 
         internal DialogueLine OwnerLineFor(VillageSpot spot, string text)
