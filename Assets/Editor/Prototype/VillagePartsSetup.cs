@@ -63,7 +63,7 @@ namespace Underwrite.Editor
         private const string GROUND_FILE = "ground.png";
 
         // 바닥 그림 72px가 1유닛이다. 카메라 높이 15유닛이 화면 1080px와 맞는다. v2 배경과 같다.
-        private const float PIXELS_PER_UNIT = 72f;
+        public const float PIXELS_PER_UNIT = 72f;
         private const float CHARACTER_SCALE = 0.27f;
 
         // 밤에 완전히 켜졌을 때의 가로등. 낮에는 하루의 흐름(DayNightCycle)이 꺼 둔다.
@@ -130,6 +130,12 @@ namespace Underwrite.Editor
             if (CopyArt(source, parts, partScale, allowOverwrite) == false)
             {
                 return;
+            }
+
+            // 실제 영지는 사장님이 배치 툴로 옮긴 결과를 얹는다. 시범판에는 쓰지 않는다.
+            if (prefix == FULL_PREFIX)
+            {
+                parts = ApplyOverride(parts, Path.GetFileName(source));
             }
 
             var prefab = VillageSceneSetup.EnsureCharacterPrefab();
@@ -328,6 +334,9 @@ namespace Underwrite.Editor
 
         private sealed class PartEntry
         {
+            /// <summary>원본 배치표 parts의 순번. 배치 툴이 원본을 찾는 열쇠다.</summary>
+            public int Source;
+
             public string File;
             public Vector2 Size;
             public Vector2 Foot;
@@ -373,6 +382,7 @@ namespace Underwrite.Editor
 
             foreach (var item in list)
             {
+                var source = result.Count;
                 var entry = item as Dictionary<string, object>;
 
                 if (entry == null)
@@ -382,6 +392,7 @@ namespace Underwrite.Editor
 
                 var part = new PartEntry
                 {
+                    Source = source,
                     File = (string)Require(entry, "file"),
                     Size = ToVector(Require(entry, "size")),
                     Foot = ToVector(Require(entry, "foot")),
@@ -430,6 +441,101 @@ namespace Underwrite.Editor
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 배치 툴의 덮어쓰기를 얹는다(<see cref="VillageLayoutOverride"/>). 덮어쓰기에 적힌 사물만, 적힌 발밑으로 다시 만든다.
+        /// 없거나 다른 납품 판에서 만든 것이면 원본 그대로.
+        /// </summary>
+        private static List<PartEntry> ApplyOverride(List<PartEntry> parts, string sourceName)
+        {
+            var layout = VillageLayoutOverride.Load();
+
+            if (layout == null)
+            {
+                return parts;
+            }
+
+            if (layout.Base != sourceName)
+            {
+                UnderwriteLog.Warning($"배치 덮어쓰기는 {layout.Base}에서 만든 것이라 {sourceName}에 쓰지 않습니다. "
+                    + "배치 툴에서 다시 저장하세요.");
+                return parts;
+            }
+
+            var result = new List<PartEntry>();
+
+            foreach (var entry in layout.Parts)
+            {
+                if (entry.Source < 0 || entry.Source >= parts.Count || parts[entry.Source].File != entry.File)
+                {
+                    UnderwriteLog.Warning($"배치 덮어쓰기의 {entry.Source}번({entry.File})이 원본과 맞지 않아 뺍니다.");
+                    continue;
+                }
+
+                result.Add(Moved(parts[entry.Source], new Vector2(entry.X, entry.Y)));
+            }
+
+            UnderwriteLog.Info($"배치 덮어쓰기를 얹었습니다: 원본 {parts.Count}개 → {result.Count}개");
+            return result;
+        }
+
+        // 발밑을 옮기고, 딸린 좌표(문·불빛·연기·발 닿는 면·뒤편 막기)를 같은 만큼 옮긴 사본.
+        private static PartEntry Moved(PartEntry original, Vector2 foot)
+        {
+            var delta = foot - original.Foot;
+            var part = new PartEntry
+            {
+                Source = original.Source,
+                File = original.File,
+                Size = original.Size,
+                Foot = foot,
+                Pivot = original.Pivot,
+                Sways = original.Sways,
+                Place = original.Place,
+                Footprint = Shifted(original.Footprint, delta),
+                Lights = Shifted(original.Lights, delta),
+                Smokes = Shifted(original.Smokes, delta)
+            };
+
+            if (original.Door.HasValue == true)
+            {
+                part.Door = original.Door.Value + delta;
+            }
+
+            foreach (var block in original.Blocks)
+            {
+                part.Blocks.Add(Shifted(block, delta));
+            }
+
+            return part;
+        }
+
+        private static List<Vector2> Shifted(List<Vector2> points, Vector2 delta)
+        {
+            var result = new List<Vector2>(points.Count);
+
+            foreach (var point in points)
+            {
+                result.Add(point + delta);
+            }
+
+            return result;
+        }
+
+        /// <summary>월드 좌표를 지도 1배 픽셀로. <see cref="ToWorld"/>의 반대다. 배치 툴이 쓴다.</summary>
+        public static Vector2 ToPixel(Vector2 world, Vector2 groundSize)
+        {
+            return new Vector2(
+                world.x * PIXELS_PER_UNIT + groundSize.x * 0.5f,
+                groundSize.y * 0.5f - world.y * PIXELS_PER_UNIT);
+        }
+
+        /// <summary>실제 영지가 쓰는 원본 납품 폴더 이름(예: VillagePartsFull_v2). 없으면 null.</summary>
+        public static string FullSourceName()
+        {
+            var source = FindLatestSource(FULL_PREFIX);
+            return source == null ? null : Path.GetFileName(source);
         }
 
         private static object Require(Dictionary<string, object> entry, string key)
@@ -694,6 +800,8 @@ namespace Underwrite.Editor
             var go = new GameObject(Path.GetFileNameWithoutExtension(part.File));
             go.transform.SetParent(parent);
             go.transform.position = new Vector3(foot.x, foot.y, 0f);
+
+            go.AddComponent<VillageLayoutTag>().Configure(part.Source, part.File, part.Place);
 
             var renderer = go.AddComponent<SpriteRenderer>();
             renderer.sprite = sprite;
