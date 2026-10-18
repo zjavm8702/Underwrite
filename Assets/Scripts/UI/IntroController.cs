@@ -15,7 +15,9 @@ using UnityEngine.UIElements;
 namespace Underwrite.UI
 {
     /// <summary>
-    /// 인트로. 웹툰 1~6화를 한 장씩 넘긴다.
+    /// 인트로. 웹툰 1~6화를 **움직이는 웹툰**으로 보여 준다(2026-10-18 — 10/18 토론 「앞부분은 연출로」, 선택지 중 과장이 고름).
+    /// 한 장(세로로 긴 네 칸)을 통째로 보이지 않고 한 칸씩 화면 가득 띄워, 넘길 때 다음 칸으로 미끄러져 내려가고
+    /// 칸이 떠 있는 동안 아주 천천히 다가간다. 원작의 그림과 글을 그대로 쓴다.
     ///
     /// 다 읽으면 마을(여관 앞)에서 시작한다. 웹툰 5~6화의 지하거래소 발견은 플레이어가 직접 겪는다.
     /// 새 게임이므로 씬을 넘나드는 기록(시장, 영지, 후원, 용사단)을 모두 비우고 시작한다.
@@ -29,9 +31,15 @@ namespace Underwrite.UI
         [Tooltip("이어하기 때 시장을 표에서 다시 짜는 데 쓴다.")]
         [SerializeField] private GameDataSet Data;
 
+        private VisualElement Frame;
         private VisualElement Page;
         private Label Count;
         private int Index;
+        private int PanelIndex;
+        private Vector2 PanFrom;
+        private Vector2 PanTo;
+        private float PanTime;
+        private float ZoomTime;
 
         private void OnEnable()
         {
@@ -54,16 +62,24 @@ namespace Underwrite.UI
             veil.RegisterCallback<ClickEvent>(_ => Next());
             root.Add(veil);
 
-            // 세로로 긴 웹툰 한 장을 화면 높이에 맞춘다. 네 칸이 한눈에 들어온다.
+            // 한 칸이 보이는 창. 칸의 가로세로 비율(장 폭 : 장 높이의 1/4)을 지킨다.
+            Frame = new VisualElement();
+            Frame.style.position = Position.Absolute;
+            Frame.style.left = Length.Percent(12f);
+            Frame.style.right = Length.Percent(12f);
+            Frame.style.overflow = Overflow.Hidden;
+            Frame.pickingMode = PickingMode.Ignore;
+            Frame.RegisterCallback<GeometryChangedEvent>(_ => LayoutFrame());
+            veil.Add(Frame);
+
+            // 창 뒤에서 위아래로 움직이는 장 한 장 전체.
             Page = new VisualElement();
             Page.style.position = Position.Absolute;
             Page.style.left = 0f;
             Page.style.right = 0f;
-            Page.style.top = 24f;
-            Page.style.bottom = 24f;
-            Page.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
+            Page.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Cover);
             Page.pickingMode = PickingMode.Ignore;
-            veil.Add(Page);
+            Frame.Add(Page);
 
             Count = new Label();
             Count.style.position = Position.Absolute;
@@ -101,6 +117,7 @@ namespace Underwrite.UI
 
         private void Update()
         {
+            Animate(Time.unscaledDeltaTime);
             var keyboard = Keyboard.current;
 
             if (keyboard == null)
@@ -115,8 +132,20 @@ namespace Underwrite.UI
             }
         }
 
+        // 다음 칸으로. 장의 마지막 칸이면 다음 장의 첫 칸.
         private void Next()
         {
+            if (PanelIndex < PanelCount() - 1)
+            {
+                PanelIndex++;
+                PanFrom = PanTo;
+                PanTo = PanelSpan(PanelIndex);
+                PanTime = 0f;
+                ZoomTime = 0f;
+                ShowCount();
+                return;
+            }
+
             Index++;
 
             if (Index >= Pages.Count)
@@ -126,6 +155,70 @@ namespace Underwrite.UI
             }
 
             Show();
+        }
+
+        private int PanelCount()
+        {
+            var table = Constants.INTRO_PANELS;
+            return Index < table.Length ? table[Index].Length / 2 : Constants.INTRO_PANELS_PER_PAGE;
+        }
+
+        // 칸의 위와 높이(원본 장의 비율, 0~1). 표에 없는 장은 고르게 나눈다.
+        private Vector2 PanelSpan(int panel)
+        {
+            var table = Constants.INTRO_PANELS;
+
+            if (Index < table.Length && Pages[Index] != null)
+            {
+                var rows = table[Index];
+                float height = Pages[Index].height;
+                return new Vector2(rows[panel * 2] / height, (rows[panel * 2 + 1] - rows[panel * 2]) / height);
+            }
+
+            var share = 1f / Constants.INTRO_PANELS_PER_PAGE;
+            return new Vector2(panel * share, share);
+        }
+
+        // 장 전체의 크기를 창 폭에 맞춘다. 창의 높이는 Animate가 칸마다 맞춘다.
+        private void LayoutFrame()
+        {
+            if (Frame == null || Index >= Pages.Count || Pages[Index] == null)
+            {
+                return;
+            }
+
+            var page = Pages[Index];
+            Page.style.height = Frame.resolvedStyle.width * page.height / page.width;
+        }
+
+        // 칸을 옮길 때 미끄러지듯 내려가며 창도 그 칸의 높이로 바뀐다. 칸이 떠 있는 동안 아주 천천히 다가간다.
+        private void Animate(float delta)
+        {
+            if (Frame == null || Page == null || Index >= Pages.Count || Pages[Index] == null)
+            {
+                return;
+            }
+
+            PanTime = Mathf.Min(1f, PanTime + delta / Constants.INTRO_PAN_SECONDS);
+            ZoomTime += delta;
+
+            var eased = Mathf.SmoothStep(0f, 1f, PanTime);
+            var span = Vector2.Lerp(PanFrom, PanTo, eased);
+            var pageHeight = Frame.resolvedStyle.width * Pages[Index].height / Pages[Index].width;
+            var frameHeight = span.y * pageHeight;
+            var parent = Frame.parent == null ? 0f : Frame.parent.resolvedStyle.height;
+
+            Frame.style.height = frameHeight;
+            Frame.style.top = Mathf.Max(0f, (parent - frameHeight) * 0.5f);
+            Page.style.top = -span.x * pageHeight;
+
+            var zoom = 1f + Mathf.Min(ZoomTime / Constants.INTRO_ZOOM_SECONDS, 1f) * Constants.INTRO_ZOOM_AMOUNT;
+            Frame.style.scale = new Scale(new Vector3(zoom, zoom, 1f));
+        }
+
+        private void ShowCount()
+        {
+            Count.text = string.Format(StringConstants.TEXT_INTRO_COUNT, Index + 1, Pages.Count);
         }
 
         private void Show()
@@ -138,7 +231,13 @@ namespace Underwrite.UI
             }
 
             Page.style.backgroundImage = new StyleBackground(Pages[Index]);
-            Count.text = string.Format(StringConstants.TEXT_INTRO_COUNT, Index + 1, Pages.Count);
+            PanelIndex = 0;
+            PanFrom = PanelSpan(0);
+            PanTo = PanFrom;
+            PanTime = 1f;
+            ZoomTime = 0f;
+            LayoutFrame();
+            ShowCount();
         }
 
         /// <summary>새 게임을 연다. 이전 판의 기록이 남아 있으면 비운다.</summary>

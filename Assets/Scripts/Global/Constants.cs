@@ -382,6 +382,23 @@ namespace Underwrite.Global
         // 셋째 계절 첫날 귀환이 둘째 계절 원정(방패 사정)의 결과다.
         public static int DEMO_END_SEASON = 3;
 
+        // 인트로 움직이는 웹툰. 칸을 옮기는 시간(초), 칸이 떠 있는 동안 다가가는 정도와 걸리는 시간.
+        // 칸 경계는 장마다 다르다 — 그림의 흰 칸 사이 띠를 재서 적었다(원본 887×1774 기준 px, 칸마다 위·아래).
+        // 장이 바뀌면 다시 재야 한다. 표에 없는 장은 네 칸으로 고르게 나눈다.
+        public static readonly int[][] INTRO_PANELS =
+        {
+            new[] { 0, 397, 403, 824, 830, 1298, 1303, 1774 },
+            new[] { 0, 429, 437, 900, 908, 1283, 1291, 1774 },
+            new[] { 0, 435, 445, 887, 893, 1311, 1320, 1774 },
+            new[] { 0, 395, 405, 790, 798, 1193, 1202, 1774 },
+            new[] { 0, 449, 456, 792, 799, 1161, 1166, 1774 },
+            new[] { 0, 386, 391, 811, 816, 1209, 1215, 1711 }
+        };
+        public const int INTRO_PANELS_PER_PAGE = 4;
+        public static float INTRO_PAN_SECONDS = 0.7f;
+        public static float INTRO_ZOOM_AMOUNT = 0.04f;
+        public static float INTRO_ZOOM_SECONDS = 8f;
+
         // 소리(2026-10-18). 설정 화면이 생기기 전까지의 기본 크기와 음악을 갈아 끼우는 시간(초).
         public static float AUDIO_MUSIC_VOLUME = 0.45f;
         public static float AUDIO_EFFECT_VOLUME = 0.7f;
