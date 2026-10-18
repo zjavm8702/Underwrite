@@ -564,8 +564,7 @@ namespace Underwrite.UI
                     mark.AddToClassList("icon");
                     mark.AddToClassList("icon--warning");
 
-                    var notice = new Label($" {stock.NoticedDelistCycle}주기 상장 폐지 예고"
-                        + $" · 청산율 {stock.LiquidationRatio * 100f:N0}퍼센트");
+                    var notice = new Label(string.Format(StringConstants.TEXT_DELIST_ROW, stock.LiquidationRatio * 100f));
                     notice.AddToClassList("stock-notice");
 
                     line.Add(mark);
@@ -2643,7 +2642,7 @@ namespace Underwrite.UI
                 // 말하는 이는 거래소를 운영하는 정보상이다. 어느 단의 소식인지는 꼬리표에 적는다(2026-10-17 사용자 결정).
                 // 정보상 초상은 아직 없다(Codex에 그릴 예정) — 그때까지 인물 자리를 비운다.
                 var line = new DialogueLine(StringConstants.TEXT_INFORMANT,
-                    $"{name} · {SourceText(entry.Source)} · {Sim.Clock.Cycle}주기 {Sim.Clock.Day}일째 {session}"
+                    $"{name} · {SourceText(entry.Source)} · {ClockText.SeasonDay(Sim.Clock.Day)} {session}"
                     + $" {ClockText.FromSeconds(Sim.Clock.ClockTotalSeconds, false)}",
                     entry.Headline);
 

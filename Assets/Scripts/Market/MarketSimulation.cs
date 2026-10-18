@@ -899,7 +899,7 @@ namespace Underwrite.Market
 
                 stock.NoticeDeparture(plan.Cycle);
                 var ratio = AdventurerStock.LiquidationRatioOf(plan.Reason) * 100f;
-                Notices.Add($"{stock.DisplayName} 다음 주기 상장 폐지 예고. 청산율 {ratio:N0}퍼센트.");
+                Notices.Add(string.Format(StringConstants.TEXT_DELIST_NOTICE, stock.DisplayName, ratio));
             }
         }
 

@@ -96,8 +96,8 @@ namespace Underwrite.Global
         public static string TEXT_INFO_NOT_PUBLIC = "아직 시장에 공개되지 않음.";
 
         // 상장 흐름 (상장흐름 설계안 §3)
-        public static string TEXT_LISTING_ARRIVED = "{0}{이} 영지에 도착했다. 다음 주기 상장 예정 · 예상 공모가 {1:N1}";
-        public static string TEXT_BAND_ARRIVED = "갓 도착 · 다음 주기 상장 예정";
+        public static string TEXT_LISTING_ARRIVED = "{0}{이} 영지에 도착했다. 다음 계절 상장 예정 · 예상 공모가 {1:N1}";
+        public static string TEXT_BAND_ARRIVED = "갓 도착 · 다음 계절 상장 예정";
         public static string TEXT_BAND_LISTED = "상장 중";
         public static string TEXT_BAND_HELD = "보유 {0}주";
         public static string TEXT_INFO_HELD = "보유 {0}주";
@@ -184,6 +184,8 @@ namespace Underwrite.Global
         public static string TEXT_SEASON_DAY = "{0}년 {1} {2}일째";
         public static string TEXT_ARRIVALS_HEAD = "다음 계절 상장 예정";
         public static string TEXT_ARRIVAL_ROW = "{0} · 영지에 와 있다";
+        public static string TEXT_DELIST_NOTICE = "{0} 다음 계절 상장 폐지 예고. 청산율 {1:N0}퍼센트.";
+        public static string TEXT_DELIST_ROW = " 다음 계절 상장 폐지 예고 · 청산율 {0:N0}퍼센트";
         public static string TEXT_REOPEN_GAP = "재개장 — 원정 결과가 알려진 만큼 값이 움직인 채 열렸다. 뛴 종목 {0} · 떨어진 종목 {1}";
         public static readonly string[] TEXT_SEASON_NAMES = { "봄", "여름", "가을", "겨울" };
 
