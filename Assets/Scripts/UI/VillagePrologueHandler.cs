@@ -125,14 +125,15 @@ namespace Underwrite.UI
 
             WorldSigns.Highlight(TargetName());
 
-            if (Directing == true || Host.IsGuiding == true || Host.CanDirect() == false)
+            // 첫 카드는 다른 조건을 기다리지 않고 영지가 뜨는 첫 프레임에 띄운다 — 영지가 먼저 보이지 않게.
+            if (Stage == PrologueStage.Stage_Opening && Directing == false)
             {
+                PlayOpening();
                 return;
             }
 
-            if (Stage == PrologueStage.Stage_Opening)
+            if (Directing == true || Host.IsGuiding == true || Host.CanDirect() == false)
             {
-                PlayOpening();
                 return;
             }
 
@@ -284,7 +285,7 @@ namespace Underwrite.UI
         private void PlayOpening()
         {
             Directing = true;
-            Host.ShowTitle(StringConstants.TEXT_PROLOGUE_DAY7, StringConstants.TEXT_PROLOGUE_CARD_DAY7_SUB, null, PlayOpeningLines);
+            Host.ShowTitleFromDark(StringConstants.TEXT_PROLOGUE_DAY7, StringConstants.TEXT_PROLOGUE_CARD_DAY7_SUB, PlayOpeningLines);
         }
 
         private void PlayOpeningLines()

@@ -3811,6 +3811,17 @@ namespace Underwrite.UI
             TitleCard.Play(title, subtitle, onDark, onDone);
         }
 
+        /// <summary>이미 어두운 화면에서 시작하는 제목 카드(영지가 처음 뜰 때).</summary>
+        internal void ShowTitleFromDark(string title, string subtitle, System.Action onDone)
+        {
+            if (TitleCard == null)
+            {
+                TitleCard = new UI_TitleCard(Root);
+            }
+
+            TitleCard.PlayFromDark(title, subtitle, onDone);
+        }
+
         /// <summary>장소에 닿았다 — 문 앞의 주인이 주인공을 돌아보고 반긴다.</summary>
         internal void GreetAt(VillageSpot spot)
         {

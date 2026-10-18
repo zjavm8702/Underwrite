@@ -53,6 +53,16 @@ namespace Underwrite.UI
             Begin(title, subtitle, Constants.TITLE_CARD_FADE_SECONDS, Constants.TITLE_CARD_HOLD_SECONDS, onDark, onDone);
         }
 
+        /// <summary>
+        /// 이미 어두운 화면에서 시작한다(장면이 뜨는 첫 프레임). 영지가 먼저 보였다가 어두워지는 어색함이 없다.
+        /// </summary>
+        public void PlayFromDark(string title, string subtitle, Action onDone)
+        {
+            Begin(title, subtitle, Constants.TITLE_CARD_FADE_SECONDS, Constants.TITLE_CARD_HOLD_SECONDS, null, onDone);
+            Elapsed = Fade;
+            Overlay.style.opacity = 1f;
+        }
+
         /// <summary>글씨 없는 짧은 암전. 장소를 옮길 때 쓴다.</summary>
         public void Blink(Action onDark, Action onDone)
         {

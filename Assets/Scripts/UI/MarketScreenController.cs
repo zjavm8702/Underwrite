@@ -753,8 +753,9 @@ namespace Underwrite.UI
         /// </summary>
         private void SkipOrOpen()
         {
-            // 첫 지하 방문의 연습 거래가 끝나기 전에는 장을 넘기지 않는다(코드 리뷰 10/18 — 넘기면 연습 현금이 꼬인다).
-            if (Onboarding != null && Onboarding.HoldsTime == true)
+            // 첫 지하 방문의 연습 거래가 끝나기 전에는 열린 장을 넘기지 않는다(코드 리뷰 10/18 — 넘기면 연습 현금이 꼬인다).
+            // 닫힌 장을 여는 것은 막지 않는다 — 첫 장이 열려야 튜토리얼이 시작된다.
+            if (Sim.Clock.Phase != MarketPhase.Phase_Closed && Onboarding != null && Onboarding.HoldsTime == true)
             {
                 return;
             }
