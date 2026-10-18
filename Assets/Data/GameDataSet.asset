@@ -25,4 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb94b7dd33a94b04289daa78ea46dac6, type: 2}
   - {fileID: 11400000, guid: bb94b7dd33a94b04289daa78ea46dac6, type: 2}
   - {fileID: 11400000, guid: 2de0fba047e2cf948b875049bac7e2f7, type: 2}
-  Informant: {fileID: 0}
+  Informant: {fileID: 11400000, guid: 34acf5893b6c24145849958c47cc2f02, type: 2}
