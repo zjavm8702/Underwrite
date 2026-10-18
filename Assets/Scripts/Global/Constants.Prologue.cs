@@ -61,6 +61,13 @@ namespace Underwrite.Global
         public static string TEXT_PROLOGUE_CARD_DUSK = "해 질 녘";
         public static string TEXT_PROLOGUE_CARD_DUSK_SUB = "주방 일을 마칠 무렵";
 
+        // 여덟째 날 아침, 다락방 일러스트 위 혼잣말.
+        public static readonly string[] TEXT_PROLOGUE_ATTIC =
+        {
+            "다락방 창으로 해가 든다. 바닥에 어제 받은 동전이 그대로 있다.",
+            "…하루는 버텼다. 오늘도 버티면 된다."
+        };
+
         public static string TEXT_PROLOGUE_TUT_MOVE_TITLE = "영지";
         public static string TEXT_PROLOGUE_TUT_MOVE_BODY = "가진 것 하나 없이 떨어진 영지. WASD나 방향키로 걷고, 문 앞에서 E를 누른다. 마우스 휠로 가까이 볼 수 있다.";
         public static string TEXT_PROLOGUE_TUT_GOAL_TITLE = "목표";

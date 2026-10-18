@@ -3670,6 +3670,13 @@ namespace Underwrite.UI
             return OwnerLine(spot, text);
         }
 
+        /// <summary>장면 일러스트를 깔고 대화를 띄운다(온보딩 — 다락방 아침, 용사단을 알아보는 순간).</summary>
+        internal void PlayScene(string sceneClass, List<DialogueLine> lines, System.Action then)
+        {
+            Dialogue.SetBackground(sceneClass);
+            Dialogue.Play(lines, then);
+        }
+
         /// <summary>대화를 띄운다. <paramref name="place"/>가 없으면 배경 그림 없이 — 영지가 비쳐 보이는 혼잣말.</summary>
         internal void PlayLines(InfoSource? place, List<DialogueLine> lines, System.Action then)
         {

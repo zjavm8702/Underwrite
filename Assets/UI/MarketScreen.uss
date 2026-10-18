@@ -1396,6 +1396,15 @@
 
 /* 대장간과 영주관은 아직 그림이 없다. 가장 가까운 것을 빌려 쓴다.
    place_smith.png / place_manor.png가 들어오면 이 두 줄만 바꾼다. */
+/* 온보딩 장면 일러스트(Outputs/OnboardingScenes_v1, 2026-10-18). 다락방 아침 · 용사단을 알아보는 순간. */
+.dialogue-root--attic {
+    background-image: url("project://database/Assets/UI/Images/scene_attic_morning.png");
+}
+
+.dialogue-root--heroes {
+    background-image: url("project://database/Assets/UI/Images/scene_heroes_recognized.png");
+}
+
 /* 거리에 선 혼잣말. 그림 없이 영지가 비쳐 보이게 옅게만 가린다(2026-10-18 프롤로그). */
 .dialogue-root--street {
     background-color: rgba(20, 15, 10, 0.35);

@@ -349,8 +349,21 @@ namespace Underwrite.UI
                     }
 
                     SaveSystem.Save();
-                }, () => Directing = false);
+                }, PlayAtticMorning);
             });
+        }
+
+        // 다락방 아침 일러스트 위 혼잣말. 끝나면 여관 주인의 부탁(할 일)이 이어진다.
+        private void PlayAtticMorning()
+        {
+            var lines = new List<DialogueLine>();
+
+            foreach (var text in StringConstants.TEXT_PROLOGUE_ATTIC)
+            {
+                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_PROLOGUE_DAY8, text));
+            }
+
+            Host.PlayScene("dialogue-root--attic", lines, () => Directing = false);
         }
 
         private static float Earned()
