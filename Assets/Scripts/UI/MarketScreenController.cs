@@ -580,6 +580,26 @@ namespace Underwrite.UI
                 StockRows.Add(row);
                 RowStockIds.Add(stock.Id);
             }
+
+            // 다음 계절에 상장될 단. 이미 영지에 와 있다 — 상장 전에 캐 두면 공모가에 산다(상장흐름 설계안 §3).
+            // 목록 아래 빈자리를 채우는 것이기도 하다(2026-10-18 교차 검수).
+            var arrived = Sim.ArrivedNames();
+
+            if (arrived.Count == 0)
+            {
+                return;
+            }
+
+            var head = new Label(StringConstants.TEXT_ARRIVALS_HEAD);
+            head.AddToClassList("arrivals-head");
+            list.Add(head);
+
+            for (var i = 0; i < arrived.Count; i++)
+            {
+                var line = new Label(string.Format(StringConstants.TEXT_ARRIVAL_ROW, arrived[i]));
+                line.AddToClassList("arrival-row");
+                list.Add(line);
+            }
         }
 
         private void BindButtons()

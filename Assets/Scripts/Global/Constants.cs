@@ -182,6 +182,8 @@ namespace Underwrite.Global
         public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
         // 「1년 봄 2일째」. 해·계절 이름·계절 안의 날.
         public static string TEXT_SEASON_DAY = "{0}년 {1} {2}일째";
+        public static string TEXT_ARRIVALS_HEAD = "다음 계절 상장 예정";
+        public static string TEXT_ARRIVAL_ROW = "{0} · 영지에 와 있다";
         public static string TEXT_REOPEN_GAP = "재개장 — 원정 결과가 알려진 만큼 값이 움직인 채 열렸다. 뛴 종목 {0} · 떨어진 종목 {1}";
         public static readonly string[] TEXT_SEASON_NAMES = { "봄", "여름", "가을", "겨울" };
 

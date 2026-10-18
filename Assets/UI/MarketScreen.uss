@@ -2152,3 +2152,21 @@
     white-space: normal;
     margin-bottom: 6px;
 }
+
+/* 거래 종목 아래 — 다음 계절 상장 예정인 단. 거래할 수 없으니 흐리게, 그러나 눈에 띄게. */
+.arrivals-head {
+    font-size: 17px;
+    -unity-font-style: bold;
+    color: var(--color-text-weak);
+    margin-top: 18px;
+    margin-bottom: 6px;
+    padding-top: 10px;
+    border-top-width: 1px;
+    border-top-color: var(--color-divider);
+}
+
+.arrival-row {
+    font-size: 17px;
+    color: var(--color-text-weak);
+    padding: 4px 8px 4px 8px;
+}
