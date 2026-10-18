@@ -207,6 +207,7 @@ namespace Underwrite.Save
         public int MarketOnboarding;
         public float PracticeCash = -1f;
         public bool HeroesRecognized;
+        public bool FirstSessionDone;
         public bool ActionTutorialDone;
         public int ActionPoints;
         public int ActionFilledKey = -1;

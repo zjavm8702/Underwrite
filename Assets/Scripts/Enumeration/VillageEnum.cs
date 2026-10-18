@@ -73,4 +73,12 @@ namespace Underwrite.Enumeration
         /// <summary>오후장이 끝난 뒤 새벽. 장이 없다 — 자면 다음 날 오전.</summary>
         Phase_Night
     }
+
+    /// <summary>기록 짜맞추기 단서가 무엇과 무엇을 잇는가.</summary>
+    public enum ClueKind
+    {
+        Clue_BandDestination,
+        Clue_BandClient,
+        Clue_DestinationClient
+    }
 }

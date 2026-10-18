@@ -14,7 +14,7 @@ namespace Underwrite.Story
     {
         public static int Current { get; private set; }
 
-        /// <summary>마지막으로 채운 휴장의 열쇠(날 × 10000 + 휴장 시각). 저장한다.</summary>
+        /// <summary>마지막으로 채운 휴장의 열쇠(장 날짜 · 자정을 넘었는가 · 휴장). 저장한다.</summary>
         public static int FilledKey { get; private set; } = -1;
 
         public static void Reset()
@@ -72,7 +72,7 @@ namespace Underwrite.Story
         /// </summary>
         public static bool FillIfNew(int day, int breakMinuteOfDay, bool locked)
         {
-            var key = day * 10000 + breakMinuteOfDay;
+            var key = KeyOf(day, breakMinuteOfDay);
 
             if (key == FilledKey)
             {
@@ -82,6 +82,38 @@ namespace Underwrite.Story
             FilledKey = key;
             Current = locked == true ? 0 : MaxOf(PhaseOf(breakMinuteOfDay));
             return true;
+        }
+
+        /// <summary>
+        /// 휴장 하나의 열쇠. 같은 휴장 안에서 시각이 바뀌어도(장으로 가려고 휴장을 넘겨도) 같은 값이다 — 이어하기로 다시 채우지 않게(코드 리뷰 10/19).
+        /// 장 날짜는 휴장 동안 바뀌지 않으므로, 오후장 뒤 새벽과 이튿날 오전은 자정을 넘었는지로 가른다.
+        /// </summary>
+        public static int KeyOf(int day, int breakMinuteOfDay)
+        {
+            return day * 100 + breakMinuteOfDay / (24 * 60) * 10 + (int)PhaseOf(breakMinuteOfDay);
+        }
+
+        /// <summary>
+        /// 실시간 시계 시절의 저장(10/18 이전)은 장 시각 사이에 멈춰 있을 수 있다. 가장 가까운 휴장 시각으로 옮긴다(코드 리뷰 10/19 — 새벽으로 잘못 읽혀 막히던 것).
+        /// </summary>
+        public static int Normalize(int breakMinuteOfDay)
+        {
+            var dayStart = breakMinuteOfDay / (24 * 60) * (24 * 60);
+            var minute = breakMinuteOfDay - dayStart;
+            var morning = Constants.MARKET_MORNING_START_HOUR * 60;
+            var evening = Constants.MARKET_EVENING_START_HOUR * 60;
+
+            if (minute >= morning && minute < morning + Constants.MARKET_SESSION_MINUTES)
+            {
+                return dayStart + morning - Constants.BREAK_SKIP_MARGIN_MINUTES;
+            }
+
+            if (minute >= evening)
+            {
+                return dayStart + evening - Constants.BREAK_SKIP_MARGIN_MINUTES;
+            }
+
+            return breakMinuteOfDay;
         }
 
         /// <summary>지금 휴장의 몫으로 다시 채운다(행동력 안내를 마친 뒤).</summary>

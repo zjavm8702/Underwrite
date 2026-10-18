@@ -212,6 +212,9 @@ namespace Underwrite.UI
             var camera = go.AddComponent<Camera>();
             var target = RenderTexture.GetTemporary(width, height, 24);
 
+            var previous = RenderTexture.active;
+            Texture2D texture = null;
+
             try
             {
                 camera.orthographic = true;
@@ -223,16 +226,27 @@ namespace Underwrite.UI
                 camera.targetTexture = target;
                 camera.Render();
 
-                var previous = RenderTexture.active;
                 RenderTexture.active = target;
-                var texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+                texture = new Texture2D(width, height, TextureFormat.RGB24, false);
                 texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
                 texture.Apply(false, true);
-                RenderTexture.active = previous;
                 return texture;
+            }
+            catch (System.Exception e)
+            {
+                // 찍지 못하면 바닥 그림으로 대신한다(부른 쪽).
+                Utility.UnderwriteLog.Warning($"미니맵을 찍지 못했습니다: {e.Message}");
+
+                if (texture != null)
+                {
+                    Object.Destroy(texture);
+                }
+
+                return null;
             }
             finally
             {
+                RenderTexture.active = previous;
                 camera.targetTexture = null;
                 RenderTexture.ReleaseTemporary(target);
                 Object.Destroy(go);

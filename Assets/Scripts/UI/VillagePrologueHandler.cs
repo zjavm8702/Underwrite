@@ -103,7 +103,7 @@ namespace Underwrite.UI
         {
             get
             {
-                return StoryProgress.CellarFound == true && StoryProgress.HeroesRecognized == false;
+                return StoryProgress.FirstSessionDone == true && StoryProgress.HeroesRecognized == false;
             }
         }
 
@@ -406,7 +406,7 @@ namespace Underwrite.UI
                 lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_PROLOGUE_DAY8, text));
             }
 
-            Host.PlayScene("dialogue-root--attic", lines, () => Directing = false);
+            Host.PlayScene(StringConstants.SCENE_CLASS_ATTIC, lines, () => Directing = false);
         }
 
         // 동기 전환 장면: 여관 구석의 용사단을 알아본다(장면 일러스트 위). 끝나면 여관 주인이 다음 할 일로 이끈다.
@@ -429,7 +429,7 @@ namespace Underwrite.UI
                     lines.Add(Host.OwnerLineFor(inn, StringConstants.TEXT_HEROES_OWNER));
                 }
 
-                Host.PlayScene("dialogue-root--heroes", lines, () =>
+                Host.PlayScene(StringConstants.SCENE_CLASS_HEROES, lines, () =>
                 {
                     StoryProgress.HeroesRecognized = true;
                     Directing = false;

@@ -36,6 +36,9 @@ namespace Underwrite.Story
         /// </summary>
         public static bool HeroesRecognized { get; set; }
 
+        /// <summary>첫 장을 마치고 지하에서 올라왔는가. 용사단을 알아보는 장면은 그 뒤에만(코드 리뷰 10/19).</summary>
+        public static bool FirstSessionDone { get; set; }
+
         /// <summary>2일째 아침의 행동력 안내를 봤는가. 그 전(첫날 새벽)에는 행동력이 0이다.</summary>
         public static bool ActionTutorialDone { get; set; }
 
@@ -67,6 +70,7 @@ namespace Underwrite.Story
             MarketOnboarding = MarketOnboardingStage.Onboarding_Arrive;
             PracticeCash = -1f;
             HeroesRecognized = false;
+            FirstSessionDone = false;
             ActionTutorialDone = false;
             ActionPoints.Reset();
             LedgerDay = 0;

@@ -22,6 +22,10 @@ namespace Underwrite.Global
         public static string TEXT_NPC_NO_AP = "오늘은 더 캐물을 기운이 없다";
         public static string TEXT_NPC_SHRUG = "…별 얘기는 없다";
 
+        // 장면 일러스트를 까는 대화 배경 클래스(MarketScreen.uss).
+        public const string SCENE_CLASS_ATTIC = "dialogue-root--attic";
+        public const string SCENE_CLASS_HEROES = "dialogue-root--heroes";
+
         // 게임 안 웹툰(2일째 아침 7장).
         public static string TEXT_WEBTOON_HINT = "클릭 · 스페이스 — 다음";
         public const string WEBTOON_CH7_RESOURCE = "Webtoon/webtoon_07";

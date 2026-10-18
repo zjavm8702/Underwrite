@@ -207,6 +207,13 @@ namespace Underwrite.UI
             // 행동력 안내(2일째 아침)를 보기 전에는 0 — 첫날 새벽은 용사단 장면을 보고 자는 밤이다.
             if (Clock != null && Clock.IsBreak == true && StoryProgress.CellarFound == true)
             {
+                var normalized = ActionPoints.Normalize(Clock.BreakMinuteOfDay);
+
+                if (normalized != Clock.BreakMinuteOfDay)
+                {
+                    Clock.SetBreakMinute(normalized);
+                }
+
                 ActionPoints.FillIfNew(Clock.Day, Clock.BreakMinuteOfDay, StoryProgress.ActionTutorialDone == false);
             }
 
@@ -271,7 +278,7 @@ namespace Underwrite.UI
             // (2026-10-17 사용자 보고).
             LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
                 || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
-                || IsGuiding == true || Prologue.LocksPlayer == true);
+                || Prologue.LocksPlayer == true || IsStaging == true);
 
             var keyboard = Keyboard.current;
 
@@ -283,8 +290,7 @@ namespace Underwrite.UI
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
                 || ClockOpen == true || Approaching == true || NotebookOpen == true || PuzzleOpen == true
-                || MiniGameOpen == true || (Tutorial != null && Tutorial.IsOpen == true)
-                || IsGuiding == true || Prologue.IsDirecting == true || (TitleCard != null && TitleCard.IsOpen == true))
+                || MiniGameOpen == true || IsStaging == true)
             {
                 return;
             }
@@ -452,38 +458,6 @@ namespace Underwrite.UI
         /// (2026-10-17 사용자 보고). 그래서 같은 자리의 볼일은 끊김 없이 잇고, 자리를 뜰 때 마지막 반응을 보인다.
         /// 더 센 반응(환호 > 깡충 > 놀람 > 끄덕)이 약한 것을 덮는다.
         /// </summary>
-        /// <summary>
-        /// 대화창 장면이 끝난 뒤 이어질 일. 예전에는 여기서 필드 몸짓을 걸었지만 뺐다(2026-10-19 사장님 —
-        /// 대화창에서는 초상 표정이 감정을 맡고, 몸짓은 대화창이 없는 필드 상호작용에만 쓴다). 호출부를 그대로 두려고 이름을 남긴다.
-        /// </summary>
-        private static System.Action React(ActorMotion motion, ActorEmote emote, System.Action then)
-        {
-            return then;
-        }
-
-        private static int Strength(ActorMotion motion)
-        {
-            switch (motion)
-            {
-                case ActorMotion.Motion_Cheer:
-                {
-                    return 3;
-                }
-                case ActorMotion.Motion_Hop:
-                {
-                    return 2;
-                }
-                case ActorMotion.Motion_Shake:
-                {
-                    return 1;
-                }
-                default:
-                {
-                    return 0;
-                }
-            }
-        }
-
         /// <summary>대화가 닫혔으면 적어 둔 반응을 필드에서 한다. 매 프레임 부른다.</summary>
         private void PlayPendingReaction()
         {
@@ -980,8 +954,8 @@ namespace Underwrite.UI
             };
 
             Dialogue.Play(lines, affinity >= 2
-                ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Heart, back)
-                : React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, back));
+                ? back
+                : back);
         }
 
         /// <summary>
@@ -1231,7 +1205,7 @@ namespace Underwrite.UI
                 string.Format(StringConstants.TEXT_REQUEST_DONE, StringConstants.TEXT_HERO_PARTY));
             line.Note = string.Format(StringConstants.TEXT_REQUEST_DONE_NOTE, cost);
             Dialogue.Play(new List<DialogueLine> { line },
-                React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, Back(CurrentSpot)));
+                Back(CurrentSpot));
         }
 
         /// <summary>
@@ -1333,8 +1307,9 @@ namespace Underwrite.UI
                 return;
             }
 
+            SaveSystem.Save();
             Clock.SkipBreak();
-            GoToMarket();
+            SceneManager.LoadScene(SceneRoutes.UNDERWORLD);
         }
 
         /// <summary>이번 장은 쉰다 — 장 하나를 거르고 그 뒤 휴장으로 넘어간다(다음 휴장의 행동력을 받는다).</summary>
@@ -1606,7 +1581,7 @@ namespace Underwrite.UI
             line.Badge = held;
 
             Dialogue.Play(new List<DialogueLine> { line },
-                React(ActorMotion.Motion_Cheer, ActorEmote.Emote_Coin, Back(spot)));
+                Back(spot));
         }
 
         /// <summary>메뉴 단추와 원형 시계. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
@@ -1686,7 +1661,7 @@ namespace Underwrite.UI
 
         private void ToggleMenu()
         {
-            if ((Dialogue != null && Dialogue.IsOpen == true) || Approaching == true)
+            if ((Dialogue != null && Dialogue.IsOpen == true) || Approaching == true || IsStaging == true)
             {
                 return;
             }
@@ -1729,11 +1704,11 @@ namespace Underwrite.UI
             MenuItem(list, StringConstants.TEXT_MENU_TO_SESSION, MarketOpenNow(),
                 MarketClosedNote(), GoToSession);
 
-            var nextSession = Clock.SessionAt(0) == MarketSession.Session_Morning
+            var nextSession = Clock.SessionAt(Clock.SkippedSessions) == MarketSession.Session_Morning
                 ? StringConstants.TEXT_SESSION_MORNING
                 : StringConstants.TEXT_SESSION_EVENING;
             MenuItem(list, string.Format(StringConstants.TEXT_MENU_SKIP_SESSION, nextSession),
-                MarketOpenNow() == true && Clock.IsReopeningAt(0) == false,
+                MarketOpenNow() == true && Clock.IsReopeningAt(Clock.SkippedSessions) == false,
                 MarketOpenNow() == true ? StringConstants.TEXT_MENU_SKIP_LOCKED : MarketClosedNote(), SkipSessionTurn);
             MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
             MenuItem(list, string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]),
@@ -2399,8 +2374,7 @@ namespace Underwrite.UI
             }
             else
             {
-                SetText("village-visits", string.Format(StringConstants.TEXT_VILLAGE_STATUS,
-                    ClockText.SeasonDay(Today()), PhaseName(Phase), ActionDots()) + InspectionTag());
+                SetText("village-visits", StatusText());
             }
 
             if (Here == null)
@@ -2589,8 +2563,8 @@ namespace Underwrite.UI
             }
 
             Dialogue.Play(lines, secret == true
-                ? React(ActorMotion.Motion_Hop, ActorEmote.Emote_Exclaim, () => StartCoroutine(HandOver(spot)))
-                : React(ActorMotion.Motion_Nod, ActorEmote.Emote_Dots, Back(spot)));
+                ? () => StartCoroutine(HandOver(spot))
+                : Back(spot));
         }
 
         /// <summary>
@@ -2768,7 +2742,7 @@ namespace Underwrite.UI
                 Ledger.Close();
                 Dialogue.SetBackground(BackgroundOf(LedgerSpot.InfoSource));
                 Dialogue.Play(new List<DialogueLine> { OwnerLine(LedgerSpot, StringConstants.TEXT_LEDGER_KICKED) },
-                    React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, null));
+                    null);
             }
         }
 
@@ -2814,7 +2788,7 @@ namespace Underwrite.UI
             {
                 var miss = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
                     StringConstants.TEXT_LEDGER_WRONG_GUESS);
-                Dialogue.Play(new List<DialogueLine> { miss }, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Dots, null));
+                Dialogue.Play(new List<DialogueLine> { miss }, null);
                 return;
             }
 
@@ -2828,7 +2802,7 @@ namespace Underwrite.UI
 
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
                 string.Format(StringConstants.TEXT_LEDGER_RIGHT, StockName(id), fact ?? string.Empty));
-            Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
+            Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
         // ── 주문서 읽기 (대장간 — 셋째 정보 모으기, 추리형) ───────
@@ -2972,7 +2946,7 @@ namespace Underwrite.UI
                 Smith.Close();
                 Dialogue.SetBackground(BackgroundOf(SmithSpot.InfoSource));
                 Dialogue.Play(new List<DialogueLine> { OwnerLine(SmithSpot, StringConstants.TEXT_SMITH_KICKED) },
-                    React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, null));
+                    null);
             }
         }
 
@@ -3004,7 +2978,7 @@ namespace Underwrite.UI
             {
                 var miss = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
                     StringConstants.TEXT_SMITH_WRONG_GUESS);
-                Dialogue.Play(new List<DialogueLine> { miss }, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Dots, null));
+                Dialogue.Play(new List<DialogueLine> { miss }, null);
                 return;
             }
 
@@ -3016,7 +2990,7 @@ namespace Underwrite.UI
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
                 string.Format(Orders.RumorTrue == true ? StringConstants.TEXT_SMITH_RIGHT_TRUE : StringConstants.TEXT_SMITH_RIGHT_FALSE,
                     StockName(id)));
-            Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
+            Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
         // ── 기록 짜맞추기 (길드 — 보드게임 「미니 크라임」을 줄인 추리) ───────
@@ -3147,7 +3121,7 @@ namespace Underwrite.UI
             Deduce.Close();
             Dialogue.SetBackground(BackgroundOf(DeduceSpot.InfoSource));
             Dialogue.Play(new List<DialogueLine> { OwnerLine(DeduceSpot, StringConstants.TEXT_DEDUCE_OUT) },
-                React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, null));
+                null);
         }
 
         private void ConcludeDeduce()
@@ -3163,7 +3137,7 @@ namespace Underwrite.UI
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_DEDUCE_TAG,
                 string.Format(StringConstants.TEXT_DEDUCE_RIGHT, DeducePuzzle.Destinations[0], StockName(id), fact ?? string.Empty));
             Dialogue.SetBackground(BackgroundOf(DeduceSpot.InfoSource));
-            Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
+            Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
         // ── 주사위 내기 (여관 — 라이어스 다이스) ───────
@@ -3359,7 +3333,7 @@ namespace Underwrite.UI
                 GameAudio.Play(SoundEffect.Sound_Coins);
                 var lost = new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG,
                     string.Format(StringConstants.TEXT_DICE_LOST, Constants.DICE_STAKE));
-                Dialogue.Play(new List<DialogueLine> { lost }, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Dots, null));
+                Dialogue.Play(new List<DialogueLine> { lost }, null);
                 return;
             }
 
@@ -3378,7 +3352,7 @@ namespace Underwrite.UI
                 lines.Add(new DialogueLine(string.Empty, StockName(DiceBand), fact));
             }
 
-            Dialogue.Play(lines, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
+            Dialogue.Play(lines, null);
         }
 
         // ── 출발과 계절 계획 (시간구조 설계안 §2·§3) ───────
@@ -3702,6 +3676,26 @@ namespace Underwrite.UI
         /// <summary>
         /// 자리의 주인이 하는 말. 이름과 얼굴은 그 자리의 소식을 전하는 주민이다 — 지하 정보 타임에도 같은 사람이 나온다.
         /// </summary>
+        // 오른쪽 위 상태 줄. 날짜·휴장·행동력이 바뀔 때만 다시 조립한다(규칙 §10 — 매 프레임 문자열 조립 금지).
+        private string StatusCache = string.Empty;
+        private int StatusKey = -1;
+
+        private string StatusText()
+        {
+            var key = (ActionPoints.KeyOf(Today(), Clock == null ? 0 : Clock.BreakMinuteOfDay) * 10 + ActionPoints.Current) * 10
+                + MarketClock.NextInspectionDay(Today()) % 10;
+
+            if (key == StatusKey)
+            {
+                return StatusCache;
+            }
+
+            StatusKey = key;
+            StatusCache = string.Format(StringConstants.TEXT_VILLAGE_STATUS, ClockText.SeasonDay(Today()), PhaseName(Phase),
+                ActionDots()) + InspectionTag();
+            return StatusCache;
+        }
+
         private static string PhaseName(VillagePhase phase)
         {
             switch (phase)
@@ -3988,6 +3982,19 @@ namespace Underwrite.UI
 
             actor.FaceTowards(Player.position);
             actor.Emote(ActorEmote.Emote_Exclaim);
+        }
+
+        /// <summary>
+        /// 연출이 화면을 잡고 있는가 — 암전·제목 카드·웹툰·안내·프롤로그 장면. 이동·상호작용·메뉴가 함께 본다(코드 리뷰 10/19).
+        /// </summary>
+        private bool IsStaging
+        {
+            get
+            {
+                return IsGuiding == true || (Prologue != null && Prologue.IsDirecting == true)
+                    || (TitleCard != null && TitleCard.IsOpen == true) || (Webtoon != null && Webtoon.IsOpen == true)
+                    || (Tutorial != null && Tutorial.IsOpen == true);
+            }
         }
 
         /// <summary>다음 장소로 데려가는 중인가(카메라 비추기 · 자동 걷기).</summary>

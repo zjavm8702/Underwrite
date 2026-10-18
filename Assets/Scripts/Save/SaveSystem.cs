@@ -73,6 +73,7 @@ namespace Underwrite.Save
                     MarketOnboarding = (int)StoryProgress.MarketOnboarding,
                     PracticeCash = StoryProgress.PracticeCash,
                     HeroesRecognized = StoryProgress.HeroesRecognized,
+                    FirstSessionDone = StoryProgress.FirstSessionDone,
                     ActionTutorialDone = StoryProgress.ActionTutorialDone,
                     ActionPoints = ActionPoints.Current,
                     ActionFilledKey = ActionPoints.FilledKey,
@@ -207,6 +208,8 @@ namespace Underwrite.Save
             StoryProgress.MarketOnboarding = (MarketOnboardingStage)onboarding;
             StoryProgress.PracticeCash = data.Story.PracticeCash;
             StoryProgress.ActionTutorialDone = data.Story.ActionTutorialDone;
+            StoryProgress.FirstSessionDone = data.Story.FirstSessionDone == true || StoryProgress.HeroesRecognized == true
+                || StoryProgress.MarketOnboarding == MarketOnboardingStage.Onboarding_Done;
             ActionPoints.Restore(data.Story.ActionPoints, data.Story.ActionFilledKey);
             // 이 장면이 생기기 전 저장(10/18)에서 이미 용사단과 이야기했으면 본 것으로 친다.
             StoryProgress.HeroesRecognized = data.Story.HeroesRecognized == true || data.QuestIndex > 3;

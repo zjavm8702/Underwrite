@@ -55,6 +55,9 @@ namespace Underwrite.Underworld
         private float InvestorCooldown;
         private float CallTimer;
 
+        // 다가갈 수 있는 표지(게시판 · 정보상 · 출구). 씬에서 바뀌지 않으므로 한 번만 만든다(규칙 §10).
+        private Transform[] Targets;
+
         private CharacterActor PlayerActor
         {
             get
@@ -189,8 +192,12 @@ namespace Underwrite.Underworld
 
             Transform best = null;
             var bestDistance = Constants.ROOM_REACH_DISTANCE;
-            var informant = Informant == null ? null : Informant.transform;
-            var targets = new[] { Board, informant, Exit };
+            if (Targets == null)
+            {
+                Targets = new[] { Board, Informant == null ? null : Informant.transform, Exit };
+            }
+
+            var targets = Targets;
 
             for (var i = 0; i < targets.Length; i++)
             {

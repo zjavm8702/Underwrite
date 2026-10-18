@@ -305,6 +305,12 @@ namespace Underwrite.Market
             BreakMinuteOfDay = StartHour * 60 + Constants.MARKET_SESSION_MINUTES;
         }
 
+        /// <summary>휴장 시각을 옮긴다(옛 저장의 시각을 휴장 시각으로 바로잡을 때).</summary>
+        public void SetBreakMinute(int minuteOfDay)
+        {
+            BreakMinuteOfDay = minuteOfDay;
+        }
+
         /// <summary>그날 그 시각(하루 기준 분)부터 영지의 시간을 시작한다. 프롤로그의 잠에서 깬 아침에 쓴다.</summary>
         public void BeginBreakAt(int minuteOfDay)
         {

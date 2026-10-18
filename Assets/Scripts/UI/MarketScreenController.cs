@@ -788,8 +788,14 @@ namespace Underwrite.UI
             var news = Sim.InfoLog.Count - before;
 
             // 넘긴 장의 정보 타임은 정보 기록에만 남긴다. 장을 넘기고 나서 정보상에게 불려 가는 건 어색하다(2026-10-18 사장님).
+            // 정보상을 기다리던 중이었으면 그때 건 정지도 푼다 — 다음 장까지 멈춰 있지 않게(코드 리뷰 10/19).
+            if (IsBriefingWaiting == true)
+            {
+                IsBriefingWaiting = false;
+                Sim.Clock.SetPaused(false);
+            }
+
             Sim.AcknowledgeBriefing();
-            IsBriefingWaiting = false;
 
             RollCycle();
             ResetViewState();
@@ -926,6 +932,7 @@ namespace Underwrite.UI
             }
 
             SceneRoutes.ArrivedFromCellar = true;
+            Story.StoryProgress.FirstSessionDone = true;
             SceneManager.LoadScene(SceneRoutes.VILLAGE);
         }
 

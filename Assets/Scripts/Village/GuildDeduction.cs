@@ -48,10 +48,10 @@ namespace Underwrite.Village
             TriesLeft = Constants.DEDUCE_TRIES;
         }
 
-        // 단서 한 장. 둘을 잇거나(같다) 떼어 놓는다(다르다). 종류: 0 단-목적지, 1 단-의뢰인, 2 목적지-의뢰인.
+        // 단서 한 장. 둘을 잇거나(같다) 떼어 놓는다(다르다).
         private struct Clue
         {
-            public int Kind;
+            public ClueKind Kind;
             public int A;
             public int B;
             public bool Same;
@@ -240,13 +240,13 @@ namespace Underwrite.Village
             {
                 for (var b = 0; b < SIZE; b++)
                 {
-                    all.Add(new Clue { Kind = 0, A = a, B = b, Same = DestinationOf[a] == b });
-                    all.Add(new Clue { Kind = 1, A = a, B = b, Same = ClientOf[a] == b });
-                    all.Add(new Clue { Kind = 2, A = a, B = b, Same = ClientOfDestination(a) == b });
+                    all.Add(new Clue { Kind = ClueKind.Clue_BandDestination, A = a, B = b, Same = DestinationOf[a] == b });
+                    all.Add(new Clue { Kind = ClueKind.Clue_BandClient, A = a, B = b, Same = ClientOf[a] == b });
+                    all.Add(new Clue { Kind = ClueKind.Clue_DestinationClient, A = a, B = b, Same = ClientOfDestination(a) == b });
                 }
             }
 
-            all.RemoveAll(c => c.Kind == 0 && c.Same == true);
+            all.RemoveAll(c => c.Kind == ClueKind.Clue_BandDestination && c.Same == true);
             Shuffle(all, rng);
 
             foreach (var clue in all)
@@ -315,11 +315,11 @@ namespace Underwrite.Village
             {
                 bool holds;
 
-                if (clue.Kind == 0)
+                if (clue.Kind == ClueKind.Clue_BandDestination)
                 {
                     holds = dest[clue.A] == clue.B;
                 }
-                else if (clue.Kind == 1)
+                else if (clue.Kind == ClueKind.Clue_BandClient)
                 {
                     holds = client[clue.A] == clue.B;
                 }
@@ -340,12 +340,12 @@ namespace Underwrite.Village
 
         private string Describe(Clue clue)
         {
-            if (clue.Kind == 0)
+            if (clue.Kind == ClueKind.Clue_BandDestination)
             {
                 return Two(StringConstants.TEXT_DEDUCE_BAND_NOT_DEST, BandNames[clue.A], Destinations[clue.B]);
             }
 
-            if (clue.Kind == 1)
+            if (clue.Kind == ClueKind.Clue_BandClient)
             {
                 var format = clue.Same == true
                     ? StringConstants.TEXT_DEDUCE_BAND_CLIENT
