@@ -25,6 +25,7 @@
 | 17 | `underworld_room_v1.md` | `UnderworldRoom_v1` | **반려(부분)** — 교차 검수: 바닥(판석 3~9배)·기둥·계단 반려, 가구 수정, 칠판·상자·촛대 통과. 들이지 않음 |
 | 17b | `underworld_room_v2.md` | `UnderworldRoom_v2` | 진행 중(10/18) — v1 수정판. 들이는 도구 준비됨(`UnderworldRoomParts.cs`). 사람·정보상은 그 뒤 |
 | 18 | `portrait_folk_v3.md` | `PortraitFolk_v3` | 대기 — 17번 다음. 주민 다섯 다시(얼굴 틀 깨기) + 정보상 두건. 슬롭 5-1의 5번 |
+| 19 | `underworld_people_v1.md` | `UnderworldPeople_v1` | 대기 — 지하 방 v2 통과 뒤. 앉은 투자꾼 다섯 + 카운터 뒤 정보상 |
 
 **다음 목록은 `ART_BACKLOG.md`** (2026-10-17 정리, 우선순위 순). Codex 사용량이 적어 한 건씩 확인받고 건다.
 
