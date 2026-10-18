@@ -262,7 +262,8 @@ namespace Underwrite.Patronage
             return false;
         }
 
-        // 시제품 사정 두 건. 사용자 결정(2026-10-17): 2건, 기한 5일.
+        // 시제품 사정 두 건(사용자 결정 2026-10-17: 2건). 기한은 그 계절의 출발(4일째 밤) 전까지 —
+        // 원정을 떠난 뒤에 닿으면 소용이 없다(2026-10-18 계절 구조). 치유사는 첫 계절, 방패는 둘째 계절의 사정이다.
         private static void EnsureScenario()
         {
             if (Needs.Count > 0)
@@ -275,7 +276,7 @@ namespace Underwrite.Patronage
                 Id = StringConstants.NEED_HEALER_ID,
                 Purpose = RequestPurpose.Purpose_Healing,
                 RevealDay = 1,
-                DeadlineDays = Constants.PATRONAGE_DEADLINE_DAYS,
+                DeadlineDays = Constants.SEASON_DAYS,
                 Rumor = StringConstants.TEXT_NEED_HEALER_RUMOR,
                 ReactionMet = StringConstants.TEXT_NEED_HEALER_MET
             });
@@ -284,8 +285,8 @@ namespace Underwrite.Patronage
             {
                 Id = "need_shield",
                 Purpose = RequestPurpose.Purpose_Gear,
-                RevealDay = 3,
-                DeadlineDays = Constants.PATRONAGE_DEADLINE_DAYS,
+                RevealDay = Constants.SEASON_DAYS + 2,
+                DeadlineDays = Constants.SEASON_DAYS - 1,
                 Rumor = StringConstants.TEXT_NEED_SHIELD_RUMOR,
                 ReactionMet = StringConstants.TEXT_NEED_SHIELD_MET
             });

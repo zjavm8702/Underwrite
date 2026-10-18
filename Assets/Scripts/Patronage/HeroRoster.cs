@@ -12,7 +12,7 @@ namespace Underwrite.Patronage
     /// - 일주일: 영주 시찰일에는 지하도 용사단도 쉰다. 그날이 큰 관계 장면의 날이다
     /// - 한 주기: 원정을 떠났다가 돌아온다. 돌아온 날이 재회 장면의 날이다
     ///
-    /// 시제품 한 주기(7일): 1~4일 영지, 4일 시찰, 5~6일 원정, 7일 귀환.
+    /// 한 계절(4일): 1일째 귀환(둘째 계절부터), 3일째 시찰, 4일째 밤 출발 → 휴장 동안 원정 → 다음 계절 1일째 귀환.
     /// 씬을 넘나들어야 하므로 정적이다. 저장 기능이 들어오면 함께 저장한다.
     /// </summary>
     public static class HeroRoster
@@ -100,33 +100,25 @@ namespace Underwrite.Patronage
             }
         }
 
-        /// <summary>그날 용사단이 원정을 떠나 영지에 없는가.</summary>
-        public static bool IsAway(int day)
+        /// <summary>
+        /// 원정에서 돌아오는 날인가. 원정은 계절 사이의 휴장 동안 다녀오므로, 둘째 계절부터 계절 첫날이 귀환일이다.
+        /// 플레이하는 날에 용사단이 영지를 비우는 날은 없다.
+        /// </summary>
+        public static bool IsReturnDay(int day)
         {
-            return day >= Constants.HERO_EXPEDITION_DAY
-                && day < Constants.HERO_EXPEDITION_DAY + Constants.HERO_EXPEDITION_DAYS;
-        }
-
-        /// <summary>원정에서 돌아오는 날.</summary>
-        public static int ReturnDay
-        {
-            get
-            {
-                return Constants.HERO_EXPEDITION_DAY + Constants.HERO_EXPEDITION_DAYS;
-            }
+            return Market.MarketClock.DayInSeason(day) == 1 && Market.MarketClock.SeasonOf(day) > 1;
         }
 
         /// <summary>오늘 시찰일 장면을 아직 보지 않았는가.</summary>
         public static bool HasDayOff(int day)
         {
-            return Market.MarketClock.IsInspectionDay(day) == true && IsAway(day) == false
-                && DayOffSeen.Contains(day) == false;
+            return Market.MarketClock.IsInspectionDay(day) == true && DayOffSeen.Contains(day) == false;
         }
 
         /// <summary>오늘 귀환 장면을 아직 보지 않았는가.</summary>
         public static bool HasReturn(int day)
         {
-            return day == ReturnDay && ReturnSeen.Contains(day) == false;
+            return IsReturnDay(day) == true && ReturnSeen.Contains(day) == false;
         }
 
         public static void MarkDayOff(int day)

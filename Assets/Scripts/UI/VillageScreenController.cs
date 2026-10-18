@@ -727,14 +727,6 @@ namespace Underwrite.UI
             }
 
             var table = new DialogueChoice(StringConstants.TEXT_HERO_TABLE, () => OpenHeroTable(spot));
-
-            if (HeroRoster.IsAway(day) == true)
-            {
-                table.IsEnabled = false;
-                table.Note = string.Format(StringConstants.TEXT_HERO_TABLE_AWAY, HeroRoster.ReturnDay);
-                return table;
-            }
-
             table.IsEnabled = HasTime() == true;
             table.Note = HasTime() == true
                 ? string.Format(StringConstants.TEXT_HERO_TABLE_NOTE, Constants.HERO_TALK_MINUTES)

@@ -74,7 +74,6 @@ namespace Underwrite.Global
         // ── 여관 선택지 ──────────────────────────
         public static string TEXT_HERO_TABLE = "용사단 테이블로 간다";
         public static string TEXT_HERO_TABLE_NOTE = "{0}분 · 일꾼으로서 말을 건다";
-        public static string TEXT_HERO_TABLE_AWAY = "용사단은 원정을 떠났다 · {0}일째 귀환 예정";
         public static string TEXT_HERO_TABLE_ASK = "누구에게 말을 걸까.";
         public static string TEXT_HERO_TALKED_TODAY = "오늘은 이미 이야기했다";
         public static string TEXT_HERO_DAY_OFF = "용사단과 쉬는 날을 보낸다";

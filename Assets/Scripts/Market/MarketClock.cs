@@ -382,25 +382,21 @@ namespace Underwrite.Market
         /// </summary>
         public static bool IsInspectionDay(int day)
         {
-            if (day < Constants.INSPECTION_FIRST_DAY || Constants.INSPECTION_INTERVAL_DAYS <= 0)
-            {
-                return false;
-            }
-
-            return (day - Constants.INSPECTION_FIRST_DAY) % Constants.INSPECTION_INTERVAL_DAYS == 0;
+            return DayInSeason(day) == Constants.INSPECTION_SEASON_DAY;
         }
 
-        /// <summary>그날 또는 그 뒤로 가장 가까운 시찰일.</summary>
+        /// <summary>그날 또는 그 뒤로 가장 가까운 시찰일. 계절마다 한 번이다.</summary>
         public static int NextInspectionDay(int fromDay)
         {
-            if (fromDay <= Constants.INSPECTION_FIRST_DAY || Constants.INSPECTION_INTERVAL_DAYS <= 0)
+            var seasonStart = (SeasonOf(fromDay) - 1) * Constants.SEASON_DAYS;
+            var thisSeason = seasonStart + Constants.INSPECTION_SEASON_DAY;
+
+            if (thisSeason >= fromDay)
             {
-                return Constants.INSPECTION_FIRST_DAY;
+                return thisSeason;
             }
 
-            var passed = fromDay - Constants.INSPECTION_FIRST_DAY;
-            var steps = (passed + Constants.INSPECTION_INTERVAL_DAYS - 1) / Constants.INSPECTION_INTERVAL_DAYS;
-            return Constants.INSPECTION_FIRST_DAY + steps * Constants.INSPECTION_INTERVAL_DAYS;
+            return thisSeason + Constants.SEASON_DAYS;
         }
 
         public void AdvanceDay()

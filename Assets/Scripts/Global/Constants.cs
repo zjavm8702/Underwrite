@@ -540,16 +540,13 @@ namespace Underwrite.Global
         public static float NPC_TALK_RANGE = 1.4f;
 
         // ── 영주 시찰일 (기획서 §11) ──────────────
-        /// <summary>첫 시찰일. 시제품에서는 4일째다. 그 전 사흘 동안 장과 영지에 익숙해진다.</summary>
-        public static int INSPECTION_FIRST_DAY = 4;
-        /// <summary>시찰 간격(일). 매번 달력에 미리 보인다. 시제품 검증에서 조정한다.</summary>
-        public static int INSPECTION_INTERVAL_DAYS = 6;
+        /// <summary>
+        /// 시찰일은 계절의 이 날이다. 지하가 하루 닫히고 용사단도 쉰다 — 계절마다 큰 관계 장면이 하나.
+        /// 준비 둘째 날로 둔 까닭: 첫날은 재개장, 마지막 날은 출발 전 「들고 갈까 팔까」를 고르는 장이라 닫으면 안 된다.
+        /// </summary>
+        public static int INSPECTION_SEASON_DAY = 3;
 
         // ── 용사단 일정 (루틴 설계안) ─────────────
-        /// <summary>원정을 떠나는 날. 시찰일(4일) 다음 날이다.</summary>
-        public static int HERO_EXPEDITION_DAY = 5;
-        /// <summary>원정 기간(일). 이 날들에는 여관에서 만날 수 없다.</summary>
-        public static int HERO_EXPEDITION_DAYS = 2;
         /// <summary>여관 테이블에서 한 사람과 이야기하는 데 드는 영지 시간(분).</summary>
         public static int HERO_TALK_MINUTES = 60;
         /// <summary>이만큼 친해지면 현장 이야기를 덤으로 흘린다(관계와 투자의 다리).</summary>
@@ -566,8 +563,6 @@ namespace Underwrite.Global
         public static float HERO_FIELD_TALK_CHANCE = 0.5f;
 
         // ── 후원 (익명의 의뢰주) ──────────────────
-        /// <summary>용사단 사정 하나의 기한(일). 사용자 결정 2026-10-17.</summary>
-        public static int PATRONAGE_DEADLINE_DAYS = 5;
         /// <summary>못 들은 사정의 기한이 이만큼 남으면 하루 결산에 경고를 띄운다.</summary>
         public static int PATRONAGE_WARNING_DAYS = 2;
 
