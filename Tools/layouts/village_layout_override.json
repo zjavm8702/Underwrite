@@ -1,0 +1,833 @@
+{
+    "Base": "VillagePartsFull_v2",
+    "Parts": [
+        {
+            "Source": 0,
+            "File": "inn.png",
+            "X": 775.0,
+            "Y": 688.0
+        },
+        {
+            "Source": 1,
+            "File": "manor.png",
+            "X": 1949.0,
+            "Y": 620.0
+        },
+        {
+            "Source": 2,
+            "File": "guild.png",
+            "X": 3149.0,
+            "Y": 807.0
+        },
+        {
+            "Source": 3,
+            "File": "smith.png",
+            "X": 583.0,
+            "Y": 1532.0
+        },
+        {
+            "Source": 4,
+            "File": "board.png",
+            "X": 3013.0,
+            "Y": 1510.0
+        },
+        {
+            "Source": 5,
+            "File": "well.png",
+            "X": 1920.0,
+            "Y": 1194.0
+        },
+        {
+            "Source": 6,
+            "File": "human_a.png",
+            "X": 215.0,
+            "Y": 1040.0
+        },
+        {
+            "Source": 7,
+            "File": "human_c.png",
+            "X": 1422.0,
+            "Y": 676.0
+        },
+        {
+            "Source": 8,
+            "File": "human_a.png",
+            "X": 2540.0,
+            "Y": 650.0
+        },
+        {
+            "Source": 9,
+            "File": "human_c.png",
+            "X": 3640.0,
+            "Y": 1050.0
+        },
+        {
+            "Source": 10,
+            "File": "human_b.png",
+            "X": 1540.0,
+            "Y": 2040.0
+        },
+        {
+            "Source": 11,
+            "File": "human_c.png",
+            "X": 2640.0,
+            "Y": 2050.0
+        },
+        {
+            "Source": 12,
+            "File": "stone_0.png",
+            "X": 371.0,
+            "Y": 1943.0
+        },
+        {
+            "Source": 13,
+            "File": "stone_2.png",
+            "X": 960.0,
+            "Y": 2020.0
+        },
+        {
+            "Source": 14,
+            "File": "elf_0.png",
+            "X": 215.0,
+            "Y": 615.0
+        },
+        {
+            "Source": 15,
+            "File": "elf_1.png",
+            "X": 3595.0,
+            "Y": 600.0
+        },
+        {
+            "Source": 16,
+            "File": "elf_2.png",
+            "X": 2190.0,
+            "Y": 1819.0
+        },
+        {
+            "Source": 17,
+            "File": "fairy_0.png",
+            "X": 2888.0,
+            "Y": 2049.0
+        },
+        {
+            "Source": 18,
+            "File": "fairy_1.png",
+            "X": 3444.0,
+            "Y": 2019.0
+        },
+        {
+            "Source": 19,
+            "File": "fairy_2.png",
+            "X": 3619.0,
+            "Y": 2021.0
+        },
+        {
+            "Source": 20,
+            "File": "fairy_3.png",
+            "X": 3260.0,
+            "Y": 2025.0
+        },
+        {
+            "Source": 21,
+            "File": "stall_0.png",
+            "X": 2690.0,
+            "Y": 1480.0
+        },
+        {
+            "Source": 22,
+            "File": "stall_1.png",
+            "X": 3270.0,
+            "Y": 1450.0
+        },
+        {
+            "Source": 23,
+            "File": "stall_2.png",
+            "X": 3620.0,
+            "Y": 1525.0
+        },
+        {
+            "Source": 24,
+            "File": "tree_b.png",
+            "X": 1260.0,
+            "Y": 1035.0
+        },
+        {
+            "Source": 25,
+            "File": "tree_a.png",
+            "X": 2550.0,
+            "Y": 1080.0
+        },
+        {
+            "Source": 26,
+            "File": "tree_b.png",
+            "X": 3430.0,
+            "Y": 1080.0
+        },
+        {
+            "Source": 27,
+            "File": "tree_b.png",
+            "X": 1060.0,
+            "Y": 1450.0
+        },
+        {
+            "Source": 28,
+            "File": "tree_b.png",
+            "X": 2379.0,
+            "Y": 2018.0
+        },
+        {
+            "Source": 29,
+            "File": "lamp.png",
+            "X": 670.0,
+            "Y": 840.0
+        },
+        {
+            "Source": 30,
+            "File": "lamp.png",
+            "X": 1150.0,
+            "Y": 780.0
+        },
+        {
+            "Source": 31,
+            "File": "lamp.png",
+            "X": 1680.0,
+            "Y": 685.0
+        },
+        {
+            "Source": 32,
+            "File": "lamp.png",
+            "X": 2287.0,
+            "Y": 675.0
+        },
+        {
+            "Source": 33,
+            "File": "lamp.png",
+            "X": 2810.0,
+            "Y": 930.0
+        },
+        {
+            "Source": 34,
+            "File": "lamp.png",
+            "X": 3450.0,
+            "Y": 950.0
+        },
+        {
+            "Source": 35,
+            "File": "lamp.png",
+            "X": 279.0,
+            "Y": 1549.0
+        },
+        {
+            "Source": 36,
+            "File": "lamp.png",
+            "X": 870.0,
+            "Y": 1620.0
+        },
+        {
+            "Source": 37,
+            "File": "lamp.png",
+            "X": 1500.0,
+            "Y": 1390.0
+        },
+        {
+            "Source": 38,
+            "File": "lamp.png",
+            "X": 2820.0,
+            "Y": 1580.0
+        },
+        {
+            "Source": 39,
+            "File": "lamp.png",
+            "X": 3474.0,
+            "Y": 1413.0
+        },
+        {
+            "Source": 40,
+            "File": "lamp.png",
+            "X": 606.0,
+            "Y": 2032.0
+        },
+        {
+            "Source": 41,
+            "File": "lamp.png",
+            "X": 2150.0,
+            "Y": 1170.0
+        },
+        {
+            "Source": 42,
+            "File": "lamp.png",
+            "X": 2990.0,
+            "Y": 2070.0
+        },
+        {
+            "Source": 43,
+            "File": "bench.png",
+            "X": 2146.0,
+            "Y": 1265.0
+        },
+        {
+            "Source": 44,
+            "File": "bench.png",
+            "X": 1694.0,
+            "Y": 1491.0
+        },
+        {
+            "Source": 45,
+            "File": "bench.png",
+            "X": 1540.0,
+            "Y": 1480.0
+        },
+        {
+            "Source": 46,
+            "File": "bench.png",
+            "X": 1290.0,
+            "Y": 875.0
+        },
+        {
+            "Source": 47,
+            "File": "bench.png",
+            "X": 2299.0,
+            "Y": 1272.0
+        },
+        {
+            "Source": 48,
+            "File": "bench.png",
+            "X": 1381.0,
+            "Y": 1469.0
+        },
+        {
+            "Source": 49,
+            "File": "planter.png",
+            "X": 680.0,
+            "Y": 705.0
+        },
+        {
+            "Source": 50,
+            "File": "planter.png",
+            "X": 1195.0,
+            "Y": 700.0
+        },
+        {
+            "Source": 51,
+            "File": "planter.png",
+            "X": 1685.0,
+            "Y": 631.0
+        },
+        {
+            "Source": 52,
+            "File": "planter.png",
+            "X": 2261.0,
+            "Y": 634.0
+        },
+        {
+            "Source": 53,
+            "File": "planter.png",
+            "X": 2990.0,
+            "Y": 825.0
+        },
+        {
+            "Source": 54,
+            "File": "planter.png",
+            "X": 3380.0,
+            "Y": 825.0
+        },
+        {
+            "Source": 55,
+            "File": "planter.png",
+            "X": 410.0,
+            "Y": 1550.0
+        },
+        {
+            "Source": 56,
+            "File": "planter.png",
+            "X": 850.0,
+            "Y": 1540.0
+        },
+        {
+            "Source": 57,
+            "File": "planter.png",
+            "X": 2890.0,
+            "Y": 1540.0
+        },
+        {
+            "Source": 59,
+            "File": "planter.png",
+            "X": 3333.0,
+            "Y": 1098.0
+        },
+        {
+            "Source": 60,
+            "File": "planter.png",
+            "X": 1944.0,
+            "Y": 1809.0
+        },
+        {
+            "Source": 61,
+            "File": "planter.png",
+            "X": 2489.0,
+            "Y": 1033.0
+        },
+        {
+            "Source": 63,
+            "File": "planter.png",
+            "X": 3695.0,
+            "Y": 1980.0
+        },
+        {
+            "Source": 64,
+            "File": "planter.png",
+            "X": 1173.0,
+            "Y": 1458.0
+        },
+        {
+            "Source": 65,
+            "File": "planter.png",
+            "X": 2520.0,
+            "Y": 1420.0
+        },
+        {
+            "Source": 66,
+            "File": "planter.png",
+            "X": 1550.0,
+            "Y": 1820.0
+        },
+        {
+            "Source": 69,
+            "File": "planter.png",
+            "X": 2774.0,
+            "Y": 657.0
+        },
+        {
+            "Source": 70,
+            "File": "planter.png",
+            "X": 2450.0,
+            "Y": 850.0
+        },
+        {
+            "Source": 72,
+            "File": "planter.png",
+            "X": 1384.0,
+            "Y": 1052.0
+        },
+        {
+            "Source": 74,
+            "File": "planter.png",
+            "X": 3719.0,
+            "Y": 668.0
+        },
+        {
+            "Source": 75,
+            "File": "barrel.png",
+            "X": 555.0,
+            "Y": 729.0
+        },
+        {
+            "Source": 76,
+            "File": "barrel.png",
+            "X": 650.0,
+            "Y": 710.0
+        },
+        {
+            "Source": 77,
+            "File": "barrel.png",
+            "X": 1225.0,
+            "Y": 755.0
+        },
+        {
+            "Source": 78,
+            "File": "barrel.png",
+            "X": 3410.0,
+            "Y": 845.0
+        },
+        {
+            "Source": 79,
+            "File": "barrel.png",
+            "X": 310.0,
+            "Y": 1510.0
+        },
+        {
+            "Source": 80,
+            "File": "barrel.png",
+            "X": 900.0,
+            "Y": 1560.0
+        },
+        {
+            "Source": 81,
+            "File": "barrel.png",
+            "X": 1080.0,
+            "Y": 1970.0
+        },
+        {
+            "Source": 82,
+            "File": "barrel.png",
+            "X": 977.0,
+            "Y": 706.0
+        },
+        {
+            "Source": 83,
+            "File": "barrel.png",
+            "X": 3690.0,
+            "Y": 1550.0
+        },
+        {
+            "Source": 84,
+            "File": "barrel.png",
+            "X": 3519.0,
+            "Y": 1097.0
+        },
+        {
+            "Source": 84,
+            "File": "barrel.png",
+            "X": 2857.0,
+            "Y": 760.0
+        },
+        {
+            "Source": 85,
+            "File": "crate.png",
+            "X": 490.0,
+            "Y": 715.0
+        },
+        {
+            "Source": 86,
+            "File": "crate.png",
+            "X": 350.0,
+            "Y": 1580.0
+        },
+        {
+            "Source": 87,
+            "File": "crate.png",
+            "X": 870.0,
+            "Y": 1580.0
+        },
+        {
+            "Source": 88,
+            "File": "crate.png",
+            "X": 2810.0,
+            "Y": 1480.0
+        },
+        {
+            "Source": 89,
+            "File": "crate.png",
+            "X": 3470.0,
+            "Y": 1520.0
+        },
+        {
+            "Source": 90,
+            "File": "crate.png",
+            "X": 3520.0,
+            "Y": 1040.0
+        },
+        {
+            "Source": 91,
+            "File": "crate.png",
+            "X": 1513.0,
+            "Y": 721.0
+        },
+        {
+            "Source": 92,
+            "File": "crate.png",
+            "X": 2880.0,
+            "Y": 850.0
+        },
+        {
+            "Source": 93,
+            "File": "cart.png",
+            "X": 1140.0,
+            "Y": 900.0
+        },
+        {
+            "Source": 94,
+            "File": "cart.png",
+            "X": 1021.0,
+            "Y": 1587.0
+        },
+        {
+            "Source": 95,
+            "File": "cart.png",
+            "X": 2698.0,
+            "Y": 1073.0
+        },
+        {
+            "Source": 96,
+            "File": "cart.png",
+            "X": 3680.0,
+            "Y": 1690.0
+        },
+        {
+            "Source": 97,
+            "File": "hedge.png",
+            "X": 170.0,
+            "Y": 1440.0
+        },
+        {
+            "Source": 98,
+            "File": "hedge.png",
+            "X": 1070.0,
+            "Y": 1190.0
+        },
+        {
+            "Source": 99,
+            "File": "hedge.png",
+            "X": 1420.0,
+            "Y": 1380.0
+        },
+        {
+            "Source": 100,
+            "File": "hedge.png",
+            "X": 2785.0,
+            "Y": 1801.0
+        },
+        {
+            "Source": 101,
+            "File": "hedge.png",
+            "X": 2900.0,
+            "Y": 1950.0
+        },
+        {
+            "Source": 102,
+            "File": "fence.png",
+            "X": 2581.0,
+            "Y": 1142.0
+        },
+        {
+            "Source": 102,
+            "File": "fence.png",
+            "X": 3368.0,
+            "Y": 1181.0
+        },
+        {
+            "Source": 102,
+            "File": "fence.png",
+            "X": 3631.0,
+            "Y": 1192.0
+        },
+        {
+            "Source": 103,
+            "File": "fence.png",
+            "X": 2321.0,
+            "Y": 1125.0
+        },
+        {
+            "Source": 103,
+            "File": "fence.png",
+            "X": 524.0,
+            "Y": 1005.0
+        },
+        {
+            "Source": 103,
+            "File": "fence.png",
+            "X": 1084.0,
+            "Y": 1038.0
+        },
+        {
+            "Source": 104,
+            "File": "fence.png",
+            "X": 3631.0,
+            "Y": 1775.0
+        },
+        {
+            "Source": 104,
+            "File": "fence.png",
+            "X": 3368.0,
+            "Y": 1763.0
+        },
+        {
+            "Source": 104,
+            "File": "fence.png",
+            "X": 3109.0,
+            "Y": 1750.0
+        },
+        {
+            "Source": 104,
+            "File": "fence.png",
+            "X": 2841.0,
+            "Y": 1730.0
+        },
+        {
+            "Source": 105,
+            "File": "tree_a.png",
+            "X": 300.0,
+            "Y": 1370.0
+        },
+        {
+            "Source": 106,
+            "File": "tree_a.png",
+            "X": 3136.0,
+            "Y": 2056.0
+        },
+        {
+            "Source": 107,
+            "File": "wall_north_a.png",
+            "X": 240.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 108,
+            "File": "wall_north_b.png",
+            "X": 716.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 109,
+            "File": "wall_north_a.png",
+            "X": 1192.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 110,
+            "File": "wall_north_a.png",
+            "X": 1668.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 111,
+            "File": "wall_north_b.png",
+            "X": 2144.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 112,
+            "File": "wall_north_b.png",
+            "X": 2620.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 113,
+            "File": "wall_north_a.png",
+            "X": 3096.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 114,
+            "File": "wall_north_b.png",
+            "X": 3572.0,
+            "Y": 350.0
+        },
+        {
+            "Source": 115,
+            "File": "wall_west_a.png",
+            "X": 43.0,
+            "Y": 730.0
+        },
+        {
+            "Source": 116,
+            "File": "wall_west_b.png",
+            "X": 43.0,
+            "Y": 1205.0
+        },
+        {
+            "Source": 117,
+            "File": "wall_west_a.png",
+            "X": 43.0,
+            "Y": 1680.0
+        },
+        {
+            "Source": 118,
+            "File": "wall_west_a.png",
+            "X": 43.0,
+            "Y": 2155.0
+        },
+        {
+            "Source": 119,
+            "File": "wall_east_a.png",
+            "X": 3798.0,
+            "Y": 730.0
+        },
+        {
+            "Source": 120,
+            "File": "wall_east_b.png",
+            "X": 3798.0,
+            "Y": 1205.0
+        },
+        {
+            "Source": 121,
+            "File": "wall_east_a.png",
+            "X": 3798.0,
+            "Y": 1680.0
+        },
+        {
+            "Source": 122,
+            "File": "wall_east_a.png",
+            "X": 3798.0,
+            "Y": 2155.0
+        },
+        {
+            "Source": 123,
+            "File": "wall_south_a.png",
+            "X": 211.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 124,
+            "File": "wall_south_b.png",
+            "X": 634.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 125,
+            "File": "wall_south_a.png",
+            "X": 1056.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 126,
+            "File": "wall_south_a.png",
+            "X": 1479.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 127,
+            "File": "wall_south_a.png",
+            "X": 2361.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 128,
+            "File": "wall_south_b.png",
+            "X": 2784.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 129,
+            "File": "wall_south_a.png",
+            "X": 3206.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 130,
+            "File": "wall_south_a.png",
+            "X": 3629.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 131,
+            "File": "wall_corner_tower.png",
+            "X": 105.0,
+            "Y": 444.0
+        },
+        {
+            "Source": 132,
+            "File": "wall_corner_tower.png",
+            "X": 3735.0,
+            "Y": 444.0
+        },
+        {
+            "Source": 133,
+            "File": "wall_corner_tower.png",
+            "X": 105.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 134,
+            "File": "wall_corner_tower.png",
+            "X": 3735.0,
+            "Y": 2156.0
+        },
+        {
+            "Source": 135,
+            "File": "wall_gate.png",
+            "X": 1920.0,
+            "Y": 2156.0
+        }
+    ]
+}
