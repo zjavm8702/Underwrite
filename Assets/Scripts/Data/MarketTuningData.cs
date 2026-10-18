@@ -67,7 +67,7 @@ namespace Underwrite.Data
 
         [Header("플레이어")]
         [Tooltip("시작 자금.")]
-        [SerializeField] private float StartingCash = 500f;
+        [SerializeField] private float StartingCash = 0f;
 
         /// <summary>표의 값을 코드 쪽 수치에 덮어쓴다. 장을 열기 전에 한 번 부른다.</summary>
         public void Apply()

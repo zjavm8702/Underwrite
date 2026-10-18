@@ -463,15 +463,15 @@ namespace Underwrite.Global
         public static int DEDUCE_PRACTICE_SEED = 7;
 
         // 프롤로그 순찰(일곱째 날). 정거장 순서와 품삯 — 여관 · 대장간 · 길드 · 게시판 · 영주관.
-        // 품삯 합이 목표에 조금 못 미친다. 나머지는 여덟째 날 주방 일로 채운다(그 일 도중에 창고를 찾는다).
+        // 시작 돈은 0이고 연습 판 미니게임 하나에 60씩(2026-10-18 사장님). 이 돈과 주방 일 품삯이 첫 거래 밑천이 된다.
         public static readonly InfoSource[] PROLOGUE_STOPS =
         {
             InfoSource.Source_TavernTalk, InfoSource.Source_SmithOrder, InfoSource.Source_GuildRecord,
             InfoSource.Source_MarketBoard, InfoSource.Source_PrivateLetter
         };
 
-        public static readonly float[] PROLOGUE_WAGES = { 10f, 15f, 20f, 0f, 0f };
-        public static float PROLOGUE_GOAL = 60f;
+        public static readonly float[] PROLOGUE_WAGES = { 60f, 60f, 60f, 0f, 0f };
+        public static float PROLOGUE_GOAL = 180f;
 
         // 잠에서 깨는 여덟째 날 아침(하루 기준 분). 시장 달력의 1년 봄 1일째다.
         public static int PROLOGUE_WAKE_MINUTE = 7 * 60 + 50;
@@ -661,8 +661,9 @@ namespace Underwrite.Global
         public static float SENTIMENT_VOLATILITY_DRAINED = 1.2f;
 
         // ── 플레이어 자금 ─────────────────────────
-        /// <summary>시제품 시작 현금. 종잣돈 퀘스트 전 기본값이며 검증에서 조정한다.</summary>
-        public static float STARTING_CASH = 500f;
+        /// <summary>시작 현금. 2026-10-18 사장님: 0에서 시작 — 프롤로그 품삯으로 첫 밑천을 번다.</summary>
+        // 튜닝 에셋(MarketTuningData)도 같은 값 — 영지는 에셋을 읽기 전에 이 값을 쓴다.
+        public static float STARTING_CASH = 0f;
 
         // ── 호가와 지정가 ─────────────────────────
         /// <summary>호가창에 보여줄 매수·매도 각 단계 수.</summary>

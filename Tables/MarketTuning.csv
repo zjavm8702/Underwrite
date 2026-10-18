@@ -32,7 +32,7 @@ SENTIMENT_VOLATILITY_CALM,1.0,float,시장 분위기별 배율,튜닝,
 SENTIMENT_VOLATILITY_FEVER,1.6,float,시장 분위기별 배율,튜닝,
 SENTIMENT_VOLATILITY_FEAR,2.0,float,시장 분위기별 배율,튜닝,
 SENTIMENT_VOLATILITY_DRAINED,1.2,float,시장 분위기별 배율,튜닝,
-STARTING_CASH,500,float,플레이어 자금,튜닝,시제품 시작 현금. 종잣돈 퀘스트 전 기본값이며 검증에서 조정한다.
+STARTING_CASH,0,float,플레이어 자금,튜닝,시작 현금. 2026-10-18 사장님: 0에서 시작 — 프롤로그 미니게임 품삯(60씩)과 주방 일로 첫 밑천을 번다.
 BOOK_LEVELS,5,int,호가와 지정가,코드 고정,호가창에 보여줄 매수·매도 각 단계 수.
 BOOK_TICK_RATIO,0.004,float,호가와 지정가,튜닝,호가 단위를 가격의 몇 배로 잡을지. 126.8이면 약 0.5가 된다.
 BOOK_TICK_MIN,0.1,float,호가와 지정가,코드 고정,호가 단위의 하한.
