@@ -46,6 +46,9 @@ namespace Underwrite.UI
         // 지하를 찾기 전의 마을 생활(2026-10-18 온보딩). 순찰·잠·여덟째 날을 맡는다.
         private VillagePrologueHandler Prologue;
 
+        // 영지 미니맵(2026-10-18). 장소·일하는 사람이 다 서고 나서 한 번 만든다.
+        private UI_VillageMinimap Minimap;
+
         // 지금 선택지를 띄운 자리. 용사 테이블처럼 자리를 넘겨받지 않는 곳에서 돌아갈 곳이다.
         private VillageSpot CurrentSpot;
 
@@ -104,6 +107,14 @@ namespace Underwrite.UI
         {
             VillageSpotEvents.Entered += OnEnter;
             VillageSpotEvents.Exited += OnExit;
+        }
+
+        private void OnDestroy()
+        {
+            if (Minimap != null)
+            {
+                Minimap.Dispose();
+            }
         }
 
         private void OnDisable()
@@ -203,6 +214,7 @@ namespace Underwrite.UI
 
             NearNpc = FindNearNpc();
             RefreshPrompt();
+            TickMinimap(Keyboard.current);
 
             // 지하에서 올라왔으면 여관 문 앞에 선다(창고는 여관 지하다).
             if (SceneRoutes.ArrivedFromCellar == true && Player != null)
@@ -3646,6 +3658,32 @@ namespace Underwrite.UI
         /// <summary>
         /// 자리의 주인이 하는 말. 이름과 얼굴은 그 자리의 소식을 전하는 주민이다 — 지하 정보 타임에도 같은 사람이 나온다.
         /// </summary>
+        private void TickMinimap(Keyboard keyboard)
+        {
+            if (Minimap == null && Player != null)
+            {
+                var ground = GameObject.Find(Constants.VILLAGE_GROUND_NAME);
+                Minimap = new UI_VillageMinimap(Root, ground == null ? null : ground.GetComponent<SpriteRenderer>(),
+                    FindObjectsByType<VillageSpot>(FindObjectsInactive.Exclude),
+                    FindObjectsByType<VillageNpc>(FindObjectsInactive.Exclude), Player.gameObject);
+            }
+
+            if (Minimap == null)
+            {
+                return;
+            }
+
+            var covered = (Dialogue != null && Dialogue.IsOpen == true) || NotebookOpen == true || PuzzleOpen == true
+                || MiniGameOpen == true || ClockOpen == true || (TitleCard != null && TitleCard.IsOpen == true);
+
+            if (covered == false && keyboard != null && keyboard.mKey.wasPressedThisFrame == true)
+            {
+                Minimap.Toggle();
+            }
+
+            Minimap.Tick(Player.position, covered, Prologue == null ? null : Prologue.CurrentTarget);
+        }
+
         // ── 프롤로그가 쓰는 연출 창구 (VillagePrologueHandler) ───────
 
         /// <summary>대화·연출·안내가 모두 닫혀 있어 새 장면을 띄워도 되는가.</summary>

@@ -82,6 +82,10 @@ namespace Underwrite.Global
         };
         public static string TEXT_HEROES_OWNER = "저 테이블? 우리 집 단골 용사단이야. 일꾼이 인사하면 반겨 줄걸.";
 
+        // 영지 미니맵.
+        public static string TEXT_MINIMAP_HINT = "M · 지도";
+        public static string TEXT_MINIMAP_HINT_CLOSE = "M · 닫기";
+
         public static string TEXT_PROLOGUE_TUT_MOVE_TITLE = "영지";
         public static string TEXT_PROLOGUE_TUT_MOVE_BODY = "가진 것 하나 없이 떨어진 영지. WASD나 방향키로 걷고, 문 앞에서 E를 누른다. 마우스 휠로 가까이 볼 수 있다.";
         public static string TEXT_PROLOGUE_TUT_GOAL_TITLE = "목표";

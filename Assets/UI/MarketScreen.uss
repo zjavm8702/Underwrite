@@ -2012,6 +2012,128 @@
     background-color: rgba(247, 230, 190, 0.96);
 }
 
+/* ── 영지 미니맵 (2026-10-18) ───────────────
+   오른쪽 위 시계 아래에 작게(지도 비율 16:9), 펼치면 화면 가운데에 크게. 바닥은 영지 바닥 그림. */
+.minimap {
+    position: absolute;
+    top: 76px;
+    right: 32px;
+    width: 336px;
+    height: 216px;
+    padding: 6px;
+    border-radius: 12px;
+    border-width: 3px;
+    border-color: #8C6238;
+    background-color: rgba(42, 33, 24, 0.9);
+}
+
+.minimap--expanded {
+    top: 90px;
+    right: 8%;
+    width: 84%;
+    height: 82%;
+}
+
+.minimap-map {
+    flex-grow: 1;
+    border-radius: 8px;
+    -unity-background-scale-mode: stretch-to-fill;
+    overflow: hidden;
+}
+
+.minimap-hint {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 13px;
+    color: #F2E7D2;
+    padding: 2px 8px 2px 8px;
+    border-radius: 6px;
+    background-color: rgba(20, 15, 10, 0.75);
+}
+
+.minimap--expanded .minimap-hint {
+    font-size: 18px;
+}
+
+/* 표지 한 개: 점 + 이름. 자리는 점의 가운데. */
+.minimap-marker {
+    position: absolute;
+    align-items: center;
+    translate: -50% -8px;
+}
+
+.minimap-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: #2B2118;
+}
+
+.minimap-label {
+    font-size: 11px;
+    -unity-font-style: bold;
+    color: #F2E7D2;
+    padding: 0 4px 0 4px;
+    margin-top: 1px;
+    border-radius: 4px;
+    background-color: rgba(20, 15, 10, 0.78);
+    white-space: nowrap;
+}
+
+/* 장소 이름은 점 위, 사람 이름은 점 아래 — 붙어 있어도 겹치지 않게. */
+.minimap-place {
+    flex-direction: column-reverse;
+    translate: -50% -100%;
+}
+
+.minimap-place .minimap-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background-color: #F2C46B;
+}
+
+.minimap-person .minimap-dot {
+    background-color: #7FB3D5;
+}
+
+/* 작은 지도에서는 사람 이름을 감춘다 — 장소 이름만으로도 빽빽하다. */
+.minimap-person .minimap-label {
+    display: none;
+}
+
+.minimap--expanded .minimap-person .minimap-label {
+    display: flex;
+    font-size: 14px;
+}
+
+.minimap--expanded .minimap-place .minimap-label {
+    font-size: 18px;
+}
+
+.minimap-place--target .minimap-dot {
+    background-color: #E8603C;
+    width: 18px;
+    height: 18px;
+}
+
+.minimap-place--target .minimap-label {
+    color: #FFD98A;
+}
+
+.minimap-player {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    translate: -50% -50%;
+    background-color: #FF4A4A;
+    border-width: 3px;
+    border-color: #FFFFFF;
+}
+
 /* ── 장면 전환 제목 카드 (2026-10-18) ───────────────
    화면이 어두워지며 큰 글씨. 밝기는 코드가 매 프레임 opacity로 정한다. */
 .title-card {

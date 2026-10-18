@@ -491,6 +491,12 @@ namespace Underwrite.Global
         // 첫 지하 방문 — 「시간이 흐르기 시작했다」 안내가 떠 있는 시간(초).
         public static float MTUT_FLOW_COACH_SECONDS = 6f;
 
+        // 영지 바닥 오브젝트 이름(VillagePartsSetup이 만든다). 미니맵이 그 그림을 쓴다.
+        public const string VILLAGE_GROUND_NAME = "Ground";
+
+        // 미니맵 그림의 가로 픽셀. 펼친 지도(화면의 84%)에서도 흐리지 않을 만큼.
+        public static int MINIMAP_SNAPSHOT_WIDTH = 1600;
+
         // 인트로에서 보이는 웹툰 장 수. 나머지(5~6장)는 창고 발견 장면에서 쓴다.
         public static int INTRO_PAGES_SHOWN = 4;
 

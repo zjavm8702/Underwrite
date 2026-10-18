@@ -173,6 +173,15 @@ namespace Underwrite.UI
             });
         }
 
+        /// <summary>프롤로그의 다음 목적지 이름(미니맵이 밝힌다). 없으면 null.</summary>
+        public string CurrentTarget
+        {
+            get
+            {
+                return IsActive == true ? TargetName() : null;
+            }
+        }
+
         /// <summary>시계 칸. 시장 달력과 다음 장 시각은 숨긴다.</summary>
         public string ClockLabel(string timeOfDay)
         {
