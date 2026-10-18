@@ -43,6 +43,9 @@ namespace Underwrite.UI
         private TimeDial Dial;
         private UI_Tutorial Tutorial;
 
+        // 지하를 찾기 전의 마을 생활(2026-10-18 온보딩). 순찰·잠·여덟째 날을 맡는다.
+        private VillagePrologueHandler Prologue;
+
         // 지금 선택지를 띄운 자리. 용사 테이블처럼 자리를 넘겨받지 않는 곳에서 돌아갈 곳이다.
         private VillageSpot CurrentSpot;
 
@@ -67,7 +70,7 @@ namespace Underwrite.UI
         private bool LeaveBound;
 
         /// <summary>영지에서도 시각이 흐른다. 거래 화면의 시계와 같은 것을 쓴다.</summary>
-        private MarketClock Clock
+        internal MarketClock Clock
         {
             get
             {
@@ -181,12 +184,17 @@ namespace Underwrite.UI
                 AddSigns();
             }
 
+            if (Prologue == null)
+            {
+                Prologue = new VillagePrologueHandler(this);
+            }
+
             BindLeave();
             EnsureClock();
 
             // 영지의 시간은 실시간 1:1로 흐른다. 기획서 §11.
-            // 첫 안내를 읽는 동안에는 시간이 흐르지 않는다.
-            if (Clock != null && (Tutorial == null || Tutorial.IsOpen == false))
+            // 첫 안내를 읽는 동안과 프롤로그 일곱째 날(마을 순찰)에는 시간이 흐르지 않는다.
+            if (Clock != null && (Tutorial == null || Tutorial.IsOpen == false) && Prologue.FreezesTime == false)
             {
                 Clock.AdvanceBreak(Time.unscaledDeltaTime);
             }
@@ -197,6 +205,7 @@ namespace Underwrite.UI
             RefreshPrompt();
 
             StartVillageTutorialOnce();
+            Prologue.Tick();
             RefreshObjective();
 
             NpcAmbient.Player = Player;
@@ -282,6 +291,13 @@ namespace Underwrite.UI
 
             yield return new WaitForSeconds(Constants.ACTOR_APPROACH_SECONDS);
             Approaching = false;
+
+            // 프롤로그가 맡는 동안(순찰 순서·잠·여덟째 날)은 평소 선택지를 띄우지 않는다.
+            if (Prologue.HandleSpot(spot) == true)
+            {
+                yield break;
+            }
+
             Ask(spot);
         }
 
@@ -318,7 +334,10 @@ namespace Underwrite.UI
             yield return new WaitForSeconds(Constants.ACTOR_APPROACH_SECONDS);
 
             // 모험단에게 직접 말을 걸면 그 단에 대해 하나 알게 된다. 수첩(도감)에 적는다.
-            var learned = npc.Party != null ? BandCodex.Learn(npc.Party.Stock, CodexSource.Codex_Talk) : null;
+            // 지하를 찾기 전에는 그냥 오가는 손님이다 — 적지 않는다(온보딩 설계안 §5).
+            var learned = npc.Party != null && StoryProgress.CellarFound == true
+                ? BandCodex.Learn(npc.Party.Stock, CodexSource.Codex_Talk)
+                : null;
 
             if (learned != null && me != null)
             {
@@ -612,7 +631,8 @@ namespace Underwrite.UI
             var choices = new List<DialogueChoice>();
             var money = GatherSession.Available;
 
-            if (spot.Price > 0f)
+            // 돈 내고 묻기는 지하를 안 뒤에 연다 — 그 전에는 물을 이유가 없다(온보딩 설계안 §5).
+            if (spot.Price > 0f && StoryProgress.CellarFound == true)
             {
                 var pay = new DialogueChoice(string.Format(StringConstants.TEXT_GATHER_PAY, spot.Price),
                     () => Gather(spot));
@@ -670,7 +690,12 @@ namespace Underwrite.UI
                     choices.Add(DiceChoice(spot));
                 }
 
-                choices.Add(HeroTableChoice(spot));
+                // 용사단 테이블은 지하를 안 뒤에 연다(알아보는 장면은 온보딩 다음 단계).
+                if (StoryProgress.CellarFound == true)
+                {
+                    choices.Add(HeroTableChoice(spot));
+                }
+
                 choices.Add(SleepChoice());
             }
 
@@ -719,6 +744,9 @@ namespace Underwrite.UI
         {
             StoryProgress.CellarFound = true;
 
+            // 프롤로그 끝. 주방 일을 마치고 술통을 나르러 갈 무렵은 해 질 녘이다 — 첫 장(재개장) 직전으로 넘긴다.
+            Prologue.FinishWithDiscovery(Clock);
+
             var owner = InfoPeople.Speaker(spot.InfoSource);
             var lines = new List<DialogueLine>
             {
@@ -729,10 +757,12 @@ namespace Underwrite.UI
                 new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_DISCOVER_END)
             };
 
-            lines[lines.Count - 1].Note = StringConstants.TEXT_DISCOVER_NOTE;
+            // 다 보면 곧장 창고 안쪽으로 내려간다. 다른 볼일을 늘어놓으면 이 순간이 묻힌다(2026-10-18 온보딩).
+            var last = lines[lines.Count - 1];
+            last.Note = StringConstants.TEXT_DISCOVER_NOTE;
+            last.Choices = new List<DialogueChoice> { new DialogueChoice(StringConstants.TEXT_CELLAR_GO, GoToMarket) };
 
-            // 다 보면 바로 고르게 한다. 창고로 내려갈지, 일단 둘러볼지.
-            Dialogue.Play(lines, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, () => Ask(spot)));
+            Dialogue.Play(lines, null);
         }
 
         // ── 용사단 (루틴 설계안) ──────────────────
@@ -1591,6 +1621,16 @@ namespace Underwrite.UI
 
             list.Clear();
 
+            // 프롤로그 동안은 시간 넘기기·수첩·지하거래소를 보이지 않는다. 시장을 아직 모른다.
+            if (Prologue.IsActive == true)
+            {
+                MenuItem(list, string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]),
+                    true, string.Empty, GameAudio.CycleVolume);
+                list.RemoveFromClassList("hidden");
+                Root.Q<Button>("village-menu").AddToClassList("village-button--on");
+                return;
+            }
+
             var canSkip = Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
             MenuItem(list, StringConstants.TEXT_SKIP_BREAK, canSkip, StringConstants.TEXT_MENU_NO_TIME, OpenClock);
             MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
@@ -1663,7 +1703,9 @@ namespace Underwrite.UI
 
             Tutorial.Tick();
 
-            if (StoryProgress.VillageTutorialDone == true || Tutorial.IsOpen == true || StoryProgress.CellarFound == true)
+            // 프롤로그가 있는 새 판은 프롤로그가 첫 안내를 맡는다.
+            if (StoryProgress.VillageTutorialDone == true || Tutorial.IsOpen == true || StoryProgress.CellarFound == true
+                || Prologue == null || Prologue.IsActive == true)
             {
                 return;
             }
@@ -1697,6 +1739,16 @@ namespace Underwrite.UI
                 label.AddToClassList("village-objective");
                 label.pickingMode = PickingMode.Ignore;
                 Root.Add(label);
+            }
+
+            // 일곱째 날은 할 일 대신 프롤로그 목표를 보인다.
+            var goal = Prologue == null ? null : Prologue.GoalText();
+
+            if (goal != null)
+            {
+                label.text = goal;
+                label.EnableInClassList("hidden", false);
+                return;
             }
 
             var done = QuestLog.Tick();
@@ -1747,7 +1799,8 @@ namespace Underwrite.UI
         /// </summary>
         private void PlayQuestIntroIfDue()
         {
-            if (QuestLog.HasPendingIntro == false || Dialogue == null || Dialogue.IsOpen == true
+            if (QuestLog.HasPendingIntro == false || Prologue == null || Prologue.AllowsQuests == false
+                || Dialogue == null || Dialogue.IsOpen == true
                 || Approaching == true || ClockOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || DepartureRunning == true
                 || (Tutorial != null && Tutorial.IsOpen == true))
@@ -2236,11 +2289,20 @@ namespace Underwrite.UI
             var hour = Clock == null ? 0 : Clock.BreakHour;
             var minute = Clock == null ? 0 : Clock.BreakMinute;
             // 며칠째인지 맨 앞에 둔다. 기한·시찰·원정이 모두 날짜로 움직인다(2026-10-17 사용자 요청).
-            SetText("village-visits",
-                ClockText.SeasonDay(Today()) + " · "
-                + ClockText.FromSeconds((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond), true)
-                + " · " + string.Format(StringConstants.TEXT_VILLAGE_NEXT_SESSION, left / 60, left % 60)
-                + InspectionTag());
+            var timeOfDay = ClockText.FromSeconds((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond), true);
+
+            // 프롤로그 동안은 시장 달력과 다음 장 시각을 숨긴다.
+            if (Prologue != null && Prologue.IsActive == true)
+            {
+                SetText("village-visits", Prologue.ClockLabel(timeOfDay));
+            }
+            else
+            {
+                SetText("village-visits",
+                    ClockText.SeasonDay(Today()) + " · " + timeOfDay
+                    + " · " + string.Format(StringConstants.TEXT_VILLAGE_NEXT_SESSION, left / 60, left % 60)
+                    + InspectionTag());
+            }
 
             if (Here == null)
             {
@@ -3394,6 +3456,62 @@ namespace Underwrite.UI
         /// <summary>
         /// 자리의 주인이 하는 말. 이름과 얼굴은 그 자리의 소식을 전하는 주민이다 — 지하 정보 타임에도 같은 사람이 나온다.
         /// </summary>
+        // ── 프롤로그가 쓰는 연출 창구 (VillagePrologueHandler) ───────
+
+        /// <summary>대화·연출·안내가 모두 닫혀 있어 새 장면을 띄워도 되는가.</summary>
+        internal bool CanDirect()
+        {
+            return Dialogue != null && Dialogue.IsOpen == false && Approaching == false && ClockOpen == false
+                && PuzzleOpen == false && MiniGameOpen == false && (Tutorial == null || Tutorial.IsOpen == false);
+        }
+
+        /// <summary>주인공 머리 위 혼잣말.</summary>
+        internal void SayToSelf(string text)
+        {
+            var actor = PlayerActor;
+
+            if (actor != null)
+            {
+                actor.Say(text);
+            }
+        }
+
+        internal VillageSpot FindSpot(InfoSource source)
+        {
+            foreach (var spot in FindObjectsByType<VillageSpot>(FindObjectsInactive.Exclude))
+            {
+                if (spot.InfoSource == source && spot.Kind != VillageActivity.Activity_Enter)
+                {
+                    return spot;
+                }
+            }
+
+            return null;
+        }
+
+        internal DialogueLine OwnerLineFor(VillageSpot spot, string text)
+        {
+            return OwnerLine(spot, text);
+        }
+
+        /// <summary>대화를 띄운다. <paramref name="place"/>가 없으면 배경 그림 없이 — 영지가 비쳐 보이는 혼잣말.</summary>
+        internal void PlayLines(InfoSource? place, List<DialogueLine> lines, System.Action then)
+        {
+            Dialogue.SetBackground(place.HasValue == true ? BackgroundOf(place.Value) : "dialogue-root--street");
+            Dialogue.Play(lines, then);
+        }
+
+        /// <summary>프롤로그 첫 안내: 걷기와 왼쪽 위 목표.</summary>
+        internal void PlayPrologueTutorial()
+        {
+            Tutorial.Play(new List<TutorialStep>
+            {
+                new TutorialStep(null, StringConstants.TEXT_PROLOGUE_TUT_MOVE_TITLE, StringConstants.TEXT_PROLOGUE_TUT_MOVE_BODY),
+                new TutorialStep("village-objective", StringConstants.TEXT_PROLOGUE_TUT_GOAL_TITLE,
+                    StringConstants.TEXT_PROLOGUE_TUT_GOAL_BODY)
+            }, null);
+        }
+
         private DialogueLine OwnerLine(VillageSpot spot, string text)
         {
             var line = new DialogueLine(InfoPeople.Speaker(spot.InfoSource), spot.Name, text);

@@ -139,6 +139,9 @@ namespace Underwrite.UI
             Veil.RemoveFromClassList("dialogue-root--tavern");
             Veil.RemoveFromClassList("dialogue-root--guild");
             Veil.RemoveFromClassList("dialogue-root--board");
+            Veil.RemoveFromClassList("dialogue-root--smith");
+            Veil.RemoveFromClassList("dialogue-root--manor");
+            Veil.RemoveFromClassList("dialogue-root--street");
 
             if (string.IsNullOrEmpty(className) == false)
             {

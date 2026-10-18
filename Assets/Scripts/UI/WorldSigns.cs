@@ -14,6 +14,7 @@ namespace Underwrite.UI
         {
             public Transform Anchor;
             public VisualElement Plate;
+            public string Title;
         }
 
         private static readonly List<Sign> Signs = new List<Sign>();
@@ -59,7 +60,18 @@ namespace Underwrite.UI
             }
 
             Layer.Add(plate);
-            Signs.Add(new Sign { Anchor = anchor, Plate = plate });
+            Signs.Add(new Sign { Anchor = anchor, Plate = plate, Title = title });
+        }
+
+        /// <summary>
+        /// 그 이름의 이름표만 「다음에 갈 곳」으로 밝힌다. null이면 모두 끈다(프롤로그 순찰 — 2026-10-18).
+        /// </summary>
+        public static void Highlight(string title)
+        {
+            foreach (var sign in Signs)
+            {
+                sign.Plate.EnableInClassList("world-sign--target", title != null && sign.Title == title);
+            }
         }
 
         /// <summary>문 앞 자리에서 <paramref name="height"/>유닛 위에 세운다. 영지 화면이 매 프레임 부른다.</summary>

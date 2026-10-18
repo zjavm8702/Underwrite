@@ -199,6 +199,10 @@ namespace Underwrite.Save
     public sealed class StoryState
     {
         public bool CellarFound;
+
+        /// <summary>프롤로그 단계(PrologueStage).</summary>
+        public int Prologue;
+
         public bool MarketTutorialDone;
         public bool VillageTutorialDone;
         public List<string> SleepSeen = new List<string>();

@@ -28,6 +28,16 @@ namespace Underwrite.UI
         [Tooltip("웹툰 페이지. 순서대로 보여 준다.")]
         [SerializeField] private List<Texture2D> Pages = new List<Texture2D>();
 
+        // 인트로는 웹툰 1~4장(멸망·떨어짐·가난·무력감)까지만 보인다(2026-10-18 사장님 — 지하시장은 게임 안에서 발견해야 한다).
+        // 5~6장은 영지에서 창고를 찾는 장면에 쓴다.
+        private int ShownCount
+        {
+            get
+            {
+                return Mathf.Min(Pages.Count, Constants.INTRO_PAGES_SHOWN);
+            }
+        }
+
         [Tooltip("이어하기 때 시장을 표에서 다시 짜는 데 쓴다.")]
         [SerializeField] private GameDataSet Data;
 
@@ -148,7 +158,7 @@ namespace Underwrite.UI
 
             Index++;
 
-            if (Index >= Pages.Count)
+            if (Index >= ShownCount)
             {
                 Finish();
                 return;
@@ -182,7 +192,7 @@ namespace Underwrite.UI
         // 장 전체의 크기를 창 폭에 맞춘다. 창의 높이는 Animate가 칸마다 맞춘다.
         private void LayoutFrame()
         {
-            if (Frame == null || Index >= Pages.Count || Pages[Index] == null)
+            if (Frame == null || Index >= ShownCount || Pages[Index] == null)
             {
                 return;
             }
@@ -194,7 +204,7 @@ namespace Underwrite.UI
         // 칸을 옮길 때 미끄러지듯 내려가며 창도 그 칸의 높이로 바뀐다. 칸이 떠 있는 동안 아주 천천히 다가간다.
         private void Animate(float delta)
         {
-            if (Frame == null || Page == null || Index >= Pages.Count || Pages[Index] == null)
+            if (Frame == null || Page == null || Index >= ShownCount || Pages[Index] == null)
             {
                 return;
             }
@@ -218,12 +228,12 @@ namespace Underwrite.UI
 
         private void ShowCount()
         {
-            Count.text = string.Format(StringConstants.TEXT_INTRO_COUNT, Index + 1, Pages.Count);
+            Count.text = string.Format(StringConstants.TEXT_INTRO_COUNT, Index + 1, ShownCount);
         }
 
         private void Show()
         {
-            if (Pages.Count == 0)
+            if (ShownCount == 0)
             {
                 UnderwriteLog.Warning("인트로 페이지가 없어 바로 시작합니다.", context: this);
                 Finish();

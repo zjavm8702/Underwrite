@@ -305,6 +305,14 @@ namespace Underwrite.Market
             BreakMinuteOfDay = StartHour * 60 + Constants.MARKET_SESSION_MINUTES;
         }
 
+        /// <summary>그날 그 시각(하루 기준 분)부터 영지의 시간을 시작한다. 프롤로그의 잠에서 깬 아침에 쓴다.</summary>
+        public void BeginBreakAt(int minuteOfDay)
+        {
+            IsBreak = true;
+            BreakAccumulated = 0f;
+            BreakMinuteOfDay = minuteOfDay;
+        }
+
         /// <summary>영지의 시간을 실시간 속도로 흘린다. 매 프레임 불린다.</summary>
         public void AdvanceBreak(float deltaSeconds)
         {

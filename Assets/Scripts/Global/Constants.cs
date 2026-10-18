@@ -459,6 +459,23 @@ namespace Underwrite.Global
         public static int DEDUCE_TRIES = 3;
         public static int DEDUCE_WRONG_MINUTES = 10;
 
+        // 프롤로그 순찰(일곱째 날). 정거장 순서와 품삯 — 여관 · 대장간 · 길드 · 게시판 · 영주관.
+        // 품삯 합이 목표에 조금 못 미친다. 나머지는 여덟째 날 주방 일로 채운다(그 일 도중에 창고를 찾는다).
+        public static readonly InfoSource[] PROLOGUE_STOPS =
+        {
+            InfoSource.Source_TavernTalk, InfoSource.Source_SmithOrder, InfoSource.Source_GuildRecord,
+            InfoSource.Source_MarketBoard, InfoSource.Source_PrivateLetter
+        };
+
+        public static readonly float[] PROLOGUE_WAGES = { 10f, 15f, 20f, 0f, 0f };
+        public static float PROLOGUE_GOAL = 60f;
+
+        // 잠에서 깨는 여덟째 날 아침(하루 기준 분). 시장 달력의 1년 봄 1일째다.
+        public static int PROLOGUE_WAKE_MINUTE = 7 * 60 + 50;
+
+        // 인트로에서 보이는 웹툰 장 수. 나머지(5~6장)는 창고 발견 장면에서 쓴다.
+        public static int INTRO_PAGES_SHOWN = 4;
+
         // 여관 주사위 내기. 눈 수, 한 사람의 주사위 수, 이겨야 하는 판 수, 걸리는 시간, 지면 내는 술값.
         public const int DICE_FACES = 6;
         public static int DICE_PER_PLAYER = 4;

@@ -40,4 +40,29 @@ namespace Underwrite.Enumeration
         /// <summary>국경의 징조를 찾는다. 멸망의 단서가 쌓인다(설계안 §4).</summary>
         Task_Omens
     }
+
+    /// <summary>
+    /// 프롤로그 — 지하를 찾기 전의 마을 생활(2026-10-18 온보딩 설계안). 단계마다 열리는 것이 다르다.
+    /// 순서가 곧 진행이다: 혼잣말 → 마을 순찰(여관 → 대장간 → 길드 → 게시판 → 영주관) → 잠 → 여덟째 날 주방 일 → 끝.
+    /// </summary>
+    public enum PrologueStage
+    {
+        /// <summary>일곱째 날 첫 혼잣말과 걷기 안내.</summary>
+        Stage_Opening,
+
+        Stage_Inn,
+        Stage_Smith,
+        Stage_Guild,
+        Stage_Board,
+        Stage_Manor,
+
+        /// <summary>순찰을 마쳤다. 여관 다락방에서 자야 한다.</summary>
+        Stage_Sleep,
+
+        /// <summary>여덟째 날. 여관 주방 일을 거들다 창고를 찾는다(웹툰 5~6화).</summary>
+        Stage_Kitchen,
+
+        /// <summary>지하를 찾았다. 프롤로그 끝.</summary>
+        Stage_Done
+    }
 }

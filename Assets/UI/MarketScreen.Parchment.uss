@@ -461,6 +461,14 @@
     -unity-text-align: middle-center;
 }
 
+/* 프롤로그 순찰의 「다음에 갈 곳」. 금빛 테두리로 밝힌다. */
+.world-sign--target {
+    border-color: rgb(242, 196, 107);
+    border-width: 3px;
+    background-color: rgba(96, 58, 22, 0.94);
+    scale: 1.15 1.15;
+}
+
 /* ── 거래 화면 키트 v1 (Outputs/MarketUI_Kit_v1, 2026-10-18) ──────────
    「웹 대시보드」에서 「지하 거래소의 책상」으로. 짙은 나무 틀 + 놋쇠, 안쪽은 종이(숫자 칸은 깨끗하게).
    영지 화면도 이 스타일시트를 쓰므로 모두 .market-root 아래로 한정한다. 배율은 납품 기준 0.25. */

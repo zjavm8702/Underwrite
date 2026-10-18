@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Underwrite.Data;
+using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
@@ -68,6 +69,7 @@ namespace Underwrite.Save
                 Story = new StoryState
                 {
                     CellarFound = StoryProgress.CellarFound,
+                    Prologue = (int)StoryProgress.Prologue,
                     MarketTutorialDone = StoryProgress.MarketTutorialDone,
                     VillageTutorialDone = StoryProgress.VillageTutorialDone,
                     Bankruptcies = StoryProgress.Bankruptcies,
@@ -177,6 +179,10 @@ namespace Underwrite.Save
             QuestLog.Restore(data.QuestIndex, data.QuestIntroduced);
             SeasonPlan.Restore(data.SeasonPlan);
             StoryProgress.CellarFound = data.Story.CellarFound;
+            // 프롤로그가 생기기 전 저장(10/18)은 값이 0이다. 창고를 찾았으면 끝난 것으로 본다.
+            StoryProgress.Prologue = data.Story.CellarFound == true
+                ? PrologueStage.Stage_Done
+                : (PrologueStage)data.Story.Prologue;
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
             StoryProgress.Bankruptcies = data.Story.Bankruptcies;
