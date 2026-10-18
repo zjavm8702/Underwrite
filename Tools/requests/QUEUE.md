@@ -26,6 +26,9 @@
 | 17b | `underworld_room_v2.md` | `UnderworldRoom_v2` | 진행 중(10/18) — v1 수정판. 들이는 도구 준비됨(`UnderworldRoomParts.cs`). 사람·정보상은 그 뒤 |
 | 18 | `portrait_folk_v3.md` | `PortraitFolk_v3` | 대기 — 17번 다음. 주민 다섯 다시(얼굴 틀 깨기) + 정보상 두건. 슬롭 5-1의 5번 |
 | 19 | `underworld_people_v1.md` | `UnderworldPeople_v1` | 대기 — 지하 방 v2 통과 뒤. 앉은 투자꾼 다섯 + 카운터 뒤 정보상 |
+| 20 | `slop_ideas_doc_v1.md` | (문서) | 대기 — **후순위**(사장님). 슬롭 개선 아이디어 문서 |
+
+**새 순서(10/18 사장님):** 일러스트·캐릭터를 뺀 그림은 무료 상업용 에셋을 먼저 찾아 과장이 검수, 반려하면 그린다(상시 지시서 §2-1).
 
 **다음 목록은 `ART_BACKLOG.md`** (2026-10-17 정리, 우선순위 순). Codex 사용량이 적어 한 건씩 확인받고 건다.
 
