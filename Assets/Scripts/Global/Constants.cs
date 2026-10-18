@@ -282,6 +282,12 @@ namespace Underwrite.Global
         /// 2026-10-18 사장님 결정으로 4일.
         /// </summary>
         public static int SEASON_DAYS = 4;
+        /// <summary>
+        /// 겨울(해마다 넷째 계절)의 플레이 날 수. 재개장과 출발뿐이라 장이 3번이다(2026-10-18).
+        /// 10년이 약 34시간 → 장 건너뛰기를 섞으면 25~30시간(결정기록의 추산).
+        /// </summary>
+        public static int WINTER_SEASON_DAYS = 2;
+        public const int SEASONS_PER_YEAR = 4;
 
         // 모험단 도감의 주기 문장이 시장에 남기는 것. 순서는 StringConstants.CODEX_SMITH·CODEX_TAVERN과 같다.
         // 대장간 사정이 주기 끝에 가치에 더하는 변화율 [종목][주기 순번]. 대장간 장부는 틀리지 않는다.

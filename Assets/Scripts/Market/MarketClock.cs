@@ -138,7 +138,7 @@ namespace Underwrite.Market
             return MarketSession.Session_Morning;
         }
 
-        /// <summary>계절의 몇째 날인가. 1이 귀환·재개장 날, <see cref="Constants.SEASON_DAYS"/>가 출발하는 날이다.</summary>
+        /// <summary>계절의 몇째 날인가. 1이 귀환·재개장 날, 그 계절의 마지막 날(<see cref="DaysInSeason"/>)이 출발하는 날이다.</summary>
         public static int DayInSeason(int day)
         {
             if (day < 1)
@@ -146,10 +146,10 @@ namespace Underwrite.Market
                 return 1;
             }
 
-            return (day - 1) % Constants.SEASON_DAYS + 1;
+            return day - SeasonStartDay(SeasonOf(day)) + 1;
         }
 
-        /// <summary>몇째 계절인가. 1부터 센다. 넷이 한 해다.</summary>
+        /// <summary>몇째 계절인가. 1부터 센다. 넷이 한 해다(봄·여름·가을·겨울).</summary>
         public static int SeasonOf(int day)
         {
             if (day < 1)
@@ -157,7 +157,36 @@ namespace Underwrite.Market
                 return 1;
             }
 
-            return (day - 1) / Constants.SEASON_DAYS + 1;
+            var year = DaysInYear;
+            var within = (day - 1) % year;
+            var normal = Constants.SEASONS_PER_YEAR - 1;
+            var season = within < normal * Constants.SEASON_DAYS ? within / Constants.SEASON_DAYS : normal;
+            return (day - 1) / year * Constants.SEASONS_PER_YEAR + season + 1;
+        }
+
+        /// <summary>
+        /// 그 계절에 플레이하는 날 수. 겨울은 「조용한 계절」이라 짧다 — 재개장과 출발뿐(2026-10-18, 플레이 시간 20~30시간).
+        /// </summary>
+        public static int DaysInSeason(int season)
+        {
+            return season % Constants.SEASONS_PER_YEAR == 0 ? Constants.WINTER_SEASON_DAYS : Constants.SEASON_DAYS;
+        }
+
+        /// <summary>그 계절의 첫날(1일째부터 이어 센 날).</summary>
+        public static int SeasonStartDay(int season)
+        {
+            var index = Math.Max(0, season - 1);
+            var years = index / Constants.SEASONS_PER_YEAR;
+            var rest = index % Constants.SEASONS_PER_YEAR;
+            return 1 + years * DaysInYear + rest * Constants.SEASON_DAYS;
+        }
+
+        private static int DaysInYear
+        {
+            get
+            {
+                return (Constants.SEASONS_PER_YEAR - 1) * Constants.SEASON_DAYS + Constants.WINTER_SEASON_DAYS;
+            }
         }
 
         /// <summary>장을 <paramref name="skipped"/>개 쉬고 나서 열릴 장. 0이면 바로 다음 장이다.</summary>
@@ -361,7 +390,7 @@ namespace Underwrite.Market
         {
             get
             {
-                return DayInSeason(Day) == Constants.SEASON_DAYS && Session == MarketSession.Session_Evening;
+                return DayInSeason(Day) == DaysInSeason(SeasonOf(Day)) && Session == MarketSession.Session_Evening;
             }
         }
 
@@ -388,15 +417,21 @@ namespace Underwrite.Market
         /// <summary>그날 또는 그 뒤로 가장 가까운 시찰일. 계절마다 한 번이다.</summary>
         public static int NextInspectionDay(int fromDay)
         {
-            var seasonStart = (SeasonOf(fromDay) - 1) * Constants.SEASON_DAYS;
-            var thisSeason = seasonStart + Constants.INSPECTION_SEASON_DAY;
-
-            if (thisSeason >= fromDay)
+            // 겨울처럼 짧은 계절에는 시찰일이 없다. 그날이 있는 계절까지 넘겨 찾는다.
+            for (var season = SeasonOf(fromDay); ; season++)
             {
-                return thisSeason;
-            }
+                if (DaysInSeason(season) < Constants.INSPECTION_SEASON_DAY)
+                {
+                    continue;
+                }
 
-            return thisSeason + Constants.SEASON_DAYS;
+                var day = SeasonStartDay(season) + Constants.INSPECTION_SEASON_DAY - 1;
+
+                if (day >= fromDay)
+                {
+                    return day;
+                }
+            }
         }
 
         public void AdvanceDay()

@@ -939,7 +939,7 @@ namespace Underwrite.UI
             };
 
             // 지난 계절에 놓친 사정의 대가. 몸 상태가 바뀐 날이 지난 계절 안이면 이번 원정에서 일어난 일이다.
-            var since = day - Constants.SEASON_DAYS;
+            var since = MarketClock.SeasonStartDay(MarketClock.SeasonOf(day) - 1);
             var struck = false;
 
             for (var i = 0; i < heroes.Count; i++)
