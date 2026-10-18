@@ -1985,6 +1985,32 @@
     font-size: 20px;
 }
 
+/* ── 장면 전환 제목 카드 (2026-10-18) ───────────────
+   화면이 어두워지며 큰 글씨. 밝기는 코드가 매 프레임 opacity로 정한다. */
+.title-card {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #0E0A07;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-card-title {
+    font-size: 64px;
+    -unity-font-style: bold;
+    color: #F2E7D2;
+    letter-spacing: 8px;
+}
+
+.title-card-sub {
+    margin-top: 18px;
+    font-size: 24px;
+    color: rgba(242, 231, 210, 0.7);
+}
+
 /* ── 미니게임 규칙서 (2026-10-18) ───────────────
    장소 배경 위에 큰 종이 한 장. 가운데 무대에서 실제 게임 부품이 움직인다. */
 .rulebook {

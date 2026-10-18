@@ -489,6 +489,13 @@ namespace Underwrite.Global
         public static float PROLOGUE_SHOW_SECONDS = 1.6f;
         public static float PROLOGUE_RETURN_SECONDS = 0.7f;
 
+        // 장소에 닿았을 때 돌아볼 주인을 찾는 거리(유닛).
+        public static float PROLOGUE_GREET_RADIUS = 4f;
+
+        // 장면 전환 제목 카드. 어두워지고 밝아지는 시간과 글씨가 머무는 시간(초, 실시간).
+        public static float TITLE_CARD_FADE_SECONDS = 0.8f;
+        public static float TITLE_CARD_HOLD_SECONDS = 1.6f;
+
         // 인트로에서 보이는 웹툰 장 수. 나머지(5~6장)는 창고 발견 장면에서 쓴다.
         public static int INTRO_PAGES_SHOWN = 4;
 

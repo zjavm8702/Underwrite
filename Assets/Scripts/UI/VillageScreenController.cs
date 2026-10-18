@@ -205,6 +205,12 @@ namespace Underwrite.UI
             RefreshPrompt();
 
             StartVillageTutorialOnce();
+
+            if (TitleCard != null)
+            {
+                TitleCard.Tick(Time.unscaledDeltaTime);
+            }
+
             Prologue.Tick();
             RefreshObjective();
 
@@ -763,7 +769,9 @@ namespace Underwrite.UI
             last.Note = StringConstants.TEXT_DISCOVER_NOTE;
             last.Choices = new List<DialogueChoice> { new DialogueChoice(StringConstants.TEXT_CELLAR_GO, GoToMarket) };
 
-            Dialogue.Play(lines, null);
+            // 하루 일을 마칠 무렵으로 넘어간다는 것을 제목 카드로 보인다.
+            ShowTitle(StringConstants.TEXT_PROLOGUE_CARD_DUSK, StringConstants.TEXT_PROLOGUE_CARD_DUSK_SUB, null,
+                () => Dialogue.Play(lines, null));
         }
 
         // ── 용사단 (루틴 설계안) ──────────────────
@@ -3629,6 +3637,7 @@ namespace Underwrite.UI
         internal bool CanDirect()
         {
             return Dialogue != null && Dialogue.IsOpen == false && Approaching == false && ClockOpen == false
+                && (TitleCard == null || TitleCard.IsOpen == false)
                 && PuzzleOpen == false && MiniGameOpen == false && (Tutorial == null || Tutorial.IsOpen == false);
         }
 
@@ -3718,6 +3727,47 @@ namespace Underwrite.UI
                 new TutorialStep("village-objective", StringConstants.TEXT_PROLOGUE_TUT_GOAL_TITLE,
                     StringConstants.TEXT_PROLOGUE_TUT_GOAL_BODY)
             }, null);
+        }
+
+        private UI_TitleCard TitleCard;
+
+        /// <summary>장면 전환 제목 카드. 가장 어두울 때 <paramref name="onDark"/>, 다 걷히면 <paramref name="onDone"/>.</summary>
+        internal void ShowTitle(string title, string subtitle, System.Action onDark, System.Action onDone)
+        {
+            if (TitleCard == null)
+            {
+                TitleCard = new UI_TitleCard(Root);
+            }
+
+            TitleCard.Play(title, subtitle, onDark, onDone);
+        }
+
+        /// <summary>장소에 닿았다 — 문 앞의 주인이 주인공을 돌아보고 반긴다.</summary>
+        internal void GreetAt(VillageSpot spot)
+        {
+            VillageNpc nearest = null;
+            var best = Constants.PROLOGUE_GREET_RADIUS;
+
+            foreach (var npc in FindObjectsByType<VillageNpc>(FindObjectsInactive.Exclude))
+            {
+                var distance = Vector2.Distance(npc.transform.position, spot.transform.position);
+
+                if (distance < best && npc.Party == null)
+                {
+                    best = distance;
+                    nearest = npc;
+                }
+            }
+
+            var actor = nearest == null ? null : nearest.GetComponent<CharacterActor>();
+
+            if (actor == null || Player == null)
+            {
+                return;
+            }
+
+            actor.FaceTowards(Player.position);
+            actor.Emote(ActorEmote.Emote_Exclaim);
         }
 
         /// <summary>다음 장소로 데려가는 중인가(카메라 비추기 · 자동 걷기).</summary>

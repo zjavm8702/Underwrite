@@ -18,9 +18,9 @@ namespace Underwrite.Global
         public static string TEXT_PROLOGUE_GOAL_SLEEP = "\n<size=15>해가 졌다. 여관 다락방에서 잔다</size>";
 
         // 첫 혼잣말(일곱째 날). 웹툰 4장 「내가 아는 건 10년 뒤의 멸망뿐」을 게임 안에서 다시 짚는다.
+        // 「일곱째 날」은 제목 카드가 먼저 보인다.
         public static readonly string[] TEXT_PROLOGUE_OPENING =
         {
-            "일곱째 날.",
             "내가 아는 건 10년 뒤의 멸망뿐이다. 그걸 아는 내가, 오늘 저녁 먹을 돈도 없다.",
             "…그 전에, 오늘 먹을 것부터."
         };
@@ -55,6 +55,12 @@ namespace Underwrite.Global
 
         public static string TEXT_PROLOGUE_SLEEP_OWNER = "오늘 고생했어. 다락방 써. 내일 아침엔 부엌 좀 거들고.";
         public static string TEXT_PROLOGUE_SLEEP_SELF = "번 돈 {0:N0}. …하루는 버텼다.";
+        // 장면 전환 제목 카드.
+        public static string TEXT_PROLOGUE_CARD_DAY7_SUB = "흘러든 영지, 아무것도 없는 오후";
+        public static string TEXT_PROLOGUE_CARD_DAY8_SUB = "다락방에서 맞는 아침";
+        public static string TEXT_PROLOGUE_CARD_DUSK = "해 질 녘";
+        public static string TEXT_PROLOGUE_CARD_DUSK_SUB = "주방 일을 마칠 무렵";
+
         public static string TEXT_PROLOGUE_TUT_MOVE_TITLE = "영지";
         public static string TEXT_PROLOGUE_TUT_MOVE_BODY = "가진 것 하나 없이 떨어진 영지. WASD나 방향키로 걷고, 문 앞에서 E를 누른다. 마우스 휠로 가까이 볼 수 있다.";
         public static string TEXT_PROLOGUE_TUT_GOAL_TITLE = "목표";

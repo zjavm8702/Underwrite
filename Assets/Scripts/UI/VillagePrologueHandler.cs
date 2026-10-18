@@ -136,6 +136,8 @@ namespace Underwrite.UI
 
             Host.GuideTo(spot, () =>
             {
+                Host.GreetAt(spot);
+
                 if (Stage == PrologueStage.Stage_Kitchen)
                 {
                     Host.StartKitchenWork(spot);
@@ -248,6 +250,11 @@ namespace Underwrite.UI
         private void PlayOpening()
         {
             Directing = true;
+            Host.ShowTitle(StringConstants.TEXT_PROLOGUE_DAY7, StringConstants.TEXT_PROLOGUE_CARD_DAY7_SUB, null, PlayOpeningLines);
+        }
+
+        private void PlayOpeningLines()
+        {
             var lines = new List<DialogueLine>();
 
             foreach (var text in StringConstants.TEXT_PROLOGUE_OPENING)
@@ -331,16 +338,18 @@ namespace Underwrite.UI
 
             Host.PlayLines(spot.InfoSource, lines, () =>
             {
-                Directing = false;
-                StoryProgress.Prologue = PrologueStage.Stage_Kitchen;
-
-                // 여덟째 날 아침 — 시장 달력의 1년 봄 1일째. 여기서부터 시간이 흐른다.
-                if (Host.Clock != null)
+                // 어두운 동안 아침으로 넘긴다 — 여덟째 날, 시장 달력의 1년 봄 1일째. 여기서부터 시간이 흐른다.
+                Host.ShowTitle(StringConstants.TEXT_PROLOGUE_DAY8, StringConstants.TEXT_PROLOGUE_CARD_DAY8_SUB, () =>
                 {
-                    Host.Clock.BeginBreakAt(Constants.PROLOGUE_WAKE_MINUTE);
-                }
+                    StoryProgress.Prologue = PrologueStage.Stage_Kitchen;
 
-                SaveSystem.Save();
+                    if (Host.Clock != null)
+                    {
+                        Host.Clock.BeginBreakAt(Constants.PROLOGUE_WAKE_MINUTE);
+                    }
+
+                    SaveSystem.Save();
+                }, () => Directing = false);
             });
         }
 
