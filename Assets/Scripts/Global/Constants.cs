@@ -376,6 +376,11 @@ namespace Underwrite.Global
         // 셋째 계절 첫날 귀환이 둘째 계절 원정(방패 사정)의 결과다.
         public static int DEMO_END_SEASON = 3;
 
+        // 소리(2026-10-18). 설정 화면이 생기기 전까지의 기본 크기와 음악을 갈아 끼우는 시간(초).
+        public static float AUDIO_MUSIC_VOLUME = 0.45f;
+        public static float AUDIO_EFFECT_VOLUME = 0.7f;
+        public static float AUDIO_MUSIC_FADE_SECONDS = 1.5f;
+
         // 장부 맞추기(길드 기록실). 들어가는 데 드는 시간, 잘못 짚을 때마다 더 드는 시간, 쫓겨나는 의심.
         // 묻기(60분·돈)보다 짧지만 틀리면 길어진다. 장부의 단 수는 4~6.
         public static int LEDGER_MINUTES = 30;

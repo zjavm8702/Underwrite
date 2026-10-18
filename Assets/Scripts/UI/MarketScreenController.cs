@@ -212,6 +212,7 @@ namespace Underwrite.UI
             ApplyTheme();
             BuildStockRows();
             BindButtons();
+            GameAudio.AttachClicks(Root);
 
             // 테마 전환은 UI Toolkit의 키 이벤트로 받는다.
             // 이 프로젝트는 새 Input System을 쓰므로 UnityEngine.Input을 쓰면 예외가 난다.
@@ -1024,6 +1025,11 @@ namespace Underwrite.UI
             }
 
             var receipt = Sim.SubmitOrder(SelectedId, Side, Quantity);
+
+            if (receipt.Result == OrderResult.Result_Filled)
+            {
+                GameAudio.Play(SoundEffect.Sound_Coins);
+            }
 
             if (receipt.Result == OrderResult.Result_Filled)
             {

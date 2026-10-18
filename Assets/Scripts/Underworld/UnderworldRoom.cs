@@ -121,6 +121,7 @@ namespace Underwrite.Underworld
             }
 
             Root = root.Q<VisualElement>("room-root");
+            GameAudio.AttachClicks(root);
 
             if (Root == null)
             {

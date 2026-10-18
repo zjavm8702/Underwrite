@@ -169,6 +169,8 @@ namespace Underwrite.UI
                 {
                     return;
                 }
+
+                GameAudio.AttachClicks(Root);
             }
 
             if (Dialogue == null && DialogueTree != null)
@@ -586,6 +588,11 @@ namespace Underwrite.UI
         private void Ask(VillageSpot spot, bool again)
         {
             CurrentSpot = spot;
+
+            if (again == false)
+            {
+                GameAudio.Play(SoundEffect.Sound_Door);
+            }
 
             if (OffersChoices(spot) == false)
             {
@@ -1306,6 +1313,7 @@ namespace Underwrite.UI
             var task = WorkOrderTask.Create(items, places, Constants.WORK_ORDERS,
                 new System.Random(Random.Range(int.MinValue, int.MaxValue)));
             Work.Open(task, title, BackgroundOf(spot.InfoSource));
+            GameAudio.Play(SoundEffect.Sound_Page);
         }
 
         /// <summary>일을 마쳤다. 품삯은 손놀림만큼(<paramref name="pay"/>는 정해진 품삯에 곱하는 비율).</summary>
@@ -1315,6 +1323,7 @@ namespace Underwrite.UI
 
             var quest = spot.Work;
             var reward = Mathf.Round(quest.Reward * pay);
+            GameAudio.Play(SoundEffect.Sound_Coins);
             var text = quest.Done;
             GatheredNote note = null;
             string rumorStock = null;
@@ -2436,6 +2445,7 @@ namespace Underwrite.UI
             }
 
             Ledger.Open(Puzzle);
+            GameAudio.Play(SoundEffect.Sound_Page);
         }
 
         private void PickLedgerRow(int index)
@@ -2454,6 +2464,7 @@ namespace Underwrite.UI
 
             Clock.SpendBreakMinutes(Constants.LEDGER_WRONG_MINUTES);
             Ledger.MarkWrong(index, Puzzle.Suspicion);
+            GameAudio.Play(SoundEffect.Sound_Close);
 
             if (Puzzle.IsKickedOut == true)
             {
