@@ -18,5 +18,11 @@ namespace Underwrite.Global
         /// 옛 통짜 배경 영지(VillageTest)는 비교용으로 남겨 둔다.
         /// </summary>
         public const string VILLAGE = "Village";
+
+        /// <summary>
+        /// 지하에서 올라왔는가. 영지가 뜨면 주인공을 여관 문 앞에 세우고 지운다 — 창고는 여관 지하다(2026-10-18 사장님).
+        /// 씬 사이에 한 번만 건네는 값이라 저장하지 않는다.
+        /// </summary>
+        public static bool ArrivedFromCellar;
     }
 }

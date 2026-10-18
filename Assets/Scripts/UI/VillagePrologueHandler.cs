@@ -98,12 +98,28 @@ namespace Underwrite.UI
             }
         }
 
+        /// <summary>지하를 찾은 뒤 아직 용사단을 알아보지 못했는가. 그동안 다음 할 일과 용사단 테이블이 열리지 않는다.</summary>
+        public bool AwaitsRecognition
+        {
+            get
+            {
+                return StoryProgress.CellarFound == true && StoryProgress.HeroesRecognized == false;
+            }
+        }
+
         /// <summary>매 프레임. 첫 혼잣말을 띄우고, 다음에 갈 곳의 이름표를 밝힌다.</summary>
         public void Tick()
         {
             if (IsActive == false)
             {
                 WorldSigns.Highlight(null);
+
+                // 첫 장을 마치고 지하에서 올라오면 여관에서 용사단을 알아본다.
+                if (AwaitsRecognition == true && Directing == false && Host.CanDirect() == true)
+                {
+                    PlayRecognition();
+                }
+
                 return;
             }
 
@@ -373,6 +389,35 @@ namespace Underwrite.UI
             }
 
             Host.PlayScene("dialogue-root--attic", lines, () => Directing = false);
+        }
+
+        // 동기 전환 장면: 여관 구석의 용사단을 알아본다(장면 일러스트 위). 끝나면 여관 주인이 다음 할 일로 이끈다.
+        private void PlayRecognition()
+        {
+            Directing = true;
+            Host.ShowTitle(StringConstants.TEXT_HEROES_CARD, StringConstants.TEXT_HEROES_CARD_SUB, null, () =>
+            {
+                var lines = new List<DialogueLine>();
+
+                foreach (var text in StringConstants.TEXT_HEROES_LINES)
+                {
+                    lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_HEROES_TAG, text));
+                }
+
+                var inn = Host.FindSpot(InfoSource.Source_TavernTalk);
+
+                if (inn != null)
+                {
+                    lines.Add(Host.OwnerLineFor(inn, StringConstants.TEXT_HEROES_OWNER));
+                }
+
+                Host.PlayScene("dialogue-root--heroes", lines, () =>
+                {
+                    StoryProgress.HeroesRecognized = true;
+                    Directing = false;
+                    SaveSystem.Save();
+                });
+            });
         }
 
         private static float Earned()

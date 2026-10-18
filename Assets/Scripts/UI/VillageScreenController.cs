@@ -204,6 +204,18 @@ namespace Underwrite.UI
             NearNpc = FindNearNpc();
             RefreshPrompt();
 
+            // 지하에서 올라왔으면 여관 문 앞에 선다(창고는 여관 지하다).
+            if (SceneRoutes.ArrivedFromCellar == true && Player != null)
+            {
+                SceneRoutes.ArrivedFromCellar = false;
+                var inn = FindSpot(InfoSource.Source_TavernTalk);
+
+                if (inn != null)
+                {
+                    WarpTo(inn);
+                }
+            }
+
             StartVillageTutorialOnce();
 
             if (TitleCard != null)
@@ -698,8 +710,8 @@ namespace Underwrite.UI
                     choices.Add(DiceChoice(spot));
                 }
 
-                // 용사단 테이블은 지하를 안 뒤에 연다(알아보는 장면은 온보딩 다음 단계).
-                if (StoryProgress.CellarFound == true)
+                // 용사단 테이블은 그들을 알아본 뒤에 연다(온보딩 — 동기 전환 장면).
+                if (StoryProgress.HeroesRecognized == true)
                 {
                     choices.Add(HeroTableChoice(spot));
                 }
@@ -1810,6 +1822,7 @@ namespace Underwrite.UI
         private void PlayQuestIntroIfDue()
         {
             if (QuestLog.HasPendingIntro == false || Prologue == null || Prologue.AllowsQuests == false
+                || Prologue.AwaitsRecognition == true
                 || Prologue.IsDirecting == true || IsGuiding == true || (TitleCard != null && TitleCard.IsOpen == true)
                 || Dialogue == null || Dialogue.IsOpen == true
                 || Approaching == true || ClockOpen == true || PuzzleOpen == true || MiniGameOpen == true

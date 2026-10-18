@@ -68,6 +68,20 @@ namespace Underwrite.Global
             "…하루는 버텼다. 오늘도 버티면 된다."
         };
 
+        // 용사단을 알아보는 장면(첫 장을 마치고 여관으로 올라온 밤). 온보딩 설계안 §4.
+        public static string TEXT_HEROES_CARD = "그날 밤";
+        public static string TEXT_HEROES_CARD_SUB = "창고에서 올라온 여관 홀";
+        public static string TEXT_HEROES_TAG = "여관 홀";
+        public static readonly string[] TEXT_HEROES_LINES =
+        {
+            "구석 테이블에서 웃음소리가 터진다. 다섯 사람.",
+            "…저 얼굴들. 에드윈, 카이라, 엘라리아, 고드릭, 피오.",
+            "게임 속 용사단이다. 원작에서 저들은 10년 동안 하나씩 쓰러졌다. 그리고 세상이 끝났다.",
+            "아까 본 시세판 맨 아래 줄이 떠오른다 — 「새벽별 용사단」.",
+            "저들도 저 판 위에 있었다. …돈이 저들에게 가면, 결말이 바뀔지도 모른다."
+        };
+        public static string TEXT_HEROES_OWNER = "저 테이블? 우리 집 단골 용사단이야. 일꾼이 인사하면 반겨 줄걸.";
+
         public static string TEXT_PROLOGUE_TUT_MOVE_TITLE = "영지";
         public static string TEXT_PROLOGUE_TUT_MOVE_BODY = "가진 것 하나 없이 떨어진 영지. WASD나 방향키로 걷고, 문 앞에서 E를 누른다. 마우스 휠로 가까이 볼 수 있다.";
         public static string TEXT_PROLOGUE_TUT_GOAL_TITLE = "목표";

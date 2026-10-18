@@ -30,6 +30,12 @@ namespace Underwrite.Story
         /// <summary>프롤로그(지하를 찾기 전의 마을 생활)의 어디쯤인가. 옛 저장은 창고를 찾았으면 끝으로 친다.</summary>
         public static PrologueStage Prologue { get; set; }
 
+        /// <summary>
+        /// 여관에서 용사단을 알아보는 장면을 봤는가(온보딩의 동기 전환 — 「돈이 저들에게 가면 결말이 바뀔지도」).
+        /// 그 전에는 용사단 테이블과 다음 할 일이 열리지 않는다.
+        /// </summary>
+        public static bool HeroesRecognized { get; set; }
+
         /// <summary>첫 지하 방문 튜토리얼의 단계.</summary>
         public static MarketOnboardingStage MarketOnboarding { get; set; }
 
@@ -57,6 +63,7 @@ namespace Underwrite.Story
             MarketTutorialDone = false;
             MarketOnboarding = MarketOnboardingStage.Onboarding_Arrive;
             PracticeCash = -1f;
+            HeroesRecognized = false;
             LedgerDay = 0;
             SmithDay = 0;
             DiceDay = 0;

@@ -206,6 +206,7 @@ namespace Underwrite.Save
         /// <summary>첫 지하 방문 튜토리얼 단계(MarketOnboardingStage).</summary>
         public int MarketOnboarding;
         public float PracticeCash = -1f;
+        public bool HeroesRecognized;
 
         // 하루 한 번 정보 모으기의 마지막 날.
         public int LedgerDay;

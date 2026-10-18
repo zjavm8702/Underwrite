@@ -907,6 +907,7 @@ namespace Underwrite.UI
                 Sim.Clock.BeginBreak();
             }
 
+            SceneRoutes.ArrivedFromCellar = true;
             SceneManager.LoadScene(SceneRoutes.VILLAGE);
         }
 
