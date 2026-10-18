@@ -911,6 +911,14 @@ namespace Underwrite.UI
         private void PlayReturn(System.Action onDone)
         {
             var day = Today();
+
+            // 데모의 마지막 귀환이면 귀환 장면 뒤에 마무리를 붙인다.
+            if (StoryProgress.DemoEndSeen == false && MarketClock.SeasonOf(day) >= Constants.DEMO_END_SEASON)
+            {
+                var after = onDone;
+                onDone = () => PlayDemoEnd(after);
+            }
+
             HeroRoster.MarkReturn(day);
             var heroes = HeroRoster.All;
             var lines = new List<DialogueLine>
@@ -974,6 +982,64 @@ namespace Underwrite.UI
             }
 
             Dialogue.Play(lines, onDone);
+        }
+
+        /// <summary>
+        /// 데모 마무리(2026-10-18). 두 계절 동안 무엇을 지켰고 무엇을 잃었는지 숫자로 한 번 보여 준다.
+        /// 「조금 더 둘러본다」면 판은 그대로 이어진다 — 저장도 지우지 않는다.
+        /// </summary>
+        private void PlayDemoEnd(System.Action onStay)
+        {
+            StoryProgress.DemoEndSeen = true;
+
+            var healthy = 0;
+            var wounded = 0;
+            var dead = 0;
+            var heroes = HeroRoster.All;
+
+            for (var i = 0; i < heroes.Count; i++)
+            {
+                switch (heroes[i].Condition)
+                {
+                    case HeroCondition.Condition_Dead:
+                    {
+                        dead++;
+                        break;
+                    }
+                    case HeroCondition.Condition_Wounded:
+                    {
+                        wounded++;
+                        break;
+                    }
+                    default:
+                    {
+                        healthy++;
+                        break;
+                    }
+                }
+            }
+
+            var sim = BreakClock.Simulation;
+            var worth = (sim == null ? 0f : sim.Wallet.TotalValue(sim.StockLookup)) + GatherSession.NetChange;
+            var last = new DialogueLine(string.Empty, StringConstants.TEXT_DEMO_TAG, StringConstants.TEXT_DEMO_END_2);
+            last.Choices = new List<DialogueChoice>
+            {
+                new DialogueChoice(StringConstants.TEXT_DEMO_TO_TITLE, () =>
+                {
+                    SaveSystem.Save();
+                    SceneManager.LoadScene(SceneRoutes.INTRO);
+                }),
+                new DialogueChoice(StringConstants.TEXT_DEMO_STAY, onStay)
+            };
+
+            Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
+            Dialogue.Play(new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_DEMO_TAG, StringConstants.TEXT_DEMO_END_1),
+                new DialogueLine(string.Empty, StringConstants.TEXT_DEMO_TAG, string.Format(
+                    StringConstants.TEXT_DEMO_END_SUMMARY, worth, healthy, wounded, dead, SeasonPlan.OmenClues)),
+                last
+            }, null);
         }
 
         private DialogueLine HeroLine(HeroProfile hero, string text, PortraitEmotion emotion)

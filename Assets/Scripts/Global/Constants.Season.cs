@@ -72,6 +72,14 @@ namespace Underwrite.Global
 
         public static string TEXT_DEPART_FADE = "석 달이 흘렀다";
 
+        // 데모 마무리. 문구는 과장 초안.
+        public static string TEXT_DEMO_TAG = "첫 해 여름의 끝";
+        public static string TEXT_DEMO_END_1 = "두 번의 원정이 지나갔다. 화면 속에서 본 끝까지는 아직 아홉 해하고도 반이 남았다.";
+        public static string TEXT_DEMO_END_SUMMARY = "가진 돈과 종목 {0:N0} · 용사단 무사 {1} · 다침 {2} · 잃음 {3} · 국경의 징조 {4}";
+        public static string TEXT_DEMO_END_2 = "이 이야기는 아직 만들어지는 중입니다. 여기까지 함께해 주셔서 고맙습니다.";
+        public static string TEXT_DEMO_TO_TITLE = "처음 화면으로";
+        public static string TEXT_DEMO_STAY = "조금 더 둘러본다";
+
         // 재개장 때 계절 계획의 결과를 알린다.
         public static string TEXT_PLAN_RESULT_TITLE = "석 달 동안 준비한 것";
         public static string TEXT_PLAN_RESULT_GUILD = "길드 기록에서 본 내력 — {0}: {1}";

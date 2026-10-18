@@ -203,6 +203,7 @@ namespace Underwrite.Save
         public bool VillageTutorialDone;
         public List<string> SleepSeen = new List<string>();
         public int Bankruptcies;
+        public bool DemoEndSeen;
     }
 
     [Serializable]

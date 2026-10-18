@@ -25,9 +25,13 @@ namespace Underwrite.Story
         /// <summary>파산한 횟수. 한 번은 재기하고, 두 번째는 게임오버다(2026-10-18 인터뷰).</summary>
         public static int Bankruptcies { get; set; }
 
+        /// <summary>데모 마무리 장면을 봤는가. 한 번만 보인다 — 그 뒤로는 그대로 이어서 둘러볼 수 있다.</summary>
+        public static bool DemoEndSeen { get; set; }
+
         public static void Reset()
         {
             Bankruptcies = 0;
+            DemoEndSeen = false;
             SleepSeen.Clear();
             CellarFound = false;
             MarketTutorialDone = false;

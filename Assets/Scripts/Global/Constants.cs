@@ -370,6 +370,10 @@ namespace Underwrite.Global
         // 가장 친한 용사의 호감이 이만큼이면 원정지에서 편지가 온다.
         public static int HERO_LETTER_AFFINITY = 2;
 
+        // 데모는 이 계절의 귀환 장면에서 끝난다(2026-10-18 인터뷰 — 데모는 계절 1~2개).
+        // 셋째 계절 첫날 귀환이 둘째 계절 원정(방패 사정)의 결과다.
+        public static int DEMO_END_SEASON = 3;
+
         // 장부 맞추기(길드 기록실). 들어가는 데 드는 시간, 잘못 짚을 때마다 더 드는 시간, 쫓겨나는 의심.
         // 묻기(60분·돈)보다 짧지만 틀리면 길어진다. 장부의 단 수는 4~6.
         public static int LEDGER_MINUTES = 30;
