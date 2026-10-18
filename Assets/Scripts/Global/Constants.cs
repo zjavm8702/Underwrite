@@ -299,6 +299,17 @@ namespace Underwrite.Global
         public static int WINTER_SEASON_DAYS = 2;
         public const int SEASONS_PER_YEAR = 4;
 
+        /// <summary>
+        /// 거품 시장(기획서 §7, 2026-10-18 과장 결정). 해마다 계절이 열릴 때 시장에 들어오는 돈의 비율 [해 - 1].
+        /// 누적 규모(첫 계절 = 1): 1년 끝 약 1.1 · 3년 약 1.9 · 5년 약 6 · 7년 약 18 · 8년 끝 약 27(정점) → 10년 끝 약 5.5.
+        /// 9~10년째 음수는 표의 자리만 잡아 둔 것 — 붕괴는 침략 징조 사건과 함께 따로 설계한다.
+        /// 근거와 주인공 목표 자산 표: Documents/Claude/Underwrite_거품시장_설계안.md
+        /// </summary>
+        public static readonly float[] MARKET_INFLOW_BY_YEAR =
+        {
+            0.03f, 0.05f, 0.10f, 0.14f, 0.16f, 0.16f, 0.14f, 0.10f, -0.10f, -0.25f
+        };
+
         // 모험단 도감의 주기 문장이 시장에 남기는 것. 순서는 StringConstants.CODEX_SMITH·CODEX_TAVERN과 같다.
         // 대장간 사정이 주기 끝에 가치에 더하는 변화율 [종목][주기 순번]. 대장간 장부는 틀리지 않는다.
         public static readonly float[][] CODEX_SMITH_EFFECT =

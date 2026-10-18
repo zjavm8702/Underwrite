@@ -118,6 +118,79 @@ namespace Underwrite.Editor.Tests
             Assert.AreEqual(0, SeasonPlan.ApplyAtReopening(Sim).Count, "두 번 풀리면 안 된다");
         }
 
+        [Test]
+        public void ReopeningInflatesMarketDepthByInflow()
+        {
+            Sim.OpenSession(false, MarketSession.Session_Evening);
+
+            for (var n = 0; n < 6; n++)
+            {
+                Sim.SkipToClose();
+                Sim.EndSession();
+                Sim.OpenNextSession(false);
+            }
+
+            Sim.SkipToClose();
+            Sim.EndSession();
+
+            // 유동성은 플레이어 주문 때만 바뀐다 — 재개장 전후 비율이 곧 유입률이다.
+            var before = new System.Collections.Generic.Dictionary<string, float>();
+
+            for (var i = 0; i < Sim.Stocks.Count; i++)
+            {
+                if (Sim.Stocks[i].IsTradable == true)
+                {
+                    before[Sim.Stocks[i].Id] = Sim.Stocks[i].Liquidity;
+                }
+            }
+
+            Sim.OpenNextSession(false);
+            Assert.IsTrue(Sim.JustReopened);
+
+            var rate = MarketSimulation.InflowRateOf(Sim.Clock.Cycle);
+            Assert.Greater(rate, 0f);
+
+            var checkedCount = 0;
+
+            for (var i = 0; i < Sim.Stocks.Count; i++)
+            {
+                var stock = Sim.Stocks[i];
+                float old;
+
+                if (stock.IsTradable == true && before.TryGetValue(stock.Id, out old) == true)
+                {
+                    Assert.AreEqual(old * (1f + rate), stock.Liquidity, 0.001f, stock.Id);
+                    checkedCount++;
+                }
+            }
+
+            Assert.Greater(checkedCount, 0);
+        }
+
+        [Test]
+        public void MarketSizePeaksAtEighthYear()
+        {
+            Assert.AreEqual(1f, MarketSimulation.MarketSizeAt(1));
+            Assert.AreEqual(0f, MarketSimulation.InflowRateOf(1));
+
+            var peak = 0f;
+            var peakCycle = 0;
+
+            for (var cycle = 1; cycle <= Constants.SEASONS_PER_YEAR * 10; cycle++)
+            {
+                var size = MarketSimulation.MarketSizeAt(cycle);
+
+                if (size > peak)
+                {
+                    peak = size;
+                    peakCycle = cycle;
+                }
+            }
+
+            Assert.AreEqual(Constants.SEASONS_PER_YEAR * 8, peakCycle, "정점은 8년째 마지막 계절");
+            Assert.AreEqual(26.6f, peak, 0.5f);
+        }
+
         private int CountOutcomes()
         {
             var count = 0;

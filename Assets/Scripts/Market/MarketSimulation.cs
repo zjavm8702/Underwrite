@@ -437,6 +437,7 @@ namespace Underwrite.Market
         /// </summary>
         private void RollSeason()
         {
+            ApplyMarketInflow(Clock.Cycle);
             ResolveCodexCycle(Clock.Cycle - 1);
             ApplyDepartures();
             ApplyArrivals();
@@ -564,6 +565,11 @@ namespace Underwrite.Market
             {
                 BandSerial++;
                 var spec = BandFactory.Roll(BandRng, BandSerial, Clock.Cycle + 1, taken);
+
+                // 새 단도 지금 시장의 크기로 들어온다. 다음 재개장부터는 다른 단과 함께 불어난다.
+                var size = MarketSizeAt(Clock.Cycle);
+                spec.TrueValue *= size;
+                spec.Liquidity *= size;
                 taken.Add(spec.Name);
                 AddGenerated(spec);
             }
@@ -574,6 +580,62 @@ namespace Underwrite.Market
             Generated.Add(spec);
             AddWaiting(BandFactory.Build(spec), spec.ListCycle);
             PlanDeparture(spec.Id, spec.DelistCycle, spec.DelistReason);
+        }
+
+        /// <summary>
+        /// 휴장한 몇 달 동안 돈이 지하로 몰렸다(기획서 §7 「거품」). 재개장에 시장 전체의 가치와 호가 깊이가
+        /// 그해의 유입률만큼 한 번에 불어난다. 거래 중인 단과 상장을 기다리는 단 모두. 가격은 재개장 갭으로 따라간다.
+        /// </summary>
+        private void ApplyMarketInflow(int cycle)
+        {
+            var rate = InflowRateOf(cycle);
+
+            if (rate == 0f)
+            {
+                return;
+            }
+
+            for (var i = 0; i < StockOrder.Count; i++)
+            {
+                if (StockOrder[i].IsTradable == true)
+                {
+                    StockOrder[i].Inflate(rate);
+                }
+            }
+
+            for (var i = 0; i < Waiting.Count; i++)
+            {
+                Waiting[i].Stock.Inflate(rate);
+            }
+        }
+
+        /// <summary>그 계절이 열릴 때 시장에 들어오는 돈의 비율. 첫 계절은 0.</summary>
+        public static float InflowRateOf(int cycle)
+        {
+            if (cycle <= 1)
+            {
+                return 0f;
+            }
+
+            var table = Constants.MARKET_INFLOW_BY_YEAR;
+            var year = (cycle - 1) / Constants.SEASONS_PER_YEAR;
+            return table[System.Math.Min(year, table.Length - 1)];
+        }
+
+        /// <summary>
+        /// 첫 계절을 1로 본 시장 규모. 그 계절까지의 유입률을 곱한 값이라 표에서 늘 같은 답이 나온다 — 저장하지 않는다.
+        /// 새로 상장하는 단의 가치가 이 크기를 따른다.
+        /// </summary>
+        public static float MarketSizeAt(int cycle)
+        {
+            var size = 1f;
+
+            for (var c = 2; c <= cycle; c++)
+            {
+                size *= 1f + InflowRateOf(c);
+            }
+
+            return size;
         }
 
         /// <summary>

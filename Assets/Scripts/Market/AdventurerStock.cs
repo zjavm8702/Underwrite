@@ -319,6 +319,26 @@ namespace Underwrite.Market
             }
         }
 
+        /// <summary>
+        /// 시장에 돈이 들어와 가치와 호가 깊이가 함께 불어난다(거품). 기대는 그대로 — 가격은 목표가를 따라 올라간다.
+        /// 깊이도 같이 늘어야 같은 크기의 주문이 같은 만큼만 값을 민다.
+        /// </summary>
+        internal void Inflate(float rate)
+        {
+            TrueValue *= 1f + rate;
+            Liquidity *= 1f + rate;
+
+            if (TrueValue < Constants.PRICE_FLOOR)
+            {
+                TrueValue = Constants.PRICE_FLOOR;
+            }
+
+            if (Liquidity < 1f)
+            {
+                Liquidity = 1f;
+            }
+        }
+
         /// <summary>유동성이 바뀐다. 거래가 늘면 커지고 줄면 작아진다.</summary>
         internal void AdjustLiquidity(float delta)
         {
