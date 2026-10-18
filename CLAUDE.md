@@ -49,6 +49,9 @@ Tools/codex-art.sh -n "<요청>"     # 호출 없이 보낼 프롬프트만 확�
   - 상태: `unity command --no-banner --json editor_status`
   - 컴파일 확인: `eval --code 'UnityEditor.AssetDatabase.Refresh(); return true;'`로 새 파일을 들이고, `console_status`의 `groundTruth.compilationFailed`·`consoleErrors`를 본다. `console --level warn`이면 내용까지 나온다
   - 그 밖에 `editor_play`/`editor_stop`, `screenshot`, `menu`(메뉴 실행), `eval`(C# 한 토막)이 있다. 목록은 `unity command --no-banner`
+  - **테스트:** `unity command --no-banner --json run_tests --mode editor --filter Underwrite.Editor.Tests --filter_type assembly` (`Assets/Editor/Tests`). 판정 로직을 바꾸면 돌린다
+  - **UI Toolkit 화면 캡처:** `screenshot`은 오버레이 UI가 안 찍힌다. Play 중 `capture_game_view --source screen --save_path Temp/x.png` → 실제로는 `Assets/Temp/`에 떨어지니 옮기고 지운다
+  - **Play 시험은 진짜 저장 파일을 덮어쓴다**(영지 자동 저장). 시험 전 `%USERPROFILE%/AppData/LocalLow/DefaultCompany/Underwrite/underwrite_save.json`을 백업하고 끝나면 되돌린다
   - 문서: `Library/PackageCache/com.unity.pipeline@*/Documentation~/`
 - `Assets/Scripts`의 시험용 스크립트는 코드 규칙의 평가 대상이 아니다. `Documents/Claude/Underwrite_코드_작업규칙.md` §13 참고
 
