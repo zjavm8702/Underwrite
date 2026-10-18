@@ -30,6 +30,7 @@ namespace Underwrite.Save
         public StoryState Story = new StoryState();
         public List<CodexState> Codex = new List<CodexState>();
         public int QuestIndex;
+        public int QuestIntroduced;
         public SeasonPlanState SeasonPlan = new SeasonPlanState();
     }
 

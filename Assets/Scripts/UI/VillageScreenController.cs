@@ -201,6 +201,7 @@ namespace Underwrite.UI
 
             PlayPendingReaction();
             PlayDepartureIfDue();
+            PlayQuestIntroIfDue();
 
             // 실제 시간으로 날이 넘어가도(드물다) 기한은 따진다.
             if (Approaching == false)
@@ -1445,11 +1446,91 @@ namespace Underwrite.UI
                 PendingEmote = ActorEmote.Emote_Music;
             }
 
-            var active = QuestLog.Active;
-            label.text = active == null
-                ? string.Empty
-                : string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title) + "\n<size=15>" + active.Hint + "</size>";
+            // 받은 것과 진행도만 보인다(2026-10-17 사장님 결정). 아직 받지 않은 일은 보이지 않는다.
+            var active = QuestLog.HasPendingIntro == true ? null : QuestLog.Active;
+            var text = string.Empty;
+
+            if (active != null)
+            {
+                text = string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title);
+
+                if (active.Goal > 0 && active.Progress != null)
+                {
+                    text += "\n<size=15>" + string.Format(StringConstants.TEXT_QUEST_PROGRESS,
+                        System.Math.Min(active.Progress(), active.Goal), active.Goal) + "</size>";
+                }
+            }
+
+            label.text = text;
             label.EnableInClassList("hidden", active == null);
+        }
+
+        /// <summary>
+        /// 새 할 일을 받는 장면. 맡기는 사람이 직접 부탁한다 — 그 말이 어디로 가야 하는지 알려 주는 유일한 길잡이다.
+        /// 대화·연출·튜토리얼이 없을 때 띄운다.
+        /// </summary>
+        private void PlayQuestIntroIfDue()
+        {
+            if (QuestLog.HasPendingIntro == false || Dialogue == null || Dialogue.IsOpen == true
+                || Approaching == true || ClockOpen == true || LedgerOpen == true || DepartureRunning == true
+                || (Tutorial != null && Tutorial.IsOpen == true))
+            {
+                return;
+            }
+
+            var quest = QuestLog.Active;
+            QuestLog.MarkIntroduced();
+            DialogueLine line;
+
+            // 부탁은 맡기는 사람의 자리에서 받는다. 혼잣말과 용사단의 부탁은 여관이다.
+            var place = InfoSource.Source_TavernTalk;
+
+            switch (quest.Giver)
+            {
+                case QuestGiver.Giver_Innkeeper:
+                {
+                    line = GiverLine(InfoSource.Source_TavernTalk, quest.Ask);
+                    break;
+                }
+                case QuestGiver.Giver_Archivist:
+                {
+                    line = GiverLine(InfoSource.Source_GuildRecord, quest.Ask);
+                    place = InfoSource.Source_GuildRecord;
+                    break;
+                }
+                case QuestGiver.Giver_Broker:
+                {
+                    line = GiverLine(InfoSource.Source_MarketBoard, quest.Ask);
+                    place = InfoSource.Source_MarketBoard;
+                    break;
+                }
+                case QuestGiver.Giver_Swordswoman:
+                {
+                    line = HeroLine(HeroRoster.All[1], quest.Ask, PortraitEmotion.Emotion_Happy);
+                    break;
+                }
+                case QuestGiver.Giver_Scholar:
+                {
+                    line = HeroLine(HeroRoster.All[0], quest.Ask, PortraitEmotion.Emotion_Neutral);
+                    break;
+                }
+                default:
+                {
+                    line = new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, quest.Ask);
+                    break;
+                }
+            }
+
+            line.Note = string.Format(StringConstants.TEXT_QUEST_LABEL, quest.Title);
+            Dialogue.SetBackground(BackgroundOf(place));
+            Dialogue.Play(new List<DialogueLine> { line }, null);
+        }
+
+        private DialogueLine GiverLine(InfoSource source, string text)
+        {
+            var line = new DialogueLine(InfoPeople.Speaker(source), StringConstants.TEXT_QUEST_ASK_TAG, text);
+            line.Portrait = InfoPeople.Face(Data, source, PortraitEmotion.Emotion_Neutral);
+            return line;
         }
 
         // ── 수첩 (2026-10-17 사용자 요청) ─────────

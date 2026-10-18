@@ -1,6 +1,21 @@
 namespace Underwrite.Enumeration
 {
     /// <summary>
+    /// 할 일을 맡기는 사람(2026-10-17 사장님 결정 — 받는 장면이 있어야 한다).
+    /// 영주민은 정보 출처의 사람(InfoPeople)과 같은 얼굴을 쓴다.
+    /// </summary>
+    public enum QuestGiver
+    {
+        /// <summary>누가 시킨 것이 아니라 주인공이 스스로 정한 일. 혼잣말로 받는다.</summary>
+        Giver_Self,
+        Giver_Innkeeper,
+        Giver_Archivist,
+        Giver_Broker,
+        Giver_Swordswoman,
+        Giver_Scholar
+    }
+
+    /// <summary>
     /// 계절 계획에서 원정 기간의 한 달에 맡는 일(시간구조 설계안 §3 「주인공은 그동안 무엇을 하나」).
     /// 출발 밤에 세 달 몫을 고른다. 같은 일을 여러 달 골라도 된다.
     /// </summary>

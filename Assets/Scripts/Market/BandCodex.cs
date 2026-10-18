@@ -157,6 +157,24 @@ namespace Underwrite.Market
             return sim == null ? new List<string>(StringConstants.CODEX_STOCK_IDS) : sim.CodexSubjects();
         }
 
+        /// <summary>한 단에 대해 가장 많이 알아낸 줄 수(할 일 「새로 온 사람들」의 진행도).</summary>
+        public static int MaxKnownCount()
+        {
+            var best = 0;
+
+            foreach (var pair in LearnedCycle)
+            {
+                var count = KnownCount(pair.Key);
+
+                if (count > best)
+                {
+                    best = count;
+                }
+            }
+
+            return best;
+        }
+
         /// <summary>두 가지 이상 알아낸 단이 하나라도 있는가(할 일 「새로 온 사람들」).</summary>
         public static bool AnyKnownTwice()
         {

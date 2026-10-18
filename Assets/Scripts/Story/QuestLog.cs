@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
@@ -10,9 +11,17 @@ namespace Underwrite.Story
     public sealed class Quest
     {
         public string Title;
-        public string Hint;
+
+        /// <summary>맡기는 사람과 그 말. 어디로 가서 무엇을 누르라는 안내 대신 이 말이 길잡이다.</summary>
+        public QuestGiver Giver;
+        public string Ask;
+
         public float Reward;
         public Func<bool> IsDone;
+
+        /// <summary>진행도. 목표가 0이면 진행도를 보이지 않는다(한 번에 끝나는 일).</summary>
+        public Func<int> Progress;
+        public int Goal;
     }
 
     /// <summary>
@@ -26,6 +35,27 @@ namespace Underwrite.Story
     {
         private static readonly List<Quest> Quests = new List<Quest>();
         private static int Current;
+
+        /// <summary>
+        /// 맡는 장면을 본 할 일의 수. <see cref="Current"/>보다 작으면 지금 할 일을 아직 받지 않은 것이다 —
+        /// 영지가 한가할 때 받는 장면을 띄우고 이 값을 올린다.
+        /// </summary>
+        public static int Introduced { get; private set; }
+
+        /// <summary>지금 할 일을 아직 받지 않았는가.</summary>
+        public static bool HasPendingIntro
+        {
+            get
+            {
+                return Active != null && Introduced <= Current;
+            }
+        }
+
+        /// <summary>지금 할 일을 받았다.</summary>
+        public static void MarkIntroduced()
+        {
+            Introduced = Current + 1;
+        }
 
         public static IReadOnlyList<Quest> All
         {
@@ -56,6 +86,7 @@ namespace Underwrite.Story
         {
             Quests.Clear();
             Current = 0;
+            Introduced = 0;
         }
 
         /// <summary>지금 몇 번째 할 일까지 왔는가. 저장에 쓴다.</summary>
@@ -67,10 +98,11 @@ namespace Underwrite.Story
             }
         }
 
-        public static void Restore(int index)
+        public static void Restore(int index, int introduced)
         {
             Quests.Clear();
             Current = index < 0 ? 0 : index;
+            Introduced = introduced;
         }
 
         /// <summary>
@@ -97,23 +129,29 @@ namespace Underwrite.Story
                 return;
             }
 
-            Add(StringConstants.QUEST_TITLES[0], StringConstants.QUEST_HINTS[0], 0f,
-                () => StoryProgress.CellarFound);
-            Add(StringConstants.QUEST_TITLES[1], StringConstants.QUEST_HINTS[1], 0f,
-                () => StoryProgress.MarketTutorialDone);
-            Add(StringConstants.QUEST_TITLES[2], StringConstants.QUEST_HINTS[2], 20f, HoldsAnything);
-            Add(StringConstants.QUEST_TITLES[3], StringConstants.QUEST_HINTS[3], 0f, TalkedToHero);
-            Add(StringConstants.QUEST_TITLES[4], StringConstants.QUEST_HINTS[4], 0f, HeardNeed);
-            Add(StringConstants.QUEST_TITLES[5], StringConstants.QUEST_HINTS[5], 0f,
-                () => PatronageLedger.RequestsPosted > 0);
-            Add(StringConstants.QUEST_TITLES[6], StringConstants.QUEST_HINTS[6], 30f, ScoutedBand);
-            Add(StringConstants.QUEST_TITLES[7], StringConstants.QUEST_HINTS[7], 0f, () => HeroRoster.DayOffDone);
-            Add(StringConstants.QUEST_TITLES[8], StringConstants.QUEST_HINTS[8], 0f, () => HeroRoster.ReturnDone);
+            Add(0, QuestGiver.Giver_Innkeeper, 0f, () => StoryProgress.CellarFound);
+            Add(1, QuestGiver.Giver_Self, 0f, () => StoryProgress.MarketTutorialDone);
+            Add(2, QuestGiver.Giver_Self, 20f, HoldsAnything);
+            Add(3, QuestGiver.Giver_Innkeeper, 0f, TalkedToHero);
+            Add(4, QuestGiver.Giver_Innkeeper, 0f, HeardNeed);
+            Add(5, QuestGiver.Giver_Archivist, 0f, () => PatronageLedger.RequestsPosted > 0);
+            Add(6, QuestGiver.Giver_Broker, 30f, ScoutedBand);
+            Quests[6].Progress = BandCodex.MaxKnownCount;
+            Quests[6].Goal = 2;
+            Add(7, QuestGiver.Giver_Swordswoman, 0f, () => HeroRoster.DayOffDone);
+            Add(8, QuestGiver.Giver_Scholar, 0f, () => HeroRoster.ReturnDone);
         }
 
-        private static void Add(string title, string hint, float reward, Func<bool> isDone)
+        private static void Add(int index, QuestGiver giver, float reward, Func<bool> isDone)
         {
-            Quests.Add(new Quest { Title = title, Hint = hint, Reward = reward, IsDone = isDone });
+            Quests.Add(new Quest
+            {
+                Title = StringConstants.QUEST_TITLES[index],
+                Giver = giver,
+                Ask = StringConstants.QUEST_ASKS[index],
+                Reward = reward,
+                IsDone = isDone
+            });
         }
 
         private static bool HoldsAnything()
