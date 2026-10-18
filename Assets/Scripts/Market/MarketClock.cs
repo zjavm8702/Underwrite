@@ -70,19 +70,115 @@ namespace Underwrite.Market
         /// <summary>
         /// 다음 장이 열리는 시각(분). 오전장 다음은 오후장, 오후장 다음은 이튿날 오전장이다.
         ///
-        /// 장은 9시와 21시에 열린다. 간격이 12시간으로 고른 덕에, 쉰 장은
-        /// 횟수에 12시간을 곱해 더하는 것으로 끝난다. 장의 상태를 건드릴 필요가 없다.
+        /// 장은 8시와 18시에 열린다(설계안 §1). 오전장 → 오후장은 10시간, 오후장 → 이튿날 오전장은
+        /// 14시간으로 간격이 다르고, 계절 첫날은 오전장이 없으므로, 쉰 장은 한 장씩 차례로 더해 센다.
         /// </summary>
         public int NextSessionMinute
         {
             get
             {
-                var baseMinute = Session == MarketSession.Session_Morning
-                    ? Constants.MARKET_EVENING_START_HOUR * 60
-                    : (Constants.MARKET_MORNING_START_HOUR + 24) * 60;
-
-                return baseMinute + SkippedSessions * SESSION_GAP_MINUTES;
+                MarketSession session;
+                int day;
+                return SessionStartAfter(SkippedSessions, out session, out day);
             }
+        }
+
+        /// <summary>
+        /// 마지막으로 열린 장 뒤로 장을 몇 개 쉬었을 때 다음 장이 열리는 시각(분)과 그 장·날.
+        /// 마지막 장이 열린 날의 자정 기준이라 1440을 넘을 수 있다.
+        /// </summary>
+        private int SessionStartAfter(int skipped, out MarketSession session, out int day)
+        {
+            var minute = StartHour * 60;
+            session = Session;
+            day = Day;
+
+            for (var i = 0; i <= skipped; i++)
+            {
+                var fromMorning = session == MarketSession.Session_Morning;
+                session = NextSessionAfter(session, day, out day);
+
+                if (fromMorning == true)
+                {
+                    minute += (Constants.MARKET_EVENING_START_HOUR - Constants.MARKET_MORNING_START_HOUR) * 60;
+                }
+                else if (session == MarketSession.Session_Evening)
+                {
+                    // 계절 첫날로 넘어갔다. 오전장 없이 그날 오후장(재개장)까지 하루를 꼬박 건넌다.
+                    minute += MINUTES_PER_DAY;
+                }
+                else
+                {
+                    minute += (Constants.MARKET_MORNING_START_HOUR + 24 - Constants.MARKET_EVENING_START_HOUR) * 60;
+                }
+            }
+
+            return minute;
+        }
+
+        /// <summary>
+        /// 이 장 다음에 열리는 장과 그날. 오전장 다음은 같은 날 오후장, 오후장 다음은 이튿날 오전장이다.
+        /// 다만 이튿날이 계절 첫날이면 오전장이 없다 — 시장은 원정 동안 닫혀 있다가 그날 오후장에 다시 연다(설계안 §2).
+        /// </summary>
+        public static MarketSession NextSessionAfter(MarketSession session, int day, out int nextDay)
+        {
+            if (session == MarketSession.Session_Morning)
+            {
+                nextDay = day;
+                return MarketSession.Session_Evening;
+            }
+
+            nextDay = day + 1;
+
+            if (DayInSeason(nextDay) == 1)
+            {
+                return MarketSession.Session_Evening;
+            }
+
+            return MarketSession.Session_Morning;
+        }
+
+        /// <summary>계절의 몇째 날인가. 1이 귀환·재개장 날, <see cref="Constants.SEASON_DAYS"/>가 출발하는 날이다.</summary>
+        public static int DayInSeason(int day)
+        {
+            if (day < 1)
+            {
+                return 1;
+            }
+
+            return (day - 1) % Constants.SEASON_DAYS + 1;
+        }
+
+        /// <summary>몇째 계절인가. 1부터 센다. 넷이 한 해다.</summary>
+        public static int SeasonOf(int day)
+        {
+            if (day < 1)
+            {
+                return 1;
+            }
+
+            return (day - 1) / Constants.SEASON_DAYS + 1;
+        }
+
+        /// <summary>장을 <paramref name="skipped"/>개 쉬고 나서 열릴 장. 0이면 바로 다음 장이다.</summary>
+        public MarketSession SessionAt(int skipped)
+        {
+            MarketSession session;
+            int day;
+            SessionStartAfter(skipped, out session, out day);
+            return session;
+        }
+
+        /// <summary>
+        /// 장을 <paramref name="skipped"/>개 쉬고 나서 열릴 장이 계절 첫날의 재개장인가.
+        /// 재개장은 원정 결과가 갭으로 터지는 장이라 건너뛸 수 없다(설계안 §2).
+        /// </summary>
+        public bool IsReopeningAt(int skipped)
+        {
+            MarketSession session;
+            int day;
+            SessionStartAfter(skipped, out session, out day);
+            return DayInSeason(day) == 1 && session == MarketSession.Session_Evening;
         }
 
         /// <summary>
@@ -90,7 +186,7 @@ namespace Underwrite.Market
         ///
         /// <see cref="Day"/>는 거래소가 오전장을 열 때만 넘어간다. 그래서 장을 쉬고 영지에서 다음 날
         /// 낮까지 머물면 날짜가 그대로 남았다(2026-10-17 사용자 보고: "2일차에서 안 넘어간다").
-        /// 영지의 시계가 다음 날 9시를 지나면 그만큼 더해 보여 준다. 거래소가 장을 열면 Day가 따라온다.
+        /// 영지의 시계가 자정을 지나면 그만큼 더해 보여 준다. 거래소가 장을 열면 Day가 따라온다.
         /// </summary>
         public int CalendarDay
         {
@@ -107,33 +203,21 @@ namespace Underwrite.Market
 
 
         /// <summary>
-        /// 다음에 열릴 장이 오전장인가. 그렇다면 지금은 밤이고, 하루를 닫고 잠자리에 들 때다.
-        /// 쉰 장이 있으면 한 장마다 오전·오후가 뒤바뀐다.
-        /// </summary>
-        public bool NextSessionIsMorning
-        {
-            get
-            {
-                var lastWasEvening = Session == MarketSession.Session_Evening;
-                var flips = SkippedSessions % 2 == 1;
-                return lastWasEvening != flips;
-            }
-        }
-
-        /// <summary>
         /// 다음 장을 쉰다. 영지의 시간이 한 장만큼 길어진다.
         ///
         /// 쉬는 동안에도 시장은 돈다. 가격이 움직이고 소식이 돌고 상장과 이탈이 일어난다.
         /// 플레이어만 그 자리에 없다. 거래로 벌 수 있었던 시간을 정보와 종잣돈으로 맞바꾸는 것이다.
+        /// 계절 첫날의 재개장은 건너뛸 수 없다. 건너뛰었으면 참.
         /// </summary>
-        public void SkipNextSession()
+        public bool SkipNextSession()
         {
-            if (IsBreak == false)
+            if (IsBreak == false || IsReopeningAt(SkippedSessions) == true)
             {
-                return;
+                return false;
             }
 
             SkippedSessions++;
+            return true;
         }
 
         /// <summary>
@@ -149,7 +233,10 @@ namespace Underwrite.Market
                 return false;
             }
 
-            if (BreakMinuteOfDay > NextSessionMinute - SESSION_GAP_MINUTES)
+            MarketSession session;
+            int day;
+
+            if (BreakMinuteOfDay > SessionStartAfter(SkippedSessions - 1, out session, out day))
             {
                 return false;
             }
@@ -260,31 +347,21 @@ namespace Underwrite.Market
             BreakAccumulated = 0f;
         }
 
-        // 장과 장 사이의 간격. 9시와 21시에 열리므로 12시간으로 고르다.
-        private const int SESSION_GAP_MINUTES = 12 * 60;
         private const int MINUTES_PER_DAY = 24 * 60;
 
         /// <summary>
-        /// 몇 주기째인가. 주기는 원정 한 번이고 40주기가 10년이다. 설계안 §2.
-        /// 장을 셀 뿐 가격 계산에는 쓰지 않는다. 상장과 이탈이 이 숫자로 일어난다.
+        /// 몇 주기째인가. 주기는 계절이고 원정 한 번이며 40주기가 10년이다. 설계안 §2.
+        /// 가격 계산에는 쓰지 않는다. 상장과 이탈이 이 숫자로 일어난다.
+        /// 계절의 마지막 오후장이 끝나는 순간 넘어가므로, 그 밤 동안은 <see cref="SeasonOf"/>(Day)보다 하나 앞선다.
         /// </summary>
         public int Cycle { get; private set; } = 1;
 
-        /// <summary>이번 주기에서 몇 번째 장인가. 1부터 센다.</summary>
-        public int SessionInCycle
-        {
-            get
-            {
-                return SessionsDone % Constants.SESSIONS_PER_CYCLE + 1;
-            }
-        }
-
-        /// <summary>이번 장이 주기의 마지막 장인가. 끝나면 주기가 넘어간다.</summary>
+        /// <summary>이번 장이 계절의 마지막 장(출발하는 날의 오후장)인가. 끝나면 주기가 넘어간다.</summary>
         public bool IsLastSessionOfCycle
         {
             get
             {
-                return SessionInCycle >= Constants.SESSIONS_PER_CYCLE;
+                return DayInSeason(Day) == Constants.SEASON_DAYS && Session == MarketSession.Session_Evening;
             }
         }
 
@@ -336,7 +413,7 @@ namespace Underwrite.Market
         /// <summary>지금 열려 있는 장. 하루에 오전·오후 두 번 열린다.</summary>
         public MarketSession Session { get; private set; } = MarketSession.Session_Morning;
 
-        /// <summary>장이 시작하는 시각(시). 오전장 09시, 오후장 21시.</summary>
+        /// <summary>장이 시작하는 시각(시). 오전장 08시, 오후장 18시.</summary>
         public int StartHour
         {
             get
@@ -350,7 +427,7 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>현재 게임 내 시각의 시 부분. 오후장은 자정을 넘어 03시까지 간다.</summary>
+        /// <summary>현재 게임 내 시각의 시 부분. 오후장은 자정에 끝난다.</summary>
         public int ClockHour
         {
             get
@@ -500,12 +577,15 @@ namespace Underwrite.Market
             Phase = MarketPhase.Phase_Open;
         }
 
-        /// <summary>장 하나를 끝낸 것으로 센다. 주기가 넘어가면 참을 돌려준다.</summary>
+        /// <summary>
+        /// 장 하나를 끝낸 것으로 센다. 주기가 넘어가면 참을 돌려준다.
+        /// 장 수가 아니라 날짜로 판정한다 — 계절 첫날은 장이 하나뿐이라 장 수로 세면 날짜와 어긋난다.
+        /// </summary>
         public bool CountSessionAndAdvanceCycle()
         {
             SessionsDone++;
 
-            if (SessionsDone % Constants.SESSIONS_PER_CYCLE != 0)
+            if (IsLastSessionOfCycle == false)
             {
                 return false;
             }

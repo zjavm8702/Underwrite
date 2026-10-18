@@ -165,22 +165,45 @@ namespace Underwrite.Village
             enabled = visible;
         }
 
-        /// <summary>
-        /// 시장의 생애에 맞춰 영지에 보이거나 사라진다(상장흐름 설계안 §3).
-        /// 다음 주기에 상장될 단은 지금 영지에 와 있고, 전멸·은퇴한 단은 더 보이지 않는다.
-        /// 거래소를 거치지 않고 영지만 띄웠으면(시장이 없으면) 모두 보인다.
-        /// </summary>
-        private void ApplyStage()
-        {
-            var sim = Market.BreakClock.Simulation;
+        // 새벽에 숙소로 들어갔는가. 단 배정·상장 단계와 따로 두어야 서로 덮어쓰지 않는다.
+        private bool IsAsleep;
 
-            if (sim == null || string.IsNullOrEmpty(StockId) == true)
+        /// <summary>
+        /// 새벽(03~06시)에는 모험단도 들어간다(시간구조 설계안 §1). <see cref="DayNightCycle"/>이 시각에 맞춰 부른다.
+        /// 깨어나도 오늘 배정되지 않았거나 시장에서 떠난 단이면 그대로 숨어 있다.
+        /// </summary>
+        public void SetAsleep(bool asleep)
+        {
+            if (IsAsleep == asleep)
             {
                 return;
             }
 
-            var stage = sim.StageOf(StockId);
-            var visible = stage == Enumeration.BandStage.Band_Arrived || stage == Enumeration.BandStage.Band_Listed;
+            IsAsleep = asleep;
+            ApplyStage();
+        }
+
+        /// <summary>
+        /// 시장의 생애에 맞춰 영지에 보이거나 사라진다(상장흐름 설계안 §3).
+        /// 다음 주기에 상장될 단은 지금 영지에 와 있고, 전멸·은퇴한 단은 더 보이지 않는다.
+        /// 거래소를 거치지 않고 영지만 띄웠으면(시장이 없으면) 모두 보인다. 자는 시간에는 모두 숨는다.
+        /// </summary>
+        private void ApplyStage()
+        {
+            var sim = Market.BreakClock.Simulation;
+            var visible = IsAsleep == false;
+
+            if (sim != null && string.IsNullOrEmpty(StockId) == true)
+            {
+                // 시장이 있는데 단이 비었으면 오늘 걷지 않는 무리다(PartyCasting).
+                visible = false;
+            }
+            else if (sim != null)
+            {
+                var stage = sim.StageOf(StockId);
+                visible = visible
+                    && (stage == Enumeration.BandStage.Band_Arrived || stage == Enumeration.BandStage.Band_Listed);
+            }
 
             for (var i = 0; i < Members.Count; i++)
             {

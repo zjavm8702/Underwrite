@@ -1209,14 +1209,13 @@ namespace Underwrite.Market
             return filled;
         }
 
-        /// <summary>다음 장을 연다. 오전장 다음은 오후장, 오후장 다음은 이튿날 오전장이다.</summary>
+        /// <summary>다음 장을 연다. 오전장 다음은 오후장, 오후장 다음은 이튿날 오전장 — 계절 첫날이면 그날 오후장이다.</summary>
         public void OpenNextSession(bool isInspectionDay)
         {
-            var next = Clock.Session == MarketSession.Session_Morning
-                ? MarketSession.Session_Evening
-                : MarketSession.Session_Morning;
+            int nextDay;
+            var next = MarketClock.NextSessionAfter(Clock.Session, Clock.Day, out nextDay);
 
-            if (next == MarketSession.Session_Morning)
+            if (nextDay != Clock.Day)
             {
                 Clock.AdvanceDay();
             }

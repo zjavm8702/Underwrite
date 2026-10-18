@@ -87,7 +87,7 @@ namespace Underwrite.UI
             if (saved != null)
             {
                 var resume = new Button(Continue);
-                resume.text = string.Format(StringConstants.TEXT_INTRO_CONTINUE, saved.CalendarDay,
+                resume.text = string.Format(StringConstants.TEXT_INTRO_CONTINUE, ClockText.SeasonDay(saved.CalendarDay),
                     ClockText.FromMinutes(saved.BreakMinuteOfDay));
                 resume.style.position = Position.Absolute;
                 resume.style.left = 36f;

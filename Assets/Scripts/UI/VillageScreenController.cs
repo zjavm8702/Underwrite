@@ -1025,7 +1025,7 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 영지의 시계가 다음 날 오전 9시를 넘었으면, 지나간 날의 후원 기한을 따지고 알릴 말을 모은다.
+        /// 영지의 시계가 자정을 넘었으면, 지나간 날의 후원 기한을 따지고 알릴 말을 모은다.
         ///
         /// 잠자리(하루 마감)는 2026-10-17에 뺐다 — 시간 넘기기가 있고, 이세계에 떨어진 주인공이 어디서 자는지도
         /// 맞지 않으며, 정보는 수첩과 정보 기록에 이미 남는다. 그래서 하루를 닫는 일은 시간이 흐르는 순간에 한다.
@@ -1605,7 +1605,7 @@ namespace Underwrite.UI
             Dial.SetRange(Clock.BreakMinuteOfDay, Clock.LatestBreakMinute);
 
             var next = Clock.NextSessionMinute;
-            SetText("village-clock-limit", string.Format(StringConstants.TEXT_CLOCK_LIMIT, ClockText.FromMinutes(next)));
+            SetText("village-clock-limit", string.Format(StringConstants.TEXT_CLOCK_LIMIT, DialTimeText(next)));
 
             var toggle = Root.Q<Toggle>("village-clock-skip");
 
@@ -1616,10 +1616,19 @@ namespace Underwrite.UI
 
             // 건너뛸 장의 이름. 이미 하나 건너뛰었으면 그 장을 가리킨다.
             var skipped = Clock.SkippedSessions > 0;
-            var morning = skipped == true ? Clock.NextSessionIsMorning == false : Clock.NextSessionIsMorning;
+            var morning = Clock.SessionAt(skipped == true ? Clock.SkippedSessions - 1 : 0) == MarketSession.Session_Morning;
             var session = morning == true ? StringConstants.TEXT_SESSION_MORNING : StringConstants.TEXT_SESSION_EVENING;
             toggle.text = string.Format(StringConstants.TEXT_CLOCK_SKIP_SESSION, session);
             toggle.SetValueWithoutNotify(skipped);
+
+            // 계절 첫날의 재개장은 건너뛸 수 없다(설계안 §2). 막힌 까닭을 토글 글자로 알린다.
+            var locked = skipped == false && Clock.IsReopeningAt(0) == true;
+            toggle.SetEnabled(locked == false);
+
+            if (locked == true)
+            {
+                toggle.text = StringConstants.TEXT_CLOCK_SKIP_REOPENING;
+            }
         }
 
         /// <summary>
@@ -1660,7 +1669,23 @@ namespace Underwrite.UI
 
             var spend = minute - Clock.BreakMinuteOfDay;
             SetText("village-clock-pick", string.Format(StringConstants.TEXT_CLOCK_PICK,
-                ClockText.FromMinutes(minute), spend / 60, spend % 60));
+                DialTimeText(minute), spend / 60, spend % 60));
+        }
+
+        /// <summary>
+        /// 시계 창에 적는 시각. 지금보다 다음 날이면 「내일」을 붙인다 — 문자판은 12시간이라
+        /// 바늘만 보고는 오늘 밤 11시인지 내일 오후 1시인지 알 수 없다(띠 색과 함께 읽힌다).
+        /// </summary>
+        private string DialTimeText(int minute)
+        {
+            var text = ClockText.FromMinutes(minute);
+
+            if (minute / (24 * 60) > Clock.BreakMinuteOfDay / (24 * 60))
+            {
+                return string.Format(StringConstants.TEXT_CLOCK_TOMORROW, text);
+            }
+
+            return text;
         }
 
         private void ConfirmClock()
@@ -1817,7 +1842,7 @@ namespace Underwrite.UI
             var minute = Clock == null ? 0 : Clock.BreakMinute;
             // 며칠째인지 맨 앞에 둔다. 기한·시찰·원정이 모두 날짜로 움직인다(2026-10-17 사용자 요청).
             SetText("village-visits",
-                string.Format(StringConstants.TEXT_DAY_COUNT, Today()) + " · "
+                ClockText.SeasonDay(Today()) + " · "
                 + ClockText.FromSeconds((hour * 60 + minute) * 60 + (Clock == null ? 0 : Clock.BreakSecond), true)
                 + " · " + string.Format(StringConstants.TEXT_VILLAGE_NEXT_SESSION, left / 60, left % 60)
                 + InspectionTag());
@@ -2104,19 +2129,29 @@ namespace Underwrite.UI
         // 날이 바뀌는 처리(기한·붕괴)는 시간 넘기기와 같은 CheckDayTurn이 맡는다 — 두 번 세지 않는다.
 
         /// <summary>
-        /// 잘 수 있는 밤인가. 다음 장이 아침 장이고 밤 9시가 지났으면 된다.
+        /// 잘 수 있는 밤인가. 자정이 지났고 아직 깰 시각 전이면 된다.
         /// 오후장을 거래소에서 마쳤든 영지에서 건너뛰었든 같다(2026-10-17 — 건너뛰면 잠자리가 안 떴다는 사용자 보고).
         /// </summary>
         private bool CanSleep()
         {
-            if (Clock == null || Clock.IsBreak == false || Clock.NextSessionIsMorning == false
-                || Clock.LatestBreakMinute <= Clock.BreakMinuteOfDay)
+            if (Clock == null || Clock.IsBreak == false)
             {
                 return false;
             }
 
             var minute = Clock.BreakMinuteOfDay;
-            return minute >= Constants.SLEEP_FROM_HOUR * 60;
+            return minute >= Constants.SLEEP_FROM_HOUR * 60 && WakeMinute() > minute;
+        }
+
+        /// <summary>
+        /// 잠에서 깨는 시각. 다음 장 직전이되 늦어도 그날 아침 장 시각 직전이다.
+        /// 계절 첫날은 장이 저녁에야 열리지만 낮에 귀환을 맞아야 한다 — 다음 장까지 자면 그 낮을 통째로 건너뛴다.
+        /// </summary>
+        private int WakeMinute()
+        {
+            var dayStart = Clock.BreakMinuteOfDay / (24 * 60) * (24 * 60);
+            var dawn = dayStart + Constants.MARKET_MORNING_START_HOUR * 60 - Constants.BREAK_SKIP_MARGIN_MINUTES;
+            return Mathf.Min(Clock.LatestBreakMinute, dawn);
         }
 
         private DialogueChoice SleepChoice()
@@ -2124,7 +2159,7 @@ namespace Underwrite.UI
             var choice = new DialogueChoice(StringConstants.TEXT_SLEEP_CHOICE, Sleep);
             choice.IsEnabled = CanSleep();
             choice.Note = choice.IsEnabled == true
-                ? string.Format(StringConstants.TEXT_SLEEP_CHOICE_NOTE, ClockText.FromMinutes(Clock.LatestBreakMinute))
+                ? string.Format(StringConstants.TEXT_SLEEP_CHOICE_NOTE, ClockText.FromMinutes(WakeMinute()))
                 : StringConstants.TEXT_SLEEP_LOCKED;
             return choice;
         }
@@ -2137,9 +2172,9 @@ namespace Underwrite.UI
             }
 
             Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
-            // 오후장은 자정을 넘겨 끝나므로 영지 날짜는 이미 다음 날이다. 「며칠째 밤」은 장의 날짜로 적는다.
+            // 오후장은 자정에 끝나므로 영지 날짜는 이미 다음 날이다. 「며칠째 밤」은 장의 날짜로 적는다.
             var today = Today();
-            var tag = string.Format(StringConstants.TEXT_SLEEP_TAG, Clock.Day);
+            var tag = string.Format(StringConstants.TEXT_SLEEP_TAG, ClockText.SeasonDay(Clock.Day));
             var lines = new List<DialogueLine>
             {
                 new DialogueLine(StringConstants.TEXT_SLEEP_SPEAKER, tag, SleepRecap(today)),
@@ -2148,7 +2183,7 @@ namespace Underwrite.UI
 
             Dialogue.Play(lines, () =>
             {
-                var minutes = Clock.LatestBreakMinute - Clock.BreakMinuteOfDay;
+                var minutes = WakeMinute() - Clock.BreakMinuteOfDay;
                 StartCoroutine(PassTime(minutes, StringConstants.TEXT_SLEEP_FADE));
             });
         }

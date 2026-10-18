@@ -182,7 +182,8 @@ namespace Underwrite.UI
             }
             else
             {
-                Sim.OpenSession(IsInspectionDay);
+                // 계절 첫날에는 오전장이 없다. 첫 장은 1일째 오후장(재개장)이다.
+                Sim.OpenSession(IsInspectionDay, MarketSession.Session_Evening);
             }
 
             // 영지도 같은 시계를 본다. 각자 들면 시각이 어긋난다.
@@ -1230,8 +1231,8 @@ namespace Underwrite.UI
                 : Sim.Clock.ClockTotalSeconds;
             SetText("clock-text",
                 // 며칠째인지 맨 앞에 — 영지 시계와 같은 순서·같은 말(2026-10-17 사용자 요청).
-                string.Format(StringConstants.TEXT_DAY_COUNT, Sim.Clock.CalendarDay)
-                + $" · {Sim.Clock.Cycle}주기 {label} {ClockText.FromSeconds(seconds, true)}"
+                ClockText.SeasonDay(Sim.Clock.CalendarDay)
+                + $" · {label} {ClockText.FromSeconds(seconds, true)}"
                 + $" · {Sim.Clock.Tick} / {Sim.Clock.TicksPerSession}틱");
             SetText("sentiment-text", $"분위기 {SentimentText(Sim.Sentiment)}");
 

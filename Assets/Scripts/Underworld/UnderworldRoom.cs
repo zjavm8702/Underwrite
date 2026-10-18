@@ -215,7 +215,7 @@ namespace Underwrite.Underworld
             var session = clock.Session == MarketSession.Session_Evening
                 ? StringConstants.TEXT_SESSION_EVENING
                 : StringConstants.TEXT_SESSION_MORNING;
-            var text = string.Format(StringConstants.TEXT_DAY_COUNT, clock.CalendarDay) + " · " + session + " "
+            var text = ClockText.SeasonDay(clock.CalendarDay) + " · " + session + " "
                 + ClockText.FromSeconds(clock.ClockTotalSeconds, true) + " · "
                 + (Market.IsBriefingWaiting == true ? StringConstants.TEXT_ROOM_WAITING_NOTE : StringConstants.TEXT_ROOM_HINT);
             SetText("room-clock", text);

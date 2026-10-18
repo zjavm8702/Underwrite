@@ -1,4 +1,5 @@
 using Underwrite.Global;
+using Underwrite.Market;
 
 namespace Underwrite.Utility
 {
@@ -21,6 +22,16 @@ namespace Underwrite.Utility
             return withSeconds == true
                 ? $"{mark} {shown}:{minute:00}:{second:00}"
                 : $"{mark} {shown}:{minute:00}";
+        }
+
+        /// <summary>날짜를 「1년 봄 2일째」로 적는다. 날은 1일째부터 이어 센 값이다.</summary>
+        public static string SeasonDay(int day)
+        {
+            var season = MarketClock.SeasonOf(day);
+            var names = StringConstants.TEXT_SEASON_NAMES;
+            var year = (season - 1) / names.Length + 1;
+            return string.Format(StringConstants.TEXT_SEASON_DAY, year, names[(season - 1) % names.Length],
+                MarketClock.DayInSeason(day));
         }
 
         /// <summary>하루 기준 분(24시를 넘어도 된다)을 적는다.</summary>

@@ -17,12 +17,12 @@ namespace Underwrite.Global
         public static string TEXT_TUT_VILLAGE_4_TITLE = "말 걸기";
         public static string TEXT_TUT_VILLAGE_4_BODY = "길에 선 사람에게 다가가 E를 누르면 말을 건다. 무리 지어 다니는 모험단에게 말을 걸면 그들에 대해 무언가 알게 된다 — 수첩에 적힌다.";
         public static string TEXT_TUT_VILLAGE_5_TITLE = "메뉴";
-        public static string TEXT_TUT_VILLAGE_5_BODY = "시간 넘기기(원하는 시각까지 시계를 돌린다), 수첩(알아낸 것), 지하거래소로. 지하거래소는 장이 열릴 때(오전 9시·오후 9시)만 내려갈 수 있다.";
+        public static string TEXT_TUT_VILLAGE_5_BODY = "시간 넘기기(원하는 시각까지 시계를 돌린다), 수첩(알아낸 것), 지하거래소로. 지하거래소는 장이 열릴 때(오전 8시·오후 6시)만 내려갈 수 있다.";
 
 
         // 지하거래소 첫 안내. 순서는 눈이 가는 순서다 — 무엇을 / 얼마에 / 어떻게 / 무엇을 보고.
         public static string TEXT_TUT_MARKET_1_TITLE = "지하거래소";
-        public static string TEXT_TUT_MARKET_1_BODY = "여기서는 물건이 아니라 모험단의 성공과 실패를 사고판다. 장은 하루 두 번, 오전 9시와 밤 9시에 열린다. 장이 열린 동안 시간은 빠르게 흐른다.";
+        public static string TEXT_TUT_MARKET_1_BODY = "여기서는 물건이 아니라 모험단의 성공과 실패를 사고판다. 장은 하루 두 번, 오전 8시와 오후 6시에 열린다. 장이 열린 동안 시간은 빠르게 흐른다.";
         public static string TEXT_TUT_MARKET_2_TITLE = "거래 종목";
         public static string TEXT_TUT_MARKET_2_BODY = "용병단은 소문에 크게 흔들린다. 용사단(지수)은 아주 조금씩 꾸준히 오른다 — 대신 그들이 무너지면 같이 무너진다. 누르면 그 종목을 본다.";
         public static string TEXT_TUT_MARKET_3_TITLE = "가격";

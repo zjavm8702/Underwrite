@@ -9,9 +9,9 @@ namespace Underwrite.Global
     {
         public static string TEXT_SLEEP_CHOICE = "다락방에서 잔다";
         public static string TEXT_SLEEP_CHOICE_NOTE = "밤 · 아침 {0}까지";
-        public static string TEXT_SLEEP_LOCKED = "밤 9시가 지나야 잘 수 있다";
+        public static string TEXT_SLEEP_LOCKED = "자정이 지나야 잘 수 있다";
         public static string TEXT_SLEEP_SPEAKER = "다락방";
-        public static string TEXT_SLEEP_TAG = "{0}일째 밤";
+        public static string TEXT_SLEEP_TAG = "{0} 밤";
         public static string TEXT_SLEEP_RECAP = "가진 돈 {0:N0} · 가진 종목의 값 {1:N0}. 오늘 밤 영지에서 들은 소식 {2}개.";
         public static string TEXT_SLEEP_DEADLINE = "들은 용사단 사정의 기한까지 {0}일 남았다.";
         public static string TEXT_SLEEP_INSPECTION = "내일은 영주 시찰일이다. 지하시장도 쉰다.";

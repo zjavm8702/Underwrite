@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Underwrite.Global;
 using Underwrite.Market;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -51,12 +52,12 @@ namespace Underwrite.Village
         /// <summary>밤의 정도. 0 낮, 1 깊은 밤. 창문 불빛·반딧불이가 읽는다(가로등이 켜진 정도와 같다).</summary>
         public static float NightLevel { get; private set; }
 
-        // 이 정도 넘게 어두워지면 노점 장수와 문 앞 주민은 들어간다. 밤거리에는 용병단만 남는다.
-        private const float STREET_EMPTY_LEVEL = 0.9f;
-
         private Light2D Sun;
         private readonly List<VillageNpc> Townsfolk = new List<VillageNpc>();
+        private readonly List<NpcParty> Parties = new List<NpcParty>();
         private bool StreetEmpty;
+        private bool PartiesAway;
+        private bool HasApplied;
         private readonly List<LampFlicker> Lamps = new List<LampFlicker>();
 
         private void Start()
@@ -85,6 +86,7 @@ namespace Underwrite.Village
                 }
             }
 
+            Parties.AddRange(FindObjectsByType<NpcParty>(FindObjectsInactive.Include));
             Apply();
         }
 
@@ -113,9 +115,27 @@ namespace Underwrite.Village
             }
 
             NightLevel = key.Lamps;
-            var empty = key.Lamps >= STREET_EMPTY_LEVEL;
 
-            if (empty != StreetEmpty)
+            // 사람이 들고 나는 것은 빛이 아니라 시각으로 정한다(시간구조 설계안 §1). 21시 철수 · 03시 모험단 · 06시 다시.
+            var clockHour = minutes / 60;
+            var empty = clockHour >= Constants.VILLAGE_TOWNSFOLK_LEAVE_HOUR || clockHour < Constants.VILLAGE_WAKE_HOUR;
+            var partiesAway = clockHour >= Constants.VILLAGE_ADVENTURERS_LEAVE_HOUR
+                && clockHour < Constants.VILLAGE_WAKE_HOUR;
+
+            if (HasApplied == false || partiesAway != PartiesAway)
+            {
+                PartiesAway = partiesAway;
+
+                for (var i = 0; i < Parties.Count; i++)
+                {
+                    if (Parties[i] != null)
+                    {
+                        Parties[i].SetAsleep(partiesAway);
+                    }
+                }
+            }
+
+            if (HasApplied == false || empty != StreetEmpty)
             {
                 StreetEmpty = empty;
 
@@ -127,6 +147,8 @@ namespace Underwrite.Village
                     }
                 }
             }
+
+            HasApplied = true;
 
             for (var i = 0; i < Lamps.Count; i++)
             {

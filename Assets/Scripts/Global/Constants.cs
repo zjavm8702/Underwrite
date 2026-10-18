@@ -145,7 +145,9 @@ namespace Underwrite.Global
         public static string TEXT_CLOCK_PM = "PM";
         public static string TEXT_TIME_PASS = "{0}  →  {1}";
         public static string TEXT_TIME_PASS_NOTE = "{0}시간 {1}분이 흘렀다";
+        public static string TEXT_CLOCK_TOMORROW = "내일 {0}";
         public static string TEXT_CLOCK_SKIP_SESSION = "{0} 건너뛰기 — 그다음 장 직전까지 돌릴 수 있다";
+        public static string TEXT_CLOCK_SKIP_REOPENING = "다음 오후장은 재개장이다 — 건너뛸 수 없다";
 
         // 하루 끝 (기획서 §11의 넷째 단계 — 정보 정리 및 취침)
         public static string TEXT_SKIP_BREAK = "시간 넘기기";
@@ -178,7 +180,9 @@ namespace Underwrite.Global
         public static string TEXT_DAY_END_DEADLINE = "들은 용사단 사정의 기한까지 {0}일.";
         public static string TEXT_VILLAGE_INSPECTION_TODAY = "오늘은 영주 시찰일 · 지하시장이 닫혔다";
         public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
-        public static string TEXT_DAY_COUNT = "{0}일째";
+        // 「1년 봄 2일째」. 해·계절 이름·계절 안의 날.
+        public static string TEXT_SEASON_DAY = "{0}년 {1} {2}일째";
+        public static readonly string[] TEXT_SEASON_NAMES = { "봄", "여름", "가을", "겨울" };
 
         // 장소 이름표 아래 줄 — 거기서 무엇을 할 수 있는가(2026-10-17)
         public static string TEXT_SIGN_TAVERN = "소문 · 일거리 · 용사단";
@@ -250,11 +254,11 @@ namespace Underwrite.Global
         /// </summary>
         public static float MARKET_MINUTES_PER_REAL_SECOND = 0.3333f;
 
-        /// <summary>오전장 개장 시각. 09시부터 15시까지다.</summary>
-        public const int MARKET_MORNING_START_HOUR = 9;
+        /// <summary>오전장 개장 시각. 08시부터 14시까지다(시간구조 설계안 §1).</summary>
+        public const int MARKET_MORNING_START_HOUR = 8;
 
-        /// <summary>오후장 개장 시각. 21시부터 다음 날 03시까지다.</summary>
-        public const int MARKET_EVENING_START_HOUR = 21;
+        /// <summary>오후장 개장 시각. 18시부터 자정까지다. 오후 2시~6시가 영지의 4시간이다.</summary>
+        public const int MARKET_EVENING_START_HOUR = 18;
 
         /// <summary>
         /// 장중 정보 타임이 열리는 틱. 한 장에 두 번이다.
@@ -270,11 +274,11 @@ namespace Underwrite.Global
         public const int INFO_TIMES_PER_SESSION = 2;
 
         /// <summary>
-        /// 한 주기에 플레이하는 장의 수. 설계안 §2는 3~5개라 했고 샘플로 4를 쓴다.
-        /// 오전·오후를 합쳐 하루에 두 장이므로 한 주기는 이틀이다.
-        /// 주기는 원정 한 번에 해당하며 40주기가 10년이다.
+        /// 한 계절(= 주기, 원정 한 번)에 플레이하는 날 수. 40계절이 10년이다. 시간구조 설계안 §2.
+        /// 첫날 귀환·재개장(오후장만) → 준비 2일 → 출발하는 날(밤에 출발). 장은 1 + 2 × 3 = 7번이다.
+        /// 2026-10-18 사장님 결정으로 4일.
         /// </summary>
-        public static int SESSIONS_PER_CYCLE = 4;
+        public static int SEASON_DAYS = 4;
 
         // 모험단 도감의 주기 문장이 시장에 남기는 것. 순서는 StringConstants.CODEX_SMITH·CODEX_TAVERN과 같다.
         // 대장간 사정이 주기 끝에 가치에 더하는 변화율 [종목][주기 순번]. 대장간 장부는 틀리지 않는다.
@@ -576,8 +580,14 @@ namespace Underwrite.Global
         // 정보를 산 뒤 대화창을 닫고 건네는 장면을 보이는 시간(초). 건네기(Give) 1.3초 + 주인공 반응.
         public static float HAND_OVER_SECONDS = 1.8f;
 
-        // 이 시각(시)부터 다락방에서 잘 수 있다. 자정을 넘긴 시각(24시 이상)도 포함한다.
-        public static int SLEEP_FROM_HOUR = 21;
+        // 이 시각(시)부터 다락방에서 잘 수 있다. 오후장이 끝나는 자정부터다(설계안 §1). 24시 이상은 다음 날 새벽.
+        public static int SLEEP_FROM_HOUR = 24;
+
+        // 영지의 하루(시간구조 설계안 §1). 상점 앞·노점·문 앞 주민은 21시에 들어가고, 거리에 남은 모험단도
+        // 03시에는 사라진다. 06시에 모두 다시 나온다.
+        public static int VILLAGE_TOWNSFOLK_LEAVE_HOUR = 21;
+        public static int VILLAGE_ADVENTURERS_LEAVE_HOUR = 3;
+        public static int VILLAGE_WAKE_HOUR = 6;
 
         // 캐릭터 외곽선(SpriteOutline). 두께는 월드 유닛 — 화면 1배에서 약 1.5px, 확대하면 함께 굵어진다.
         // 2px·진하기 90%는 사람이 스티커처럼 떠 보였다(2026-10-17). 얇고 옅게, 색은 영지 건물 테두리의
