@@ -30,6 +30,12 @@ namespace Underwrite.Enumeration
         Gate_Healed,
 
         /// <summary>귀환했고 학자가 의뢰주를 의심하기 시작했을 때.</summary>
-        Gate_Suspect
+        Gate_Suspect,
+
+        /// <summary>그 사람이 원정에서 다쳐 돌아온 뒤(놓친 사정의 대가).</summary>
+        Gate_SelfWounded,
+
+        /// <summary>고드릭을 잃은 뒤.</summary>
+        Gate_WarriorLost
     }
 }

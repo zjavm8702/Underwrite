@@ -27,7 +27,7 @@ namespace Underwrite.Patronage
                 var topic = topics[i];
 
                 if (topic.HeroIndex != hero.FaceIndex || hero.TopicsSeen.Contains(topic.Id) == true
-                    || hero.Affinity < topic.MinAffinity || IsOpen(topic.Gate) == false)
+                    || hero.Affinity < topic.MinAffinity || IsOpen(topic.Gate, hero) == false)
                 {
                     continue;
                 }
@@ -46,8 +46,19 @@ namespace Underwrite.Patronage
             return ready;
         }
 
-        private static bool IsOpen(TopicGate gate)
+        private static bool IsOpen(TopicGate gate, HeroProfile hero)
         {
+            if (gate == TopicGate.Gate_SelfWounded)
+            {
+                return HeroRoster.ReturnDone == true && hero.Condition == HeroCondition.Condition_Wounded;
+            }
+
+            if (gate == TopicGate.Gate_WarriorLost)
+            {
+                return HeroRoster.ReturnDone == true
+                    && HeroRoster.All[Constants.HERO_INDEX_WARRIOR].Condition == HeroCondition.Condition_Dead;
+            }
+
             if (gate == TopicGate.Gate_DayOff)
             {
                 return HeroRoster.DayOffDone == true;
@@ -150,6 +161,13 @@ namespace Underwrite.Patronage
             topics.Add(Topic(nameof(StringConstants.TEXT_TOPIC_FAIRY_HEALED_OPEN), 4, Constants.HERO_TOPIC_AFFINITY_FIRST, TopicGate.Gate_Healed, PortraitEmotion.Emotion_Happy, StringConstants.TEXT_TOPIC_FAIRY_HEALED_OPEN,
                 Reply(StringConstants.TEXT_TOPIC_FAIRY_HEALED_REPLY_1, StringConstants.TEXT_TOPIC_FAIRY_HEALED_ANSWER_1, PortraitEmotion.Emotion_Happy, 2),
                 Reply(StringConstants.TEXT_TOPIC_FAIRY_HEALED_REPLY_2, StringConstants.TEXT_TOPIC_FAIRY_HEALED_ANSWER_2, PortraitEmotion.Emotion_Anxious, 1)));
+            // 놓친 사정의 대가 뒤에 오는 이야기(2026-10-18 실패 구조). 일이 있은 뒤의 주제라 먼저 나온다.
+            topics.Add(Topic(nameof(StringConstants.TEXT_TOPIC_FAIRY_WOUNDED_OPEN), 4, Constants.HERO_TOPIC_AFFINITY_FIRST, TopicGate.Gate_SelfWounded, PortraitEmotion.Emotion_Sad, StringConstants.TEXT_TOPIC_FAIRY_WOUNDED_OPEN,
+                Reply(StringConstants.TEXT_TOPIC_FAIRY_WOUNDED_REPLY_1, StringConstants.TEXT_TOPIC_FAIRY_WOUNDED_ANSWER_1, PortraitEmotion.Emotion_Relieved, 2),
+                Reply(StringConstants.TEXT_TOPIC_FAIRY_WOUNDED_REPLY_2, StringConstants.TEXT_TOPIC_FAIRY_WOUNDED_ANSWER_2, PortraitEmotion.Emotion_Sad, 1)));
+            topics.Add(Topic(nameof(StringConstants.TEXT_TOPIC_SWORD_LOST_OPEN), 1, Constants.HERO_TOPIC_AFFINITY_FIRST, TopicGate.Gate_WarriorLost, PortraitEmotion.Emotion_Sad, StringConstants.TEXT_TOPIC_SWORD_LOST_OPEN,
+                Reply(StringConstants.TEXT_TOPIC_SWORD_LOST_REPLY_1, StringConstants.TEXT_TOPIC_SWORD_LOST_ANSWER_1, PortraitEmotion.Emotion_Sad, 2),
+                Reply(StringConstants.TEXT_TOPIC_SWORD_LOST_REPLY_2, StringConstants.TEXT_TOPIC_SWORD_LOST_ANSWER_2, PortraitEmotion.Emotion_Angry, 1)));
             return topics;
         }
     }

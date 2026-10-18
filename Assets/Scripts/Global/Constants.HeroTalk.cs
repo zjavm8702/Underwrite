@@ -107,5 +107,18 @@ namespace Underwrite.Global
         public static string TEXT_TOPIC_FAIRY_HEALED_ANSWER_1 = "응! 언젠가 꼭 고맙다고 할 거야. 찾아내서!";
         public static string TEXT_TOPIC_FAIRY_HEALED_REPLY_2 = "제가 어떻게 알아요.";
         public static string TEXT_TOPIC_FAIRY_HEALED_ANSWER_2 = "(빤히 쳐다본다) …그치? 너는 여관 일꾼이니까. (그런데 계속 쳐다본다)";
+
+        // 놓친 사정의 대가 뒤(2026-10-18, 과장 초안).
+        public static string TEXT_TOPIC_FAIRY_WOUNDED_OPEN = "(붕대 감은 날개를 접으며) 날개가 이러니까 술잔도 못 날라 주겠다. …괜찮아, 금방 나아. 다들 내 앞에서 웃으려고 애쓰는 게 더 아파.";
+        public static string TEXT_TOPIC_FAIRY_WOUNDED_REPLY_1 = "그럼 제가 대신 날라 드릴게요. 나을 때까지.";
+        public static string TEXT_TOPIC_FAIRY_WOUNDED_ANSWER_1 = "(작게 웃는다) …그거 꽤 좋은 거래네. 약속이야. 다 나으면 내가 한 잔 살게.";
+        public static string TEXT_TOPIC_FAIRY_WOUNDED_REPLY_2 = "약이 조금만 더 빨랐으면 좋았을 텐데요.";
+        public static string TEXT_TOPIC_FAIRY_WOUNDED_ANSWER_2 = "(고개를 끄덕인다) 응. 누가 그걸 알았으면 좋았을 텐데. …이상하지, 너한테 그 말 들으니까 꼭 네가 미안해하는 것 같아.";
+
+        public static string TEXT_TOPIC_SWORD_LOST_OPEN = "(빈 의자를 보며) 고드릭은 늘 저기 앉았어. 방패를 무릎에 세워 두고. …금이 간 걸 알면서도 아무 말 안 했지. 우리 다 알면서 아무 말 안 했어.";
+        public static string TEXT_TOPIC_SWORD_LOST_REPLY_1 = "그 자리, 아무도 앉지 않게 해 둘게요.";
+        public static string TEXT_TOPIC_SWORD_LOST_ANSWER_1 = "(한참 말이 없다가) …고마워. 이상하게 그 말이 제일 위로가 된다.";
+        public static string TEXT_TOPIC_SWORD_LOST_REPLY_2 = "누구 탓도 아니에요.";
+        public static string TEXT_TOPIC_SWORD_LOST_ANSWER_2 = "탓할 데가 없으니까 더 화가 나. (주먹을 쥐었다 편다) …미안. 너한테 할 말은 아니었어.";
     }
 }
