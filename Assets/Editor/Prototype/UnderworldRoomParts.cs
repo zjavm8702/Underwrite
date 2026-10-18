@@ -35,6 +35,10 @@ namespace Underwrite.Editor
         // 주식판을 보는 자리. 판의 발밑(벽)에서 이만큼 앞(유닛).
         private const float BOARD_FRONT_OFFSET = 1.2f;
 
+        // 납품에는 있지만 깔지 않는 사물(배치표 id 앞부분). 검수에서 반려됐고 빼도 방이 성립하는 것.
+        // 비워 두면 모두 깐다.
+        private static readonly string[] SKIP_PART_PREFIXES = { };
+
         /// <summary>방에 사람과 화면을 붙일 자리들(월드 좌표).</summary>
         public sealed class RoomPoints
         {
@@ -42,6 +46,8 @@ namespace Underwrite.Editor
             public Vector2 Spawn;
             public Vector2 BoardFront;
             public Vector2 Informant;
+            public Vector2 BoardTextCenter;
+            public Vector2 BoardTextSize;
             public readonly List<Vector2> Seats = new List<Vector2>();
         }
 
@@ -127,6 +133,12 @@ namespace Underwrite.Editor
             foreach (var item in parts)
             {
                 var part = (Dictionary<string, object>)item;
+
+                if (IsSkipped((string)part["id"]) == true)
+                {
+                    continue;
+                }
+
                 BuildPart(part, byId, size, holder.transform, points);
             }
 
@@ -144,6 +156,19 @@ namespace Underwrite.Editor
             }
 
             return points;
+        }
+
+        private static bool IsSkipped(string id)
+        {
+            for (var i = 0; i < SKIP_PART_PREFIXES.Length; i++)
+            {
+                if (id.StartsWith(SKIP_PART_PREFIXES[i], StringComparison.Ordinal) == true)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>지하의 어둠. 방을 다 깐 뒤 전역 빛을 낮춘다.</summary>
@@ -265,6 +290,27 @@ namespace Underwrite.Editor
             if (id == "stock_board")
             {
                 points.BoardFront = new Vector2(foot.x, foot.y - BOARD_FRONT_OFFSET);
+
+                // 글자 칸: [x, y, w, h] (지도 1배, 왼쪽 위). 칠판 격자의 칸마다 하나씩 온다 — 모두를 감싸는 사각형을 쓴다.
+                if (anchors.TryGetValue("board_text", out var textValue) == true && textValue is List<object> rects
+                    && rects.Count > 0)
+                {
+                    var cells = rects[0] is List<object> ? rects : new List<object> { rects };
+                    var min = new Vector2(float.MaxValue, float.MaxValue);
+                    var max = new Vector2(float.MinValue, float.MinValue);
+
+                    foreach (var cell in cells)
+                    {
+                        var rect = (List<object>)cell;
+                        var x = Convert.ToSingle(rect[0]);
+                        var y = Convert.ToSingle(rect[1]);
+                        min = Vector2.Min(min, new Vector2(x, y));
+                        max = Vector2.Max(max, new Vector2(x + Convert.ToSingle(rect[2]), y + Convert.ToSingle(rect[3])));
+                    }
+
+                    points.BoardTextCenter = ToWorld((min + max) * 0.5f, size);
+                    points.BoardTextSize = (max - min) / PIXELS_PER_UNIT;
+                }
             }
         }
 

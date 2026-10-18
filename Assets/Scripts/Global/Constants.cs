@@ -184,6 +184,12 @@ namespace Underwrite.Global
         public static string TEXT_SEASON_DAY = "{0}년 {1} {2}일째";
         public static string TEXT_ARRIVALS_HEAD = "다음 계절 상장 예정";
         public static string TEXT_ARRIVAL_ROW = "{0} · 영지에 와 있다";
+        // 지하 방 칠판의 분필 글씨. 종목(세 칸) · 현재가(한 칸) · 장 시작 대비(한 칸).
+        public static string TEXT_CHALK_PRICE = "{0:N1}";
+        public static string TEXT_CHALK_CHANGE = "{0}{1:N1}%";
+        public static string TEXT_CHALK_UP = "▲";
+        public static string TEXT_CHALK_DOWN = "▼";
+        public static string TEXT_CHALK_FLAT = "";
         public static string TEXT_DELIST_NOTICE = "{0} 다음 계절 상장 폐지 예고. 청산율 {1:N0}퍼센트.";
         public static string TEXT_DELIST_ROW = " 다음 계절 상장 폐지 예고 · 청산율 {0:N0}퍼센트";
         public static string TEXT_REOPEN_GAP = "재개장 — 원정 결과가 알려진 만큼 값이 움직인 채 열렸다. 뛴 종목 {0} · 떨어진 종목 {1}";
@@ -385,6 +391,10 @@ namespace Underwrite.Global
         // 데모는 이 계절의 귀환 장면에서 끝난다(2026-10-18 인터뷰 — 데모는 계절 1~2개).
         // 셋째 계절 첫날 귀환이 둘째 계절 원정(방패 사정)의 결과다.
         public static int DEMO_END_SEASON = 3;
+
+        // 지하 방 칠판에 쓰는 줄 수(칠판 격자의 가로줄 수와 같다)와 다시 쓰는 간격(초).
+        public const int CHALK_ROWS = 4;
+        public static float CHALK_REFRESH_SECONDS = 0.5f;
 
         // 인트로 움직이는 웹툰. 칸을 옮기는 시간(초), 칸이 떠 있는 동안 다가가는 정도와 걸리는 시간.
         // 칸 경계는 장마다 다르다 — 그림의 흰 칸 사이 띠를 재서 적었다(원본 887×1774 기준 px, 칸마다 위·아래).

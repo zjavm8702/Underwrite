@@ -2170,3 +2170,45 @@
     color: var(--color-text-weak);
     padding: 4px 8px 4px 8px;
 }
+
+/* 지하 방 칠판의 분필 글씨. 칠판 그림의 글자 칸에 맞춰 코드가 자리를 잡는다. */
+.chalk-board {
+    position: absolute;
+}
+
+/* 칠판 격자 한 줄에 한 종목. */
+.chalk-row {
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chalk-cell {
+    font-size: 16px;
+    color: rgba(236, 236, 226, 0.88);
+    -unity-font-style: bold;
+    padding: 0 6px 0 6px;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.chalk-cell--name {
+    width: 60%;
+    -unity-text-align: middle-left;
+}
+
+.chalk-cell--price,
+.chalk-cell--change {
+    width: 20%;
+    -unity-text-align: middle-right;
+}
+
+.chalk-row--up .chalk-cell {
+    color: rgba(255, 176, 170, 0.92);
+}
+
+.chalk-row--down .chalk-cell {
+    color: rgba(176, 206, 255, 0.92);
+}

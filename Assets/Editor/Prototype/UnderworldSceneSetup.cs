@@ -104,6 +104,8 @@ namespace Underwrite.Editor
             var delivery = UnderworldRoomParts.FindDelivery();
             var points = delivery == null ? null : UnderworldRoomParts.Build(delivery);
             var boardFront = new GameObject("Board Front");
+            var boardText = new GameObject("Board Text Area");
+            var boardTextSize = new Vector2(BOARD_SIZE.x * 0.9f, BOARD_SIZE.y * 0.8f);
             var investorSpots = new List<Vector2>(INVESTORS);
             var informantAt = INFORMANT_AT;
             var playerAt = PLAYER_AT;
@@ -112,6 +114,8 @@ namespace Underwrite.Editor
             {
                 VillageSceneSetup.SetGroundSize(points.Size);
                 boardFront.transform.position = new Vector3(points.BoardFront.x, points.BoardFront.y, 0f);
+                boardText.transform.position = new Vector3(points.BoardTextCenter.x, points.BoardTextCenter.y, 0f);
+                boardTextSize = points.BoardTextSize;
                 informantAt = points.Informant;
                 playerAt = points.Spawn;
 
@@ -140,6 +144,7 @@ namespace Underwrite.Editor
                 // 주식판 앞 자리. 판 아래쪽 가운데에 선다.
                 boardFront.transform.SetParent(board.transform);
                 boardFront.transform.position = new Vector3(BOARD_AT.x, BOARD_AT.y - BOARD_SIZE.y * 0.5f - 0.6f, 0f);
+                boardText.transform.position = new Vector3(BOARD_AT.x, BOARD_AT.y, 0f);
             }
 
             var investors = new List<CharacterActor>();
@@ -168,7 +173,7 @@ namespace Underwrite.Editor
             }
 
             VillageSceneSetup.BuildCamera(player);
-            BuildRoomScreen(market, boardFront.transform, informant, investors);
+            BuildRoomScreen(market, boardFront.transform, informant, investors, boardText.transform, boardTextSize);
 
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene, ROOM_SCENE);
@@ -210,7 +215,7 @@ namespace Underwrite.Editor
 
         // 방 화면. 거래소 화면보다 아래에 깐다 — 판과 대화가 그 위를 덮는다.
         private static void BuildRoomScreen(MarketScreenController market, Transform board, CharacterActor informant,
-            List<CharacterActor> investors)
+            List<CharacterActor> investors, Transform boardText, Vector2 boardTextSize)
         {
             var go = new GameObject("RoomScreen");
             var document = go.AddComponent<UIDocument>();
@@ -223,6 +228,8 @@ namespace Underwrite.Editor
             so.FindProperty("Market").objectReferenceValue = market;
             so.FindProperty("Board").objectReferenceValue = board;
             so.FindProperty("Informant").objectReferenceValue = informant;
+            so.FindProperty("BoardTextArea").objectReferenceValue = boardText;
+            so.FindProperty("BoardTextSize").vector2Value = boardTextSize;
 
             var list = so.FindProperty("Investors");
             list.arraySize = investors.Count;

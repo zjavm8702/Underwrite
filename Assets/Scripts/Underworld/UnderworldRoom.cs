@@ -35,6 +35,14 @@ namespace Underwrite.Underworld
         [Tooltip("테이블에 앉은 투자꾼들. 종목이 크게 움직이면 한 사람이 혼잣말을 한다.")]
         [SerializeField] private List<CharacterActor> Investors = new List<CharacterActor>();
 
+        [Tooltip("주식판 그림의 글자 칸 가운데. 분필 글씨가 여기에 맞춰 뜬다.")]
+        [SerializeField] private Transform BoardTextArea;
+
+        [Tooltip("글자 칸 크기(월드 유닛).")]
+        [SerializeField] private Vector2 BoardTextSize = new Vector2(4f, 2f);
+
+        private UI_ChalkBoard Chalk;
+
         private VisualElement Root;
         private Transform Player;
         private PlayerCharacterInput PlayerInput;
@@ -78,6 +86,11 @@ namespace Underwrite.Underworld
 
             Root.style.display = covering == true ? DisplayStyle.None : DisplayStyle.Flex;
             WorldBubbles.Tick(covering);
+
+            if (Chalk != null && BoardTextArea != null)
+            {
+                Chalk.Tick(Market.Simulation, BoardTextArea.position, BoardTextSize, covering, Time.unscaledDeltaTime);
+            }
             CallInformant();
             ReactInvestors();
 
@@ -129,6 +142,7 @@ namespace Underwrite.Underworld
             }
 
             WorldBubbles.Attach(Root);
+            Chalk = new UI_ChalkBoard(Root);
             return true;
         }
 
