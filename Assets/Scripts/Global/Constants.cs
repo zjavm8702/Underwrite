@@ -402,6 +402,12 @@ namespace Underwrite.Global
         public static float WORK_MIN_PAY = 0.4f;
         public static float WORK_SLOPPY_PAY = 0.5f;
 
+        // 여관 엿듣기. 귀 기울일 기회, 한 번에 드는 시간(분), 용병단 테이블 수, 한 줄을 다 듣는 데 필요한 머묾.
+        public static int EAVES_TURNS = 4;
+        public static int EAVES_MINUTES = 10;
+        public static int EAVES_BAND_TABLES = 3;
+        public static int EAVES_LISTENS_TO_FINISH = 2;
+
         /// <summary>
         /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.
         /// 장중과 달리 압축하지 않는다. 그 시간이 플레이어의 것이기 때문이다.

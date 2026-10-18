@@ -131,6 +131,30 @@ namespace Underwrite.Patronage
             }
         }
 
+        /// <summary>여관에서 엿들을 말이 있는가(<see cref="Overhear"/>가 무언가를 돌려줄 것인가). 꺼내지는 않는다.</summary>
+        public static bool HasOverhear(int day)
+        {
+            Reveal(day);
+
+            for (var i = 0; i < ReactionDays.Count; i++)
+            {
+                if (ReactionDays[i] < day)
+                {
+                    return true;
+                }
+            }
+
+            for (var i = 0; i < Needs.Count; i++)
+            {
+                if (Needs[i].State == NeedState.State_Open && Needs[i].Heard == false)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>그 사정이 아직 드러나지 않았는가.</summary>
         public static bool IsHidden(string needId)
         {

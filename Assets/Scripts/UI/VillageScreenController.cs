@@ -115,7 +115,7 @@ namespace Underwrite.UI
         {
             var talking = Dialogue != null && Dialogue.IsOpen == true;
             WorldBubbles.Tick(talking);
-            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || LedgerOpen == true || WorkOpen == true,
+            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || LedgerOpen == true || MiniGameOpen == true,
                 Constants.SIGN_HEIGHT_UNITS);
         }
 
@@ -218,13 +218,13 @@ namespace Underwrite.UI
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || MenuOpen == true || NotebookOpen == true || LedgerOpen == true || WorkOpen == true
+                || MenuOpen == true || NotebookOpen == true || LedgerOpen == true || MiniGameOpen == true
                 || Approaching == true;
 
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
             // (2026-10-17 사용자 보고).
             LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || NotebookOpen == true || LedgerOpen == true || WorkOpen == true);
+                || NotebookOpen == true || LedgerOpen == true || MiniGameOpen == true);
 
             var keyboard = Keyboard.current;
 
@@ -236,7 +236,7 @@ namespace Underwrite.UI
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
                 || ClockOpen == true || Approaching == true || NotebookOpen == true || LedgerOpen == true
-                || WorkOpen == true || (Tutorial != null && Tutorial.IsOpen == true))
+                || MiniGameOpen == true || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
             }
@@ -658,6 +658,11 @@ namespace Underwrite.UI
 
             if (spot.HasCellar == true)
             {
+                if (StoryProgress.CellarFound == true)
+                {
+                    choices.Add(EavesChoice());
+                }
+
                 choices.Add(HeroTableChoice(spot));
                 choices.Add(SleepChoice());
             }
@@ -1261,6 +1266,115 @@ namespace Underwrite.UI
             }
         }
 
+        // 손놀림·엿듣기 화면이 떠 있는가. 떠 있는 동안 주인공은 걷지 않고 휠은 카메라로 새지 않는다.
+        private bool MiniGameOpen
+        {
+            get
+            {
+                return WorkOpen == true || (Eaves != null && Eaves.IsOpen == true);
+            }
+        }
+
+        // ── 여관 엿듣기 (시간구조 설계안 §7) ───────
+        // 술을 나르며 테이블 사이를 돈다. 누구 곁에 머물지 고르는 판단형. 하루에 한 번.
+
+        private UI_Eavesdrop Eaves;
+        private EavesdropSession EavesSession;
+        private int EavesDay;
+
+        private DialogueChoice EavesChoice()
+        {
+            var choice = new DialogueChoice(StringConstants.TEXT_EAVES_CHOICE, StartEaves);
+            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
+
+            if (EavesDay == Today())
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_EAVES_DONE_TODAY;
+            }
+            else if (left < Constants.EAVES_TURNS * Constants.EAVES_MINUTES)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
+            }
+            else
+            {
+                choice.Note = string.Format(StringConstants.TEXT_EAVES_CHOICE_NOTE, Constants.EAVES_TURNS,
+                    Constants.EAVES_MINUTES);
+            }
+
+            return choice;
+        }
+
+        private void StartEaves()
+        {
+            var heroesTalk = HeroRoster.Favorite() != null && PatronageLedger.HasOverhear(Today()) == true;
+            EavesSession = EavesdropSession.Create(BreakClock.Simulation, heroesTalk,
+                new System.Random(Random.Range(int.MinValue, int.MaxValue)));
+
+            if (EavesSession == null)
+            {
+                Dialogue.Play(new List<DialogueLine>
+                {
+                    new DialogueLine(string.Empty, StringConstants.TEXT_EAVES_TITLE, StringConstants.TEXT_EAVES_NONE)
+                }, null);
+                return;
+            }
+
+            Dialogue.Close();
+            EavesDay = Today();
+
+            if (Eaves == null)
+            {
+                Eaves = new UI_Eavesdrop(Root);
+                Eaves.Listened += ListenAt;
+                Eaves.Left += () => Eaves.Close();
+            }
+
+            Eaves.Open(EavesSession);
+            GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        private void ListenAt(EavesdropSession.Table table)
+        {
+            var heard = EavesSession.Listen(table);
+            Clock.SpendBreakMinutes(Constants.EAVES_MINUTES);
+
+            if (heard == false)
+            {
+                if (EavesSession.IsCaught == true)
+                {
+                    Eaves.AddLine(string.Format(StringConstants.TEXT_EAVES_CAUGHT, table.Name));
+                    GameAudio.Play(SoundEffect.Sound_Close);
+                }
+
+                Eaves.Refresh();
+                return;
+            }
+
+            if (table.IsHeroes == true)
+            {
+                Eaves.AddLine(PatronageLedger.Overhear(Today()) ?? StringConstants.TEXT_EAVES_HEROES_NOTHING);
+            }
+            else if (table.IsDone == true)
+            {
+                var fact = BandCodex.Learn(table.BandId, CodexSource.Codex_Tavern);
+
+                if (fact != null)
+                {
+                    GatherSession.Record(0f, 0f, new GatheredNote(table.BandId, fact, InfoSource.Source_TavernTalk));
+                    Eaves.AddLine(string.Format(StringConstants.TEXT_EAVES_FULL, table.Name, fact));
+                }
+            }
+            else
+            {
+                Eaves.AddLine(EavesSession.FragmentOf(BreakClock.Simulation, table));
+            }
+
+            GameAudio.Play(SoundEffect.Sound_Page);
+            Eaves.Refresh();
+        }
+
         private void StartWorkOrders(VillageSpot spot)
         {
             Dialogue.Close();
@@ -1627,7 +1741,7 @@ namespace Underwrite.UI
         private void PlayQuestIntroIfDue()
         {
             if (QuestLog.HasPendingIntro == false || Dialogue == null || Dialogue.IsOpen == true
-                || Approaching == true || ClockOpen == true || LedgerOpen == true || WorkOpen == true
+                || Approaching == true || ClockOpen == true || LedgerOpen == true || MiniGameOpen == true
                 || DepartureRunning == true
                 || (Tutorial != null && Tutorial.IsOpen == true))
             {
