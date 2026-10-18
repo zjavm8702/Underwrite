@@ -115,7 +115,7 @@ namespace Underwrite.UI
         {
             var talking = Dialogue != null && Dialogue.IsOpen == true;
             WorldBubbles.Tick(talking);
-            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || LedgerOpen == true,
+            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || LedgerOpen == true || WorkOpen == true,
                 Constants.SIGN_HEIGHT_UNITS);
         }
 
@@ -216,12 +216,13 @@ namespace Underwrite.UI
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || MenuOpen == true || NotebookOpen == true || LedgerOpen == true || Approaching == true;
+                || MenuOpen == true || NotebookOpen == true || LedgerOpen == true || WorkOpen == true
+                || Approaching == true;
 
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
             // (2026-10-17 사용자 보고).
             LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || NotebookOpen == true || LedgerOpen == true);
+                || NotebookOpen == true || LedgerOpen == true || WorkOpen == true);
 
             var keyboard = Keyboard.current;
 
@@ -233,7 +234,7 @@ namespace Underwrite.UI
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
                 || ClockOpen == true || Approaching == true || NotebookOpen == true || LedgerOpen == true
-                || (Tutorial != null && Tutorial.IsOpen == true))
+                || WorkOpen == true || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
             }
@@ -1171,6 +1172,83 @@ namespace Underwrite.UI
                 return;
             }
 
+            StartWorkOrders(spot);
+        }
+
+        // ── 주문 나르기 (2026-10-17 사장님 결정 — 실제로 해야 끝나는 일) ───────
+
+        private UI_WorkOrders Work;
+        private VillageSpot WorkSpot;
+
+        private bool WorkOpen
+        {
+            get
+            {
+                return Work != null && Work.IsOpen == true;
+            }
+        }
+
+        private void StartWorkOrders(VillageSpot spot)
+        {
+            Dialogue.Close();
+            WorkSpot = spot;
+
+            if (Work == null)
+            {
+                Work = new UI_WorkOrders(Root);
+                Work.Finished += accuracy =>
+                {
+                    Work.Close();
+                    FinishWork(WorkSpot, Mathf.Lerp(Constants.WORK_MIN_PAY, 1f, accuracy));
+                };
+                Work.Skipped += () =>
+                {
+                    Work.Close();
+                    FinishWork(WorkSpot, Constants.WORK_SLOPPY_PAY);
+                };
+            }
+
+            string[] items;
+            string[] places;
+            string title;
+
+            switch (spot.InfoSource)
+            {
+                case InfoSource.Source_SmithOrder:
+                {
+                    items = StringConstants.WORK_SMITH_ITEMS;
+                    places = StringConstants.WORK_SMITH_PLACES;
+                    title = StringConstants.TEXT_WORK_TITLE_SMITH;
+                    break;
+                }
+                case InfoSource.Source_GuildRecord:
+                {
+                    items = StringConstants.WORK_GUILD_ITEMS;
+                    places = StringConstants.WORK_GUILD_PLACES;
+                    title = StringConstants.TEXT_WORK_TITLE_GUILD;
+                    break;
+                }
+                default:
+                {
+                    items = StringConstants.WORK_TAVERN_ITEMS;
+                    places = StringConstants.WORK_TAVERN_PLACES;
+                    title = StringConstants.TEXT_WORK_TITLE_TAVERN;
+                    break;
+                }
+            }
+
+            var task = WorkOrderTask.Create(items, places, Constants.WORK_ORDERS,
+                new System.Random(Random.Range(int.MinValue, int.MaxValue)));
+            Work.Open(task, title, BackgroundOf(spot.InfoSource));
+        }
+
+        /// <summary>일을 마쳤다. 품삯은 손놀림만큼(<paramref name="pay"/>는 정해진 품삯에 곱하는 비율).</summary>
+        private void FinishWork(VillageSpot spot, float pay)
+        {
+            Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
+
+            var quest = spot.Work;
+            var reward = Mathf.Round(quest.Reward * pay);
             var text = quest.Done;
             GatheredNote note = null;
             string rumorStock = null;
@@ -1197,12 +1275,12 @@ namespace Underwrite.UI
                 }
             }
 
-            GatherSession.Record(0f, quest.Reward, note);
+            GatherSession.Record(0f, reward, note);
 
             var minutes = Clock == null ? 0 : Clock.BreakMinutesLeft;
             var line = OwnerLine(spot, text);
             line.IsSecret = note != null;
-            line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, quest.Reward, minutes / 60, minutes % 60);
+            line.Note = string.Format(StringConstants.TEXT_WORK_RESULT, reward, minutes / 60, minutes % 60);
             var held = rumorStock == null ? null : HeldNote(rumorStock);
 
             line.Badge = held;
@@ -1472,7 +1550,8 @@ namespace Underwrite.UI
         private void PlayQuestIntroIfDue()
         {
             if (QuestLog.HasPendingIntro == false || Dialogue == null || Dialogue.IsOpen == true
-                || Approaching == true || ClockOpen == true || LedgerOpen == true || DepartureRunning == true
+                || Approaching == true || ClockOpen == true || LedgerOpen == true || WorkOpen == true
+                || DepartureRunning == true
                 || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;

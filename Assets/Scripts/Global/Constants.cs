@@ -378,6 +378,15 @@ namespace Underwrite.Global
         // 지급 기록이 며칠 전까지 거슬러 올라가는가.
         public static int LEDGER_DAYS_BACK = 3;
 
+        // 주문 나르기(여관·대장간·길드의 일). 주문표 수, 한 장의 물건 가짓수, 외우는 시간(초, 실시간).
+        // 품삯은 맞힌 비율만큼이되 다 틀려도 최저는 받는다. 대충 끝내면 절반.
+        public static int WORK_ORDERS = 3;
+        public static int WORK_ITEMS_MIN = 2;
+        public static int WORK_ITEMS_MAX = 3;
+        public static int WORK_MEMORIZE_SECONDS = 7;
+        public static float WORK_MIN_PAY = 0.4f;
+        public static float WORK_SLOPPY_PAY = 0.5f;
+
         /// <summary>
         /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.
         /// 장중과 달리 압축하지 않는다. 그 시간이 플레이어의 것이기 때문이다.
