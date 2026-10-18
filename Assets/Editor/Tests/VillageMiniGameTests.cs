@@ -154,5 +154,125 @@ namespace Underwrite.Editor.Tests
             Assert.IsTrue(task.IsDone);
             Assert.AreEqual(2f / 3f, task.Accuracy, 0.0001f);
         }
+
+        [Test]
+        public void SmithOrdersHaveExactlyOneEvidence()
+        {
+            var cancelled = StringConstants.TEXT_SMITH_STATUS.Length - 1;
+            var turn = BandCodex.TurnOf(Sim.Clock.Cycle);
+
+            for (var seed = 0; seed < 150; seed++)
+            {
+                // 둘째 계절 이틀째 — 지난 계절 미끼도 들어갈 수 있는 날.
+                var puzzle = SmithOrderPuzzle.Create(Sim, new System.Random(seed), Constants.SEASON_DAYS + 2);
+                Assert.IsNotNull(puzzle, $"seed {seed}");
+                Assert.AreEqual(Constants.SMITH_ORDER_SLIPS, puzzle.Slips.Count, $"seed {seed}");
+
+                var evidence = -1;
+
+                for (var i = 0; i < puzzle.Slips.Count; i++)
+                {
+                    var slip = puzzle.Slips[i];
+
+                    if (i > 0)
+                    {
+                        Assert.LessOrEqual(puzzle.Slips[i - 1].Day, slip.Day, $"seed {seed} — 날짜순이어야 한다");
+                    }
+
+                    if (slip.BandId == puzzle.TargetId && slip.Day > 0 && slip.Status != cancelled)
+                    {
+                        Assert.AreEqual(-1, evidence, $"seed {seed} — 증거가 둘이다");
+                        evidence = i;
+                    }
+                }
+
+                Assert.AreEqual(puzzle.EvidenceIndex, evidence, $"seed {seed}");
+
+                var profile = Sim.CodexProfileOf(puzzle.TargetId);
+                var expected = StringConstants.SMITH_EVIDENCE[profile][turn][puzzle.RumorTrue == true ? 0 : 1];
+                Assert.AreEqual(expected, puzzle.Evidence.Item, $"seed {seed}");
+                Assert.AreEqual(Sim.IsTavernTrue(puzzle.TargetId, Sim.Clock.Cycle), puzzle.RumorTrue, $"seed {seed}");
+            }
+        }
+
+        [Test]
+        public void SmithOrdersJudgePicksAndKickOut()
+        {
+            var puzzle = SmithOrderPuzzle.Create(Sim, new System.Random(3), Constants.SEASON_DAYS + 2);
+            var wrong = new List<int>();
+
+            for (var i = 0; i < puzzle.Slips.Count; i++)
+            {
+                if (i != puzzle.EvidenceIndex)
+                {
+                    wrong.Add(i);
+                }
+            }
+
+            for (var i = 0; i < Constants.SMITH_ORDER_MAX_SUSPICION; i++)
+            {
+                var slip = puzzle.Slips[wrong[i]];
+                var pick = puzzle.Check(wrong[i]);
+
+                if (slip.BandId != puzzle.TargetId)
+                {
+                    Assert.AreEqual(SlipPick.Pick_OtherBand, pick);
+                }
+                else if (slip.Day == 0)
+                {
+                    Assert.AreEqual(SlipPick.Pick_LastSeason, pick);
+                }
+                else
+                {
+                    Assert.AreEqual(SlipPick.Pick_Cancelled, pick);
+                }
+            }
+
+            Assert.IsTrue(puzzle.IsKickedOut);
+            Assert.AreEqual(SlipPick.Pick_Evidence, puzzle.Check(puzzle.EvidenceIndex));
+        }
+
+        [Test]
+        public void TavernTruthIsFixedAndFollowsTable()
+        {
+            var id = Sim.CodexSubjects()[0];
+            var profile = Sim.CodexProfileOf(id);
+            var hits = 0;
+            var expected = 0f;
+            const int cycles = 600;
+
+            for (var cycle = 1; cycle <= cycles; cycle++)
+            {
+                var truth = Sim.IsTavernTrue(id, cycle);
+                Assert.AreEqual(truth, Sim.IsTavernTrue(id, cycle), $"cycle {cycle} — 다시 물어도 같아야 한다");
+                hits += truth == true ? 1 : 0;
+                expected += Constants.CODEX_TAVERN_TRUTH[profile][BandCodex.TurnOf(cycle)];
+            }
+
+            Assert.AreEqual(expected / cycles, (float)hits / cycles, 0.08f);
+        }
+
+        [Test]
+        public void VerifyMarksTavernLine()
+        {
+            var id = Sim.CodexSubjects()[0];
+            Assert.IsFalse(BandCodex.IsVerified(id));
+
+            BandCodex.Verify(id, false);
+
+            Assert.IsTrue(BandCodex.IsVerified(id));
+            Assert.IsTrue(BandCodex.IsKnown(id, CodexSource.Codex_Tavern));
+            StringAssert.StartsWith(StringConstants.TEXT_CODEX_RUMOR_CHECKED_FALSE, BandCodex.LineOf(id, CodexSource.Codex_Tavern));
+            // 확인한 소문은 다시 고르지 않는다.
+            for (var seed = 0; seed < 50; seed++)
+            {
+                var puzzle = SmithOrderPuzzle.Create(Sim, new System.Random(seed), 2);
+
+                if (puzzle != null)
+                {
+                    Assert.AreNotEqual(id, puzzle.TargetId, $"seed {seed}");
+                }
+            }
+        }
     }
 }

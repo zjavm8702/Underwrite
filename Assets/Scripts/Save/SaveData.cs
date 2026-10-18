@@ -211,5 +211,9 @@ namespace Underwrite.Save
     {
         public string StockId;
         public List<int> LearnedCycle = new List<int>();
+
+        // 여관 소문을 대장간 주문서로 확인한 주기(0이면 안 함)와 그 답.
+        public int VerifiedCycle;
+        public bool VerifiedTrue;
     }
 }

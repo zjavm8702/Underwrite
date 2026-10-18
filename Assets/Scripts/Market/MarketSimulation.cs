@@ -471,7 +471,7 @@ namespace Underwrite.Market
                 var rumor = StringConstants.CODEX_TAVERN[p][turn];
                 var heard = BandCodex.LearnedIn(stock.Id, CodexSource.Codex_Tavern, cycle);
 
-                if (Rng.NextDouble() < Constants.CODEX_TAVERN_TRUTH[p][turn])
+                if (IsTavernTrue(stock.Id, cycle) == true)
                 {
                     stock.ResolveOutcome(Constants.CODEX_TAVERN_EFFECT[p][turn]);
                     AddCodexOutcome(stock.Id, Josa.Format(StringConstants.CODEX_TAVERN_OUTCOME[p][turn], stock.DisplayName),
@@ -574,6 +574,35 @@ namespace Underwrite.Market
             Generated.Add(spec);
             AddWaiting(BandFactory.Build(spec), spec.ListCycle);
             PlanDeparture(spec.Id, spec.DelistCycle, spec.DelistReason);
+        }
+
+        /// <summary>
+        /// 그 주기의 여관 소문이 맞는 말인가. 주기 끝에 굴리지 않고 씨앗·종목·주기로 처음부터 정해져 있다 —
+        /// 대장간 주문서로 미리 확인할 수 있어야 하고(2026-10-18), 저장하지 않아도 불러온 뒤 같은 답이 나온다.
+        /// </summary>
+        public bool IsTavernTrue(string stockId, int cycle)
+        {
+            var profile = CodexProfileOf(stockId);
+
+            if (profile < 0)
+            {
+                return false;
+            }
+
+            // FNV-1a. string.GetHashCode는 실행마다 달라질 수 있어 쓰지 않는다.
+            var hash = 2166136261u;
+
+            for (var i = 0; i < stockId.Length; i++)
+            {
+                hash = (hash ^ stockId[i]) * 16777619u;
+            }
+
+            hash = (hash ^ (uint)cycle) * 16777619u;
+            hash = (hash ^ (uint)Seed) * 16777619u;
+            hash ^= hash >> 15;
+
+            var roll = (hash & 0xFFFFFFu) / 16777216f;
+            return roll < Constants.CODEX_TAVERN_TRUTH[profile][BandCodex.TurnOf(cycle)];
         }
 
         /// <summary>그 종목이 쓰는 도감 문장 묶음. 없으면 -1.</summary>

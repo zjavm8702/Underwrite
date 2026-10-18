@@ -17,9 +17,15 @@ namespace Underwrite.Market
         // 종목마다 줄마다 알아낸 주기. 0이면 모른다.
         private static readonly Dictionary<string, int[]> LearnedCycle = new Dictionary<string, int[]>();
 
+        // 여관 소문을 대장간 주문서로 확인한 주기와 그 답. 소문 줄과 같이 주기가 바뀌면 의미가 없어진다.
+        private static readonly Dictionary<string, int> VerifiedCycle = new Dictionary<string, int>();
+        private static readonly Dictionary<string, bool> VerifiedTrue = new Dictionary<string, bool>();
+
         public static void Reset()
         {
             LearnedCycle.Clear();
+            VerifiedCycle.Clear();
+            VerifiedTrue.Clear();
         }
 
         internal static List<CodexState> Capture()
@@ -30,6 +36,8 @@ namespace Underwrite.Market
             {
                 var row = new CodexState { StockId = pair.Key };
                 row.LearnedCycle.AddRange(pair.Value);
+                VerifiedCycle.TryGetValue(pair.Key, out row.VerifiedCycle);
+                VerifiedTrue.TryGetValue(pair.Key, out row.VerifiedTrue);
                 list.Add(row);
             }
 
@@ -39,9 +47,17 @@ namespace Underwrite.Market
         internal static void Restore(List<CodexState> rows)
         {
             LearnedCycle.Clear();
+            VerifiedCycle.Clear();
+            VerifiedTrue.Clear();
 
             for (var i = 0; i < rows.Count; i++)
             {
+                if (rows[i].VerifiedCycle > 0)
+                {
+                    VerifiedCycle[rows[i].StockId] = rows[i].VerifiedCycle;
+                    VerifiedTrue[rows[i].StockId] = rows[i].VerifiedTrue;
+                }
+
                 var cycles = CyclesOf(rows[i].StockId);
 
                 for (var c = 0; c < cycles.Length && c < rows[i].LearnedCycle.Count; c++)
@@ -75,6 +91,26 @@ namespace Underwrite.Market
 
             CyclesOf(stockId)[(int)source] = CurrentCycle;
             return FactOf(stockId, source);
+        }
+
+        /// <summary>이번 주기의 여관 소문이 맞는지 대장간 주문서로 확인했다. 소문 줄도 함께 안다.</summary>
+        public static void Verify(string stockId, bool isTrue)
+        {
+            if (IndexOf(stockId) < 0)
+            {
+                return;
+            }
+
+            Learn(stockId, CodexSource.Codex_Tavern);
+            VerifiedCycle[stockId] = CurrentCycle;
+            VerifiedTrue[stockId] = isTrue;
+        }
+
+        /// <summary>이번 주기의 여관 소문을 이미 확인했는가.</summary>
+        public static bool IsVerified(string stockId)
+        {
+            int cycle;
+            return VerifiedCycle.TryGetValue(stockId, out cycle) == true && cycle == CurrentCycle;
         }
 
         public static bool IsKnown(string stockId, CodexSource source)
@@ -214,7 +250,16 @@ namespace Underwrite.Market
                 default:
                 {
                     var lines = StringConstants.CODEX_TAVERN[index];
-                    return StringConstants.TEXT_CODEX_RUMOR + lines[turn % lines.Length];
+                    var mark = StringConstants.TEXT_CODEX_RUMOR;
+
+                    if (IsVerified(stockId) == true)
+                    {
+                        mark = VerifiedTrue[stockId] == true
+                            ? StringConstants.TEXT_CODEX_RUMOR_CHECKED_TRUE
+                            : StringConstants.TEXT_CODEX_RUMOR_CHECKED_FALSE;
+                    }
+
+                    return mark + lines[turn % lines.Length];
                 }
             }
         }

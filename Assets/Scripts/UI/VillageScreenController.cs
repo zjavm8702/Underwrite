@@ -115,7 +115,7 @@ namespace Underwrite.UI
         {
             var talking = Dialogue != null && Dialogue.IsOpen == true;
             WorldBubbles.Tick(talking);
-            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || LedgerOpen == true || MiniGameOpen == true,
+            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true,
                 Constants.SIGN_HEIGHT_UNITS);
         }
 
@@ -218,13 +218,13 @@ namespace Underwrite.UI
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || MenuOpen == true || NotebookOpen == true || LedgerOpen == true || MiniGameOpen == true
+                || MenuOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || Approaching == true;
 
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
             // (2026-10-17 사용자 보고).
             LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || NotebookOpen == true || LedgerOpen == true || MiniGameOpen == true);
+                || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true);
 
             var keyboard = Keyboard.current;
 
@@ -235,7 +235,7 @@ namespace Underwrite.UI
             }
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
-                || ClockOpen == true || Approaching == true || NotebookOpen == true || LedgerOpen == true
+                || ClockOpen == true || Approaching == true || NotebookOpen == true || PuzzleOpen == true
                 || MiniGameOpen == true || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
@@ -649,6 +649,11 @@ namespace Underwrite.UI
             if (spot.InfoSource == InfoSource.Source_GuildRecord)
             {
                 choices.Add(LedgerChoice(spot));
+            }
+
+            if (spot.InfoSource == InfoSource.Source_SmithOrder)
+            {
+                choices.Add(SmithOrderChoice(spot));
             }
 
             if (spot.HasRequestDesk == true)
@@ -1741,7 +1746,7 @@ namespace Underwrite.UI
         private void PlayQuestIntroIfDue()
         {
             if (QuestLog.HasPendingIntro == false || Dialogue == null || Dialogue.IsOpen == true
-                || Approaching == true || ClockOpen == true || LedgerOpen == true || MiniGameOpen == true
+                || Approaching == true || ClockOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || DepartureRunning == true
                 || (Tutorial != null && Tutorial.IsOpen == true))
             {
@@ -2521,11 +2526,12 @@ namespace Underwrite.UI
         private VillageSpot LedgerSpot;
         private int LedgerDay;
 
-        private bool LedgerOpen
+        // 추리형 정보 모으기 화면(장부 맞추기·주문서 읽기)이 떠 있는가.
+        private bool PuzzleOpen
         {
             get
             {
-                return Ledger != null && Ledger.IsOpen == true;
+                return (Ledger != null && Ledger.IsOpen == true) || (Smith != null && Smith.IsOpen == true);
             }
         }
 
@@ -2667,6 +2673,153 @@ namespace Underwrite.UI
 
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
                 string.Format(StringConstants.TEXT_LEDGER_RIGHT, StockName(id), fact ?? string.Empty));
+            Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
+        }
+
+        // ── 주문서 읽기 (대장간 — 셋째 정보 모으기, 추리형) ───────
+        // 여관에서 도는 소문 하나를 주문서로 가린다. 그 단의 이번 계절, 취소되지 않은 주문을 짚고 맞는 말인지 판정한다.
+        // 맞히면 도감의 소문 줄에 확인 표시가 붙는다. 엿듣기로 듣고 여기서 가리는 짝이다. 하루에 한 번.
+
+        private UI_SmithOrders Smith;
+        private SmithOrderPuzzle Orders;
+        private VillageSpot SmithSpot;
+        private int SmithDay;
+
+        private DialogueChoice SmithOrderChoice(VillageSpot spot)
+        {
+            var choice = new DialogueChoice(StringConstants.TEXT_SMITH_CHOICE, () => StartSmithOrders(spot));
+            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
+
+            if (BreakClock.Simulation == null)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_SMITH_NONE;
+            }
+            else if (SmithDay == Today())
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_SMITH_DONE_TODAY;
+            }
+            else if (left < Constants.SMITH_ORDER_MINUTES)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
+            }
+            else
+            {
+                choice.Note = string.Format(StringConstants.TEXT_SMITH_CHOICE_NOTE, Constants.SMITH_ORDER_MINUTES);
+            }
+
+            return choice;
+        }
+
+        private void StartSmithOrders(VillageSpot spot)
+        {
+            Orders = SmithOrderPuzzle.Create(BreakClock.Simulation,
+                new System.Random(Random.Range(int.MinValue, int.MaxValue)), Today());
+
+            if (Orders == null)
+            {
+                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_SMITH_NONE) }, null);
+                return;
+            }
+
+            Dialogue.Close();
+            SmithSpot = spot;
+            SmithDay = Today();
+            Clock.SpendBreakMinutes(Constants.SMITH_ORDER_MINUTES);
+
+            if (Smith == null)
+            {
+                Smith = new UI_SmithOrders(Root);
+                Smith.Picked += PickSmithSlip;
+                Smith.Left += () => Smith.Close();
+            }
+
+            Smith.Open(Orders, StockName(Orders.TargetId), BackgroundOf(spot.InfoSource));
+            GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        private void PickSmithSlip(int index)
+        {
+            if (Orders == null)
+            {
+                return;
+            }
+
+            var pick = Orders.Check(index);
+
+            if (pick == SlipPick.Pick_Evidence)
+            {
+                Smith.Close();
+                JudgeRumor();
+                return;
+            }
+
+            var message = StringConstants.TEXT_SMITH_WRONG_BAND;
+
+            if (pick == SlipPick.Pick_LastSeason)
+            {
+                message = StringConstants.TEXT_SMITH_WRONG_OLD;
+            }
+            else if (pick == SlipPick.Pick_Cancelled)
+            {
+                message = StringConstants.TEXT_SMITH_WRONG_CANCELLED;
+            }
+
+            Clock.SpendBreakMinutes(Constants.SMITH_ORDER_WRONG_MINUTES);
+            Smith.MarkWrong(index, Orders.Suspicion, message);
+            GameAudio.Play(SoundEffect.Sound_Close);
+
+            if (Orders.IsKickedOut == true)
+            {
+                Smith.Close();
+                Dialogue.SetBackground(BackgroundOf(SmithSpot.InfoSource));
+                Dialogue.Play(new List<DialogueLine> { OwnerLine(SmithSpot, StringConstants.TEXT_SMITH_KICKED) },
+                    React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, null));
+            }
+        }
+
+        // 증거를 찾았다. 맞는 말인지 헛말인지 고른다. 두 답의 순서는 섞는다.
+        private void JudgeRumor()
+        {
+            var sayTrue = new DialogueChoice(StringConstants.TEXT_SMITH_VERDICT_TRUE, () => ConcludeRumor(true));
+            var sayFalse = new DialogueChoice(StringConstants.TEXT_SMITH_VERDICT_FALSE, () => ConcludeRumor(false));
+            var choices = Random.value < 0.5f
+                ? new List<DialogueChoice> { sayTrue, sayFalse }
+                : new List<DialogueChoice> { sayFalse, sayTrue };
+
+            var ask = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
+                string.Format(StringConstants.TEXT_SMITH_ASK, Orders.Rumor));
+            ask.Choices = choices;
+
+            Dialogue.SetBackground(BackgroundOf(SmithSpot.InfoSource));
+            Dialogue.Play(new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
+                    string.Format(StringConstants.TEXT_SMITH_FOUND, StockName(Orders.TargetId), Orders.Evidence.Item)),
+                ask
+            }, null);
+        }
+
+        private void ConcludeRumor(bool saidTrue)
+        {
+            if (saidTrue != Orders.RumorTrue)
+            {
+                var miss = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
+                    StringConstants.TEXT_SMITH_WRONG_GUESS);
+                Dialogue.Play(new List<DialogueLine> { miss }, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Dots, null));
+                return;
+            }
+
+            var id = Orders.TargetId;
+            BandCodex.Verify(id, Orders.RumorTrue);
+            GatherSession.Record(0f, 0f, new GatheredNote(id, BandCodex.LineOf(id, CodexSource.Codex_Tavern),
+                InfoSource.Source_SmithOrder));
+
+            var line = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
+                string.Format(Orders.RumorTrue == true ? StringConstants.TEXT_SMITH_RIGHT_TRUE : StringConstants.TEXT_SMITH_RIGHT_FALSE,
+                    StockName(id)));
             Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
         }
 

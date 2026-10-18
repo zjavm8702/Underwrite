@@ -1978,6 +1978,98 @@
     font-size: 20px;
 }
 
+/* ── 주문서 읽기 (대장간) ───────────────
+   배경은 대화 배경 클래스(dialogue-root--smith)를 함께 붙인다. 주문서는 종이 틀 카드, 3장씩 두 줄. */
+.smith-orders {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -unity-background-scale-mode: scale-and-crop;
+    padding: 28px 48px 28px 48px;
+}
+
+.smith-rumor {
+    margin-top: 14px;
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: #F2C46B;
+    white-space: normal;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(30, 22, 15, 0.85);
+    align-self: flex-start;
+}
+
+.smith-rack {
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.smith-slip {
+    width: 30%;
+    min-height: 170px;
+    margin: 14px 12px 14px 12px;
+    padding: 26px 30px 26px 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    border-radius: 0;
+}
+
+.smith-slip:hover {
+    -unity-background-image-tint-color: rgb(255, 236, 196);
+}
+
+.smith-slip--wrong {
+    opacity: 0.5;
+}
+
+.smith-slip-top {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--color-divider);
+}
+
+.smith-slip-day {
+    font-size: 18px;
+    color: var(--color-text-weak);
+}
+
+.smith-slip-status {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+}
+
+/* 취소된 주문서는 도장처럼 붉게. 미끼를 가려내는 단서라 눈에 띄어야 한다. */
+.smith-slip-status--cancelled {
+    color: #B5323E;
+}
+
+.smith-slip-band {
+    margin-top: 10px;
+    font-size: 22px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+    white-space: normal;
+}
+
+.smith-slip-item {
+    margin-top: 8px;
+    font-size: 21px;
+    color: var(--color-text);
+    white-space: normal;
+}
+
 /* ── 주문 나르기 (여관·대장간·길드의 일) ───────
    배경은 대화 배경 클래스(dialogue-root--*)를 함께 붙여 일하는 곳의 그림을 쓴다. */
 .work {

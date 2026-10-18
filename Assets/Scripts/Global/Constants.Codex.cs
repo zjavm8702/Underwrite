@@ -103,6 +103,8 @@ namespace Underwrite.Global
         public static string TEXT_PARTY_LINE_4 = "여관 스튜가 그립군.";
 
         public static string TEXT_CODEX_RUMOR = "(소문) ";
+        public static string TEXT_CODEX_RUMOR_CHECKED_TRUE = "(소문 · 주문서로 확인: 맞는 말) ";
+        public static string TEXT_CODEX_RUMOR_CHECKED_FALSE = "(소문 · 주문서로 확인: 헛말) ";
         public static string TEXT_CODEX_TAB = "모험단";
         public static string TEXT_CODEX_KNOWN = "알아낸 것 {0} / {1}";
         public static string TEXT_CODEX_LEARNED = "수첩에 적었다 — {0}";

@@ -44,4 +44,20 @@ namespace Underwrite.Enumeration
         /// </summary>
         Role_Adventurer
     }
+
+    /// <summary>주문서 읽기에서 짚은 주문서가 무엇이었나(2026-10-18).</summary>
+    public enum SlipPick
+    {
+        /// <summary>그 단의 이번 계절, 취소되지 않은 주문. 소문을 판정할 증거다.</summary>
+        Pick_Evidence,
+
+        /// <summary>다른 단의 주문.</summary>
+        Pick_OtherBand,
+
+        /// <summary>그 단의 주문이지만 지난 계절 것.</summary>
+        Pick_LastSeason,
+
+        /// <summary>그 단의 이번 계절 주문이지만 취소됐다.</summary>
+        Pick_Cancelled
+    }
 }

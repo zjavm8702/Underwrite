@@ -430,6 +430,18 @@ namespace Underwrite.Global
         // 지급 기록이 며칠 전까지 거슬러 올라가는가.
         public static int LEDGER_DAYS_BACK = 3;
 
+        // 주문서 읽기(대장간). 꽂이의 주문서 수, 걸리는 시간, 잘못 짚을 때마다 더 드는 시간, 쫓겨나는 의심.
+        public static int SMITH_ORDER_SLIPS = 6;
+        public static int SMITH_ORDER_MINUTES = 30;
+        public static int SMITH_ORDER_WRONG_MINUTES = 10;
+        public static int SMITH_ORDER_MAX_SUSPICION = 3;
+
+        // 그 단의 지난 계절 미끼 주문서를 넣을 확률(둘째 계절부터). 취소된 미끼는 늘 넣는다.
+        public static float SMITH_ORDER_OLD_DECOY_CHANCE = 0.6f;
+
+        // 주문서 카드의 기울기(도). 자리 순서대로 돌려 쓴다.
+        public static readonly float[] SMITH_SLIP_TILTS = { -1.6f, 0.9f, -0.5f, 1.3f, -1.1f, 0.6f };
+
         // 주문 나르기(여관·대장간·길드의 일). 주문표 수, 한 장의 물건 가짓수, 외우는 시간(초, 실시간).
         // 품삯은 맞힌 비율만큼이되 다 틀려도 최저는 받는다. 대충 끝내면 절반.
         public static int WORK_ORDERS = 3;
