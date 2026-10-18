@@ -33,6 +33,8 @@
 | 문서 | 비고 |
 |---|---|
 | `Claude/Underwrite_코드_작업규칙.md` | C# 규칙 v1.0. `.editorconfig`가 서식 항목을 강제한다 |
+| `Claude/Underwrite_사장님_인터뷰_2026-10-18.md` | **사장님이 안 계실 때 과장이 판단하는 기준** — 목표·재량·금지선·취향 |
+| `Claude/Underwrite_과장_결정기록.md` | 과장이 혼자 정한 것(정한 것 · 왜 · 되돌리려면) |
 | `Claude/Underwrite_상장흐름_설계안.md` | 거래 단위·용사 지수 종목·이탈. 상장 경로(§4)는 v0.7에서 자동 상장으로 대체 |
 | `Claude/Underwrite_후원흐름_설계안.md` | 익명 의뢰주 |
 | `Claude/Underwrite_루틴_설계안.md` | 하루·관계의 리듬. 주기 길이는 v0.7 계절 구조로 대체 |

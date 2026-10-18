@@ -19,6 +19,7 @@ Unity 6.5 비도트 2D 탑다운 게임 《지하거래소의 후원자》. 프�
 | C# 코드 규칙 | `Documents/Claude/Underwrite_코드_작업규칙.md` (v1.0 확정) |
 | 아트 규칙 | `Documents/Codex/Underwrite_아트_작업규칙.md` (아트의 최종 권한) |
 | 게임 기획 | `Documents/Shared/Underwrite_기획서_v0.7.md` |
+| 혼자 일할 때의 기준 | `Documents/Claude/Underwrite_사장님_인터뷰_2026-10-18.md` — 재량·금지선(돈 쓰기·외부 공개)·취향. 정한 것은 `Underwrite_과장_결정기록.md`에 쌓는다 |
 | Codex 작업 범위 | 루트 `AGENTS.md` — **Codex용 파일이다. 내가 읽을 수는 있지만 내 지침은 아니다** |
 
 **코드를 쓰기 전에 `Documents/Claude/Underwrite_코드_작업규칙.md`를 읽는다.** 서식 항목은 `.editorconfig`가 강제하지만, LINQ 제한·`== true` 명시·`switch` 식 금지·별칭 금지·Constants.cs 관리 규칙은 문서에만 있다.
