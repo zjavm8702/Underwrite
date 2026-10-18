@@ -836,8 +836,9 @@
 
 .chart-axis-label {
     position: absolute;
-    font-size: 15px;
-    color: var(--color-text-weak);
+    font-size: 16px;
+    /* 2026-10-18 교차 검수: 옅어서 읽기 어렵다(Codex). 흐린 글자보다 한 단계 짙게. */
+    color: #3E3326;
 }
 
 /* 오른쪽 끝의 현재가 꼬리표. 눈금만 있으면 지금 값이 어디인지 바로 안 보인다. */
