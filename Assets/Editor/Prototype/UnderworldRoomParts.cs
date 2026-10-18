@@ -112,7 +112,9 @@ namespace Underwrite.Editor
 
                 var file = (string)part["file"];
 
-                if (File.Exists(Path.Combine(ASSET_FOLDER, file)) == false)
+                // 같은 그림을 여러 사물이 함께 쓴다 — 한 번만 들인다. 단 새 판에서 그림이 바뀌었으면 덮는다
+                // (v4 계단이 v3와 같은 파일 이름이라 옛 그림이 남았다, 2026-10-18).
+                if (IsSameFile(Path.Combine(folder, file), Path.Combine(ASSET_FOLDER, file)) == false)
                 {
                     Import(folder, file);
                 }
@@ -351,6 +353,32 @@ namespace Underwrite.Editor
             light.pointLightOuterRadius = CANDLE_RADIUS;
             light.pointLightInnerRadius = 0f;
             go.AddComponent<LampFlicker>();
+        }
+
+        private static bool IsSameFile(string source, string target)
+        {
+            if (File.Exists(target) == false)
+            {
+                return false;
+            }
+
+            var a = File.ReadAllBytes(source);
+            var b = File.ReadAllBytes(target);
+
+            if (a.Length != b.Length)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < a.Length; i++)
+            {
+                if (a[i] != b[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private static void Import(string folder, string file)
