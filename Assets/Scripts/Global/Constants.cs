@@ -380,6 +380,8 @@ namespace Underwrite.Global
         public static float AUDIO_MUSIC_VOLUME = 0.45f;
         public static float AUDIO_EFFECT_VOLUME = 0.7f;
         public static float AUDIO_MUSIC_FADE_SECONDS = 1.5f;
+        // 메뉴 「소리」의 단계: 크게 · 작게 · 끔. 순서는 TEXT_VOLUME_STEPS와 같다.
+        public static readonly float[] AUDIO_VOLUME_STEPS = { 1f, 0.4f, 0f };
 
         // 장부 맞추기(길드 기록실). 들어가는 데 드는 시간, 잘못 짚을 때마다 더 드는 시간, 쫓겨나는 의심.
         // 묻기(60분·돈)보다 짧지만 틀리면 길어진다. 장부의 단 수는 4~6.

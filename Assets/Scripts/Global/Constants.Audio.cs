@@ -5,6 +5,10 @@ namespace Underwrite.Global
     /// </summary>
     public static partial class StringConstants
     {
+        public const string PREF_VOLUME_STEP = "underwrite_volume_step";
+        public static string TEXT_MENU_VOLUME = "소리 · {0}";
+        public static readonly string[] TEXT_VOLUME_STEPS = { "크게", "작게", "끔" };
+
         public const string AUDIO_MUSIC_VILLAGE = "Audio/Music/music_village";
         public const string AUDIO_MUSIC_UNDERGROUND = "Audio/Music/music_underground";
 

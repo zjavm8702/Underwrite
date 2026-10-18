@@ -24,6 +24,34 @@ namespace Underwrite.Utility
         private string MusicPath = string.Empty;
         private float MusicTarget;
 
+        /// <summary>
+        /// 소리 크기 단계. 0 크게, 1 작게, 2 끔. 이 컴퓨터에만 남는 편의 설정이라 저장 파일이 아니라 PlayerPrefs에 둔다.
+        /// </summary>
+        public static int VolumeStep { get; private set; }
+
+        private static float VolumeScale
+        {
+            get
+            {
+                return Constants.AUDIO_VOLUME_STEPS[VolumeStep];
+            }
+        }
+
+        /// <summary>다음 크기로 돌린다. 크게 → 작게 → 끔 → 크게.</summary>
+        public static void CycleVolume()
+        {
+            VolumeStep = (VolumeStep + 1) % Constants.AUDIO_VOLUME_STEPS.Length;
+            PlayerPrefs.SetInt(StringConstants.PREF_VOLUME_STEP, VolumeStep);
+            PlayerPrefs.Save();
+
+            GameAudio audio;
+
+            if (TryGetInstance(out audio) == true && string.IsNullOrEmpty(audio.MusicPath) == false)
+            {
+                audio.MusicTarget = Constants.AUDIO_MUSIC_VOLUME * VolumeScale;
+            }
+        }
+
         /// <summary>새로 만들지 않고 지금 있는 것을 찾는다. 종료 중이면 없다.</summary>
         public static bool TryGetInstance(out GameAudio audio)
         {
@@ -90,6 +118,8 @@ namespace Underwrite.Utility
         private void Awake()
         {
             instance = this;
+            VolumeStep = Mathf.Clamp(PlayerPrefs.GetInt(StringConstants.PREF_VOLUME_STEP, 0), 0,
+                Constants.AUDIO_VOLUME_STEPS.Length - 1);
             Music = gameObject.AddComponent<AudioSource>();
             Music.loop = true;
             Music.playOnAwake = false;
@@ -201,7 +231,7 @@ namespace Underwrite.Utility
 
             Music.clip = clip;
             Music.Play();
-            MusicTarget = Constants.AUDIO_MUSIC_VOLUME;
+            MusicTarget = Constants.AUDIO_MUSIC_VOLUME * VolumeScale;
         }
 
         private void PlayEffect(SoundEffect effect)
@@ -213,7 +243,7 @@ namespace Underwrite.Utility
                 return;
             }
 
-            Effects.PlayOneShot(Clips[index], Constants.AUDIO_EFFECT_VOLUME);
+            Effects.PlayOneShot(Clips[index], Constants.AUDIO_EFFECT_VOLUME * VolumeScale);
         }
     }
 }

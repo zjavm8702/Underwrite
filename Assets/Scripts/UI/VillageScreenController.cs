@@ -1473,6 +1473,8 @@ namespace Underwrite.UI
             var canSkip = Clock.LatestBreakMinute > Clock.BreakMinuteOfDay;
             MenuItem(list, StringConstants.TEXT_SKIP_BREAK, canSkip, StringConstants.TEXT_MENU_NO_TIME, OpenClock);
             MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
+            MenuItem(list, string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]),
+                true, string.Empty, GameAudio.CycleVolume);
 
             if (CanSleep() == true)
             {
