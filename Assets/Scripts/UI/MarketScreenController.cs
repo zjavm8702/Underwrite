@@ -729,6 +729,7 @@ namespace Underwrite.UI
 
                 GatherSession.BeginBreak(Sim.NextBriefingSlot, Sim.Wallet.AvailableCash);
                 ResetViewState();
+                ShowReopening();
                 Message = string.Format(StringConstants.TEXT_SESSION_OPENED,
                     SessionName(Sim.Clock.Session));
                 return;
@@ -777,13 +778,26 @@ namespace Underwrite.UI
                 Side, true);
         }
 
-        /// <summary>
-        /// 장이 끝났음을 시장에 알리고, 주기가 넘어갔으면 그 결과를 쪽지로 띄운다.
-        /// 상장과 상장 폐지는 놓치면 안 되는 소식이라 흘려보내지 않는다.
-        /// </summary>
+        /// <summary>장이 끝났음을 시장에 알린다. 계절 넘김의 소식은 재개장 때 <see cref="ShowReopening"/>이 띄운다.</summary>
         private void RollCycle()
         {
-            Sim.EndSessionAndRoll();
+            Sim.EndSession();
+        }
+
+        /// <summary>
+        /// 재개장 장이 열렸으면 원정 결과의 갭과 계절 넘김의 소식(상장·상장 폐지·도착)을 쪽지로 띄운다.
+        /// 상장과 상장 폐지는 놓치면 안 되는 소식이라 흘려보내지 않는다.
+        /// </summary>
+        private void ShowReopening()
+        {
+            if (Sim.JustReopened == false)
+            {
+                return;
+            }
+
+            var title = ClockText.SeasonDay(Sim.Clock.Day);
+            ShowToast(title, string.Format(StringConstants.TEXT_REOPEN_GAP, Sim.ReopenGapUp, Sim.ReopenGapDown),
+                Side, true);
 
             var liquidation = string.Empty;
 
@@ -798,13 +812,13 @@ namespace Underwrite.UI
                     continue;
                 }
 
-                ShowToast($"{Sim.Clock.Cycle}주기", notice, Side, true);
+                ShowToast(title, notice, Side, true);
             }
 
             if (liquidation.Length > 0 && Popup != null)
             {
                 Sim.Clock.SetPaused(true);
-                Popup.Show($"{Sim.Clock.Cycle}주기", "상장 폐지", liquidation, "확인", null,
+                Popup.Show(title, "상장 폐지", liquidation, "확인", null,
                     () => Sim.Clock.SetPaused(false), null);
             }
 

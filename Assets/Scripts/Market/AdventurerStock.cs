@@ -235,6 +235,17 @@ namespace Underwrite.Market
             Price = next;
         }
 
+        /// <summary>
+        /// 장이 열리자마자 값이 뛰어 있다(재개장 갭). 장 시작가는 지난 종가로 두어 등락률에 갭이 보이게 하고,
+        /// 차트는 뛴 자리에서 시작한다. <see cref="BeginSession"/> 뒤에 부른다.
+        /// </summary>
+        internal void ApplyOpeningGap(float next)
+        {
+            SetPrice(next);
+            History.Clear();
+            History.Add(Price);
+        }
+
         internal void RecordHistory()
         {
             History.Add(Price);

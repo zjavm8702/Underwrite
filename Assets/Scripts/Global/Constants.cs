@@ -182,6 +182,7 @@ namespace Underwrite.Global
         public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
         // 「1년 봄 2일째」. 해·계절 이름·계절 안의 날.
         public static string TEXT_SEASON_DAY = "{0}년 {1} {2}일째";
+        public static string TEXT_REOPEN_GAP = "재개장 — 원정 결과가 알려진 만큼 값이 움직인 채 열렸다. 뛴 종목 {0} · 떨어진 종목 {1}";
         public static readonly string[] TEXT_SEASON_NAMES = { "봄", "여름", "가을", "겨울" };
 
         // 장소 이름표 아래 줄 — 거기서 무엇을 할 수 있는가(2026-10-17)
@@ -353,6 +354,12 @@ namespace Underwrite.Global
 
         // 여관 소문은 장 사람들도 듣는다. 주기 초에 말하는 변화의 이만큼이 기대로 먼저 붙는다.
         public static float CODEX_TAVERN_CROWD_SHARE = 0.5f;
+
+        // 재개장 갭(시간구조 설계안 §2). 원정 결과로 바뀐 목표가까지의 거리 가운데 이만큼을 장이 열리자마자 건너뛴다.
+        // 나머지는 장중에 따라간다 — 열자마자 다 반영되면 정보 타임에 할 일이 없다.
+        public static float REOPEN_GAP_SHARE = 0.6f;
+        // 이보다 작게 움직인 종목은 재개장 알림에서 오르내린 수로 세지 않는다.
+        public static float REOPEN_GAP_MIN_RATIO = 0.005f;
 
         /// <summary>
         /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.

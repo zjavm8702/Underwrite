@@ -196,7 +196,7 @@ namespace Underwrite.Market
             {
                 OpenNextSession(isInspectionDay);
                 SkipToClose();
-                EndSessionAndRoll();
+                EndSession();
             }
 
             // 연출을 띄울 사람이 없었다. 쌓인 보고는 내려놓는다.
@@ -413,20 +413,28 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>
-        /// 장 하나가 끝났음을 알리고, 주기가 넘어가면 상장과 이탈을 처리한다.
-        /// 설계안 §3의 생애(도착 → 상장 → 성장 → 이탈)에서 시장에 보이는 두 지점만 다룬다.
-        /// </summary>
-        public void EndSessionAndRoll()
+        /// <summary>장 하나가 끝났음을 알린다. 계절 넘김은 여기가 아니라 재개장에서 한다(<see cref="OpenNextSession"/>).</summary>
+        public void EndSession()
         {
-            Notices.Clear();
             GrowIndexStocks();
+            Clock.CountSession();
+        }
 
-            if (Clock.CountSessionAndAdvanceCycle() == false)
-            {
-                return;
-            }
+        /// <summary>
+        /// 재개장 장이 열렸는가, 그리고 원정 결과로 값이 뛰고 떨어진 종목 수. 거래 화면이 알릴 때 읽는다.
+        /// 다음 장이 열리면 지워진다.
+        /// </summary>
+        public bool JustReopened { get; private set; }
+        public int ReopenGapUp { get; private set; }
+        public int ReopenGapDown { get; private set; }
 
+        /// <summary>
+        /// 원정 휴장이 끝나고 새 계절의 재개장 장이 열린다(시간구조 설계안 §2).
+        /// 지난 계절의 결과(도감 사정·소문의 진위)가 드러나고, 상장과 이탈이 처리되고, 새 단이 영지에 온다.
+        /// 설계안 §3의 생애(도착 → 상장 → 성장 → 이탈)에서 시장에 보이는 지점들이다.
+        /// </summary>
+        private void RollSeason()
+        {
             ResolveCodexCycle(Clock.Cycle - 1);
             ApplyDepartures();
             ApplyArrivals();
@@ -1220,9 +1228,68 @@ namespace Underwrite.Market
                 Clock.AdvanceDay();
             }
 
+            Notices.Clear();
+            JustReopened = false;
+            ReopenGapUp = 0;
+            ReopenGapDown = 0;
+
+            // 휴장 동안 거래되던 종목. 재개장에 새로 상장하는 단은 갭에서 뺀다 — 공모가에 사는 것이 상장 전에 캔 사람의 몫이다.
+            var tradedBefore = new List<AdventurerStock>();
+
+            if (Clock.AdvanceCycleForReopening(Clock.Day) == true)
+            {
+                for (var i = 0; i < StockOrder.Count; i++)
+                {
+                    if (StockOrder[i].IsTradable == true)
+                    {
+                        tradedBefore.Add(StockOrder[i]);
+                    }
+                }
+
+                RollSeason();
+                JustReopened = true;
+            }
+
             // 달력의 시찰일이면 닫는다. 인자는 시험용으로 강제로 닫을 때 쓴다.
             var halted = isInspectionDay == true || MarketClock.IsInspectionDay(Clock.Day);
             OpenSession(halted, next);
+
+            if (JustReopened == true && halted == false)
+            {
+                ApplyReopeningGap(tradedBefore);
+            }
+        }
+
+        /// <summary>
+        /// 재개장 갭. 원정 결과가 알려진 만큼 장이 열리자마자 이미 뛰었거나 떨어져 있다(설계안 §2).
+        /// 목표가까지의 거리 가운데 <see cref="Constants.REOPEN_GAP_SHARE"/>만 한 번에 건너뛰고, 나머지는 장중에 따라간다.
+        /// 휴장 중에는 주문을 받지 않으므로 이 갭은 피할 수 없다 — 출발 밤에 들고 가느냐가 판단이다.
+        /// </summary>
+        private void ApplyReopeningGap(List<AdventurerStock> stocks)
+        {
+            for (var i = 0; i < stocks.Count; i++)
+            {
+                var stock = stocks[i];
+
+                // 상장 폐지된 단은 이미 청산됐다.
+                if (stock.IsTradable == false)
+                {
+                    continue;
+                }
+
+                var next = stock.Price + (stock.TargetPrice - stock.Price) * Constants.REOPEN_GAP_SHARE;
+
+                if (next > stock.Price * (1f + Constants.REOPEN_GAP_MIN_RATIO))
+                {
+                    ReopenGapUp++;
+                }
+                else if (next < stock.Price * (1f - Constants.REOPEN_GAP_MIN_RATIO))
+                {
+                    ReopenGapDown++;
+                }
+
+                stock.ApplyOpeningGap(next);
+            }
         }
 
         /// <summary>폐장 시 남은 지정가 주문을 정리한다. 다음 장으로 넘기지 않는다.</summary>

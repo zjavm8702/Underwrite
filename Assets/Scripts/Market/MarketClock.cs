@@ -352,7 +352,7 @@ namespace Underwrite.Market
         /// <summary>
         /// 몇 주기째인가. 주기는 계절이고 원정 한 번이며 40주기가 10년이다. 설계안 §2.
         /// 가격 계산에는 쓰지 않는다. 상장과 이탈이 이 숫자로 일어난다.
-        /// 계절의 마지막 오후장이 끝나는 순간 넘어가므로, 그 밤 동안은 <see cref="SeasonOf"/>(Day)보다 하나 앞선다.
+        /// 다음 계절의 재개장 장이 열리는 순간 넘어간다(원정 결과가 그때 드러난다). 장중에는 <see cref="SeasonOf"/>(Day)와 같다.
         /// </summary>
         public int Cycle { get; private set; } = 1;
 
@@ -577,20 +577,24 @@ namespace Underwrite.Market
             Phase = MarketPhase.Phase_Open;
         }
 
-        /// <summary>
-        /// 장 하나를 끝낸 것으로 센다. 주기가 넘어가면 참을 돌려준다.
-        /// 장 수가 아니라 날짜로 판정한다 — 계절 첫날은 장이 하나뿐이라 장 수로 세면 날짜와 어긋난다.
-        /// </summary>
-        public bool CountSessionAndAdvanceCycle()
+        /// <summary>장 하나를 끝낸 것으로 센다.</summary>
+        public void CountSession()
         {
             SessionsDone++;
+        }
 
-            if (IsLastSessionOfCycle == false)
+        /// <summary>
+        /// 주기를 넘긴다. 이 날 열리는 장이 새 계절의 재개장이고 아직 넘기지 않았으면 참.
+        /// 첫 계절의 재개장(게임 시작)은 넘길 것이 없다. 날짜로 판정하므로 두 번 불러도 한 번만 넘어간다.
+        /// </summary>
+        public bool AdvanceCycleForReopening(int day)
+        {
+            if (DayInSeason(day) != 1 || SeasonOf(day) <= Cycle)
             {
                 return false;
             }
 
-            Cycle++;
+            Cycle = SeasonOf(day);
             return true;
         }
 
