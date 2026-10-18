@@ -12,7 +12,8 @@ namespace Underwrite.Enumeration
         Giver_Archivist,
         Giver_Broker,
         Giver_Swordswoman,
-        Giver_Scholar
+        Giver_Scholar,
+        Giver_Elf
     }
 
     /// <summary>

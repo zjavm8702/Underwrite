@@ -1776,9 +1776,10 @@ namespace Underwrite.UI
                 }
                 case QuestGiver.Giver_Swordswoman:
                 case QuestGiver.Giver_Scholar:
+                case QuestGiver.Giver_Elf:
                 {
                     // 부탁할 사람이 떠났으면 혼잣말로 받는다.
-                    var hero = HeroRoster.All[quest.Giver == QuestGiver.Giver_Scholar ? 0 : 1];
+                    var hero = HeroRoster.All[HeroIndexOf(quest.Giver)];
                     line = hero.Condition == HeroCondition.Condition_Dead
                         ? new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, quest.Ask)
                         : HeroLine(hero, quest.Ask, PortraitEmotion.Emotion_Neutral);
@@ -1794,6 +1795,25 @@ namespace Underwrite.UI
             line.Note = string.Format(StringConstants.TEXT_QUEST_LABEL, quest.Title);
             Dialogue.SetBackground(BackgroundOf(place));
             Dialogue.Play(new List<DialogueLine> { line }, null);
+        }
+
+        private static int HeroIndexOf(QuestGiver giver)
+        {
+            switch (giver)
+            {
+                case QuestGiver.Giver_Scholar:
+                {
+                    return 0;
+                }
+                case QuestGiver.Giver_Elf:
+                {
+                    return 2;
+                }
+                default:
+                {
+                    return 1;
+                }
+            }
         }
 
         private DialogueLine GiverLine(InfoSource source, string text)

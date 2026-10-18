@@ -140,6 +140,9 @@ namespace Underwrite.Story
             Quests[6].Goal = 2;
             Add(7, QuestGiver.Giver_Swordswoman, 0f, () => HeroRoster.DayOffDone);
             Add(8, QuestGiver.Giver_Scholar, 0f, () => HeroRoster.ReturnDone);
+            // 둘째 계절 — 데모의 절정(방패 사정)과 이야기의 줄기(국경의 징조)로 이끈다(2026-10-18).
+            Add(9, QuestGiver.Giver_Swordswoman, 0f, () => PatronageLedger.IsMet(StringConstants.NEED_SHIELD_ID));
+            Add(10, QuestGiver.Giver_Elf, 0f, () => SeasonPlan.OmenClues > 0);
         }
 
         private static void Add(int index, QuestGiver giver, float reward, Func<bool> isDone)
