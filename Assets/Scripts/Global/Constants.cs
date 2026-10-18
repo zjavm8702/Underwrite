@@ -368,6 +368,16 @@ namespace Underwrite.Global
         // 가장 친한 용사의 호감이 이만큼이면 원정지에서 편지가 온다.
         public static int HERO_LETTER_AFFINITY = 2;
 
+        // 장부 맞추기(길드 기록실). 들어가는 데 드는 시간, 잘못 짚을 때마다 더 드는 시간, 쫓겨나는 의심.
+        // 묻기(60분·돈)보다 짧지만 틀리면 길어진다. 장부의 단 수는 4~6.
+        public static int LEDGER_MINUTES = 30;
+        public static int LEDGER_WRONG_MINUTES = 10;
+        public static int LEDGER_MAX_SUSPICION = 3;
+        public static int LEDGER_MIN_ROWS = 4;
+        public static int LEDGER_MAX_ROWS = 6;
+        // 지급 기록이 며칠 전까지 거슬러 올라가는가.
+        public static int LEDGER_DAYS_BACK = 3;
+
         /// <summary>
         /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.
         /// 장중과 달리 압축하지 않는다. 그 시간이 플레이어의 것이기 때문이다.

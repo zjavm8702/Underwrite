@@ -1808,4 +1808,156 @@
     align-self: center;
 }
 
+/* ── 장부 맞추기 (길드 기록실) ───────────────
+   길드 기록실 배경 위에 양피지 두 장. 숫자를 읽는 칸이라 장식은 테두리(양피지 틀)에만 둔다. */
+.ledger {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url("project://database/Assets/UI/Images/place_guild.png");
+    -unity-background-scale-mode: scale-and-crop;
+    padding: 28px 48px 28px 48px;
+}
 
+.ledger-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ledger-title {
+    font-size: 30px;
+    -unity-font-style: bold;
+    color: #F2C46B;
+    padding: 8px 20px 8px 20px;
+    border-radius: 12px;
+    background-color: rgba(30, 22, 15, 0.82);
+}
+
+.ledger-suspicion {
+    font-size: 20px;
+    color: #F7F0E2;
+    padding: 8px 18px 8px 18px;
+    border-radius: 12px;
+    background-color: rgba(122, 34, 28, 0.85);
+}
+
+.ledger-hint {
+    margin-top: 12px;
+    font-size: 19px;
+    color: #F7F0E2;
+    white-space: normal;
+    padding: 8px 18px 8px 18px;
+    border-radius: 10px;
+    background-color: rgba(30, 22, 15, 0.7);
+    align-self: flex-start;
+}
+
+.ledger-pages {
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.ledger-page {
+    width: 46%;
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 30px 36px 30px 36px;
+}
+
+.ledger-head {
+    font-size: 16px;
+    color: var(--color-text-weak);
+    margin-top: 6px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--color-divider);
+}
+
+.ledger-list {
+    flex-grow: 1;
+}
+
+.ledger-row {
+    font-size: 20px;
+    color: var(--color-text);
+    white-space: normal;
+    -unity-text-align: middle-left;
+    margin: 0 0 4px 0;
+    padding: 8px 12px 8px 12px;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(201, 187, 162, 0.6);
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.ledger-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.ledger-cell {
+    font-size: 20px;
+    color: var(--color-text);
+    white-space: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.ledger-cell--grow {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.ledger-cell--day {
+    width: 76px;
+    color: var(--color-text-weak);
+}
+
+/* 숫자는 오른쪽 끝을 맞춘다. 더해 보는 퍼즐이다. */
+.ledger-cell--amount {
+    width: 80px;
+    -unity-text-align: middle-right;
+    -unity-font-style: bold;
+}
+
+.ledger-cell--note {
+    width: 72px;
+    margin-left: 18px;
+    color: var(--color-text-weak);
+}
+
+.ledger-row--pick:hover {
+    background-color: rgba(242, 196, 107, 0.35);
+}
+
+.ledger-row--wrong {
+    background-color: rgba(181, 50, 62, 0.18);
+    color: var(--color-text-weak);
+}
+
+.ledger-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ledger-message {
+    font-size: 19px;
+    color: #F7F0E2;
+    flex-grow: 1;
+    white-space: normal;
+}
+
+.ledger-leave {
+    width: 200px;
+    height: 56px;
+    font-size: 20px;
+}

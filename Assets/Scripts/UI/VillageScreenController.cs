@@ -115,7 +115,8 @@ namespace Underwrite.UI
         {
             var talking = Dialogue != null && Dialogue.IsOpen == true;
             WorldBubbles.Tick(talking);
-            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true, Constants.SIGN_HEIGHT_UNITS);
+            WorldSigns.Tick(talking || ClockOpen == true || NotebookOpen == true || LedgerOpen == true,
+                Constants.SIGN_HEIGHT_UNITS);
         }
 
         // 폰은 꺼지기 전에 알려 주지 않는다. 앱이 뒤로 가는 순간이 마지막 기회다.
@@ -214,12 +215,12 @@ namespace Underwrite.UI
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || MenuOpen == true || NotebookOpen == true || Approaching == true;
+                || MenuOpen == true || NotebookOpen == true || LedgerOpen == true || Approaching == true;
 
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
             // (2026-10-17 사용자 보고).
             LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true) || ClockOpen == true
-                || NotebookOpen == true);
+                || NotebookOpen == true || LedgerOpen == true);
 
             var keyboard = Keyboard.current;
 
@@ -230,7 +231,7 @@ namespace Underwrite.UI
             }
 
             if ((Here == null && NearNpc == null) || Dialogue == null || Dialogue.IsOpen == true
-                || ClockOpen == true || Approaching == true || NotebookOpen == true
+                || ClockOpen == true || Approaching == true || NotebookOpen == true || LedgerOpen == true
                 || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
@@ -634,6 +635,11 @@ namespace Underwrite.UI
                     ? string.Format(StringConstants.TEXT_WORK_NOTE, quest.Minutes, quest.Reward)
                     : string.Format(StringConstants.TEXT_WORK_NO_TIME, left);
                 choices.Add(work);
+            }
+
+            if (spot.InfoSource == InfoSource.Source_GuildRecord)
+            {
+                choices.Add(LedgerChoice(spot));
             }
 
             if (spot.HasRequestDesk == true)
@@ -2133,6 +2139,162 @@ namespace Underwrite.UI
                     return StringConstants.TEXT_SIGN_TAVERN;
                 }
             }
+        }
+
+        // ── 장부 맞추기 (시간구조 설계안 §7 — 첫 추리형 정보 모으기) ───────
+        // 의뢰 기록과 지급 기록을 맞춰 어긋난 단을 찾고, 그것이 무슨 뜻인지 짐작한다. 맞히면 그 단의 대장간 사정을 안다.
+        // 돈 대신 시간과 기록 담당의 의심을 건다. 하루에 한 번.
+
+        private UI_LedgerPuzzle Ledger;
+        private LedgerPuzzle Puzzle;
+        private VillageSpot LedgerSpot;
+        private int LedgerDay;
+
+        private bool LedgerOpen
+        {
+            get
+            {
+                return Ledger != null && Ledger.IsOpen == true;
+            }
+        }
+
+        private DialogueChoice LedgerChoice(VillageSpot spot)
+        {
+            var choice = new DialogueChoice(StringConstants.TEXT_LEDGER_CHOICE, () => StartLedger(spot));
+            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
+
+            if (BreakClock.Simulation == null)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_LEDGER_NONE;
+            }
+            else if (LedgerDay == Today())
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_LEDGER_DONE_TODAY;
+            }
+            else if (left < Constants.LEDGER_MINUTES)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
+            }
+            else
+            {
+                choice.Note = string.Format(StringConstants.TEXT_LEDGER_CHOICE_NOTE, Constants.LEDGER_MINUTES);
+            }
+
+            return choice;
+        }
+
+        private void StartLedger(VillageSpot spot)
+        {
+            Puzzle = LedgerPuzzle.Create(BreakClock.Simulation, new System.Random(Random.Range(int.MinValue, int.MaxValue)),
+                Today());
+
+            if (Puzzle == null)
+            {
+                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_LEDGER_NONE) }, null);
+                return;
+            }
+
+            Dialogue.Close();
+            LedgerSpot = spot;
+            LedgerDay = Today();
+            Clock.SpendBreakMinutes(Constants.LEDGER_MINUTES);
+
+            if (Ledger == null)
+            {
+                Ledger = new UI_LedgerPuzzle(Root);
+                Ledger.Picked += PickLedgerRow;
+                Ledger.Left += () => Ledger.Close();
+            }
+
+            Ledger.Open(Puzzle);
+        }
+
+        private void PickLedgerRow(int index)
+        {
+            if (Puzzle == null)
+            {
+                return;
+            }
+
+            if (Puzzle.Check(index) == true)
+            {
+                Ledger.Close();
+                DeduceLedger();
+                return;
+            }
+
+            Clock.SpendBreakMinutes(Constants.LEDGER_WRONG_MINUTES);
+            Ledger.MarkWrong(index, Puzzle.Suspicion);
+
+            if (Puzzle.IsKickedOut == true)
+            {
+                Ledger.Close();
+                Dialogue.SetBackground(BackgroundOf(LedgerSpot.InfoSource));
+                Dialogue.Play(new List<DialogueLine> { OwnerLine(LedgerSpot, StringConstants.TEXT_LEDGER_KICKED) },
+                    React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, null));
+            }
+        }
+
+        // 찾았다. 무슨 뜻인지 고른다. 맞는 답은 섞어서 보인다.
+        private void DeduceLedger()
+        {
+            var name = StockName(Puzzle.TargetId);
+            var options = Puzzle.TargetGains == true
+                ? StringConstants.TEXT_LEDGER_GAIN_OPTIONS
+                : StringConstants.TEXT_LEDGER_LOSS_OPTIONS;
+            var order = new List<int>();
+
+            for (var i = 0; i < options.Length; i++)
+            {
+                order.Insert(Random.Range(0, order.Count + 1), i);
+            }
+
+            var choices = new List<DialogueChoice>();
+
+            for (var i = 0; i < order.Count; i++)
+            {
+                var right = order[i] == 0;
+                choices.Add(new DialogueChoice(options[order[i]], () => ConcludeLedger(right)));
+            }
+
+            var ask = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG, StringConstants.TEXT_LEDGER_ASK);
+            ask.Choices = choices;
+
+            Dialogue.SetBackground(BackgroundOf(LedgerSpot.InfoSource));
+            Dialogue.Play(new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
+                    string.Format(StringConstants.TEXT_LEDGER_FOUND, name, Puzzle.TargetReward, Puzzle.TargetPaid)),
+                new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
+                    Puzzle.TargetGains == true ? StringConstants.TEXT_LEDGER_CLUE_GAIN : StringConstants.TEXT_LEDGER_CLUE_LOSS),
+                ask
+            }, null);
+        }
+
+        private void ConcludeLedger(bool right)
+        {
+            if (right == false)
+            {
+                var miss = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
+                    StringConstants.TEXT_LEDGER_WRONG_GUESS);
+                Dialogue.Play(new List<DialogueLine> { miss }, React(ActorMotion.Motion_Shake, ActorEmote.Emote_Dots, null));
+                return;
+            }
+
+            var id = Puzzle.TargetId;
+            var fact = BandCodex.Learn(id, CodexSource.Codex_Smith);
+
+            if (fact != null)
+            {
+                GatherSession.Record(0f, 0f, new GatheredNote(id, fact, InfoSource.Source_SmithOrder));
+            }
+
+            var line = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
+                string.Format(StringConstants.TEXT_LEDGER_RIGHT, StockName(id), fact ?? string.Empty));
+            Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
         }
 
         // ── 출발과 계절 계획 (시간구조 설계안 §2·§3) ───────
