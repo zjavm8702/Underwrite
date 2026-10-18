@@ -454,6 +454,11 @@ namespace Underwrite.Global
         // 그 단의 지난 계절 미끼 주문서를 넣을 확률(둘째 계절부터). 취소된 미끼는 늘 넣는다.
         public static float SMITH_ORDER_OLD_DECOY_CHANCE = 0.6f;
 
+        // 길드 기록 짜맞추기. 걸리는 시간, 맞춰 볼 기회, 틀릴 때마다 더 드는 시간.
+        public static int DEDUCE_MINUTES = 30;
+        public static int DEDUCE_TRIES = 3;
+        public static int DEDUCE_WRONG_MINUTES = 10;
+
         // 여관 주사위 내기. 눈 수, 한 사람의 주사위 수, 이겨야 하는 판 수, 걸리는 시간, 지면 내는 술값.
         public const int DICE_FACES = 6;
         public static int DICE_PER_PLAYER = 4;

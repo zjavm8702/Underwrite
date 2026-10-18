@@ -156,6 +156,30 @@ namespace Underwrite.Editor.Tests
         }
 
         [Test]
+        public void GuildDeductionHasOneAnswerAndMinimalClues()
+        {
+            for (var seed = 0; seed < 200; seed++)
+            {
+                var puzzle = GuildDeduction.Create(Sim, new System.Random(seed));
+                Assert.IsNotNull(puzzle, $"seed {seed}");
+                Assert.AreEqual(1, puzzle.SolutionCount(), $"seed {seed} — 답이 하나여야 한다");
+                Assert.GreaterOrEqual(puzzle.Clues.Count, 2, $"seed {seed}");
+                Assert.LessOrEqual(puzzle.Clues.Count, 9, $"seed {seed}");
+
+                var target = puzzle.BandIds.IndexOf(puzzle.TargetId);
+                Assert.AreEqual(0, puzzle.DestinationOf[target], $"seed {seed} — 보상 단이 먼 원정");
+
+                var wrong = (int[])puzzle.DestinationOf.Clone();
+                var swap = wrong[0];
+                wrong[0] = wrong[1];
+                wrong[1] = swap;
+                Assert.IsFalse(puzzle.Check(wrong, puzzle.ClientOf));
+                Assert.AreEqual(Constants.DEDUCE_TRIES - 1, puzzle.TriesLeft);
+                Assert.IsTrue(puzzle.Check(puzzle.DestinationOf, puzzle.ClientOf));
+            }
+        }
+
+        [Test]
         public void DiceChanceMatchesBinomial()
         {
             Assert.AreEqual(1f, LiarsDiceGame.ChanceAtLeast(0, 4));

@@ -1978,6 +1978,99 @@
     font-size: 20px;
 }
 
+/* ── 기록 짜맞추기 (길드) ───────────────
+   왼쪽은 쪽지 더미, 오른쪽은 채우는 표. 표는 숫자·이름 칸이라 깨끗하게. */
+.deduce {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -unity-background-scale-mode: scale-and-crop;
+    padding: 28px 48px 28px 48px;
+}
+
+.deduce-body {
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.deduce-clues {
+    width: 640px;
+    margin-right: 24px;
+}
+
+.deduce-clue-list {
+    margin-top: 10px;
+}
+
+.deduce-clue {
+    width: auto;
+    margin: 6px 0 6px 0;
+    padding: 18px 26px 18px 26px;
+    font-size: 21px;
+    color: var(--color-text);
+    white-space: normal;
+}
+
+.deduce-table {
+    width: 720px;
+    padding: 30px 36px 30px 36px;
+}
+
+.deduce-row {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.deduce-band {
+    width: 200px;
+    font-size: 21px;
+    -unity-font-style: bold;
+    color: var(--color-text);
+    white-space: normal;
+}
+
+.deduce-head {
+    width: 220px;
+    margin: 0 8px 0 8px;
+    font-size: 18px;
+    color: var(--color-text-weak);
+    -unity-text-align: middle-center;
+}
+
+.deduce-pick {
+    width: 220px;
+    height: 56px;
+    margin: 0 8px 0 8px;
+    font-size: 20px;
+    color: #2B2118;
+    background-color: #F7F0E2;
+    border-width: 2px;
+    border-color: #A89276;
+    border-radius: 10px;
+}
+
+.deduce-options {
+    margin-top: 18px;
+    padding-top: 12px;
+    font-size: 18px;
+    color: var(--color-text-weak);
+    white-space: normal;
+    border-top-width: 1px;
+    border-top-color: var(--color-divider);
+}
+
+.deduce-pick--blank {
+    color: var(--color-text-weak);
+    border-color: #D8C9B0;
+}
+
 /* ── 주사위 내기 (여관) ───────────────
    배경은 대화 배경 클래스(dialogue-root--tavern)를 함께 붙인다. 가운데 종이 한 장이 술상이다. */
 .dice {

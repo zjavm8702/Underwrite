@@ -649,6 +649,7 @@ namespace Underwrite.UI
             if (spot.InfoSource == InfoSource.Source_GuildRecord)
             {
                 choices.Add(LedgerChoice(spot));
+                choices.Add(DeduceChoice(spot));
             }
 
             if (spot.InfoSource == InfoSource.Source_SmithOrder)
@@ -2533,7 +2534,7 @@ namespace Underwrite.UI
             get
             {
                 return (Ledger != null && Ledger.IsOpen == true) || (Smith != null && Smith.IsOpen == true)
-                    || (Dice != null && Dice.IsOpen == true);
+                    || (Dice != null && Dice.IsOpen == true) || (Deduce != null && Deduce.IsOpen == true);
             }
         }
 
@@ -2822,6 +2823,107 @@ namespace Underwrite.UI
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
                 string.Format(Orders.RumorTrue == true ? StringConstants.TEXT_SMITH_RIGHT_TRUE : StringConstants.TEXT_SMITH_RIGHT_FALSE,
                     StockName(id)));
+            Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
+        }
+
+        // ── 기록 짜맞추기 (길드 — 보드게임 「미니 크라임」을 줄인 추리) ───────
+        // 기록 쪽지로 단 셋의 목적지·의뢰인을 짜맞춘다. 다 맞히면 먼 원정을 가는 단의 대장간 사정을 안다.
+        // 장부 맞추기와 같은 보상이라 둘을 견줘 보고 하나를 고른다(2026-10-18 사장님 — 구현해 보고 정한다). 하루에 한 번.
+
+        private UI_GuildDeduction Deduce;
+        private GuildDeduction DeducePuzzle;
+        private VillageSpot DeduceSpot;
+        private int DeduceDay;
+
+        private DialogueChoice DeduceChoice(VillageSpot spot)
+        {
+            var choice = new DialogueChoice(StringConstants.TEXT_DEDUCE_CHOICE, () => StartDeduce(spot));
+            var left = Clock == null ? 0 : Clock.BreakMinutesLeft;
+
+            if (BreakClock.Simulation == null)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_DEDUCE_NONE;
+            }
+            else if (DeduceDay == Today())
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_DEDUCE_DONE_TODAY;
+            }
+            else if (left < Constants.DEDUCE_MINUTES)
+            {
+                choice.IsEnabled = false;
+                choice.Note = StringConstants.TEXT_GATHER_NO_TIME;
+            }
+            else
+            {
+                choice.Note = string.Format(StringConstants.TEXT_DEDUCE_CHOICE_NOTE, Constants.DEDUCE_MINUTES);
+            }
+
+            return choice;
+        }
+
+        private void StartDeduce(VillageSpot spot)
+        {
+            DeducePuzzle = GuildDeduction.Create(BreakClock.Simulation,
+                new System.Random(Random.Range(int.MinValue, int.MaxValue)));
+
+            if (DeducePuzzle == null)
+            {
+                Dialogue.Play(new List<DialogueLine> { OwnerLine(spot, StringConstants.TEXT_DEDUCE_NONE) }, null);
+                return;
+            }
+
+            Dialogue.Close();
+            DeduceSpot = spot;
+            DeduceDay = Today();
+            Clock.SpendBreakMinutes(Constants.DEDUCE_MINUTES);
+
+            if (Deduce == null)
+            {
+                Deduce = new UI_GuildDeduction(Root);
+                Deduce.Solved += () =>
+                {
+                    Deduce.Close();
+                    ConcludeDeduce();
+                };
+                Deduce.Missed += OnDeduceMissed;
+                Deduce.Left += () => Deduce.Close();
+            }
+
+            Deduce.Open(DeducePuzzle, BackgroundOf(spot.InfoSource));
+            GameAudio.Play(SoundEffect.Sound_Page);
+        }
+
+        private void OnDeduceMissed(bool outOfTries)
+        {
+            Clock.SpendBreakMinutes(Constants.DEDUCE_WRONG_MINUTES);
+            GameAudio.Play(SoundEffect.Sound_Close);
+
+            if (outOfTries == false)
+            {
+                return;
+            }
+
+            Deduce.Close();
+            Dialogue.SetBackground(BackgroundOf(DeduceSpot.InfoSource));
+            Dialogue.Play(new List<DialogueLine> { OwnerLine(DeduceSpot, StringConstants.TEXT_DEDUCE_OUT) },
+                React(ActorMotion.Motion_Shake, ActorEmote.Emote_Exclaim, null));
+        }
+
+        private void ConcludeDeduce()
+        {
+            var id = DeducePuzzle.TargetId;
+            var fact = BandCodex.Learn(id, CodexSource.Codex_Smith);
+
+            if (fact != null)
+            {
+                GatherSession.Record(0f, 0f, new GatheredNote(id, fact, InfoSource.Source_SmithOrder));
+            }
+
+            var line = new DialogueLine(string.Empty, StringConstants.TEXT_DEDUCE_TAG,
+                string.Format(StringConstants.TEXT_DEDUCE_RIGHT, DeducePuzzle.Destinations[0], StockName(id), fact ?? string.Empty));
+            Dialogue.SetBackground(BackgroundOf(DeduceSpot.InfoSource));
             Dialogue.Play(new List<DialogueLine> { line }, React(ActorMotion.Motion_Nod, ActorEmote.Emote_Exclaim, null));
         }
 
