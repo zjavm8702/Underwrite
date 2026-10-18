@@ -26,6 +26,12 @@ namespace Underwrite.Data
         /// <summary>마지막으로 말을 나눈 날. 하루에 한 번만 이야기한다.</summary>
         public int LastTalkDay;
 
+        /// <summary>몸 상태. 놓친 사정이 원정에서 다치게 하거나 죽게 한다.</summary>
+        public Enumeration.HeroCondition Condition = Enumeration.HeroCondition.Condition_Healthy;
+
+        /// <summary>몸 상태가 바뀐 날. 귀환 장면이 「이번 원정에서 일어난 일」을 고를 때 쓴다.</summary>
+        public int ConditionDay;
+
         /// <summary>이미 나눈 이야기 주제(HeroTopic.Id). 저장이 들어오면 함께 저장한다.</summary>
         public readonly HashSet<string> TopicsSeen = new HashSet<string>();
     }

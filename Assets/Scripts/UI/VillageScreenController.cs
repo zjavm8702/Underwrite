@@ -51,7 +51,6 @@ namespace Underwrite.UI
 
         // 하루가 넘어갔는지 마지막으로 본 날. 0이면 아직 보지 않았다.
         private int LastDayChecked;
-        private bool CollapseShown;
 
         // 대화가 닫힌 뒤 보일 주인공의 반응.
         private bool HasPending;
@@ -200,7 +199,6 @@ namespace Underwrite.UI
             NpcAmbient.Player = Player;
 
             PlayPendingReaction();
-            PlayCollapseIfNeeded();
             PlayDepartureIfDue();
 
             // 실제 시간으로 날이 넘어가도(드물다) 기한은 따진다.
@@ -745,6 +743,16 @@ namespace Underwrite.UI
             {
                 var hero = heroes[i];
                 var choice = new DialogueChoice(hero.Name, () => TalkToHero(hero));
+
+                // 떠난 사람의 자리도 테이블에 남겨 둔다. 비어 있는 것이 보여야 한다.
+                if (hero.Condition == HeroCondition.Condition_Dead)
+                {
+                    choice.IsEnabled = false;
+                    choice.Note = StringConstants.TEXT_HERO_GONE;
+                    choices.Add(choice);
+                    continue;
+                }
+
                 choice.IsEnabled = hero.LastTalkDay != day;
                 choice.Note = choice.IsEnabled == true ? hero.Role : StringConstants.TEXT_HERO_TALKED_TODAY;
                 choices.Add(choice);
@@ -870,7 +878,7 @@ namespace Underwrite.UI
             HeroRoster.AddAffinityToAll(1);
 
             var favorite = HeroRoster.Favorite();
-            var sword = HeroRoster.All[1];
+            var sword = HeroRoster.All[1].Condition == HeroCondition.Condition_Dead ? favorite : HeroRoster.All[1];
             var lines = new List<DialogueLine>
             {
                 new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_OPEN),
@@ -902,20 +910,57 @@ namespace Underwrite.UI
                 new DialogueLine(string.Empty, StringConstants.TEXT_EXPEDITION_TAG, StringConstants.TEXT_RETURN_OPEN)
             };
 
-            if (PatronageLedger.Collapsed == true)
+            // 지난 계절에 놓친 사정의 대가. 몸 상태가 바뀐 날이 지난 계절 안이면 이번 원정에서 일어난 일이다.
+            var since = day - Constants.SEASON_DAYS;
+            var struck = false;
+
+            for (var i = 0; i < heroes.Count; i++)
             {
-                lines[0].Text = StringConstants.TEXT_RETURN_COLLAPSE;
-            }
-            else if (PatronageLedger.IsMet(StringConstants.NEED_HEALER_ID) == true)
-            {
-                lines.Add(HeroLine(heroes[3], StringConstants.TEXT_RETURN_GOOD, PortraitEmotion.Emotion_Happy));
-            }
-            else
-            {
-                lines.Add(HeroLine(heroes[4], StringConstants.TEXT_RETURN_HURT, PortraitEmotion.Emotion_Sad));
+                var hero = heroes[i];
+
+                if (hero.ConditionDay < since || hero.ConditionDay >= day)
+                {
+                    continue;
+                }
+
+                if (hero.Condition == HeroCondition.Condition_Dead)
+                {
+                    if (struck == false)
+                    {
+                        lines[0].Text = StringConstants.TEXT_RETURN_DEATH_OPEN;
+                    }
+
+                    lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_EXPEDITION_TAG,
+                        string.Format(StringConstants.TEXT_RETURN_DEATH_NAME, hero.Name)));
+                    var mourner = HeroRoster.Favorite();
+
+                    if (mourner != null)
+                    {
+                        lines.Add(HeroLine(mourner, StringConstants.TEXT_RETURN_DEATH_LINE, PortraitEmotion.Emotion_Sad));
+                    }
+
+                    struck = true;
+                }
+                else if (hero.Condition == HeroCondition.Condition_Wounded)
+                {
+                    lines.Add(HeroLine(hero, StringConstants.HERO_RETURN_WOUNDED[i], PortraitEmotion.Emotion_Sad));
+                    struck = true;
+                }
             }
 
-            if (PatronageLedger.Collapsed == false && PatronageLedger.Clues >= Constants.HERO_SUSPECT_CLUES)
+            if (struck == false)
+            {
+                var warrior = heroes[Constants.HERO_INDEX_WARRIOR];
+                var speaker = warrior.Condition == HeroCondition.Condition_Dead ? HeroRoster.Favorite() : warrior;
+
+                if (speaker != null)
+                {
+                    lines.Add(HeroLine(speaker, StringConstants.TEXT_RETURN_GOOD, PortraitEmotion.Emotion_Happy));
+                }
+            }
+
+            if (heroes[0].Condition != HeroCondition.Condition_Dead
+                && PatronageLedger.Clues >= Constants.HERO_SUSPECT_CLUES)
             {
                 lines.Add(HeroLine(heroes[0], StringConstants.TEXT_RETURN_SUSPECT, PortraitEmotion.Emotion_Shocked));
             }
@@ -1054,7 +1099,7 @@ namespace Underwrite.UI
 
             if (failed > 0)
             {
-                return StringConstants.TEXT_DAY_END_COLLAPSE;
+                return StringConstants.TEXT_DAY_END_FAILED;
             }
 
             var notes = new List<string>();
@@ -1076,33 +1121,6 @@ namespace Underwrite.UI
             }
 
             return string.Join("\n", notes);
-        }
-
-        /// <summary>
-        /// 시나리오가 깨졌으면 더 진행하지 않는다(설계안 §1-5). 붕괴 장면 뒤 처음(인트로)으로 돌아간다.
-        /// 매 프레임 본다. 대화나 시간 넘기기 연출이 끝난 뒤에 연다.
-        /// </summary>
-        private void PlayCollapseIfNeeded()
-        {
-            if (PatronageLedger.Collapsed == false || CollapseShown == true || Approaching == true
-                || Dialogue == null || Dialogue.IsOpen == true)
-            {
-                return;
-            }
-
-            CollapseShown = true;
-            Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
-            var ending = new List<DialogueLine>
-            {
-                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_DAY_END_COLLAPSE),
-                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_1),
-                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_2),
-                new DialogueLine(string.Empty, StringConstants.TEXT_COLLAPSE_TAG, StringConstants.TEXT_COLLAPSE_3)
-            };
-
-            // 판이 끝났다. 이어할 것이 없다 — 다음은 처음부터다.
-            SaveSystem.Delete();
-            Dialogue.Play(ending, () => SceneManager.LoadScene(SceneRoutes.INTRO));
         }
 
         /// <summary>
@@ -2132,7 +2150,7 @@ namespace Underwrite.UI
         {
             if (DepartureRunning == true || Clock == null || Clock.IsBreak == false || Approaching == true
                 || Dialogue == null || Dialogue.IsOpen == true || ClockOpen == true
-                || (Tutorial != null && Tutorial.IsOpen == true) || PatronageLedger.Collapsed == true)
+                || (Tutorial != null && Tutorial.IsOpen == true))
             {
                 return;
             }

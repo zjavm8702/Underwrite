@@ -22,8 +22,12 @@ namespace Underwrite.Story
         public static readonly System.Collections.Generic.HashSet<string> SleepSeen =
             new System.Collections.Generic.HashSet<string>();
 
+        /// <summary>파산한 횟수. 한 번은 재기하고, 두 번째는 게임오버다(2026-10-18 인터뷰).</summary>
+        public static int Bankruptcies { get; set; }
+
         public static void Reset()
         {
+            Bankruptcies = 0;
             SleepSeen.Clear();
             CellarFound = false;
             MarketTutorialDone = false;

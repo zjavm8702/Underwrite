@@ -6,6 +6,7 @@ using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
+using Underwrite.Save;
 using Underwrite.Story;
 using Underwrite.Utility;
 using UnityEngine;
@@ -783,6 +784,7 @@ namespace Underwrite.UI
         private void RollCycle()
         {
             Sim.EndSession();
+            CheckBankruptcy();
         }
 
         /// <summary>
@@ -876,29 +878,60 @@ namespace Underwrite.UI
 
             if (PatronageLedger.EndOfDay(Sim.Clock.Day - 1) > 0)
             {
-                ShowToast(StringConstants.TEXT_HERO_PARTY, StringConstants.TEXT_DAY_END_COLLAPSE, Side, false);
+                ShowToast(StringConstants.TEXT_HERO_PARTY, StringConstants.TEXT_DAY_END_FAILED, Side, false);
             }
 
             ApplyCollapse();
         }
 
         /// <summary>
-        /// 시나리오가 깨졌으면 용사단 종목을 무너뜨린다. 영지에서 깨졌어도 거래소에 들어오는 순간 반영된다.
+        /// 용사단이 사정을 놓친 대가(부상·죽음)를 용사단 종목에 반영한다. 영지에서 놓쳤어도 거래소에 들어오는 순간 반영된다.
         /// </summary>
         private void ApplyCollapse()
         {
-            if (PatronageLedger.Collapsed == false)
+            if (PatronageLedger.PendingIndexShock == 0f)
             {
                 return;
             }
 
-            var note = Sim.CollapseIndex(Constants.HERO_STOCK_ID);
+            var note = Sim.ShockIndex(Constants.HERO_STOCK_ID, PatronageLedger.PendingIndexShock);
+            PatronageLedger.ClearIndexShock();
 
             if (note != null)
             {
                 ShowToast(StringConstants.TEXT_HERO_PARTY, note, Side, false);
                 ResetViewState();
             }
+        }
+
+        /// <summary>
+        /// 장이 끝났는데 가진 것이 바닥이면 파산이다(2026-10-18 인터뷰). 첫 번째는 정보상이 재기 자금을 쥐여 준다 —
+        /// 파산할 수 있다는 것을 몸으로 알게 하려는 것이다. 두 번째는 게임오버다.
+        /// </summary>
+        private void CheckBankruptcy()
+        {
+            if (Sim.IsBankrupt == false || Popup == null)
+            {
+                return;
+            }
+
+            Sim.Clock.SetPaused(true);
+
+            if (StoryProgress.Bankruptcies == 0)
+            {
+                StoryProgress.Bankruptcies = 1;
+                Sim.Rescue(Constants.BANKRUPT_RESCUE_CASH);
+                Popup.Show(StringConstants.TEXT_BANKRUPT_TAG, StringConstants.TEXT_BANKRUPT_RESCUE_TITLE,
+                    string.Format(StringConstants.TEXT_BANKRUPT_RESCUE_BODY, Constants.BANKRUPT_RESCUE_CASH),
+                    StringConstants.TEXT_BANKRUPT_RESCUE_OK, null, () => Sim.Clock.SetPaused(false), null);
+                return;
+            }
+
+            // 판이 끝났다. 이어할 것이 없다 — 다음은 처음부터다.
+            SaveSystem.Delete();
+            Popup.Show(StringConstants.TEXT_BANKRUPT_TAG, StringConstants.TEXT_BANKRUPT_END_TITLE,
+                StringConstants.TEXT_BANKRUPT_END_BODY, StringConstants.TEXT_BANKRUPT_END_OK, null,
+                () => SceneManager.LoadScene(SceneRoutes.INTRO), null);
         }
 
         /// <summary>「지하시장 나가기」는 언제나 누를 수 있다. 장중이면 그 장을 마감하고 나간다.</summary>

@@ -651,11 +651,11 @@ namespace Underwrite.Market
         }
 
         /// <summary>
-        /// 시나리오가 깨졌다. 용사단 종목이 무너지고 상장 폐지된다(설계안 §1-5).
-        /// 지수는 안전한 것이 아니라 플레이어가 안전하게 유지하는 것이다.
-        /// 이미 무너졌으면 아무것도 하지 않고 null, 아니면 알릴 문구를 돌려준다.
+        /// 용사단이 사정을 놓쳐 누군가 다치거나 죽었다는 소식이 지하에 닿았다. 용사단 종목이 그 자리에서 떨어진다.
+        /// 지수는 안전한 것이 아니라 플레이어가 안전하게 유지하는 것이다(설계안 §1-5). 상장 폐지되지는 않는다 — 단은 남는다.
+        /// 종목이 없으면 null, 아니면 알릴 문구를 돌려준다.
         /// </summary>
-        public string CollapseIndex(string stockId)
+        public string ShockIndex(string stockId, float change)
         {
             AdventurerStock stock;
 
@@ -664,21 +664,27 @@ namespace Underwrite.Market
                 return null;
             }
 
-            stock.ResolveOutcome(Constants.HERO_INDEX_COLLAPSE_RATIO - 1f);
-            stock.SetPrice(stock.TrueValue);
+            var before = stock.Price;
+            stock.ResolveOutcome(change);
+            stock.SetPrice(stock.TargetPrice);
             stock.RecordHistory();
-            stock.Leave(DelistReason.Delist_Wiped);
+            return string.Format(Josa.Format(StringConstants.TEXT_HERO_STOCK_SHOCK, stock.DisplayName), stock.DisplayName,
+                before, stock.Price);
+        }
 
-            var held = Wallet.QuantityOf(stockId);
-
-            if (held <= 0)
+        /// <summary>장이 끝났을 때 가진 돈과 종목 값을 합쳐 파산선 아래인가.</summary>
+        public bool IsBankrupt
+        {
+            get
             {
-                return StringConstants.TEXT_HERO_STOCK_COLLAPSE_NONE;
+                return Wallet.TotalValue(StockLookup) < Constants.BANKRUPT_THRESHOLD;
             }
+        }
 
-            ReleaseOrdersOf(stockId);
-            Wallet.Sell(stockId, held, stock.TrueValue);
-            return string.Format(StringConstants.TEXT_HERO_STOCK_COLLAPSE, held, stock.TrueValue);
+        /// <summary>정보상의 재기 자금. 첫 파산에 한 번 받는다.</summary>
+        public void Rescue(float cash)
+        {
+            Wallet.Earn(cash);
         }
 
         /// <summary>

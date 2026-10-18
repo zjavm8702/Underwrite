@@ -159,7 +159,7 @@ namespace Underwrite.Save
     [Serializable]
     public sealed class PatronageState
     {
-        public bool Collapsed;
+        public float PendingIndexShock;
         public int Clues;
         public int RequestsPosted;
         public List<NeedSaveState> Needs = new List<NeedSaveState>();
@@ -189,6 +189,8 @@ namespace Underwrite.Save
         public string Id;
         public int Affinity;
         public int LastTalkDay;
+        public HeroCondition Condition;
+        public int ConditionDay;
         public List<string> TopicsSeen = new List<string>();
     }
 
@@ -199,6 +201,7 @@ namespace Underwrite.Save
         public bool MarketTutorialDone;
         public bool VillageTutorialDone;
         public List<string> SleepSeen = new List<string>();
+        public int Bankruptcies;
     }
 
     [Serializable]

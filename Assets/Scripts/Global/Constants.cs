@@ -221,7 +221,7 @@ namespace Underwrite.Global
         public static string TEXT_INVESTOR_DOWN_3 = "…이럴 줄 알았지.";
         public static string TEXT_VILLAGE_NEXT_SESSION = "다음 장까지 {0}시간 {1}분";
         public static string TEXT_DAY_END_WARNING = "여관 단골들 사이가 뒤숭숭하다. 무슨 일이 있는 모양이다.";
-        public static string TEXT_DAY_END_COLLAPSE = "용사단이 의뢰를 접고 흩어졌다는 소식이 돌았다. 10년 뒤 그 자리에 설 사람이 없다.";
+        public static string TEXT_DAY_END_FAILED = "용사단의 사정 하나를 놓쳤다. 그 값은 원정에서 치르게 된다.";
 
         // 영지 사람에게 말 걸기
         public static string TEXT_NPC_TALK_KEY = "E — 말을 건다";
@@ -467,7 +467,18 @@ namespace Underwrite.Global
         /// </summary>
         public static float HERO_INDEX_GROWTH_PER_SESSION = 0.005f;
         /// <summary>시나리오가 깨지면 남는 가치의 비율. 실적이 끊기면 지수가 성립하지 않는다.</summary>
-        public static float HERO_INDEX_COLLAPSE_RATIO = 0.12f;
+        // 놓친 사정의 대가가 지하에 알려질 때 용사단 종목이 떨어지는 비율. 다침 / 죽음.
+        public static float HERO_WOUND_INDEX_DROP = 0.12f;
+        public static float HERO_DEATH_INDEX_DROP = 0.35f;
+        // 사정이 걸린 용사의 순서(HERO_NAMES와 같다). 피오(요정)·고드릭(전사).
+        public const int HERO_INDEX_WARRIOR = 3;
+        public const int HERO_INDEX_FAIRY = 4;
+
+        // 파산(2026-10-18 인터뷰 — 재기는 한 번, 그다음은 게임오버). 장이 끝났을 때 가진 돈과 종목 값을 합쳐 이보다 적으면 파산이다.
+        // 가장 싼 단 한 주도 못 살 만큼이다.
+        public static float BANKRUPT_THRESHOLD = 30f;
+        // 첫 파산 때 정보상이 쥐여 주는 재기 자금. 시작 자금의 절반.
+        public static float BANKRUPT_RESCUE_CASH = 250f;
 
         // ── 시장 분위기별 배율 ────────────────────
         // NASDAQ 10년(2016~2025)은 상승 8년 / 하락 2년이었다. 평온한 장에 약한 상승 편향을 둔다.

@@ -22,7 +22,6 @@ namespace Underwrite.Patronage
         private static readonly List<int> ReactionDays = new List<int>();
 
         /// <summary>기한을 넘긴 사정이 있다. 시나리오가 깨졌다.</summary>
-        public static bool Collapsed { get; private set; }
 
         /// <summary>용사단이 의뢰주에 대해 쌓은 단서. 보여 주지 않는다.</summary>
         public static int Clues { get; private set; }
@@ -45,7 +44,7 @@ namespace Underwrite.Patronage
             Needs.Clear();
             Reactions.Clear();
             ReactionDays.Clear();
-            Collapsed = false;
+            PendingIndexShock = 0f;
             Clues = 0;
             RequestsPosted = 0;
         }
@@ -56,7 +55,7 @@ namespace Underwrite.Patronage
             EnsureScenario();
             var state = new PatronageState
             {
-                Collapsed = Collapsed,
+                PendingIndexShock = PendingIndexShock,
                 Clues = Clues,
                 RequestsPosted = RequestsPosted
             };
@@ -76,7 +75,7 @@ namespace Underwrite.Patronage
         {
             Reset();
             EnsureScenario();
-            Collapsed = state.Collapsed;
+            PendingIndexShock = state.PendingIndexShock;
             Clues = state.Clues;
             RequestsPosted = state.RequestsPosted;
 
@@ -212,7 +211,8 @@ namespace Underwrite.Patronage
 
         /// <summary>
         /// 하루가 끝났다. 기한이 지난 사정을 실패로 돌리고 그 수를 돌려준다.
-        /// 하나라도 실패하면 시나리오가 깨진다.
+        /// 놓친 사정의 용사가 대가를 치른다(다치거나 죽는다). 게임은 이어진다 — 그 무게를 안고 간다(2026-10-18 인터뷰).
+        /// 소식이 지하에 닿으면 용사단 종목이 떨어진다(<see cref="PendingIndexShock"/>).
         /// </summary>
         public static int EndOfDay(int day)
         {
@@ -225,12 +225,13 @@ namespace Underwrite.Patronage
                 {
                     Needs[i].State = NeedState.State_Failed;
                     failed++;
-                }
-            }
 
-            if (failed > 0)
-            {
-                Collapsed = true;
+                    var condition = HeroRoster.Strike(Needs[i].HeroIndex, Needs[i].IsFatal, day);
+                    var drop = condition == HeroCondition.Condition_Dead
+                        ? Constants.HERO_DEATH_INDEX_DROP
+                        : Constants.HERO_WOUND_INDEX_DROP;
+                    PendingIndexShock = (1f + PendingIndexShock) * (1f - drop) - 1f;
+                }
             }
 
             return failed;
@@ -296,6 +297,17 @@ namespace Underwrite.Patronage
             return false;
         }
 
+        /// <summary>
+        /// 아직 시장에 반영되지 않은 용사단 종목의 변화율. 사정을 놓친 대가가 지하에 알려질 때 거래 화면이 반영하고 지운다.
+        /// </summary>
+        public static float PendingIndexShock { get; private set; }
+
+        /// <summary>시장에 반영했다.</summary>
+        public static void ClearIndexShock()
+        {
+            PendingIndexShock = 0f;
+        }
+
         // 시제품 사정 두 건(사용자 결정 2026-10-17: 2건). 기한은 그 계절의 출발(4일째 밤) 전까지 —
         // 원정을 떠난 뒤에 닿으면 소용이 없다(2026-10-18 계절 구조). 치유사는 첫 계절, 방패는 둘째 계절의 사정이다.
         private static void EnsureScenario()
@@ -309,6 +321,7 @@ namespace Underwrite.Patronage
             {
                 Id = StringConstants.NEED_HEALER_ID,
                 Purpose = RequestPurpose.Purpose_Healing,
+                HeroIndex = Constants.HERO_INDEX_FAIRY,
                 RevealDay = 1,
                 DeadlineDays = Constants.SEASON_DAYS,
                 Rumor = StringConstants.TEXT_NEED_HEALER_RUMOR,
@@ -319,6 +332,9 @@ namespace Underwrite.Patronage
             {
                 Id = StringConstants.NEED_SHIELD_ID,
                 Purpose = RequestPurpose.Purpose_Gear,
+                HeroIndex = Constants.HERO_INDEX_WARRIOR,
+                // 금 간 방패로 국경에 선다. 놓치면 목숨을 잃는다 — 데모 안에서 「잃을 수 있다」가 실제로 생긴다(2026-10-18).
+                IsFatal = true,
                 RevealDay = Constants.SEASON_DAYS + 2,
                 DeadlineDays = Constants.SEASON_DAYS - 1,
                 Rumor = StringConstants.TEXT_NEED_SHIELD_RUMOR,

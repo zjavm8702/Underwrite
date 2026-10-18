@@ -68,7 +68,8 @@ namespace Underwrite.Save
                 {
                     CellarFound = StoryProgress.CellarFound,
                     MarketTutorialDone = StoryProgress.MarketTutorialDone,
-                    VillageTutorialDone = StoryProgress.VillageTutorialDone
+                    VillageTutorialDone = StoryProgress.VillageTutorialDone,
+                    Bankruptcies = StoryProgress.Bankruptcies
                 }
             };
 
@@ -176,6 +177,7 @@ namespace Underwrite.Save
             StoryProgress.CellarFound = data.Story.CellarFound;
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
+            StoryProgress.Bankruptcies = data.Story.Bankruptcies;
             StoryProgress.SleepSeen.Clear();
             StoryProgress.SleepSeen.UnionWith(data.Story.SleepSeen);
             return true;

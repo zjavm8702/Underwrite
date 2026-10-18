@@ -21,6 +21,12 @@ namespace Underwrite.Data
         /// <summary>일어난 날부터 며칠 안에 해결해야 하는가.</summary>
         public int DeadlineDays;
 
+        /// <summary>이 사정이 걸린 용사(HeroRoster 순서). 놓치면 이 사람이 대가를 치른다.</summary>
+        public int HeroIndex;
+
+        /// <summary>놓치면 다치는 것으로 끝나지 않고 목숨을 잃는 사정인가.</summary>
+        public bool IsFatal;
+
         /// <summary>여관에서 엿듣는 말.</summary>
         public string Rumor;
 

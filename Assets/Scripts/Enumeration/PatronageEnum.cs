@@ -31,8 +31,19 @@ namespace Underwrite.Enumeration
         /// <summary>맞는 의뢰가 들어가 해결됐다.</summary>
         State_Met,
 
-        /// <summary>기한을 넘겼다. 시나리오가 깨진다(상장흐름 설계안 §1-5).</summary>
+        /// <summary>기한을 넘겼다. 그 사정의 용사가 원정에서 대가를 치른다(다치거나 죽는다).</summary>
         State_Failed
+    }
+
+    /// <summary>
+    /// 용사의 몸 상태(2026-10-18 인터뷰 — 인물은 죽을 수 있다). 놓친 사정이 원정에서 이렇게 돌아온다.
+    /// 다친 용사는 다음 사정을 또 놓치면 죽는다.
+    /// </summary>
+    public enum HeroCondition
+    {
+        Condition_Healthy,
+        Condition_Wounded,
+        Condition_Dead
     }
 
     /// <summary>모험단 도감의 한 줄을 어디서 알 수 있는가. 순서는 CODEX_HINTS와 같다. 말 걸기·길드는 변하지 않고, 대장간·여관은 주기마다 바뀐다.</summary>

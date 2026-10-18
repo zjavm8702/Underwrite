@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Underwrite.Data;
+using Underwrite.Enumeration;
 using Underwrite.Global;
 using UnityEngine;
 using Underwrite.Save;
@@ -46,7 +47,14 @@ namespace Underwrite.Patronage
 
             for (var i = 0; i < Heroes.Count; i++)
             {
-                var hero = new HeroState { Id = Heroes[i].Id, Affinity = Heroes[i].Affinity, LastTalkDay = Heroes[i].LastTalkDay };
+                var hero = new HeroState
+                {
+                    Id = Heroes[i].Id,
+                    Affinity = Heroes[i].Affinity,
+                    LastTalkDay = Heroes[i].LastTalkDay,
+                    Condition = Heroes[i].Condition,
+                    ConditionDay = Heroes[i].ConditionDay
+                };
                 hero.TopicsSeen.AddRange(Heroes[i].TopicsSeen);
                 state.People.Add(hero);
             }
@@ -74,6 +82,8 @@ namespace Underwrite.Patronage
 
                     Heroes[h].Affinity = row.Affinity;
                     Heroes[h].LastTalkDay = row.LastTalkDay;
+                    Heroes[h].Condition = row.Condition;
+                    Heroes[h].ConditionDay = row.ConditionDay;
                     Heroes[h].TopicsSeen.UnionWith(row.TopicsSeen);
                 }
             }
@@ -132,20 +142,53 @@ namespace Underwrite.Patronage
         }
 
         /// <summary>호감이 가장 높은 사람. 같으면 앞사람. 시찰일 장면의 마지막 한마디를 이 사람이 한다.</summary>
+        /// <summary>가장 친한 살아 있는 용사. 모두 떠났으면 null.</summary>
         public static HeroProfile Favorite()
         {
             Ensure();
-            var best = Heroes[0];
+            HeroProfile best = null;
 
-            for (var i = 1; i < Heroes.Count; i++)
+            for (var i = 0; i < Heroes.Count; i++)
             {
-                if (Heroes[i].Affinity > best.Affinity)
+                if (Heroes[i].Condition == HeroCondition.Condition_Dead)
+                {
+                    continue;
+                }
+
+                if (best == null || Heroes[i].Affinity > best.Affinity)
                 {
                     best = Heroes[i];
                 }
             }
 
             return best;
+        }
+
+        /// <summary>
+        /// 놓친 사정의 대가. 성한 사람은 다치고, 이미 다친 사람이나 목숨이 걸린 사정이면 죽는다.
+        /// 바뀐 몸 상태를 돌려준다.
+        /// </summary>
+        public static HeroCondition Strike(int index, bool fatal, int day)
+        {
+            Ensure();
+
+            if (index < 0 || index >= Heroes.Count)
+            {
+                return HeroCondition.Condition_Healthy;
+            }
+
+            var hero = Heroes[index];
+
+            if (hero.Condition == HeroCondition.Condition_Dead)
+            {
+                return hero.Condition;
+            }
+
+            hero.Condition = fatal == true || hero.Condition == HeroCondition.Condition_Wounded
+                ? HeroCondition.Condition_Dead
+                : HeroCondition.Condition_Wounded;
+            hero.ConditionDay = day;
+            return hero.Condition;
         }
 
         public static void AddAffinityToAll(int amount)
