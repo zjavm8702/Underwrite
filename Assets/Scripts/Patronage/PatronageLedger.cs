@@ -115,6 +115,40 @@ namespace Underwrite.Patronage
         }
 
         /// <summary>
+        /// 아직 드러나지 않은 사정을 미리 알게 된다(원정지에서 온 편지). 들은 것으로 치고 의뢰를 받을 수 있게 연다.
+        /// 기한은 그대로다 — 일찍 알았다고 늦게 해결해도 되는 것은 아니다.
+        /// </summary>
+        public static void RevealEarly(string needId)
+        {
+            EnsureScenario();
+
+            for (var i = 0; i < Needs.Count; i++)
+            {
+                if (Needs[i].Id == needId && Needs[i].State == NeedState.State_Hidden)
+                {
+                    Needs[i].State = NeedState.State_Open;
+                    Needs[i].Heard = true;
+                }
+            }
+        }
+
+        /// <summary>그 사정이 아직 드러나지 않았는가.</summary>
+        public static bool IsHidden(string needId)
+        {
+            EnsureScenario();
+
+            for (var i = 0; i < Needs.Count; i++)
+            {
+                if (Needs[i].Id == needId)
+                {
+                    return Needs[i].State == NeedState.State_Hidden;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// 여관에서 엿들을 말을 하나 꺼낸다. 의뢰에 대한 반응이 먼저, 아직 못 들은 사정이 다음이다.
         /// 들을 것이 없으면 null.
         /// </summary>
@@ -283,7 +317,7 @@ namespace Underwrite.Patronage
 
             Needs.Add(new HeroNeed
             {
-                Id = "need_shield",
+                Id = StringConstants.NEED_SHIELD_ID,
                 Purpose = RequestPurpose.Purpose_Gear,
                 RevealDay = Constants.SEASON_DAYS + 2,
                 DeadlineDays = Constants.SEASON_DAYS - 1,

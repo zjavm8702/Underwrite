@@ -1346,6 +1346,12 @@ namespace Underwrite.Market
 
             NextSlot++;
 
+            if (InformantTips > 0)
+            {
+                InformantTips--;
+                AddInformantTip();
+            }
+
             Briefing.Clear();
 
             for (var i = before; i < InfoEntries.Count; i++)
@@ -1358,6 +1364,55 @@ namespace Underwrite.Market
             {
                 HasBriefing = true;
             }
+        }
+
+        // 이번 장에서 정보상이 더 해 줄 귀띔(계절 계획 「지하 사람들과 어울린다」). 장 밖에서는 저장하지 않는다 — 재개장 장에서 받아 그 장에 쓴다.
+        private int InformantTips;
+
+        /// <summary>정보상이 이번 장의 정보 타임마다 귀띔을 하나씩 더 준다. 정보 타임이 남은 만큼만 쓰인다.</summary>
+        public void GrantInformantTips(int count)
+        {
+            InformantTips += count;
+        }
+
+        /// <summary>
+        /// 원정 결과를 아직 덜 따라간 종목 하나를 짚는다. 목표가와의 거리가 가장 큰 단이다.
+        /// 용사단(지수형)은 놀라움이 없으니 뺀다.
+        /// </summary>
+        private void AddInformantTip()
+        {
+            AdventurerStock best = null;
+            var bestGap = 0f;
+
+            for (var i = 0; i < StockOrder.Count; i++)
+            {
+                var stock = StockOrder[i];
+
+                if (stock.IsTradable == false || stock.Personality == StockPersonality.Personality_Index
+                    || stock.Price <= 0f)
+                {
+                    continue;
+                }
+
+                var gap = Math.Abs(stock.TargetPrice - stock.Price) / stock.Price;
+
+                if (gap > bestGap)
+                {
+                    bestGap = gap;
+                    best = stock;
+                }
+            }
+
+            if (best == null)
+            {
+                return;
+            }
+
+            var format = best.TargetPrice > best.Price
+                ? StringConstants.TEXT_INFORMANT_TIP_UP
+                : StringConstants.TEXT_INFORMANT_TIP_DOWN;
+            InfoEntries.Add(new InfoEntry(Clock.Tick, best.Id, string.Format(format, best.DisplayName),
+                InfoSource.Source_BrokerLeak, EventStage.Stage_Report, false, Clock.Day, Clock.Session));
         }
 
         /// <summary>다음 정보 타임이 열리는 틱. 두 번을 다 쓰면 이 장에는 더 없다.</summary>

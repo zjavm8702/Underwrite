@@ -30,6 +30,17 @@ namespace Underwrite.Save
         public StoryState Story = new StoryState();
         public List<CodexState> Codex = new List<CodexState>();
         public int QuestIndex;
+        public SeasonPlanState SeasonPlan = new SeasonPlanState();
+    }
+
+    [Serializable]
+    public sealed class SeasonPlanState
+    {
+        public List<int> Departed = new List<int>();
+        public int PendingGuild;
+        public int PendingSmith;
+        public int PendingTips;
+        public int OmenClues;
     }
 
     [Serializable]

@@ -361,6 +361,13 @@ namespace Underwrite.Global
         // 이보다 작게 움직인 종목은 재개장 알림에서 오르내린 수로 세지 않는다.
         public static float REOPEN_GAP_MIN_RATIO = 0.005f;
 
+        // 계절 계획(시간구조 설계안 §3). 여관 일 한 달에 버는 돈, 짐수레 한 달에 오르는 호감.
+        // 여관 일 셋이면 시작 자금(500)의 절반쯤 — 투자 자금이 필요한 계절에 고를 만하게.
+        public static float PLAN_INN_EARN = 80f;
+        public static int PLAN_WAGON_AFFINITY = 1;
+        // 가장 친한 용사의 호감이 이만큼이면 원정지에서 편지가 온다.
+        public static int HERO_LETTER_AFFINITY = 2;
+
         /// <summary>
         /// 영지에서 흐르는 시간의 속도. 기획서 §11에서 실시간 1:1로 확정했다.
         /// 장중과 달리 압축하지 않는다. 그 시간이 플레이어의 것이기 때문이다.
@@ -605,6 +612,8 @@ namespace Underwrite.Global
         public static int REQUEST_MINUTES = 30;
         /// <summary>목적별 예치금. 시작 자금 500에 견주었다. 시제품 검증에서 조정한다.</summary>
         public static float REQUEST_COST_HEALING = 120f;
+        // 원정지로 보내는 익명 의뢰는 길드를 한 번 더 거치므로 비싸다(시간구조 설계안 §3 — 원격 익명 의뢰).
+        public static float REMOTE_REQUEST_MARKUP = 1.3f;
         public static float REQUEST_COST_GEAR = 150f;
         public static float REQUEST_COST_SUPPLIES = 80f;
         public static float REQUEST_COST_TRAINING = 100f;

@@ -201,6 +201,7 @@ namespace Underwrite.UI
 
             PlayPendingReaction();
             PlayCollapseIfNeeded();
+            PlayDepartureIfDue();
 
             // 실제 시간으로 날이 넘어가도(드물다) 기한은 따진다.
             if (Approaching == false)
@@ -2113,6 +2114,158 @@ namespace Underwrite.UI
                 {
                     return StringConstants.TEXT_SIGN_TAVERN;
                 }
+            }
+        }
+
+        // ── 출발과 계절 계획 (시간구조 설계안 §2·§3) ───────
+        // 계절의 마지막 밤이 지나면 용사단이 떠나고, 주인공은 휴장하는 석 달에 할 일을 고른다.
+        // 고른 대로 몽타주가 흐르고, 친한 용사가 있으면 원정지에서 편지가 온다. 끝나면 새 계절 첫날 아침이다.
+
+        private bool DepartureRunning;
+        private readonly List<SeasonTask> PlanMonths = new List<SeasonTask>();
+
+        /// <summary>
+        /// 새 계절 첫날이 됐는데 지난 계절의 출발을 아직 치르지 않았으면 띄운다.
+        /// 4일째 오후장을 거래소에서 마쳤든 영지에서 건너뛰었든, 자정이 지나면 같은 자리에서 시작한다.
+        /// </summary>
+        private void PlayDepartureIfDue()
+        {
+            if (DepartureRunning == true || Clock == null || Clock.IsBreak == false || Approaching == true
+                || Dialogue == null || Dialogue.IsOpen == true || ClockOpen == true
+                || (Tutorial != null && Tutorial.IsOpen == true) || PatronageLedger.Collapsed == true)
+            {
+                return;
+            }
+
+            var today = Today();
+
+            if (today <= 1 || MarketClock.DayInSeason(today) != 1
+                || SeasonPlan.HasDeparted(MarketClock.SeasonOf(today) - 1) == true)
+            {
+                return;
+            }
+
+            DepartureRunning = true;
+            PlanMonths.Clear();
+            Dialogue.SetBackground(BackgroundOf(InfoSource.Source_TavernTalk));
+
+            var lines = new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_DEPART_TAG, StringConstants.TEXT_DEPART_OPEN),
+                HeroLine(HeroRoster.Favorite(), StringConstants.TEXT_DEPART_FAREWELL, PortraitEmotion.Emotion_Happy),
+                new DialogueLine(string.Empty, StringConstants.TEXT_DEPART_TAG, StringConstants.TEXT_DEPART_PLAN)
+            };
+
+            Dialogue.Play(lines, AskPlanMonth);
+        }
+
+        // 한 달씩 묻는다. 세 달을 다 고르면 몽타주로.
+        private void AskPlanMonth()
+        {
+            var month = PlanMonths.Count;
+
+            if (month >= StringConstants.TEXT_PLAN_MONTH_ASK.Length)
+            {
+                PlayPlanMontage();
+                return;
+            }
+
+            var choices = new List<DialogueChoice>();
+
+            for (var i = 0; i < StringConstants.TEXT_PLAN_TASK.Length; i++)
+            {
+                var task = (SeasonTask)i;
+                var choice = new DialogueChoice(StringConstants.TEXT_PLAN_TASK[i], () =>
+                {
+                    PlanMonths.Add(task);
+                    AskPlanMonth();
+                });
+                choice.Note = string.Format(StringConstants.TEXT_PLAN_TASK_NOTE[i], Constants.PLAN_INN_EARN);
+                choices.Add(choice);
+            }
+
+            var line = new DialogueLine(string.Empty, StringConstants.TEXT_PLAN_TAG,
+                StringConstants.TEXT_PLAN_MONTH_ASK[month]);
+            line.Choices = choices;
+            Dialogue.Play(new List<DialogueLine> { line }, null);
+        }
+
+        private void PlayPlanMontage()
+        {
+            var texts = SeasonPlan.Apply(PlanMonths, HeroRoster.Favorite());
+            var lines = new List<DialogueLine>();
+
+            for (var i = 0; i < texts.Count; i++)
+            {
+                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_PLAN_TAG, texts[i]));
+            }
+
+            Dialogue.Play(lines, PlayExpeditionLetter);
+        }
+
+        /// <summary>
+        /// 원정지에서 온 편지(설계안 §3). 가장 친한 용사가 충분히 가까우면 온다.
+        /// 다음 계절에 드러날 방패 사정을 미리 흘리고, 원격 익명 의뢰로 먼저 막을 수 있게 한다 — 대신 더 비싸다.
+        /// </summary>
+        private void PlayExpeditionLetter()
+        {
+            var favorite = HeroRoster.Favorite();
+
+            if (favorite == null || favorite.Affinity < Constants.HERO_LETTER_AFFINITY)
+            {
+                FinishDeparture();
+                return;
+            }
+
+            var lines = new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_LETTER_TAG,
+                    string.Format(StringConstants.TEXT_LETTER_BODY, favorite.Name))
+            };
+
+            if (PatronageLedger.IsHidden(StringConstants.NEED_SHIELD_ID) == false)
+            {
+                Dialogue.Play(lines, FinishDeparture);
+                return;
+            }
+
+            var cost = Constants.REQUEST_COST_GEAR * Constants.REMOTE_REQUEST_MARKUP;
+            var money = GatherSession.Available;
+            var send = new DialogueChoice(StringConstants.TEXT_LETTER_REMOTE, () => SendRemoteShield(cost));
+            send.IsEnabled = money >= cost;
+            send.Note = string.Format(StringConstants.TEXT_LETTER_REMOTE_NOTE, cost, money);
+
+            var shield = new DialogueLine(string.Empty, StringConstants.TEXT_LETTER_TAG, StringConstants.TEXT_LETTER_SHIELD);
+            shield.Choices = new List<DialogueChoice>
+            {
+                send,
+                new DialogueChoice(StringConstants.TEXT_LETTER_KEEP, FinishDeparture)
+            };
+            lines.Add(shield);
+            Dialogue.Play(lines, null);
+        }
+
+        private void SendRemoteShield(float cost)
+        {
+            GatherSession.Record(cost, 0f, null);
+            PatronageLedger.RevealEarly(StringConstants.NEED_SHIELD_ID);
+            PatronageLedger.Post(RequestPurpose.Purpose_Gear, Today());
+
+            var line = new DialogueLine(string.Empty, StringConstants.TEXT_LETTER_TAG, StringConstants.TEXT_LETTER_SENT);
+            Dialogue.Play(new List<DialogueLine> { line }, FinishDeparture);
+        }
+
+        // 석 달이 흐르고 새 계절 첫날 아침이 된다. 귀환은 여관에서 맞는다.
+        private void FinishDeparture()
+        {
+            SeasonPlan.MarkDeparted(MarketClock.SeasonOf(Today()) - 1);
+            DepartureRunning = false;
+
+            var minutes = WakeMinute() - Clock.BreakMinuteOfDay;
+
+            if (minutes > 0)
+            {
+                StartCoroutine(PassTime(minutes, StringConstants.TEXT_DEPART_FADE));
             }
         }
 

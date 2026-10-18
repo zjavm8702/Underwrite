@@ -6,6 +6,7 @@ using Underwrite.Enumeration;
 using Underwrite.Global;
 using Underwrite.Market;
 using Underwrite.Patronage;
+using Underwrite.Story;
 using Underwrite.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -798,6 +799,14 @@ namespace Underwrite.UI
             var title = ClockText.SeasonDay(Sim.Clock.Day);
             ShowToast(title, string.Format(StringConstants.TEXT_REOPEN_GAP, Sim.ReopenGapUp, Sim.ReopenGapDown),
                 Side, true);
+
+            // 계절 계획으로 준비해 둔 것. 새 단이 막 도착했으니 지금 푼다.
+            var prepared = SeasonPlan.ApplyAtReopening(Sim);
+
+            for (var i = 0; i < prepared.Count; i++)
+            {
+                ShowToast(StringConstants.TEXT_PLAN_RESULT_TITLE, prepared[i], Side, true);
+            }
 
             var liquidation = string.Empty;
 

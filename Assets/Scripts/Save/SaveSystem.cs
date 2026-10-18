@@ -63,6 +63,7 @@ namespace Underwrite.Save
                 Heroes = HeroRoster.Capture(),
                 Codex = BandCodex.Capture(),
                 QuestIndex = QuestLog.CurrentIndex,
+                SeasonPlan = SeasonPlan.Capture(),
                 Story = new StoryState
                 {
                     CellarFound = StoryProgress.CellarFound,
@@ -171,6 +172,7 @@ namespace Underwrite.Save
             HeroRoster.Restore(data.Heroes);
             BandCodex.Restore(data.Codex);
             QuestLog.Restore(data.QuestIndex);
+            SeasonPlan.Restore(data.SeasonPlan);
             StoryProgress.CellarFound = data.Story.CellarFound;
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
