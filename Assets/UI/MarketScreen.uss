@@ -1994,6 +1994,24 @@
     font-size: 20px;
 }
 
+/* 첫 지하 방문 튜토리얼의 지금 할 일 띠. 화면 위 가운데에 늘 떠 있다. */
+.market-coach {
+    position: absolute;
+    top: 86px;
+    left: 18%;
+    right: 18%;
+    padding: 12px 28px 12px 28px;
+    font-size: 22px;
+    -unity-font-style: bold;
+    color: #2B2118;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    border-radius: 12px;
+    border-width: 3px;
+    border-color: #B88A2E;
+    background-color: rgba(247, 230, 190, 0.96);
+}
+
 /* ── 장면 전환 제목 카드 (2026-10-18) ───────────────
    화면이 어두워지며 큰 글씨. 밝기는 코드가 매 프레임 opacity로 정한다. */
 .title-card {

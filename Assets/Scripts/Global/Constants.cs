@@ -488,6 +488,9 @@ namespace Underwrite.Global
         public static float TITLE_CARD_FADE_SECONDS = 0.8f;
         public static float TITLE_CARD_HOLD_SECONDS = 1.6f;
 
+        // 첫 지하 방문 — 「시간이 흐르기 시작했다」 안내가 떠 있는 시간(초).
+        public static float MTUT_FLOW_COACH_SECONDS = 6f;
+
         // 인트로에서 보이는 웹툰 장 수. 나머지(5~6장)는 창고 발견 장면에서 쓴다.
         public static int INTRO_PAGES_SHOWN = 4;
 

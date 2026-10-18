@@ -123,6 +123,9 @@ namespace Underwrite.UI
         private UI_Dialogue Dialogue;
         private UI_Tutorial Tutorial;
         private bool PausedForTutorial;
+
+        // 첫 지하 방문 튜토리얼(2026-10-18). 끝난 판이면 아무것도 하지 않는다.
+        private MarketOnboardingHandler Onboarding;
         private int HoldingsSeqShown = -1;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
@@ -278,8 +281,19 @@ namespace Underwrite.UI
             // 그 순간 자산이 준비되지 않았을 때 영영 붙지 않는다.
             BuildPopup();
 
-            // 지하 방에서는 거래판을 처음 열 때 안내한다. 닫힌 판 위에 안내를 띄우면 가리킬 것이 없다.
-            if (IsPanelOpen == true)
+            // 첫 지하 방문은 단계별 튜토리얼이 맡는다. 그 밖(시험 씬·옛 저장)에는 거래판을 처음 열 때 안내한다.
+            if (Onboarding != null && Onboarding.IsActive == true)
+            {
+                if (Tutorial == null)
+                {
+                    Tutorial = new UI_Tutorial(Root, StringConstants.TEXT_TUTORIAL_NEXT, StringConstants.TEXT_TUTORIAL_DONE,
+                        StringConstants.TEXT_TUTORIAL_SKIP);
+                }
+
+                Tutorial.Tick();
+                Onboarding.Tick(Time.unscaledDeltaTime);
+            }
+            else if (IsPanelOpen == true)
             {
                 StartTutorialOnce();
             }
@@ -490,6 +504,11 @@ namespace Underwrite.UI
             if (DialogueTree != null && Dialogue == null)
             {
                 Dialogue = new UI_Dialogue(Root, DialogueTree);
+            }
+
+            if (Onboarding == null && RoomMode == true)
+            {
+                Onboarding = new MarketOnboardingHandler(this, Root);
             }
         }
 
@@ -954,7 +973,10 @@ namespace Underwrite.UI
                 () => SceneManager.LoadScene(SceneRoutes.INTRO), null);
         }
 
-        /// <summary>「지하시장 나가기」는 언제나 누를 수 있다. 장중이면 그 장을 마감하고 나간다.</summary>
+        /// <summary>
+        /// 「지하시장 나가기」는 장이 끝난 뒤에만 보인다. 장이 열린 동안은 「장 끝내기」로 넘기고 나서 나간다
+        /// (2026-10-18 사장님 — 지하에 들어오면 장이 끝나기 전에는 못 나간다).
+        /// </summary>
         private void RefreshVillageButton()
         {
             var button = Root.Q<Button>("village-button");
@@ -967,6 +989,7 @@ namespace Underwrite.UI
             button.text = StringConstants.TEXT_LEAVE_MARKET;
             button.SetEnabled(true);
             button.EnableInClassList("btn--disabled", false);
+            button.EnableInClassList("hidden", RoomMode == true && Sim.Clock.Phase != MarketPhase.Phase_Closed);
         }
 
         /// <summary>화면이 다시 그려지도록 캐시를 비운다.</summary>
@@ -2487,8 +2510,18 @@ namespace Underwrite.UI
             Sim.Clock.SetPaused(true);
             SceneIndex = 0;
 
+            // 첫 정보 타임에는 정보상이 먼저 자기와 정보를 소개한다.
+            var lines = BuildBriefingLines();
+            var intro = Onboarding == null ? null : Onboarding.BriefingIntro();
+
+            if (intro != null)
+            {
+                intro.AddRange(lines);
+                lines = intro;
+            }
+
             Dialogue.SetBackground(SceneBackground());
-            Dialogue.Play(BuildBriefingLines(), CloseBriefingScene);
+            Dialogue.Play(lines, CloseBriefingScene);
         }
 
         // ── 지하 방 (2026-10-17) ─────────────────
@@ -2626,6 +2659,103 @@ namespace Underwrite.UI
             Sim.AcknowledgeBriefing();
             Sim.Clock.SetPaused(false);
             InfoCountShown = -1;
+
+            if (Onboarding != null)
+            {
+                Onboarding.OnBriefingClosed();
+            }
+        }
+
+        // ── 첫 지하 방문 튜토리얼이 쓰는 창구 (MarketOnboardingHandler) ───────
+
+        /// <summary>장이 열려 있고 대화·안내·정보 타임이 모두 닫혀 있어 새 장면을 띄워도 되는가.</summary>
+        internal bool CanDirect()
+        {
+            return Sim != null && Sim.Clock.Phase != MarketPhase.Phase_Closed && Dialogue != null
+                && Dialogue.IsOpen == false && SceneIndex < 0 && IsBriefingWaiting == false
+                && (Tutorial == null || Tutorial.IsOpen == false) && (Popup == null || Popup.IsOpen == false);
+        }
+
+        /// <summary>첫 거래 전까지 장을 세워 둔다.</summary>
+        internal void HoldTime()
+        {
+            Sim.Clock.SetHeld(true);
+        }
+
+        internal void ReleaseTime()
+        {
+            Sim.Clock.SetHeld(false);
+        }
+
+        /// <summary>가진 종목 하나(없으면 null).</summary>
+        internal string HeldStock()
+        {
+            foreach (var pair in Sim.Wallet.AllHoldings)
+            {
+                if (pair.Value.Quantity > 0)
+                {
+                    return pair.Key;
+                }
+            }
+
+            return null;
+        }
+
+        internal float CashNow()
+        {
+            return Sim.Wallet.Cash;
+        }
+
+        /// <summary>
+        /// 연습 주문을 고정한다 — 시장가·1주·정한 방향. <paramref name="stockId"/>가 있으면 그 종목으로 잡아 둔다.
+        /// 매 프레임 불러 다른 값으로 바꿔도 되돌린다.
+        /// </summary>
+        internal void ForceOrder(string stockId, OrderSide side)
+        {
+            if (string.IsNullOrEmpty(stockId) == false && SelectedId != stockId)
+            {
+                SelectedId = stockId;
+                ResetViewState();
+            }
+
+            Side = side;
+            Type = OrderType.Type_Market;
+            Quantity = 1;
+        }
+
+        /// <summary>연습 매수·매도가 끝났다. 현금을 도착했을 때로 되돌리고 손익 기록을 지운다.</summary>
+        internal void ResetPracticeCash(float cash)
+        {
+            Sim.Wallet.ResetAfterPractice(cash);
+        }
+
+        internal DialogueLine InformantLine(string tag, string text, PortraitEmotion emotion)
+        {
+            var line = new DialogueLine(StringConstants.TEXT_INFORMANT, tag, text);
+            line.Portrait = Data == null ? null : Data.InformantFace(emotion);
+            line.Emotion = emotion;
+            return line;
+        }
+
+        /// <summary>지하 방 배경으로 대화를 띄운다(정보 타임과 같은 무대).</summary>
+        internal void PlayRoomLines(List<DialogueLine> lines, System.Action then)
+        {
+            SceneIndex = 0;
+            Dialogue.SetBackground(SceneBackground());
+            Dialogue.Play(lines, () =>
+            {
+                SceneIndex = -1;
+
+                if (then != null)
+                {
+                    then();
+                }
+            });
+        }
+
+        internal void PlayTutorial(List<TutorialStep> steps, System.Action then)
+        {
+            Tutorial.Play(steps, then);
         }
 
         /// <summary>

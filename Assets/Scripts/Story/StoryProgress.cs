@@ -30,6 +30,12 @@ namespace Underwrite.Story
         /// <summary>프롤로그(지하를 찾기 전의 마을 생활)의 어디쯤인가. 옛 저장은 창고를 찾았으면 끝으로 친다.</summary>
         public static PrologueStage Prologue { get; set; }
 
+        /// <summary>첫 지하 방문 튜토리얼이 끝난 단계 값.</summary>
+        public const int MARKET_ONBOARDING_DONE = 6;
+
+        /// <summary>첫 지하 방문 튜토리얼의 단계(MarketOnboardingHandler.STAGE_*).</summary>
+        public static int MarketOnboarding { get; set; }
+
         /// <summary>데모 마무리 장면을 봤는가. 한 번만 보인다 — 그 뒤로는 그대로 이어서 둘러볼 수 있다.</summary>
         public static bool DemoEndSeen { get; set; }
 
@@ -41,6 +47,7 @@ namespace Underwrite.Story
             CellarFound = false;
             Prologue = PrologueStage.Stage_Opening;
             MarketTutorialDone = false;
+            MarketOnboarding = 0;
             VillageTutorialDone = false;
         }
     }

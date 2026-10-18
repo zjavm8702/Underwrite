@@ -574,12 +574,23 @@ namespace Underwrite.Market
             }
         }
 
-        /// <summary>시간이 실제로 흐르고 있는지. 정지 중이거나 폐장이면 흐르지 않는다.</summary>
+        /// <summary>
+        /// 첫 지하 방문 튜토리얼이 장을 붙잡아 두었는가(2026-10-18). 시간은 흐르지 않지만 주문은 받는다 —
+        /// 정지(<see cref="IsPaused"/>)와 다르다. 첫 거래를 해 봐야 시간이 흐른다. 저장하지 않는다(튜토리얼이 매 프레임 다시 건다).
+        /// </summary>
+        public bool IsHeld { get; private set; }
+
+        public void SetHeld(bool held)
+        {
+            IsHeld = held;
+        }
+
+        /// <summary>시간이 실제로 흐르고 있는지. 정지·붙잡힘이거나 폐장이면 흐르지 않는다.</summary>
         public bool IsRunning
         {
             get
             {
-                return IsPaused == false && Phase != MarketPhase.Phase_Closed;
+                return IsPaused == false && IsHeld == false && Phase != MarketPhase.Phase_Closed;
             }
         }
 

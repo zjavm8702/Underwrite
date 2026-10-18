@@ -131,7 +131,8 @@ namespace Underwrite.Story
 
             Add(0, QuestGiver.Giver_Innkeeper, 0f, () => StoryProgress.CellarFound);
             Add(1, QuestGiver.Giver_Self, 0f, () => StoryProgress.MarketTutorialDone);
-            Add(2, QuestGiver.Giver_Self, 20f, HoldsAnything);
+            // 첫 거래는 튜토리얼의 연습 매수 — 끝나면 현금을 도착했을 때로 되돌리므로 보상이 없다(2026-10-18).
+            Add(2, QuestGiver.Giver_Self, 0f, HoldsAnything);
             Add(3, QuestGiver.Giver_Innkeeper, 0f, TalkedToHero);
             Add(4, QuestGiver.Giver_Innkeeper, 0f, HeardNeed);
             Add(5, QuestGiver.Giver_Archivist, 0f, () => PatronageLedger.RequestsPosted > 0);

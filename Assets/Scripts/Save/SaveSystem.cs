@@ -70,6 +70,7 @@ namespace Underwrite.Save
                 {
                     CellarFound = StoryProgress.CellarFound,
                     Prologue = (int)StoryProgress.Prologue,
+                    MarketOnboarding = StoryProgress.MarketOnboarding,
                     MarketTutorialDone = StoryProgress.MarketTutorialDone,
                     VillageTutorialDone = StoryProgress.VillageTutorialDone,
                     Bankruptcies = StoryProgress.Bankruptcies,
@@ -184,6 +185,10 @@ namespace Underwrite.Save
                 ? PrologueStage.Stage_Done
                 : (PrologueStage)data.Story.Prologue;
             StoryProgress.MarketTutorialDone = data.Story.MarketTutorialDone;
+            // 튜토리얼이 생기기 전 저장(10/18)은 값이 0이다. 거래소 안내를 이미 봤으면 끝난 것으로 본다.
+            StoryProgress.MarketOnboarding = data.Story.MarketTutorialDone == true && data.Story.MarketOnboarding == 0
+                ? StoryProgress.MARKET_ONBOARDING_DONE
+                : data.Story.MarketOnboarding;
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
             StoryProgress.Bankruptcies = data.Story.Bankruptcies;
             StoryProgress.DemoEndSeen = data.Story.DemoEndSeen;

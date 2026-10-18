@@ -333,6 +333,16 @@ namespace Underwrite.Market
         /// 거래 밖에서 들어온 돈. 영지의 퀘스트로 번 종잣돈이 여기로 들어온다. 기획서 §10.
         /// 매매 손익과 섞지 않는다. 실현손익은 거래로 번 것만 세야 한다.
         /// </summary>
+        /// <summary>
+        /// 첫 지하 방문의 연습 매수·매도 뒤(2026-10-18). 현금을 들어왔을 때 금액으로 되돌리고 실현 손익을 지운다 —
+        /// 연습에서 생긴 몇 푼의 차이로 첫 판이 기울지 않게. 가진 주식이 없을 때만 부른다.
+        /// </summary>
+        public void ResetAfterPractice(float cash)
+        {
+            Cash = cash;
+            RealizedProfit = 0f;
+        }
+
         public void Earn(float amount)
         {
             if (amount <= 0f)

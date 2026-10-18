@@ -203,6 +203,9 @@ namespace Underwrite.Save
         /// <summary>프롤로그 단계(PrologueStage).</summary>
         public int Prologue;
 
+        /// <summary>첫 지하 방문 튜토리얼 단계.</summary>
+        public int MarketOnboarding;
+
         public bool MarketTutorialDone;
         public bool VillageTutorialDone;
         public List<string> SleepSeen = new List<string>();
