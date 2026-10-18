@@ -77,11 +77,11 @@ namespace Underwrite.Global
         public static string TEXT_HERO_TABLE_ASK = "누구에게 말을 걸까.";
         public static string TEXT_HERO_TALKED_TODAY = "오늘은 이미 이야기했다";
         public static string TEXT_HERO_DAY_OFF = "용사단과 쉬는 날을 보낸다";
-        public static string TEXT_HERO_DAY_OFF_NOTE = "영주 시찰일 · 지하시장도 그들도 쉰다";
+        public static string TEXT_HERO_DAY_OFF_NOTE = "의뢰 사이 하루 · 그들도 쉰다";
 
-        // ── 시찰일 관계 이벤트 ────────────────────
-        public static string TEXT_DAY_OFF_TAG = "영주 시찰일";
-        public static string TEXT_DAY_OFF_OPEN = "시찰일이라 지하가 닫혔다. 여관은 오랜만에 한가했고, 용사단은 창가 자리를 차지했다.";
+        // ── 쉬는 날 관계 이벤트 ────────────────────
+        public static string TEXT_DAY_OFF_TAG = "쉬는 날";
+        public static string TEXT_DAY_OFF_OPEN = "의뢰 사이에 하루 쉬는 날. 여관은 오랜만에 한가했고, 용사단은 창가 자리를 차지했다.";
         public static string TEXT_DAY_OFF_INVITE = "(검사가 턱짓으로 빈자리를 가리킨다) 오늘은 손님도 없잖아. 앉아.";
         public static string TEXT_DAY_OFF_CLOSE = "해가 질 때까지 이야기가 이어졌다. 다음 원정은 내일 떠난다고 했다.";
         public static readonly string[] HERO_DAY_OFF_FAVORITE =

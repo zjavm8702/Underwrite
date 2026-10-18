@@ -420,32 +420,19 @@ namespace Underwrite.Market
         }
 
         /// <summary>
-        /// 그날이 영주 시찰일인가. 정기 시찰이라 달력으로 미리 알 수 있다(기획서 §11).
-        /// 시찰일에는 지하시장을 숨기고 주문을 받지 않는다. 오전장·오후장이 모두 닫힌다.
+        /// 그날 지하시장이 닫히는가. 영주 시찰을 뺀 뒤로(2026-10-19 사장님) 정기 휴장은 없다.
+        /// 휴장 장치(Phase_Halted)는 다른 사건에 쓸 수 있게 남겨 둔다.
         /// </summary>
         public static bool IsInspectionDay(int day)
         {
-            return DayInSeason(day) == Constants.INSPECTION_SEASON_DAY;
+            return false;
         }
 
-        /// <summary>그날 또는 그 뒤로 가장 가까운 시찰일. 계절마다 한 번이다.</summary>
-        public static int NextInspectionDay(int fromDay)
+        /// <summary>용사단과 쉬는 날인가(계절의 셋째 날). 겨울처럼 짧은 계절에는 없다.</summary>
+        public static bool IsHeroDayOff(int day)
         {
-            // 겨울처럼 짧은 계절에는 시찰일이 없다. 그날이 있는 계절까지 넘겨 찾는다.
-            for (var season = SeasonOf(fromDay); ; season++)
-            {
-                if (DaysInSeason(season) < Constants.INSPECTION_SEASON_DAY)
-                {
-                    continue;
-                }
-
-                var day = SeasonStartDay(season) + Constants.INSPECTION_SEASON_DAY - 1;
-
-                if (day >= fromDay)
-                {
-                    return day;
-                }
-            }
+            return DaysInSeason(SeasonOf(day)) >= Constants.HERO_DAY_OFF_SEASON_DAY
+                && DayInSeason(day) == Constants.HERO_DAY_OFF_SEASON_DAY;
         }
 
         public void AdvanceDay()

@@ -153,7 +153,6 @@ namespace Underwrite.Global
         public static string TEXT_SKIP_BREAK = "시간 넘기기";
         public static string TEXT_MARKET_OPENS_AT = "장이 닫혔다 · 다음 장 {0}";
         public static string TEXT_MARKET_CLOSED_NOTE = "장이 닫혔다";
-        public static string TEXT_DAY_TODAY_INSPECTION = "오늘은 영주 시찰일이다. 지하시장은 하루 문을 닫는다.";
 
         // 후원 — 익명의 의뢰주 (후원흐름 설계안). 용사단 이름은 임시다(2026-10-17).
         public static string TEXT_HERO_PARTY = "새벽별 용사단";
@@ -178,8 +177,6 @@ namespace Underwrite.Global
         public static string TEXT_HERO_REACTION_MISSED = "(술을 나르다 들었다) \"이상한 의뢰가 하나 들어왔더라. 고마운 일이긴 한데, 지금 우리한테 필요한 건 그게 아니야.\"";
 
         public static string TEXT_DAY_END_DEADLINE = "들은 용사단 사정의 기한까지 {0}일.";
-        public static string TEXT_VILLAGE_INSPECTION_TODAY = "오늘은 영주 시찰일 · 지하시장이 닫혔다";
-        public static string TEXT_VILLAGE_INSPECTION_SOON = "영주 시찰까지 {0}일";
         // 「1년 봄 2일째」. 해·계절 이름·계절 안의 날.
         public static string TEXT_SEASON_DAY = "{0}년 {1} {2}일째";
         public static string TEXT_ARRIVALS_HEAD = "다음 계절 상장 예정";
@@ -741,12 +738,12 @@ namespace Underwrite.Global
         /// <summary>말을 걸 수 있는 거리(월드 유닛). 사람 키(1.9)보다 조금 작다.</summary>
         public static float NPC_TALK_RANGE = 1.4f;
 
-        // ── 영주 시찰일 (기획서 §11) ──────────────
+        // ── 용사단과 쉬는 날 ──────────────
         /// <summary>
-        /// 시찰일은 계절의 이 날이다. 지하가 하루 닫히고 용사단도 쉰다 — 계절마다 큰 관계 장면이 하나.
-        /// 준비 둘째 날로 둔 까닭: 첫날은 재개장, 마지막 날은 출발 전 「들고 갈까 팔까」를 고르는 장이라 닫으면 안 된다.
+        /// 용사단과 쉬는 날은 계절의 이 날이다 — 계절마다 큰 관계 장면이 하나. 영주 시찰(지하 휴장)은 뺐다(2026-10-19 사장님).
+        /// 준비 둘째 날로 둔 까닭: 첫날은 재개장·귀환, 마지막 날은 출발 전이라 장면이 겹친다.
         /// </summary>
-        public static int INSPECTION_SEASON_DAY = 3;
+        public static int HERO_DAY_OFF_SEASON_DAY = 3;
 
         // ── 용사단 일정 (루틴 설계안) ─────────────
         /// <summary>여관 테이블에서 한 사람과 이야기하는 데 드는 영지 시간(분).</summary>

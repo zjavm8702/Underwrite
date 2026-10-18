@@ -41,10 +41,10 @@ namespace Underwrite.Editor.Tests
             for (var day = winterStart; day < winterStart + Constants.WINTER_SEASON_DAYS; day++)
             {
                 Assert.IsFalse(MarketClock.IsInspectionDay(day), $"winter day {day}");
+                Assert.IsFalse(MarketClock.IsHeroDayOff(day), $"winter day {day} — 겨울에는 쉬는 날이 없다");
             }
 
-            Assert.AreEqual(MarketClock.SeasonStartDay(5) + Constants.INSPECTION_SEASON_DAY - 1,
-                MarketClock.NextInspectionDay(winterStart));
+            Assert.IsTrue(MarketClock.IsHeroDayOff(MarketClock.SeasonStartDay(5) + Constants.HERO_DAY_OFF_SEASON_DAY - 1));
         }
 
         [Test]

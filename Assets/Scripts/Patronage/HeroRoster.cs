@@ -119,10 +119,10 @@ namespace Underwrite.Patronage
             return Market.MarketClock.DayInSeason(day) == 1 && Market.MarketClock.SeasonOf(day) > 1;
         }
 
-        /// <summary>오늘 시찰일 장면을 아직 보지 않았는가.</summary>
+        /// <summary>오늘 쉬는 날 장면을 아직 보지 않았는가.</summary>
         public static bool HasDayOff(int day)
         {
-            return Market.MarketClock.IsInspectionDay(day) == true && DayOffSeen.Contains(day) == false
+            return Market.MarketClock.IsHeroDayOff(day) == true && DayOffSeen.Contains(day) == false
                 && Favorite() != null;
         }
 

@@ -759,23 +759,6 @@ namespace Underwrite.UI
         }
 
         /// <summary>
-        /// 시찰 달력. 기획서 §11 — 정기 조사는 달력에 미리 공개한다. 미리 알아야 대비할 수 있다.
-        /// 문자열을 매 프레임 만들지만 영지 화면 한 줄뿐이라 그대로 둔다.
-        /// </summary>
-        private string InspectionTag()
-        {
-            var today = Today();
-
-            if (MarketClock.IsInspectionDay(today) == true)
-            {
-                return " · " + StringConstants.TEXT_VILLAGE_INSPECTION_TODAY;
-            }
-
-            var days = MarketClock.NextInspectionDay(today) - today;
-            return " · " + string.Format(StringConstants.TEXT_VILLAGE_INSPECTION_SOON, days);
-        }
-
-        /// <summary>
         /// 지하거래소를 찾는 장면. 웹툰 5~6화를 플레이어가 직접 겪는다(2026-10-17 사용자 결정).
         /// 인트로 다음에 곧바로 주식 창이 열리면 뜬금없다. 마을에서 일하다 우연히 찾아야 한다.
         /// </summary>
@@ -1259,11 +1242,6 @@ namespace Underwrite.UI
             if (PatronageLedger.HasUnheardUrgent(today) == true)
             {
                 notes.Add(StringConstants.TEXT_DAY_END_WARNING);
-            }
-
-            if (MarketClock.IsInspectionDay(today) == true)
-            {
-                notes.Add(StringConstants.TEXT_DAY_TODAY_INSPECTION);
             }
 
             return string.Join("\n", notes);
@@ -3593,10 +3571,6 @@ namespace Underwrite.UI
                 text = text + "\n" + string.Format(StringConstants.TEXT_SLEEP_DEADLINE, deadline);
             }
 
-            if (MarketClock.IsInspectionDay(today) == true)
-            {
-                text = text + "\n" + StringConstants.TEXT_SLEEP_INSPECTION;
-            }
 
             return text;
         }
@@ -3682,8 +3656,7 @@ namespace Underwrite.UI
 
         private string StatusText()
         {
-            var key = (ActionPoints.KeyOf(Today(), Clock == null ? 0 : Clock.BreakMinuteOfDay) * 10 + ActionPoints.Current) * 10
-                + MarketClock.NextInspectionDay(Today()) % 10;
+            var key = ActionPoints.KeyOf(Today(), Clock == null ? 0 : Clock.BreakMinuteOfDay) * 10 + ActionPoints.Current;
 
             if (key == StatusKey)
             {
@@ -3692,7 +3665,7 @@ namespace Underwrite.UI
 
             StatusKey = key;
             StatusCache = string.Format(StringConstants.TEXT_VILLAGE_STATUS, ClockText.SeasonDay(Today()), PhaseName(Phase),
-                ActionDots()) + InspectionTag();
+                ActionDots());
             return StatusCache;
         }
 
