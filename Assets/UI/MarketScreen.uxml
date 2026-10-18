@@ -13,7 +13,6 @@
         <!-- 상단 -->
         <ui:VisualElement name="header" class="header">
             <ui:VisualElement class="brand">
-                <ui:Label text="UNDERWRITE" class="brand-mark" />
                 <ui:Label text="지하거래소" class="t-title" />
             </ui:VisualElement>
 
@@ -40,8 +39,12 @@
             <ui:Label text="주문은 할 수 없지만 원정 소식과 시간은 계속 흐릅니다." class="t-body weak" style="margin-left: 24px;" />
         </ui:VisualElement>
 
-        <!-- 자산 -->
+        <!-- 자산 — 같은 크기 카드 넷(대시보드 인상)이 아니라 장부 첫 줄 한 장. 총자산이 앞에 크게(2026-10-18 슬롭 개선). -->
         <ui:VisualElement name="asset-row" class="asset-row">
+            <ui:VisualElement class="asset-card asset-card--main">
+                <ui:Label text="총자산" class="t-body weak" />
+                <ui:Label name="asset-total" text="0" class="t-asset t-asset--main" />
+            </ui:VisualElement>
             <ui:VisualElement class="asset-card">
                 <ui:Label text="현금" class="t-body weak" />
                 <ui:Label name="asset-cash" text="0" class="t-asset" />
@@ -49,10 +52,6 @@
             <ui:VisualElement class="asset-card">
                 <ui:Label text="평가액" class="t-body weak" />
                 <ui:Label name="asset-holdings" text="0" class="t-asset" />
-            </ui:VisualElement>
-            <ui:VisualElement class="asset-card">
-                <ui:Label text="총자산" class="t-body weak" />
-                <ui:Label name="asset-total" text="0" class="t-asset" />
             </ui:VisualElement>
             <ui:VisualElement class="asset-card asset-card--last">
                 <ui:Label text="실현손익" class="t-body weak" />

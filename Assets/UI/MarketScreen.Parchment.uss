@@ -60,7 +60,7 @@
 
 /* 패널 — 양피지. 9-slice로 늘어난다. */
 .panel,
-.asset-card,
+.asset-row,
 .info-popup,
 .holdings-popup {
     background-image: url("project://database/Assets/UI/Images/market_panel.png");
