@@ -81,8 +81,9 @@
 
             <!-- 가운데: 차트 + 호가창 + 정보 기록 -->
             <ui:VisualElement class="col-center">
-              <ui:VisualElement class="row" style="flex-grow: 1;">
-                <ui:VisualElement class="panel grow">
+              <!-- 차트와 호가는 한 장의 거래판이다(2026-10-18 Codex 교차 검수 — 같은 상자 넷이 대시보드로 보인다). -->
+              <ui:VisualElement class="row board" style="flex-grow: 1;">
+                <ui:VisualElement class="panel panel--flat grow">
                     <ui:VisualElement class="row" style="align-items: flex-end;">
                         <ui:Label name="chart-name" text="—" class="t-panel" />
                         <ui:Label name="chart-kind" text="" class="t-body weak" style="margin-left: 8px; margin-bottom: 4px;" />
@@ -99,7 +100,7 @@
                 </ui:VisualElement>
 
                 <!-- 호가창 -->
-                <ui:VisualElement class="panel" style="width: 260px; margin-left: 24px;">
+                <ui:VisualElement class="panel panel--flat board-side" style="width: 260px;">
                     <ui:Label text="호가" class="t-panel" />
                     <ui:Label name="book-hint" text="호가를 누르면 지정가로 들어갑니다." class="book-hint" />
                     <ui:VisualElement name="book-list" style="margin-top: 12px;" />

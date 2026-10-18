@@ -21,7 +21,7 @@
 | 13 | `village_parts_pilot_v1~v3.md` | `VillagePartsPilot_v1~v3` | **완료** — v3 바닥(판석 45px) 통과, 영지 전체의 기준 |
 | 14 | `ui_frames_v1.md` | `UIFrames_v1` | **완료** — 적용함 |
 | 15 | `portrait_fix_v1·v2.md` | `PortraitFix_v1·v2` | **완료** — 엘프 코는 추후 재검토 |
-| 16 | `ui_market_kit_v1.md` | `MarketUI_Kit_v1` | 진행 중(10/18) — 거래 화면 키트. 슬롭 점검 5-1의 4번. 납품 뒤 과장·Codex 교차 검수 |
+| 16 | `ui_market_kit_v1.md` | `MarketUI_Kit_v1` | **부분 통과 — 적용함(10/18).** 교차 검수: 과장·Codex 모두 「매수/매도·주문 단추 혼재」 지적 → 배치·USS로 고침(거래판 하나, 단추 한 체계). 실제 화면 `ingame_v2.png` |
 | 17 | `underworld_room_v1.md` | `UnderworldRoom_v1` | 대기 — 16번 끝나면 건다(한 번에 하나). 지하 방 바닥판·사물. 사람·정보상 초상은 v2 |
 
 **다음 목록은 `ART_BACKLOG.md`** (2026-10-17 정리, 우선순위 순). Codex 사용량이 적어 한 건씩 확인받고 건다.
