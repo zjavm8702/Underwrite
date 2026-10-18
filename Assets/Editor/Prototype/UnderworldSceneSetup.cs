@@ -100,35 +100,60 @@ namespace Underwrite.Editor
                 Object.DestroyImmediate(camera.gameObject);
             }
 
-            VillageSceneSetup.CreateQuad("Room Floor", Vector2.zero, ROOM_SIZE, new Color(0.18f, 0.15f, 0.12f), -10);
-            VillageSceneSetup.SetGroundSize(ROOM_SIZE);
-            VillageSceneSetup.BuildEdgeWalls();
-
-            for (var i = 0; i < TABLES.Length; i++)
-            {
-                Solid("Table", TABLES[i], TABLE_SIZE, new Color(0.38f, 0.26f, 0.16f));
-            }
-
-            var board = Solid("Stock Board", BOARD_AT, BOARD_SIZE, new Color(0.12f, 0.2f, 0.16f));
-            Solid("Counter", COUNTER_AT, COUNTER_SIZE, new Color(0.32f, 0.2f, 0.12f));
-
-            // 주식판 앞 자리. 판 아래쪽 가운데에 선다.
+            // Codex 납품(지하 방 파츠)이 있으면 그림으로, 없으면 임시 상자로 깐다.
+            var delivery = UnderworldRoomParts.FindDelivery();
+            var points = delivery == null ? null : UnderworldRoomParts.Build(delivery);
             var boardFront = new GameObject("Board Front");
-            boardFront.transform.SetParent(board.transform);
-            boardFront.transform.position = new Vector3(BOARD_AT.x, BOARD_AT.y - BOARD_SIZE.y * 0.5f - 0.6f, 0f);
+            var investorSpots = new List<Vector2>(INVESTORS);
+            var informantAt = INFORMANT_AT;
+            var playerAt = PLAYER_AT;
+
+            if (points != null)
+            {
+                VillageSceneSetup.SetGroundSize(points.Size);
+                boardFront.transform.position = new Vector3(points.BoardFront.x, points.BoardFront.y, 0f);
+                informantAt = points.Informant;
+                playerAt = points.Spawn;
+
+                // 앉은 그림이 오기 전까지는 의자 자리 옆에 선 임시본. 테이블마다 한두 명.
+                investorSpots.Clear();
+
+                for (var i = 0; i < points.Seats.Count && investorSpots.Count < INVESTORS.Length; i += 2)
+                {
+                    investorSpots.Add(points.Seats[i]);
+                }
+            }
+            else
+            {
+                VillageSceneSetup.CreateQuad("Room Floor", Vector2.zero, ROOM_SIZE, new Color(0.18f, 0.15f, 0.12f), -10);
+                VillageSceneSetup.SetGroundSize(ROOM_SIZE);
+                VillageSceneSetup.BuildEdgeWalls();
+
+                for (var i = 0; i < TABLES.Length; i++)
+                {
+                    Solid("Table", TABLES[i], TABLE_SIZE, new Color(0.38f, 0.26f, 0.16f));
+                }
+
+                var board = Solid("Stock Board", BOARD_AT, BOARD_SIZE, new Color(0.12f, 0.2f, 0.16f));
+                Solid("Counter", COUNTER_AT, COUNTER_SIZE, new Color(0.32f, 0.2f, 0.12f));
+
+                // 주식판 앞 자리. 판 아래쪽 가운데에 선다.
+                boardFront.transform.SetParent(board.transform);
+                boardFront.transform.position = new Vector3(BOARD_AT.x, BOARD_AT.y - BOARD_SIZE.y * 0.5f - 0.6f, 0f);
+            }
 
             var investors = new List<CharacterActor>();
 
-            for (var i = 0; i < INVESTORS.Length; i++)
+            for (var i = 0; i < investorSpots.Count; i++)
             {
-                investors.Add(Person("Investor", INVESTORS[i], INVESTOR_TINTS[i % INVESTOR_TINTS.Length], prefab));
+                investors.Add(Person("Investor", investorSpots[i], INVESTOR_TINTS[i % INVESTOR_TINTS.Length], prefab));
             }
 
-            var informant = Person("Informant", INFORMANT_AT, new Color(0.38f, 0.36f, 0.45f), prefab);
+            var informant = Person("Informant", informantAt, new Color(0.38f, 0.36f, 0.45f), prefab);
 
             var player = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
             player.name = "Character";
-            player.transform.position = new Vector3(PLAYER_AT.x, PLAYER_AT.y, 0f);
+            player.transform.position = new Vector3(playerAt.x, playerAt.y, 0f);
             player.transform.localScale = Vector3.one * CHARACTER_SCALE;
             VillageSceneSetup.ShrinkToFootprint(player);
             player.AddComponent<SortingGroup>();
@@ -136,6 +161,12 @@ namespace Underwrite.Editor
             player.AddComponent<CharacterActor>();
 
             VillageSceneSetup.BuildLight(lightPrefab);
+
+            if (points != null)
+            {
+                UnderworldRoomParts.DimGlobalLight();
+            }
+
             VillageSceneSetup.BuildCamera(player);
             BuildRoomScreen(market, boardFront.transform, informant, investors);
 

@@ -22,7 +22,8 @@
 | 14 | `ui_frames_v1.md` | `UIFrames_v1` | **완료** — 적용함 |
 | 15 | `portrait_fix_v1·v2.md` | `PortraitFix_v1·v2` | **완료** — 엘프 코는 추후 재검토 |
 | 16 | `ui_market_kit_v1.md` | `MarketUI_Kit_v1` | **부분 통과 — 적용함(10/18).** 교차 검수: 과장·Codex 모두 「매수/매도·주문 단추 혼재」 지적 → 배치·USS로 고침(거래판 하나, 단추 한 체계). 실제 화면 `ingame_v2.png` |
-| 17 | `underworld_room_v1.md` | `UnderworldRoom_v1` | 진행 중(10/18) — 지하 방 바닥판·사물. 사람·정보상 초상은 v2 |
+| 17 | `underworld_room_v1.md` | `UnderworldRoom_v1` | **반려(부분)** — 교차 검수: 바닥(판석 3~9배)·기둥·계단 반려, 가구 수정, 칠판·상자·촛대 통과. 들이지 않음 |
+| 17b | `underworld_room_v2.md` | `UnderworldRoom_v2` | 진행 중(10/18) — v1 수정판. 들이는 도구 준비됨(`UnderworldRoomParts.cs`). 사람·정보상은 그 뒤 |
 | 18 | `portrait_folk_v3.md` | `PortraitFolk_v3` | 대기 — 17번 다음. 주민 다섯 다시(얼굴 틀 깨기) + 정보상 두건. 슬롭 5-1의 5번 |
 
 **다음 목록은 `ART_BACKLOG.md`** (2026-10-17 정리, 우선순위 순). Codex 사용량이 적어 한 건씩 확인받고 건다.
