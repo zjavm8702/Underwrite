@@ -240,6 +240,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 6ea9f779b4c25a346839bf77e713901b, type: 3}
   - {fileID: 2800000, guid: 1626126cd473d654aa9114130fa91b99, type: 3}
   Data: {fileID: 11400000, guid: 9d92527f4cc06b044b4f10b2117dde1b, type: 2}
+  TitleBackground: {fileID: 2800000, guid: 287d72efaef2c0145a97ee7efeddd8ba, type: 3}
+  ButtonNormal: {fileID: 2800000, guid: ba43fd7e2d6e0a742880650a39f09ba5, type: 3}
+  ButtonPressed: {fileID: 2800000, guid: fbea2692c83483f42b5a9448a0c5078c, type: 3}
 --- !u!114 &1772377711
 MonoBehaviour:
   m_ObjectHideFlags: 0

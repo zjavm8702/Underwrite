@@ -381,6 +381,12 @@ namespace Underwrite.UI
 
             var keyboard = Keyboard.current;
 
+            // Esc로 메뉴(처음 화면으로 · 게임 종료가 들어 있다). 대화·연출 중이면 메뉴 쪽이 막는다.
+            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame == true)
+            {
+                Menu.Toggle();
+            }
+
             if (Dialogue != null && Dialogue.IsChoosing == true)
             {
                 PickByNumber(keyboard);

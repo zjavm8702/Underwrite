@@ -95,6 +95,18 @@ namespace Underwrite.Global
 
         // ── 인트로 (웹툰 1~6화) ───────────────────
         public static string TEXT_INTRO_SKIP = "건너뛰기";
+
+        // 처음 화면(2026-10-19 데모 점검 — 게임을 켜면 바로 웹툰이 시작되고, 끌 방법이 없었다).
+        public static string TEXT_TITLE_NAME = "지하거래소의 후원자";
+        public static string TEXT_TITLE_SUB = "UNDERWRITE";
+        public static string TEXT_TITLE_NEW = "새로 시작";
+        public static string TEXT_TITLE_QUIT = "종료";
+        public static string TEXT_TITLE_NEW_CONFIRM = "새로 시작하면 지금 판은 따로 보관되고, 처음(웹툰)부터 시작한다.";
+        public static string TEXT_TITLE_NEW_OK = "새로 시작한다";
+        public static string TEXT_TITLE_CANCEL = "그만둔다";
+        public static string TEXT_TITLE_DEMO = "데모";
+        public static string TEXT_MENU_TO_TITLE = "처음 화면으로";
+        public static string TEXT_MENU_QUIT = "게임 종료";
         public static string TEXT_INTRO_CONTINUE = "이어하기 · {0}";
         public static string TEXT_INTRO_COUNT = "{0} / {1} · 클릭하거나 스페이스로 넘긴다";
 

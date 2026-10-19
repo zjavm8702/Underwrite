@@ -41,6 +41,21 @@ namespace Underwrite.UI
         [Tooltip("이어하기 때 시장을 표에서 다시 짜는 데 쓴다.")]
         [SerializeField] private GameDataSet Data;
 
+        [Header("처음 화면")]
+        [Tooltip("처음 화면 배경(지하 방).")]
+        [SerializeField] private Texture2D TitleBackground;
+        [Tooltip("단추 그림(9칸 자르기, 영지 단추와 같은 것).")]
+        [SerializeField] private Texture2D ButtonNormal;
+        [SerializeField] private Texture2D ButtonPressed;
+
+        private const int BUTTON_SLICE = 48;
+        private const float BUTTON_SLICE_SCALE = 0.25f;
+
+        // 처음 화면이 떠 있는 동안은 웹툰이 넘어가지 않는다.
+        private VisualElement Title;
+        private VisualElement Confirm;
+        private Button VolumeButton;
+
         private VisualElement Frame;
         private VisualElement Page;
         private Label Count;
@@ -107,26 +122,176 @@ namespace Underwrite.UI
             skip.style.top = 32f;
             veil.Add(skip);
 
-            // 저장이 있으면 웹툰을 다시 볼 필요가 없다. 마지막으로 있던 영지에서 잇는다.
+            Index = 0;
+            Show();
+            BuildTitle(root);
+        }
+
+        // ── 처음 화면 (2026-10-19 데모 점검) ─────────
+
+        /// <summary>
+        /// 이어하기(저장이 있을 때) · 새로 시작 · 소리 · 종료. 웹툰은 「새로 시작」을 고른 뒤에 흐른다.
+        /// 저장이 있는데 새로 시작하면 한 번 묻는다 — 이전 판은 날짜를 붙여 따로 보관된다(SaveSystem.ArchiveForNewGame).
+        /// </summary>
+        private void BuildTitle(VisualElement root)
+        {
+            Title = Cover(new Color(0.03f, 0.025f, 0.02f, 1f));
+
+            if (TitleBackground != null)
+            {
+                Title.style.backgroundImage = new StyleBackground(TitleBackground);
+                Title.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Cover);
+            }
+
+            // 배경을 어둡게 눌러 글자가 먼저 읽히게.
+            var shade = Cover(new Color(0.02f, 0.015f, 0.01f, 0.62f));
+            shade.style.justifyContent = Justify.Center;
+            shade.style.paddingLeft = Length.Percent(9f);
+            Title.Add(shade);
+
+            var name = new Label(StringConstants.TEXT_TITLE_NAME);
+            name.style.fontSize = 64f;
+            name.style.color = new Color(0.96f, 0.9f, 0.76f);
+            name.style.unityFontStyleAndWeight = FontStyle.Bold;
+            shade.Add(name);
+
+            var sub = new Label(StringConstants.TEXT_TITLE_SUB + "  ·  " + StringConstants.TEXT_TITLE_DEMO);
+            sub.style.fontSize = 20f;
+            sub.style.letterSpacing = 6f;
+            sub.style.color = new Color(0.78f, 0.68f, 0.5f);
+            sub.style.marginBottom = 48f;
+            shade.Add(sub);
+
             var when = SaveSystem.PeekWhen();
 
             if (when != null)
             {
-                var resume = new Button(Continue);
-                resume.text = string.Format(StringConstants.TEXT_INTRO_CONTINUE, when);
-                resume.style.position = Position.Absolute;
-                resume.style.left = 36f;
-                resume.style.top = 32f;
-                veil.Add(resume);
+                shade.Add(TitleButton(string.Format(StringConstants.TEXT_INTRO_CONTINUE, when), Continue));
             }
 
-            Index = 0;
-            Show();
+            shade.Add(TitleButton(StringConstants.TEXT_TITLE_NEW, () =>
+            {
+                if (when == null)
+                {
+                    CloseTitle();
+                    return;
+                }
+
+                OpenConfirm(root);
+            }));
+
+            VolumeButton = TitleButton(VolumeText(), () =>
+            {
+                GameAudio.CycleVolume();
+                VolumeButton.text = VolumeText();
+            });
+            shade.Add(VolumeButton);
+            shade.Add(TitleButton(StringConstants.TEXT_TITLE_QUIT, Application.Quit));
+            root.Add(Title);
+        }
+
+        private static string VolumeText()
+        {
+            return string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]);
+        }
+
+        private void OpenConfirm(VisualElement root)
+        {
+            Confirm = Cover(new Color(0f, 0f, 0f, 0.7f));
+            Confirm.style.alignItems = Align.Center;
+            Confirm.style.justifyContent = Justify.Center;
+
+            var text = new Label(StringConstants.TEXT_TITLE_NEW_CONFIRM);
+            text.style.fontSize = 22f;
+            text.style.color = new Color(0.96f, 0.9f, 0.76f);
+            text.style.marginBottom = 24f;
+            Confirm.Add(text);
+
+            var row = new VisualElement();
+            row.style.flexDirection = FlexDirection.Row;
+            row.Add(TitleButton(StringConstants.TEXT_TITLE_NEW_OK, () =>
+            {
+                Confirm.RemoveFromHierarchy();
+                CloseTitle();
+            }));
+            row.Add(TitleButton(StringConstants.TEXT_TITLE_CANCEL, () => Confirm.RemoveFromHierarchy()));
+            Confirm.Add(row);
+            root.Add(Confirm);
+        }
+
+        private void CloseTitle()
+        {
+            if (Title != null)
+            {
+                Title.RemoveFromHierarchy();
+                Title = null;
+            }
+        }
+
+        private Button TitleButton(string text, System.Action onClick)
+        {
+            var button = new Button(onClick);
+            button.text = text;
+            button.style.width = 360f;
+            button.style.height = 58f;
+            button.style.marginTop = 6f;
+            button.style.marginBottom = 6f;
+            button.style.marginRight = 12f;
+            button.style.fontSize = 20f;
+            button.style.color = new Color(0.97f, 0.94f, 0.88f);
+            button.style.backgroundColor = new Color(0f, 0f, 0f, 0f);
+            button.style.borderTopWidth = 0f;
+            button.style.borderBottomWidth = 0f;
+            button.style.borderLeftWidth = 0f;
+            button.style.borderRightWidth = 0f;
+
+            if (ButtonNormal != null)
+            {
+                button.style.backgroundImage = new StyleBackground(ButtonNormal);
+                button.style.unitySliceLeft = BUTTON_SLICE;
+                button.style.unitySliceRight = BUTTON_SLICE;
+                button.style.unitySliceTop = BUTTON_SLICE;
+                button.style.unitySliceBottom = BUTTON_SLICE;
+                button.style.unitySliceScale = BUTTON_SLICE_SCALE;
+
+                // 누르는 동안 눌린 그림.
+                button.RegisterCallback<PointerDownEvent>(_ => SetButtonImage(button, ButtonPressed), TrickleDown.TrickleDown);
+                button.RegisterCallback<PointerUpEvent>(_ => SetButtonImage(button, ButtonNormal));
+                button.RegisterCallback<PointerLeaveEvent>(_ => SetButtonImage(button, ButtonNormal));
+            }
+
+            return button;
+        }
+
+        private static void SetButtonImage(Button button, Texture2D image)
+        {
+            if (image != null)
+            {
+                button.style.backgroundImage = new StyleBackground(image);
+            }
+        }
+
+        private static VisualElement Cover(Color color)
+        {
+            var cover = new VisualElement();
+            cover.style.position = Position.Absolute;
+            cover.style.left = 0f;
+            cover.style.right = 0f;
+            cover.style.top = 0f;
+            cover.style.bottom = 0f;
+            cover.style.backgroundColor = color;
+            return cover;
         }
 
         private void Update()
         {
             Animate(Time.unscaledDeltaTime);
+
+            if (Title != null)
+            {
+                return;
+            }
+
             var keyboard = Keyboard.current;
 
             if (keyboard == null)
@@ -249,7 +414,7 @@ namespace Underwrite.UI
             ShowCount();
         }
 
-        /// <summary>새 게임을 연다. 이전 판의 기록이 남아 있으면 비운다.</summary>
+        /// <summary>저장한 판을 이어서 연다. 불러오지 못하면 새 판으로.</summary>
         private void Continue()
         {
             if (SaveSystem.Load(Data) == false)

@@ -4,6 +4,7 @@ using Underwrite.Market;
 using Underwrite.Save;
 using Underwrite.Story;
 using Underwrite.Utility;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -120,7 +121,8 @@ namespace Underwrite.UI
 
         // ── 메뉴 (드롭업) ─────────
 
-        private void Toggle()
+        /// <summary>메뉴를 펼치거나 접는다(메뉴 단추 · Esc).</summary>
+        public void Toggle()
         {
             if ((Host.Dialogue != null && Host.Dialogue.IsOpen == true) || Host.IsApproaching == true || Host.IsStaging == true)
             {
@@ -156,6 +158,7 @@ namespace Underwrite.UI
             if (Prologue.IsActive == true)
             {
                 Item(list, VolumeText(), true, string.Empty, GameAudio.CycleVolume);
+                AddLeaveItems(list);
                 Show(list);
                 return;
             }
@@ -176,7 +179,23 @@ namespace Underwrite.UI
                 Item(list, StringConstants.TEXT_SLEEP_CHOICE, true, string.Empty, Night.Sleep);
             }
 
+            AddLeaveItems(list);
             Show(list);
+        }
+
+        // 처음 화면으로 · 게임 종료 — 둘 다 저장하고 나간다(2026-10-19 데모 점검: 게임 안에서 끌 방법이 없었다).
+        private void AddLeaveItems(VisualElement list)
+        {
+            Item(list, StringConstants.TEXT_MENU_TO_TITLE, true, string.Empty, () =>
+            {
+                SaveSystem.Save();
+                SceneManager.LoadScene(SceneRoutes.INTRO);
+            });
+            Item(list, StringConstants.TEXT_MENU_QUIT, true, string.Empty, () =>
+            {
+                SaveSystem.Save();
+                Application.Quit();
+            });
         }
 
         private static string VolumeText()
