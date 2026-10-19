@@ -31,6 +31,8 @@ namespace Underwrite.Editor.Utility
         private const string VOICE_FOLDER = "Assets/Resources/";
         private const float GAP_SECONDS = 0.35f;
         private const int VARIANTS = 2;
+        private const int SAVE_ATTEMPTS = 4;
+        private const int SAVE_RETRY_MS = 150;
 
         private static readonly Color ChangedColor = new Color(0.95f, 0.75f, 0.3f);
 
@@ -454,10 +456,31 @@ namespace Underwrite.Editor.Utility
                 return;
             }
 
-            File.WriteAllText(ProjectPath(BARKS_JSON), MiniJson.Serialize(Root), new UTF8Encoding(false));
-            IsDirty = false;
-            Status.text = "저장했다";
-            RefreshBar();
+            // 다른 프로그램(편집기 등)이 파일을 잡고 있으면 Win32 1224로 실패한다(10/19). 잠깐 쉬었다 몇 번 더 해 본다.
+            var text = MiniJson.Serialize(Root);
+
+            for (var attempt = 0; attempt < SAVE_ATTEMPTS; attempt++)
+            {
+                try
+                {
+                    File.WriteAllText(ProjectPath(BARKS_JSON), text, new UTF8Encoding(false));
+                    IsDirty = false;
+                    Status.text = "저장했다";
+                    RefreshBar();
+                    return;
+                }
+                catch (IOException exception)
+                {
+                    if (attempt == SAVE_ATTEMPTS - 1)
+                    {
+                        Status.text = "저장하지 못했다 — 다른 프로그램이 대사 표를 열고 있는지 본다";
+                        Debug.LogWarning($"대사 표를 저장하지 못했습니다: {exception.Message}");
+                        return;
+                    }
+
+                    System.Threading.Thread.Sleep(SAVE_RETRY_MS);
+                }
+            }
         }
 
         private Dictionary<string, object> Person(string voice)
