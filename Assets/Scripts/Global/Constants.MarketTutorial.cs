@@ -24,7 +24,7 @@ namespace Underwrite.Global
         public static string TEXT_MTUT_COACH_BOARD = "시장 게시판(칠판) 앞으로 가서 E — 거래판을 연다";
         public static string TEXT_MTUT_COACH_BUY = "첫 거래 — 종목을 하나 골라 1주 산다 · 「매수」 단추를 누른다";
         public static string TEXT_MTUT_COACH_SELL = "이제 판다 — 산 1주를 「매도」. 연습이라 오르내린 차이는 정보상이 메워 준다";
-        public static string TEXT_MTUT_COACH_FLOW = "시간이 흐르기 시작했다. 정보 타임이 오면 정보상이 부른다";
+        public static string TEXT_MTUT_COACH_FLOW = "시간이 흐르기 시작했다. 소식이 들어오면 정보상이 부른다";
         public static string TEXT_MTUT_COACH_AFTER = "소식을 봤으면 다시 판단한다 — 오를 것 같으면 더 사고, 내릴 것 같으면 판다";
 
         // 2. 거래판 — 처음 열었을 때 짚어 주는 순서.

@@ -1920,6 +1920,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    /* 왼쪽 아래 「?」(규칙 다시 보기, left 28 · 폭 56) 자리를 비운다 — 안내 글자가 겹쳤다(10/19 사장님). */
+    padding-left: 52px;
 }
 
 .ledger-message {

@@ -34,7 +34,7 @@ namespace Underwrite.Global
         public static string TEXT_TUT_MARKET_6_TITLE = "자산";
         public static string TEXT_TUT_MARKET_6_BODY = "현금과 주식의 값. 영지에서 번 돈과 쓴 돈도 여기에 더해진다. 용사단을 후원할 돈도 여기서 나온다.";
         public static string TEXT_TUT_MARKET_7_TITLE = "정보 기록";
-        public static string TEXT_TUT_MARKET_7_BODY = "장마다 두 번, 정보 타임에 모험 소식이 들어온다 — 지하세계가 동시에 듣는다. 남보다 앞서려면 장 사이 영지에서 미리 캐야 한다. 「내 종목」 탭은 가진 종목 소식만 모은다.";
+        public static string TEXT_TUT_MARKET_7_BODY = "장마다 두 번, 정보상에게 모험 소식이 들어온다 — 지하세계가 동시에 듣는다. 남보다 앞서려면 장 사이 영지에서 미리 캐야 한다. 「내 종목」 탭은 가진 종목 소식만 모은다.";
         public static string TEXT_TUT_MARKET_8_TITLE = "시간";
         public static string TEXT_TUT_MARKET_8_BODY = "배속을 바꾸거나 장을 끝낼 수 있다. 장이 끝나면 지하세계는 닫힌다 — 벽의 문으로 여관 위층에 올라가 다음 장까지 영지에서 지낸다.";
     }
