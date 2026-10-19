@@ -55,6 +55,7 @@ namespace Underwrite.Story
         public static int SmithDay { get; set; }
         public static int DiceDay { get; set; }
         public static int DeduceDay { get; set; }
+        public static int EavesDay { get; set; }
 
         /// <summary>데모 마무리 장면을 봤는가. 한 번만 보인다 — 그 뒤로는 그대로 이어서 둘러볼 수 있다.</summary>
         public static bool DemoEndSeen { get; set; }
@@ -81,6 +82,7 @@ namespace Underwrite.Story
             SmithDay = 0;
             DiceDay = 0;
             DeduceDay = 0;
+            EavesDay = 0;
             VillageTutorialDone = false;
         }
     }

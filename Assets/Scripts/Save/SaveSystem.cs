@@ -81,6 +81,7 @@ namespace Underwrite.Save
                     SmithDay = StoryProgress.SmithDay,
                     DiceDay = StoryProgress.DiceDay,
                     DeduceDay = StoryProgress.DeduceDay,
+                    EavesDay = StoryProgress.EavesDay,
                     MarketTutorialDone = StoryProgress.MarketTutorialDone,
                     VillageTutorialDone = StoryProgress.VillageTutorialDone,
                     Bankruptcies = StoryProgress.Bankruptcies,
@@ -144,11 +145,31 @@ namespace Underwrite.Save
             }
         }
 
-        /// <summary>저장된 시각. 이어하기 단추에 며칠째 몇 시인지 적는 데 쓴다. 저장이 없으면 null.</summary>
-        public static MarketClock PeekClock()
+        /// <summary>
+        /// 이어하기 단추의 「언제」. 저장이 없으면 null.
+        /// 프롤로그(일곱째·여덟째 날) 동안은 시장 달력을 숨기므로 그날 이름만 적는다(데모 점검 — 숨긴 달력이 단추에 보임).
+        /// </summary>
+        public static string PeekWhen()
         {
             var data = Peek();
-            return data == null ? null : MarketClock.Restore(data.Clock);
+
+            if (data == null)
+            {
+                return null;
+            }
+
+            var prologue = data.Story.Prologue;
+
+            // 불러올 때와 같은 판정 — 옛 저장·손상된 값은 프롤로그가 끝난 것으로 본다.
+            if (data.Story.CellarFound == false && prologue >= PrologueStage.Stage_Opening && prologue < PrologueStage.Stage_Done)
+            {
+                return prologue == PrologueStage.Stage_Kitchen
+                    ? StringConstants.TEXT_PROLOGUE_DAY8
+                    : StringConstants.TEXT_PROLOGUE_DAY7;
+            }
+
+            var clock = MarketClock.Restore(data.Clock);
+            return ClockText.SeasonDay(clock.CalendarDay) + " " + ClockText.FromMinutes(clock.BreakMinuteOfDay);
         }
 
         /// <summary>
@@ -227,6 +248,7 @@ namespace Underwrite.Save
             StoryProgress.SmithDay = data.Story.SmithDay;
             StoryProgress.DiceDay = data.Story.DiceDay;
             StoryProgress.DeduceDay = data.Story.DeduceDay;
+            StoryProgress.EavesDay = data.Story.EavesDay;
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
             StoryProgress.Bankruptcies = data.Story.Bankruptcies;
             StoryProgress.DemoEndSeen = data.Story.DemoEndSeen;

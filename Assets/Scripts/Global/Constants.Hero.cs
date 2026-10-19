@@ -95,7 +95,7 @@ namespace Underwrite.Global
 
         // ── 인트로 (웹툰 1~6화) ───────────────────
         public static string TEXT_INTRO_SKIP = "건너뛰기";
-        public static string TEXT_INTRO_CONTINUE = "이어하기 · {0} {1}";
+        public static string TEXT_INTRO_CONTINUE = "이어하기 · {0}";
         public static string TEXT_INTRO_COUNT = "{0} / {1} · 클릭하거나 스페이스로 넘긴다";
 
         // ── 지하거래소 발견 (웹툰 5~6화를 직접 겪는다) ──

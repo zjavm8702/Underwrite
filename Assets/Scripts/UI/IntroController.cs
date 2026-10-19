@@ -108,13 +108,12 @@ namespace Underwrite.UI
             veil.Add(skip);
 
             // 저장이 있으면 웹툰을 다시 볼 필요가 없다. 마지막으로 있던 영지에서 잇는다.
-            var saved = SaveSystem.PeekClock();
+            var when = SaveSystem.PeekWhen();
 
-            if (saved != null)
+            if (when != null)
             {
                 var resume = new Button(Continue);
-                resume.text = string.Format(StringConstants.TEXT_INTRO_CONTINUE, ClockText.SeasonDay(saved.CalendarDay),
-                    ClockText.FromMinutes(saved.BreakMinuteOfDay));
+                resume.text = string.Format(StringConstants.TEXT_INTRO_CONTINUE, when);
                 resume.style.position = Position.Absolute;
                 resume.style.left = 36f;
                 resume.style.top = 32f;

@@ -1403,6 +1403,8 @@ namespace Underwrite.UI
             if (pause != null)
             {
                 pause.text = Sim.Clock.IsPaused == true ? StringConstants.TEXT_RESUME : StringConstants.TEXT_PAUSE;
+                // 첫 거래 동안은 튜토리얼이 시간을 잡고 있다 — 일시정지는 뜻이 없고, 눌리면 주문이 막혀 갇힌다(데모 점검).
+                pause.SetEnabled(Onboarding == null || Onboarding.HoldsTime == false);
             }
 
             var place = Cached<Button>("place-button");
@@ -2741,6 +2743,12 @@ namespace Underwrite.UI
         internal void HoldTime()
         {
             Sim.Clock.SetHeld(true);
+
+            // 잡아 둔 동안 일시정지가 걸려 있으면 주문을 못 낸다(AcceptsOrders). 시간은 어차피 멈춰 있다.
+            if (Sim.Clock.IsPaused == true)
+            {
+                Sim.Clock.SetPaused(false);
+            }
         }
 
         internal void ReleaseTime()

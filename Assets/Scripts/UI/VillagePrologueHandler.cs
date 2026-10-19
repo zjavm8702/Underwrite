@@ -125,6 +125,13 @@ namespace Underwrite.UI
 
             WorldSigns.Highlight(TargetName());
 
+            // 순찰을 다 돌면 해가 진다 — 시계가 오후에 멈춰 있으면 잠 단계도 한낮으로 비쳤다(데모 점검).
+            if (Stage == PrologueStage.Stage_Sleep && Host.Clock != null
+                && Host.Clock.BreakMinuteOfDay < Constants.PROLOGUE_DUSK_MINUTE)
+            {
+                Host.Clock.SetBreakMinute(Constants.PROLOGUE_DUSK_MINUTE);
+            }
+
             // 첫 카드는 다른 조건을 기다리지 않고 영지가 뜨는 첫 프레임에 띄운다 — 영지가 먼저 보이지 않게.
             if (Stage == PrologueStage.Stage_Opening && directing == false)
             {

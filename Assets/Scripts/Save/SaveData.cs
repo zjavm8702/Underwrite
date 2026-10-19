@@ -217,6 +217,7 @@ namespace Underwrite.Save
         public int SmithDay;
         public int DiceDay;
         public int DeduceDay;
+        public int EavesDay;
 
         public bool MarketTutorialDone;
         public bool VillageTutorialDone;

@@ -81,6 +81,9 @@ ARGS+=(--cd "$WORK_DIR_WIN" --sandbox "$SANDBOX" --skip-git-repo-check --color n
 if [ -z "$RESUME_MODE" ]; then
     ARGS+=(--ephemeral)
 fi
+# Codex 데스크톱 앱이 켜져 있으면 node_repl.exe를 잡고 있어 elevated 샌드박스 준비가
+# os error 32(「setup refresh had errors」)로 실패한다(2026-10-19). CODEX_SANDBOX_MODE=unelevated로 우회한다.
+[ -n "${CODEX_SANDBOX_MODE:-}" ] && ARGS+=(-c "windows.sandbox=\"$CODEX_SANDBOX_MODE\"")
 [ -n "$MODEL" ] && ARGS+=(-m "$MODEL")
 [ -n "$SCHEMA" ] && ARGS+=(--output-schema "$(to_win "$SCHEMA")")
 ARGS+=("$PROMPT")

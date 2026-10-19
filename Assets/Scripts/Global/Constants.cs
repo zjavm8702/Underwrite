@@ -440,6 +440,8 @@ namespace Underwrite.Global
 
         // 잠에서 깨는 여덟째 날 아침(하루 기준 분). 시장 달력의 1년 봄 1일째다.
         public static int PROLOGUE_WAKE_MINUTE = 7 * 60 + 50;
+        /// <summary>일곱째 날 순찰을 마치고 여관으로 돌아가는 해 질 녘(조명·가로등이 이 시각을 읽는다).</summary>
+        public static int PROLOGUE_DUSK_MINUTE = 19 * 60 + 30;
 
         // 프롤로그 장소 이동(순간이동). 문 앞 칸에서 조금 아래에 세운다. 암전 시간(초).
         public static readonly UnityEngine.Vector2 PROLOGUE_WARP_OFFSET = new UnityEngine.Vector2(0f, -0.6f);

@@ -53,14 +53,13 @@ namespace Underwrite.UI
 
         private UI_Eavesdrop Eaves;
         private EavesdropSession EavesSession;
-        private int EavesDay;
         private VillageSpot EavesSpot;
 
         public DialogueChoice EavesChoice()
         {
             var choice = new DialogueChoice(StringConstants.TEXT_EAVES_CHOICE, StartEaves);
 
-            if (EavesDay == Host.Today())
+            if (StoryProgress.EavesDay == Host.Today())
             {
                 choice.IsEnabled = false;
                 choice.Note = StringConstants.TEXT_EAVES_DONE_TODAY;
@@ -96,7 +95,7 @@ namespace Underwrite.UI
 
             Host.Dialogue.Close();
             EavesSpot = Host.CurrentSpot;
-            EavesDay = Host.Today();
+            StoryProgress.EavesDay = Host.Today();
             ActionPoints.Spend(Constants.AP_MINIGAME);
 
             if (Eaves == null)
