@@ -130,7 +130,7 @@ namespace Underwrite.Global
         public static string TEXT_TITLE_SUB = "UNDERWRITE";
         public static string TEXT_TITLE_NEW = "새로 시작";
         public static string TEXT_TITLE_QUIT = "종료";
-        public static string TEXT_TITLE_NEW_CONFIRM = "새로 시작하면 지금 판은 따로 보관되고, 처음(웹툰)부터 시작한다.";
+        public static string TEXT_TITLE_NEW_CONFIRM = "새로 시작하면 지금 판은 따로 보관되고, 처음부터 시작한다.";
         public static string TEXT_TITLE_NEW_OK = "새로 시작한다";
         public static string TEXT_TITLE_CANCEL = "그만둔다";
         public static string TEXT_TITLE_DEMO = "데모";
