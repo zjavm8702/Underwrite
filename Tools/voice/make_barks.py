@@ -26,6 +26,23 @@ SILENCE = 10 ** (-40 / 20)  # -40 dBFS 아래는 무음으로 본다
 PAD_SECONDS = 0.04
 
 
+def line_of(entry):
+    """대사 한 줄. 글만 있으면 문자열, 속도·연출이 붙으면 {"text", "speed", "style"}."""
+    if isinstance(entry, str):
+        return entry, 1.0, ""
+
+    return entry.get("text", ""), float(entry.get("speed", 1.0) or 1.0), entry.get("style", "") or ""
+
+
+def change_speed(wav, speed):
+    """음 높이는 두고 길이만 바꾼다(1.3이면 1.3배 빠르게)."""
+    if abs(speed - 1.0) < 0.01:
+        return wav
+
+    import librosa
+    return librosa.effects.time_stretch(np.asarray(wav, dtype=np.float32), rate=speed)
+
+
 def trim_and_normalize(wav, sr):
     wav = np.asarray(wav, dtype=np.float32)
     loud = np.where(np.abs(wav) > SILENCE)[0]
@@ -75,8 +92,8 @@ def main():
         files = []
 
         for emotion, lines in spec[name]["barks"].items():
-            for i, text in enumerate(lines):
-                texts.append(text)
+            for i, entry in enumerate(lines):
+                texts.append(line_of(entry)[0])
                 files.append(f"{emotion}_{i}.wav")
 
         torch.manual_seed(SEED)

@@ -197,7 +197,8 @@ namespace Underwrite.Editor.Utility
             Detail.Add(Caption("기준 대사 — 목소리를 설계할 때 읽히는 한 줄"));
             Detail.Add(Field(person, "ref_text", false));
 
-            Detail.Add(Caption("감정별 한마디 — 고친 줄은 노랗게. ▶ 듣기 · ⟳ 다시 만들기"));
+            Detail.Add(Caption("감정별 한마디 — 고친 줄은 노랗게. 속도 1.3 = 1.3배 빠르게(음 높이는 그대로). "
+                + "연출(영어)을 쓰면 그 지시대로 연기한다 — 예: laugh heartily, a quick natural chuckle. ▶ 듣기 · ⟳ 다시 만들기"));
             var barks = BarksOf(speaker.Voice);
 
             for (var e = 0; e < EmotionNames.Length; e++)
@@ -209,19 +210,17 @@ namespace Underwrite.Editor.Utility
                     continue;
                 }
 
-                var row = Row();
-                row.style.alignItems = Align.Center;
-                var name = new Label(EmotionNames[e]);
-                name.style.width = 40f;
-                name.style.unityFontStyleAndWeight = FontStyle.Bold;
-                row.Add(name);
-
                 for (var v = 0; v < lines.Count && v < VARIANTS; v++)
                 {
+                    var row = Row();
+                    row.style.alignItems = Align.Center;
+                    var name = new Label(v == 0 ? EmotionNames[e] : string.Empty);
+                    name.style.width = 40f;
+                    name.style.unityFontStyleAndWeight = FontStyle.Bold;
+                    row.Add(name);
                     row.Add(LineEditor(speaker, emotion, e, lines, v));
+                    Detail.Add(row);
                 }
-
-                Detail.Add(row);
             }
         }
 
@@ -231,23 +230,91 @@ namespace Underwrite.Editor.Utility
             box.style.flexGrow = 1f;
             box.style.alignItems = Align.Center;
             var key = KeyOf(speaker.Voice, emotion, variant);
+            var entry = LineOf(lines[variant]);
             var field = new TextField();
-            field.value = lines[variant] as string;
+            field.value = entry.Text;
             field.style.flexGrow = 1f;
+            var speed = new FloatField();
+            speed.value = entry.Speed;
+            speed.style.width = 46f;
+            speed.tooltip = "빠르기(1 = 그대로, 1.3 = 1.3배 빠르게)";
+            var style = new TextField();
+            style.value = entry.Style;
+            style.style.width = 230f;
+            style.tooltip = "연출(영어). 비우면 기준 목소리를 그대로 복제한다. 쓰면 목소리 설계 모드로 만들어 그 사람 목소리와 달라질 수 있다(10/19 측정: 웃음 줄에서 음 높이가 2~3배까지 벗어남) — 듣고 판단";
             Mark(field, key);
-            field.RegisterValueChangedCallback(change =>
-            {
-                lines[variant] = change.newValue;
-                IsDirty = true;
-                Mark(field, key);
-                RefreshBar();
-            });
+
+            // 세 칸 중 무엇이 바뀌어도 줄 하나로 다시 적는다. 속도·연출이 기본이면 글만 남긴다.
+            EventCallback<ChangeEvent<string>> onText = _ => Store(lines, variant, field, speed, style, key);
+            field.RegisterValueChangedCallback(onText);
+            style.RegisterValueChangedCallback(onText);
+            speed.RegisterValueChangedCallback(_ => Store(lines, variant, field, speed, style, key));
             box.Add(field);
+            box.Add(speed);
+            box.Add(style);
             box.Add(new Button(() => PlayLine(speaker, emotionIndex, variant)) { text = "▶" });
             var regen = new Button(() => Regenerate(new List<string> { key })) { text = "⟳", tooltip = "이 줄 다시 만들기(누를 때마다 다른 느낌)" };
             regen.SetEnabled(Running == null);
             box.Add(regen);
             return box;
+        }
+
+        private struct Line
+        {
+            public string Text;
+            public float Speed;
+            public string Style;
+        }
+
+        private static Line LineOf(object entry)
+        {
+            var line = new Line { Text = string.Empty, Speed = 1f, Style = string.Empty };
+
+            if (entry is string text)
+            {
+                line.Text = text;
+                return line;
+            }
+
+            if (entry is Dictionary<string, object> map)
+            {
+                line.Text = map.TryGetValue("text", out var t) == true ? t as string : string.Empty;
+                line.Speed = map.TryGetValue("speed", out var v) == true && v is double d ? (float)d : 1f;
+                line.Style = map.TryGetValue("style", out var st) == true ? st as string : string.Empty;
+            }
+
+            return line;
+        }
+
+        private void Store(List<object> lines, int variant, TextField field, FloatField speed, TextField style, string key)
+        {
+            var hasSpeed = Mathf.Abs(speed.value - 1f) > 0.001f;
+            var hasStyle = string.IsNullOrWhiteSpace(style.value) == false;
+
+            if (hasSpeed == false && hasStyle == false)
+            {
+                lines[variant] = field.value;
+            }
+            else
+            {
+                var map = new Dictionary<string, object> { { "text", field.value } };
+
+                if (hasSpeed == true)
+                {
+                    map["speed"] = (double)Mathf.Round(speed.value * 100f) / 100.0;
+                }
+
+                if (hasStyle == true)
+                {
+                    map["style"] = style.value.Trim();
+                }
+
+                lines[variant] = map;
+            }
+
+            IsDirty = true;
+            Mark(field, key);
+            RefreshBar();
         }
 
         private void Mark(TextField field, string key)
@@ -373,7 +440,7 @@ namespace Underwrite.Editor.Utility
                     {
                         for (var v = 0; v < lines.Count; v++)
                         {
-                            Generated[KeyOf(Speakers[i].Voice, pair.Key, v)] = lines[v] as string;
+                            Generated[KeyOf(Speakers[i].Voice, pair.Key, v)] = Signature(lines[v]);
                         }
                     }
                 }
@@ -417,12 +484,35 @@ namespace Underwrite.Editor.Utility
             }
 
             var variant = int.Parse(file.Substring(cut + 1));
-            return variant < lines.Count ? lines[variant] as string : string.Empty;
+            return variant < lines.Count ? LineOf(lines[variant]).Text : string.Empty;
+        }
+
+        // 소리를 다시 만들어야 하는지 가르는 값 — 글·빠르기·연출 중 하나라도 바뀌면 다르다.
+        private static string Signature(object entry)
+        {
+            var line = LineOf(entry);
+            return line.Text + "|" + line.Speed.ToString("0.00") + "|" + line.Style;
+        }
+
+        private string SignatureOf(string key)
+        {
+            var parts = key.Split(':');
+            var file = parts[1];
+            var cut = file.LastIndexOf('_');
+            var barks = BarksOf(parts[0]);
+
+            if (barks == null || barks.TryGetValue(file.Substring(0, cut), out var value) == false || value is List<object> lines == false)
+            {
+                return string.Empty;
+            }
+
+            var variant = int.Parse(file.Substring(cut + 1));
+            return variant < lines.Count ? Signature(lines[variant]) : string.Empty;
         }
 
         private bool IsChanged(string key)
         {
-            return Generated.TryGetValue(key, out var made) == false || made != TextOf(key);
+            return Generated.TryGetValue(key, out var made) == false || made != SignatureOf(key);
         }
 
         private List<string> ChangedKeys()
@@ -431,7 +521,7 @@ namespace Underwrite.Editor.Utility
 
             foreach (var pair in Generated)
             {
-                if (pair.Value != TextOf(pair.Key))
+                if (pair.Value != SignatureOf(pair.Key))
                 {
                     keys.Add(pair.Key);
                 }
@@ -581,7 +671,7 @@ namespace Underwrite.Editor.Utility
                 for (var i = 0; i < RunningFiles.Count; i++)
                 {
                     var key = RunningFiles[i];
-                    Generated[key] = TextOf(key);
+                    Generated[key] = SignatureOf(key);
                     AssetDatabase.ImportAsset(VoicePath(key), ImportAssetOptions.ForceUpdate);
                 }
 
