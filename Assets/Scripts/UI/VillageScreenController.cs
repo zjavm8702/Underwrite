@@ -159,6 +159,7 @@ namespace Underwrite.UI
 
         private void OnEnable()
         {
+            SaveSystem.Saved += OnSaved;
             VillageSpotEvents.Entered += OnEnter;
             VillageSpotEvents.Exited += OnExit;
         }
@@ -173,6 +174,7 @@ namespace Underwrite.UI
 
         private void OnDisable()
         {
+            SaveSystem.Saved -= OnSaved;
             VillageSpotEvents.Entered -= OnEnter;
             VillageSpotEvents.Exited -= OnExit;
         }
@@ -217,6 +219,56 @@ namespace Underwrite.UI
             }
 
             WasTalking = talking;
+        }
+
+        // ── 저장 표시 ─────────
+
+        private Label SaveBadge;
+        private float SaveBadgeShownAt = -1000f;
+
+        private void OnSaved()
+        {
+            if (Root == null || Time.unscaledTime - SaveBadgeShownAt < Constants.SAVE_BADGE_COOLDOWN)
+            {
+                return;
+            }
+
+            if (SaveBadge == null)
+            {
+                SaveBadge = new Label(StringConstants.TEXT_SAVED);
+                SaveBadge.AddToClassList("village-visits");
+                SaveBadge.pickingMode = PickingMode.Ignore;
+                SaveBadge.style.top = StyleKeyword.Auto;
+                SaveBadge.style.right = StyleKeyword.Auto;
+                SaveBadge.style.left = 32f;
+                SaveBadge.style.bottom = 28f;
+                SaveBadge.style.fontSize = 15f;
+                Root.Add(SaveBadge);
+            }
+
+            SaveBadgeShownAt = Time.unscaledTime;
+            SaveBadge.BringToFront();
+            SaveBadge.style.opacity = 1f;
+            SaveBadge.style.display = DisplayStyle.Flex;
+        }
+
+        private void TickSaveBadge()
+        {
+            if (SaveBadge == null || SaveBadge.style.display == DisplayStyle.None)
+            {
+                return;
+            }
+
+            var age = Time.unscaledTime - SaveBadgeShownAt;
+            var fade = Constants.SAVE_BADGE_SECONDS * 0.4f;
+
+            if (age >= Constants.SAVE_BADGE_SECONDS)
+            {
+                SaveBadge.style.display = DisplayStyle.None;
+                return;
+            }
+
+            SaveBadge.style.opacity = Mathf.Clamp01((Constants.SAVE_BADGE_SECONDS - age) / fade);
         }
 
         /// <summary>지하거래소로 내려간다. 장중은 저장하지 않으므로 내려가기 직전을 남긴다.</summary>
@@ -312,6 +364,7 @@ namespace Underwrite.UI
             }
 
             AutoSave();
+            TickSaveBadge();
 
             NearNpc = FindNearNpc();
             RefreshPrompt();

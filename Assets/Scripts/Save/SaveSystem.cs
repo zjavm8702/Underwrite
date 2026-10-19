@@ -121,8 +121,18 @@ namespace Underwrite.Save
                 return false;
             }
 
+            var saved = Saved;
+
+            if (saved != null)
+            {
+                saved();
+            }
+
             return true;
         }
+
+        /// <summary>저장을 마쳤다(화면이 「저장됨」을 잠깐 띄운다).</summary>
+        public static event Action Saved;
 
         /// <summary>저장 파일을 읽기만 한다. 없거나, 깨졌거나, 판이 다르면 null.</summary>
         public static SaveData Peek()

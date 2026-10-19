@@ -9,6 +9,8 @@ namespace Underwrite.Global
         // 가진 돈도 붙인다 — 의뢰 예치금을 모으라는데 지금 얼마 있는지 볼 곳이 없었다(데모 점검 10/19).
         public static string TEXT_VILLAGE_STATUS = "{0} · {1} · 행동력 {2} · 가진 돈 {3:N0}";
         public static string TEXT_AP_FULL = "●";
+        // 저장 표시(2026-10-19 데모 점검 — 저장되었는지 보여 주지 않았다).
+        public static string TEXT_SAVED = "저장됨";
         public static string TEXT_AP_EMPTY = "○";
 
         public static string TEXT_MENU_TO_SESSION = "장으로 간다";

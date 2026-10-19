@@ -406,6 +406,9 @@ namespace Underwrite.Global
         public static float AUDIO_MUSIC_VOLUME = 0.45f;
         public static float AUDIO_EFFECT_VOLUME = 0.7f;
         public static float AUDIO_VOICE_VOLUME = 0.85f;
+        /// <summary>「저장됨」이 떠 있는 시간과, 다시 띄우기까지 쉬는 시간(초). 영지는 대화가 끝날 때마다 저장해 자주 띄우면 시끄럽다.</summary>
+        public static float SAVE_BADGE_SECONDS = 1.6f;
+        public static float SAVE_BADGE_COOLDOWN = 30f;
         /// <summary>
         /// 대화창 한마디를 틀 것인가. 10/19 사장님 판정(기계음·일관성)으로 꺼 둠 — 감탄사 한 글자·짧은 끊긴 말로 다시 짠 뒤 켠다.
         /// </summary>
