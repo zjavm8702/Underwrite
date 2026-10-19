@@ -84,7 +84,8 @@ namespace Underwrite.Save
                     MarketTutorialDone = StoryProgress.MarketTutorialDone,
                     VillageTutorialDone = StoryProgress.VillageTutorialDone,
                     Bankruptcies = StoryProgress.Bankruptcies,
-                    DemoEndSeen = StoryProgress.DemoEndSeen
+                    DemoEndSeen = StoryProgress.DemoEndSeen,
+                    SponsorGuideSeen = StoryProgress.SponsorGuideSeen
                 }
             };
 
@@ -229,6 +230,9 @@ namespace Underwrite.Save
             StoryProgress.VillageTutorialDone = data.Story.VillageTutorialDone;
             StoryProgress.Bankruptcies = data.Story.Bankruptcies;
             StoryProgress.DemoEndSeen = data.Story.DemoEndSeen;
+            // 이 안내가 생기기 전 저장(10/19)에서 이미 첫 의뢰를 냈으면 본 것으로 친다.
+            StoryProgress.SponsorGuideSeen = data.Story.SponsorGuideSeen == true
+                || data.QuestIndex > Constants.QUEST_FIRST_REQUEST_INDEX;
             StoryProgress.SleepSeen.Clear();
             StoryProgress.SleepSeen.UnionWith(data.Story.SleepSeen);
             return true;

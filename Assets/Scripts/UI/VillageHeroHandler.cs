@@ -48,6 +48,13 @@ namespace Underwrite.UI
             return table;
         }
 
+        /// <summary>용사단 테이블을 바로 연다. 첫 후원 안내가 데려와서 연다(<see cref="VillageSponsorGuideHandler"/>).</summary>
+        public void OpenTable(VillageSpot spot)
+        {
+            Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(spot.InfoSource));
+            OpenHeroTable(spot);
+        }
+
         private void OpenHeroTable(VillageSpot spot)
         {
             var day = Host.Today();
@@ -73,7 +80,16 @@ namespace Underwrite.UI
                 choices.Add(choice);
             }
 
-            choices.Add(new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Host.Ask(spot, true)));
+            var cancel = new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Host.Ask(spot, true));
+
+            // 첫 후원 안내 중에는 한 사람과 이야기하기 전에 테이블을 떠나지 않는다(2026-10-19 사장님 — 강제로).
+            if (StoryProgress.SponsorGuideSeen == false && QuestLog.CurrentIndex == Constants.QUEST_HEROES_MET_INDEX)
+            {
+                cancel.IsEnabled = false;
+                cancel.Note = StringConstants.TEXT_SPONSOR_TABLE_LOCKED;
+            }
+
+            choices.Add(cancel);
 
             var line = new DialogueLine(string.Empty, spot.Name, StringConstants.TEXT_HERO_TABLE_ASK);
             line.Choices = choices;
@@ -362,14 +378,10 @@ namespace Underwrite.UI
             var money = GatherSession.Available;
             var choices = new List<DialogueChoice>
             {
-                RequestChoice(RequestPurpose.Purpose_Healing, StringConstants.TEXT_REQUEST_PURPOSE_HEALING,
-                    Constants.REQUEST_COST_HEALING, money),
-                RequestChoice(RequestPurpose.Purpose_Gear, StringConstants.TEXT_REQUEST_PURPOSE_GEAR,
-                    Constants.REQUEST_COST_GEAR, money),
-                RequestChoice(RequestPurpose.Purpose_Supplies, StringConstants.TEXT_REQUEST_PURPOSE_SUPPLIES,
-                    Constants.REQUEST_COST_SUPPLIES, money),
-                RequestChoice(RequestPurpose.Purpose_Training, StringConstants.TEXT_REQUEST_PURPOSE_TRAINING,
-                    Constants.REQUEST_COST_TRAINING, money),
+                RequestChoice(RequestPurpose.Purpose_Healing, money, () => PostRequest(RequestPurpose.Purpose_Healing, false)),
+                RequestChoice(RequestPurpose.Purpose_Gear, money, () => PostRequest(RequestPurpose.Purpose_Gear, false)),
+                RequestChoice(RequestPurpose.Purpose_Supplies, money, () => PostRequest(RequestPurpose.Purpose_Supplies, false)),
+                RequestChoice(RequestPurpose.Purpose_Training, money, () => PostRequest(RequestPurpose.Purpose_Training, false)),
                 new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, () => Host.Ask(spot, true))
             };
 
@@ -378,9 +390,166 @@ namespace Underwrite.UI
             Host.Dialogue.Play(new List<DialogueLine> { line }, null);
         }
 
-        private DialogueChoice RequestChoice(RequestPurpose purpose, string text, float cost, float money)
+        // ── 첫 익명 의뢰 (2026-10-19 사장님: 후원 방법 설명이 부족하다, 강제로) ──────
+
+        /// <summary>들었고 아직 열려 있는 사정 가운데 기한이 가장 가까운 것. 없으면 null.</summary>
+        public static HeroNeed HeardOpenNeed()
         {
-            var choice = new DialogueChoice(text, () => PostRequest(purpose, cost));
+            HeroNeed best = null;
+            var needs = PatronageLedger.All;
+
+            for (var i = 0; i < needs.Count; i++)
+            {
+                var need = needs[i];
+
+                if (need.State != NeedState.State_Open || need.Heard == false)
+                {
+                    continue;
+                }
+
+                if (best == null || need.LastDay < best.LastDay)
+                {
+                    best = need;
+                }
+            }
+
+            return best;
+        }
+
+        /// <summary>
+        /// 서기가 익명 의뢰를 일러 준 뒤 의뢰서를 꾸민다. 들은 사정에 맞는 것을 고를 때까지 창구를 떠나지 않는다 —
+        /// 틀리게 고르면 의뢰를 내지 않고 들은 말을 다시 떠올린다. 돈이 모자라면 기한 안에 벌어 오라고 하고 끝낸다.
+        /// </summary>
+        public void PlayRequestGuide(VillageSpot spot)
+        {
+            Host.CurrentSpot = spot;
+            var lines = new List<DialogueLine>();
+
+            for (var i = 0; i < StringConstants.TEXT_SPONSOR_CLERK_LINES.Length; i++)
+            {
+                lines.Add(new DialogueLine(StringConstants.TEXT_REQUEST_CLERK, spot.Name, StringConstants.TEXT_SPONSOR_CLERK_LINES[i]));
+            }
+
+            var deadline = PatronageLedger.NearestDeadline(Host.Today());
+
+            if (deadline > 0)
+            {
+                lines.Add(new DialogueLine(StringConstants.TEXT_REQUEST_CLERK, spot.Name,
+                    string.Format(StringConstants.TEXT_SPONSOR_CLERK_DEADLINE, deadline)));
+            }
+
+            Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(spot.InfoSource));
+            Host.Dialogue.Play(lines, () => OpenGuidedForm(spot));
+        }
+
+        private void OpenGuidedForm(VillageSpot spot)
+        {
+            var need = HeardOpenNeed();
+
+            if (need == null)
+            {
+                OpenRequestForm(spot);
+                return;
+            }
+
+            var money = GatherSession.Available;
+            var cost = CostOf(need.Purpose);
+
+            if (money < cost)
+            {
+                Host.Dialogue.Play(new List<DialogueLine>
+                {
+                    new DialogueLine(StringConstants.TEXT_REQUEST_CLERK, spot.Name,
+                        string.Format(StringConstants.TEXT_SPONSOR_NO_MONEY, cost, money)),
+                    new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, StringConstants.TEXT_SPONSOR_NO_MONEY_SELF)
+                }, Host.Back(spot));
+                return;
+            }
+
+            var choices = new List<DialogueChoice>
+            {
+                GuidedChoice(RequestPurpose.Purpose_Healing, need, spot, money),
+                GuidedChoice(RequestPurpose.Purpose_Gear, need, spot, money),
+                GuidedChoice(RequestPurpose.Purpose_Supplies, need, spot, money),
+                GuidedChoice(RequestPurpose.Purpose_Training, need, spot, money)
+            };
+
+            var cancel = new DialogueChoice(StringConstants.TEXT_REQUEST_CANCEL, null);
+            cancel.IsEnabled = false;
+            cancel.Note = StringConstants.TEXT_SPONSOR_FORM_LOCKED;
+            choices.Add(cancel);
+
+            var line = new DialogueLine(StringConstants.TEXT_REQUEST_CLERK, spot.Name, StringConstants.TEXT_REQUEST_ASK);
+            line.Note = StringConstants.TEXT_SPONSOR_FORM_NOTE;
+            line.Choices = choices;
+            Host.Dialogue.Play(new List<DialogueLine> { line }, null);
+        }
+
+        // 처지에 맞는 것이면 의뢰를 낸다. 아니면 내지 않고(돈도 그대로) 들은 말을 다시 떠올린 뒤 의뢰서로 돌아간다.
+        private DialogueChoice GuidedChoice(RequestPurpose purpose, HeroNeed need, VillageSpot spot, float money)
+        {
+            if (purpose == need.Purpose)
+            {
+                return RequestChoice(purpose, money, () => PostRequest(purpose, true));
+            }
+
+            return RequestChoice(purpose, money, () => Host.Dialogue.Play(new List<DialogueLine>
+            {
+                new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, StringConstants.TEXT_SPONSOR_MISS),
+                new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, need.Rumor)
+            }, () => OpenGuidedForm(spot)));
+        }
+
+        private static string PurposeText(RequestPurpose purpose)
+        {
+            switch (purpose)
+            {
+                case RequestPurpose.Purpose_Healing:
+                {
+                    return StringConstants.TEXT_REQUEST_PURPOSE_HEALING;
+                }
+                case RequestPurpose.Purpose_Gear:
+                {
+                    return StringConstants.TEXT_REQUEST_PURPOSE_GEAR;
+                }
+                case RequestPurpose.Purpose_Supplies:
+                {
+                    return StringConstants.TEXT_REQUEST_PURPOSE_SUPPLIES;
+                }
+                default:
+                {
+                    return StringConstants.TEXT_REQUEST_PURPOSE_TRAINING;
+                }
+            }
+        }
+
+        private static float CostOf(RequestPurpose purpose)
+        {
+            switch (purpose)
+            {
+                case RequestPurpose.Purpose_Healing:
+                {
+                    return Constants.REQUEST_COST_HEALING;
+                }
+                case RequestPurpose.Purpose_Gear:
+                {
+                    return Constants.REQUEST_COST_GEAR;
+                }
+                case RequestPurpose.Purpose_Supplies:
+                {
+                    return Constants.REQUEST_COST_SUPPLIES;
+                }
+                default:
+                {
+                    return Constants.REQUEST_COST_TRAINING;
+                }
+            }
+        }
+
+        private static DialogueChoice RequestChoice(RequestPurpose purpose, float money, System.Action picked)
+        {
+            var cost = CostOf(purpose);
+            var choice = new DialogueChoice(PurposeText(purpose), picked);
             choice.IsEnabled = money >= cost;
             choice.Note = choice.IsEnabled == true
                 ? string.Format(StringConstants.TEXT_REQUEST_COST_NOTE, cost, money)
@@ -392,16 +561,25 @@ namespace Underwrite.UI
         /// 의뢰를 맡긴다. 돈은 영지에서 쓴 돈으로 적혀 거래 화면으로 돌아갈 때 빠진다.
         /// 맞았는지는 여기서 알려 주지 않는다. 다음에 여관에서 일할 때 그들의 말로 듣는다.
         /// </summary>
-        private void PostRequest(RequestPurpose purpose, float cost)
+        private void PostRequest(RequestPurpose purpose, bool guided)
         {
+            var cost = CostOf(purpose);
             GatherSession.Record(cost, 0f, null);
             PatronageLedger.Post(purpose, Host.Today());
 
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_REQUEST_CLERK,
                 string.Format(StringConstants.TEXT_REQUEST_DONE, StringConstants.TEXT_HERO_PARTY));
             line.Note = string.Format(StringConstants.TEXT_REQUEST_DONE_NOTE, cost);
-            Host.Dialogue.Play(new List<DialogueLine> { line },
-                Host.Back(Host.CurrentSpot));
+            var lines = new List<DialogueLine> { line };
+
+            // 첫 의뢰 뒤에는 이 게임의 고리를 한 번 짚는다.
+            if (guided == true)
+            {
+                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, StringConstants.TEXT_SPONSOR_AFTER));
+                lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, StringConstants.TEXT_SPONSOR_AFTER_LOOP));
+            }
+
+            Host.Dialogue.Play(lines, Host.Back(Host.CurrentSpot));
         }
     }
 }

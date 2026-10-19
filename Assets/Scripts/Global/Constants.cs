@@ -478,6 +478,10 @@ namespace Underwrite.Global
         public static int MINUTES_PER_DAY = 24 * 60;
         /// <summary>이 의뢰 순번을 넘긴 저장은 용사단을 이미 만난 것이다(옛 저장 보정).</summary>
         public static int QUEST_HEROES_MET_INDEX = 3;
+        /// <summary>할 일 「엿들은 사정」(여관 일에서 용사단의 사정을 듣는다)의 순번.</summary>
+        public static int QUEST_HEAR_NEED_INDEX = 4;
+        /// <summary>할 일 「이름 없는 의뢰주」(첫 익명 의뢰)의 순번.</summary>
+        public static int QUEST_FIRST_REQUEST_INDEX = 5;
         /// <summary>규칙서 움직이는 그림 한 걸음(ms).</summary>
         public static long RULE_STEP_MS = 900;
         /// <summary>규칙서에서 눌린 칸이 원래대로 돌아오기까지(ms).</summary>

@@ -223,6 +223,7 @@ namespace Underwrite.Save
         public List<string> SleepSeen = new List<string>();
         public int Bankruptcies;
         public bool DemoEndSeen;
+        public bool SponsorGuideSeen;
     }
 
     [Serializable]

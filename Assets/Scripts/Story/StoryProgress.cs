@@ -59,10 +59,14 @@ namespace Underwrite.Story
         /// <summary>데모 마무리 장면을 봤는가. 한 번만 보인다 — 그 뒤로는 그대로 이어서 둘러볼 수 있다.</summary>
         public static bool DemoEndSeen { get; set; }
 
+        /// <summary>길드 서기에게 첫 익명 의뢰 설명을 들었는가. 그 전까지 후원으로 이어지는 할 일 셋을 데려가서 시킨다(2026-10-19).</summary>
+        public static bool SponsorGuideSeen { get; set; }
+
         public static void Reset()
         {
             Bankruptcies = 0;
             DemoEndSeen = false;
+            SponsorGuideSeen = false;
             SleepSeen.Clear();
             CellarFound = false;
             Prologue = PrologueStage.Stage_Opening;

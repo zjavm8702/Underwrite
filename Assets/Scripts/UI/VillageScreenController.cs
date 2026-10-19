@@ -51,6 +51,9 @@ namespace Underwrite.UI
         // 돈 내고 묻기(2026-10-19 정리 — 화면에서 떼어 냄).
         private VillageGatherHandler Gathering;
 
+        // 첫 후원 안내 — 용사단 테이블 → 여관 일 → 길드 첫 의뢰를 데려가서 시킨다(2026-10-19 사장님).
+        private VillageSponsorGuideHandler Sponsor;
+
         internal VisualElement Root
         {
             get
@@ -84,6 +87,10 @@ namespace Underwrite.UI
             get
             {
                 return currentSpot;
+            }
+            set
+            {
+                currentSpot = value;
             }
         }
 
@@ -253,6 +260,11 @@ namespace Underwrite.UI
                 Gathering = new VillageGatherHandler(this);
             }
 
+            if (Sponsor == null)
+            {
+                Sponsor = new VillageSponsorGuideHandler(this, Heroes);
+            }
+
             BindLeave();
             EnsureClock();
 
@@ -310,6 +322,13 @@ namespace Underwrite.UI
             PlayPendingReaction();
             Night.PlayDepartureIfDue();
             PlayQuestIntroIfDue();
+
+            // 첫 후원 안내 — 할 일을 받는 장면이 끝나면 그 자리로 데려간다.
+            if (Prologue.IsActive == false && Prologue.IsDirecting == false && HasPending == false
+                && Night.IsDepartureRunning == false)
+            {
+                Sponsor.Tick();
+            }
 
             // 실제 시간으로 날이 넘어가도(드물다) 기한은 따진다.
             if (Approaching == false)
@@ -980,7 +999,7 @@ namespace Underwrite.UI
         /// 사람을 많이 만나는 일이면 소문 하나를 덤으로 주워듣는다. 다만 여관에 돈을 내고
         /// 묻는 것만큼 또렷하지는 않다. 누구 이야기인지까지만 안다.
         /// </summary>
-        private void DoWork(VillageSpot spot)
+        internal void DoWork(VillageSpot spot)
         {
             Dialogue.SetBackground(BackgroundOf(spot.InfoSource));
 

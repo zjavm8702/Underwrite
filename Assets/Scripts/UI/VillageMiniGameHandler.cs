@@ -54,6 +54,7 @@ namespace Underwrite.UI
         private UI_Eavesdrop Eaves;
         private EavesdropSession EavesSession;
         private int EavesDay;
+        private VillageSpot EavesSpot;
 
         public DialogueChoice EavesChoice()
         {
@@ -89,11 +90,12 @@ namespace Underwrite.UI
                 Host.Dialogue.Play(new List<DialogueLine>
                 {
                     new DialogueLine(string.Empty, StringConstants.TEXT_EAVES_TITLE, StringConstants.TEXT_EAVES_NONE)
-                }, null);
+                }, Host.Back(Host.CurrentSpot));
                 return;
             }
 
             Host.Dialogue.Close();
+            EavesSpot = Host.CurrentSpot;
             EavesDay = Host.Today();
             ActionPoints.Spend(Constants.AP_MINIGAME);
 
@@ -101,7 +103,11 @@ namespace Underwrite.UI
             {
                 Eaves = new UI_Eavesdrop(Host.Root);
                 Eaves.Listened += ListenAt;
-                Eaves.Left += () => Eaves.Close();
+                Eaves.Left += () =>
+                {
+                    Eaves.Close();
+                    ReturnTo(EavesSpot);
+                };
             }
 
             Eaves.Open(EavesSession);
@@ -300,7 +306,7 @@ namespace Underwrite.UI
 
             if (Puzzle == null)
             {
-                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_LEDGER_NONE) }, null);
+                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_LEDGER_NONE) }, Host.Back(spot));
                 return;
             }
 
@@ -313,7 +319,11 @@ namespace Underwrite.UI
             {
                 Ledger = new UI_LedgerPuzzle(Host.Root);
                 Ledger.Picked += PickLedgerRow;
-                Ledger.Left += () => Ledger.Close();
+                Ledger.Left += () =>
+                {
+                    Ledger.Close();
+                    ReturnTo(LedgerSpot);
+                };
             }
 
             Ledger.Open(Puzzle);
@@ -342,7 +352,7 @@ namespace Underwrite.UI
                 Ledger.Close();
                 Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(LedgerSpot.InfoSource));
                 Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(LedgerSpot, StringConstants.TEXT_LEDGER_KICKED) },
-                    null);
+                    Host.Back(LedgerSpot));
             }
         }
 
@@ -388,7 +398,7 @@ namespace Underwrite.UI
             {
                 var miss = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
                     StringConstants.TEXT_LEDGER_WRONG_GUESS);
-                Host.Dialogue.Play(new List<DialogueLine> { miss }, null);
+                Host.Dialogue.Play(new List<DialogueLine> { miss }, Host.Back(LedgerSpot));
                 return;
             }
 
@@ -402,7 +412,7 @@ namespace Underwrite.UI
 
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_LEDGER_TAG,
                 string.Format(StringConstants.TEXT_LEDGER_RIGHT, Host.StockName(id), fact ?? string.Empty));
-            Host.Dialogue.Play(new List<DialogueLine> { line }, null);
+            Host.Dialogue.Play(new List<DialogueLine> { line }, Host.Back(LedgerSpot));
         }
 
         // ── 주문서 읽기 (대장간 — 셋째 정보 모으기, 추리형) ───────
@@ -446,7 +456,7 @@ namespace Underwrite.UI
 
             if (Orders == null)
             {
-                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_SMITH_NONE) }, null);
+                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_SMITH_NONE) }, Host.Back(spot));
                 return;
             }
 
@@ -476,6 +486,13 @@ namespace Underwrite.UI
             Smith.Left += () =>
             {
                 Smith.Close();
+
+                if (SmithPracticeDone == null)
+                {
+                    ReturnTo(SmithSpot);
+                    return;
+                }
+
                 EndSmithPractice();
             };
         }
@@ -546,7 +563,7 @@ namespace Underwrite.UI
                 Smith.Close();
                 Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(SmithSpot.InfoSource));
                 Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(SmithSpot, StringConstants.TEXT_SMITH_KICKED) },
-                    null);
+                    Host.Back(SmithSpot));
             }
         }
 
@@ -578,7 +595,7 @@ namespace Underwrite.UI
             {
                 var miss = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
                     StringConstants.TEXT_SMITH_WRONG_GUESS);
-                Host.Dialogue.Play(new List<DialogueLine> { miss }, null);
+                Host.Dialogue.Play(new List<DialogueLine> { miss }, Host.Back(SmithSpot));
                 return;
             }
 
@@ -590,7 +607,7 @@ namespace Underwrite.UI
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_SMITH_TAG,
                 string.Format(Orders.RumorTrue == true ? StringConstants.TEXT_SMITH_RIGHT_TRUE : StringConstants.TEXT_SMITH_RIGHT_FALSE,
                     Host.StockName(id)));
-            Host.Dialogue.Play(new List<DialogueLine> { line }, null);
+            Host.Dialogue.Play(new List<DialogueLine> { line }, Host.Back(SmithSpot));
         }
 
         // ── 기록 짜맞추기 (길드 — 보드게임 「미니 크라임」을 줄인 추리) ───────
@@ -634,7 +651,7 @@ namespace Underwrite.UI
 
             if (DeducePuzzle == null)
             {
-                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_DEDUCE_NONE) }, null);
+                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_DEDUCE_NONE) }, Host.Back(spot));
                 return;
             }
 
@@ -678,6 +695,13 @@ namespace Underwrite.UI
             Deduce.Left += () =>
             {
                 Deduce.Close();
+
+                if (DeducePracticeDone == null)
+                {
+                    ReturnTo(DeduceSpot);
+                    return;
+                }
+
                 EndDeducePractice();
             };
         }
@@ -721,7 +745,7 @@ namespace Underwrite.UI
             Deduce.Close();
             Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(DeduceSpot.InfoSource));
             Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(DeduceSpot, StringConstants.TEXT_DEDUCE_OUT) },
-                null);
+                Host.Back(DeduceSpot));
         }
 
         private void ConcludeDeduce()
@@ -737,7 +761,7 @@ namespace Underwrite.UI
             var line = new DialogueLine(string.Empty, StringConstants.TEXT_DEDUCE_TAG,
                 string.Format(StringConstants.TEXT_DEDUCE_RIGHT, DeducePuzzle.Destinations[0], Host.StockName(id), fact ?? string.Empty));
             Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(DeduceSpot.InfoSource));
-            Host.Dialogue.Play(new List<DialogueLine> { line }, null);
+            Host.Dialogue.Play(new List<DialogueLine> { line }, Host.Back(DeduceSpot));
         }
 
         // ── 주사위 내기 (여관 — 라이어스 다이스) ───────
@@ -788,7 +812,7 @@ namespace Underwrite.UI
 
             if (DiceBand == null)
             {
-                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_DICE_NONE) }, null);
+                Host.Dialogue.Play(new List<DialogueLine> { Host.OwnerLineFor(spot, StringConstants.TEXT_DICE_NONE) }, Host.Back(spot));
                 return;
             }
 
@@ -932,7 +956,7 @@ namespace Underwrite.UI
                 GameAudio.Play(SoundEffect.Sound_Coins);
                 var lost = new DialogueLine(string.Empty, StringConstants.TEXT_DICE_TAG,
                     string.Format(StringConstants.TEXT_DICE_LOST, Constants.DICE_STAKE));
-                Host.Dialogue.Play(new List<DialogueLine> { lost }, null);
+                Host.Dialogue.Play(new List<DialogueLine> { lost }, Host.Back(DiceSpot));
                 return;
             }
 
@@ -951,7 +975,22 @@ namespace Underwrite.UI
                 lines.Add(new DialogueLine(string.Empty, Host.StockName(DiceBand), fact));
             }
 
-            Host.Dialogue.Play(lines, null);
+            Host.Dialogue.Play(lines, Host.Back(DiceSpot));
+        }
+
+        /// <summary>
+        /// 판을 그만두고 나왔다. 그 자리의 선택지로 돌아간다 — 마을로 튕겨 나가면 E를 다시 눌러야 한다(2026-10-19 사장님:
+        /// 「대화 목록에 들어왔으면 대화창이 꺼지지 않았으면」).
+        /// </summary>
+        private void ReturnTo(VillageSpot spot)
+        {
+            if (spot == null)
+            {
+                return;
+            }
+
+            Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(spot.InfoSource));
+            Host.Back(spot)();
         }
     }
 }
