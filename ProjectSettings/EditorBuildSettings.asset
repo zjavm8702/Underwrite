@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 3806c6aadc0ecae45b59a824015c4d5a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MarketPrototype.unity
     guid: 3e9367c711751d947aff7a23d1e2166e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VillageTest.unity
     guid: 97c576b7bfb2f824bb45993ee2ad08fe
   - enabled: 1
