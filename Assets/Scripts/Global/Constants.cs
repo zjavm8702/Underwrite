@@ -403,6 +403,9 @@ namespace Underwrite.Global
         // 소리(2026-10-18). 설정 화면이 생기기 전까지의 기본 크기와 음악을 갈아 끼우는 시간(초).
         public static float AUDIO_MUSIC_VOLUME = 0.45f;
         public static float AUDIO_EFFECT_VOLUME = 0.7f;
+        public static float AUDIO_VOICE_VOLUME = 0.85f;
+        /// <summary>감정마다 한마디가 몇 벌인가(같은 것이 연달아 나오지 않게 고른다).</summary>
+        public static int AUDIO_VOICE_VARIANTS = 2;
         public static float AUDIO_MUSIC_FADE_SECONDS = 1.5f;
         // 메뉴 「소리」의 단계: 크게 · 작게 · 끔. 순서는 TEXT_VOLUME_STEPS와 같다.
         public static readonly float[] AUDIO_VOLUME_STEPS = { 1f, 0.4f, 0f };

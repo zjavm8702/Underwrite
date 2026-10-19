@@ -21,5 +21,24 @@ namespace Underwrite.Global
             "Audio/Sfx/sfx_door",
             "Audio/Sfx/sfx_close"
         };
+
+        // 짧은 한마디(바크, 2026-10-19). Resources/Voice/{목소리}/{감정}_{번호}. Qwen3-TTS로 미리 뽑은 wav — Tools/voice.
+        public const string AUDIO_VOICE_ROOT = "Audio/Voice/";
+
+        // 감정 파일 이름. 순서는 PortraitEmotion과 같다.
+        public static readonly string[] AUDIO_VOICE_EMOTIONS =
+        {
+            "neutral", "happy", "anxious", "angry", "shocked", "sad", "relieved"
+        };
+
+        // 용사 목소리. 순서는 HERO_NAMES와 같다.
+        public static readonly string[] AUDIO_VOICE_HEROES = { "edwin", "kaira", "elaria", "godric", "fio" };
+
+        public const string AUDIO_VOICE_INNKEEPER = "innkeeper";
+        public const string AUDIO_VOICE_ARCHIVIST = "archivist";
+        public const string AUDIO_VOICE_SMITH = "smith";
+        public const string AUDIO_VOICE_BROKER = "broker";
+        public const string AUDIO_VOICE_STEWARD = "steward";
+        public const string AUDIO_VOICE_INFORMANT = "informant";
     }
 }

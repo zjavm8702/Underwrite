@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Underwrite.Enumeration;
+using Underwrite.Utility;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -48,6 +50,10 @@ namespace Underwrite.UI
         private Tween Revealing;
         private Sprite FigureShown;
         private int Index = -1;
+
+        // 마지막으로 한마디를 낸 사람과 표정. 같은 사람이 같은 얼굴로 이어 말하면 소리를 다시 내지 않는다 — 줄마다 나오면 질린다.
+        private string VoicedSpeaker;
+        private PortraitEmotion VoicedEmotion;
 
         // Play가 불릴 때마다 오른다. 선택지 안에서 대화가 이어졌는지 알아보는 데 쓴다.
         private int PlayCount;
@@ -276,6 +282,7 @@ namespace Underwrite.UI
             Lines.Clear();
             OnDone = null;
             FigureShown = null;
+            VoicedSpeaker = null;
 
             if (Veil != null)
             {
@@ -310,7 +317,25 @@ namespace Underwrite.UI
             }
 
             ShowFigure(line.Portrait);
+            Voice(line);
             TypeOut(line.Text, HasChoices(line) == true ? line.Choices : null);
+        }
+
+        private void Voice(DialogueLine line)
+        {
+            if (string.IsNullOrEmpty(line.Speaker) == true)
+            {
+                return;
+            }
+
+            if (line.Speaker == VoicedSpeaker && line.Emotion == VoicedEmotion)
+            {
+                return;
+            }
+
+            VoicedSpeaker = line.Speaker;
+            VoicedEmotion = line.Emotion;
+            VoiceBank.Play(line.Speaker, line.Emotion);
         }
 
         private static bool HasChoices(DialogueLine line)

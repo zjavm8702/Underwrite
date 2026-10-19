@@ -1,0 +1,148 @@
+{
+  "_comment": "짧은 한마디(바크) v1 — 과장 초안(2026-10-19). 감정 이름은 PortraitEmotion 순서(neutral, happy, anxious, angry, shocked, sad, relieved). 인물마다 감정당 두 개.",
+  "voices": {
+    "edwin": {
+      "design": "A Korean man in his mid twenties, a bookish scholar. Soft, clear tenor, calm and thoughtful, slightly dry humor, speaks precisely.",
+      "ref_text": "음, 기록을 다시 맞춰 보자. 숫자는 거짓말을 하지 않으니까.",
+      "barks": {
+        "neutral": ["음, 그렇군.", "흠, 알겠어."],
+        "happy": ["하하, 좋은데?", "오, 이거 괜찮네."],
+        "anxious": ["음… 걱정되는데.", "이건 좀 불안한걸."],
+        "angry": ["그건 아니지.", "말이 안 되잖아."],
+        "shocked": ["뭐라고?", "잠깐, 그게 정말이야?"],
+        "sad": ["…그렇구나.", "하아… 미안해."],
+        "relieved": ["후우, 다행이다.", "이제 좀 안심이야."]
+      }
+    },
+    "kaira": {
+      "design": "A Korean woman in her early twenties, a sword fighter and vanguard. Crisp, confident, slightly low voice, quick and blunt, energetic.",
+      "ref_text": "앞은 내가 맡을게. 넌 뒤에서 내 등만 봐.",
+      "barks": {
+        "neutral": ["응, 알았어.", "그래."],
+        "happy": ["하, 좋았어!", "그렇지!"],
+        "anxious": ["…느낌이 안 좋아.", "조심해."],
+        "angry": ["뭐 하는 거야!", "웃기지 마."],
+        "shocked": ["뭐?!", "말도 안 돼!"],
+        "sad": ["…젠장.", "그랬구나…"],
+        "relieved": ["후, 살았다.", "다행이야."]
+      }
+    },
+    "elaria": {
+      "design": "A Korean woman who sounds ageless and mature, an elven mage. Soft, smooth, elegant mezzo voice, slow and composed, faintly amused.",
+      "ref_text": "별이 기울면 마력도 흐름을 바꾸지요. 서두를 필요는 없어요.",
+      "barks": {
+        "neutral": ["그래요.", "음, 알겠어요."],
+        "happy": ["후후, 좋네요.", "어머, 기뻐요."],
+        "anxious": ["…흐름이 이상해요.", "조금 걱정이네요."],
+        "angry": ["그만두세요.", "경솔하군요."],
+        "shocked": ["어머…!", "설마요?"],
+        "sad": ["…안타깝네요.", "그랬군요…"],
+        "relieved": ["후우, 다행이에요.", "이제 됐어요."]
+      }
+    },
+    "godric": {
+      "design": "A Korean man in his late forties, a veteran shield warrior. Deep, warm, slightly gravelly baritone, hearty and steady, big laugh.",
+      "ref_text": "걱정 마라. 이 방패가 버티는 한 아무도 못 지나간다.",
+      "barks": {
+        "neutral": ["음, 그래.", "알았다."],
+        "happy": ["하하하! 좋다!", "허허, 잘했어!"],
+        "anxious": ["흠… 조심해야겠군.", "냄새가 안 좋은데."],
+        "angry": ["이놈이!", "그만둬라!"],
+        "shocked": ["뭐라고?!", "허, 이게 무슨…"],
+        "sad": ["…그렇게 됐나.", "후우… 미안하다."],
+        "relieved": ["허허, 다행이다.", "휴, 살았군."]
+      }
+    },
+    "fio": {
+      "design": "A Korean girl's voice for a small fairy healer, sounds young and tiny. High, bright, sweet and bubbly, quick, cheerful.",
+      "ref_text": "다친 데 없어? 내가 금방 낫게 해 줄게!",
+      "barks": {
+        "neutral": ["응응!", "알았어!"],
+        "happy": ["와아, 신난다!", "헤헤, 좋아!"],
+        "anxious": ["으으… 무서워.", "괜찮을까…?"],
+        "angry": ["흥! 몰라!", "그러지 마!"],
+        "shocked": ["에엑?!", "정말?!"],
+        "sad": ["흑… 아파.", "미안해…"],
+        "relieved": ["휴우, 다행이다!", "헤헤, 이제 괜찮아."]
+      }
+    },
+    "innkeeper": {
+      "design": "A Korean woman in her fifties who runs a busy tavern. Warm, hearty, slightly husky alto, motherly but brisk.",
+      "ref_text": "자, 앉아. 국 식기 전에 먹고, 일은 그다음에 하자고.",
+      "barks": {
+        "neutral": ["그래, 왔어?", "응, 알았어."],
+        "happy": ["호호, 좋네!", "아이고, 잘했네!"],
+        "anxious": ["어휴, 걱정이네.", "괜찮겠어?"],
+        "angry": ["이 녀석이!", "그만 좀 해!"],
+        "shocked": ["어머나!", "세상에!"],
+        "sad": ["아이고…", "쯧, 안됐네."],
+        "relieved": ["휴, 다행이다.", "이제 됐다."]
+      }
+    },
+    "archivist": {
+      "design": "A Korean man in his seventies, a guild records keeper. Thin, dry, quiet and precise voice, polite and formal, slightly hoarse.",
+      "ref_text": "기록은 남은 사람을 위해 쓰는 법입니다. 천천히 보시지요.",
+      "barks": {
+        "neutral": ["그렇습니까.", "음, 알겠습니다."],
+        "happy": ["허허, 좋군요.", "훌륭합니다."],
+        "anxious": ["흠… 곤란하군요.", "이상하군요."],
+        "angry": ["무례하시군요.", "그만하시지요."],
+        "shocked": ["허…!", "설마요?"],
+        "sad": ["…안타깝군요.", "허, 그렇게 됐습니까."],
+        "relieved": ["허허, 다행입니다.", "이제 됐습니다."]
+      }
+    },
+    "smith": {
+      "design": "A Korean man in his forties, a blacksmith. Deep, gruff, low voice, few words, blunt and rough.",
+      "ref_text": "쇠는 거짓말을 안 해. 두드린 만큼만 버티지.",
+      "barks": {
+        "neutral": ["음.", "그래."],
+        "happy": ["허, 좋군.", "제법인데."],
+        "anxious": ["흠… 글쎄.", "찜찜한데."],
+        "angry": ["뭐야.", "나가."],
+        "shocked": ["뭐?", "허, 참."],
+        "sad": ["…그래.", "쯧."],
+        "relieved": ["됐군.", "휴."]
+      }
+    },
+    "broker": {
+      "design": "A Korean man in his late twenties, a smooth market broker. Light, quick, friendly but sly voice, a bit smug.",
+      "ref_text": "요즘 들어오는 모험단 소식이라면, 제가 제일 빠르죠.",
+      "barks": {
+        "neutral": ["네, 네.", "그럼요."],
+        "happy": ["하하, 좋죠!", "거봐요, 제 말 맞죠?"],
+        "anxious": ["어이쿠, 이거 참.", "음… 애매한데요."],
+        "angry": ["거참, 너무하시네.", "그건 곤란하죠."],
+        "shocked": ["어이쿠!", "진짜요?"],
+        "sad": ["저런…", "아이고, 안됐네요."],
+        "relieved": ["휴, 다행이네요.", "됐네요, 됐어."]
+      }
+    },
+    "steward": {
+      "design": "A Korean man in his fifties, a lord's steward. Formal, stiff, measured baritone, cold and polite.",
+      "ref_text": "영주님께서는 지금 손님을 받지 않으십니다. 용건을 남기시지요.",
+      "barks": {
+        "neutral": ["그렇습니까.", "알겠습니다."],
+        "happy": ["좋습니다.", "흡족하군요."],
+        "anxious": ["…곤란합니다.", "음, 걱정이군요."],
+        "angry": ["무례합니다.", "물러나십시오."],
+        "shocked": ["무슨…!", "설마."],
+        "sad": ["…유감입니다.", "그렇게 되었군요."],
+        "relieved": ["다행입니다.", "이제 되었습니다."]
+      }
+    },
+    "informant": {
+      "design": "A hooded information dealer in an underground market, Korean. Low, hushed, husky voice close to a whisper, unhurried, secretive and slightly amused.",
+      "ref_text": "소식은 공짜가 아니야. 하지만 오늘은… 맛보기로 하나 주지.",
+      "barks": {
+        "neutral": ["흠.", "그래, 들어 봐."],
+        "happy": ["큭큭, 좋아.", "제법인데."],
+        "anxious": ["…조용히.", "냄새가 나는군."],
+        "angry": ["선 넘지 마.", "입 다물어."],
+        "shocked": ["…호오?", "이건 몰랐군."],
+        "sad": ["…유감이군.", "그렇게 됐나."],
+        "relieved": ["후, 됐어.", "운이 좋군."]
+      }
+    }
+  }
+}

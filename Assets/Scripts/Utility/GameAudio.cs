@@ -20,6 +20,7 @@ namespace Underwrite.Utility
 
         private AudioSource Music;
         private AudioSource Effects;
+        private AudioSource Voice;
         private AudioClip[] Clips;
         private string MusicPath = string.Empty;
         private float MusicTarget;
@@ -68,6 +69,22 @@ namespace Underwrite.Utility
             {
                 audio.PlayEffect(effect);
             }
+        }
+
+        /// <summary>인물의 한마디. 앞사람의 말이 아직 나오고 있으면 끊고 새로 튼다 — 겹치면 알아듣지 못한다.</summary>
+        public static void PlayVoice(AudioClip clip)
+        {
+            GameAudio audio;
+
+            if (clip == null || TryGetInstance(out audio) == false)
+            {
+                return;
+            }
+
+            audio.Voice.Stop();
+            audio.Voice.clip = clip;
+            audio.Voice.volume = Constants.AUDIO_VOICE_VOLUME * VolumeScale;
+            audio.Voice.Play();
         }
 
         /// <summary>
@@ -126,6 +143,8 @@ namespace Underwrite.Utility
             Music.volume = 0f;
             Effects = gameObject.AddComponent<AudioSource>();
             Effects.playOnAwake = false;
+            Voice = gameObject.AddComponent<AudioSource>();
+            Voice.playOnAwake = false;
 
             var paths = StringConstants.AUDIO_EFFECTS;
             Clips = new AudioClip[paths.Length];
