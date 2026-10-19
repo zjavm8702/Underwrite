@@ -37,7 +37,7 @@ namespace Underwrite.UI
         public void Tick()
         {
             if (StoryProgress.SponsorGuideSeen == true || StoryProgress.HeroesRecognized == false
-                || QuestLog.HasPendingIntro == true || Host.IsGuiding == true || Host.CanDirect() == false)
+                || QuestLog.HasPendingIntro == true || Host.Staging.IsGuiding == true || Host.CanDirect() == false)
             {
                 return;
             }
@@ -85,9 +85,9 @@ namespace Underwrite.UI
                 return;
             }
 
-            Host.GuideTo(inn, () =>
+            Host.Staging.GuideTo(inn, () =>
             {
-                Host.GreetAt(inn);
+                Host.Staging.GreetAt(inn);
                 Host.CurrentSpot = inn;
                 onArrive(inn);
             });
@@ -120,9 +120,9 @@ namespace Underwrite.UI
                     return;
                 }
 
-                Host.GuideTo(guild, () =>
+                Host.Staging.GuideTo(guild, () =>
                 {
-                    Host.GreetAt(guild);
+                    Host.Staging.GreetAt(guild);
                     // 설명을 봤으면 다시 데려가지 않는다 — 돈이 모자라 못 냈어도 방법은 안다.
                     StoryProgress.SponsorGuideSeen = true;
                     SaveSystem.Save();

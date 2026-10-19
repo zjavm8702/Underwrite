@@ -139,7 +139,7 @@ namespace Underwrite.UI
                 return;
             }
 
-            if (directing == true || Host.IsGuiding == true || Host.CanDirect() == false)
+            if (directing == true || Host.Staging.IsGuiding == true || Host.CanDirect() == false)
             {
                 return;
             }
@@ -167,9 +167,9 @@ namespace Underwrite.UI
                 return;
             }
 
-            Host.GuideTo(spot, () =>
+            Host.Staging.GuideTo(spot, () =>
             {
-                Host.GreetAt(spot);
+                Host.Staging.GreetAt(spot);
 
                 if (Stage == PrologueStage.Stage_Kitchen)
                 {
@@ -326,7 +326,7 @@ namespace Underwrite.UI
         private void PlayOpening()
         {
             directing = true;
-            Host.ShowTitleFromDark(StringConstants.TEXT_PROLOGUE_DAY7, StringConstants.TEXT_PROLOGUE_CARD_DAY7_SUB, PlayOpeningLines);
+            Host.Staging.ShowTitleFromDark(StringConstants.TEXT_PROLOGUE_DAY7, StringConstants.TEXT_PROLOGUE_CARD_DAY7_SUB, PlayOpeningLines);
         }
 
         private void PlayOpeningLines()
@@ -415,7 +415,7 @@ namespace Underwrite.UI
             Host.PlayLines(spot.InfoSource, lines, () =>
             {
                 // 어두운 동안 아침으로 넘긴다 — 여덟째 날, 시장 달력의 1년 봄 1일째. 여기서부터 시간이 흐른다.
-                Host.ShowTitle(StringConstants.TEXT_PROLOGUE_DAY8, StringConstants.TEXT_PROLOGUE_CARD_DAY8_SUB, () =>
+                Host.Staging.ShowTitle(StringConstants.TEXT_PROLOGUE_DAY8, StringConstants.TEXT_PROLOGUE_CARD_DAY8_SUB, () =>
                 {
                     StoryProgress.Prologue = PrologueStage.Stage_Kitchen;
 
@@ -446,7 +446,7 @@ namespace Underwrite.UI
         private void PlayRecognition()
         {
             directing = true;
-            Host.ShowTitle(StringConstants.TEXT_HEROES_CARD, StringConstants.TEXT_HEROES_CARD_SUB, null, () =>
+            Host.Staging.ShowTitle(StringConstants.TEXT_HEROES_CARD, StringConstants.TEXT_HEROES_CARD_SUB, null, () =>
             {
                 var lines = new List<DialogueLine>();
 

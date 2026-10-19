@@ -54,6 +54,21 @@ namespace Underwrite.UI
         // 첫 후원 안내 — 용사단 테이블 → 여관 일 → 길드 첫 의뢰를 데려가서 시킨다(2026-10-19 사장님).
         private VillageSponsorGuideHandler Sponsor;
 
+        // 메뉴와 턴 넘기기, 할 일(2026-10-19 정리 — 화면에서 떼어 냄).
+        private VillageMenuHandler Menu;
+
+        // 제목 카드·암전·데려가기(2026-10-19 정리 — 화면에서 떼어 냄). 프롤로그·후원 안내·밤·메뉴가 함께 쓴다.
+        internal VillageStagingHandler Staging { get; private set; }
+        private VillageQuestHandler Quests;
+
+        internal GameDataSet DataSet
+        {
+            get
+            {
+                return Data;
+            }
+        }
+
         internal VisualElement Root
         {
             get
@@ -110,7 +125,6 @@ namespace Underwrite.UI
         private bool WasTalking;
 
         private Transform Player;
-        private bool LeaveBound;
 
         /// <summary>영지에서도 시각이 흐른다. 거래 화면의 시계와 같은 것을 쓴다.</summary>
         internal MarketClock Clock
@@ -235,6 +249,11 @@ namespace Underwrite.UI
                 AddSigns();
             }
 
+            if (Staging == null)
+            {
+                Staging = new VillageStagingHandler(this);
+            }
+
             if (Prologue == null)
             {
                 Prologue = new VillagePrologueHandler(this);
@@ -265,7 +284,17 @@ namespace Underwrite.UI
                 Sponsor = new VillageSponsorGuideHandler(this, Heroes);
             }
 
-            BindLeave();
+            if (Menu == null)
+            {
+                Menu = new VillageMenuHandler(this, Prologue, Night);
+            }
+
+            if (Quests == null)
+            {
+                Quests = new VillageQuestHandler(this, Prologue);
+            }
+
+            Menu.Bind();
             EnsureClock();
 
             // 영지는 시간 대신 행동력(2026-10-19 사장님). 시계는 휴장 동안 흐르지 않고, 휴장이 바뀌면 행동력을 채운다.
@@ -296,7 +325,7 @@ namespace Underwrite.UI
 
                 if (inn != null)
                 {
-                    WarpTo(inn);
+                    Staging.WarpTo(inn);
                 }
             }
 
@@ -309,13 +338,10 @@ namespace Underwrite.UI
                 Webtoon.Next();
             }
 
-            if (TitleCard != null)
-            {
-                TitleCard.Tick(Time.unscaledDeltaTime);
-            }
+            Staging.Tick(Time.unscaledDeltaTime);
 
             Prologue.Tick();
-            RefreshObjective();
+            Quests.RefreshObjective();
 
             NpcAmbient.Player = Player;
 
@@ -343,7 +369,7 @@ namespace Underwrite.UI
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true)
-                || MenuOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
+                || Menu.IsOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || Approaching == true;
 
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
@@ -389,7 +415,7 @@ namespace Underwrite.UI
         private CharacterActor playerActor;
 
         // 매 프레임 쓰인다 — 한 번 찾아 둔다.
-        private CharacterActor PlayerActor
+        internal CharacterActor PlayerActor
         {
             get
             {
@@ -537,6 +563,14 @@ namespace Underwrite.UI
         }
 
         /// <summary>대화가 닫혔으면 적어 둔 반응을 필드에서 한다. 매 프레임 부른다.</summary>
+        /// <summary>대화가 닫힌 뒤 주인공이 할 몸짓을 예약한다.</summary>
+        internal void QueueReaction(ActorMotion motion, ActorEmote emote)
+        {
+            HasPending = true;
+            PendingMotion = motion;
+            PendingEmote = emote;
+        }
+
         private void PlayPendingReaction()
         {
             if (HasPending == false || Dialogue == null || Dialogue.IsOpen == true)
@@ -804,9 +838,9 @@ namespace Underwrite.UI
             if (spot.HasCellar == true && StoryProgress.CellarFound == true)
             {
                 // 웹툰 6화. 술통을 옮기러 내려간 창고 안쪽에 지하거래소가 있다.
-                var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO, GoToSession);
-                cellar.IsEnabled = MarketOpenNow();
-                cellar.Note = cellar.IsEnabled == true ? SessionNote() : MarketClosedNote();
+                var cellar = new DialogueChoice(StringConstants.TEXT_CELLAR_GO, Menu.GoToSession);
+                cellar.IsEnabled = Menu.MarketOpenNow();
+                cellar.Note = cellar.IsEnabled == true ? Menu.SessionNote() : Menu.MarketClosedNote();
                 choices.Add(cellar);
             }
 
@@ -846,7 +880,7 @@ namespace Underwrite.UI
             last.Choices = new List<DialogueChoice> { new DialogueChoice(StringConstants.TEXT_CELLAR_GO, GoToMarket) };
 
             // 하루 일을 마칠 무렵으로 넘어간다는 것을 제목 카드로 보인다.
-            ShowTitle(StringConstants.TEXT_PROLOGUE_CARD_DUSK, StringConstants.TEXT_PROLOGUE_CARD_DUSK_SUB, null,
+            Staging.ShowTitle(StringConstants.TEXT_PROLOGUE_CARD_DUSK, StringConstants.TEXT_PROLOGUE_CARD_DUSK_SUB, null,
                 () => Dialogue.Play(lines, null));
         }
 
@@ -875,7 +909,7 @@ namespace Underwrite.UI
         /// 맞지 않으며, 정보는 수첩과 정보 기록에 이미 남는다. 그래서 하루를 닫는 일은 시간이 흐르는 순간에 한다.
         /// 넘어간 날이 없으면 빈 문자열.
         /// </summary>
-        private string CheckDayTurn()
+        internal string CheckDayTurn()
         {
             var today = Today();
 
@@ -931,66 +965,13 @@ namespace Underwrite.UI
             return string.Join("\n", notes);
         }
 
-        /// <summary>
-        /// 지하거래소로 내려갈 수 있는가. 장이 열려 있을 때(곧 열릴 때)만 된다.
-        /// 장이 끝나면 지하세계는 닫힌다(2026-10-17 사용자 결정).
-        /// </summary>
-        private bool MarketOpenNow()
-        {
-            return Clock != null && Clock.IsBreak == true && Phase != VillagePhase.Phase_Night;
-        }
-
-        private string MarketClosedNote()
-        {
-            return StringConstants.TEXT_MENU_NIGHT_NO_SESSION;
-        }
-
-        private string SessionNote()
-        {
-            return ActionPoints.Current > 0
-                ? string.Format(StringConstants.TEXT_MENU_TO_SESSION_NOTE, ActionPoints.Current)
-                : StringConstants.TEXT_CELLAR_NOTE;
-        }
-
         /// <summary>지금 휴장(오전 · 오후 · 새벽). 영지 시계가 휴장 동안 흐르지 않으므로 시각 하나로 정해진다.</summary>
-        private VillagePhase Phase
+        internal VillagePhase Phase
         {
             get
             {
                 return Clock == null ? VillagePhase.Phase_Morning : ActionPoints.PhaseOf(Clock.BreakMinuteOfDay);
             }
-        }
-
-        /// <summary>장으로 간다 — 남은 휴장을 넘기고 지하로 내려간다(턴 넘기기).</summary>
-        private void GoToSession()
-        {
-            if (MarketOpenNow() == false)
-            {
-                return;
-            }
-
-            SaveSystem.Save();
-            Clock.SkipBreak();
-            SceneManager.LoadScene(SceneRoutes.UNDERWORLD);
-        }
-
-        /// <summary>이번 장은 쉰다 — 장 하나를 거르고 그 뒤 휴장으로 넘어간다(다음 휴장의 행동력을 받는다).</summary>
-        private void SkipSessionTurn()
-        {
-            if (MarketOpenNow() == false)
-            {
-                return;
-            }
-
-            var start = Clock.NextSessionMinute;
-
-            if (Clock.SkipNextSession() == false)
-            {
-                return;
-            }
-
-            PassTime(start + Constants.MARKET_SESSION_MINUTES - Clock.BreakMinuteOfDay,
-                StringConstants.TEXT_SKIP_SESSION_FADE);
         }
 
         /// <summary>
@@ -1022,27 +1003,7 @@ namespace Underwrite.UI
             MiniGames.StartWorkOrders(spot);
         }
 
-        /// <summary>메뉴 단추와 원형 시계. 화면이 준비된 뒤에 한 번만 묶는다.</summary>
-        private void BindLeave()
-        {
-            if (LeaveBound == true)
-            {
-                return;
-            }
-
-            var menu = Cached<Button>("village-menu");
-
-            if (menu == null)
-            {
-                return;
-            }
-
-            LeaveBound = true;
-            menu.text = StringConstants.TEXT_MENU;
-            menu.clicked += ToggleMenu;
-        }
-
-        // ── 메뉴 (드롭업) ─────────────────────────
+        // ── 놀이 화면 ─────────────────────────
 
         // 추리형 놀이 화면이나 규칙서가 떠 있는가.
         private bool PuzzleOpen
@@ -1059,117 +1020,6 @@ namespace Underwrite.UI
             get
             {
                 return MiniGames != null && MiniGames.IsHandOpen == true;
-            }
-        }
-
-        private bool MenuOpen
-        {
-            get
-            {
-                var list = Cached<VisualElement>("village-menu-list");
-                return list != null && list.ClassListContains("hidden") == false;
-            }
-        }
-
-        private void ToggleMenu()
-        {
-            if ((Dialogue != null && Dialogue.IsOpen == true) || Approaching == true || IsStaging == true)
-            {
-                return;
-            }
-
-            if (MenuOpen == true)
-            {
-                CloseMenu();
-                return;
-            }
-
-            BuildMenu();
-        }
-
-        /// <summary>
-        /// 메뉴 항목을 연다. 열 때마다 새로 채운다 — 잠자리처럼 때에 따라 잠기는 항목이 있다.
-        /// 항목을 늘릴 때는 여기에 MenuItem 한 줄을 더한다.
-        /// </summary>
-        private void BuildMenu()
-        {
-            var list = Cached<VisualElement>("village-menu-list");
-
-            if (list == null || Clock == null)
-            {
-                return;
-            }
-
-            list.Clear();
-
-            // 프롤로그 동안은 시간 넘기기·수첩·지하거래소를 보이지 않는다. 시장을 아직 모른다.
-            if (Prologue.IsActive == true)
-            {
-                MenuItem(list, string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]),
-                    true, string.Empty, GameAudio.CycleVolume);
-                list.RemoveFromClassList("hidden");
-                Cached<Button>("village-menu").AddToClassList("village-button--on");
-                return;
-            }
-
-            // 턴 넘기기: 오전·오후에는 장으로 가거나 쉬고, 새벽에는 잔다(2026-10-19 행동력).
-            MenuItem(list, StringConstants.TEXT_MENU_TO_SESSION, MarketOpenNow(),
-                MarketClosedNote(), GoToSession);
-
-            var nextSession = Clock.SessionAt(Clock.SkippedSessions) == MarketSession.Session_Morning
-                ? StringConstants.TEXT_SESSION_MORNING
-                : StringConstants.TEXT_SESSION_EVENING;
-            MenuItem(list, string.Format(StringConstants.TEXT_MENU_SKIP_SESSION, nextSession),
-                MarketOpenNow() == true && Clock.IsReopeningAt(Clock.SkippedSessions) == false,
-                MarketOpenNow() == true ? StringConstants.TEXT_MENU_SKIP_LOCKED : MarketClosedNote(), SkipSessionTurn);
-            MenuItem(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => OpenNotebook(false));
-            MenuItem(list, string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]),
-                true, string.Empty, GameAudio.CycleVolume);
-
-            if (Night.CanSleep() == true)
-            {
-                MenuItem(list, StringConstants.TEXT_SLEEP_CHOICE, true, string.Empty, () =>
-                {
-                    CloseMenu();
-                    Night.Sleep();
-                });
-            }
-
-            list.RemoveFromClassList("hidden");
-            Cached<Button>("village-menu").AddToClassList("village-button--on");
-        }
-
-        private void MenuItem(VisualElement list, string text, bool enabled, string lockedNote, System.Action action)
-        {
-            var button = new Button(() =>
-            {
-                CloseMenu();
-                action();
-            });
-
-            button.AddToClassList("village-button");
-            button.AddToClassList("village-menu-item");
-            // 잠긴 항목도 보여 준다. 언제 열리는지를 작은 글씨로 아랫줄에 붙인다.
-            button.text = enabled == true ? text : $"{text}\n<size=13>{lockedNote}</size>";
-            button.SetEnabled(enabled);
-
-            list.Add(button);
-        }
-
-        private void CloseMenu()
-        {
-            var list = Cached<VisualElement>("village-menu-list");
-
-            if (list != null)
-            {
-                list.AddToClassList("hidden");
-            }
-
-            var menu = Cached<Button>("village-menu");
-
-            if (menu != null)
-            {
-                menu.RemoveFromClassList("village-button--on");
             }
         }
 
@@ -1210,103 +1060,6 @@ namespace Underwrite.UI
             }, null);
         }
 
-        /// <summary>
-        /// 화면 왼쪽 위의 「할 일」(QuestLog). 지금 할 일과 어디서 무엇을 누르면 되는지.
-        /// 마치면 주인공이 기뻐하고 머리 위에 알린다. 보상이 있으면 영지에서 번 돈으로 들어간다.
-        /// </summary>
-        private void RefreshObjective()
-        {
-            var label = ObjectiveLabel;
-
-            if (label == null)
-            {
-                label = Root.Q<Label>("village-objective");
-            }
-
-            if (label == null)
-            {
-                label = new Label();
-                label.name = "village-objective";
-                label.AddToClassList("village-objective");
-                label.pickingMode = PickingMode.Ignore;
-                Root.Add(label);
-            }
-
-            ObjectiveLabel = label;
-
-            // 일곱째 날은 할 일 대신 프롤로그 목표를 보인다.
-            var goal = Prologue == null ? null : Prologue.GoalText();
-
-            if (goal != null)
-            {
-                label.text = goal;
-                label.EnableInClassList("hidden", false);
-                return;
-            }
-
-            var done = QuestLog.Tick();
-
-            if (done != null)
-            {
-                if (done.Reward > 0f)
-                {
-                    GatherSession.Record(0f, done.Reward, null);
-                }
-
-                var actor = PlayerActor;
-
-                if (actor != null)
-                {
-                    actor.Say(done.Reward > 0f
-                        ? string.Format(StringConstants.TEXT_QUEST_DONE_REWARD, done.Title, done.Reward)
-                        : string.Format(StringConstants.TEXT_QUEST_DONE, done.Title));
-                }
-
-                HasPending = true;
-                PendingMotion = ActorMotion.Motion_Cheer;
-                PendingEmote = ActorEmote.Emote_Music;
-            }
-
-            // 받은 것과 진행도만 보인다(2026-10-17 사장님 결정). 아직 받지 않은 일은 보이지 않는다.
-            var active = QuestLog.HasPendingIntro == true ? null : QuestLog.Active;
-            var progress = -1;
-
-            if (active != null && active.Goal > 0 && active.Progress != null)
-            {
-                progress = System.Math.Min(active.Progress(), active.Goal);
-            }
-
-            if (active != ObjectiveQuest || progress != ObjectiveProgress)
-            {
-                ObjectiveQuest = active;
-                ObjectiveProgress = progress;
-                var text = string.Empty;
-
-                if (active != null)
-                {
-                    text = string.Format(StringConstants.TEXT_QUEST_LABEL, active.Title);
-
-                    if (progress >= 0)
-                    {
-                        text += "\n<size=15>" + string.Format(StringConstants.TEXT_QUEST_PROGRESS, progress, active.Goal) + "</size>";
-                    }
-                }
-
-                ObjectiveText = text;
-            }
-
-            if (label.text != ObjectiveText)
-            {
-                label.text = ObjectiveText;
-            }
-
-            label.EnableInClassList("hidden", active == null);
-        }
-
-        private Label ObjectiveLabel;
-        private Quest ObjectiveQuest;
-        private int ObjectiveProgress = -1;
-        private string ObjectiveText = string.Empty;
         private VillageSpot CostSpot;
         private string CostText;
         private VillageNpc TagNpc;
@@ -1359,15 +1112,12 @@ namespace Underwrite.UI
             return TagText;
         }
 
-        /// <summary>
-        /// 새 할 일을 받는 장면. 맡기는 사람이 직접 부탁한다 — 그 말이 어디로 가야 하는지 알려 주는 유일한 길잡이다.
-        /// 대화·연출·튜토리얼이 없을 때 띄운다.
-        /// </summary>
+        /// <summary>새 할 일을 받는 장면 — 대화·연출·튜토리얼이 없을 때만(장면은 VillageQuestHandler).</summary>
         private void PlayQuestIntroIfDue()
         {
             if (QuestLog.HasPendingIntro == false || Prologue == null || Prologue.AllowsQuests == false
                 || Prologue.AwaitsRecognition == true
-                || Prologue.IsDirecting == true || IsGuiding == true || (TitleCard != null && TitleCard.IsOpen == true)
+                || Prologue.IsDirecting == true || Staging.IsGuiding == true || Staging.IsTitleOpen == true
                 || Dialogue == null || Dialogue.IsOpen == true
                 || Approaching == true || PuzzleOpen == true || MiniGameOpen == true
                 || Night.IsDepartureRunning == true
@@ -1376,79 +1126,7 @@ namespace Underwrite.UI
                 return;
             }
 
-            var quest = QuestLog.Active;
-            QuestLog.MarkIntroduced();
-            DialogueLine line;
-
-            // 부탁은 맡기는 사람의 자리에서 받는다. 혼잣말과 용사단의 부탁은 여관이다.
-            var place = InfoSource.Source_TavernTalk;
-
-            switch (quest.Giver)
-            {
-                case QuestGiver.Giver_Innkeeper:
-                {
-                    line = GiverLine(InfoSource.Source_TavernTalk, quest.Ask);
-                    break;
-                }
-                case QuestGiver.Giver_Archivist:
-                {
-                    line = GiverLine(InfoSource.Source_GuildRecord, quest.Ask);
-                    place = InfoSource.Source_GuildRecord;
-                    break;
-                }
-                case QuestGiver.Giver_Broker:
-                {
-                    line = GiverLine(InfoSource.Source_MarketBoard, quest.Ask);
-                    place = InfoSource.Source_MarketBoard;
-                    break;
-                }
-                case QuestGiver.Giver_Swordswoman:
-                case QuestGiver.Giver_Scholar:
-                case QuestGiver.Giver_Elf:
-                {
-                    // 부탁할 사람이 떠났으면 혼잣말로 받는다.
-                    var hero = HeroRoster.All[HeroIndexOf(quest.Giver)];
-                    line = hero.Condition == HeroCondition.Condition_Dead
-                        ? new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, quest.Ask)
-                        : HeroLine(hero, quest.Ask, PortraitEmotion.Emotion_Neutral);
-                    break;
-                }
-                default:
-                {
-                    line = new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, quest.Ask);
-                    break;
-                }
-            }
-
-            line.Note = string.Format(StringConstants.TEXT_QUEST_LABEL, quest.Title);
-            Dialogue.SetBackground(BackgroundOf(place));
-            Dialogue.Play(new List<DialogueLine> { line }, null);
-        }
-
-        private static int HeroIndexOf(QuestGiver giver)
-        {
-            switch (giver)
-            {
-                case QuestGiver.Giver_Scholar:
-                {
-                    return 0;
-                }
-                case QuestGiver.Giver_Elf:
-                {
-                    return 2;
-                }
-                default:
-                {
-                    return 1;
-                }
-            }
-        }
-
-        private DialogueLine GiverLine(InfoSource source, string text)
-        {
-            var line = new DialogueLine(InfoPeople.Speaker(source), StringConstants.TEXT_QUEST_ASK_TAG, text);
-            line.Portrait = InfoPeople.Face(Data, source, PortraitEmotion.Emotion_Neutral);
-            return line;
+            Quests.PlayIntro();
         }
 
         // ── 수첩 (2026-10-17 사용자 요청) ─────────
@@ -1463,7 +1141,7 @@ namespace Underwrite.UI
             }
         }
 
-        private void OpenNotebook(bool bands)
+        internal void OpenNotebook(bool bands)
         {
             if (Notebook == null)
             {
@@ -1471,92 +1149,6 @@ namespace Underwrite.UI
             }
 
             Notebook.Open(bands);
-        }
-
-        /// <summary>
-        /// 시간이 흐르는 연출(2026-10-17 사용자 요청). 화면이 어두워지고 시각이 넘어간 뒤 다시 밝아진다.
-        /// 어두운 동안 사람들이 자리를 옮긴다 — 다시 밝아지면 영지가 다른 시간의 모습이다.
-        /// </summary>
-        /// <param name="title">어두운 화면에 시각 대신 띄울 말. 비우면 「몇 시 → 몇 시」.</param>
-        private System.Collections.IEnumerator PassTimeRoutine(int minutes, string title)
-        {
-            Approaching = true;
-            var fade = EnsureFade();
-            var fromHour = Clock.BreakHour;
-            var fromMinute = Clock.BreakMinute;
-
-            yield return FadeTo(fade, 1f);
-
-            Clock.SpendBreakMinutes(minutes);
-            SetText("village-fade-time", title ?? string.Format(StringConstants.TEXT_TIME_PASS,
-                ClockText.FromMinutes(fromHour * 60 + fromMinute), ClockText.FromMinutes(Clock.BreakMinuteOfDay)));
-            var dayNote = CheckDayTurn();
-            var passNote = string.Format(StringConstants.TEXT_TIME_PASS_NOTE, minutes / 60, minutes % 60);
-            SetText("village-fade-note", dayNote.Length > 0 ? passNote + "\n\n" + dayNote : passNote);
-
-            foreach (var party in FindObjectsByType<NpcParty>(FindObjectsInactive.Exclude))
-            {
-                party.Scatter();
-            }
-
-            foreach (var ambient in FindObjectsByType<NpcAmbient>(FindObjectsInactive.Exclude))
-            {
-                ambient.Shuffle();
-            }
-
-            yield return new WaitForSeconds(Constants.TIME_PASS_HOLD);
-            yield return FadeTo(fade, 0f);
-
-            SetText("village-fade-time", string.Empty);
-            SetText("village-fade-note", string.Empty);
-            Approaching = false;
-        }
-
-        private VisualElement EnsureFade()
-        {
-            var fade = Root.Q<VisualElement>("village-fade");
-
-            if (fade != null)
-            {
-                return fade;
-            }
-
-            fade = new VisualElement();
-            fade.name = "village-fade";
-            fade.AddToClassList("village-fade");
-            fade.pickingMode = PickingMode.Position;
-            fade.style.opacity = 0f;
-            fade.style.display = DisplayStyle.None;
-
-            var time = new Label();
-            time.name = "village-fade-time";
-            time.AddToClassList("village-fade-time");
-            var note = new Label();
-            note.name = "village-fade-note";
-            note.AddToClassList("village-fade-note");
-            fade.Add(time);
-            fade.Add(note);
-            Root.Add(fade);
-            return fade;
-        }
-
-        private static System.Collections.IEnumerator FadeTo(VisualElement fade, float target)
-        {
-            fade.style.display = DisplayStyle.Flex;
-            var from = fade.resolvedStyle.opacity;
-
-            for (var t = 0f; t < Constants.TIME_PASS_FADE; t += Time.deltaTime)
-            {
-                fade.style.opacity = Mathf.Lerp(from, target, t / Constants.TIME_PASS_FADE);
-                yield return null;
-            }
-
-            fade.style.opacity = target;
-
-            if (target <= 0f)
-            {
-                fade.style.display = DisplayStyle.None;
-            }
         }
 
         private void OnEnter(VillageSpot spot)
@@ -1811,7 +1403,7 @@ namespace Underwrite.UI
             }
 
             var covered = (Dialogue != null && Dialogue.IsOpen == true) || NotebookOpen == true || PuzzleOpen == true
-                || MiniGameOpen == true || (TitleCard != null && TitleCard.IsOpen == true);
+                || MiniGameOpen == true || Staging.IsTitleOpen == true;
 
             if (covered == false && keyboard != null && keyboard.mKey.wasPressedThisFrame == true)
             {
@@ -1824,6 +1416,21 @@ namespace Underwrite.UI
         // ── 핸들러가 쓰는 창구 ───────
 
         /// <summary>돌아보기·건네기·시간이 흐르는 연출 중인가.</summary>
+        /// <summary>주인공의 자리(없으면 null).</summary>
+        internal Transform PlayerTransform
+        {
+            get
+            {
+                return Player;
+            }
+        }
+
+        /// <summary>연출이 주인공을 붙잡는다(시간이 흐르는 암전 동안).</summary>
+        internal void SetApproaching(bool value)
+        {
+            Approaching = value;
+        }
+
         internal bool IsApproaching
         {
             get
@@ -1840,19 +1447,13 @@ namespace Underwrite.UI
             }
         }
 
-        /// <summary>시간이 흐르는 연출을 시작한다(<paramref name="title"/>은 어두운 화면의 말).</summary>
-        internal void PassTime(int minutes, string title)
-        {
-            StartCoroutine(PassTimeRoutine(minutes, title));
-        }
-
         // ── 프롤로그가 쓰는 연출 창구 (VillagePrologueHandler) ───────
 
         /// <summary>대화·연출·안내가 모두 닫혀 있어 새 장면을 띄워도 되는가.</summary>
         internal bool CanDirect()
         {
             return Dialogue != null && Dialogue.IsOpen == false && Approaching == false
-                && (TitleCard == null || TitleCard.IsOpen == false) && (Webtoon == null || Webtoon.IsOpen == false)
+                && Staging.IsTitleOpen == false && (Webtoon == null || Webtoon.IsOpen == false)
                 && PuzzleOpen == false && MiniGameOpen == false && (Tutorial == null || Tutorial.IsOpen == false);
         }
 
@@ -1960,136 +1561,16 @@ namespace Underwrite.UI
             }, null);
         }
 
-        private UI_TitleCard TitleCard;
-
-        /// <summary>장면 전환 제목 카드. 가장 어두울 때 <paramref name="onDark"/>, 다 걷히면 <paramref name="onDone"/>.</summary>
-        internal void ShowTitle(string title, string subtitle, System.Action onDark, System.Action onDone)
-        {
-            if (TitleCard == null)
-            {
-                TitleCard = new UI_TitleCard(Root);
-            }
-
-            TitleCard.Play(title, subtitle, onDark, onDone);
-        }
-
-        /// <summary>이미 어두운 화면에서 시작하는 제목 카드(영지가 처음 뜰 때).</summary>
-        internal void ShowTitleFromDark(string title, string subtitle, System.Action onDone)
-        {
-            if (TitleCard == null)
-            {
-                TitleCard = new UI_TitleCard(Root);
-            }
-
-            TitleCard.PlayFromDark(title, subtitle, onDone);
-        }
-
-        /// <summary>장소에 닿았다 — 문 앞의 주인이 주인공을 돌아보고 반긴다.</summary>
-        internal void GreetAt(VillageSpot spot)
-        {
-            VillageNpc nearest = null;
-            var best = Constants.PROLOGUE_GREET_RADIUS;
-
-            foreach (var npc in FindObjectsByType<VillageNpc>(FindObjectsInactive.Exclude))
-            {
-                var distance = Vector2.Distance(npc.transform.position, spot.transform.position);
-
-                if (distance < best && npc.Party == null)
-                {
-                    best = distance;
-                    nearest = npc;
-                }
-            }
-
-            var actor = nearest == null ? null : nearest.GetComponent<CharacterActor>();
-
-            if (actor == null || Player == null)
-            {
-                return;
-            }
-
-            actor.FaceTowards(Player.position);
-            actor.Emote(ActorEmote.Emote_Exclaim);
-        }
-
         /// <summary>
         /// 연출이 화면을 잡고 있는가 — 암전·제목 카드·웹툰·안내·프롤로그 장면. 이동·상호작용·메뉴가 함께 본다(코드 리뷰 10/19).
         /// </summary>
-        private bool IsStaging
+        internal bool IsStaging
         {
             get
             {
-                return IsGuiding == true || (Prologue != null && Prologue.IsDirecting == true)
-                    || (TitleCard != null && TitleCard.IsOpen == true) || (Webtoon != null && Webtoon.IsOpen == true)
+                return Staging.IsGuiding == true || (Prologue != null && Prologue.IsDirecting == true)
+                    || Staging.IsTitleOpen == true || (Webtoon != null && Webtoon.IsOpen == true)
                     || (Tutorial != null && Tutorial.IsOpen == true);
-            }
-        }
-
-        /// <summary>다음 장소로 데려가는 중인가(카메라 비추기 · 자동 걷기).</summary>
-        internal bool IsGuiding { get; private set; }
-
-        /// <summary>
-        /// 다음 장소를 카메라로 잠깐 비춘 뒤, 주인공을 그 문 앞까지 걷게 한다. 닿으면 문 쪽을 보고 <paramref name="onArrive"/>.
-        /// </summary>
-        internal void GuideTo(VillageSpot spot, System.Action onArrive)
-        {
-            StartCoroutine(Guide(spot, onArrive));
-        }
-
-        // 짧은 암전 동안 문 앞으로 옮긴다. 자동 걷기는 장애물에 걸려 어색했다(2026-10-18 사장님 — 순간이동으로).
-        private System.Collections.IEnumerator Guide(VillageSpot spot, System.Action onArrive)
-        {
-            IsGuiding = true;
-
-            if (TitleCard == null)
-            {
-                TitleCard = new UI_TitleCard(Root);
-            }
-
-            var arrived = false;
-            TitleCard.Blink(() => WarpTo(spot), () => arrived = true);
-
-            while (arrived == false)
-            {
-                yield return null;
-            }
-
-            IsGuiding = false;
-            onArrive();
-        }
-
-        private void WarpTo(VillageSpot spot)
-        {
-            if (Player == null)
-            {
-                return;
-            }
-
-            var from = Player.position;
-            var to = spot.transform.position + (Vector3)Constants.PROLOGUE_WARP_OFFSET;
-            var body = Player.GetComponentInChildren<Rigidbody2D>();
-
-            if (body != null)
-            {
-                body.position = to;
-                body.linearVelocity = Vector2.zero;
-            }
-
-            Player.position = to;
-
-            // 카메라가 쫓아가며 미끄러지지 않게 같은 만큼 함께 옮긴다.
-            var camera = FindAnyObjectByType<Unity.Cinemachine.CinemachineCamera>();
-
-            if (camera != null)
-            {
-                camera.OnTargetObjectWarped(Player, to - from);
-            }
-
-            var actor = PlayerActor;
-
-            if (actor != null)
-            {
-                actor.Face(Vector2.up);
             }
         }
 
@@ -2190,7 +1671,7 @@ namespace Underwrite.UI
         private readonly Dictionary<string, VisualElement> Elements = new Dictionary<string, VisualElement>();
 
         // UXML에 늘 있는 요소를 한 번 찾아 기억한다. 매 프레임 트리를 뒤지지 않게.
-        private T Cached<T>(string elementName) where T : VisualElement
+        internal T Cached<T>(string elementName) where T : VisualElement
         {
             VisualElement element;
 
@@ -2210,7 +1691,7 @@ namespace Underwrite.UI
         }
 
         // 매 프레임 불린다. 찾은 이름표를 기억하고, 글이 같으면 다시 넣지 않는다.
-        private void SetText(string elementName, string value)
+        internal void SetText(string elementName, string value)
         {
             Label label;
 

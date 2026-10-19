@@ -188,7 +188,7 @@ namespace Underwrite.UI
 
             if (minutes > 0)
             {
-                Host.PassTime(minutes, StringConstants.TEXT_DEPART_FADE);
+                Host.Staging.PassTime(minutes, StringConstants.TEXT_DEPART_FADE);
             }
         }
 
@@ -252,7 +252,7 @@ namespace Underwrite.UI
             Host.Dialogue.Play(lines, () =>
             {
                 var minutes = WakeMinute() - Host.Clock.BreakMinuteOfDay;
-                Host.PassTime(minutes, StringConstants.TEXT_SLEEP_FADE);
+                Host.Staging.PassTime(minutes, StringConstants.TEXT_SLEEP_FADE);
             });
         }
 
