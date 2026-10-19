@@ -2,8 +2,8 @@
   "_comment": "짧은 한마디(바크) v1 — 과장 초안(2026-10-19). 감정 이름은 PortraitEmotion 순서(neutral, happy, anxious, angry, shocked, sad, relieved). 인물마다 감정당 두 개.",
   "voices": {
     "edwin": {
-      "design": "A Korean man in his mid-twenties with an academic disposition. He possesses a soft, clear tenor voice and has a calm, thoughtful demeanor. He employs a somewhat dry sense of humor and speaks with precision and clarity. Ideally, his voice should have a slightly higher pitch.",
-      "ref_text": "음, 기록을 다시 맞춰 보자. 숫자는 거짓말을 하지 않으니까.",
+      "design": "A young Korean man in his early twenties, a friendly bookish scholar. Clear, light, youthful tenor with a noticeably higher pitch, bright and gentle, smart and a little playful. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "아, 그거? 기록을 다시 맞춰 보니까 답이 보이더라고. 걱정 마, 내가 정리해 둘게.",
       "barks": {
         "neutral": [
           "음, 그렇군.",
@@ -36,15 +36,19 @@
           "후우, 다행이다.",
           "이제 좀 안심이야."
         ]
-      }
+      },
+      "pitch": [
+        130,
+        175
+      ]
     },
     "kaira": {
-      "design": "A high-pitched, confident, yet slightly arrogant female swordsman in her late teens, with a fast speech",
+      "design": "A high-pitched, confident, yet slightly arrogant female swordsman in her late teens, with a fast speech. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
       "ref_text": "앞은 내가 맡을게. 넌 뒤에서 내 등만 봐.",
       "barks": {
         "neutral": [
           "응, 알았어.",
-          "그래."
+          "그래"
         ],
         "happy": [
           "하, 좋았어!",
@@ -70,11 +74,15 @@
           "후, 살았다.",
           "다행이야."
         ]
-      }
+      },
+      "pitch": [
+        210,
+        270
+      ]
     },
     "elaria": {
-      "design": "A Korean woman who sounds ageless and mature, an elven mage. Soft, smooth, elegant mezzo voice, slow and composed, faintly amused.",
-      "ref_text": "별이 기울면 마력도 흐름을 바꾸지요. 서두를 필요는 없어요.",
+      "design": "An elegant elven woman who sounds young-adult and graceful. Clear, light, airy soprano with a high, soft pitch, gentle and calm, faintly amused. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "어머, 별이 기울었네요. 서두르지 않아도 돼요. 마력은 늘 제 길을 찾아가니까요.",
       "barks": {
         "neutral": [
           "그래요.",
@@ -107,11 +115,15 @@
           "후우, 다행이에요.",
           "이제 됐어요."
         ]
-      }
+      },
+      "pitch": [
+        220,
+        290
+      ]
     },
     "godric": {
-      "design": "A Korean man in his late forties, a veteran shield warrior. Deep, warm, slightly gravelly baritone, hearty and steady, big laugh.",
-      "ref_text": "걱정 마라. 이 방패가 버티는 한 아무도 못 지나간다.",
+      "design": "A Korean man around fifty, a veteran shield warrior. Very deep, low-pitched bass-baritone voice, rough and warm, slow and steady, a calm big man. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "걱정 마라. 이 방패가 버티는 동안은 아무도 못 지나간다. 천천히 밥이나 먹자.",
       "barks": {
         "neutral": [
           "음, 그래.",
@@ -133,7 +145,7 @@
         ],
         "angry": [
           "이놈이!",
-          "그만둬라!"
+          "그만해라!"
         ],
         "shocked": [
           "뭐라고?!",
@@ -150,7 +162,11 @@
           },
           "휴, 살았군."
         ]
-      }
+      },
+      "pitch": [
+        95,
+        135
+      ]
     },
     "fio": {
       "design": "A Korean girl's voice for a small fairy healer, sounds young and tiny. High, bright, sweet and bubbly, quick, cheerful.",
@@ -193,8 +209,8 @@
       }
     },
     "innkeeper": {
-      "design": "A Korean woman in her fifties who runs a busy tavern. Warm, hearty, slightly husky alto, motherly but brisk.",
-      "ref_text": "자, 앉아. 국 식기 전에 먹고, 일은 그다음에 하자고.",
+      "design": "A Korean woman in her sixties, an old tavern owner ajumma. Low, husky, slightly rough alto voice of an older woman, warm, brisk and motherly, definitely old, not young at all. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "아이고, 왔어? 거기 앉아. 국 식기 전에 먹고, 일은 그다음에 하자고.",
       "barks": {
         "neutral": [
           "그래, 왔어?",
@@ -227,11 +243,15 @@
           "휴, 다행이다.",
           "이제 됐다."
         ]
-      }
+      },
+      "pitch": [
+        160,
+        205
+      ]
     },
     "archivist": {
-      "design": "A Korean man in his seventies, a guild records keeper. Thin, dry, quiet and precise voice, polite and formal, slightly hoarse.",
-      "ref_text": "기록은 남은 사람을 위해 쓰는 법입니다. 천천히 보시지요.",
+      "design": "A very old Korean man in his late seventies, a guild records keeper. Frail, thin, raspy and slightly quavering elderly voice, slow and polite, clearly an old grandfather. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "허허, 기록이라는 건 말이지요, 남은 사람을 위해 쓰는 법입니다. 천천히 보시지요.",
       "barks": {
         "neutral": [
           "그렇습니까.",
@@ -267,11 +287,15 @@
           },
           "이제 됐습니다."
         ]
-      }
+      },
+      "pitch": [
+        105,
+        150
+      ]
     },
     "smith": {
-      "design": "A Korean man in his forties, a blacksmith. Deep, gruff, low voice, few words, blunt and rough.",
-      "ref_text": "쇠는 거짓말을 안 해. 두드린 만큼만 버티지.",
+      "design": "A Korean man in his forties, a blacksmith. Deep, gruff, low voice, few words, blunt but not unkind. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "음, 쇠는 거짓말을 안 해. 두드린 만큼만 버티지. 내일 다시 와.",
       "barks": {
         "neutral": [
           "음.",
@@ -301,11 +325,15 @@
           "됐군.",
           "휴."
         ]
-      }
+      },
+      "pitch": [
+        85,
+        125
+      ]
     },
     "broker": {
-      "design": "A Korean man in his late twenties, a smooth market broker. Light, quick, friendly but sly voice, a bit smug.",
-      "ref_text": "요즘 들어오는 모험단 소식이라면, 제가 제일 빠르죠.",
+      "design": "A Korean man in his late twenties, a smooth market broker. Light, quick, friendly but sly voice, a little smug, salesman energy. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "아이고, 손님! 요즘 들어오는 모험단 소식이라면 제가 제일 빠르죠. 한번 들어 보실래요?",
       "barks": {
         "neutral": [
           "네, 네.",
@@ -338,7 +366,11 @@
           "휴, 다행이네요.",
           "됐네요, 됐어."
         ]
-      }
+      },
+      "pitch": [
+        120,
+        165
+      ]
     },
     "steward": {
       "design": "A Korean man in his fifties, a lord's steward. Formal, stiff, measured baritone, cold and polite.",
@@ -375,8 +407,8 @@
       }
     },
     "informant": {
-      "design": "A hooded information dealer in an underground market, Korean. Low, hushed, husky voice close to a whisper, unhurried, secretive and slightly amused.",
-      "ref_text": "소식은 공짜가 아니야. 하지만 오늘은… 맛보기로 하나 주지.",
+      "design": "A middle-aged Korean man, a hooded information dealer in an underground market. Low, calm, slightly husky male voice, speaks quietly and unhurried, secretive and a bit amused, natural not theatrical. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "ref_text": "소식은 공짜가 아니야. 하지만 오늘은… 맛보기로 하나 주지. 잘 들어.",
       "barks": {
         "neutral": [
           "흠.",
@@ -409,7 +441,11 @@
           "후, 됐어.",
           "운이 좋군."
         ]
-      }
+      },
+      "pitch": [
+        90,
+        130
+      ]
     }
   }
 }
