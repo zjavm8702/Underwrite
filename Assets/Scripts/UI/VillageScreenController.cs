@@ -341,6 +341,7 @@ namespace Underwrite.UI
             Staging.Tick(Time.unscaledDeltaTime);
 
             Prologue.Tick();
+            MiniGames.TickHelp(Rules != null && Rules.IsOpen == true);
             Quests.RefreshObjective();
 
             NpcAmbient.Player = Player;
@@ -1548,7 +1549,7 @@ namespace Underwrite.UI
 
         private UI_RuleBook Rules;
 
-        private void OpenRules(string heading, List<RulePage> pages, InfoSource place, System.Action then)
+        internal void OpenRules(string heading, List<RulePage> pages, InfoSource place, System.Action then)
         {
             Dialogue.Close();
 

@@ -24,6 +24,10 @@ namespace Underwrite.Story
         public static readonly System.Collections.Generic.HashSet<string> SleepSeen =
             new System.Collections.Generic.HashSet<string>();
 
+        /// <summary>처음 할 때 규칙서를 이미 보인 놀이(StringConstants.RULE_KEY_*). 「?」로는 언제든 다시 본다.</summary>
+        public static readonly System.Collections.Generic.HashSet<string> RulesSeen =
+            new System.Collections.Generic.HashSet<string>();
+
         /// <summary>파산한 횟수. 한 번은 재기하고, 두 번째는 게임오버다(2026-10-18 인터뷰).</summary>
         public static int Bankruptcies { get; set; }
 
@@ -69,6 +73,7 @@ namespace Underwrite.Story
             DemoEndSeen = false;
             SponsorGuideSeen = false;
             SleepSeen.Clear();
+            RulesSeen.Clear();
             CellarFound = false;
             Prologue = PrologueStage.Stage_Opening;
             MarketTutorialDone = false;

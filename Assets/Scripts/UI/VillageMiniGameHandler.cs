@@ -9,6 +9,7 @@ using Underwrite.Story;
 using Underwrite.Utility;
 using Underwrite.Village;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Underwrite.UI
 {
@@ -57,7 +58,8 @@ namespace Underwrite.UI
 
         public DialogueChoice EavesChoice()
         {
-            var choice = new DialogueChoice(StringConstants.TEXT_EAVES_CHOICE, StartEaves);
+            var choice = new DialogueChoice(StringConstants.TEXT_EAVES_CHOICE, () => WithRulesOnce(StringConstants.RULE_KEY_EAVES,
+                StringConstants.TEXT_RULE_EAVES_HEADING, MiniGameRules.Eaves(), InfoSource.Source_TavernTalk, StartEaves));
 
             if (StoryProgress.EavesDay == Host.Today())
             {
@@ -153,6 +155,12 @@ namespace Underwrite.UI
         }
 
         public void StartWorkOrders(VillageSpot spot)
+        {
+            WithRulesOnce(StringConstants.RULE_KEY_WORK, StringConstants.TEXT_RULE_WORK_HEADING, MiniGameRules.Work(),
+                spot.InfoSource, () => OpenWorkOrders(spot));
+        }
+
+        private void OpenWorkOrders(VillageSpot spot)
         {
             Host.Dialogue.Close();
             WorkSpot = spot;
@@ -254,6 +262,93 @@ namespace Underwrite.UI
                 Host.Back(spot));
         }
 
+        // ── 규칙서 (2026-10-19 데모 점검 — 장부·엿듣기·주문 나르기는 규칙서가 없었고, 판 중에 다시 볼 수 없었다) ───────
+
+        private Button HelpButton;
+
+        /// <summary>처음 하는 놀이면 규칙서를 먼저 넘겨 보인 뒤 시작한다. 본 적이 있으면 바로 시작.</summary>
+        private void WithRulesOnce(string key, string heading, List<RulePage> pages, InfoSource place, System.Action start)
+        {
+            if (StoryProgress.RulesSeen.Contains(key) == true)
+            {
+                start();
+                return;
+            }
+
+            StoryProgress.RulesSeen.Add(key);
+            Host.OpenRules(heading, pages, place, start);
+        }
+
+        /// <summary>
+        /// 매 프레임. 놀이 화면이 떠 있으면 오른쪽 위에 「?」를 띄운다 — 누르면 그 놀이의 규칙서를 다시 본다.
+        /// 규칙서가 떠 있는 동안은 숨긴다.
+        /// </summary>
+        public void TickHelp(bool rulesOpen)
+        {
+            var open = rulesOpen == false && (IsPuzzleOpen == true || IsHandOpen == true);
+
+            if (open == false)
+            {
+                if (HelpButton != null)
+                {
+                    HelpButton.style.display = DisplayStyle.None;
+                }
+
+                return;
+            }
+
+            if (HelpButton == null)
+            {
+                HelpButton = new Button(OpenHelp);
+                HelpButton.text = StringConstants.TEXT_RULE_HELP;
+                HelpButton.tooltip = StringConstants.TEXT_RULE_HELP_TIP;
+                HelpButton.AddToClassList("popup-button");
+                HelpButton.style.position = Position.Absolute;
+                // 오른쪽 위는 놀이마다 남은 기회·눈길 표시가, 오른쪽 아래는 「그만둔다」가 있다 — 왼쪽 아래에 둔다.
+                HelpButton.style.left = 28f;
+                HelpButton.style.bottom = 24f;
+                HelpButton.style.width = 56f;
+                HelpButton.style.height = 56f;
+                HelpButton.style.fontSize = 26f;
+                Host.Root.Add(HelpButton);
+            }
+
+            if (HelpButton.style.display != DisplayStyle.Flex)
+            {
+                HelpButton.style.display = DisplayStyle.Flex;
+                HelpButton.BringToFront();
+            }
+        }
+
+        private void OpenHelp()
+        {
+            if (Ledger != null && Ledger.IsOpen == true)
+            {
+                Host.OpenRules(StringConstants.TEXT_RULE_LEDGER_HEADING, MiniGameRules.Ledger(), InfoSource.Source_GuildRecord, null);
+            }
+            else if (Smith != null && Smith.IsOpen == true)
+            {
+                Host.OpenRules(StringConstants.TEXT_RULE_SMITH_HEADING, MiniGameRules.Smith(), InfoSource.Source_SmithOrder, null);
+            }
+            else if (Deduce != null && Deduce.IsOpen == true)
+            {
+                Host.OpenRules(StringConstants.TEXT_RULE_DEDUCE_HEADING, MiniGameRules.Deduce(), InfoSource.Source_GuildRecord, null);
+            }
+            else if (Dice != null && Dice.IsOpen == true)
+            {
+                Host.OpenRules(StringConstants.TEXT_RULE_DICE_HEADING, MiniGameRules.Dice(), InfoSource.Source_TavernTalk, null);
+            }
+            else if (Eaves != null && Eaves.IsOpen == true)
+            {
+                Host.OpenRules(StringConstants.TEXT_RULE_EAVES_HEADING, MiniGameRules.Eaves(), InfoSource.Source_TavernTalk, null);
+            }
+            else if (Work != null && Work.IsOpen == true)
+            {
+                Host.OpenRules(StringConstants.TEXT_RULE_WORK_HEADING, MiniGameRules.Work(),
+                    WorkSpot == null ? InfoSource.Source_TavernTalk : WorkSpot.InfoSource, null);
+            }
+        }
+
         // ── 장부 맞추기 (시간구조 설계안 §7 — 첫 추리형 정보 모으기) ───────
         // 의뢰 기록과 지급 기록을 맞춰 어긋난 단을 찾고, 그것이 무슨 뜻인지 짐작한다. 맞히면 그 단의 대장간 사정을 안다.
         // 돈 대신 시간과 기록 담당의 의심을 건다. 하루에 한 번.
@@ -274,7 +369,8 @@ namespace Underwrite.UI
 
         public DialogueChoice LedgerChoice(VillageSpot spot)
         {
-            var choice = new DialogueChoice(StringConstants.TEXT_LEDGER_CHOICE, () => StartLedger(spot));
+            var choice = new DialogueChoice(StringConstants.TEXT_LEDGER_CHOICE, () => WithRulesOnce(StringConstants.RULE_KEY_LEDGER,
+                StringConstants.TEXT_RULE_LEDGER_HEADING, MiniGameRules.Ledger(), spot.InfoSource, () => StartLedger(spot)));
             if (BreakClock.Simulation == null)
             {
                 choice.IsEnabled = false;

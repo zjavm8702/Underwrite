@@ -414,6 +414,66 @@ namespace Underwrite.UI
             }
         }
 
+        /// <summary>장부 맞추기(2026-10-19). 무대는 견본 한 줄씩 차례로.</summary>
+        public static List<RulePage> Ledger()
+        {
+            return TextPages(StringConstants.TEXT_RULE_LEDGER_SAMPLE,
+                StringConstants.TEXT_RULE_LEDGER_1_TITLE, StringConstants.TEXT_RULE_LEDGER_1_BODY,
+                StringConstants.TEXT_RULE_LEDGER_2_TITLE, StringConstants.TEXT_RULE_LEDGER_2_BODY,
+                StringConstants.TEXT_RULE_LEDGER_3_TITLE, StringConstants.TEXT_RULE_LEDGER_3_BODY);
+        }
+
+        /// <summary>엿듣기(2026-10-19).</summary>
+        public static List<RulePage> Eaves()
+        {
+            return TextPages(StringConstants.TEXT_RULE_EAVES_SAMPLE,
+                StringConstants.TEXT_RULE_EAVES_1_TITLE, StringConstants.TEXT_RULE_EAVES_1_BODY,
+                StringConstants.TEXT_RULE_EAVES_2_TITLE, StringConstants.TEXT_RULE_EAVES_2_BODY,
+                StringConstants.TEXT_RULE_EAVES_3_TITLE, StringConstants.TEXT_RULE_EAVES_3_BODY);
+        }
+
+        /// <summary>주문 나르기(2026-10-19).</summary>
+        public static List<RulePage> Work()
+        {
+            return TextPages(StringConstants.TEXT_RULE_WORK_SAMPLE,
+                StringConstants.TEXT_RULE_WORK_1_TITLE, StringConstants.TEXT_RULE_WORK_1_BODY,
+                StringConstants.TEXT_RULE_WORK_2_TITLE, StringConstants.TEXT_RULE_WORK_2_BODY);
+        }
+
+        // 쪽마다 제목·설명을 받고, 무대에는 견본 줄을 한 줄씩 띄운다. 그림 부품이 없는 놀이에 쓴다.
+        private static List<RulePage> TextPages(string[] sample, params string[] titleAndBody)
+        {
+            var pages = new List<RulePage>();
+
+            for (var i = 0; i + 1 < titleAndBody.Length; i += 2)
+            {
+                pages.Add(new RulePage
+                {
+                    Title = titleAndBody[i],
+                    Body = titleAndBody[i + 1],
+                    Stage = set =>
+                    {
+                        var lines = new List<Label>();
+
+                        for (var s = 0; s < sample.Length; s++)
+                        {
+                            lines.Add(Caption(set, sample[s]));
+                        }
+
+                        Loop(set, sample.Length + 2, step =>
+                        {
+                            for (var s = 0; s < lines.Count; s++)
+                            {
+                                lines[s].style.opacity = s < step ? 1f : 0.15f;
+                            }
+                        });
+                    }
+                });
+            }
+
+            return pages;
+        }
+
         private static Label Bubble(VisualElement set, string text)
         {
             var bubble = new Label(text);

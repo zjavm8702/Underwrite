@@ -91,6 +91,7 @@ namespace Underwrite.Save
             };
 
             data.Story.SleepSeen.AddRange(StoryProgress.SleepSeen);
+            data.Story.RulesSeen.AddRange(StoryProgress.RulesSeen);
 
             if (data.HasMarket == true)
             {
@@ -257,6 +258,8 @@ namespace Underwrite.Save
                 || data.QuestIndex > Constants.QUEST_FIRST_REQUEST_INDEX;
             StoryProgress.SleepSeen.Clear();
             StoryProgress.SleepSeen.UnionWith(data.Story.SleepSeen);
+            StoryProgress.RulesSeen.Clear();
+            StoryProgress.RulesSeen.UnionWith(data.Story.RulesSeen);
             return true;
         }
 

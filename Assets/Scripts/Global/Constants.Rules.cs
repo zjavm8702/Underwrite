@@ -76,6 +76,40 @@ namespace Underwrite.Global
         public static readonly string[] TEXT_RULE_DEDUCE_3_COLS = { "북쪽 고개", "늪지", "폐광" };
         public static string TEXT_RULE_DEDUCE_4_TITLE = "맞춰 보기";
         public static string TEXT_RULE_DEDUCE_4_BODY = "표를 다 채워야 맞춰 볼 수 있고, 틀리면 어디가 틀렸는지는 알려 주지 않는다. 기회는 세 번 — 찍지 말고 따져서.";
+        // 장부 맞추기 · 엿듣기 · 주문 나르기 규칙서(2026-10-19 데모 점검 — 규칙서가 없었다). 문구는 과장 초안.
+        public static string TEXT_RULE_LEDGER_HEADING = "장부 맞추기 — 규칙";
+        public static string TEXT_RULE_LEDGER_1_TITLE = "두 장의 기록";
+        public static string TEXT_RULE_LEDGER_1_BODY = "왼쪽은 의뢰 기록(단 · 의뢰 · 약정 보수), 오른쪽은 지급 기록(날짜 · 받은 단 · 금액). 한 단만 받은 돈의 합이 약정과 맞지 않는다.";
+        public static string TEXT_RULE_LEDGER_2_TITLE = "더하고 짚는다";
+        public static string TEXT_RULE_LEDGER_2_BODY = "단마다 지급을 더해 약정과 견준다. 어긋난 단의 의뢰 줄을 누른다. 틀리게 짚으면 기록 담당의 눈길이 쌓이고, 셋이 차면 쫓겨난다.";
+        public static string TEXT_RULE_LEDGER_3_TITLE = "무슨 뜻인가";
+        public static string TEXT_RULE_LEDGER_3_BODY = "찾으면 비고의 작은 글씨를 보고 그 돈이 어디로 갔는지 고른다. 맞히면 그 단의 대장간 사정 — 재개장 때 반드시 맞는 정보를 안다.";
+        public static readonly string[] TEXT_RULE_LEDGER_SAMPLE = { "붉은 칼날 · 약정 300", "지급 120 + 100 = 220", "→ 80이 모자란다" };
+
+        public static string TEXT_RULE_EAVES_HEADING = "엿듣기 — 규칙";
+        public static string TEXT_RULE_EAVES_1_TITLE = "테이블 사이를 돈다";
+        public static string TEXT_RULE_EAVES_1_BODY = "술을 나르며 귀 기울일 기회가 네 번 있다. 테이블을 골라 「곁에 머문다」를 누르면 그 쪽 이야기가 한 토막 들린다.";
+        public static string TEXT_RULE_EAVES_2_TITLE = "두 번 머물면 끝까지";
+        public static string TEXT_RULE_EAVES_2_BODY = "한 테이블에 두 번 머물면 이야기를 끝까지 듣는다 — 도감에 그 단의 사정이 적힌다. 여러 곳을 한 번씩 돌면 토막만 남는다.";
+        public static string TEXT_RULE_EAVES_3_TITLE = "경계하는 테이블";
+        public static string TEXT_RULE_EAVES_3_BODY = "분위기가 날카로운 테이블에 오래 서 있으면 들킨다. 들키면 그날은 홀에 나갈 수 없다. 용사단 테이블에서는 그들의 사정이 들린다.";
+        public static readonly string[] TEXT_RULE_EAVES_SAMPLE = { "오래된 참나무단 — 「…늪 쪽 길이…」", "한 번 더 머문다 → 끝까지 들었다" };
+
+        public static string TEXT_RULE_WORK_HEADING = "주문 나르기 — 규칙";
+        public static string TEXT_RULE_WORK_1_TITLE = "외운다";
+        public static string TEXT_RULE_WORK_1_BODY = "주문표 셋이 잠깐 보였다가 가려진다. 어디에 무엇을 몇 개 — 가려지기 전에 외운다. 다 외웠으면 「다 외웠다」.";
+        public static string TEXT_RULE_WORK_2_TITLE = "쟁반을 채워 내놓는다";
+        public static string TEXT_RULE_WORK_2_BODY = "부르는 자리마다 물건을 눌러 쟁반에 담고 「내놓는다」. 맞힌 만큼 품삯을 받는다. 「대충 끝낸다」면 품삯은 절반이다.";
+        public static readonly string[] TEXT_RULE_WORK_SAMPLE = { "창가 테이블 — 맥주 ×1, 포도주 ×2", "쟁반: 맥주, 포도주, 포도주 → 내놓는다" };
+
+        // 놀이 화면의 「?」 — 언제든 규칙서를 다시 본다(온보딩 설계안 §3).
+        public static string TEXT_RULE_HELP = "?";
+        public static string TEXT_RULE_HELP_TIP = "규칙 다시 보기";
+
+        // 처음 한 번 규칙서를 보인 놀이(StoryProgress.RulesSeen, 저장된다).
+        public const string RULE_KEY_LEDGER = "rule_ledger";
+        public const string RULE_KEY_EAVES = "rule_eaves";
+        public const string RULE_KEY_WORK = "rule_work";
         public static string TEXT_RULE_MARK_NO = "✗";
         public static string TEXT_RULE_MARK_YES = "○";
     }

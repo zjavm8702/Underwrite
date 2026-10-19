@@ -222,6 +222,7 @@ namespace Underwrite.Save
         public bool MarketTutorialDone;
         public bool VillageTutorialDone;
         public List<string> SleepSeen = new List<string>();
+        public List<string> RulesSeen = new List<string>();
         public int Bankruptcies;
         public bool DemoEndSeen;
         public bool SponsorGuideSeen;
