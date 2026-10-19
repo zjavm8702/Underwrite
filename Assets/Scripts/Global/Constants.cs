@@ -111,8 +111,6 @@ namespace Underwrite.Global
         public static string TEXT_SOURCE_BROKER_LEAK = "중개인 누설";
 
         // 영지에서 묻기 전에 고르는 자리
-        public static string TEXT_GATHER_ASK = "들은 게 있긴 한데, 공짜로 줄 수는 없지요.";
-        public static string TEXT_GATHER_ASK_AGAIN = "또 볼일이 있으신가요?";
         public static string TEXT_GATHER_PAY = "{0:N0}을 내고 묻는다";
         public static string TEXT_GATHER_PAY_NOTE = "행동력 {0} · 가진 돈 {1:N0}";
         public static string TEXT_GATHER_NO_MONEY = "돈이 모자란다 · 가진 돈 {0:N0}";
@@ -126,7 +124,6 @@ namespace Underwrite.Global
         // 영지에서 맡는 일 (기획서 §10 종잣돈 퀘스트)
         public static string TEXT_WORK_NOTE = "행동력 {0} · {1:N0}을 받는다";
         public static string TEXT_WORK_NO_TIME = "행동력이 모자란다 · 남은 행동력 {0}";
-        public static string TEXT_WORK_RUMOR = "그러고 보니 일하다 들었는데, {0} 쪽에 무슨 일이 있답니다.";
         public static string TEXT_WORK_RESULT = "{0:N0}을 받았다. 남은 행동력 {1}.";
 
         // 영지 메뉴와 원형 시계 (2026-10-17)
@@ -200,9 +197,9 @@ namespace Underwrite.Global
         public static string TEXT_ROOM_INFORMANT_WAITING = "E · 정보상에게 소식을 듣는다";
         public static string TEXT_ROOM_INFORMANT = "E · 정보상";
         public static string TEXT_ROOM_HINT = "Tab · 거래판";
-        public static string TEXT_ROOM_CALL = "소식이 왔소.";
-        public static string TEXT_ROOM_IDLE_1 = "장이 열리면 다시 오시오.";
-        public static string TEXT_ROOM_IDLE_2 = "…볼일 있소?";
+        public static string TEXT_ROOM_CALL = "새 소식이 왔다.";
+        public static string TEXT_ROOM_IDLE_1 = "아직 거래할 때가 아니야. 나중에 다시 와.";
+        public static string TEXT_ROOM_IDLE_2 = "…볼일 있어?";
         public static string TEXT_ROOM_WAITING_NOTE = "정보상이 부른다 · 시간이 멈췄다";
 
         // 투자꾼의 혼잣말. 종목이 크게 움직이면 근처 사람이 한마디 한다.

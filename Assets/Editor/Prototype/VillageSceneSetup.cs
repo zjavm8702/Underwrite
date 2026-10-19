@@ -371,7 +371,7 @@ namespace Underwrite.Editor
                     return new VillageQuest
                     {
                         Title = "전리품 정산을 돕는다",
-                        Done = "장부가 깔끔하군요. 수고비입니다.",
+                        Done = "장부가 깔끔하군. 수고비일세.",
                         Minutes = 180,
                         Reward = 45f,
                         GivesRumor = false

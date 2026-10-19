@@ -167,7 +167,7 @@ namespace Underwrite.UI
                     // 부탁할 사람이 떠났으면 혼잣말로 받는다.
                     var hero = HeroRoster.All[HeroIndexOf(quest.Giver)];
                     line = hero.Condition == HeroCondition.Condition_Dead
-                        ? new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, quest.Ask)
+                        ? new DialogueLine(string.Empty, StringConstants.TEXT_QUEST_SELF_TAG, SelfAsk(quest))
                         : Host.HeroLine(hero, quest.Ask, PortraitEmotion.Emotion_Neutral);
                     break;
                 }
@@ -181,6 +181,14 @@ namespace Underwrite.UI
             line.Note = string.Format(StringConstants.TEXT_QUEST_LABEL, quest.Title);
             Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(place));
             Host.Dialogue.Play(new List<DialogueLine> { line }, null);
+        }
+
+        // 부탁할 용사가 떠났으면 그 사람의 부탁 대신 주인공의 혼잣말로.
+        private static string SelfAsk(Quest quest)
+        {
+            var index = QuestLog.CurrentIndex;
+            var lines = StringConstants.QUEST_ASKS_SELF;
+            return index < lines.Length && string.IsNullOrEmpty(lines[index]) == false ? lines[index] : quest.Ask;
         }
 
         private static int HeroIndexOf(QuestGiver giver)

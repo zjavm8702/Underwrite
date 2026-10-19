@@ -43,7 +43,7 @@ namespace Underwrite.UI
 
             if (HasTime() == false)
             {
-                Say(spot, StringConstants.TEXT_GATHER_TOO_LATE, false);
+                Say(spot, InfoPeople.Pick(spot.InfoSource, StringConstants.TEXT_GATHER_TOO_LATE_BY), false);
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace Underwrite.UI
             {
                 SpendTime(spot);
                 GatherSession.Record(spot.Price, 0f, null);
-                Say(spot, StringConstants.TEXT_GATHER_NOTHING, false, null, ScoutBand(spot));
+                Say(spot, InfoPeople.Pick(spot.InfoSource, StringConstants.TEXT_GATHER_NOTHING_BY), false, null, ScoutBand(spot));
                 return;
             }
 
@@ -151,7 +151,7 @@ namespace Underwrite.UI
                 return null;
             }
 
-            return string.Format(StringConstants.TEXT_CODEX_LEARNED,
+            return string.Format(InfoPeople.Pick(spot.InfoSource, StringConstants.TEXT_CODEX_LEARNED_BY),
                 string.Format(StringConstants.TEXT_CODEX_LEARNED_LINE, sim.NameOf(id), fact));
         }
 

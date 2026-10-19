@@ -21,7 +21,7 @@ namespace Underwrite.Global
         // 「일곱째 날」은 제목 카드가 먼저 보인다.
         public static readonly string[] TEXT_PROLOGUE_OPENING =
         {
-            "내가 아는 건 10년 뒤의 멸망뿐이다. 그걸 아는 내가, 오늘 저녁 먹을 돈도 없다.",
+            "10년 뒤에 세상이 끝난다는 것만 안다. 그런데 당장 오늘 저녁 먹을 돈이 없다.",
             "…그 전에, 오늘 먹을 것부터."
         };
 

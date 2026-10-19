@@ -74,7 +74,7 @@ namespace Underwrite.UI
 
             if (farewell != null)
             {
-                lines.Add(Host.HeroLine(farewell, StringConstants.TEXT_DEPART_FAREWELL, PortraitEmotion.Emotion_Happy));
+                lines.Add(Host.HeroLine(farewell, StringConstants.HERO_DEPART_FAREWELL[farewell.FaceIndex], PortraitEmotion.Emotion_Happy));
             }
 
             lines.Add(new DialogueLine(string.Empty, StringConstants.TEXT_DEPART_TAG, StringConstants.TEXT_DEPART_PLAN));

@@ -908,7 +908,7 @@ namespace Underwrite.UI
             choices.Add(new DialogueChoice(StringConstants.TEXT_GATHER_LEAVE, null));
 
             var line = OwnerLine(spot,
-                again == true ? StringConstants.TEXT_GATHER_ASK_AGAIN : StringConstants.TEXT_GATHER_ASK);
+                InfoPeople.Pick(spot.InfoSource, again == true ? StringConstants.TEXT_GATHER_ASK_AGAIN_BY : StringConstants.TEXT_GATHER_ASK_BY));
             line.Choices = choices;
 
             Dialogue.Play(new List<DialogueLine> { line }, null);

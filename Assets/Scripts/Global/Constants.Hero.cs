@@ -55,13 +55,13 @@ namespace Underwrite.Global
             "(수첩을 덮으며) 의뢰 내용은 말할 수 없어요. 미안해요.",
             "(눈을 가늘게 뜨며) 일꾼이 그건 왜 궁금한데?",
             "비밀이야. …그래도 묻는 눈빛은 마음에 드네.",
-            "북쪽 숲이지. 별건 아니야. 자네가 갈 곳은 아니고.",
+            "북쪽 숲일세. 별일은 아니네. 자네가 갈 곳은 아니고.",
             "음… 그건 단장이 말하지 말랬어. 근데 숲이야! 앗."
         };
 
         public static readonly string[] HERO_REACT_PLAIN =
         {
-            "네, 그렇게요.",
+            "네, 고마워요.",
             "그래. 가 봐.",
             "응, 수고해.",
             "그래, 고맙네!",
@@ -69,7 +69,37 @@ namespace Underwrite.Global
         };
 
         // 친해졌을 때 덤으로 흘리는 현장 이야기(루틴 설계안 — 관계와 투자의 다리)
-        public static string TEXT_HERO_FIELD_TALK = "그러고 보니 현장에서 봤는데, {0} 쪽 사정이 이렇더라. \"{1}\"";
+
+        // 용사마다 말투가 다르다(대사 검증 v1, 10/19). 순서는 HERO_NAMES·FaceIndex와 같다.
+        public static readonly string[] HERO_FIELD_TALK =
+        {
+            "현장에서 들었는데요, {0} 쪽에 이런 일이 있었어요. \"{1}\"", "현장에서 들었는데, {0} 쪽에 이런 일이 있었어. \"{1}\"",
+            "그러고 보니 {0} 얘기가 있었어. 현장에서 들었지. \"{1}\"", "현장에서 들었네. {0} 쪽 이야기일세. \"{1}\"",
+            "아, {0} 얘기! 나도 현장에서 들었어. \"{1}\""
+        };
+        public static readonly string[] HERO_DEPART_FAREWELL =
+        {
+            "다녀올게요. 끼니 거르지 말고 잘 지내요.", "다녀올게. 밥 거르지 말고.", "다녀올게. 돌아왔을 때 얼굴 상해 있으면 안 돼.",
+            "다녀오겠네. 밥 잘 챙겨 먹고 있게.", "다녀올게! 너도 밥 잘 먹어야 해!"
+        };
+        public static readonly string[] HERO_RETURN_DEATH_LINE =
+        {
+            "…마지막까지 저희를 지키려 했어요.", "…마지막까지 우릴 지키려 했어.", "…끝까지 우릴 지키려고 했어.",
+            "…마지막까지 우리를 지키려 했네.", "…끝까지 우릴 지키려고 했어."
+        };
+        public static readonly string[] HERO_DAY_OFF_INVITE =
+        {
+            "(빈자리를 가리킨다) 오늘은 한가하네요. 잠깐 앉으실래요?", "(턱짓으로 빈자리를 가리킨다) 오늘은 손님도 없잖아. 앉아.",
+            "(빈 의자를 당긴다) 오늘은 한가하네. 이리 와서 앉아.", "(빈 의자를 두드린다) 오늘은 한가하군. 앉았다 가게.",
+            "(빈자리 위로 날아오른다) 오늘은 손님도 없네! 너도 여기 앉아!"
+        };
+        public static readonly string[] HERO_RETURN_GOOD =
+        {
+            "(짐을 내려놓는다) 이번엔 다들 무사해요. 이름도 모르는 의뢰주 덕분이죠.", "(짐을 내려놓는다) 이번엔 다들 멀쩡해. 그 의뢰주 덕이지.",
+            "(짐을 내려놓으며 웃는다) 이번엔 다들 무사하네. 누군지 몰라도 고마운 사람이야.",
+            "(웃으며 방패를 내려놓는다) 이번엔 다들 멀쩡하군! 이름도 모르는 의뢰주 덕일세.",
+            "(테이블 위로 날아오른다) 다들 무사해! 그 의뢰주한테 꼭 고맙다고 할 거야!"
+        };
 
         // ── 여관 선택지 ──────────────────────────
         public static string TEXT_HERO_TABLE = "용사단 테이블로 간다";
@@ -82,7 +112,6 @@ namespace Underwrite.Global
         // ── 쉬는 날 관계 이벤트 ────────────────────
         public static string TEXT_DAY_OFF_TAG = "쉬는 날";
         public static string TEXT_DAY_OFF_OPEN = "의뢰 사이에 하루 쉬는 날. 여관은 오랜만에 한가했고, 용사단은 창가 자리를 차지했다.";
-        public static string TEXT_DAY_OFF_INVITE = "(검사가 턱짓으로 빈자리를 가리킨다) 오늘은 손님도 없잖아. 앉아.";
         public static string TEXT_DAY_OFF_CLOSE = "해가 질 때까지 이야기가 이어졌다. 다음 원정은 내일 떠난다고 했다.";
         public static readonly string[] HERO_DAY_OFF_FAVORITE =
         {
@@ -129,28 +158,26 @@ namespace Underwrite.Global
         // 파산(2026-10-18 인터뷰 — 재기는 한 번). 문구는 과장 초안.
         public static string TEXT_BANKRUPT_TAG = "파산";
         public static string TEXT_BANKRUPT_RESCUE_TITLE = "정보상이 동전 주머니를 내밀었다";
-        public static string TEXT_BANKRUPT_RESCUE_BODY = "「빈손으로 계단을 오르게 둘 수는 없지. {0:N0}이다. 이자는 묻지 마. 다음엔 없어.」\n\n한 번 더 일어설 수 있다. 다음 파산은 끝이다.";
+        public static string TEXT_BANKRUPT_RESCUE_BODY = "「빈손으로 돌려보낼 순 없지. {0:N0}이다. 이자는 묻지 마. 두 번은 못 도와줘.」\n\n주머니가 손바닥에 묵직하게 얹혔다. 이번 돈마저 잃을 수는 없다.";
         public static string TEXT_BANKRUPT_RESCUE_OK = "받는다";
         public static string TEXT_BANKRUPT_END_TITLE = "두 번째 파산";
-        public static string TEXT_BANKRUPT_END_BODY = "정보상은 이번엔 눈도 마주치지 않았다. 장부를 덮었다. 10년 뒤를 아는 사람이, 아무것도 바꾸지 못한 채.\n\n…다시, 처음부터.";
+        public static string TEXT_BANKRUPT_END_BODY = "정보상은 이번엔 눈도 마주치지 않고 장부를 덮었다. 10년 뒤에 무슨 일이 벌어질지 알면서도, 나는 아무것도 바꾸지 못했다.\n\n…다시, 처음부터.";
         public static string TEXT_BANKRUPT_END_OK = "처음으로";
 
         // ── 원정과 귀환 ──────────────────────────
         public static string TEXT_EXPEDITION_TAG = "원정 귀환";
         public static string TEXT_RETURN_OPEN = "용사단이 돌아왔다. 문이 열리자 여관이 한꺼번에 들썩였다.";
-        public static string TEXT_RETURN_GOOD = "(전사가 웃으며 방패를 내려놓는다) 이번엔 다들 멀쩡하네! 어디 사는 누군지 모를 의뢰주 덕이지.";
         public static string TEXT_RETURN_SUSPECT = "(학자가 의뢰서 두 장을 나란히 놓는다) 같은 사람이 낸 의뢰예요. 글씨가 같아요. 그리고 둘 다… 우리가 이 여관에서 한 이야기를 알고 있어요.";
         // 귀환에서 드러나는 놓친 사정의 대가. 순서는 HERO_NAMES와 같다. 문구는 과장 초안.
         public static readonly string[] HERO_RETURN_WOUNDED =
         {
             "(학자가 팔을 감싸 쥔 채 웃는다) 기록하다 다친 건 처음이에요. …괜찮아요, 정말로.",
             "(검사가 붕대 감은 손을 등 뒤로 숨긴다) 별거 아니야. 검은 아직 쥘 수 있어.",
-            "(엘프가 지팡이에 몸을 기댄다) 마력이 바닥났을 때 맞았어요. 며칠이면 나아요.",
+            "(엘프가 지팡이에 몸을 기댄다) 마력이 다 떨어졌을 때 맞았어. 며칠 쉬면 나아.",
             "(전사가 금 간 갑옷을 내려놓는다) 막긴 막았다. 몸으로.",
             "(요정이 붕대를 감은 채 웃어 보인다) 괜찮아… 조금 다쳤을 뿐이야. 약이 모자랐거든."
         };
         public static string TEXT_RETURN_DEATH_OPEN = "문이 열렸다. 들어오는 발소리가 하나 모자랐다.";
         public static string TEXT_RETURN_DEATH_NAME = "{0}의 자리가 비어 있었다. 아무도 그 이야기를 먼저 꺼내지 않았다.";
-        public static string TEXT_RETURN_DEATH_LINE = "…돌아오는 길에, 그가 끝까지 앞에 서 있었어요.";
     }
 }

@@ -65947,7 +65947,7 @@ MonoBehaviour:
   Cost: 80
   Quest:
     Title: "\uC804\uB9AC\uD488 \uC815\uC0B0\uC744 \uB3D5\uB294\uB2E4"
-    Done: "\uC7A5\uBD80\uAC00 \uAE54\uB054\uD558\uAD70\uC694. \uC218\uACE0\uBE44\uC785\uB2C8\uB2E4."
+    Done: "\uC7A5\uBD80\uAC00 \uAE54\uB054\uD558\uAD70. \uC218\uACE0\uBE44\uC77C\uC138."
     Minutes: 180
     Reward: 45
     GivesRumor: 0

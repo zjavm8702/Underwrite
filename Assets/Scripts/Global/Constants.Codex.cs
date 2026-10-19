@@ -68,7 +68,7 @@ namespace Underwrite.Global
             new[] { "{0} 단장이 귀족 가문의 후원을 받았다.", "{0} 일부가 다른 영지로 떠났다.", "{0}{이} 둘로 갈라섰다." }
         };
 
-        public static string TEXT_CODEX_NOTED = "(수첩에 적은 일) ";
+        public static string TEXT_CODEX_NOTED = "전에 들었던 이야기지만, ";
         public static string TEXT_CODEX_RUMOR_FALSE = "헛말로 드러났다 — {0}: 「{1}」";
 
         public static readonly string[] CODEX_HINTS =

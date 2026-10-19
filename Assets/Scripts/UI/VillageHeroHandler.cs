@@ -166,7 +166,7 @@ namespace Underwrite.UI
                 {
                     var pick = rows[UnityEngine.Random.Range(0, rows.Count)];
                     var name = Host.StockName(pick.StockId);
-                    var field = Host.HeroLine(hero, string.Format(StringConstants.TEXT_HERO_FIELD_TALK, name, pick.Headline),
+                    var field = Host.HeroLine(hero, string.Format(StringConstants.HERO_FIELD_TALK[hero.FaceIndex], name, pick.Headline),
                         PortraitEmotion.Emotion_Neutral);
                     field.IsSecret = true;
                     var heldTag = VillageScreenController.HeldNote(pick.StockId);
@@ -205,7 +205,7 @@ namespace Underwrite.UI
             var lines = new List<DialogueLine>
             {
                 new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_OPEN),
-                Host.HeroLine(sword, StringConstants.TEXT_DAY_OFF_INVITE, PortraitEmotion.Emotion_Neutral),
+                Host.HeroLine(sword, StringConstants.HERO_DAY_OFF_INVITE[sword.FaceIndex], PortraitEmotion.Emotion_Neutral),
                 Host.HeroLine(favorite, StringConstants.HERO_DAY_OFF_FAVORITE[favorite.FaceIndex],
                     PortraitEmotion.Emotion_Happy),
                 new DialogueLine(string.Empty, StringConstants.TEXT_DAY_OFF_TAG, StringConstants.TEXT_DAY_OFF_CLOSE)
@@ -299,7 +299,7 @@ namespace Underwrite.UI
 
                     if (mourner != null)
                     {
-                        lines.Add(Host.HeroLine(mourner, StringConstants.TEXT_RETURN_DEATH_LINE, PortraitEmotion.Emotion_Sad));
+                        lines.Add(Host.HeroLine(mourner, StringConstants.HERO_RETURN_DEATH_LINE[mourner.FaceIndex], PortraitEmotion.Emotion_Sad));
                     }
 
                     struck = true;
@@ -318,7 +318,7 @@ namespace Underwrite.UI
 
                 if (speaker != null)
                 {
-                    lines.Add(Host.HeroLine(speaker, StringConstants.TEXT_RETURN_GOOD, PortraitEmotion.Emotion_Happy));
+                    lines.Add(Host.HeroLine(speaker, StringConstants.HERO_RETURN_GOOD[speaker.FaceIndex], PortraitEmotion.Emotion_Happy));
                 }
             }
 

@@ -26,8 +26,8 @@ namespace Underwrite.Global
         public static string TEXT_SMITH_TAG = "주문서 읽기";
         public static string TEXT_SMITH_FOUND = "{0}의 이번 계절 주문 — 「{1}」";
         public static string TEXT_SMITH_ASK = "여관의 말은 「{0}」 — 맞는 말일까.";
-        public static string TEXT_SMITH_VERDICT_TRUE = "주문서가 말을 받쳐 준다 — 맞는 말이다";
-        public static string TEXT_SMITH_VERDICT_FALSE = "주문서가 말과 어긋난다 — 헛말이다";
+        public static string TEXT_SMITH_VERDICT_TRUE = "주문 내용이 소문과 들어맞는다. 사실인 모양이다.";
+        public static string TEXT_SMITH_VERDICT_FALSE = "주문 내용이 소문과 다르다. 헛소문인 모양이다.";
         public static string TEXT_SMITH_RIGHT_TRUE = "앞뒤가 맞는다. {0}에 대한 여관의 말은 맞는 말이다.";
         public static string TEXT_SMITH_RIGHT_FALSE = "앞뒤가 맞는다. {0}에 대한 여관의 말은 헛말이다.";
         public static string TEXT_SMITH_WRONG_GUESS = "다시 읽어 보니 확신이 서지 않는다. 대장장이가 꽂이를 치웠다.";

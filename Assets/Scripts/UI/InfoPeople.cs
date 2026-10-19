@@ -13,6 +13,47 @@ namespace Underwrite.UI
     /// </summary>
     public static class InfoPeople
     {
+        /// <summary>
+        /// 장소 주인마다 말투가 다른 문구에서 그 사람 것을 고른다.
+        /// <paramref name="byPerson"/> 순서: 여관 주인 · 기록 담당 · 대장장이 · 중개인 · 집사.
+        /// </summary>
+        public static string Pick(InfoSource source, string[] byPerson)
+        {
+            int index;
+
+            switch (source)
+            {
+                case InfoSource.Source_GuildRecord:
+                {
+                    index = 1;
+                    break;
+                }
+                case InfoSource.Source_SmithOrder:
+                {
+                    index = 2;
+                    break;
+                }
+                case InfoSource.Source_MarketBoard:
+                case InfoSource.Source_BrokerLeak:
+                {
+                    index = 3;
+                    break;
+                }
+                case InfoSource.Source_PrivateLetter:
+                {
+                    index = 4;
+                    break;
+                }
+                default:
+                {
+                    index = 0;
+                    break;
+                }
+            }
+
+            return index < byPerson.Length ? byPerson[index] : byPerson[0];
+        }
+
         public static string Speaker(InfoSource source)
         {
             switch (source)

@@ -16,7 +16,7 @@ namespace Underwrite.Global
         public static readonly string[] TEXT_SPONSOR_THINK =
         {
             "치유사가 다쳤다. 약값이 없어 큰 의뢰는 전부 물렸다고 했다.",
-            "이대로 원정을 떠나면… 원작처럼 하나씩 쓰러지는 첫 장면이 된다.",
+            "이대로 떠났다간 누가 돌아오지 못할지도 모른다. 원작에서 그랬던 것처럼.",
             "그렇다고 여관 일꾼이 금화를 내밀면 누가 받겠나. 받아도 수상하게 볼 것이다.",
             "…이름을 비우고 길드에 의뢰를 내자. 돈은 길드를 거쳐 저들 앞으로 간다."
         };
@@ -25,7 +25,7 @@ namespace Underwrite.Global
         public static readonly string[] TEXT_SPONSOR_CLERK_LINES =
         {
             "익명 의뢰는 처음이시군요. 받을 단을 적고, 무엇에 쓸 돈인지 고르고, 예치금을 먼저 맡기시면 됩니다. 의뢰주 칸은 비워 두셔도 저희가 봉인해서 전합니다.",
-            "고르실 때 조심하세요. 그 단의 처지에 맞는 의뢰여야 실제로 씁니다. 처지에 안 맞으면 받기만 하고 소용이 없지요. 예치금은 어느 쪽이든 돌려드리지 않습니다.",
+            "어디에 쓸 돈인지 분명히 적어 주세요. 약값이 필요한 이들에게 장비를 보내 봐야 당장 쓸 수는 없으니까요. 한 번 전달한 예치금은 돌려드릴 수 없습니다.",
             "단의 처지는 저희 창구에도 적혀 오지 않습니다. 그 사람들 말이 제일 많이 오가는 데가 여관이라더군요."
         };
         public static string TEXT_SPONSOR_CLERK_DEADLINE = "그리고 원정을 떠나기 전에 닿아야 소용이 있습니다. 그 단이 떠나기까지 {0}일 남았습니다.";
@@ -40,7 +40,7 @@ namespace Underwrite.Global
         public static string TEXT_SPONSOR_NO_MONEY_SELF = "돈이 모자라다. 지하 장에서 벌어 와야 한다.";
 
         // 첫 의뢰를 맡긴 뒤 — 이 게임의 고리(지하에서 번다 → 들은 사정에 맞게 후원한다 → 여관에서 반응을 듣는다).
-        public static string TEXT_SPONSOR_AFTER = "이름 없는 돈이 저들에게 간다. 맞게 골랐는지는 다음 날, 여관에서 일하며 들을 수 있다.";
-        public static string TEXT_SPONSOR_AFTER_LOOP = "지하에서 벌고, 여관에서 듣고, 길드에서 건넨다. …이게 내가 결말을 바꾸는 방법이다.";
+        public static string TEXT_SPONSOR_AFTER = "길드가 돈을 전해 줄 것이다. 내일 술을 나를 때, 저들 얼굴이 조금은 펴 있으면 좋겠다.";
+        public static string TEXT_SPONSOR_AFTER_LOOP = "저들이 필요할 때 돈을 보낼 수만 있다면… 내가 아는 끝도 달라질지 모른다.";
     }
 }

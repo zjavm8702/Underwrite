@@ -33,7 +33,7 @@ namespace Underwrite.Global
         public static string TEXT_DEDUCE_BAND_CLIENT = "{0}{은} {1}의 의뢰를 받았다.";
         public static string TEXT_DEDUCE_BAND_NOT_CLIENT = "{0}{은} {1}의 의뢰를 받지 않았다.";
         public static string TEXT_DEDUCE_DEST_CLIENT = "{0} 쪽으로 가는 단은 {1}의 의뢰를 받았다.";
-        public static string TEXT_DEDUCE_DEST_NOT_CLIENT = "{0} 쪽으로 가는 단은 {1}의 의뢰가 아니다.";
+        public static string TEXT_DEDUCE_DEST_NOT_CLIENT = "{0} 쪽으로 가는 단은 {1}의 의뢰를 받지 않았다.";
 
         public static string TEXT_DEDUCE_TUT_HINT = "쪽지를 하나씩 읽고 칸을 눌러 채워 본다. 연습이라 틀려도 괜찮다.";
         public static string TEXT_DEDUCE_TUT_DONE = "…맞네. 흩어진 쪽지도 맞추면 한 장이 되지.";

@@ -244,7 +244,7 @@ namespace Underwrite.UI
                     var pick = rows[Random.Range(0, rows.Count)];
                     var name = Host.StockName(pick.StockId);
                     note = new GatheredNote(pick.StockId, string.Format(StringConstants.TEXT_GATHER_VAGUE_NOTE, name), spot.InfoSource);
-                    text = text + " " + string.Format(StringConstants.TEXT_WORK_RUMOR, name);
+                    text = text + " " + string.Format(InfoPeople.Pick(spot.InfoSource, StringConstants.TEXT_WORK_RUMOR_BY), name);
                     rumorStock = pick.StockId;
                 }
             }

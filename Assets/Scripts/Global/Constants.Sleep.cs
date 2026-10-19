@@ -12,7 +12,7 @@ namespace Underwrite.Global
         public static string TEXT_SLEEP_LOCKED = "자정이 지나야 잘 수 있다";
         public static string TEXT_SLEEP_SPEAKER = "다락방";
         public static string TEXT_SLEEP_TAG = "{0} 밤";
-        public static string TEXT_SLEEP_RECAP = "가진 돈 {0:N0} · 가진 종목의 값 {1:N0}. 오늘 밤 영지에서 들은 소식 {2}개.";
+        public static string TEXT_SLEEP_RECAP = "주머니에 남은 돈은 {0:N0}. 사 둔 지분을 지금 팔면 {1:N0}쯤 된다. 오늘 밤 들은 이야기 {2}개를 되짚어 본다.";
         public static string TEXT_SLEEP_DEADLINE = "들은 용사단 사정의 기한까지 {0}일 남았다.";
         public static string TEXT_SLEEP_FADE = "다락방에서 잠들었다";
 

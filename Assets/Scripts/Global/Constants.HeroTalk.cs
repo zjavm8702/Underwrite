@@ -70,21 +70,21 @@ namespace Underwrite.Global
         public static string TEXT_TOPIC_ELF_OMEN_ANSWER_2 = "그렇지? 그냥 얘기야. (불꽃을 다시 굴린다) …그렇게 믿을게.";
 
         // ── 전사 ─────────────────────────────
-        public static string TEXT_TOPIC_WARRIOR_SHIELD_OPEN = "(방패를 툭 친다) 이 녀석 말인가? 스무 해를 같이 굴렀지. 흠집 하나하나가 다 누군가를 막아 준 자리라네.";
+        public static string TEXT_TOPIC_WARRIOR_SHIELD_OPEN = "(방패를 툭 친다) 이 녀석 말인가? 스무 해를 같이 굴렀지. 이 흠집들, 동료 대신 맞아 낸 흔적이라네.";
         public static string TEXT_TOPIC_WARRIOR_SHIELD_REPLY_1 = "그럼 이 방패가 제일 많이 다쳤겠네요.";
         public static string TEXT_TOPIC_WARRIOR_SHIELD_ANSWER_1 = "하하하! 그렇지! 그래서 내가 매일 닦아 주는 거라네. 자네, 말이 예쁘구먼.";
         public static string TEXT_TOPIC_WARRIOR_SHIELD_REPLY_2 = "무겁지 않으세요?";
         public static string TEXT_TOPIC_WARRIOR_SHIELD_ANSWER_2 = "무겁지. 가벼운 방패는 아무도 못 지켜.";
-        public static string TEXT_TOPIC_WARRIOR_COUNT_OPEN = "(테이블을 둘러보며 목소리를 낮춘다) 저 녀석들, 다 내 자식뻘이야. 원정 나가면 나는 맨 뒤에서 하나하나 세면서 걷는다네. 다 있나, 다 있나.";
+        public static string TEXT_TOPIC_WARRIOR_COUNT_OPEN = "(테이블을 둘러보며 목소리를 낮춘다) 저 녀석들, 다 내 자식뻘일세. 원정 나가면 맨 뒤에서 하나하나 세며 걷지. 다 있나, 다 있나.";
         public static string TEXT_TOPIC_WARRIOR_COUNT_REPLY_1 = "그래서 다들 돌아오는 거군요.";
         public static string TEXT_TOPIC_WARRIOR_COUNT_ANSWER_1 = "(눈가를 훔치며 웃는다) 이 사람, 늙은이 울리려고 작정했구먼.";
         public static string TEXT_TOPIC_WARRIOR_COUNT_REPLY_2 = "한 명이라도 모자라면요?";
         public static string TEXT_TOPIC_WARRIOR_COUNT_ANSWER_2 = "(웃음이 사라진다) …그 생각은 안 하려고 한다네. 안 하게 해 주게.";
-        public static string TEXT_TOPIC_WARRIOR_FARM_OPEN = "사실 고향에 작은 밭이 있어. 언젠가 방패를 내려놓고 감자나 키울 생각이었지. …근데 요즘은 그 '언젠가'가 자꾸 멀어져.";
+        public static string TEXT_TOPIC_WARRIOR_FARM_OPEN = "사실 고향에 작은 밭이 있네. 언젠가 방패를 내려놓고 감자나 키울 생각이었지. …헌데 요즘은 그날이 자꾸 멀어지는군.";
         public static string TEXT_TOPIC_WARRIOR_FARM_REPLY_1 = "그날 오면 감자 사러 갈게요.";
         public static string TEXT_TOPIC_WARRIOR_FARM_ANSWER_1 = "하하! 약속했네! 자네한테는 제일 좋은 놈으로 골라 주지.";
         public static string TEXT_TOPIC_WARRIOR_FARM_REPLY_2 = "왜 멀어지는데요?";
-        public static string TEXT_TOPIC_WARRIOR_FARM_ANSWER_2 = "이 녀석들을 두고 갈 수가 없어서지. 내가 없으면 누가 맨 뒤를 세겠나.";
+        public static string TEXT_TOPIC_WARRIOR_FARM_ANSWER_2 = "이 녀석들을 두고 갈 수가 없어서지. 내가 없으면 누가 뒤에서 빠진 사람이 없는지 살피겠나.";
 
         // ── 요정 ─────────────────────────────
         public static string TEXT_TOPIC_FAIRY_HERBS_OPEN = "(작은 주머니를 흔들며) 이거 봐! 오늘 뒷산에서 캔 거야! 이건 열 내리는 거, 이건 상처 닫는 거, 이건… 그냥 냄새가 좋아!";

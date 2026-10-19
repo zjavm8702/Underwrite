@@ -11,7 +11,6 @@ namespace Underwrite.Global
 
         public static string TEXT_DEPART_TAG = "출발";
         public static string TEXT_DEPART_OPEN = "새벽별 용사단이 국경으로 떠났다. 여관 앞 등불이 그들의 등을 오래 비췄다.";
-        public static string TEXT_DEPART_FAREWELL = "다녀올게요. …장부만 보지 말고, 밥도 좀 챙겨 먹어요.";
         public static string TEXT_DEPART_PLAN = "원정은 한 계절. 그동안 지하시장은 닫힌다. 그 석 달을 어떻게 보낼지 정해야 한다.";
 
         public static string TEXT_PLAN_TAG = "계절 계획";
@@ -63,8 +62,8 @@ namespace Underwrite.Global
         };
 
         public static string TEXT_LETTER_TAG = "원정지에서 온 편지";
-        public static string TEXT_LETTER_BODY = "{0}의 글씨였다. 국경은 춥고, 밥은 맛없고, 다들 잘 있다고. 「당신도 잘 지내요.」";
-        public static string TEXT_LETTER_SHIELD = "편지 끝에 한 줄이 덧붙어 있었다. 「고드릭 방패에 금이 갔어요. 돌아가면 새로 맞춰야 하는데, 다들 말을 안 해요.」";
+        public static string TEXT_LETTER_BODY = "{0}의 글씨였다. 국경은 춥고 밥은 맛없지만, 다들 잘 지낸다고 했다. 내 안부를 묻는 말도 적혀 있었다.";
+        public static string TEXT_LETTER_SHIELD = "편지 끝에는 고드릭의 방패에 금이 갔다는 말이 있었다. 돌아오면 새로 맞춰야 하지만, 다들 그 이야기를 꺼내지 않는다고 했다.";
         public static string TEXT_LETTER_REMOTE = "길드를 거쳐 익명으로 방패 값을 보낸다";
         public static string TEXT_LETTER_REMOTE_NOTE = "원격 의뢰 {0:N0} · 가진 돈 {1:N0}";
         public static string TEXT_LETTER_KEEP = "지금은 보내지 않는다";
@@ -75,8 +74,8 @@ namespace Underwrite.Global
         // 데모 마무리. 문구는 과장 초안.
         public static string TEXT_DEMO_TAG = "첫 해 여름의 끝";
         public static string TEXT_DEMO_END_1 = "두 번의 원정이 지나갔다. 화면 속에서 본 끝까지는 아직 아홉 해하고도 반이 남았다.";
-        public static string TEXT_DEMO_END_SUMMARY = "가진 돈과 종목 {0:N0} · 용사단 무사 {1} · 다침 {2} · 잃음 {3} · 국경의 징조 {4}";
-        public static string TEXT_DEMO_END_2 = "이 이야기는 아직 만들어지는 중입니다. 여기까지 함께해 주셔서 고맙습니다.";
+        public static string TEXT_DEMO_END_SUMMARY = "돈과 사 둔 지분을 합치면 {0:N0}. 용사단은 {1}명이 무사했고, {2}명이 다쳤다. 돌아오지 못한 사람은 {3}명. 국경에서 본 이상한 일은 {4}가지였다.";
+        public static string TEXT_DEMO_END_2 = "아직 끝나지 않았다. 다음에 돌아올 때도, 저 자리에 모두 앉아 있기를.";
         public static string TEXT_DEMO_TO_TITLE = "처음 화면으로";
         public static string TEXT_DEMO_STAY = "조금 더 둘러본다";
 
