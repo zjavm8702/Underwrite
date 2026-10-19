@@ -110,7 +110,13 @@ namespace Underwrite.UI
             LeaveButtons = new VisualElement();
             LeaveButtons.style.display = canLeave == true ? DisplayStyle.Flex : DisplayStyle.None;
             LeaveButtons.Add(MenuButton(StringConstants.TEXT_MENU_TO_TITLE, () => Leave(false)));
-            LeaveButtons.Add(MenuButton(StringConstants.TEXT_MENU_QUIT, () => Leave(true)));
+
+            // 웹에서는 종료가 없다(브라우저 탭을 닫는다).
+            if (Application.platform != RuntimePlatform.WebGLPlayer)
+            {
+                LeaveButtons.Add(MenuButton(StringConstants.TEXT_MENU_QUIT, () => Leave(true)));
+            }
+
             buttons.Add(LeaveButtons);
             buttons.Add(MenuButton(StringConstants.TEXT_SETTINGS_CLOSE, Close));
 

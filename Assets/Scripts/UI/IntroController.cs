@@ -192,7 +192,13 @@ namespace Underwrite.UI
                     Settings.Open();
                 }
             }));
-            shade.Add(TitleButton(StringConstants.TEXT_TITLE_QUIT, Application.Quit));
+
+            // 웹에서는 종료가 없다(브라우저 탭을 닫는다).
+            if (Application.platform != RuntimePlatform.WebGLPlayer)
+            {
+                shade.Add(TitleButton(StringConstants.TEXT_TITLE_QUIT, Application.Quit));
+            }
+
             root.Add(Title);
         }
 

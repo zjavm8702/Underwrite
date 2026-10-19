@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using Underwrite.Data;
 using Underwrite.Enumeration;
 using Underwrite.Global;
@@ -19,6 +20,19 @@ namespace Underwrite.Save
     /// </summary>
     public static class SaveSystem
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        [DllImport("__Internal")]
+        private static extern void UnderwriteSyncFiles();
+#endif
+
+        // 웹 빌드는 파일을 브라우저 저장소(IndexedDB)에 바로 밀어 넣는다(Plugins/WebGL/UnderwriteFileSync.jslib).
+        private static void Flush()
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            UnderwriteSyncFiles();
+#endif
+        }
+
         private static string FilePath
         {
             get
@@ -114,6 +128,8 @@ namespace Underwrite.Save
                 {
                     File.Move(temp, path);
                 }
+
+                Flush();
             }
             catch (Exception exception)
             {
@@ -289,6 +305,7 @@ namespace Underwrite.Save
                 var archive = Path.Combine(Path.GetDirectoryName(FilePath),
                     string.Format(StringConstants.SAVE_ARCHIVE_FORMAT, DateTime.Now.ToString("yyyyMMdd_HHmmss")));
                 File.Move(FilePath, archive);
+                Flush();
                 UnderwriteLog.Info($"이전 판의 저장을 옮겨 두었습니다: {archive}");
             }
             catch (Exception exception)
@@ -305,6 +322,7 @@ namespace Underwrite.Save
                 if (File.Exists(FilePath) == true)
                 {
                     File.Delete(FilePath);
+                    Flush();
                 }
             }
             catch (Exception exception)
