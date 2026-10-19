@@ -16,7 +16,9 @@ def main():
         os.remove(TARGET)
 
     with zipfile.ZipFile(TARGET, "w", zipfile.ZIP_DEFLATED) as archive:
-        for folder, _, files in os.walk(SOURCE):
+        for folder, dirs, files in os.walk(SOURCE):
+            # 버스트 디버그 정보는 올리지 않는다(DoNotShip).
+            dirs[:] = [d for d in dirs if not d.endswith("DoNotShip")]
             for name in files:
                 path = os.path.join(folder, name)
                 archive.write(path, os.path.relpath(path, SOURCE).replace(os.sep, "/"))
