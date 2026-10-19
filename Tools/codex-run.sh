@@ -84,6 +84,9 @@ fi
 # Codex 데스크톱 앱이 켜져 있으면 node_repl.exe를 잡고 있어 elevated 샌드박스 준비가
 # os error 32(「setup refresh had errors」)로 실패한다(2026-10-19). CODEX_SANDBOX_MODE=unelevated로 우회한다.
 [ -n "${CODEX_SANDBOX_MODE:-}" ] && ARGS+=(-c "windows.sandbox=\"$CODEX_SANDBOX_MODE\"")
+# unelevated 샌드박스의 Codex가 git status를 부르면 .git/index.lock을 만들고 못 지워 과장의 커밋이 막혔다(10/19 세 번).
+# 조회용 git이 잠금을 잡지 않게 한다.
+export GIT_OPTIONAL_LOCKS=0
 [ -n "$MODEL" ] && ARGS+=(-m "$MODEL")
 [ -n "$SCHEMA" ] && ARGS+=(--output-schema "$(to_win "$SCHEMA")")
 ARGS+=("$PROMPT")
