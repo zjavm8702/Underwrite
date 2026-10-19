@@ -20,7 +20,6 @@ namespace Underwrite.Global
         public static readonly string[] TEXT_SETTINGS_CHANNELS = { "음악", "효과음", "목소리" };
         public static string TEXT_SETTINGS_PERCENT = "{0}%";
         public static string TEXT_SETTINGS_CLOSE = "닫기";
-        public static string TEXT_SETTINGS_VOICE_OFF = "목소리는 아직 준비 중이다";
         public static string TEXT_SETTINGS_SESSION_NOTE = "장 중에 나가면 이번 장은 저장되지 않는다(지하로 내려오기 직전으로 돌아간다)";
 
         public const string AUDIO_MUSIC_VILLAGE = "Audio/Music/music_village";

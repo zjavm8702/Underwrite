@@ -407,7 +407,8 @@ namespace Underwrite.Global
         public static float SAVE_BADGE_SECONDS = 1.6f;
         public static float SAVE_BADGE_COOLDOWN = 30f;
         /// <summary>
-        /// 대화창 한마디를 틀 것인가. 10/19 사장님 판정(기계음·일관성)으로 꺼 둠 — 감탄사 한 글자·짧은 끊긴 말로 다시 짠 뒤 켠다.
+        /// 대화창 한마디를 틀 것인가. 10/19 사장님 결정: 음성은 쓰지 않는다(TTS 기계음, 높이를 올리면 더 심함).
+        /// 소리 파일은 프로젝트에서 뺐다(git 기록에 남음, 커밋 e5c57f6). 다시 쓰려면 파일을 되살리고 켠다.
         /// </summary>
         public static bool AUDIO_VOICE_ENABLED = false;
         /// <summary>감정마다 한마디가 몇 벌인가(같은 것이 연달아 나오지 않게 고른다).</summary>

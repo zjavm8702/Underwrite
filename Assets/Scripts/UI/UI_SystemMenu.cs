@@ -93,11 +93,10 @@ namespace Underwrite.UI
 
             panel.Add(VolumeRow(AudioChannel.Channel_Music));
             panel.Add(VolumeRow(AudioChannel.Channel_Effects));
-            panel.Add(VolumeRow(AudioChannel.Channel_Voice));
-
-            if (Constants.AUDIO_VOICE_ENABLED == false)
+            // 목소리는 쓰지 않기로 했다(10/19 사장님 — 기계음). 켜면 음량 줄도 다시 보인다.
+            if (Constants.AUDIO_VOICE_ENABLED == true)
             {
-                panel.Add(NoteLabel(StringConstants.TEXT_SETTINGS_VOICE_OFF));
+                panel.Add(VolumeRow(AudioChannel.Channel_Voice));
             }
 
             Note = NoteLabel(string.Empty);
