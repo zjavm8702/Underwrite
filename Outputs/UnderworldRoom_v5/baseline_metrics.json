@@ -1,0 +1,26 @@
+{
+  "center": {
+    "mean_luminance": 75.10192222222223,
+    "laplacian_4_variance": 15.711711612330395,
+    "row_mean_std": 5.042975893321055,
+    "column_mean_std": 2.282109530675511,
+    "row_column_ratio": 2.209786964882584,
+    "pixel_std": 8.876206376509904
+  },
+  "corner": {
+    "mean_luminance": 57.51354444444444,
+    "laplacian_4_variance": 8.36055709139788,
+    "row_mean_std": 4.840219201482001,
+    "column_mean_std": 2.6155067549256543,
+    "row_column_ratio": 1.8505856245129768,
+    "pixel_std": 7.685256801407501
+  },
+  "back_wall": {
+    "mean_luminance": 66.36746,
+    "laplacian_4_variance": 27.456903245739458,
+    "row_mean_std": 7.575893992519958,
+    "column_mean_std": 6.868488927588075,
+    "row_column_ratio": 1.1029928230779422,
+    "pixel_std": 17.601610527119387
+  }
+}

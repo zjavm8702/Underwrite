@@ -1,0 +1,1040 @@
+{
+  "status": "v4 PNG delivery complete; technical and static visual review passed; user art approval pending",
+  "map_size": [
+    2880,
+    1620
+  ],
+  "canvas": [
+    2880,
+    1620
+  ],
+  "person_height_px": 135,
+  "part_scale": 2,
+  "coordinate_system": "top-left map pixels; sprite position=foot-pivot_in_png/2; size/pivot native2x; foot/footprint/block/anchors map1x; anchors.board_text rectangles x,y,w,h in map1x",
+  "light": "upper left; darker margins through surface color, no baked light bloom",
+  "room_plate": {
+    "file": "room_plate.png",
+    "size": [
+      2880,
+      1620
+    ],
+    "scale": 1,
+    "foot": [
+      0,
+      0
+    ],
+    "pivot_in_png": [
+      0,
+      0
+    ],
+    "render_layer": "background",
+    "source": "v3 original wall pixels outside replacement masks; built-in image_gen floor, storeroom doorway and three distinct wall-mounted fixtures"
+  },
+  "render_order": "room_plate; stock_board above ground; all other parts and actors by effective foot.y ascending; child props after parent at parent foot.y; render_layer is descriptive",
+  "collision": "footprint plus each block polygon; seats mark visual cushion centers, seat_ground are chair ground reference; tabletop props have empty footprint",
+  "room_block": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        140,
+        0
+      ],
+      [
+        140,
+        245
+      ],
+      [
+        0,
+        245
+      ]
+    ],
+    [
+      [
+        380,
+        0
+      ],
+      [
+        1670,
+        0
+      ],
+      [
+        1670,
+        245
+      ],
+      [
+        380,
+        245
+      ]
+    ],
+    [
+      [
+        1670,
+        0
+      ],
+      [
+        2880,
+        0
+      ],
+      [
+        2880,
+        515
+      ],
+      [
+        1670,
+        515
+      ]
+    ],
+    [
+      [
+        0,
+        245
+      ],
+      [
+        65,
+        245
+      ],
+      [
+        65,
+        1620
+      ],
+      [
+        0,
+        1620
+      ]
+    ],
+    [
+      [
+        2815,
+        515
+      ],
+      [
+        2880,
+        515
+      ],
+      [
+        2880,
+        1620
+      ],
+      [
+        2815,
+        1620
+      ]
+    ],
+    [
+      [
+        110,
+        245
+      ],
+      [
+        155,
+        245
+      ],
+      [
+        155,
+        600
+      ],
+      [
+        110,
+        600
+      ]
+    ],
+    [
+      [
+        420,
+        245
+      ],
+      [
+        450,
+        245
+      ],
+      [
+        450,
+        600
+      ],
+      [
+        420,
+        600
+      ]
+    ]
+  ],
+  "parts": [
+    {
+      "id": "table_1",
+      "file": "table_round_a.png",
+      "size": [
+        536,
+        342
+      ],
+      "pivot_in_png": [
+        268,
+        333
+      ],
+      "foot": [
+        880,
+        720
+      ],
+      "footprint": [
+        [
+          755,
+          620
+        ],
+        [
+          1005,
+          620
+        ],
+        [
+          1005,
+          720
+        ],
+        [
+          755,
+          720
+        ]
+      ],
+      "block": [],
+      "anchors": {
+        "seats": [
+          [
+            880,
+            590
+          ],
+          [
+            773,
+            655
+          ],
+          [
+            987,
+            655
+          ],
+          [
+            880,
+            687
+          ]
+        ],
+        "seat_ground": [
+          [
+            880,
+            610
+          ],
+          [
+            773,
+            696
+          ],
+          [
+            987,
+            696
+          ],
+          [
+            880,
+            718
+          ]
+        ],
+        "tabletop": [
+          [
+            880,
+            618
+          ]
+        ]
+      }
+    },
+    {
+      "id": "table_2",
+      "file": "table_round_b.png",
+      "size": [
+        516,
+        314
+      ],
+      "pivot_in_png": [
+        258,
+        305
+      ],
+      "foot": [
+        1340,
+        780
+      ],
+      "footprint": [
+        [
+          1215,
+          690
+        ],
+        [
+          1465,
+          690
+        ],
+        [
+          1465,
+          780
+        ],
+        [
+          1215,
+          780
+        ]
+      ],
+      "block": [],
+      "anchors": {
+        "seats": [
+          [
+            1340,
+            650
+          ],
+          [
+            1236,
+            713
+          ],
+          [
+            1444,
+            713
+          ]
+        ],
+        "seat_ground": [
+          [
+            1340,
+            674
+          ],
+          [
+            1236,
+            758
+          ],
+          [
+            1444,
+            758
+          ]
+        ],
+        "tabletop": [
+          [
+            1340,
+            678
+          ]
+        ]
+      }
+    },
+    {
+      "id": "table_3",
+      "file": "table_round_c.png",
+      "size": [
+        536,
+        342
+      ],
+      "pivot_in_png": [
+        268,
+        333
+      ],
+      "foot": [
+        960,
+        1130
+      ],
+      "footprint": [
+        [
+          835,
+          1030
+        ],
+        [
+          1085,
+          1030
+        ],
+        [
+          1085,
+          1130
+        ],
+        [
+          835,
+          1130
+        ]
+      ],
+      "block": [],
+      "anchors": {
+        "seats": [
+          [
+            960,
+            1000
+          ],
+          [
+            853,
+            1065
+          ],
+          [
+            1067,
+            1065
+          ],
+          [
+            960,
+            1097
+          ]
+        ],
+        "seat_ground": [
+          [
+            960,
+            1020
+          ],
+          [
+            853,
+            1106
+          ],
+          [
+            1067,
+            1106
+          ],
+          [
+            960,
+            1128
+          ]
+        ],
+        "tabletop": [
+          [
+            960,
+            1028
+          ]
+        ]
+      }
+    },
+    {
+      "id": "table_4",
+      "file": "table_round_d.png",
+      "size": [
+        516,
+        314
+      ],
+      "pivot_in_png": [
+        258,
+        305
+      ],
+      "foot": [
+        1430,
+        1190
+      ],
+      "footprint": [
+        [
+          1305,
+          1100
+        ],
+        [
+          1555,
+          1100
+        ],
+        [
+          1555,
+          1190
+        ],
+        [
+          1305,
+          1190
+        ]
+      ],
+      "block": [],
+      "anchors": {
+        "seats": [
+          [
+            1430,
+            1060
+          ],
+          [
+            1326,
+            1123
+          ],
+          [
+            1534,
+            1123
+          ]
+        ],
+        "seat_ground": [
+          [
+            1430,
+            1084
+          ],
+          [
+            1326,
+            1168
+          ],
+          [
+            1534,
+            1168
+          ]
+        ],
+        "tabletop": [
+          [
+            1430,
+            1088
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stock_board",
+      "file": "stock_board.png",
+      "size": [
+        976,
+        516
+      ],
+      "pivot_in_png": [
+        488,
+        484
+      ],
+      "foot": [
+        1000,
+        245
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "board_text": [
+          [
+            782,
+            37,
+            77,
+            40
+          ],
+          [
+            871,
+            37,
+            77,
+            40
+          ],
+          [
+            960,
+            37,
+            77,
+            40
+          ],
+          [
+            1049,
+            37,
+            77,
+            40
+          ],
+          [
+            1138,
+            37,
+            77,
+            40
+          ],
+          [
+            782,
+            88,
+            77,
+            40
+          ],
+          [
+            871,
+            88,
+            77,
+            40
+          ],
+          [
+            960,
+            88,
+            77,
+            40
+          ],
+          [
+            1049,
+            88,
+            77,
+            40
+          ],
+          [
+            1138,
+            88,
+            77,
+            40
+          ],
+          [
+            782,
+            139,
+            77,
+            40
+          ],
+          [
+            871,
+            139,
+            77,
+            40
+          ],
+          [
+            960,
+            139,
+            77,
+            40
+          ],
+          [
+            1049,
+            139,
+            77,
+            40
+          ],
+          [
+            1138,
+            139,
+            77,
+            40
+          ],
+          [
+            782,
+            190,
+            77,
+            40
+          ],
+          [
+            871,
+            190,
+            77,
+            40
+          ],
+          [
+            960,
+            190,
+            77,
+            40
+          ],
+          [
+            1049,
+            190,
+            77,
+            40
+          ],
+          [
+            1138,
+            190,
+            77,
+            40
+          ]
+        ]
+      },
+      "render_layer": "wall",
+      "anchor_semantics": "board_text are 1x room rectangles [x,y,width,height], row-major 4 rows x 5 columns; clear writing interiors excluding chalk lines"
+    },
+    {
+      "id": "counter",
+      "file": "counter_horizontal.png",
+      "size": [
+        1296,
+        386
+      ],
+      "pivot_in_png": [
+        648,
+        378
+      ],
+      "foot": [
+        2330,
+        860
+      ],
+      "footprint": [
+        [
+          2010,
+          750
+        ],
+        [
+          2650,
+          750
+        ],
+        [
+          2650,
+          860
+        ],
+        [
+          2010,
+          860
+        ]
+      ],
+      "block": [],
+      "anchors": {
+        "informant": [
+          [
+            2330,
+            720
+          ]
+        ],
+        "service": [
+          [
+            2330,
+            950
+          ]
+        ]
+      },
+      "render_layer": "world",
+      "sorting_note": "horizontal counter sorts at south ground edge y860; informant y720 behind, service y950 in front"
+    },
+    {
+      "id": "barrels_0",
+      "file": "barrels_a.png",
+      "size": [
+        436,
+        319
+      ],
+      "pivot_in_png": [
+        218,
+        310
+      ],
+      "foot": [
+        230,
+        1360
+      ],
+      "footprint": [
+        [
+          130,
+          1295
+        ],
+        [
+          330,
+          1295
+        ],
+        [
+          330,
+          1360
+        ],
+        [
+          130,
+          1360
+        ]
+      ],
+      "block": [],
+      "anchors": {}
+    },
+    {
+      "id": "barrels_1",
+      "file": "barrels_b.png",
+      "size": [
+        436,
+        319
+      ],
+      "pivot_in_png": [
+        218,
+        310
+      ],
+      "foot": [
+        2700,
+        1240
+      ],
+      "footprint": [
+        [
+          2600,
+          1175
+        ],
+        [
+          2800,
+          1175
+        ],
+        [
+          2800,
+          1240
+        ],
+        [
+          2600,
+          1240
+        ]
+      ],
+      "block": [],
+      "anchors": {}
+    },
+    {
+      "id": "crates_0",
+      "file": "crates_a.png",
+      "size": [
+        356,
+        289
+      ],
+      "pivot_in_png": [
+        178,
+        280
+      ],
+      "foot": [
+        2560,
+        1460
+      ],
+      "footprint": [
+        [
+          2480,
+          1400
+        ],
+        [
+          2640,
+          1400
+        ],
+        [
+          2640,
+          1460
+        ],
+        [
+          2480,
+          1460
+        ]
+      ],
+      "block": [],
+      "anchors": {}
+    },
+    {
+      "id": "wall_crates",
+      "file": "crates_a.png",
+      "size": [
+        356,
+        289
+      ],
+      "pivot_in_png": [
+        178,
+        280
+      ],
+      "foot": [
+        110,
+        1050
+      ],
+      "footprint": [
+        [
+          30,
+          990
+        ],
+        [
+          190,
+          990
+        ],
+        [
+          190,
+          1050
+        ],
+        [
+          30,
+          1050
+        ]
+      ],
+      "block": [],
+      "anchors": {}
+    },
+    {
+      "id": "table_light_0",
+      "file": "candlestick.png",
+      "size": [
+        70,
+        116
+      ],
+      "pivot_in_png": [
+        35,
+        107
+      ],
+      "foot": [
+        880,
+        620
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "light": [
+          [
+            880,
+            577
+          ]
+        ]
+      },
+      "parent": "table_1",
+      "sort_y": 720.01
+    },
+    {
+      "id": "table_light_1",
+      "file": "candlestick.png",
+      "size": [
+        70,
+        116
+      ],
+      "pivot_in_png": [
+        35,
+        107
+      ],
+      "foot": [
+        1340,
+        680
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "light": [
+          [
+            1340,
+            637
+          ]
+        ]
+      },
+      "parent": "table_2",
+      "sort_y": 780.01
+    },
+    {
+      "id": "table_light_2",
+      "file": "candlestick.png",
+      "size": [
+        70,
+        116
+      ],
+      "pivot_in_png": [
+        35,
+        107
+      ],
+      "foot": [
+        960,
+        1030
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "light": [
+          [
+            960,
+            987
+          ]
+        ]
+      },
+      "parent": "table_3",
+      "sort_y": 1130.01
+    },
+    {
+      "id": "table_light_3",
+      "file": "candlestick.png",
+      "size": [
+        70,
+        116
+      ],
+      "pivot_in_png": [
+        35,
+        107
+      ],
+      "foot": [
+        1430,
+        1090
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "light": [
+          [
+            1430,
+            1047
+          ]
+        ]
+      },
+      "parent": "table_4",
+      "sort_y": 1190.01
+    },
+    {
+      "id": "counter_light",
+      "file": "oil_lamp.png",
+      "size": [
+        61,
+        122
+      ],
+      "pivot_in_png": [
+        31,
+        113
+      ],
+      "foot": [
+        2480,
+        750
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "light": [
+          [
+            2480,
+            707
+          ]
+        ]
+      },
+      "parent": "counter",
+      "sort_y": 860.01
+    },
+    {
+      "id": "entry_wall_light",
+      "file": "candlestick.png",
+      "size": [
+        70,
+        116
+      ],
+      "pivot_in_png": [
+        35,
+        107
+      ],
+      "foot": [
+        410,
+        225
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "light": [
+          [
+            410,
+            182
+          ]
+        ]
+      },
+      "parent": "stock_board",
+      "render_layer": "wall"
+    },
+    {
+      "id": "stairs_entry",
+      "file": "stairs_flight.png",
+      "size": [
+        600,
+        900
+      ],
+      "pivot_in_png": [
+        300,
+        888
+      ],
+      "foot": [
+        300,
+        600
+      ],
+      "footprint": [],
+      "block": [],
+      "anchors": {
+        "entry": [
+          [
+            300,
+            600
+          ]
+        ],
+        "spawn": [
+          [
+            320,
+            690
+          ]
+        ]
+      },
+      "render_layer": "wall",
+      "sorting_note": "v4 structural stone sidewalls and timber treads; original 600x900 canvas, pivot (300,888), map foot (300,600) preserved"
+    }
+  ],
+  "anchors": {
+    "entry": [
+      [
+        300,
+        600
+      ]
+    ],
+    "spawn": [
+      [
+        320,
+        690
+      ]
+    ],
+    "informant": [
+      [
+        2330,
+        720
+      ]
+    ],
+    "board_front": [
+      [
+        1000,
+        340
+      ]
+    ]
+  },
+  "notes": [
+    "v4: approved v3 eleven PNG types copied byte-for-byte, all seventeen placements and existing anchors/colliders retained.",
+    "Only room_plate.png and stairs_flight.png replaced; Assets and Unity untouched.",
+    "Floor is one new image_gen flagstone material, not the four Cethiel textures. Fine target width35-55px, height/width0.45-0.55; irregular individual stones vary.",
+    "Repeated pillar shelves removed from wall plate; bottle shelf, horizontal wall cask and ledger cubby are baked into wall plate above staff space.",
+    "Storeroom doorway at original position now has visible dim interior; structural stair cheeks descend to unchanged landing.",
+    "Native size/pivot2x and map coordinates1x preserved. Opaque plate pivot top-left; coordinate origin remains top-left."
+  ]
+}

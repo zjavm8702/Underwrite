@@ -1,0 +1,139 @@
+{
+  "cracked_slabs": 3,
+  "replacement_slabs": 3,
+  "placements": [
+    {
+      "id": 1,
+      "type": "crack",
+      "xy": [
+        596,
+        1099
+      ],
+      "size": [
+        44,
+        23
+      ],
+      "pixels": 539,
+      "crack_pixels": 16
+    },
+    {
+      "id": 2,
+      "type": "crack",
+      "xy": [
+        1670,
+        1209
+      ],
+      "size": [
+        73,
+        51
+      ],
+      "pixels": 2726,
+      "crack_pixels": 86
+    },
+    {
+      "id": 3,
+      "type": "crack",
+      "xy": [
+        2060,
+        1336
+      ],
+      "size": [
+        80,
+        54
+      ],
+      "pixels": 2740,
+      "crack_pixels": 59
+    },
+    {
+      "id": 4,
+      "type": "replacement",
+      "xy": [
+        474,
+        529
+      ],
+      "size": [
+        42,
+        32
+      ],
+      "pixels": 766,
+      "crack_pixels": 0
+    },
+    {
+      "id": 5,
+      "type": "replacement",
+      "xy": [
+        1825,
+        706
+      ],
+      "size": [
+        73,
+        50
+      ],
+      "pixels": 2451,
+      "crack_pixels": 0
+    },
+    {
+      "id": 6,
+      "type": "replacement",
+      "xy": [
+        2490,
+        1119
+      ],
+      "size": [
+        77,
+        45
+      ],
+      "pixels": 2734,
+      "crack_pixels": 0
+    }
+  ],
+  "drain": {
+    "xy": [
+      2410,
+      1005
+    ],
+    "size": [
+      52,
+      34
+    ]
+  },
+  "spills": [
+    {
+      "id": 1,
+      "xy": [
+        685,
+        790
+      ],
+      "size": [
+        125,
+        55
+      ],
+      "peak_luminance_drop": 10.0
+    },
+    {
+      "id": 2,
+      "xy": [
+        1560,
+        1190
+      ],
+      "size": [
+        86,
+        70
+      ],
+      "peak_luminance_drop": 10.0
+    },
+    {
+      "id": 3,
+      "xy": [
+        2190,
+        1000
+      ],
+      "size": [
+        150,
+        43
+      ],
+      "peak_luminance_drop": 10.0
+    }
+  ],
+  "note": "Each generated crack and stain silhouette used once; repair tones alter unique native generated slab faces. Original stone outlines preserved. Core extraction removes residual effect halo; no global alpha threshold increase on deliverables."
+}

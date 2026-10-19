@@ -1,0 +1,37 @@
+{
+  "status": "Outputs only; no Assets deployment",
+  "changed": [
+    "room_plate.png"
+  ],
+  "copied_byte_identical": [
+    "barrels_a.png",
+    "barrels_b.png",
+    "candlestick.png",
+    "counter_horizontal.png",
+    "crates_a.png",
+    "oil_lamp.png",
+    "stairs_flight.png",
+    "stock_board.png",
+    "table_round_a.png",
+    "table_round_b.png",
+    "table_round_c.png",
+    "table_round_d.png",
+    "layout.json"
+  ],
+  "map_size": [
+    2880,
+    1620
+  ],
+  "plate_pivot_top_left": [
+    0,
+    0
+  ],
+  "placements": 17,
+  "assets_writes": 0,
+  "review_files": [
+    "compare_v4_v5.png",
+    "tile_check.png",
+    "depth_test.png",
+    "composite_preview.png"
+  ]
+}

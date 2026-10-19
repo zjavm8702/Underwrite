@@ -1,0 +1,79 @@
+{
+  "method": {
+    "grayscale": "Pillow RGB->L, ITU-R BT.601 rounded uint8",
+    "regions_xyxy_exclusive": {
+      "center": [
+        900,
+        700,
+        1700,
+        1150
+      ],
+      "corner": [
+        100,
+        1300,
+        700,
+        1600
+      ],
+      "back_wall": [
+        1900,
+        100,
+        2700,
+        350
+      ]
+    },
+    "laplacian": "population variance of 4a-up-down-left-right, valid interior only",
+    "row_column_ratio": "population std of row means divided by population std of column means; center ROI"
+  },
+  "v4": {
+    "center": {
+      "mean_luminance": 75.10192222222223,
+      "laplacian_4_variance": 15.711711612330395,
+      "row_mean_std": 5.042975893321055,
+      "column_mean_std": 2.282109530675511,
+      "row_column_ratio": 2.209786964882584,
+      "pixel_std": 8.876206376509904
+    },
+    "corner": {
+      "mean_luminance": 57.51354444444444,
+      "laplacian_4_variance": 8.36055709139788,
+      "row_mean_std": 4.840219201482001,
+      "column_mean_std": 2.6155067549256543,
+      "row_column_ratio": 1.8505856245129768,
+      "pixel_std": 7.685256801407501
+    },
+    "back_wall": {
+      "mean_luminance": 66.36746,
+      "laplacian_4_variance": 27.456903245739458,
+      "row_mean_std": 7.575893992519958,
+      "column_mean_std": 6.868488927588075,
+      "row_column_ratio": 1.1029928230779422,
+      "pixel_std": 17.601610527119387
+    }
+  },
+  "v5": {
+    "center": {
+      "mean_luminance": 66.83235833333333,
+      "laplacian_4_variance": 162.46183151438586,
+      "row_mean_std": 2.037294663494404,
+      "column_mean_std": 1.7903439544682263,
+      "row_column_ratio": 1.1379347853298547,
+      "pixel_std": 8.805773304702969
+    },
+    "corner": {
+      "mean_luminance": 40.71436666666666,
+      "laplacian_4_variance": 72.0764510540671,
+      "row_mean_std": 3.597705946901493,
+      "column_mean_std": 1.8177512070524777,
+      "row_column_ratio": 1.9792070185090125,
+      "pixel_std": 6.750089072581026
+    },
+    "back_wall": {
+      "mean_luminance": 66.36746,
+      "laplacian_4_variance": 27.456903245739458,
+      "row_mean_std": 7.575893992519958,
+      "column_mean_std": 6.868488927588075,
+      "row_column_ratio": 1.1029928230779422,
+      "pixel_std": 17.601610527119387
+    }
+  }
+}

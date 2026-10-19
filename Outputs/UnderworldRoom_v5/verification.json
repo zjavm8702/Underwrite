@@ -1,0 +1,386 @@
+{
+  "date": "2026-10-19T04:58:31.645187+00:00",
+  "status": "PNG draft delivered; static numeric checks complete; Play and user approval pending",
+  "assets_writes": 0,
+  "floor_mask": "x>=50 && x<2830 && y>=(x<1670 ?245:515)",
+  "changed_pixels_total": 3508222,
+  "changed_pixels_inside_mask": 3508222,
+  "outside_mask_pixels_checked": 1156300,
+  "changed_pixels_outside_mask": 0,
+  "alpha_pixels_changed": 0,
+  "preserved_png": [
+    {
+      "file": "barrels_a.png",
+      "identical": true
+    },
+    {
+      "file": "barrels_b.png",
+      "identical": true
+    },
+    {
+      "file": "candlestick.png",
+      "identical": true
+    },
+    {
+      "file": "counter_horizontal.png",
+      "identical": true
+    },
+    {
+      "file": "crates_a.png",
+      "identical": true
+    },
+    {
+      "file": "oil_lamp.png",
+      "identical": true
+    },
+    {
+      "file": "stairs_flight.png",
+      "identical": true
+    },
+    {
+      "file": "stock_board.png",
+      "identical": true
+    },
+    {
+      "file": "table_round_a.png",
+      "identical": true
+    },
+    {
+      "file": "table_round_b.png",
+      "identical": true
+    },
+    {
+      "file": "table_round_c.png",
+      "identical": true
+    },
+    {
+      "file": "table_round_d.png",
+      "identical": true
+    }
+  ],
+  "layout_byte_identical": true,
+  "v4_files_unchanged": true,
+  "meta": {
+    "unchanged": 1677,
+    "changed": [],
+    "deleted": [],
+    "added": []
+  },
+  "png": [
+    {
+      "file": "room_plate.png",
+      "size": [
+        2880,
+        1620
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 8996,
+      "opaque_plate_exception": true,
+      "sha256": "30c0b29b4585634968e988485fc9a556f4889379c6420bede7a867afaa6ef690",
+      "components": 1,
+      "component_pixels": [
+        4665600
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "barrels_a.png",
+      "size": [
+        436,
+        319
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "9a920c676c089498bcaf449b93dc40b29165cfa8312cb1faab7b05cd4e9668c0",
+      "components": 1,
+      "component_pixels": [
+        76208
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "barrels_b.png",
+      "size": [
+        436,
+        319
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "9c9fd9b649e821b066d3b667642dfefe3b973e9b9d53ece839f820121a34bd1a",
+      "components": 1,
+      "component_pixels": [
+        89358
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "candlestick.png",
+      "size": [
+        70,
+        116
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "f2c5184b1bf4d931bb9ef94dcc1c8e33381a3d6add041bc136f5c58ae33c086d",
+      "components": 1,
+      "component_pixels": [
+        1715
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "counter_horizontal.png",
+      "size": [
+        1296,
+        386
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "39824a677b5f6e90265582eb422e0da9f79f7b0146394e60ba329e61e384631b",
+      "components": 1,
+      "component_pixels": [
+        340065
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "crates_a.png",
+      "size": [
+        356,
+        289
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "73ae374b50309ffeea10462324acb8719e99b0a4647d3fe46e30e49b09da4b92",
+      "components": 1,
+      "component_pixels": [
+        60502
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "oil_lamp.png",
+      "size": [
+        61,
+        122
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "f9c72c101bf3677bffbe637b7715aca849415c7fa7c8f62676f9fc7a18fd9cb8",
+      "components": 1,
+      "component_pixels": [
+        3261
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "stairs_flight.png",
+      "size": [
+        600,
+        900
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "69d34fec107ea4ebc01fdb55b58c138cc57ac08fcf6c0fb4c75b8459589fa73b",
+      "components": 1,
+      "component_pixels": [
+        166817
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "stock_board.png",
+      "size": [
+        976,
+        516
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "128ac6e5e0ec5c4b0722f57b9f0aa35afc4a46e34b7f30e235ae7a2c99fd641d",
+      "components": 1,
+      "component_pixels": [
+        474995
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "table_round_a.png",
+      "size": [
+        536,
+        342
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "d21882e7d68a955c36982ed1272dafb92560b954bdbf839c316ad9413eec92bd",
+      "components": 1,
+      "component_pixels": [
+        79963
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "table_round_b.png",
+      "size": [
+        516,
+        314
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "7f6789bb71f5cba7eced2e7fff491adba4d58018472a899bbdd8102d52852c5b",
+      "components": 1,
+      "component_pixels": [
+        74755
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "table_round_c.png",
+      "size": [
+        536,
+        342
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "d41ed24d0a5ca4b0ab1bfc8d1232b88fefbee3eebd40a4c54c51b09905451cf4",
+      "components": 1,
+      "component_pixels": [
+        81311
+      ],
+      "detached_components": 0
+    },
+    {
+      "file": "table_round_d.png",
+      "size": [
+        516,
+        314
+      ],
+      "hidden_rgb": 0,
+      "alpha_1_to_31": 0,
+      "canvas_contact": 0,
+      "opaque_plate_exception": false,
+      "sha256": "05d27a97f398ecb091bffeccc7ea68d783179395c373462959bf7320f42f7505",
+      "components": 1,
+      "component_pixels": [
+        75584
+      ],
+      "detached_components": 0
+    }
+  ],
+  "thresholds": {
+    "center_row_column_le_1_3": true,
+    "center_lap4_ge_28": true,
+    "center_mean_le_wall_plus5": true,
+    "center_mean_65_to70": true,
+    "corner_mean_le45": true,
+    "center_pixel_std_6_to12": true
+  },
+  "native_sources": [
+    {
+      "file": "floor_E.png",
+      "size": [
+        1672,
+        941
+      ],
+      "scale": 1,
+      "uses": 1
+    },
+    {
+      "file": "floor_B.png",
+      "size": [
+        1671,
+        941
+      ],
+      "scale": 1,
+      "uses": 1
+    },
+    {
+      "file": "floor_C.png",
+      "size": [
+        1672,
+        941
+      ],
+      "scale": 1,
+      "uses": 1
+    },
+    {
+      "file": "floor_D.png",
+      "size": [
+        1672,
+        941
+      ],
+      "scale": 1,
+      "uses": 1
+    }
+  ],
+  "person": {
+    "source": "../VillagePartsPilot_v3/person_135.png",
+    "alpha_height": 135,
+    "feet": [
+      [
+        300,
+        600
+      ],
+      [
+        1120,
+        900
+      ],
+      [
+        1000,
+        340
+      ],
+      [
+        2330,
+        950
+      ],
+      [
+        2330,
+        720
+      ]
+    ],
+    "count": 5
+  },
+  "frame_direction": "static environment; not applicable",
+  "limitations": [
+    "No Play or Unity validation requested",
+    "Per-stone 40-80px and 0.5-0.8 proportions and maximum seam run are not exhaustively certified; inspect native crops",
+    "Additional tiny natural chips in generated material are distinct from the three deliberately added cracks",
+    "Final plate is opaque. Source effect halo was extracted as surface-color masks, not supplied as game sprites."
+  ],
+  "machine_pass": true,
+  "visual_review": {
+    "date": "2026-10-19T04:59:15.931855+00:00",
+    "reviewed": [
+      "room_plate.png",
+      "floor_1to1_v5.png",
+      "depth_test.png",
+      "tile_check.png",
+      "compare_v4_v5.png"
+    ],
+    "result": "Static draft reviewed; no pasted slab rims in final; Play and user art approval pending",
+    "person_positions": 5,
+    "person_height": 135
+  }
+}

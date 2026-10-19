@@ -1,0 +1,181 @@
+{
+  "status": "reviewable PNG draft; no Assets writes",
+  "game_pngs": [
+    {
+      "file": "room_plate.png",
+      "size": [
+        2880,
+        1620
+      ],
+      "pivot_top_left": [
+        0,
+        0
+      ],
+      "sha256": "30c0b29b4585634968e988485fc9a556f4889379c6420bede7a867afaa6ef690",
+      "preserved_from_v4": false
+    },
+    {
+      "file": "barrels_a.png",
+      "size": [
+        436,
+        319
+      ],
+      "sha256": "9a920c676c089498bcaf449b93dc40b29165cfa8312cb1faab7b05cd4e9668c0",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "barrels_b.png",
+      "size": [
+        436,
+        319
+      ],
+      "sha256": "9c9fd9b649e821b066d3b667642dfefe3b973e9b9d53ece839f820121a34bd1a",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "candlestick.png",
+      "size": [
+        70,
+        116
+      ],
+      "sha256": "f2c5184b1bf4d931bb9ef94dcc1c8e33381a3d6add041bc136f5c58ae33c086d",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "counter_horizontal.png",
+      "size": [
+        1296,
+        386
+      ],
+      "sha256": "39824a677b5f6e90265582eb422e0da9f79f7b0146394e60ba329e61e384631b",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "crates_a.png",
+      "size": [
+        356,
+        289
+      ],
+      "sha256": "73ae374b50309ffeea10462324acb8719e99b0a4647d3fe46e30e49b09da4b92",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "oil_lamp.png",
+      "size": [
+        61,
+        122
+      ],
+      "sha256": "f9c72c101bf3677bffbe637b7715aca849415c7fa7c8f62676f9fc7a18fd9cb8",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "stairs_flight.png",
+      "size": [
+        600,
+        900
+      ],
+      "sha256": "69d34fec107ea4ebc01fdb55b58c138cc57ac08fcf6c0fb4c75b8459589fa73b",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "stock_board.png",
+      "size": [
+        976,
+        516
+      ],
+      "sha256": "128ac6e5e0ec5c4b0722f57b9f0aa35afc4a46e34b7f30e235ae7a2c99fd641d",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "table_round_a.png",
+      "size": [
+        536,
+        342
+      ],
+      "sha256": "d21882e7d68a955c36982ed1272dafb92560b954bdbf839c316ad9413eec92bd",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "table_round_b.png",
+      "size": [
+        516,
+        314
+      ],
+      "sha256": "7f6789bb71f5cba7eced2e7fff491adba4d58018472a899bbdd8102d52852c5b",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "table_round_c.png",
+      "size": [
+        536,
+        342
+      ],
+      "sha256": "d41ed24d0a5ca4b0ab1bfc8d1232b88fefbee3eebd40a4c54c51b09905451cf4",
+      "preserved_from_v4": true
+    },
+    {
+      "file": "table_round_d.png",
+      "size": [
+        516,
+        314
+      ],
+      "sha256": "05d27a97f398ecb091bffeccc7ea68d783179395c373462959bf7320f42f7505",
+      "preserved_from_v4": true
+    }
+  ],
+  "layout_sha256": "7d4fa277b2a0387c36f5262c1615fe94a795079aaed60a2a601159cbc8ce7825",
+  "review_files": [
+    {
+      "file": "compare_v4_v5.png",
+      "size": [
+        5760,
+        1660
+      ],
+      "sha256": "0a63e039eb17393967932ddc9e1610f311128618e62fe6441e8f9fdd4fbfe705"
+    },
+    {
+      "file": "tile_check.png",
+      "size": [
+        2400,
+        1900
+      ],
+      "sha256": "0f2b4b81eb117c876f1181f9f9277497beafa1469870139ca75d5a1c5386f47e"
+    },
+    {
+      "file": "depth_test.png",
+      "size": [
+        2880,
+        1620
+      ],
+      "sha256": "69f18c3295d06c299bb082dc48340354edd71b7c7025464f91b2801776ee4364"
+    },
+    {
+      "file": "composite_preview.png",
+      "size": [
+        2880,
+        1620
+      ],
+      "sha256": "d3b205fd7fec65560eb16e3eb2d6bd0f255f9bc8638e533f6c036421143b73bc"
+    },
+    {
+      "file": "floor_1to1_v5.png",
+      "size": [
+        800,
+        450
+      ],
+      "sha256": "288fb9bf1ca7875e016943a3074312250cad6222e2b1f0c2b662e6ef3578e965"
+    }
+  ],
+  "reports": [
+    "README.md",
+    "asset_search.md",
+    "before.json",
+    "staging.json",
+    "verification.json",
+    "metrics.json",
+    "generation_prompts.json",
+    "source_inventory.json",
+    "story_details.json",
+    "autocorrelation.json"
+  ]
+}
