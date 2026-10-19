@@ -378,7 +378,8 @@ namespace Underwrite.Underworld
             var index = Random.Range(0, Investors.Count);
             var investor = Investors[index];
 
-            if (investor != null)
+            // 숨겨 둔 사람(다시 그리는 중)은 말하지 않는다.
+            if (investor != null && investor.isActiveAndEnabled == true)
             {
                 investor.Say(InvestorLine(moved > 0f));
             }
