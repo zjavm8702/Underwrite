@@ -1432,7 +1432,14 @@ namespace Underwrite.UI
 
             if (banner != null)
             {
-                banner.EnableInClassList("hidden", Sim.Clock.Phase != MarketPhase.Phase_Halted);
+                var halted = Sim.Clock.Phase == MarketPhase.Phase_Halted;
+                banner.EnableInClassList("hidden", halted == false);
+
+                // 휴장 사유 문구는 코드가 채운다 — 영주 시찰을 뺀 뒤에도 그 문구가 화면 파일에 박혀 있었다(데모 점검 10/19).
+                if (halted == true)
+                {
+                    SetText("halt-text", StringConstants.TEXT_HALT_BANNER);
+                }
             }
         }
 

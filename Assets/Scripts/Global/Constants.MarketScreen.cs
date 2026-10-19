@@ -5,6 +5,7 @@ namespace Underwrite.Global
     /// </summary>
     public static partial class StringConstants
     {
+        public static string TEXT_HALT_BANNER = "오늘은 장이 열리지 않는다";
         public static string TEXT_STOCK_HOLD_EMPTY = "보유 0주 · 평균 매입가 0.0";
         public static string TEXT_STOCK_HOLD_PREFIX = "보유 ";
         public static string TEXT_STOCK_HOLD_MIDDLE = "주 · 평균 매입가 ";

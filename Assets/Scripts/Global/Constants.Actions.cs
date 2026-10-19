@@ -6,7 +6,8 @@ namespace Underwrite.Global
         public static string TEXT_PHASE_MORNING = "오전";
         public static string TEXT_PHASE_AFTERNOON = "오후";
         public static string TEXT_PHASE_NIGHT = "새벽";
-        public static string TEXT_VILLAGE_STATUS = "{0} · {1} · 행동력 {2}";
+        // 가진 돈도 붙인다 — 의뢰 예치금을 모으라는데 지금 얼마 있는지 볼 곳이 없었다(데모 점검 10/19).
+        public static string TEXT_VILLAGE_STATUS = "{0} · {1} · 행동력 {2} · 가진 돈 {3:N0}";
         public static string TEXT_AP_FULL = "●";
         public static string TEXT_AP_EMPTY = "○";
 

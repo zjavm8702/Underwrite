@@ -35,7 +35,7 @@
 
         <!-- 휴장 배너 -->
         <ui:VisualElement name="halt-banner" class="banner hidden">
-            <ui:Label name="halt-text" text="영주 조사로 오늘은 휴장해요" class="banner-text" />
+            <ui:Label name="halt-text" text="" class="banner-text" />
             <ui:Label text="주문은 할 수 없지만 원정 소식과 시간은 계속 흐릅니다." class="t-body weak" style="margin-left: 24px;" />
         </ui:VisualElement>
 

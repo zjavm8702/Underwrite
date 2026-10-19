@@ -1278,19 +1278,22 @@ namespace Underwrite.UI
         // 오른쪽 위 상태 줄. 날짜·휴장·행동력이 바뀔 때만 다시 조립한다(규칙 §10 — 매 프레임 문자열 조립 금지).
         private string StatusCache = string.Empty;
         private int StatusKey = -1;
+        private float StatusMoney = -1f;
 
         private string StatusText()
         {
             var key = ActionPoints.KeyOf(Today(), Clock == null ? 0 : Clock.BreakMinuteOfDay) * 10 + ActionPoints.Current;
+            var money = Mathf.Round(GatherSession.Available);
 
-            if (key == StatusKey)
+            if (key == StatusKey && money == StatusMoney)
             {
                 return StatusCache;
             }
 
             StatusKey = key;
+            StatusMoney = money;
             StatusCache = string.Format(StringConstants.TEXT_VILLAGE_STATUS, ClockText.SeasonDay(Today()), PhaseName(Phase),
-                ActionDots());
+                ActionDots(), money);
             return StatusCache;
         }
 
