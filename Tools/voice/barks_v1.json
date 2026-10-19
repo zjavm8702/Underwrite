@@ -2,155 +2,323 @@
   "_comment": "짧은 한마디(바크) v2 — 사장님 기준(10/19): 감탄사는 한 글자, 그 밖엔 2~3글자로 짧게 끊기는 말만. 감정 이름은 PortraitEmotion 순서. 인물마다 감정당 두 개.",
   "voices": {
     "edwin": {
-      "design": "A young Korean man in his early twenties, a friendly bookish scholar. Clear, light, youthful tenor with a noticeably higher pitch, bright and gentle, smart and a little playful. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "아, 그거? 기록을 다시 맞춰 보니까 답이 보이더라고. 걱정 마, 내가 정리해 둘게.",
+      "design": "A Korean man in his early twenties, a kind-hearted, gentle scholar with a high, clear, bright voice and a hint of playful mischief. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "아, 그거요? 제가 기록을 다시 맞춰 봤거든요. 걱정 마세요, 금방 정리할게요.",
       "barks": {
         "neutral": [
-          "음.",
-          "그렇군."
+          {
+            "text": "음.",
+            "speed": 1.15
+          },
+          {
+            "text": "그렇군.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "오!",
-          "좋네."
+          {
+            "text": "오!",
+            "speed": 1.15
+          },
+          {
+            "text": "좋네.",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "흠…",
-          "글쎄."
+          {
+            "text": "흠…",
+            "speed": 1.15
+          },
+          {
+            "text": "글쎄.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "아니.",
-          "그만."
+          {
+            "text": "아니.",
+            "speed": 1.15
+          },
+          {
+            "text": "그만.",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "뭐?",
-          "어?"
+          {
+            "text": "뭐?",
+            "speed": 1.15
+          },
+          {
+            "text": "어?",
+            "speed": 1.15
+          }
         ],
         "sad": [
-          "아…",
-          "그래…"
+          {
+            "text": "아…",
+            "speed": 1.15
+          },
+          {
+            "text": "그래…",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "됐다."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐다.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        130,
-        175
+        150,
+        200
       ]
     },
     "kaira": {
-      "design": "A high-pitched, confident, yet slightly arrogant female swordsman in her late teens, with a fast speech. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "앞은 내가 맡을게. 넌 뒤에서 내 등만 봐.",
+      "design": "A Korean young woman, a proud, haughty swordswoman with a high-pitched, sharp, ringing voice. Confident and a little arrogant, crisp and quick. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "앞은 내가 맡을 테니까 넌 뒤에서 따라오기나 해. 늦지 말고.",
       "barks": {
         "neutral": [
-          "응.",
-          "그래."
+          {
+            "text": "응.",
+            "speed": 1.15
+          },
+          {
+            "text": "그래.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "하!",
-          "좋았어!"
+          {
+            "text": "하!",
+            "speed": 1.15
+          },
+          {
+            "text": "좋았어!",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "쳇.",
-          "조심해."
+          {
+            "text": "쳇.",
+            "speed": 1.15
+          },
+          {
+            "text": "조심해.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "뭐야!",
-          "비켜."
+          {
+            "text": "뭐야!",
+            "speed": 1.15
+          },
+          {
+            "text": "비켜.",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "뭐?!",
-          "헉!"
+          {
+            "text": "뭐?!",
+            "speed": 1.15
+          },
+          {
+            "text": "헉!",
+            "speed": 1.15
+          }
         ],
         "sad": [
-          "…젠장.",
-          "흥."
+          {
+            "text": "…젠장.",
+            "speed": 1.15
+          },
+          {
+            "text": "흥.",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "됐어."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐어.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        210,
-        270
+        260,
+        330
       ]
     },
     "elaria": {
-      "design": "An elegant elven woman who sounds young-adult and graceful. Clear, light, airy soprano with a high, soft pitch, gentle and calm, faintly amused. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "어머, 별이 기울었네요. 서두르지 않아도 돼요. 마력은 늘 제 길을 찾아가니까요.",
+      "design": "A young-looking elven woman, playful and teasing but calm and composed. Clear, light, pleasant mid-high voice with a soft amused tone. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "어머, 또 왔네? 서두를 거 없어. 천천히 얘기해 봐, 다 들어 줄게.",
       "barks": {
         "neutral": [
-          "음.",
-          "그래요."
+          {
+            "text": "음.",
+            "speed": 1.15
+          },
+          {
+            "text": "그래요.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "후.",
-          "좋아요."
+          {
+            "text": "후.",
+            "speed": 1.15
+          },
+          {
+            "text": "좋아요.",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "음…",
-          "글쎄요."
+          {
+            "text": "음…",
+            "speed": 1.15
+          },
+          {
+            "text": "글쎄요.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "그만.",
-          "멈춰요."
+          {
+            "text": "그만.",
+            "speed": 1.15
+          },
+          {
+            "text": "멈춰요.",
+            "speed": 1.3
+          }
         ],
         "shocked": [
-          "어?",
-          "설마."
+          {
+            "text": "어?",
+            "speed": 1.15
+          },
+          {
+            "text": "설마.",
+            "speed": 1.3
+          }
         ],
         "sad": [
-          "아…",
-          "저런."
+          {
+            "text": "아…",
+            "speed": 1.15
+          },
+          {
+            "text": "저런.",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "됐어요."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐어요.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
         220,
-        290
+        270
       ]
     },
     "godric": {
-      "design": "A Korean man around fifty, a veteran shield warrior. Very deep, low-pitched bass-baritone voice, rough and warm, slow and steady, a calm big man. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "걱정 마라. 이 방패가 버티는 동안은 아무도 못 지나간다. 천천히 밥이나 먹자.",
+      "design": "A Korean man around fifty, a rough, gruff veteran shield warrior. Coarse, raspy, rough-edged voice, loud and blunt, but not a deep bass. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "걱정 마라. 이 방패가 버티는 동안은 아무도 못 지나간다. 밥이나 먹자.",
       "barks": {
         "neutral": [
-          "음.",
-          "그래."
+          {
+            "text": "음.",
+            "speed": 1.15
+          },
+          {
+            "text": "그래.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "하!",
-          "좋다!"
+          {
+            "text": "하!",
+            "speed": 1.15
+          },
+          {
+            "text": "좋다!",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "흠.",
-          "조심해."
+          {
+            "text": "흠.",
+            "speed": 1.15
+          },
+          {
+            "text": "조심해.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "이놈!",
-          "그만!"
+          {
+            "text": "이놈!",
+            "speed": 1.15
+          },
+          {
+            "text": "그만!",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "뭐?!",
-          "허!"
+          {
+            "text": "뭐?!",
+            "speed": 1.15
+          },
+          {
+            "text": "허!",
+            "speed": 1.15
+          }
         ],
         "sad": [
-          "…허.",
-          "미안."
+          {
+            "text": "…허.",
+            "speed": 1.15
+          },
+          {
+            "text": "미안.",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "살았다."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "살았다.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        95,
-        135
+        120,
+        160
       ]
     },
     "fio": {
@@ -158,185 +326,359 @@
       "ref_text": "다친 데 없어? 내가 금방 낫게 해 줄게!",
       "barks": {
         "neutral": [
-          "응!",
+          "응응!",
           "알았어!"
         ],
         "happy": [
-          "와!",
-          "좋아!"
+          "와아, 신난다!",
+          {
+            "text": "헤헤, 좋아!",
+            "speed": 1.2
+          }
         ],
         "anxious": [
-          "으…",
-          "무서워…"
+          "으으… 무서워.",
+          "괜찮을까…?"
         ],
         "angry": [
-          "흥!",
-          "싫어!"
+          "흥! 몰라!",
+          "그러지 마!"
         ],
         "shocked": [
-          "엑?!",
-          "정말?"
+          "에엑?!",
+          "정말?!"
         ],
         "sad": [
-          "흑…",
-          "아파…"
+          "흑… 아파.",
+          "미안해…"
         ],
         "relieved": [
-          "휴…",
-          "됐다!"
+          "휴우, 다행이다!",
+          {
+            "text": "헤헤, 이제 괜찮아.",
+            "speed": 1.2
+          }
         ]
       }
     },
     "innkeeper": {
-      "design": "A Korean woman in her sixties, an old tavern owner ajumma. Low, husky, slightly rough alto voice of an older woman, warm, brisk and motherly, definitely old, not young at all. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "아이고, 왔어? 거기 앉아. 국 식기 전에 먹고, 일은 그다음에 하자고.",
+      "design": "A Korean woman in her fifties who runs a tavern full of rough adventurers. Brisk, frank, hearty and refreshingly straightforward, a bit loud, an older woman but not a low voice. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "자, 왔으면 앉아. 국 식기 전에 먹고, 일은 그다음에 하자고. 빨리빨리 움직여.",
       "barks": {
         "neutral": [
-          "응.",
-          "그래."
+          {
+            "text": "응.",
+            "speed": 1.15
+          },
+          {
+            "text": "그래.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "오!",
-          "잘했네!"
+          {
+            "text": "오!",
+            "speed": 1.15
+          },
+          {
+            "text": "잘했네!",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "휴.",
-          "어쩌나."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "어쩌나.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "이놈!",
-          "그만해!"
+          {
+            "text": "이놈!",
+            "speed": 1.15
+          },
+          {
+            "text": "그만해!",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "어!",
-          "뭐라고?"
+          {
+            "text": "어!",
+            "speed": 1.15
+          },
+          {
+            "text": "뭐라고?",
+            "speed": 1.15
+          }
         ],
         "sad": [
-          "아…",
-          "쯧."
+          {
+            "text": "아…",
+            "speed": 1.15
+          },
+          {
+            "text": "쯧.",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "됐다."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐다.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        160,
-        205
+        190,
+        240
       ]
     },
     "archivist": {
-      "design": "A very old Korean man in his late seventies, a guild records keeper. Frail, thin, raspy and slightly quavering elderly voice, slow and polite, clearly an old grandfather. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "허허, 기록이라는 건 말이지요, 남은 사람을 위해 쓰는 법입니다. 천천히 보시지요.",
+      "design": "A Korean man in his sixties, a guild records keeper who is sly and calculating, always weighing his own gain, hedging and fishing for advantage. Slightly nasal, sharp, sly voice, not low. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "기록이야 얼마든지 보여 드리지요. 다만 그게 공짜는 아니라는 거, 잘 아시겠지요?",
       "barks": {
         "neutral": [
-          "음.",
-          "그래요."
+          {
+            "text": "음.",
+            "speed": 1.15
+          },
+          {
+            "text": "그래요.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "허.",
-          "좋군요."
+          {
+            "text": "허.",
+            "speed": 1.15
+          },
+          {
+            "text": "좋군요.",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "흠…",
-          "글쎄요."
+          {
+            "text": "흠…",
+            "speed": 1.15
+          },
+          {
+            "text": "글쎄요.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "허!",
-          "그만!"
+          {
+            "text": "허!",
+            "speed": 1.15
+          },
+          {
+            "text": "그만!",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "허?",
-          "설마."
+          {
+            "text": "허?",
+            "speed": 1.15
+          },
+          {
+            "text": "설마.",
+            "speed": 1.3
+          }
         ],
         "sad": [
-          "허…",
-          "저런."
+          {
+            "text": "허…",
+            "speed": 1.15
+          },
+          {
+            "text": "저런.",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "됐군요."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐군요.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        105,
-        150
+        130,
+        170
       ]
     },
     "smith": {
-      "design": "A Korean man in his forties, a blacksmith. Deep, gruff, low voice, few words, blunt but not unkind. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "음, 쇠는 거짓말을 안 해. 두드린 만큼만 버티지. 내일 다시 와.",
+      "design": "A Korean man in his forties, a rough, gruff blacksmith. Coarse, rough voice, short blunt words, but not a deep bass voice. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "쇠는 거짓말을 안 해. 두드린 만큼만 버티지. 내일 다시 와.",
       "barks": {
         "neutral": [
-          "음.",
-          "그래."
+          {
+            "text": "음.",
+            "speed": 1.15
+          },
+          {
+            "text": "그래.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "흥.",
-          "제법."
+          {
+            "text": "흥.",
+            "speed": 1.15
+          },
+          {
+            "text": "제법.",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "흠.",
-          "글쎄."
+          {
+            "text": "흠.",
+            "speed": 1.15
+          },
+          {
+            "text": "글쎄.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "뭐야.",
-          "나가."
+          {
+            "text": "뭐야.",
+            "speed": 1.15
+          },
+          {
+            "text": "나가.",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "뭐?",
-          "허."
+          {
+            "text": "뭐?",
+            "speed": 1.15
+          },
+          {
+            "text": "허.",
+            "speed": 1.15
+          }
         ],
         "sad": [
-          "쯧.",
-          "그래."
+          {
+            "text": "쯧.",
+            "speed": 1.15
+          },
+          {
+            "text": "그래.",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "됐군."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐군.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        85,
-        125
+        115,
+        150
       ]
     },
     "broker": {
-      "design": "A Korean man in his late twenties, a smooth market broker. Light, quick, friendly but sly voice, a little smug, salesman energy. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
-      "ref_text": "아이고, 손님! 요즘 들어오는 모험단 소식이라면 제가 제일 빠르죠. 한번 들어 보실래요?",
+      "design": "A Korean man in his late twenties, a lively, energetic, cheerful market broker. Bright, upbeat, quick-talking voice full of energy. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
+      "ref_text": "어이, 손님! 요즘 들어오는 모험단 소식이라면 제가 제일 빠르죠. 한번 들어 보실래요?",
       "barks": {
         "neutral": [
-          "네.",
-          "그럼요."
+          {
+            "text": "네.",
+            "speed": 1.15
+          },
+          {
+            "text": "그럼요.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "하!",
-          "좋죠!"
+          {
+            "text": "하!",
+            "speed": 1.15
+          },
+          {
+            "text": "좋죠!",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "헉.",
-          "이런."
+          {
+            "text": "헉.",
+            "speed": 1.15
+          },
+          {
+            "text": "이런.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "참.",
-          "곤란해요."
+          {
+            "text": "참.",
+            "speed": 1.15
+          },
+          {
+            "text": "곤란해요.",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "어?",
-          "진짜요?"
+          {
+            "text": "어?",
+            "speed": 1.15
+          },
+          {
+            "text": "진짜요?",
+            "speed": 1.15
+          }
         ],
         "sad": [
-          "저런.",
-          "아…"
+          {
+            "text": "저런.",
+            "speed": 1.15
+          },
+          {
+            "text": "아…",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "휴.",
-          "됐네요."
+          {
+            "text": "휴.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐네요.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        120,
-        165
+        150,
+        190
       ]
     },
     "steward": {
@@ -344,71 +686,113 @@
       "ref_text": "영주님께서는 지금 손님을 받지 않으십니다. 용건을 남기시지요.",
       "barks": {
         "neutral": [
-          "음.",
-          "그렇군요."
+          "그렇습니까.",
+          "알겠습니다."
         ],
         "happy": [
-          "흠.",
-          "좋군요."
+          "좋습니다.",
+          "흡족하군요."
         ],
         "anxious": [
-          "흠.",
-          "곤란하군."
+          "…곤란합니다.",
+          "음, 걱정이군요."
         ],
         "angry": [
-          "무례하군.",
-          "물러나게."
+          "무례합니다.",
+          "물러나십시오."
         ],
         "shocked": [
-          "허.",
+          "무슨…!",
           "설마."
         ],
         "sad": [
-          "…유감이오.",
-          "저런."
+          "…유감입니다.",
+          "그렇게 되었군요."
         ],
         "relieved": [
-          "휴.",
-          "됐군."
+          "다행입니다.",
+          "이제 되었습니다."
         ]
       }
     },
     "informant": {
-      "design": "A middle-aged Korean man, a hooded information dealer in an underground market. Low, calm, slightly husky male voice, speaks quietly and unhurried, secretive and a bit amused, natural not theatrical. Speaks naturally and conversationally like a real person in everyday talk, relaxed natural rhythm and intonation, not like reading a script.",
+      "design": "A Korean man, a hooded information dealer in an underground market. Mysterious, quiet and enigmatic, a smooth, hushed voice with a hint of amusement, not a low or deep voice. Speaks at a brisk, natural everyday pace - never slow or drawn out. Sounds like a real person talking casually, not reading a script. Not a deep or low-pitched voice.",
       "ref_text": "소식은 공짜가 아니야. 하지만 오늘은… 맛보기로 하나 주지. 잘 들어.",
       "barks": {
         "neutral": [
-          "흠.",
-          "들어 봐."
+          {
+            "text": "흠.",
+            "speed": 1.15
+          },
+          {
+            "text": "들어 봐.",
+            "speed": 1.15
+          }
         ],
         "happy": [
-          "큭.",
-          "좋아."
+          {
+            "text": "큭.",
+            "speed": 1.15
+          },
+          {
+            "text": "좋아.",
+            "speed": 1.15
+          }
         ],
         "anxious": [
-          "쉿.",
-          "조용히."
+          {
+            "text": "쉿.",
+            "speed": 1.15
+          },
+          {
+            "text": "조용히.",
+            "speed": 1.15
+          }
         ],
         "angry": [
-          "닥쳐.",
-          "물러서."
+          {
+            "text": "닥쳐.",
+            "speed": 1.15
+          },
+          {
+            "text": "물러서.",
+            "speed": 1.15
+          }
         ],
         "shocked": [
-          "호?",
-          "흠?"
+          {
+            "text": "호?",
+            "speed": 1.15
+          },
+          {
+            "text": "흠?",
+            "speed": 1.15
+          }
         ],
         "sad": [
-          "쯧.",
-          "안됐군."
+          {
+            "text": "쯧.",
+            "speed": 1.15
+          },
+          {
+            "text": "안됐군.",
+            "speed": 1.15
+          }
         ],
         "relieved": [
-          "후.",
-          "됐어."
+          {
+            "text": "후.",
+            "speed": 1.15
+          },
+          {
+            "text": "됐어.",
+            "speed": 1.15
+          }
         ]
       },
       "pitch": [
-        90,
-        130
+        115,
+        150
       ]
     }
   }
