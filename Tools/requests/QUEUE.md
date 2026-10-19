@@ -30,7 +30,7 @@
 | 18 | `portrait_folk_v3.md` | `PortraitFolk_v3` | **완료 — 반영(10/18 저녁)**. 교차 검수: Codex 통과 · 과장 통과(다섯이 다른 사람으로 읽힘, 결점 있음, 정보상 두건). 약점: 놀람 표정 차이가 약함. 정보상 초상 데이터(`folk_informant.asset`)를 GameDataSet에 연결 |
 | 18b | `onboarding_scenes_v1.md` | `OnboardingScenes_v1` | **완료 — 반영(10/18 밤)**. 과장 검수 통과(용사 다섯 초상과 일치, 대화창 가림 없음). 다락방 아침은 여덟째 날 카드 뒤에 사용, 용사단 장면은 D단계(알아보는 장면)에서 |
 | 18c | `webtoon_ch7_v1.md` | `Webtoon_ch7_v1` | **완료 — 반영(10/19)**. 과장 검수 통과(주인공·화풍 일치, 대사 원안). 2일째 아침 칸 단위 재생 |
-| 19 | `underworld_people_v1.md` | `UnderworldPeople_v1` | 대기 — 지하 방 v2 통과 뒤. 앉은 투자꾼 다섯 + 카운터 뒤 정보상 |
+| 19 | `underworld_people_v1.md` | `UnderworldPeople_v1` | 대기 — **바닥 v5 다음 차례**(10/19 요청서를 v4 좌표로 고침). 앉은 투자꾼 다섯 + 카운터 뒤 정보상 |
 | 20 | `slop_ideas_doc_v1.md` | (문서) | 대기 — **후순위**(사장님). 슬롭 개선 아이디어 문서 |
 
 **Codex 사용량(10/18):** 오후 소진 → 저녁 회복(사장님). 다시 한 번에 하나씩.
