@@ -1,0 +1,955 @@
+{
+ "edwin": {
+  "median_pitch_hz": 93,
+  "pitch_spread_hz": 7,
+  "low_match": [],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "음, 그렇군.",
+    "heard": "음, 그렇군",
+    "match": 1.0,
+    "pitch_hz": 93,
+    "seconds": 1.39
+   },
+   "neutral_1.wav": {
+    "text": "흠, 알겠어.",
+    "heard": "흠, 알겠어",
+    "match": 1.0,
+    "pitch_hz": 93,
+    "seconds": 1.45
+   },
+   "happy_0.wav": {
+    "text": "하하, 좋은데?",
+    "heard": "하하, 좋은데?",
+    "match": 1.0,
+    "pitch_hz": 87,
+    "seconds": 1.46
+   },
+   "happy_1.wav": {
+    "text": "오, 이거 괜찮네.",
+    "heard": "오, 이거 괜찮네",
+    "match": 1.0,
+    "pitch_hz": 94,
+    "seconds": 1.93
+   },
+   "anxious_0.wav": {
+    "text": "음… 걱정되는데.",
+    "heard": "응, 걱정되는데",
+    "match": 0.83,
+    "pitch_hz": 85,
+    "seconds": 1.71
+   },
+   "anxious_1.wav": {
+    "text": "이건 좀 불안한걸.",
+    "heard": "이건 좀 불안한걸",
+    "match": 1.0,
+    "pitch_hz": 102,
+    "seconds": 1.14
+   },
+   "angry_0.wav": {
+    "text": "그건 아니지.",
+    "heard": "그건 아니지",
+    "match": 1.0,
+    "pitch_hz": 88,
+    "seconds": 0.85
+   },
+   "angry_1.wav": {
+    "text": "말이 안 되잖아.",
+    "heard": "말이 안 되잖아",
+    "match": 1.0,
+    "pitch_hz": 83,
+    "seconds": 0.83
+   },
+   "shocked_0.wav": {
+    "text": "뭐라고?",
+    "heard": "뭐라고?",
+    "match": 1.0,
+    "pitch_hz": 98,
+    "seconds": 0.58
+   },
+   "shocked_1.wav": {
+    "text": "잠깐, 그게 정말이야?",
+    "heard": "잠깐 그게 정말이야?",
+    "match": 1.0,
+    "pitch_hz": 100,
+    "seconds": 2.3
+   },
+   "sad_0.wav": {
+    "text": "…그렇구나.",
+    "heard": "그렇구나",
+    "match": 1.0,
+    "pitch_hz": 90,
+    "seconds": 0.52
+   },
+   "sad_1.wav": {
+    "text": "하아… 미안해.",
+    "heard": "하...미안해...",
+    "match": 0.89,
+    "pitch_hz": 104,
+    "seconds": 1.53
+   },
+   "relieved_0.wav": {
+    "text": "후우, 다행이다.",
+    "heard": "후, 다행이다.",
+    "match": 0.91,
+    "pitch_hz": 81,
+    "seconds": 2.02
+   },
+   "relieved_1.wav": {
+    "text": "이제 좀 안심이야.",
+    "heard": "이제 좀 안심이야",
+    "match": 1.0,
+    "pitch_hz": 104,
+    "seconds": 0.99
+   }
+  }
+ },
+ "kaira": {
+  "median_pitch_hz": 224,
+  "pitch_spread_hz": 32,
+  "low_match": [],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "응, 알았어.",
+    "heard": "응, 알았어",
+    "match": 1.0,
+    "pitch_hz": 180,
+    "seconds": 1.33
+   },
+   "neutral_1.wav": {
+    "text": "그래.",
+    "heard": "그래.",
+    "match": 1.0,
+    "pitch_hz": 181,
+    "seconds": 0.37
+   },
+   "happy_0.wav": {
+    "text": "하, 좋았어!",
+    "heard": "하, 좋았어",
+    "match": 1.0,
+    "pitch_hz": 265,
+    "seconds": 1.4
+   },
+   "happy_1.wav": {
+    "text": "그렇지!",
+    "heard": "그렇지",
+    "match": 1.0,
+    "pitch_hz": 281,
+    "seconds": 0.84
+   },
+   "anxious_0.wav": {
+    "text": "…느낌이 안 좋아.",
+    "heard": "느낌이 안좋아",
+    "match": 1.0,
+    "pitch_hz": 199,
+    "seconds": 1.01
+   },
+   "anxious_1.wav": {
+    "text": "조심해.",
+    "heard": "조심해.",
+    "match": 1.0,
+    "pitch_hz": 263,
+    "seconds": 0.65
+   },
+   "angry_0.wav": {
+    "text": "뭐 하는 거야!",
+    "heard": "뭐 하는 거야",
+    "match": 1.0,
+    "pitch_hz": 225,
+    "seconds": 0.76
+   },
+   "angry_1.wav": {
+    "text": "웃기지 마.",
+    "heard": "웃기지 마",
+    "match": 1.0,
+    "pitch_hz": 223,
+    "seconds": 0.76
+   },
+   "shocked_0.wav": {
+    "text": "뭐?!",
+    "heard": "뭐?",
+    "match": 1.0,
+    "pitch_hz": 256,
+    "seconds": 0.33
+   },
+   "shocked_1.wav": {
+    "text": "말도 안 돼!",
+    "heard": "말도 안 돼",
+    "match": 1.0,
+    "pitch_hz": 239,
+    "seconds": 1.02
+   },
+   "sad_0.wav": {
+    "text": "…젠장.",
+    "heard": "젠장",
+    "match": 1.0,
+    "pitch_hz": 189,
+    "seconds": 0.66
+   },
+   "sad_1.wav": {
+    "text": "그랬구나…",
+    "heard": "그랬구나",
+    "match": 1.0,
+    "pitch_hz": 190,
+    "seconds": 0.66
+   },
+   "relieved_0.wav": {
+    "text": "후, 살았다.",
+    "heard": "후, 살았다",
+    "match": 1.0,
+    "pitch_hz": 209,
+    "seconds": 1.38
+   },
+   "relieved_1.wav": {
+    "text": "다행이야.",
+    "heard": "다행이야",
+    "match": 1.0,
+    "pitch_hz": 232,
+    "seconds": 0.76
+   }
+  }
+ },
+ "elaria": {
+  "median_pitch_hz": 176,
+  "pitch_spread_hz": 10,
+  "low_match": [],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "그래요.",
+    "heard": "그래요",
+    "match": 1.0,
+    "pitch_hz": 151,
+    "seconds": 0.52
+   },
+   "neutral_1.wav": {
+    "text": "음, 알겠어요.",
+    "heard": "음 알겠어요",
+    "match": 1.0,
+    "pitch_hz": 175,
+    "seconds": 1.82
+   },
+   "happy_0.wav": {
+    "text": "후후, 좋네요.",
+    "heard": "후후 좋네요",
+    "match": 1.0,
+    "pitch_hz": 185,
+    "seconds": 2.03
+   },
+   "happy_1.wav": {
+    "text": "어머, 기뻐요.",
+    "heard": "어머, 기뻐요",
+    "match": 1.0,
+    "pitch_hz": 168,
+    "seconds": 1.53
+   },
+   "anxious_0.wav": {
+    "text": "…흐름이 이상해요.",
+    "heard": "흐름이 이상해요",
+    "match": 1.0,
+    "pitch_hz": 168,
+    "seconds": 1.14
+   },
+   "anxious_1.wav": {
+    "text": "조금 걱정이네요.",
+    "heard": "조금 걱정이네요",
+    "match": 1.0,
+    "pitch_hz": 180,
+    "seconds": 1.31
+   },
+   "angry_0.wav": {
+    "text": "그만두세요.",
+    "heard": "그만두세요",
+    "match": 1.0,
+    "pitch_hz": 190,
+    "seconds": 1.01
+   },
+   "angry_1.wav": {
+    "text": "경솔하군요.",
+    "heard": "경솔하군요",
+    "match": 1.0,
+    "pitch_hz": 172,
+    "seconds": 1.12
+   },
+   "shocked_0.wav": {
+    "text": "어머…!",
+    "heard": "어머",
+    "match": 1.0,
+    "pitch_hz": 177,
+    "seconds": 0.42
+   },
+   "shocked_1.wav": {
+    "text": "설마요?",
+    "heard": "설마요?",
+    "match": 1.0,
+    "pitch_hz": 183,
+    "seconds": 0.74
+   },
+   "sad_0.wav": {
+    "text": "…안타깝네요.",
+    "heard": "안타깝네요",
+    "match": 1.0,
+    "pitch_hz": 171,
+    "seconds": 1.11
+   },
+   "sad_1.wav": {
+    "text": "그랬군요…",
+    "heard": "그랬군요.",
+    "match": 1.0,
+    "pitch_hz": 190,
+    "seconds": 2.21
+   },
+   "relieved_0.wav": {
+    "text": "후우, 다행이에요.",
+    "heard": "후, 다행이에요.",
+    "match": 0.92,
+    "pitch_hz": 165,
+    "seconds": 2.03
+   },
+   "relieved_1.wav": {
+    "text": "이제 됐어요.",
+    "heard": "이제 됐어요",
+    "match": 1.0,
+    "pitch_hz": 181,
+    "seconds": 0.87
+   }
+  }
+ },
+ "innkeeper": {
+  "median_pitch_hz": 186,
+  "pitch_spread_hz": 23,
+  "low_match": [],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "그래, 왔어?",
+    "heard": "그래, 왔어",
+    "match": 1.0,
+    "pitch_hz": 197,
+    "seconds": 1.45
+   },
+   "neutral_1.wav": {
+    "text": "응, 알았어.",
+    "heard": "응 알았어",
+    "match": 1.0,
+    "pitch_hz": 168,
+    "seconds": 1.29
+   },
+   "happy_0.wav": {
+    "text": "호호, 좋네!",
+    "heard": "호호 좋네",
+    "match": 1.0,
+    "pitch_hz": 210,
+    "seconds": 1.27
+   },
+   "happy_1.wav": {
+    "text": "아이고, 잘했네!",
+    "heard": "아이고, 잘했네",
+    "match": 1.0,
+    "pitch_hz": 201,
+    "seconds": 1.27
+   },
+   "anxious_0.wav": {
+    "text": "어휴, 걱정이네.",
+    "heard": "어휴 걱정이네",
+    "match": 1.0,
+    "pitch_hz": 182,
+    "seconds": 1.73
+   },
+   "anxious_1.wav": {
+    "text": "괜찮겠어?",
+    "heard": "괜찮겠어?",
+    "match": 1.0,
+    "pitch_hz": 186,
+    "seconds": 0.81
+   },
+   "angry_0.wav": {
+    "text": "이 녀석이!",
+    "heard": "이 녀석이",
+    "match": 1.0,
+    "pitch_hz": 264,
+    "seconds": 0.68
+   },
+   "angry_1.wav": {
+    "text": "그만 좀 해!",
+    "heard": "그만 좀 해",
+    "match": 1.0,
+    "pitch_hz": 185,
+    "seconds": 0.59
+   },
+   "shocked_0.wav": {
+    "text": "어머나!",
+    "heard": "어머나...",
+    "match": 1.0,
+    "pitch_hz": 185,
+    "seconds": 0.71
+   },
+   "shocked_1.wav": {
+    "text": "세상에!",
+    "heard": "세상에",
+    "match": 1.0,
+    "pitch_hz": 198,
+    "seconds": 0.68
+   },
+   "sad_0.wav": {
+    "text": "아이고…",
+    "heard": "아이고",
+    "match": 1.0,
+    "pitch_hz": 185,
+    "seconds": 0.65
+   },
+   "sad_1.wav": {
+    "text": "쯧, 안됐네.",
+    "heard": "쯧, 안 됐네",
+    "match": 1.0,
+    "pitch_hz": 192,
+    "seconds": 1.27
+   },
+   "relieved_0.wav": {
+    "text": "휴, 다행이다.",
+    "heard": "슈, 다행이다",
+    "match": 0.8,
+    "pitch_hz": 179,
+    "seconds": 1.63
+   },
+   "relieved_1.wav": {
+    "text": "이제 됐다.",
+    "heard": "이제 됐다",
+    "match": 1.0,
+    "pitch_hz": 163,
+    "seconds": 0.7
+   }
+  }
+ },
+ "archivist": {
+  "median_pitch_hz": 182,
+  "pitch_spread_hz": 33,
+  "low_match": [
+   "shocked_0.wav"
+  ],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "그렇습니까.",
+    "heard": "그렇습니까?",
+    "match": 1.0,
+    "pitch_hz": 173,
+    "seconds": 0.85
+   },
+   "neutral_1.wav": {
+    "text": "음, 알겠습니다.",
+    "heard": "음, 알겠습니다",
+    "match": 1.0,
+    "pitch_hz": 181,
+    "seconds": 1.63
+   },
+   "happy_0.wav": {
+    "text": "허허, 좋군요.",
+    "heard": "하하 좋군요",
+    "match": 0.6,
+    "pitch_hz": 211,
+    "seconds": 1.71
+   },
+   "happy_1.wav": {
+    "text": "훌륭합니다.",
+    "heard": "훌륭합니다",
+    "match": 1.0,
+    "pitch_hz": 214,
+    "seconds": 2.12
+   },
+   "anxious_0.wav": {
+    "text": "흠… 곤란하군요.",
+    "heard": "흠... 곤란하군요",
+    "match": 1.0,
+    "pitch_hz": 134,
+    "seconds": 2.08
+   },
+   "anxious_1.wav": {
+    "text": "이상하군요.",
+    "heard": "이상하군요",
+    "match": 1.0,
+    "pitch_hz": 276,
+    "seconds": 0.9
+   },
+   "angry_0.wav": {
+    "text": "무례하시군요.",
+    "heard": "무례하시군요",
+    "match": 1.0,
+    "pitch_hz": 210,
+    "seconds": 1.2
+   },
+   "angry_1.wav": {
+    "text": "그만하시지요.",
+    "heard": "그만하시지요",
+    "match": 1.0,
+    "pitch_hz": 187,
+    "seconds": 1.24
+   },
+   "shocked_0.wav": {
+    "text": "허…!",
+    "heard": "하",
+    "match": 0.0,
+    "pitch_hz": 0,
+    "seconds": 0.2
+   },
+   "shocked_1.wav": {
+    "text": "설마요?",
+    "heard": "설마요?",
+    "match": 1.0,
+    "pitch_hz": 182,
+    "seconds": 0.69
+   },
+   "sad_0.wav": {
+    "text": "…안타깝군요.",
+    "heard": "안타깝군요",
+    "match": 1.0,
+    "pitch_hz": 213,
+    "seconds": 1.4
+   },
+   "sad_1.wav": {
+    "text": "허, 그렇게 됐습니까.",
+    "heard": "허, 그렇게 됐습니까?",
+    "match": 1.0,
+    "pitch_hz": 176,
+    "seconds": 2.16
+   },
+   "relieved_0.wav": {
+    "text": "허허, 다행입니다.",
+    "heard": "허허, 다행입니다.",
+    "match": 1.0,
+    "pitch_hz": 157,
+    "seconds": 2.08
+   },
+   "relieved_1.wav": {
+    "text": "이제 됐습니다.",
+    "heard": "이제 됐습니다",
+    "match": 1.0,
+    "pitch_hz": 171,
+    "seconds": 0.98
+   }
+  }
+ },
+ "smith": {
+  "median_pitch_hz": 134,
+  "pitch_spread_hz": 40,
+  "low_match": [
+   "anxious_1.wav",
+   "sad_1.wav"
+  ],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "음.",
+    "heard": "음",
+    "match": 1.0,
+    "pitch_hz": 144,
+    "seconds": 0.48
+   },
+   "neutral_1.wav": {
+    "text": "그래.",
+    "heard": "그래",
+    "match": 1.0,
+    "pitch_hz": 0,
+    "seconds": 0.45
+   },
+   "happy_0.wav": {
+    "text": "허, 좋군.",
+    "heard": "하, 좋군",
+    "match": 0.67,
+    "pitch_hz": 92,
+    "seconds": 1.57
+   },
+   "happy_1.wav": {
+    "text": "제법인데.",
+    "heard": "제법인데",
+    "match": 1.0,
+    "pitch_hz": 141,
+    "seconds": 0.82
+   },
+   "anxious_0.wav": {
+    "text": "흠… 글쎄.",
+    "heard": "흠? 글쎄",
+    "match": 1.0,
+    "pitch_hz": 130,
+    "seconds": 1.98
+   },
+   "anxious_1.wav": {
+    "text": "찜찜한데.",
+    "heard": "짐찌만데",
+    "match": 0.25,
+    "pitch_hz": 206,
+    "seconds": 0.76
+   },
+   "angry_0.wav": {
+    "text": "뭐야.",
+    "heard": "뭐야",
+    "match": 1.0,
+    "pitch_hz": 101,
+    "seconds": 0.65
+   },
+   "angry_1.wav": {
+    "text": "나가.",
+    "heard": "나가!",
+    "match": 1.0,
+    "pitch_hz": 0,
+    "seconds": 0.6
+   },
+   "shocked_0.wav": {
+    "text": "뭐?",
+    "heard": "뭐?",
+    "match": 1.0,
+    "pitch_hz": 134,
+    "seconds": 0.45
+   },
+   "shocked_1.wav": {
+    "text": "허, 참.",
+    "heard": "허.참.",
+    "match": 1.0,
+    "pitch_hz": 65,
+    "seconds": 1.25
+   },
+   "sad_0.wav": {
+    "text": "…그래.",
+    "heard": "그래",
+    "match": 1.0,
+    "pitch_hz": 0,
+    "seconds": 0.51
+   },
+   "sad_1.wav": {
+    "text": "쯧.",
+    "heard": "",
+    "match": 0.0,
+    "pitch_hz": 61,
+    "seconds": 0.4
+   },
+   "relieved_0.wav": {
+    "text": "됐군.",
+    "heard": "됐군",
+    "match": 1.0,
+    "pitch_hz": 135,
+    "seconds": 0.5
+   },
+   "relieved_1.wav": {
+    "text": "휴.",
+    "heard": "휴",
+    "match": 1.0,
+    "pitch_hz": 154,
+    "seconds": 0.42
+   }
+  }
+ },
+ "broker": {
+  "median_pitch_hz": 180,
+  "pitch_spread_hz": 35,
+  "low_match": [],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "네, 네.",
+    "heard": "네, 네",
+    "match": 1.0,
+    "pitch_hz": 135,
+    "seconds": 0.93
+   },
+   "neutral_1.wav": {
+    "text": "그럼요.",
+    "heard": "그럼요!",
+    "match": 1.0,
+    "pitch_hz": 128,
+    "seconds": 0.71
+   },
+   "happy_0.wav": {
+    "text": "하하, 좋죠!",
+    "heard": "하하 좋죠",
+    "match": 1.0,
+    "pitch_hz": 215,
+    "seconds": 1.26
+   },
+   "happy_1.wav": {
+    "text": "거봐요, 제 말 맞죠?",
+    "heard": "거봐요, 제 말 맞죠?",
+    "match": 1.0,
+    "pitch_hz": 148,
+    "seconds": 2.0
+   },
+   "anxious_0.wav": {
+    "text": "어이쿠, 이거 참.",
+    "heard": "어이쿠! 이거 참!",
+    "match": 1.0,
+    "pitch_hz": 190,
+    "seconds": 1.7
+   },
+   "anxious_1.wav": {
+    "text": "음… 애매한데요.",
+    "heard": "음? 애매한데요?",
+    "match": 1.0,
+    "pitch_hz": 192,
+    "seconds": 1.38
+   },
+   "angry_0.wav": {
+    "text": "거참, 너무하시네.",
+    "heard": "거참, 너무하시네.",
+    "match": 1.0,
+    "pitch_hz": 157,
+    "seconds": 1.71
+   },
+   "angry_1.wav": {
+    "text": "그건 곤란하죠.",
+    "heard": "그건 곤란하죠.",
+    "match": 1.0,
+    "pitch_hz": 180,
+    "seconds": 1.12
+   },
+   "shocked_0.wav": {
+    "text": "어이쿠!",
+    "heard": "아이쿠",
+    "match": 0.67,
+    "pitch_hz": 0,
+    "seconds": 0.52
+   },
+   "shocked_1.wav": {
+    "text": "진짜요?",
+    "heard": "진짜요?",
+    "match": 1.0,
+    "pitch_hz": 202,
+    "seconds": 0.58
+   },
+   "sad_0.wav": {
+    "text": "저런…",
+    "heard": "저런",
+    "match": 1.0,
+    "pitch_hz": 263,
+    "seconds": 0.51
+   },
+   "sad_1.wav": {
+    "text": "아이고, 안됐네요.",
+    "heard": "아이고, 안 됐네요.",
+    "match": 1.0,
+    "pitch_hz": 158,
+    "seconds": 1.87
+   },
+   "relieved_0.wav": {
+    "text": "휴, 다행이네요.",
+    "heard": "휴, 다행이네요!",
+    "match": 1.0,
+    "pitch_hz": 204,
+    "seconds": 1.57
+   },
+   "relieved_1.wav": {
+    "text": "됐네요, 됐어.",
+    "heard": "됐네요, 됐어!",
+    "match": 1.0,
+    "pitch_hz": 170,
+    "seconds": 1.55
+   }
+  }
+ },
+ "steward": {
+  "median_pitch_hz": 81,
+  "pitch_spread_hz": 4,
+  "low_match": [],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "그렇습니까.",
+    "heard": "그렇습니까?",
+    "match": 1.0,
+    "pitch_hz": 88,
+    "seconds": 0.74
+   },
+   "neutral_1.wav": {
+    "text": "알겠습니다.",
+    "heard": "알겠습니다",
+    "match": 1.0,
+    "pitch_hz": 86,
+    "seconds": 0.76
+   },
+   "happy_0.wav": {
+    "text": "좋습니다.",
+    "heard": "좋습니다",
+    "match": 1.0,
+    "pitch_hz": 81,
+    "seconds": 0.71
+   },
+   "happy_1.wav": {
+    "text": "흡족하군요.",
+    "heard": "흡족하군요",
+    "match": 1.0,
+    "pitch_hz": 88,
+    "seconds": 0.87
+   },
+   "anxious_0.wav": {
+    "text": "…곤란합니다.",
+    "heard": "곤란합니다",
+    "match": 1.0,
+    "pitch_hz": 82,
+    "seconds": 0.86
+   },
+   "anxious_1.wav": {
+    "text": "음, 걱정이군요.",
+    "heard": "음, 걱정이군요",
+    "match": 1.0,
+    "pitch_hz": 76,
+    "seconds": 1.65
+   },
+   "angry_0.wav": {
+    "text": "무례합니다.",
+    "heard": "무례합니다.",
+    "match": 1.0,
+    "pitch_hz": 75,
+    "seconds": 0.79
+   },
+   "angry_1.wav": {
+    "text": "물러나십시오.",
+    "heard": "물러나십시오",
+    "match": 1.0,
+    "pitch_hz": 87,
+    "seconds": 0.95
+   },
+   "shocked_0.wav": {
+    "text": "무슨…!",
+    "heard": "무슨",
+    "match": 1.0,
+    "pitch_hz": 81,
+    "seconds": 0.63
+   },
+   "shocked_1.wav": {
+    "text": "설마.",
+    "heard": "설마",
+    "match": 1.0,
+    "pitch_hz": 77,
+    "seconds": 0.58
+   },
+   "sad_0.wav": {
+    "text": "…유감입니다.",
+    "heard": "유감입니다.",
+    "match": 1.0,
+    "pitch_hz": 79,
+    "seconds": 0.77
+   },
+   "sad_1.wav": {
+    "text": "그렇게 되었군요.",
+    "heard": "그렇게 되었군요",
+    "match": 1.0,
+    "pitch_hz": 85,
+    "seconds": 1.09
+   },
+   "relieved_0.wav": {
+    "text": "다행입니다.",
+    "heard": "다행입니다.",
+    "match": 1.0,
+    "pitch_hz": 78,
+    "seconds": 0.8
+   },
+   "relieved_1.wav": {
+    "text": "이제 되었습니다.",
+    "heard": "이제 되었습니다.",
+    "match": 1.0,
+    "pitch_hz": 84,
+    "seconds": 1.04
+   }
+  }
+ },
+ "informant": {
+  "median_pitch_hz": 167,
+  "pitch_spread_hz": 9,
+  "low_match": [
+   "happy_0.wav",
+   "shocked_0.wav"
+  ],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "흠.",
+    "heard": "흠",
+    "match": 1.0,
+    "pitch_hz": 169,
+    "seconds": 0.42
+   },
+   "neutral_1.wav": {
+    "text": "그래, 들어 봐.",
+    "heard": "그래, 들어봐",
+    "match": 1.0,
+    "pitch_hz": 176,
+    "seconds": 1.38
+   },
+   "happy_0.wav": {
+    "text": "큭큭, 좋아.",
+    "heard": "흑흑 좋아",
+    "match": 0.5,
+    "pitch_hz": 184,
+    "seconds": 1.47
+   },
+   "happy_1.wav": {
+    "text": "제법인데.",
+    "heard": "제법인데",
+    "match": 1.0,
+    "pitch_hz": 167,
+    "seconds": 0.83
+   },
+   "anxious_0.wav": {
+    "text": "…조용히.",
+    "heard": "조용히",
+    "match": 1.0,
+    "pitch_hz": 162,
+    "seconds": 0.61
+   },
+   "anxious_1.wav": {
+    "text": "냄새가 나는군.",
+    "heard": "냄새가 나는군",
+    "match": 1.0,
+    "pitch_hz": 167,
+    "seconds": 1.03
+   },
+   "angry_0.wav": {
+    "text": "선 넘지 마.",
+    "heard": "선 넘지 마",
+    "match": 1.0,
+    "pitch_hz": 166,
+    "seconds": 1.0
+   },
+   "angry_1.wav": {
+    "text": "입 다물어.",
+    "heard": "입 다물어",
+    "match": 1.0,
+    "pitch_hz": 170,
+    "seconds": 2.02
+   },
+   "shocked_0.wav": {
+    "text": "…호오?",
+    "heard": "어?",
+    "match": 0.0,
+    "pitch_hz": 195,
+    "seconds": 0.45
+   },
+   "shocked_1.wav": {
+    "text": "이건 몰랐군.",
+    "heard": "이건 몰랐군",
+    "match": 1.0,
+    "pitch_hz": 163,
+    "seconds": 0.88
+   },
+   "sad_0.wav": {
+    "text": "…유감이군.",
+    "heard": "유감이군",
+    "match": 1.0,
+    "pitch_hz": 167,
+    "seconds": 0.68
+   },
+   "sad_1.wav": {
+    "text": "그렇게 됐나.",
+    "heard": "그렇게 됐나?",
+    "match": 1.0,
+    "pitch_hz": 178,
+    "seconds": 0.85
+   },
+   "relieved_0.wav": {
+    "text": "후, 됐어.",
+    "heard": "후 됐어",
+    "match": 1.0,
+    "pitch_hz": 165,
+    "seconds": 1.51
+   },
+   "relieved_1.wav": {
+    "text": "운이 좋군.",
+    "heard": "운이 좋군",
+    "match": 1.0,
+    "pitch_hz": 167,
+    "seconds": 0.81
+   }
+  }
+ }
+}

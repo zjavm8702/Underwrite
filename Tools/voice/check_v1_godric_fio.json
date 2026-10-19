@@ -1,0 +1,216 @@
+{
+ "godric": {
+  "median_pitch_hz": 167,
+  "pitch_spread_hz": 149,
+  "low_match": [
+   "angry_1.wav"
+  ],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "음, 그래.",
+    "heard": "응, 그래",
+    "match": 0.67,
+    "pitch_hz": 157,
+    "seconds": 0.65
+   },
+   "neutral_1.wav": {
+    "text": "알았다.",
+    "heard": "알았다.",
+    "match": 1.0,
+    "pitch_hz": 663,
+    "seconds": 0.63
+   },
+   "happy_0.wav": {
+    "text": "하하하! 좋다!",
+    "heard": "하하하! 좋다!",
+    "match": 1.0,
+    "pitch_hz": 0,
+    "seconds": 2.04
+   },
+   "happy_1.wav": {
+    "text": "허허, 잘했어!",
+    "heard": "호호! 잘했어!",
+    "match": 0.6,
+    "pitch_hz": 259,
+    "seconds": 1.62
+   },
+   "anxious_0.wav": {
+    "text": "흠… 조심해야겠군.",
+    "heard": "흠, 조심해야겠군",
+    "match": 1.0,
+    "pitch_hz": 167,
+    "seconds": 1.63
+   },
+   "anxious_1.wav": {
+    "text": "냄새가 안 좋은데.",
+    "heard": "냄새가 안 좋은데",
+    "match": 1.0,
+    "pitch_hz": 126,
+    "seconds": 1.07
+   },
+   "angry_0.wav": {
+    "text": "이놈이!",
+    "heard": "이 놈이!",
+    "match": 1.0,
+    "pitch_hz": 277,
+    "seconds": 0.73
+   },
+   "angry_1.wav": {
+    "text": "그만둬라!",
+    "heard": "그만돌아",
+    "match": 0.5,
+    "pitch_hz": 401,
+    "seconds": 0.78
+   },
+   "shocked_0.wav": {
+    "text": "뭐라고?!",
+    "heard": "뭐라고?",
+    "match": 1.0,
+    "pitch_hz": 164,
+    "seconds": 0.73
+   },
+   "shocked_1.wav": {
+    "text": "허, 이게 무슨…",
+    "heard": "후... 이게 무슨...",
+    "match": 0.8,
+    "pitch_hz": 193,
+    "seconds": 1.85
+   },
+   "sad_0.wav": {
+    "text": "…그렇게 됐나.",
+    "heard": "그렇게 됐나?",
+    "match": 1.0,
+    "pitch_hz": 145,
+    "seconds": 0.72
+   },
+   "sad_1.wav": {
+    "text": "후우… 미안하다.",
+    "heard": "후, 미안하다",
+    "match": 0.91,
+    "pitch_hz": 64,
+    "seconds": 1.81
+   },
+   "relieved_0.wav": {
+    "text": "허허, 다행이다.",
+    "heard": "허허, 다행이다.",
+    "match": 1.0,
+    "pitch_hz": 149,
+    "seconds": 1.84
+   },
+   "relieved_1.wav": {
+    "text": "휴, 살았군.",
+    "heard": "휴, 살았군!",
+    "match": 1.0,
+    "pitch_hz": 186,
+    "seconds": 1.24
+   }
+  }
+ },
+ "fio": {
+  "median_pitch_hz": 471,
+  "pitch_spread_hz": 104,
+  "low_match": [
+   "shocked_0.wav"
+  ],
+  "lines": {
+   "neutral_0.wav": {
+    "text": "응응!",
+    "heard": "응응!",
+    "match": 1.0,
+    "pitch_hz": 556,
+    "seconds": 0.55
+   },
+   "neutral_1.wav": {
+    "text": "알았어!",
+    "heard": "알았어",
+    "match": 1.0,
+    "pitch_hz": 464,
+    "seconds": 0.74
+   },
+   "happy_0.wav": {
+    "text": "와아, 신난다!",
+    "heard": "와! 신난다!",
+    "match": 0.89,
+    "pitch_hz": 589,
+    "seconds": 1.48
+   },
+   "happy_1.wav": {
+    "text": "헤헤, 좋아!",
+    "heard": "헤헤, 좋아!",
+    "match": 1.0,
+    "pitch_hz": 556,
+    "seconds": 1.1
+   },
+   "anxious_0.wav": {
+    "text": "으으… 무서워.",
+    "heard": "으으으... 무서워...",
+    "match": 0.91,
+    "pitch_hz": 390,
+    "seconds": 2.39
+   },
+   "anxious_1.wav": {
+    "text": "괜찮을까…?",
+    "heard": "괜찮을까?",
+    "match": 1.0,
+    "pitch_hz": 301,
+    "seconds": 0.82
+   },
+   "angry_0.wav": {
+    "text": "흥! 몰라!",
+    "heard": "흥! 몰라!",
+    "match": 1.0,
+    "pitch_hz": 603,
+    "seconds": 1.13
+   },
+   "angry_1.wav": {
+    "text": "그러지 마!",
+    "heard": "그러지 마!",
+    "match": 1.0,
+    "pitch_hz": 479,
+    "seconds": 0.7
+   },
+   "shocked_0.wav": {
+    "text": "에엑?!",
+    "heard": "헐?",
+    "match": 0.0,
+    "pitch_hz": 374,
+    "seconds": 0.35
+   },
+   "shocked_1.wav": {
+    "text": "정말?!",
+    "heard": "정말?",
+    "match": 1.0,
+    "pitch_hz": 273,
+    "seconds": 0.67
+   },
+   "sad_0.wav": {
+    "text": "흑… 아파.",
+    "heard": "후, 아파!",
+    "match": 0.67,
+    "pitch_hz": 577,
+    "seconds": 1.22
+   },
+   "sad_1.wav": {
+    "text": "미안해…",
+    "heard": "미안해",
+    "match": 1.0,
+    "pitch_hz": 368,
+    "seconds": 0.61
+   },
+   "relieved_0.wav": {
+    "text": "휴우, 다행이다!",
+    "heard": "휴 다행이다",
+    "match": 0.91,
+    "pitch_hz": 425,
+    "seconds": 1.42
+   },
+   "relieved_1.wav": {
+    "text": "헤헤, 이제 괜찮아.",
+    "heard": "헤헤, 이제 괜찮아",
+    "match": 1.0,
+    "pitch_hz": 480,
+    "seconds": 1.77
+   }
+  }
+ }
+}
