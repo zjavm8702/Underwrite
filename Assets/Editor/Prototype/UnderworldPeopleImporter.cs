@@ -25,6 +25,10 @@ namespace Underwrite.Editor
         private const string TARGET = "Assets/Images/Underworld/People";
         private const string SCENE = "Assets/Scenes/Underworld.unity";
         private const string LAYOUT = "Outputs/UnderworldRoom_v6/layout.json";
+
+        // 앉은 사람의 발밑(방 그림 1배). 대리 배치표의 seat_ground에 발을 두면 엉덩이가 의자 옆 허공에 떴다(사장님 10/19) —
+        // 과장이 프레임에서 엉덩이 자리를 재서 방석 가운데에 맞춘 값(Tools/art/seat_fit.py).
+        private const string SEAT_FIT = "Tools/art/seat_fit.json";
         private const string PEOPLE_ROOT = "Room People";
         private const string INFORMANT = "Informant";
         private const int FRAMES = 6;
@@ -48,6 +52,9 @@ namespace Underwrite.Editor
             var timings = MiniJson.Parse(File.ReadAllText(Path.Combine(SOURCE, "timings.json"))) as Dictionary<string, object>;
             var settings = MiniJson.Parse(File.ReadAllText(Path.Combine(SOURCE, "sprite_settings.json"))) as Dictionary<string, object>;
             var layout = MiniJson.Parse(File.ReadAllText(LAYOUT)) as Dictionary<string, object>;
+            var seatFit = File.Exists(SEAT_FIT) == true
+                ? MiniJson.Parse(File.ReadAllText(SEAT_FIT)) as Dictionary<string, object>
+                : new Dictionary<string, object>();
             var placements = (List<object>)staging["placements"];
             var frameMs = (Dictionary<string, object>)timings["frame_ms"];
 
@@ -96,7 +103,7 @@ namespace Underwrite.Editor
             {
                 var place = (Dictionary<string, object>)item;
                 var name = (string)place["name"];
-                var figure = Build(place, layout, frameMs, parent.transform);
+                var figure = Build(place, layout, seatFit, frameMs, parent.transform);
 
                 if (name == INFORMANT)
                 {
@@ -205,7 +212,7 @@ namespace Underwrite.Editor
         }
 
         private static SeatedFigure Build(Dictionary<string, object> place, Dictionary<string, object> layout,
-            Dictionary<string, object> frameMs, Transform parent)
+            Dictionary<string, object> seatFit, Dictionary<string, object> frameMs, Transform parent)
         {
             var name = (string)place["name"];
             var direction = (string)place["direction"];
@@ -213,8 +220,17 @@ namespace Underwrite.Editor
 
             var root = new GameObject(name);
             root.transform.SetParent(parent);
+            var groundX = (float)(double)ground[0];
             var groundY = name == INFORMANT ? INFORMANT_GROUND_Y : (float)(double)ground[1];
-            root.transform.position = ToWorld((float)(double)ground[0], groundY);
+
+            if (seatFit.TryGetValue(name, out var fit) == true && fit is Dictionary<string, object> fitted)
+            {
+                var foot = (List<object>)fitted["foot"];
+                groundX = (float)(double)foot[0];
+                groundY = (float)(double)foot[1];
+            }
+
+            root.transform.position = ToWorld(groundX, groundY);
 
             var bodyObject = new GameObject("Body");
             bodyObject.transform.SetParent(root.transform, false);
