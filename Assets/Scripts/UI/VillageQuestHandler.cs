@@ -64,11 +64,14 @@ namespace Underwrite.UI
                 progress = System.Math.Min(active.Progress(), active.Goal);
             }
 
-            if (active != ObjectiveQuest || progress != ObjectiveProgress)
+            // 데모 마무리를 본 뒤 할 일이 다 끝났으면 빈칸 대신 둘러보기 안내.
+            var demoFree = active == null && StoryProgress.DemoEndSeen == true;
+
+            if (active != ObjectiveQuest || progress != ObjectiveProgress || (ObjectiveText.Length == 0 && demoFree == true))
             {
                 ObjectiveQuest = active;
                 ObjectiveProgress = progress;
-                var text = string.Empty;
+                var text = demoFree == true ? StringConstants.TEXT_QUEST_DEMO_FREE : string.Empty;
 
                 if (active != null)
                 {
@@ -88,7 +91,7 @@ namespace Underwrite.UI
                 label.text = ObjectiveText;
             }
 
-            label.EnableInClassList("hidden", active == null);
+            label.EnableInClassList("hidden", active == null && demoFree == false);
         }
 
         private Label EnsureLabel()

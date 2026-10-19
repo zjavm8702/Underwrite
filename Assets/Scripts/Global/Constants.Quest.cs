@@ -40,6 +40,8 @@ namespace Underwrite.Global
         public static string TEXT_QUEST_PROGRESS = "{0} / {1}";
         public static string TEXT_QUEST_ASK_TAG = "부탁";
         public static string TEXT_QUEST_SELF_TAG = "혼잣말";
+        // 데모 마무리 뒤 「조금 더 둘러본다」 — 할 일이 끝나 칸이 비던 자리(데모 점검 10/19).
+        public static string TEXT_QUEST_DEMO_FREE = "데모는 여기까지 · 자유롭게 둘러본다";
 
         public static string TEXT_QUEST_LABEL = "할 일 · {0}";
         public static string TEXT_QUEST_DONE = "할 일을 마쳤다 — {0}";
