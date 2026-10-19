@@ -6,6 +6,14 @@ namespace Underwrite.Enumeration
     /// 기획서 §17의 인물별 연기 방향과 맞물린다.
     /// 소식의 무게에 따라 말하는 이의 얼굴이 달라져야 글자보다 먼저 분위기가 전해진다.
     /// </summary>
+    /// <summary>지하 방에 앉은 사람의 동작(SeatedFigure). 정보상은 Cheer = 손짓, Groan = 끄덕임.</summary>
+    public enum SeatedMotion
+    {
+        Motion_Idle,
+        Motion_Cheer,
+        Motion_Groan
+    }
+
     public enum PortraitEmotion
     {
         Emotion_Neutral,

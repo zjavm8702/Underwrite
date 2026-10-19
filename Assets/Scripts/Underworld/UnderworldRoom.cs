@@ -35,6 +35,9 @@ namespace Underwrite.Underworld
         [Tooltip("테이블에 앉은 투자꾼들. 종목이 크게 움직이면 한 사람이 혼잣말을 한다.")]
         [SerializeField] private List<CharacterActor> Investors = new List<CharacterActor>();
 
+        [Tooltip("투자꾼의 몸짓(Investors와 같은 순서). 혼잣말과 함께 환호하거나 머리를 감싼다.")]
+        [SerializeField] private List<SeatedFigure> InvestorFigures = new List<SeatedFigure>();
+
         [Tooltip("여관 위층으로 올라가는 출구(벽의 문). 장이 끝난 뒤에만 올라간다.")]
         [SerializeField] private Transform Exit;
 
@@ -372,11 +375,17 @@ namespace Underwrite.Underworld
             }
 
             InvestorCooldown = Constants.ROOM_INVESTOR_COOLDOWN_SECONDS;
-            var investor = Investors[Random.Range(0, Investors.Count)];
+            var index = Random.Range(0, Investors.Count);
+            var investor = Investors[index];
 
             if (investor != null)
             {
                 investor.Say(InvestorLine(moved > 0f));
+            }
+
+            if (index < InvestorFigures.Count && InvestorFigures[index] != null)
+            {
+                InvestorFigures[index].Play(moved > 0f ? SeatedMotion.Motion_Cheer : SeatedMotion.Motion_Groan);
             }
         }
 

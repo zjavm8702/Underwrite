@@ -30,7 +30,7 @@
 | 18 | `portrait_folk_v3.md` | `PortraitFolk_v3` | **완료 — 반영(10/18 저녁)**. 교차 검수: Codex 통과 · 과장 통과(다섯이 다른 사람으로 읽힘, 결점 있음, 정보상 두건). 약점: 놀람 표정 차이가 약함. 정보상 초상 데이터(`folk_informant.asset`)를 GameDataSet에 연결 |
 | 18b | `onboarding_scenes_v1.md` | `OnboardingScenes_v1` | **완료 — 반영(10/18 밤)**. 과장 검수 통과(용사 다섯 초상과 일치, 대화창 가림 없음). 다락방 아침은 여덟째 날 카드 뒤에 사용, 용사단 장면은 D단계(알아보는 장면)에서 |
 | 18c | `webtoon_ch7_v1.md` | `Webtoon_ch7_v1` | **완료 — 반영(10/19)**. 과장 검수 통과(주인공·화풍 일치, 대사 원안). 2일째 아침 칸 단위 재생 |
-| 19 | `underworld_people_v1.md` → `underworld_people_v2.md` | `UnderworldPeople_v1` → `_v2` | **v2 진행 중(10/19)** — v1은 프레임마다 윤곽이 달라 덧대기 수정 실패. v2는 바탕 한 장 + 머리·팔 조각 방식(몸통 층 프레임 간 차이 0) | 
+| 19 | `underworld_people_v1.md` → `underworld_people_v2.md` | `UnderworldPeople_v1` → `_v2` | **v2 반영(10/19, 과장 판정 통과 — 대리는 미통과 보고)**. 메뉴 「Underwrite/지하 방 사람들 앉히기 (v2)」, 정보상 발밑은 y 745로 — v1은 프레임마다 윤곽이 달라 덧대기 수정 실패. v2는 바탕 한 장 + 머리·팔 조각 방식(몸통 층 프레임 간 차이 0) | 
 | 17f | `underworld_walls_v6.md` | `UnderworldRoom_v6` | **반영(10/19)** — 사장님 「옆이 잘렸다」: 좌우 갓돌 벽·아래 낮은 벽·꺾인 곳 정리, 아래 벽 충돌 추가. 과장 Play 확인(10/19 요청서를 v4 좌표로 고침). 앉은 투자꾼 다섯 + 카운터 뒤 정보상 |
 | 20 | `slop_ideas_doc_v1.md` | (문서) | 대기 — **후순위**(사장님). 슬롭 개선 아이디어 문서 |
 
