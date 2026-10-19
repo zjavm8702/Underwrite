@@ -30,3 +30,13 @@
 3. 모델 내려받기(수 GB, 무료)를 해도 되는가
 
 출처: QwenLM/Qwen3-TTS, Supertone/supertonic-3(LICENSE), FunAudioLLM/CosyVoice, RVC-Boss/GPT-SoVITS, myshell-ai/MeloTTS, fishaudio/fish-speech(LICENSE), Coqui CPML, KSS 논문(arXiv 2107.02875). 출시 직전 각 LICENSE 원문을 다시 확인한다(법률 자문 아님).
+
+## 쓰는 법 — 음성·대사 편집 창 (2026-10-19)
+
+메뉴 **Tools / Underwrite / Voice / 음성·대사 편집**.
+
+- 왼쪽에서 인물(초상·이름·역할)을 고르면 목소리 설명, 기준 대사, 감정별 한마디 14줄이 뜬다
+- **▶** 그 줄 듣기, **▶ 차례로 듣기** 감정 일곱을 이어서(위에 「누가 · 어떤 감정 — 대사」가 뜬다)
+- 대사를 고치면 칸 왼쪽이 노래진다 → **⟳**(그 줄만) 또는 **바뀐 줄 모두 다시 만들기** — 저장하고 뒤에서 만든 뒤 소리를 바로 갈아 끼운다(약 20초). ⟳는 같은 대사라도 누를 때마다 다른 느낌으로 다시 뽑는다
+- **목소리 새로 설계** — 목소리 설명(영어가 잘 듣는다)이나 기준 대사를 바꿨을 때. 그 사람 14줄을 모두 새 목소리로
+- 대사 표: `Tools/voice/barks_v1.json` · 기준 목소리: `Tools/voice/refs/<인물>.wav` · 생성기: `Tools/voice/edit_barks.py`(가상환경 `~/tts/qwen3`)
