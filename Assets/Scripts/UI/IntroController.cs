@@ -54,7 +54,7 @@ namespace Underwrite.UI
         // 처음 화면이 떠 있는 동안은 웹툰이 넘어가지 않는다.
         private VisualElement Title;
         private VisualElement Confirm;
-        private Button VolumeButton;
+        private UI_SystemMenu Settings;
 
         private VisualElement Frame;
         private VisualElement Page;
@@ -180,19 +180,20 @@ namespace Underwrite.UI
                 OpenConfirm(root);
             }));
 
-            VolumeButton = TitleButton(VolumeText(), () =>
+            shade.Add(TitleButton(StringConstants.TEXT_SETTINGS, () =>
             {
-                GameAudio.CycleVolume();
-                VolumeButton.text = VolumeText();
-            });
-            shade.Add(VolumeButton);
+                if (Settings == null)
+                {
+                    Settings = UI_SystemMenu.Create(false, null);
+                }
+
+                if (Settings != null)
+                {
+                    Settings.Open();
+                }
+            }));
             shade.Add(TitleButton(StringConstants.TEXT_TITLE_QUIT, Application.Quit));
             root.Add(Title);
-        }
-
-        private static string VolumeText()
-        {
-            return string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]);
         }
 
         private void OpenConfirm(VisualElement root)

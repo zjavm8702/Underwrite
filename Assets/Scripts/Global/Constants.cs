@@ -406,10 +406,14 @@ namespace Underwrite.Global
         public static float AUDIO_MUSIC_VOLUME = 0.45f;
         public static float AUDIO_EFFECT_VOLUME = 0.7f;
         public static float AUDIO_VOICE_VOLUME = 0.85f;
+        /// <summary>
+        /// 대화창 한마디를 틀 것인가. 10/19 사장님 판정(기계음·일관성)으로 꺼 둠 — 감탄사 한 글자·짧은 끊긴 말로 다시 짠 뒤 켠다.
+        /// </summary>
+        public static bool AUDIO_VOICE_ENABLED = false;
         /// <summary>감정마다 한마디가 몇 벌인가(같은 것이 연달아 나오지 않게 고른다).</summary>
         public static int AUDIO_VOICE_VARIANTS = 2;
         public static float AUDIO_MUSIC_FADE_SECONDS = 1.5f;
-        // 메뉴 「소리」의 단계: 크게 · 작게 · 끔. 순서는 TEXT_VOLUME_STEPS와 같다.
+        // 옛 「소리」 단계(크게 · 작게 · 끔)를 갈래별 음량으로 옮길 때의 값.
         public static readonly float[] AUDIO_VOLUME_STEPS = { 1f, 0.4f, 0f };
 
         // 장부 맞추기(길드 기록실). 쫓겨나는 의심. 장부의 단 수는 4~6.

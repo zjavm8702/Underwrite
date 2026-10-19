@@ -370,13 +370,13 @@ namespace Underwrite.UI
 
             // 대화·시계·메뉴가 떠 있으면 휠이 카메라로 새지 않게 한다.
             VillageCameraZoom.Blocked = (Dialogue != null && Dialogue.IsOpen == true)
-                || Menu.IsOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
+                || Menu.IsOpen == true || Menu.IsSettingsOpen == true || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
                 || Approaching == true;
 
             // 연출 중(돌아보기·건네기·시간이 흐르는 동안)과 대화·시계·수첩이 떠 있는 동안에는 주인공이 걷지 않는다
             // (2026-10-17 사용자 보고).
             LockPlayer(Approaching == true || (Dialogue != null && Dialogue.IsOpen == true)
-                || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true
+                || NotebookOpen == true || PuzzleOpen == true || MiniGameOpen == true || Menu.IsSettingsOpen == true
                 || Prologue.LocksPlayer == true || IsStaging == true);
 
             var keyboard = Keyboard.current;
@@ -384,7 +384,7 @@ namespace Underwrite.UI
             // Esc로 메뉴(처음 화면으로 · 게임 종료가 들어 있다). 대화·연출 중이면 메뉴 쪽이 막는다.
             if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame == true)
             {
-                Menu.Toggle();
+                Menu.OnEscape();
             }
 
             if (Dialogue != null && Dialogue.IsChoosing == true)

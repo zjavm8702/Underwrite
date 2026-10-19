@@ -26,30 +26,41 @@ namespace Underwrite.Utility
         private float MusicTarget;
 
         /// <summary>
-        /// 소리 크기 단계. 0 크게, 1 작게, 2 끔. 이 컴퓨터에만 남는 편의 설정이라 저장 파일이 아니라 PlayerPrefs에 둔다.
+        /// 갈래별 음량(0~1) — 음악 · 효과음 · 목소리. 이 컴퓨터에만 남는 편의 설정이라 저장 파일이 아니라 PlayerPrefs에 둔다.
         /// </summary>
-        public static int VolumeStep { get; private set; }
+        private static readonly float[] Volumes = { 1f, 1f, 1f };
 
-        private static float VolumeScale
+        public static float VolumeOf(AudioChannel channel)
         {
-            get
-            {
-                return Constants.AUDIO_VOLUME_STEPS[VolumeStep];
-            }
+            return Volumes[(int)channel];
         }
 
-        /// <summary>다음 크기로 돌린다. 크게 → 작게 → 끔 → 크게.</summary>
-        public static void CycleVolume()
+        /// <summary>음량을 바꾸고 남긴다. 음악은 바로 따라 바뀐다.</summary>
+        public static void SetVolume(AudioChannel channel, float value)
         {
-            VolumeStep = (VolumeStep + 1) % Constants.AUDIO_VOLUME_STEPS.Length;
-            PlayerPrefs.SetInt(StringConstants.PREF_VOLUME_STEP, VolumeStep);
+            Volumes[(int)channel] = Mathf.Clamp01(value);
+            PlayerPrefs.SetFloat(StringConstants.PREF_VOLUMES[(int)channel], Volumes[(int)channel]);
             PlayerPrefs.Save();
 
             GameAudio audio;
 
-            if (TryGetInstance(out audio) == true && string.IsNullOrEmpty(audio.MusicPath) == false)
+            if (channel == AudioChannel.Channel_Music && TryGetInstance(out audio) == true
+                && string.IsNullOrEmpty(audio.MusicPath) == false)
             {
-                audio.MusicTarget = Constants.AUDIO_MUSIC_VOLUME * VolumeScale;
+                audio.MusicTarget = Constants.AUDIO_MUSIC_VOLUME * Volumes[(int)AudioChannel.Channel_Music];
+            }
+        }
+
+        // 저장된 음량을 읽는다. 갈래별 값이 없으면 옛 「소리」 단계에서 옮긴다.
+        private static void LoadVolumes()
+        {
+            var legacyStep = Mathf.Clamp(PlayerPrefs.GetInt(StringConstants.PREF_VOLUME_STEP, 0), 0,
+                Constants.AUDIO_VOLUME_STEPS.Length - 1);
+            var legacy = Constants.AUDIO_VOLUME_STEPS[legacyStep];
+
+            for (var i = 0; i < Volumes.Length; i++)
+            {
+                Volumes[i] = Mathf.Clamp01(PlayerPrefs.GetFloat(StringConstants.PREF_VOLUMES[i], legacy));
             }
         }
 
@@ -83,7 +94,7 @@ namespace Underwrite.Utility
 
             audio.Voice.Stop();
             audio.Voice.clip = clip;
-            audio.Voice.volume = Constants.AUDIO_VOICE_VOLUME * VolumeScale;
+            audio.Voice.volume = Constants.AUDIO_VOICE_VOLUME * Volumes[(int)AudioChannel.Channel_Voice];
             audio.Voice.Play();
         }
 
@@ -135,8 +146,7 @@ namespace Underwrite.Utility
         private void Awake()
         {
             instance = this;
-            VolumeStep = Mathf.Clamp(PlayerPrefs.GetInt(StringConstants.PREF_VOLUME_STEP, 0), 0,
-                Constants.AUDIO_VOLUME_STEPS.Length - 1);
+            LoadVolumes();
             Music = gameObject.AddComponent<AudioSource>();
             Music.loop = true;
             Music.playOnAwake = false;
@@ -250,7 +260,7 @@ namespace Underwrite.Utility
 
             Music.clip = clip;
             Music.Play();
-            MusicTarget = Constants.AUDIO_MUSIC_VOLUME * VolumeScale;
+            MusicTarget = Constants.AUDIO_MUSIC_VOLUME * Volumes[(int)AudioChannel.Channel_Music];
         }
 
         private void PlayEffect(SoundEffect effect)
@@ -262,7 +272,7 @@ namespace Underwrite.Utility
                 return;
             }
 
-            Effects.PlayOneShot(Clips[index], Constants.AUDIO_EFFECT_VOLUME * VolumeScale);
+            Effects.PlayOneShot(Clips[index], Constants.AUDIO_EFFECT_VOLUME * Volumes[(int)AudioChannel.Channel_Effects]);
         }
     }
 }

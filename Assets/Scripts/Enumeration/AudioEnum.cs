@@ -18,4 +18,12 @@ namespace Underwrite.Enumeration
         /// <summary>잘못 짚었거나 쫓겨났을 때.</summary>
         Sound_Close
     }
+
+    /// <summary>음량을 따로 맞추는 소리 갈래(설정 창). 순서는 StringConstants.PREF_VOLUMES·TEXT_SETTINGS_CHANNELS와 같다.</summary>
+    public enum AudioChannel
+    {
+        Channel_Music,
+        Channel_Effects,
+        Channel_Voice
+    }
 }

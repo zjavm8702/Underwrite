@@ -10,6 +10,7 @@ using Underwrite.Save;
 using Underwrite.Story;
 using Underwrite.Utility;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -126,6 +127,10 @@ namespace Underwrite.UI
 
         // 첫 지하 방문 튜토리얼(2026-10-18). 끝난 판이면 아무것도 하지 않는다.
         private MarketOnboardingHandler Onboarding;
+
+        // Esc 설정 창(2026-10-19 데모 점검 — 지하·거래판엔 메뉴가 없었다). 열린 동안 장을 멈춘다.
+        private UI_SystemMenu SystemMenu;
+        private bool PausedBySystemMenu;
         private int HoldingsSeqShown = -1;
         private OrderType Type = OrderType.Type_Market;
         private float LimitPrice;
@@ -253,6 +258,8 @@ namespace Underwrite.UI
                 Root.Focus();
                 ResetViewState();
             }
+
+            TickSystemMenu();
 
             var delta = Mathf.Min(Time.unscaledDeltaTime, MAX_DELTA_SECONDS);
 
@@ -443,6 +450,53 @@ namespace Underwrite.UI
             {
                 Root.styleSheets.Remove(sheet);
             }
+        }
+
+        private void TickSystemMenu()
+        {
+            if (SystemMenu == null)
+            {
+                // 장 중에는 저장하지 않는다 — 나가면 지하로 내려오기 직전 저장으로 돌아간다.
+                SystemMenu = UI_SystemMenu.Create(true, null);
+
+                if (SystemMenu == null)
+                {
+                    return;
+                }
+
+                SystemMenu.Opened += OnSystemMenuOpened;
+                SystemMenu.Closed += OnSystemMenuClosed;
+            }
+
+            var keyboard = Keyboard.current;
+
+            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame == true)
+            {
+                SystemMenu.Toggle();
+            }
+        }
+
+        private void OnSystemMenuOpened()
+        {
+            SystemMenu.SetNote(Sim != null && Sim.Clock.Phase == MarketPhase.Phase_Open
+                ? StringConstants.TEXT_SETTINGS_SESSION_NOTE
+                : string.Empty);
+
+            if (Sim != null && Sim.Clock.IsPaused == false)
+            {
+                PausedBySystemMenu = true;
+                Sim.Clock.SetPaused(true);
+            }
+        }
+
+        private void OnSystemMenuClosed()
+        {
+            if (PausedBySystemMenu == true && Sim != null)
+            {
+                Sim.Clock.SetPaused(false);
+            }
+
+            PausedBySystemMenu = false;
         }
 
         private void OnRootKeyDown(KeyDownEvent evt)

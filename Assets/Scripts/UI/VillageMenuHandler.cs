@@ -157,8 +157,7 @@ namespace Underwrite.UI
             // 프롤로그 동안은 시간 넘기기·수첩·지하거래소를 보이지 않는다. 시장을 아직 모른다.
             if (Prologue.IsActive == true)
             {
-                Item(list, VolumeText(), true, string.Empty, GameAudio.CycleVolume);
-                AddLeaveItems(list);
+                Item(list, StringConstants.TEXT_SETTINGS, true, string.Empty, OpenSettings);
                 Show(list);
                 return;
             }
@@ -172,35 +171,51 @@ namespace Underwrite.UI
                 MarketOpenNow() == true && clock.IsReopeningAt(clock.SkippedSessions) == false,
                 MarketOpenNow() == true ? StringConstants.TEXT_MENU_SKIP_LOCKED : MarketClosedNote(), SkipSessionTurn);
             Item(list, StringConstants.TEXT_NOTEBOOK, true, string.Empty, () => Host.OpenNotebook(false));
-            Item(list, VolumeText(), true, string.Empty, GameAudio.CycleVolume);
+            Item(list, StringConstants.TEXT_SETTINGS, true, string.Empty, OpenSettings);
 
             if (Night.CanSleep() == true)
             {
                 Item(list, StringConstants.TEXT_SLEEP_CHOICE, true, string.Empty, Night.Sleep);
             }
 
-            AddLeaveItems(list);
             Show(list);
         }
 
-        // 처음 화면으로 · 게임 종료 — 둘 다 저장하고 나간다(2026-10-19 데모 점검: 게임 안에서 끌 방법이 없었다).
-        private void AddLeaveItems(VisualElement list)
+        // 설정 창 — 음량(음악·효과음·목소리), 처음 화면으로, 게임 종료. 나가기 전에 저장한다.
+        private UI_SystemMenu Settings;
+
+        private void OpenSettings()
         {
-            Item(list, StringConstants.TEXT_MENU_TO_TITLE, true, string.Empty, () =>
+            if (Settings == null)
             {
-                SaveSystem.Save();
-                SceneManager.LoadScene(SceneRoutes.INTRO);
-            });
-            Item(list, StringConstants.TEXT_MENU_QUIT, true, string.Empty, () =>
+                Settings = UI_SystemMenu.Create(true, () => SaveSystem.Save());
+            }
+
+            if (Settings != null)
             {
-                SaveSystem.Save();
-                Application.Quit();
-            });
+                Settings.Open();
+            }
         }
 
-        private static string VolumeText()
+        /// <summary>설정 창이 떠 있는가(떠 있는 동안 주인공은 걷지 않는다).</summary>
+        public bool IsSettingsOpen
         {
-            return string.Format(StringConstants.TEXT_MENU_VOLUME, StringConstants.TEXT_VOLUME_STEPS[GameAudio.VolumeStep]);
+            get
+            {
+                return Settings != null && Settings.IsOpen == true;
+            }
+        }
+
+        /// <summary>Esc — 설정 창이 떠 있으면 그것부터 닫는다.</summary>
+        public void OnEscape()
+        {
+            if (IsSettingsOpen == true)
+            {
+                Settings.Close();
+                return;
+            }
+
+            Toggle();
         }
 
         private void Show(VisualElement list)

@@ -23,7 +23,7 @@ namespace Underwrite.Utility
         /// <summary>그 사람이 그 감정으로 한마디 한다. 목소리가 없으면 아무것도 하지 않는다.</summary>
         public static void Play(string speaker, PortraitEmotion emotion)
         {
-            if (string.IsNullOrEmpty(speaker) == true)
+            if (Constants.AUDIO_VOICE_ENABLED == false || string.IsNullOrEmpty(speaker) == true)
             {
                 return;
             }
