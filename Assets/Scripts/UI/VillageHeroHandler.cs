@@ -217,6 +217,40 @@ namespace Underwrite.UI
             Host.Dialogue.Play(lines, Host.Back(Host.CurrentSpot));
         }
 
+        // 귀환으로 데려간 날(같은 날 두 번 데려가지 않는다).
+        private int ReturnGuidedDay;
+
+        /// <summary>
+        /// 귀환일 아침이면 여관으로 데려가 재회 장면을 보인다. 여관에 들르지 않고 장으로 가면 귀환과 데모 마무리를 놓쳤다(데모 점검 10/19).
+        /// 부르는 쪽이 영지가 한가한지(대화·연출 없음) 먼저 본다.
+        /// </summary>
+        public void GuideToReturnIfDue()
+        {
+            var day = Host.Today();
+
+            if (HeroRoster.HasReturn(day) == false || ReturnGuidedDay == day || Host.Staging.IsGuiding == true
+                || Host.CanDirect() == false)
+            {
+                return;
+            }
+
+            var inn = Host.FindSpot(InfoSource.Source_TavernTalk);
+
+            if (inn == null)
+            {
+                return;
+            }
+
+            ReturnGuidedDay = day;
+            Host.Staging.GuideTo(inn, () =>
+            {
+                Host.Staging.GreetAt(inn);
+                Host.CurrentSpot = inn;
+                Host.Dialogue.SetBackground(VillageScreenController.BackgroundOf(inn.InfoSource));
+                PlayReturn(() => Host.Ask(inn, true));
+            });
+        }
+
         /// <summary>
         /// 원정에서 돌아온 날. 후원이 닿았는지가 그들의 몸으로 돌아온다(루틴 설계안 — 한 주기의 리듬).
         /// 의뢰가 두 번 이상 맞았으면 학자가 의뢰주를 의심하기 시작한다(후원흐름 설계안 §2-6).

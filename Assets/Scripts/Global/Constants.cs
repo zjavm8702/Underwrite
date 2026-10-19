@@ -25,6 +25,8 @@ namespace Underwrite.Global
         // 저장 파일. Application.persistentDataPath 아래에 둔다(PC·안드로이드 공통).
         public const string SAVE_FILE_NAME = "underwrite_save.json";
         public const string SAVE_TEMP_SUFFIX = ".tmp";
+        /// <summary>새 판을 시작할 때 옮겨 두는 이전 판 저장의 이름({0} = 날짜_시각).</summary>
+        public const string SAVE_ARCHIVE_FORMAT = "underwrite_save_prev_{0}.json";
         public const string ANIM_PARAM_DIRECTION_Y = "DirectionY";
         public const string ANIM_PARAM_SPEED = "Speed";
 

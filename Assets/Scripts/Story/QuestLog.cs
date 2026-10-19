@@ -139,7 +139,7 @@ namespace Underwrite.Story
             Add(6, QuestGiver.Giver_Broker, 30f, ScoutedBand);
             Quests[6].Progress = BandCodex.MaxKnownCount;
             Quests[6].Goal = 2;
-            Add(7, QuestGiver.Giver_Swordswoman, 0f, () => HeroRoster.DayOffDone);
+            Add(7, QuestGiver.Giver_Swordswoman, 0f, () => HeroRoster.DayOffDone || HeroRoster.DayOffPassed(Today()));
             Add(8, QuestGiver.Giver_Scholar, 0f, () => HeroRoster.ReturnDone);
             // 둘째 계절 — 데모의 절정(방패 사정)과 이야기의 줄기(국경의 징조)로 이끈다(2026-10-18).
             Add(9, QuestGiver.Giver_Swordswoman, 0f, () => PatronageLedger.IsMet(StringConstants.NEED_SHIELD_ID));
@@ -156,6 +156,11 @@ namespace Underwrite.Story
                 Reward = reward,
                 IsDone = isDone
             });
+        }
+
+        private static int Today()
+        {
+            return BreakClock.Current == null ? 1 : BreakClock.Current.CalendarDay;
         }
 
         private static bool HoldsAnything()

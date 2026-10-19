@@ -264,6 +264,7 @@ namespace Underwrite.UI
 
         private void Finish()
         {
+            SaveSystem.ArchiveForNewGame();
             BreakClock.Simulation = null;
             BreakClock.Current = null;
             PatronageLedger.Reset();

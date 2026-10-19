@@ -260,6 +260,30 @@ namespace Underwrite.Save
             return true;
         }
 
+        /// <summary>
+        /// 새 판을 시작한다 — 이전 판의 저장이 있으면 지우지 않고 날짜를 붙인 사본으로 옮겨 둔다.
+        /// 인트로의 「건너뛰기」나 웹툰을 끝까지 넘기면 새 판이 되어, 자동 저장이 이전 판을 덮었다(데모 점검 10/19).
+        /// </summary>
+        public static void ArchiveForNewGame()
+        {
+            try
+            {
+                if (File.Exists(FilePath) == false)
+                {
+                    return;
+                }
+
+                var archive = Path.Combine(Path.GetDirectoryName(FilePath),
+                    string.Format(StringConstants.SAVE_ARCHIVE_FORMAT, DateTime.Now.ToString("yyyyMMdd_HHmmss")));
+                File.Move(FilePath, archive);
+                UnderwriteLog.Info($"이전 판의 저장을 옮겨 두었습니다: {archive}");
+            }
+            catch (Exception exception)
+            {
+                UnderwriteLog.Warning($"이전 판의 저장을 옮기지 못했습니다: {exception.Message}");
+            }
+        }
+
         /// <summary>판이 끝났다(시나리오 붕괴). 이어할 것이 없다.</summary>
         public static void Delete()
         {

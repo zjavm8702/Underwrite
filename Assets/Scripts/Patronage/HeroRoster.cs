@@ -132,6 +132,23 @@ namespace Underwrite.Patronage
             return IsReturnDay(day) == true && ReturnSeen.Contains(day) == false;
         }
 
+        /// <summary>
+        /// 쉬는 날이 이미 지나갔는가(오늘 전에 쉬는 날이 있었다). 그날 여관에 들르지 않았으면 할 일 「쉬는 날」을 놓친 것으로 친다 —
+        /// 놓친 할 일에 다음 할 일(데모의 절정)이 막히지 않게(데모 점검 10/19).
+        /// </summary>
+        public static bool DayOffPassed(int today)
+        {
+            for (var day = 1; day < today; day++)
+            {
+                if (Market.MarketClock.IsHeroDayOff(day) == true)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public static void MarkDayOff(int day)
         {
             DayOffSeen.Add(day);

@@ -349,10 +349,11 @@ namespace Underwrite.UI
             Night.PlayDepartureIfDue();
             PlayQuestIntroIfDue();
 
-            // 첫 후원 안내 — 할 일을 받는 장면이 끝나면 그 자리로 데려간다.
+            // 귀환일 아침의 재회, 첫 후원 안내 — 영지가 한가할 때 그 자리로 데려간다.
             if (Prologue.IsActive == false && Prologue.IsDirecting == false && HasPending == false
                 && Night.IsDepartureRunning == false)
             {
+                Heroes.GuideToReturnIfDue();
                 Sponsor.Tick();
             }
 
