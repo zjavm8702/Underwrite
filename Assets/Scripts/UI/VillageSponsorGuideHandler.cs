@@ -114,7 +114,8 @@ namespace Underwrite.UI
             {
                 var guild = Host.FindSpot(InfoSource.Source_GuildRecord);
 
-                if (guild == null)
+                // 혼잣말 도중 상황이 바뀌었으면(사정이 닫힘 등) 데려가지 않는다.
+                if (guild == null || HasHeardNeed() == false)
                 {
                     return;
                 }

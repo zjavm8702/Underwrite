@@ -347,7 +347,7 @@ namespace Underwrite.Editor
                     return new VillageQuest
                     {
                         Title = "주방 일을 거든다",
-                        Done = "손이 빠르시네. 오늘 몫입니다.",
+                        Done = "손 빠르네. 오늘 몫이야.",
                         Minutes = 120,
                         Reward = 30f,
                         GivesRumor = true
