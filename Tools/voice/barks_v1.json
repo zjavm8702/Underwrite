@@ -2,7 +2,7 @@
   "_comment": "짧은 한마디(바크) v1 — 과장 초안(2026-10-19). 감정 이름은 PortraitEmotion 순서(neutral, happy, anxious, angry, shocked, sad, relieved). 인물마다 감정당 두 개.",
   "voices": {
     "edwin": {
-      "design": "A Korean man in his mid twenties, a bookish scholar. Soft, clear tenor, calm and thoughtful, slightly dry humor, speaks precisely.",
+      "design": "A Korean man in his mid-twenties with an academic disposition. He possesses a soft, clear tenor voice and has a calm, thoughtful demeanor. He employs a somewhat dry sense of humor and speaks with precision and clarity. Ideally, his voice should have a slightly higher pitch.",
       "ref_text": "음, 기록을 다시 맞춰 보자. 숫자는 거짓말을 하지 않으니까.",
       "barks": {
         "neutral": ["음, 그렇군.", "흠, 알겠어."],
@@ -15,7 +15,7 @@
       }
     },
     "kaira": {
-      "design": "A Korean woman in her early twenties, a sword fighter and vanguard. Crisp, confident, slightly low voice, quick and blunt, energetic.",
+      "design": "A high-pitched, confident, yet slightly arrogant female swordsman in her late teens, with a fast speech",
       "ref_text": "앞은 내가 맡을게. 넌 뒤에서 내 등만 봐.",
       "barks": {
         "neutral": ["응, 알았어.", "그래."],
