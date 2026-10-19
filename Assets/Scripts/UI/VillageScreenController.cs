@@ -1300,6 +1300,8 @@ namespace Underwrite.UI
             {
                 WorldSigns.Add(spot.transform, spot.Name, SignOf(spot.InfoSource));
             }
+
+            WorldSigns.KeepClear(Root.Q("village-visits"));
         }
 
         private static string SignOf(InfoSource source)

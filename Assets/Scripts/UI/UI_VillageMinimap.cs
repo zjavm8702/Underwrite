@@ -98,6 +98,8 @@ namespace Underwrite.UI
             Map.Add(PlayerDot);
 
             root.Add(Frame);
+            // 이름표가 지도 위에 얹히지 않게 한다.
+            WorldSigns.KeepClear(Frame);
             ApplyExpanded();
         }
 

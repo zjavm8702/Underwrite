@@ -751,6 +751,9 @@ namespace Underwrite.Global
         // 장소 이름표를 문 앞 자리에서 얼마나 위에 띄우는가(유닛). 문 위, 처마 아래쯤.
         public static float SIGN_HEIGHT_UNITS = 2.9f;
 
+        // 이름표가 화면 위 칸(할 일·상태 줄)에 닿으면 그 아래로 내린다. 칸과 띄우는 간격(px).
+        public static float SIGN_HUD_GAP = 6f;
+
         // 이 시각(시)부터 다락방에서 잘 수 있다. 오후장이 끝나는 자정부터다(설계안 §1). 24시 이상은 다음 날 새벽.
         public static int SLEEP_FROM_HOUR = 24;
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Underwrite.Global;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,6 +19,8 @@ namespace Underwrite.UI
         }
 
         private static readonly List<Sign> Signs = new List<Sign>();
+        // 이름표가 덮으면 안 되는 화면 칸(할 일·상태 줄). 닿으면 이름표를 그 아래로 내린다(2026-10-19 사장님 — 「영주관」이 할 일과 겹침).
+        private static readonly List<VisualElement> KeepOut = new List<VisualElement>();
         private static VisualElement Layer;
         private static bool IsHighlightKnown;
         private static string HighlightTitle;
@@ -25,6 +28,7 @@ namespace Underwrite.UI
         public static void Attach(VisualElement root)
         {
             Signs.Clear();
+            KeepOut.Clear();
             IsHighlightKnown = false;
             Layer = new VisualElement();
             Layer.name = "world-signs";
@@ -64,6 +68,15 @@ namespace Underwrite.UI
 
             Layer.Add(plate);
             Signs.Add(new Sign { Anchor = anchor, Plate = plate, Title = title });
+        }
+
+        /// <summary>이름표가 덮지 않을 화면 칸을 등록한다.</summary>
+        public static void KeepClear(VisualElement element)
+        {
+            if (element != null && KeepOut.Contains(element) == false)
+            {
+                KeepOut.Add(element);
+            }
         }
 
         /// <summary>
@@ -116,9 +129,36 @@ namespace Underwrite.UI
                     new Vector2(screen.x, Screen.height - screen.y));
                 var width = sign.Plate.resolvedStyle.width;
                 var plateHeight = sign.Plate.resolvedStyle.height;
-                sign.Plate.style.left = panel.x - (float.IsNaN(width) == true ? 0f : width * 0.5f);
-                sign.Plate.style.top = panel.y - (float.IsNaN(plateHeight) == true ? 0f : plateHeight);
+                width = float.IsNaN(width) == true ? 0f : width;
+                plateHeight = float.IsNaN(plateHeight) == true ? 0f : plateHeight;
+                var left = panel.x - width * 0.5f;
+                var top = BelowKeepOut(left, panel.y - plateHeight, width, plateHeight);
+                sign.Plate.style.left = left;
+                sign.Plate.style.top = top;
             }
+        }
+
+        // 화면 칸에 닿으면 그 칸 바로 아래 높이를 준다. 이름표 층은 화면 전체를 덮으므로 worldBound를 그대로 비교한다.
+        private static float BelowKeepOut(float left, float top, float width, float height)
+        {
+            for (var i = 0; i < KeepOut.Count; i++)
+            {
+                var element = KeepOut[i];
+
+                if (element.panel == null || element.resolvedStyle.display == DisplayStyle.None)
+                {
+                    continue;
+                }
+
+                var rect = element.worldBound;
+
+                if (left < rect.xMax && left + width > rect.xMin && top < rect.yMax && top + height > rect.yMin)
+                {
+                    top = rect.yMax + Constants.SIGN_HUD_GAP;
+                }
+            }
+
+            return top;
         }
     }
 }

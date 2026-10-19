@@ -112,6 +112,8 @@ namespace Underwrite.UI
                 Host.Root.Add(ObjectiveLabel);
             }
 
+            WorldSigns.KeepClear(ObjectiveLabel);
+
             return ObjectiveLabel;
         }
 
