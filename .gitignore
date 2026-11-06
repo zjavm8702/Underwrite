@@ -77,3 +77,7 @@ Assets/UI/Fonts/*.ttf
 
 # 폰트 — Pretendard(OFL), Noto Serif KR(OFL)는 재배포 가능하므로 추적한다
 !Assets/UI/Fonts/*.ttf
+
+# 내부 문서: 로컬에만 둔다
+Documents/Claude/Underwrite_사장님_인터뷰_2026-10-18.md
+Documents/Claude/Underwrite_과장_결정기록.md

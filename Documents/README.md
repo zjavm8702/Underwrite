@@ -34,8 +34,6 @@
 |---|---|
 | `Claude/Underwrite_코드_작업규칙.md` | C# 규칙 v1.0. `.editorconfig`가 서식 항목을 강제한다 |
 | `Claude/Underwrite_바이브코딩_활용방식.md` | **AI를 어떻게 활용했는지** — 역할 구조, 문서·도구, 검수 방식 |
-| `Claude/Underwrite_사장님_인터뷰_2026-10-18.md` | **사장님이 안 계실 때 과장이 판단하는 기준** — 목표·재량·금지선·취향 |
-| `Claude/Underwrite_과장_결정기록.md` | 과장이 혼자 정한 것(정한 것 · 왜 · 되돌리려면) |
 | `Claude/Underwrite_에셋_출처.md` | 외부 에셋(소리 등)의 출처와 라이선스. 크레딧 화면용 |
 | `Claude/Underwrite_엔딩_설계안.md` | 엔딩 구조 초안 — 세계의 결말 4 × 관계의 마무리 4(여성 셋 + 혼자) |
 | `Claude/Underwrite_데모_점검표.md` | **데모를 돌려 볼 때** — 확인할 것, 흐름, 알려진 빈자리 |

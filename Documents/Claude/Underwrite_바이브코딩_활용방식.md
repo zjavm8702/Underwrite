@@ -27,6 +27,8 @@ Unity 게임 《지하거래소의 후원자》는 개발자가 기획과 판정
 | `Underwrite_사장님_인터뷰_2026-10-18.md` | Claude Code | 개발자가 없을 때의 판단 기준 |
 | `Underwrite_과장_결정기록.md` | 개발자 | AI가 혼자 정한 것의 기록 |
 
+인터뷰와 결정기록은 내부 문서라 공개 저장소에는 넣지 않았다.
+
 `Documents/`는 관리 주체별로 `Shared`·`Claude`·`Codex`로 나눴다. 문서끼리 어긋날 때의 우선순위도 `Documents/README.md`에 적었다.
 
 ### 2. AI에게 인터뷰를 받아 재량을 정했다
